@@ -7,35 +7,26 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#fff}
-  .fig{width:1600px;height:900px;background:#fff;padding:54px 64px 40px;
+  .fig{width:1600px;height:900px;background:#fff;padding:56px 64px 52px;
        font-family:'SS4',Cambria,serif;color:var(--encre);display:flex;flex-direction:column}
-  .titre{font-size:38px;font-weight:700;line-height:1.16;letter-spacing:-.006em}
-  .stitre{font-size:22px;color:var(--encre2);margin-top:12px;line-height:1.35}
-  .zone{flex:1;display:flex;align-items:center;margin-top:18px}
+  .titre{font-size:34px;font-weight:600;line-height:1.18;letter-spacing:-.004em}
+  .zone{flex:1;display:flex;align-items:center;margin-top:26px}
   .zone svg{width:100%;height:100%;display:block}
-  .src{font-size:16px;color:var(--gris);line-height:1.4;margin-top:14px}
-  .src i{font-style:italic}
 </style>
 
 <div class="fig" id="fig1">
-  <div class="titre">Ce que la baisse de PISA retire à la France, année après année</div>
-  <div class="stitre">Écart de productivité de long terme si le niveau de PISA 2025 devenait celui de toutes les générations suivantes.</div>
-  <div class="zone"><svg id="s1" viewBox="0 0 1470 640"></svg></div>
-  <div class="src"><i>Sources :</i> OCDE, <i>PISA 2018</i> et <i>2025 Results (Volume I)</i> ; Égert, de la Maisonneuve &amp; Turner (2022, OECD WP n° 1709) ; OCDE, <i>Étude économique de la France 2024</i>. Calcul de l’auteur, scénario conditionnel.</div>
+  <div class="titre">Si le niveau de PISA 2025 devenait durable : écart de productivité de long terme</div>
+  <div class="zone"><svg id="s1" viewBox="0 0 1470 700"></svg></div>
 </div>
 
 <div class="fig" id="fig2">
-  <div class="titre">Ce que vaut un point PISA</div>
-  <div class="stitre">Effet sur la productivité de long terme d’une hausse durable de 10 points du score PISA moyen des trois domaines.</div>
-  <div class="zone"><svg id="s2" viewBox="0 0 1470 640"></svg></div>
-  <div class="src"><i>Sources :</i> Égert, de la Maisonneuve &amp; Turner (2022, OECD WP n° 1709, tableau 8) ; OCDE, <i>Étude économique de la France 2024</i>, tableau 5.2 ; Hanushek, Schwerdt, Wiederhold &amp; Woessmann (2015, <i>European Economic Review</i> 73). Conversions de l’auteur.</div>
+  <div class="titre">Effet de +10 points de score PISA moyen sur la productivité de long terme</div>
+  <div class="zone"><svg id="s2" viewBox="0 0 1470 700"></svg></div>
 </div>
 
 <div class="fig" id="fig3">
-  <div class="titre">La France perd encore 12,7 points entre 2022 et 2025</div>
-  <div class="stitre">Score PISA moyen des trois domaines : mathématiques, compréhension de l’écrit, culture scientifique.</div>
-  <div class="zone"><svg id="s3" viewBox="0 0 1470 640"></svg></div>
-  <div class="src"><i>Source :</i> OCDE, <i>PISA Results (Volume I)</i>, cycles 2006 à 2025. Moyenne des trois domaines calculée par l’auteur.</div>
+  <div class="titre">France, score PISA moyen des trois domaines</div>
+  <div class="zone"><svg id="s3" viewBox="0 0 1470 700"></svg></div>
 </div>
 
 <script>
@@ -48,7 +39,7 @@ const SCORES=[[2006,493.0],[2009,497.0],[2012,499.7],[2015,495.7],[2018,493.7],[
 /* ===== Figure 1 : la trajectoire de l'écart de productivité ===== */
 (function(){
   const s=document.getElementById("s1"), W=1470;
-  const L=96,R=228,T0=44,B=556;
+  const L=96,R=228,T0=52,B=614;
   const px=v=>L+(v-2025)/(2080-2025)*(W-L-R), py=v=>T0+(0.28-v)/(0.28-(-3.15))*(B-T0);
   const part=t=>Math.min(1,Math.max(0,(t-2030)/(2075-2030)));
   const ANS=[];for(let t=2025;t<=2080;t++)ANS.push(t);
@@ -88,7 +79,7 @@ const SCORES=[[2006,493.0],[2009,497.0],[2012,499.7],[2015,495.7],[2018,493.7],[
 /* ===== Figure 2 : la règle de pouce ===== */
 (function(){
   const s=document.getElementById("s2"), W=1470;
-  const L=690,R=170,T0=168,RH=142;
+  const L=690,R=170,T0=196,RH=156;
   const px=v=>L+v/1.8*(W-L-R);
   const R3=[
     {n:"Égert, de la Maisonneuve & Turner (2022)", s:"OECD Working Paper n° 1709", lo:1.33, hi:1.60, c:"var(--bleu)"},
@@ -123,7 +114,7 @@ const SCORES=[[2006,493.0],[2009,497.0],[2012,499.7],[2015,495.7],[2018,493.7],[
 /* ===== Figure 3 : la série française ===== */
 (function(){
   const s=document.getElementById("s3"), W=1470;
-  const L=104,R=360,T0=54,B=548;
+  const L=104,R=360,T0=58,B=606;
   const px=v=>L+(v-2006)/(2025-2006)*(W-L-R), py=v=>T0+(503-v)/(503-461)*(B-T0);
   [470,480,490,500].forEach(v=>{
     s.appendChild(E("line",{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:"var(--grille)","stroke-width":1}));
