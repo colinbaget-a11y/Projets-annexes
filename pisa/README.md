@@ -35,4 +35,6 @@ Un navigateur ne résout pas le problème ici (Chromium ne traverse pas le proxy
 python3 chiffrage_pisa_pib.py              # les deux chiffrages, paramètres explicites en tête de script
 ```
 
-Le chiffrage et ses sources sont commentés dans `note_chiffrage.md`.
+Le chiffrage et ses sources sont commentés dans `note_chiffrage.md`. `graphiques.html` est une page autonome
+(ouvrir dans un navigateur) avec les cinq graphiques : série France, années de scolarité, PIB par l'effet de
+niveau, comparaison des deux cadres, accès aux fichiers ; chaque graphique a sa table de données.

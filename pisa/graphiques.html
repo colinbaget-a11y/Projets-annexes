@@ -1,0 +1,615 @@
+<title>Chiffrage PISA France</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f4f4f1;
+  --surface-1:#fcfcfb;
+  --text-primary:#0b0b0b;
+  --text-secondary:#52514e;
+  --text-muted:#898781;
+  --grid:#e1e0d9;
+  --axis:#c3c2b7;
+  --ring:rgba(11,11,11,.10);
+  --ring-strong:rgba(11,11,11,.18);
+  --series-1:#2a78d6;
+  --series-2:#eb6834;
+  --series-3:#1baf7a;
+  --ord-1:#1c5cab;
+  --ord-2:#5598e7;
+  --ord-3:#86b6ef;
+  --tooltip-bg:#ffffff;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme: dark;
+    --plane:#0d0d0d;
+    --surface-1:#1a1a19;
+    --text-primary:#ffffff;
+    --text-secondary:#c3c2b7;
+    --text-muted:#898781;
+    --grid:#2c2c2a;
+    --axis:#383835;
+    --ring:rgba(255,255,255,.10);
+    --ring-strong:rgba(255,255,255,.20);
+    --series-1:#3987e5;
+    --series-2:#d95926;
+    --series-3:#199e70;
+    --ord-1:#cde2fb;
+    --ord-2:#5598e7;
+    --ord-3:#184f95;
+    --tooltip-bg:#242422;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --plane:#0d0d0d;
+  --surface-1:#1a1a19;
+  --text-primary:#ffffff;
+  --text-secondary:#c3c2b7;
+  --text-muted:#898781;
+  --grid:#2c2c2a;
+  --axis:#383835;
+  --ring:rgba(255,255,255,.10);
+  --ring-strong:rgba(255,255,255,.20);
+  --series-1:#3987e5;
+  --series-2:#d95926;
+  --series-3:#199e70;
+  --ord-1:#cde2fb;
+  --ord-2:#5598e7;
+  --ord-3:#184f95;
+  --tooltip-bg:#242422;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--plane);
+  color:var(--text-primary);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:44px 24px 80px;display:flex;flex-direction:column;gap:46px}
+
+/* ---------- header ---------- */
+.masthead{display:flex;flex-direction:column;gap:14px;padding-bottom:26px;border-bottom:1px solid var(--axis)}
+.kicker{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+h1{
+  font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.4vw,44px);
+  line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.012em;
+}
+.standfirst{margin:0;max-width:64ch;color:var(--text-secondary);font-size:16px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:12.5px;color:var(--text-muted);font-family:var(--mono)}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--axis);border:1px solid var(--axis);border-radius:6px;overflow:hidden}
+.kpi{background:var(--surface-1);padding:20px 22px;display:flex;flex-direction:column;gap:5px}
+.kpi-label{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.kpi-value{font-size:34px;line-height:1.05;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi-sub{font-size:13px;color:var(--text-secondary);max-width:30ch}
+
+/* ---------- sections ---------- */
+section{display:flex;flex-direction:column;gap:16px}
+.eyebrow{display:flex;align-items:baseline;gap:10px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--grid)}
+h2{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.2;margin:0;letter-spacing:-.008em;text-wrap:balance}
+.deck{margin:0;max-width:72ch;color:var(--text-secondary);font-size:14.5px}
+.deck em{font-style:normal;color:var(--text-primary);font-weight:500}
+
+/* ---------- chart panel ---------- */
+.panel{position:relative;background:var(--surface-1);border:1px solid var(--ring);border-radius:8px;padding:18px 18px 14px}
+.panel svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;padding:0 4px 12px;font-size:13px;color:var(--text-secondary)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{display:inline-block;border-radius:2px}
+.legend i.line{width:16px;height:2.5px}
+.legend i.rect{width:11px;height:11px}
+.tip{
+  position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-112%);
+  background:var(--tooltip-bg);border:1px solid var(--ring-strong);border-radius:6px;
+  padding:8px 11px;box-shadow:0 4px 14px rgba(0,0,0,.10);
+  font-size:12.5px;min-width:132px;z-index:5;transition:opacity .09s ease;
+}
+.tip.on{opacity:1}
+.tip-head{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:5px}
+.tip-row{display:flex;align-items:center;gap:8px;justify-content:space-between;white-space:nowrap}
+.tip-row + .tip-row{margin-top:3px}
+.tip-name{display:flex;align-items:center;gap:7px;color:var(--text-secondary)}
+.tip-key{display:inline-block;width:14px;height:2.5px;border-radius:2px;flex:none}
+.tip-val{font-family:var(--mono);font-weight:500;color:var(--text-primary);font-variant-numeric:tabular-nums}
+
+/* ---------- notes / tables ---------- */
+details{border-top:1px solid var(--grid);padding-top:10px}
+summary{cursor:pointer;font-size:12.5px;color:var(--text-secondary);font-weight:500;list-style:none;display:inline-flex;align-items:center;gap:7px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-family:var(--mono);color:var(--text-muted)}
+details[open] summary::before{content:"−"}
+summary:focus-visible{outline:2px solid var(--series-1);outline-offset:3px;border-radius:3px}
+.tablewrap{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;font-size:13px;width:100%;min-width:440px}
+th,td{text-align:right;padding:6px 12px 6px 0;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;padding-left:2px}
+thead th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+tbody td{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--text-primary)}
+tbody td:first-child{font-family:var(--sans);color:var(--text-secondary)}
+
+.callout{border-left:2px solid var(--series-2);padding:2px 0 2px 16px;color:var(--text-secondary);font-size:14.5px;max-width:70ch}
+.callout strong{color:var(--text-primary);font-weight:600}
+
+.sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 34px;font-size:13.5px;color:var(--text-secondary)}
+.sources h3{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin:0 0 8px}
+.sources ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:7px}
+.sources strong{color:var(--text-primary);font-weight:600}
+a{color:var(--series-1)}
+a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">Note de travail · 8 septembre 2026</div>
+    <h1>Ce que la baisse de PISA coûte à la France</h1>
+    <p class="standfirst">Deux chiffrages à grand trait à partir de la littérature : la baisse des scores convertie en années de scolarité, puis en niveau de PIB de long terme. Les paramètres et leurs sources sont explicites ; les deux cadres théoriques disponibles pour le second chiffrage ne donnent pas du tout le même résultat.</p>
+    <div class="meta">
+      <span>Scores : DEPP n° 26.40 · OCDE PISA 2025 Vol. I</span>
+      <span>Élasticités : PIAAC · Hanushek–Woessmann</span>
+    </div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-label">Mathématiques, 2003 → 2025</div>
+      <div class="kpi-value">−53 pts</div>
+      <div class="kpi-sub">soit 0,53 écart-type élève sur l'échelle PISA</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Équivalent scolarité</div>
+      <div class="kpi-value">≈ 2,1 ans</div>
+      <div class="kpi-sub">fourchette 1,3 à 2,6 ans selon le gain annuel retenu</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">PIB par tête, long terme</div>
+      <div class="kpi-value">−6 à −9 %</div>
+      <div class="kpi-sub">effet de niveau, pleinement atteint vers 2075</div>
+    </div>
+  </div>
+
+  <!-- 1 ---------------------------------------------------------------- -->
+  <section>
+    <div class="eyebrow">Données</div>
+    <h2>Les scores français depuis le début de PISA</h2>
+    <p class="deck">Chaque domaine n'est comparable qu'à partir du cycle où il a été « majeur » : lecture depuis 2000, mathématiques depuis 2003, sciences depuis 2006. La ligne à 500 est la moyenne OCDE de l'année de base du domaine, par construction de l'échelle.</p>
+    <div class="legend" id="lg-scores"></div>
+    <div class="panel"><div class="tip" id="tip-scores"></div><div id="ch-scores"></div></div>
+    <p class="callout"><strong>Toute la zone OCDE baisse aussi.</strong> En mathématiques, entre 2015 et 2025, la France perd 35 points et la moyenne OCDE 22 ; en sciences, 12 contre 7. Une baisse partagée par l'ensemble de la zone ne peut pas venir de la politique éducative d'un seul pays, et pèse sur l'interprétation du chiffrage n° 2.</p>
+    <details>
+      <summary>Voir les données</summary>
+      <div class="tablewrap"><table id="tb-scores"></table></div>
+    </details>
+  </section>
+
+  <!-- 2 ---------------------------------------------------------------- -->
+  <section>
+    <div class="eyebrow">Chiffrage 1</div>
+    <h2>Combien d'années de scolarité cela représente-t-il ?</h2>
+    <p class="deck">Le paramètre est le nombre de points PISA qu'un élève gagne en une année d'école. <em>Avvisati &amp; Givord (2021)</em> l'identifient proprement : à âge égal, comparer des élèves séparés par une année de classe grâce à la discontinuité de date de naissance. Ils trouvent 20 points en moyenne sur 31 pays, et 25 points ou plus dans les pays riches européens. La France n'est pas identifiable par cette méthode, la coupure scolaire coïncidant avec l'année civile ; comparer directement troisième et seconde serait biaisé vers le haut par le redoublement.</p>
+    <div class="legend" id="lg-annees"></div>
+    <div class="panel"><div class="tip" id="tip-annees"></div><div id="ch-annees"></div></div>
+    <details>
+      <summary>Voir les données</summary>
+      <div class="tablewrap"><table id="tb-annees"></table></div>
+    </details>
+  </section>
+
+  <!-- 3 ---------------------------------------------------------------- -->
+  <section>
+    <div class="eyebrow">Chiffrage 2</div>
+    <h2>Le PIB de long terme, par l'effet de niveau</h2>
+    <p class="deck">Le mécanisme est direct : des élèves moins compétents à 15 ans deviennent des travailleurs moins productifs, et le salaire mesure cette productivité. <em>Hanushek, Schwerdt, Wiederhold &amp; Woessmann (2015)</em> estiment sur PIAAC qu'un écart-type de numératie vaut +17,4 % de salaire horaire en France. L'effet se déploie au rythme du remplacement des actifs : la cohorte de 2025 entre sur le marché du travail vers 2030, la population active est entièrement renouvelée vers 2075.</p>
+    <div class="legend" id="lg-niveau"></div>
+    <div class="panel"><div class="tip" id="tip-niveau"></div><div id="ch-niveau"></div></div>
+    <details>
+      <summary>Voir les données</summary>
+      <div class="tablewrap"><table id="tb-niveau"></table></div>
+    </details>
+  </section>
+
+  <!-- 4 ---------------------------------------------------------------- -->
+  <section>
+    <div class="eyebrow">Contrôle</div>
+    <h2>Pourquoi le second cadre donne des chiffres cinq fois plus gros</h2>
+    <p class="deck">La littérature offre un autre cadre : la régression de croissance de <em>Hanushek &amp; Woessmann (2012)</em>, où un écart-type de compétences de la main-d'œuvre vaut 1,98 point de croissance annuelle du PIB par tête. Appliquée à la même baisse, elle ne produit pas un niveau de long terme mais un écart qui s'ouvre indéfiniment. Les deux courbes ci-dessous partent de la même perte de compétences ; seule l'hypothèse sur ce qu'elle affecte, le niveau ou le taux de croissance, change.</p>
+    <div class="legend" id="lg-cadres"></div>
+    <div class="panel"><div class="tip" id="tip-cadres"></div><div id="ch-cadres"></div></div>
+    <p class="callout"><strong>Le cadre « croissance » n'est pas retenu comme chiffrage central.</strong> Quarante ans de données ne permettent pas de distinguer un effet de croissance d'un long effet de niveau. Surtout, appliqué à la baisse de la moyenne OCDE elle-même, il impliquerait que la zone entière ait perdu près de 0,5 point de croissance tendancielle, soit une bonne part de sa croissance par tête, ce que rien n'indique. Hanushek et Woessmann eux-mêmes ne l'appliquent qu'à une seule cohorte touchée.</p>
+    <details>
+      <summary>Voir les données</summary>
+      <div class="tablewrap"><table id="tb-cadres"></table></div>
+    </details>
+  </section>
+
+  <!-- 5 ---------------------------------------------------------------- -->
+  <section>
+    <div class="eyebrow">Sources primaires</div>
+    <h2>Ce qui est téléchargeable, cycle par cycle</h2>
+    <p class="deck">Les 162 fichiers de l'index OCDE, testés un par un. Les cycles récents sont servis en clair ; pour 2000 à 2012, les données elles-mêmes sont derrière une protection anti-robot et ne s'obtiennent que par la copie de l'Internet Archive. Les fichiers restants sont les syntaxes SAS, redondantes avec les syntaxes SPSS, qui passent.</p>
+    <div class="legend" id="lg-acces"></div>
+    <div class="panel"><div class="tip" id="tip-acces"></div><div id="ch-acces"></div></div>
+    <details>
+      <summary>Voir les données</summary>
+      <div class="tablewrap"><table id="tb-acces"></table></div>
+    </details>
+  </section>
+
+  <section>
+    <div class="eyebrow">Sources et réserves</div>
+    <div class="sources">
+      <div>
+        <h3>Scores</h3>
+        <ul>
+          <li><strong>2022 et 2025</strong> — DEPP, note d'information n° 26.40 (septembre 2026) ; OCDE, <em>PISA 2025 Results (Volume I)</em>.</li>
+          <li><strong>2003 en mathématiques</strong> (511) — DEPP n° 26.40.</li>
+          <li><strong>Cycles intermédiaires</strong> — tableaux OCDE repris par la Fondation IFRAP. Les tableaux de tendance de l'OCDE eux-mêmes sont sur des pages inaccessibles hors navigateur ; ces valeurs sont cohérentes avec la DEPP là où les deux se recoupent.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Paramètres</h3>
+        <ul>
+          <li><strong>Points par année</strong> — Avvisati &amp; Givord, <em>OECD Education Working Paper</em> n° 257 (2021).</li>
+          <li><strong>Rendement des compétences</strong> — Hanushek, Schwerdt, Wiederhold &amp; Woessmann, <em>European Economic Review</em> 73 (2015), tableau 2, PIAAC, salariés à temps plein de 35 à 54 ans.</li>
+          <li><strong>Élasticité de croissance</strong> — Hanushek &amp; Woessmann, <em>Journal of Economic Growth</em> 17 (2012) ; application dans <em>OECD Education Working Paper</em> n° 225 (2020).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ce qui peut faire bouger la conclusion</h3>
+        <ul>
+          <li>L'équivalence entre un écart-type PISA à 15 ans et un écart-type PIAAC à l'âge adulte n'est pas établie : elle suppose aucune correction ultérieure par la formation ou l'expérience.</li>
+          <li>Le rendement estimé en coupe mélange un biais d'aptitude, qui le gonfle, et une erreur de mesure, qui le réduit ; il ignore les externalités de production.</li>
+          <li>Le chiffrage suppose la baisse permanente. Si elle est propre aux cohortes 2018-2025, l'effet sur le PIB est transitoire et bien plus petit.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+const fr=(v,d)=>v.toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const sgn=(v,d,u)=>(v>0?"+":"−")+fr(Math.abs(v),d)+(u||"");
+
+/* ============================ données ============================ */
+const CYCLES=[2000,2003,2006,2009,2012,2015,2018,2022,2025];
+const FRANCE={
+  maths:   {2003:511,2006:496,2009:497,2012:495,2015:493,2018:495,2022:474,2025:458},
+  lecture: {2000:505,2003:496,2006:488,2009:496,2012:505,2015:499,2018:493,2022:474,2025:456},
+  sciences:{2006:495,2009:498,2012:499,2015:495,2018:493,2022:487,2025:483}
+};
+const SUBJ=[
+  {key:"maths",   name:"Mathématiques", color:"var(--series-1)", dy:-6},
+  {key:"lecture", name:"Lecture",       color:"var(--series-2)", dy:14},
+  {key:"sciences",name:"Sciences",      color:"var(--series-3)", dy:-2}
+];
+const CONV=[["20 pts/an",20],["25 pts/an",25],["33 pts/an",33.3],["40 pts/an",40]];
+const GAPS=[
+  {label:"Mathématiques, depuis 2003", pts:53},
+  {label:"Lecture, depuis 2000",       pts:49},
+  {label:"Mathématiques, depuis 2018", pts:37},
+  {label:"Lecture, depuis 2018",       pts:37},
+  {label:"Mathématiques, depuis 2022", pts:16},
+  {label:"Sciences, depuis 2006",      pts:12}
+];
+const REND=0.174, REND_LO=0.12, REND_HI=0.20, GROWTH=1.98, ENTREE=2030, PLEIN=2075;
+const YEARS=[];for(let y=2025;y<=2100;y++)YEARS.push(y);
+const part=t=>t<=ENTREE?0:Math.min(1,(t-ENTREE)/(PLEIN-ENTREE));
+const integ=t=>{if(t<=ENTREE)return 0;const d=PLEIN-ENTREE,r=Math.min(t,PLEIN)-ENTREE;return r*r/(2*d)+Math.max(0,t-PLEIN);};
+const pct=g=>100*(Math.exp(g)-1);
+const SCEN=[
+  {name:"Maths depuis 2003",            sd:.53, color:"var(--series-1)"},
+  {name:"Maths ou lecture depuis 2018", sd:.37, color:"var(--series-2)"},
+  {name:"Maths depuis 2022",            sd:.16, color:"var(--series-3)"}
+];
+const ACCES=[
+  ["PISA 2000",5,7,5],["PISA 2003",3,3,3],["PISA 2006",6,6,4],["PISA 2009",5,5,5],
+  ["PISA 2009 ERA",4,5,4],["PISA 2012",5,5,5],["PISA 2015",21,0,0],["PISA 2018",20,0,0],
+  ["PISA 2022",16,0,0],["PISA 2025",7,0,0],["PISA for Development",6,0,7]
+];
+
+/* ============================ helpers ============================ */
+function legend(id,items,shape){
+  const box=document.getElementById(id);
+  items.forEach(it=>{
+    const s=document.createElement("span");
+    const i=document.createElement("i");
+    i.className=shape||"line"; i.style.background=it.color;
+    s.appendChild(i);
+    s.appendChild(document.createTextNode(it.name));
+    box.appendChild(s);
+  });
+}
+function table(id,head,rows){
+  const t=document.getElementById(id);
+  const th=document.createElement("thead"),tr=document.createElement("tr");
+  head.forEach(h=>{const c=document.createElement("th");c.textContent=h;tr.appendChild(c);});
+  th.appendChild(tr);t.appendChild(th);
+  const tb=document.createElement("tbody");
+  rows.forEach(r=>{const x=document.createElement("tr");
+    r.forEach(v=>{const c=document.createElement("td");c.textContent=v;x.appendChild(c);});
+    tb.appendChild(x);});
+  t.appendChild(tb);
+}
+function tipHTML(tip,title,rows){
+  tip.textContent="";
+  const h=document.createElement("div");h.className="tip-head";h.textContent=title;tip.appendChild(h);
+  rows.forEach(r=>{
+    const d=document.createElement("div");d.className="tip-row";
+    const n=document.createElement("span");n.className="tip-name";
+    if(r.color){const k=document.createElement("i");k.className="tip-key";k.style.background=r.color;n.appendChild(k);}
+    n.appendChild(document.createTextNode(r.name));
+    const v=document.createElement("span");v.className="tip-val";v.textContent=r.value;
+    d.appendChild(n);d.appendChild(v);tip.appendChild(d);
+  });
+}
+
+/* ============================ line chart ============================ */
+function lineChart(mountId,tipId,cfg){
+  const W=920,H=cfg.h||400,P=cfg.pad;
+  const mount=document.getElementById(mountId),tip=document.getElementById(tipId);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":cfg.aria});
+  const px=v=>P.l+(v-cfg.x[0])/(cfg.x[1]-cfg.x[0])*(W-P.l-P.r);
+  const py=v=>P.t+(cfg.y[1]-v)/(cfg.y[1]-cfg.y[0])*(H-P.t-P.b);
+
+  cfg.yTicks.forEach(v=>{
+    svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:py(v),y2:py(v),stroke:"var(--grid)","stroke-width":1}));
+    const t=el("text",{x:P.l-10,y:py(v)+4,"text-anchor":"end",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
+    t.textContent=cfg.yFmt(v);svg.appendChild(t);
+  });
+  if(cfg.ref!==undefined){
+    svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:py(cfg.ref),y2:py(cfg.ref),stroke:"var(--axis)","stroke-width":1}));
+    const t=el("text",{x:W-P.r,y:py(cfg.ref)-9,"text-anchor":"end",fill:"var(--text-muted)","font-size":12});
+    t.textContent=cfg.refLabel;svg.appendChild(t);
+  }
+  svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:H-P.b,y2:H-P.b,stroke:"var(--axis)","stroke-width":1}));
+  cfg.xTicks.forEach(v=>{
+    const t=el("text",{x:px(v),y:H-P.b+22,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
+    t.textContent=String(v);svg.appendChild(t);
+  });
+  if(cfg.band){
+    let d="";cfg.band.lo.forEach((p,i)=>{d+=(i?"L":"M")+px(p[0])+","+py(p[1]);});
+    for(let i=cfg.band.hi.length-1;i>=0;i--){const p=cfg.band.hi[i];d+="L"+px(p[0])+","+py(p[1]);}
+    svg.appendChild(el("path",{d:d+"Z",fill:cfg.band.color,"fill-opacity":.12,stroke:"none"}));
+  }
+  cfg.series.forEach(s=>{
+    let d="";s.points.forEach((p,i)=>{d+=(i?"L":"M")+px(p[0])+","+py(p[1]);});
+    svg.appendChild(el("path",{d:d,fill:"none",stroke:s.color,"stroke-width":2.5,"stroke-linejoin":"round","stroke-linecap":"round"}));
+    if(cfg.dots) s.points.forEach(p=>{
+      svg.appendChild(el("circle",{cx:px(p[0]),cy:py(p[1]),r:4.5,fill:s.color,stroke:"var(--surface-1)","stroke-width":2}));
+    });
+    const last=s.points[s.points.length-1];
+    if(!cfg.dots) svg.appendChild(el("circle",{cx:px(last[0]),cy:py(last[1]),r:4.5,fill:s.color,stroke:"var(--surface-1)","stroke-width":2}));
+    const lb=el("text",{x:px(last[0])+11,y:py(last[1])+(s.dy||4),fill:"var(--text-primary)","font-size":13,"font-weight":600});
+    lb.textContent=s.endLabel;svg.appendChild(lb);
+    const lb2=el("text",{x:px(last[0])+11,y:py(last[1])+(s.dy||4)+15,fill:"var(--text-secondary)","font-size":12});
+    lb2.textContent=s.name;svg.appendChild(lb2);
+  });
+
+  const hair=el("line",{x1:0,x2:0,y1:P.t,y2:H-P.b,stroke:"var(--axis)","stroke-width":1,opacity:0});
+  svg.appendChild(hair);
+  const marks=el("g",{opacity:0});svg.appendChild(marks);
+  const hit=el("rect",{x:P.l,y:P.t,width:W-P.l-P.r,height:H-P.t-P.b,fill:"transparent"});
+  svg.appendChild(hit);
+  mount.appendChild(svg);
+
+  const xs=cfg.series[0].points.map(p=>p[0]);
+  function move(ev){
+    const r=svg.getBoundingClientRect(),sx=(ev.clientX-r.left)/r.width*W;
+    let best=xs[0],bd=1e9;
+    xs.forEach(v=>{const d=Math.abs(px(v)-sx);if(d<bd){bd=d;best=v;}});
+    hair.setAttribute("x1",px(best));hair.setAttribute("x2",px(best));hair.setAttribute("opacity",1);
+    marks.textContent="";
+    const rows=[];
+    cfg.series.forEach(s=>{
+      const p=s.points.find(q=>q[0]===best);if(!p)return;
+      marks.appendChild(el("circle",{cx:px(p[0]),cy:py(p[1]),r:5,fill:s.color,stroke:"var(--surface-1)","stroke-width":2}));
+      rows.push({name:s.name,color:s.color,value:cfg.tipFmt(p[1])});
+    });
+    marks.setAttribute("opacity",1);
+    tipHTML(tip,cfg.tipTitle(best),rows);
+    tip.style.left=(px(best)/W*r.width+18)+"px";
+    tip.style.top=(P.t/H*r.height+16)+"px";
+    tip.classList.add("on");
+  }
+  function out(){hair.setAttribute("opacity",0);marks.setAttribute("opacity",0);tip.classList.remove("on");}
+  hit.addEventListener("pointermove",move);
+  hit.addEventListener("pointerleave",out);
+}
+
+/* ============================ 1. scores ============================ */
+legend("lg-scores",SUBJ.map(s=>({name:s.name,color:s.color})));
+lineChart("ch-scores","tip-scores",{
+  h:400,pad:{t:20,r:132,b:38,l:46},
+  x:[2000,2025],y:[452,516],
+  yTicks:[460,470,480,490,500,510],xTicks:CYCLES,
+  ref:500,refLabel:"500 = moyenne OCDE à l'année de base",
+  dots:true,
+  yFmt:v=>String(v),tipFmt:v=>fr(v,0)+" pts",tipTitle:x=>"PISA "+x,
+  aria:"Scores moyens de la France en mathématiques, lecture et sciences de 2000 à 2025",
+  series:SUBJ.map(s=>({
+    name:s.name,color:s.color,dy:s.dy,
+    endLabel:String(FRANCE[s.key][2025]),
+    points:CYCLES.filter(y=>FRANCE[s.key][y]!==undefined).map(y=>[y,FRANCE[s.key][y]])
+  }))
+});
+table("tb-scores",["Cycle","Mathématiques","Lecture","Sciences"],
+  CYCLES.map(y=>[String(y),FRANCE.maths[y]??"—",FRANCE.lecture[y]??"—",FRANCE.sciences[y]??"—"]));
+
+/* ============================ 2. années perdues ============================ */
+(function(){
+  const W=920,rowH=46,P={t:26,r:150,b:40,l:214},H=P.t+GAPS.length*rowH+P.b;
+  const mount=document.getElementById("ch-annees"),tip=document.getElementById("tip-annees");
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Années de scolarité équivalentes à la baisse des scores"});
+  const X0=0,X1=3;
+  const px=v=>P.l+(v-X0)/(X1-X0)*(W-P.l-P.r);
+  [0,0.5,1,1.5,2,2.5,3].forEach(v=>{
+    svg.appendChild(el("line",{x1:px(v),x2:px(v),y1:P.t-8,y2:H-P.b,stroke:"var(--grid)","stroke-width":1}));
+    const t=el("text",{x:px(v),y:H-P.b+21,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
+    t.textContent=fr(v,1);svg.appendChild(t);
+  });
+  const ax=el("text",{x:px(1.5),y:H-P.b+40,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12});
+  ax.textContent="années de scolarité perdues par élève";svg.appendChild(ax);
+
+  GAPS.forEach((g,i)=>{
+    const y=P.t+i*rowH+rowH/2;
+    const lo=g.pts/40,hi=g.pts/20,mid=g.pts/25;
+    const lab=el("text",{x:P.l-16,y:y+4,"text-anchor":"end",fill:"var(--text-secondary)","font-size":13});
+    lab.textContent=g.label;svg.appendChild(lab);
+    const pt=el("text",{x:P.l-16,y:y+19,"text-anchor":"end",fill:"var(--text-muted)","font-size":11.5,"font-family":"var(--mono)"});
+    pt.textContent="−"+g.pts+" pts · "+fr(g.pts/100,2)+" SD";svg.appendChild(pt);
+    const g2=el("g",{});
+    g2.appendChild(el("rect",{x:px(lo),y:y-6,width:px(hi)-px(lo),height:12,rx:4,fill:"var(--series-1)","fill-opacity":.22}));
+    g2.appendChild(el("circle",{cx:px(mid),cy:y,r:6,fill:"var(--series-1)",stroke:"var(--surface-1)","stroke-width":2}));
+    const v=el("text",{x:px(hi)+14,y:y+5,fill:"var(--text-primary)","font-size":13,"font-weight":600,"font-family":"var(--mono)"});
+    v.textContent=fr(mid,1)+" an"+(Math.round(mid*10)>=20?"s":"");svg.appendChild(v);
+    const hit=el("rect",{x:P.l-4,y:y-rowH/2,width:W-P.l-P.r+90,height:rowH,fill:"transparent",tabindex:0});
+    const show=()=>{
+      tipHTML(tip,g.label,[
+        {name:"25 pts/an (retenu)",color:"var(--series-1)",value:fr(mid,2)+" ans"},
+        {name:"20 pts/an",value:fr(hi,2)+" ans"},
+        {name:"33 pts/an",value:fr(g.pts/33.3,2)+" ans"},
+        {name:"40 pts/an",value:fr(lo,2)+" ans"}
+      ]);
+      const r=svg.getBoundingClientRect();
+      tip.style.left=(px(mid)/W*r.width)+"px";
+      tip.style.top=((y-14)/H*r.height)+"px";
+      tip.classList.add("on");
+    };
+    hit.addEventListener("pointermove",show);
+    hit.addEventListener("focus",show);
+    hit.addEventListener("pointerleave",()=>tip.classList.remove("on"));
+    hit.addEventListener("blur",()=>tip.classList.remove("on"));
+    g2.appendChild(hit);svg.appendChild(g2);
+  });
+  mount.appendChild(svg);
+  legend("lg-annees",[
+    {name:"fourchette selon le gain annuel retenu (40 à 20 pts/an)",color:"var(--series-1)"},
+    {name:"estimation centrale, 25 pts/an",color:"var(--series-1)"}
+  ]);
+  document.querySelectorAll("#lg-annees i")[0].style.opacity=.35;
+  document.querySelectorAll("#lg-annees i")[1].className="rect";
+  document.querySelectorAll("#lg-annees i")[1].style.borderRadius="50%";
+  table("tb-annees",["Écart","Points","SD","20 pts/an","25 pts/an","33 pts/an","40 pts/an"],
+    GAPS.map(g=>[g.label,"−"+g.pts,fr(g.pts/100,2),fr(g.pts/20,2),fr(g.pts/25,2),fr(g.pts/33.3,2),fr(g.pts/40,2)]));
+})();
+
+/* ============================ 3. PIB, effet de niveau ============================ */
+legend("lg-niveau",SCEN.map(s=>({name:s.name+" (−"+fr(s.sd,2)+" SD)",color:s.color})));
+lineChart("ch-niveau","tip-niveau",{
+  h:380,pad:{t:20,r:206,b:38,l:52},
+  x:[2025,2100],y:[-10,0.4],
+  yTicks:[0,-2,-4,-6,-8,-10],xTicks:[2030,2040,2050,2060,2070,2080,2090,2100],
+  yFmt:v=>fr(v,0)+" %",tipFmt:v=>sgn(v,1," %"),tipTitle:x=>"En "+x,
+  aria:"Écart de PIB par tête dû à l'effet de niveau, de 2025 à 2100",
+  series:SCEN.map(s=>({
+    name:s.name,color:s.color,
+    endLabel:sgn(pct(-REND*s.sd),1," %"),
+    points:YEARS.map(t=>[t,pct(-REND*s.sd*part(t))])
+  }))
+});
+table("tb-niveau",["Année","Part des actifs touchés","−0,53 SD","−0,37 SD","−0,16 SD"],
+  [2030,2040,2050,2060,2075,2100].map(t=>[String(t),fr(100*part(t),0)+" %"].concat(
+    SCEN.map(s=>sgn(pct(-REND*s.sd*part(t)),1," %")))));
+
+/* ============================ 4. les deux cadres ============================ */
+legend("lg-cadres",[
+  {name:"Effet de niveau — rendement PIAAC (retenu)",color:"var(--series-1)"},
+  {name:"Effet de croissance — Hanushek & Woessmann",color:"var(--series-2)"}
+]);
+lineChart("ch-cadres","tip-cadres",{
+  h:400,pad:{t:20,r:186,b:38,l:56},
+  x:[2025,2100],y:[-32,1.2],
+  yTicks:[0,-5,-10,-15,-20,-25,-30],xTicks:[2030,2040,2050,2060,2070,2080,2090,2100],
+  yFmt:v=>fr(v,0)+" %",tipFmt:v=>sgn(v,1," %"),tipTitle:x=>"En "+x,
+  aria:"Comparaison des deux cadres, effet de niveau contre effet de croissance",
+  band:{color:"var(--series-1)",
+    lo:YEARS.map(t=>[t,pct(-REND_HI*0.37*part(t))]),
+    hi:YEARS.map(t=>[t,pct(-REND_LO*0.37*part(t))])},
+  series:[
+    {name:"Effet de niveau",color:"var(--series-1)",dy:4,
+     endLabel:sgn(pct(-REND*0.37),1," %"),
+     points:YEARS.map(t=>[t,pct(-REND*0.37*part(t))])},
+    {name:"Effet de croissance",color:"var(--series-2)",dy:4,
+     endLabel:sgn(pct(-(GROWTH/100)*0.37*integ(t2100())),1," %"),
+     points:YEARS.map(t=>[t,pct(-(GROWTH/100)*0.37*integ(t))])}
+  ]
+});
+function t2100(){return 2100;}
+table("tb-cadres",["Année","Effet de niveau","Fourchette (rendement 0,12 à 0,20)","Effet de croissance"],
+  [2030,2040,2050,2060,2075,2100].map(t=>[String(t),
+    sgn(pct(-REND*0.37*part(t)),1," %"),
+    sgn(pct(-REND_HI*0.37*part(t)),1," %")+" à "+sgn(pct(-REND_LO*0.37*part(t)),1," %"),
+    sgn(pct(-(GROWTH/100)*0.37*integ(t)),1," %")]));
+
+/* ============================ 5. accès aux fichiers ============================ */
+(function(){
+  const W=920,rowH=34,P={t:16,r:64,b:44,l:168},H=P.t+ACCES.length*rowH+P.b;
+  const mount=document.getElementById("ch-acces"),tip=document.getElementById("tip-acces");
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Nombre de fichiers PISA accessibles par cycle et par voie d'accès"});
+  const MAX=23,px=v=>P.l+v/MAX*(W-P.l-P.r);
+  const CAT=[
+    {k:1,name:"Accès direct (webfs.oecd.org)",color:"var(--ord-1)"},
+    {k:2,name:"Via l'Internet Archive",color:"var(--ord-2)"},
+    {k:3,name:"Inaccessible (syntaxes SAS)",color:"var(--ord-3)"}
+  ];
+  [0,5,10,15,20].forEach(v=>{
+    svg.appendChild(el("line",{x1:px(v),x2:px(v),y1:P.t-4,y2:H-P.b,stroke:"var(--grid)","stroke-width":1}));
+    const t=el("text",{x:px(v),y:H-P.b+21,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
+    t.textContent=String(v);svg.appendChild(t);
+  });
+  const ax=el("text",{x:px(10),y:H-P.b+40,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12});
+  ax.textContent="nombre de fichiers";svg.appendChild(ax);
+
+  ACCES.forEach((row,i)=>{
+    const y=P.t+i*rowH+rowH/2, name=row[0], vals=[row[1],row[2],row[3]];
+    const lab=el("text",{x:P.l-14,y:y+4,"text-anchor":"end",fill:"var(--text-secondary)","font-size":13});
+    lab.textContent=name;svg.appendChild(lab);
+    let acc=0;
+    vals.forEach((v,j)=>{
+      if(v>0){
+        const x=px(acc), w=px(acc+v)-px(acc)-2;
+        svg.appendChild(el("rect",{x:x,y:y-9,width:Math.max(w,3),height:18,rx:3,fill:CAT[j].color}));
+      }
+      acc+=v;
+    });
+    const tot=el("text",{x:px(acc)+10,y:y+4,fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
+    tot.textContent=String(acc);svg.appendChild(tot);
+    const hit=el("rect",{x:P.l-4,y:y-rowH/2,width:W-P.l-P.r+50,height:rowH,fill:"transparent",tabindex:0});
+    const show=()=>{
+      tipHTML(tip,name,CAT.map((c,j)=>({name:c.name,color:c.color,value:vals[j]+" fichiers"})));
+      const r=svg.getBoundingClientRect();
+      tip.style.left=(px(Math.min(acc,MAX)/2)/W*r.width+60)+"px";
+      tip.style.top=((y-12)/H*r.height)+"px";
+      tip.classList.add("on");
+    };
+    hit.addEventListener("pointermove",show);
+    hit.addEventListener("focus",show);
+    hit.addEventListener("pointerleave",()=>tip.classList.remove("on"));
+    hit.addEventListener("blur",()=>tip.classList.remove("on"));
+    svg.appendChild(hit);
+  });
+  mount.appendChild(svg);
+  legend("lg-acces",CAT,"rect");
+  table("tb-acces",["Cycle","Accès direct","Internet Archive","Inaccessible","Total"],
+    ACCES.map(r=>[r[0],r[1],r[2],r[3],r[1]+r[2]+r[3]]));
+})();
+})();
+</script>
