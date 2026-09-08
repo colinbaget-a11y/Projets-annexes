@@ -2,7 +2,8 @@
 
 **Note principale : `note_chiffrage.md`** (2 pages, la réponse et les trois estimations).
 Annexes : `note_litterature.md` (revue détaillée), `chiffrage_pisa_pib.py` (calculs),
-`simulation_ocde2010.py` (modèle de croissance OCDE 2010), `graphiques.html` (version illustrée).
+`simulation_ocde2010.py` (modèle de croissance OCDE 2010), `graphiques.html` (version illustrée),
+`charte_graphique.md` (charte relevée sur les chapitres 5 et 16 du manuel, à appliquer à toute figure).
 Le reste de ce fichier documente l'accès aux fichiers PISA.
 
 Vérifié le 8 septembre 2026 depuis un environnement cloud (proxy HTTPS, sans navigateur).

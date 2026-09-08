@@ -1,195 +1,236 @@
 <title>Chiffrage PISA France</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap">
 <style>
+/* Charte relevée sur les chapitres 5 et 16 du manuel : composition en serif sur page blanche,
+   palette bleu / or / vert où la couleur encode la nature de l'objet, titre de figure au-dessus,
+   sources et note en dessous. Thème unique assumé : c'est une page de manuel, pas une interface. */
 :root{
   color-scheme: light;
-  --plane:#f4f4f1; --surface-1:#fcfcfb;
-  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#898781;
-  --grid:#e1e0d9; --axis:#c3c2b7;
-  --ring:rgba(11,11,11,.10); --ring-strong:rgba(11,11,11,.18);
-  --series-1:#2a78d6; --series-2:#eb6834;
-  --tooltip-bg:#ffffff;
-  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --papier:#ffffff;
+  --marge:#f4f3f1;
+  --encre:#1a1a1a;
+  --encre-2:#3d3d3d;
+  --gris:#8a8a8a;
+  --gris-clair:#aaaaaa;
+  --grille:#ebeceb;
+  --bande:#e3e4e3;
+  --filet:#d8d6d2;
+  --bleu:#003399;
+  --bleu-2:#33619f;
+  --bleu-pale:#98b8dd;
+  --vert:#1f7a4d;
+  --or:#c79100;
+  --grenat:#a50020;
+  --encadre-fond:#faedf1;
+  --encadre-bord:#d2c7cb;
+  --serif:"Source Serif 4",Cambria,"Times New Roman",Times,serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:where(:not([data-theme="light"])){
-    color-scheme: dark;
-    --plane:#0d0d0d; --surface-1:#1a1a19;
-    --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
-    --grid:#2c2c2a; --axis:#383835;
-    --ring:rgba(255,255,255,.10); --ring-strong:rgba(255,255,255,.20);
-    --series-1:#3987e5; --series-2:#d95926;
-    --tooltip-bg:#242422;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme: dark;
-  --plane:#0d0d0d; --surface-1:#1a1a19;
-  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#898781;
-  --grid:#2c2c2a; --axis:#383835;
-  --ring:rgba(255,255,255,.10); --ring-strong:rgba(255,255,255,.20);
-  --series-1:#3987e5; --series-2:#d95926;
-  --tooltip-bg:#242422;
-}
-
 *{box-sizing:border-box}
-body{background:var(--plane);color:var(--text-primary);font-family:var(--sans);font-size:15px;line-height:1.58;-webkit-font-smoothing:antialiased}
-.wrap{max-width:920px;margin:0 auto;padding:44px 24px 80px;display:flex;flex-direction:column;gap:42px}
+html{background:var(--marge)}
+body{
+  background:var(--papier);color:var(--encre);
+  font-family:var(--serif);font-size:16.5px;line-height:1.62;
+  margin:0 auto;max-width:840px;padding:56px 40px 84px;
+  -webkit-font-smoothing:antialiased;
+}
+@media (max-width:640px){body{padding:36px 20px 60px}}
 
-.masthead{display:flex;flex-direction:column;gap:16px;padding-bottom:24px;border-bottom:1px solid var(--axis)}
-.kicker{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.6vw,44px);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.014em}
-.rule{margin:0;max-width:64ch;font-size:16.5px;color:var(--text-primary)}
-.rule strong{font-weight:600}
-.rule span{color:var(--text-secondary)}
+/* ---------- titraille ---------- */
+.entete{border-bottom:1px solid var(--encre);padding-bottom:6px;margin-bottom:34px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  font-size:14px;color:var(--encre-2)}
+h1{font-size:30px;font-weight:700;line-height:1.18;margin:0 0 18px;letter-spacing:-.005em;text-wrap:balance}
+h2{font-size:20px;font-weight:600;color:var(--bleu);margin:44px 0 14px;line-height:1.25}
+h3{font-size:16.5px;font-weight:600;margin:0 0 4px}
+p{margin:0 0 13px;text-align:justify;hyphens:auto}
+p:last-child{margin-bottom:0}
+.chapeau{font-size:17.5px;margin-bottom:20px}
+.chapeau strong{font-weight:600}
+em{font-style:italic}
+.sc{font-variant-numeric:tabular-nums}
 
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(198px,1fr));gap:1px;background:var(--axis);border:1px solid var(--axis);border-radius:6px;overflow:hidden}
-.kpi{background:var(--surface-1);padding:19px 22px;display:flex;flex-direction:column;gap:4px}
-.kpi-label{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
-.kpi-value{font-size:32px;line-height:1.05;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.kpi-sub{font-size:13px;color:var(--text-secondary);max-width:32ch}
+/* ---------- figure ---------- */
+figure{margin:30px 0 26px}
+figcaption{font-size:15px;line-height:1.5;margin-bottom:10px;text-align:justify;hyphens:auto}
+figcaption b{font-weight:700}
+.cadre{position:relative}
+.cadre svg{display:block;width:100%;height:auto;overflow:visible}
+.notes{font-size:13.5px;line-height:1.5;color:var(--encre-2);margin-top:10px;text-align:justify;hyphens:auto}
+.notes i{font-style:italic}
+.notes p{margin:0 0 4px;font-size:13.5px}
 
-section{display:flex;flex-direction:column;gap:15px}
-.eyebrow{display:flex;align-items:baseline;gap:10px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
-.eyebrow::after{content:"";flex:1;height:1px;background:var(--grid)}
-h2{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.2;margin:0;letter-spacing:-.008em;text-wrap:balance}
-h3{font-size:14.5px;font-weight:600;margin:0}
-p{margin:0;max-width:72ch;color:var(--text-secondary);font-size:14.5px}
-p em{font-style:normal;color:var(--text-primary);font-weight:500}
+/* ---------- tableau ---------- */
+.tab-wrap{overflow-x:auto;margin:8px 0 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:580px}
+caption{caption-side:top;text-align:left;font-size:15px;line-height:1.5;padding-bottom:9px}
+caption b{font-weight:700}
+th,td{padding:6px 12px 6px 0;text-align:right;vertical-align:baseline}
+th:first-child,td:first-child{text-align:left}
+thead th{font-weight:400;font-style:italic;color:var(--encre-2);border-bottom:1px solid var(--encre)}
+tbody tr:last-child td{border-bottom:1px solid var(--encre)}
+tbody td{font-variant-numeric:tabular-nums}
+tbody td.num{white-space:nowrap}
+thead th:last-child{white-space:nowrap}
+tbody td.num{color:var(--bleu);font-weight:600}
+tr.ctrl td{color:var(--gris)}
+tr.ctrl td.num{color:var(--vert);font-weight:400}
+tr.ctrl td:first-child{font-style:italic}
 
-.panel{position:relative;background:var(--surface-1);border:1px solid var(--ring);border-radius:8px;padding:18px 18px 14px}
-.panel svg{display:block;width:100%;height:auto;overflow:visible}
-.tip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-112%);background:var(--tooltip-bg);border:1px solid var(--ring-strong);border-radius:6px;padding:8px 11px;box-shadow:0 4px 14px rgba(0,0,0,.10);font-size:12.5px;min-width:150px;z-index:5;transition:opacity .09s ease}
-.tip.on{opacity:1}
-.tip-head{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:5px}
-.tip-row{display:flex;gap:12px;justify-content:space-between;white-space:nowrap}
-.tip-row + .tip-row{margin-top:3px}
-.tip-name{color:var(--text-secondary)}
-.tip-val{font-family:var(--mono);font-weight:500;color:var(--text-primary);font-variant-numeric:tabular-nums}
+/* ---------- résultat ---------- */
+.resultat{border-top:1px solid var(--encre);border-bottom:1px solid var(--encre);
+  padding:16px 0;margin:26px 0;display:flex;flex-direction:column;gap:4px}
+.resultat .calcul{font-size:14.5px;color:var(--encre-2);font-variant-numeric:tabular-nums}
+.resultat .val{font-size:27px;font-weight:700;color:var(--bleu);letter-spacing:-.01em}
 
-.tablewrap{overflow-x:auto}
-table{border-collapse:collapse;font-size:13.5px;width:100%;min-width:600px}
-th,td{text-align:right;padding:9px 14px 9px 0;border-bottom:1px solid var(--grid);vertical-align:top}
-th:first-child,td:first-child{text-align:left;padding-left:2px}
-thead th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
-tbody td{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--text-primary);white-space:nowrap}
-tbody td.txt{font-family:var(--sans);color:var(--text-secondary);white-space:normal}
-tbody td.txt.k{color:var(--text-primary);font-weight:500}
-tbody td.res{font-weight:600;font-size:15px}
-tbody tr.ctrl td{color:var(--text-muted)}
-tbody tr.ctrl td.txt.k{color:var(--text-secondary);font-weight:400;font-style:italic}
-tbody tr:last-child td{border-bottom:none}
+/* ---------- encadré ---------- */
+.encadre{background:var(--encadre-fond);border:1px solid var(--encadre-bord);border-radius:5px;
+  padding:18px 22px;margin:26px 0}
+.encadre h3{margin-bottom:8px}
+.encadre p{font-size:15.5px}
+.encadre ul{margin:8px 0 0;padding-left:20px}
+.encadre li{margin-bottom:5px;font-size:15.5px;text-align:justify;hyphens:auto}
 
-.calc{background:var(--surface-1);border:1px solid var(--ring);border-left:3px solid var(--series-1);border-radius:8px;padding:20px 24px;display:flex;flex-direction:column;gap:10px}
-.calc .line{font-family:var(--mono);font-size:14.5px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.calc .v{font-size:29px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
-.calc p{font-size:13.5px}
+ol.reserves{padding-left:20px;margin:0}
+ol.reserves li{margin-bottom:11px;text-align:justify;hyphens:auto}
+.colophon{margin-top:40px;padding-top:12px;border-top:1px solid var(--filet);
+  font-size:13px;color:var(--gris);text-align:justify;hyphens:auto}
 
-.trois{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{border:1px solid var(--ring);border-radius:8px;background:var(--surface-1);padding:17px 19px;display:flex;flex-direction:column;gap:7px}
-.card .tag{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
-.card .num{font-family:var(--mono);font-size:19px;font-weight:600;font-variant-numeric:tabular-nums}
-.card p{font-size:13.5px}
-
-ol.res{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:11px;color:var(--text-secondary);font-size:14.5px;max-width:72ch}
-ol.res strong{color:var(--text-primary);font-weight:600}
-.foot{font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--grid);padding-top:15px;max-width:74ch}
+/* ---------- infobulle ---------- */
+.bulle{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-118%);
+  background:var(--papier);border:1px solid var(--filet);padding:7px 10px;
+  font-size:13px;line-height:1.45;min-width:150px;z-index:5;transition:opacity .1s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.09)}
+.bulle.on{opacity:1}
+.bulle .t{font-style:italic;color:var(--encre-2);margin-bottom:3px}
+.bulle .r{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
 </style>
 
-<div class="wrap">
-
-  <header class="masthead">
-    <div class="kicker">Note de travail · 8 septembre 2026</div>
-    <h1>Combien vaut un point PISA ?</h1>
-    <p class="rule"><strong>+10 points de score PISA moyen, durables, valent environ +1 % de productivité à très long terme.</strong> <span>Fourchette des estimations institutionnelles : +0,9 % à +1,6 %. La France ayant perdu 28 points entre 2018 et 2025, cela donne −2,8 %, arrondi à −3 %.</span></p>
-  </header>
-
-  <div class="kpis">
-    <div class="kpi">
-      <div class="kpi-label">La règle de pouce</div>
-      <div class="kpi-value">+1 %</div>
-      <div class="kpi-sub">de productivité de long terme par +10 points de score moyen</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">France, 2018 → 2025</div>
-      <div class="kpi-value">−28 pts</div>
-      <div class="kpi-sub">moyenne des trois domaines, de 493,7 à 465,7</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Productivité, très long terme</div>
-      <div class="kpi-value">≈ −3 %</div>
-      <div class="kpi-sub">si ce niveau devenait celui de toutes les générations à venir</div>
-    </div>
-  </div>
-
-  <!-- 1 -->
-  <section>
-    <div class="eyebrow">1 · La littérature en une seule unité</div>
-    <h2>Quatre estimations institutionnelles, un même coefficient</h2>
-    <p>Chaque étude ramenée à la même mesure : l'effet sur le niveau de productivité, à très long terme, d'une hausse durable de <em>10 points sur la moyenne des trois domaines</em>. Le trait vertical marque la règle de pouce retenue.</p>
-    <div class="panel"><div class="tip" id="tip-coef"></div><div id="ch-coef"></div></div>
-    <div class="panel"><div class="tablewrap"><table id="tb-coef"></table></div></div>
-    <p><em>Vérification des unités.</em> Les deux premières lignes portent explicitement sur la moyenne des trois domaines : Égert et ses coauteurs définissent leur mesure comme « the average scores for reading, maths and science », et l'Étude économique de la France chiffre le passage au score moyen des dix meilleurs pays de l'OCDE dans chacun des trois domaines, soit +29,2 points sur la moyenne. Aucune estimation retenue ne raisonne sur des points cumulés. Le CAE fait exception dans l'autre sens : son scénario porte sur les mathématiques seules et à quinze ans, donc avec un renouvellement partiel des cohortes ; sa ligne est une borne basse et n'entre pas dans la fourchette centrale.</p>
-    <p><em>Ce qui a été converti.</em> Les lignes 3 et 5 sont publiées en scores PIAAC d'adultes, pas en PISA. Le passage se fait par l'élasticité estimée en appariant chaque cohorte adulte de PIAAC aux scores PISA de la même cohorte : 0,278. Ce n'est jamais un pour un — 10 points PISA ne font que 0,56 % de score PIAAC, soit 0,03 écart-type adulte.</p>
-    <p><em>Ce qui reste imparfait.</em> Les lignes 1, 2 et 4 appliquent le même cadre de l'OCDE, et la ligne 3 partage avec elles le passage PISA vers PIAAC : quatre estimations, mais deux maillons indépendants seulement. Les lignes 1 et 2 portent par ailleurs sur la productivité globale des facteurs et la ligne 3 sur la productivité du travail ; si le capital s'ajuste, l'effet sur le PIB par tête vaut environ une fois et demie celui sur la productivité globale des facteurs. Conserver la métrique publiée rend donc la règle de pouce plutôt prudente.</p>
-  </section>
-
-  <!-- 2 -->
-  <section>
-    <div class="eyebrow">2 · Le calcul</div>
-    <h2>28 points perdus entre 2018 et 2025</h2>
-    <p>Moyenne des trois domaines, série comparable depuis 2006 seulement, les sciences n'étant devenues domaine majeur qu'à ce cycle. Le niveau est plat de 2006 à 2018 ; toute la baisse est postérieure. Par rapport à la moyenne 2006-2018, la perte est de 30 points : le choix de la référence ne change rien.</p>
-    <div class="panel"><div class="tip" id="tip-choc"></div><div id="ch-choc"></div></div>
-    <div class="calc">
-      <div class="line">−28 points × 1 % pour 10 points</div>
-      <div class="v">≈ −3 % de productivité</div>
-      <p>Fourchette : −1,4 % avec la borne micro, −4,5 % avec la borne macro haute. Formulation correcte : si le niveau de compétences observé à PISA 2025 devenait durablement celui des générations françaises à venir, alors une fois ces générations devenues l'ensemble de la population active, le niveau de productivité serait inférieur d'environ 3 % à ce qu'il aurait été au niveau de 2018. Effet nul avant 2035, moitié réalisée vers 2050, complet vers 2075.</p>
-    </div>
-  </section>
-
-  <!-- 3 -->
-  <section>
-    <div class="eyebrow">3 · Ce qu'il ne faut pas mélanger</div>
-    <h2>Trois familles de résultats</h2>
-    <div class="trois">
-      <div class="card">
-        <div class="tag">Retenu</div>
-        <div class="num">≈ +1 % / 10 pts</div>
-        <h3>Estimations de niveau</h3>
-        <p>Quel niveau de productivité une fois les cohortes renouvelées. Les quatre estimations institutionnelles convergent autour de +1 %.</p>
-      </div>
-      <div class="card">
-        <div class="tag">Borne haute</div>
-        <div class="num">≈ +10 % / 10 pts</div>
-        <h3>Régressions de croissance</h3>
-        <p>Hanushek et Woessmann traitent les compétences comme un déterminant du <em>taux</em> de croissance. Dans la projection de l'OCDE de 2010, +25 points valent +24,3 % de PIB français en 2090, et l'écart continue de croître. Hypothèse beaucoup plus forte : les séries longues ne montrent aucun changement durable des taux de croissance malgré l'explosion du capital humain, et une régression de croissance conditionnelle ne distingue pas un effet de niveau d'une croissance permanente.</p>
-      </div>
-      <div class="card">
-        <div class="tag">Contrôle</div>
-        <div class="num">≈ +0,5 % / 10 pts</div>
-        <h3>Rendements salariaux</h3>
-        <p>Ce qu'un travailleur plus compétent gagne de plus, sans externalité ni effet d'allocation entre entreprises. Moitié des estimations macro. Utile comme plancher, pas à moyenner avec elles.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4 -->
-  <section>
-    <div class="eyebrow">4 · Réserves</div>
-    <h2>Trois choses qui peuvent faire bouger la conclusion</h2>
-    <ol class="res">
-      <li><strong>C'est un scénario de permanence.</strong> Ne jamais écrire que PISA 2025 coûte 3 % de productivité à la France : si les scores remontent, la perte est transitoire et bien plus faible.</li>
-      <li><strong>Le passage de PISA à 15 ans aux compétences adultes est le maillon commun et le plus fragile.</strong> L'élasticité vaut 0,278 ou 0,603 selon la spécification ; retenir la seconde doublerait toutes les lignes du tableau à la fois.</li>
-      <li><strong>L'écart entre le contrôle micro et les estimations macro n'est pas identifié.</strong> Il correspond aux externalités et aux effets d'allocation des compétences, que les corrélations de panel entre pays captent sans les isoler.</li>
-    </ol>
-    <p class="foot">Sources : Égert, de la Maisonneuve et Turner, OECD ECO Working Paper 1709 (2022) ; OCDE, Étude économique de la France (2024) ; OCDE, Adult Skills and Productivity, New Evidence from PIAAC 2023 (2024) ; Conseil d'analyse économique, Focus n° 91 (2022) ; Hanushek, Schwerdt, Wiederhold et Woessmann, European Economic Review 73 (2015). Scores : DEPP note d'information n° 26.40 (septembre 2026), OCDE PISA 2025 Volume I, et tableaux OCDE pour les cycles intermédiaires. Les chaînes de calcul détaillées et la revue complète sont en annexe dans le dépôt.</p>
-  </section>
-
+<div class="entete">
+  <span>Chiffrage PISA · productivité de long terme</span>
+  <span>8 septembre 2026</span>
 </div>
+
+<h1>Combien vaut un point PISA ?</h1>
+
+<p class="chapeau"><strong>Une amélioration durable de 10 points du score PISA moyen vaut environ +1 % de
+productivité à très long terme</strong>, une fois la population active entièrement renouvelée. La fourchette
+des estimations institutionnelles va de +0,9 à +1,6 %. La France ayant perdu 28 points entre 2018 et 2025,
+cela donne −2,8 %, arrondi à −3 %.</p>
+
+<h2>1. Ce que dit la littérature, ramené à une seule unité</h2>
+
+<p>Chaque étude est ramenée à la même mesure : l'effet sur le niveau de productivité, à très long terme,
+d'une hausse durable de dix points sur la moyenne des trois domaines. Les couleurs distinguent trois natures
+d'estimation qui ne mesurent pas la même chose, et qu'il ne faut donc pas moyenner ensemble.</p>
+
+<figure>
+  <figcaption><b>Figure 1.</b> Effet sur la productivité de long terme de dix points de score PISA moyen,
+  cinq sources ramenées à la même unité. En pourcentage du niveau de productivité, population active
+  entièrement renouvelée.</figcaption>
+  <div class="cadre"><div class="bulle" id="b-coef"></div><div id="g-coef"></div></div>
+  <div class="notes">
+    <p><i>Sources :</i> Égert, de la Maisonneuve et Turner, <i>OECD Economics Department Working Paper</i>
+    n° 1709, 2022, tableau 8 ; OCDE, <i>Étude économique de la France</i>, juillet 2024, tableau 5.2 ;
+    OCDE, <i>Adult Skills and Productivity: New Evidence from PIAAC 2023</i>, décembre 2024, tableau 1 ;
+    Conseil d'analyse économique, <i>Focus</i> n° 91, 2022 ; Hanushek, Schwerdt, Wiederhold et Woessmann,
+    <i>European Economic Review</i> 73, 2015, tableau 2.</p>
+    <p><i>Note :</i> Le segment est l'étendue des estimations d'une même source et non un intervalle de
+    confiance ; un point seul est une estimation unique. Les points PISA sont, dans tous les cas, des points
+    de la moyenne des trois domaines et non des points cumulés. Le CAE fait exception : son scénario porte
+    sur les mathématiques seules et à quinze ans, donc avec un renouvellement partiel des cohortes, ce qui
+    en fait une borne basse exclue de la fourchette centrale. Les deux premières sources mesurent la
+    productivité globale des facteurs, la troisième la productivité du travail ; si le capital s'ajuste,
+    l'effet sur le PIB par tête vaut environ une fois et demie celui sur la productivité globale des
+    facteurs, si bien que conserver la métrique publiée rend la règle plutôt prudente.</p>
+  </div>
+</figure>
+
+<div class="tab-wrap"><table id="t-coef"></table></div>
+
+<p style="margin-top:16px">Les deux premières lignes portent explicitement sur la moyenne des trois
+domaines : Égert et ses coauteurs définissent leur mesure comme <i>the average scores for reading, maths and
+science</i>, et l'Étude économique de la France chiffre le passage au score moyen des dix meilleurs pays de
+l'OCDE dans chacun des trois domaines, soit 29,2 points sur la moyenne. Les lignes 3 et 5 sont publiées en
+scores PIAAC d'adultes : le passage se fait par l'élasticité estimée en appariant chaque cohorte adulte de
+PIAAC aux scores PISA de la même cohorte, 0,278. Ce n'est jamais un pour un — dix points PISA ne font que
+0,56 % de score PIAAC, soit 0,03 écart-type adulte.</p>
+
+<p>Ce qui reste imparfait : les lignes 1, 2 et 4 appliquent le même cadre de l'OCDE, et la ligne 3 partage
+avec elles le passage de PISA à PIAAC. Cinq lignes, mais deux maillons indépendants seulement.</p>
+
+<h2>2. Le calcul pour la France</h2>
+
+<figure>
+  <figcaption><b>Figure 2.</b> France, score PISA moyen des trois domaines, 2006-2025. Moyenne simple des
+  scores de mathématiques, compréhension de l'écrit et culture scientifique.</figcaption>
+  <div class="cadre"><div class="bulle" id="b-choc"></div><div id="g-choc"></div></div>
+  <div class="notes">
+    <p><i>Sources :</i> DEPP, note d'information n° 26.40, septembre 2026 ; OCDE, <i>PISA 2025 Results
+    (Volume I)</i> ; tableaux OCDE pour les cycles intermédiaires.</p>
+    <p><i>Note :</i> La série ne commence qu'en 2006 parce que la culture scientifique n'est devenue domaine
+    majeur qu'à ce cycle : avant, la moyenne des trois n'est pas comparable. Le niveau est plat de 2006 à
+    2018 et toute la baisse est postérieure. Par rapport à la moyenne des cinq cycles 2006-2018, soit 495,8,
+    la perte est de 30 points : le choix de la référence ne change pas le résultat.</p>
+  </div>
+</figure>
+
+<div class="resultat">
+  <div class="calcul">−28 points × 1 % pour 10 points</div>
+  <div class="val">≈ −3 % de productivité de long terme</div>
+</div>
+
+<p>Fourchette : −1,4 % avec la borne micro, −4,5 % avec la borne macro haute. La formulation correcte est la
+suivante : si le niveau de compétences observé à PISA 2025 devenait durablement celui des générations
+françaises à venir, alors une fois ces générations devenues l'ensemble de la population active, le niveau de
+productivité serait inférieur d'environ 3 % à ce qu'il aurait été au niveau de 2018. C'est un scénario de
+permanence, pas une prévision. L'effet est nul avant 2035, à moitié réalisé vers 2050, complet vers 2075.</p>
+
+<h2>3. Trois familles qu'il ne faut pas mélanger</h2>
+
+<p>Les <b>estimations de niveau</b>, en bleu dans la figure 1, sont les seules retenues : elles répondent à
+la question « quel niveau de productivité une fois les cohortes renouvelées », et convergent autour de +1 %
+pour dix points. Les <b>rendements salariaux individuels</b>, en vert, mesurent ce qu'un travailleur plus
+compétent gagne de plus, sans externalité ni effet d'allocation entre entreprises ; ils donnent +0,5 %, soit
+la moitié des estimations macroéconomiques. Utiles comme plancher et comme contrôle de cohérence, ils ne
+s'additionnent ni ne se moyennent avec elles.</p>
+
+<div class="encadre">
+  <h3>Une troisième famille donne des effets dix fois plus élevés</h3>
+  <p>Les régressions de croissance de Hanushek et Woessmann traitent le niveau de compétences comme un
+  déterminant du <i>taux</i> de croissance et non du niveau. Dans la projection que l'OCDE en a tirée pour la
+  France en 2010, vingt-cinq points PISA valent +24,3 % de PIB en 2090, soit environ <b>+10 % pour dix
+  points</b> à cet horizon, et l'écart continue de croître au-delà. Trois raisons de ne pas la retenir :</p>
+  <ul>
+    <li>les séries longues ne montrent aucun changement durable des taux de croissance malgré l'explosion du
+    capital humain, ce qui est difficilement compatible avec un effet permanent sur le taux ;</li>
+    <li>le coefficient varie du simple au triple selon l'échantillon et la période, 1,3 hors Asie de l'Est,
+    0,6 à 1,3 quand la croissance est mesurée après les tests plutôt que sur la même période ;</li>
+    <li>une régression de croissance conditionnelle ne distingue pas un effet de niveau d'une convergence
+    lente ou d'une croissance permanente, et les auteurs le reconnaissent eux-mêmes.</li>
+  </ul>
+</div>
+
+<h2>4. Réserves</h2>
+
+<ol class="reserves">
+  <li><b>C'est un scénario de permanence.</b> Ne jamais écrire que PISA 2025 coûte 3 % de productivité à la
+  France : si les scores remontent, la perte est transitoire et bien plus faible.</li>
+  <li><b>Le passage de PISA à 15 ans aux compétences adultes est le maillon commun et le plus fragile.</b>
+  L'élasticité vaut 0,278 ou 0,603 selon la spécification, et retenir la seconde doublerait toutes les lignes
+  du tableau à la fois.</li>
+  <li><b>L'écart entre le contrôle micro et les estimations macroéconomiques n'est pas identifié.</b> Il
+  correspond aux externalités et aux effets d'allocation des compétences, que les corrélations de panel entre
+  pays captent sans les isoler.</li>
+</ol>
+
+<p class="colophon">Charte graphique relevée sur les chapitres 5 et 16 du manuel : composition en serif,
+palette bleu <span style="color:var(--bleu)">■</span> or <span style="color:var(--or)">■</span> vert
+<span style="color:var(--vert)">■</span> où la couleur encode la nature de l'objet et non l'identité de la
+série, titre de figure au-dessus, sources et note en dessous, étiquettes de valeur dans la couleur de la
+série. Le détail des chaînes de calcul, la revue de littérature et l'accès aux fichiers PISA sont dans le
+dépôt.</p>
 
 <script>
 (function(){
@@ -197,131 +238,146 @@ ol.res strong{color:var(--text-primary);font-weight:600}
 const NS="http://www.w3.org/2000/svg";
 const el=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
 const fr=(v,d)=>v.toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
-const pc=(v,d)=>"+"+fr(v,d===undefined?1:d)+" %";
+const pct=(v,d)=>(v<0?"−":"+")+fr(Math.abs(v),d===undefined?1:d)+" %";
+const SERIF='"Source Serif 4",Cambria,serif';
 
 const COEF=[
-  {n:"Égert, de la Maisonneuve & Turner", y:"2022", src:"capital humain → productivité globale des facteurs",
-   choc:"+25,5 pts (moyenne 3 domaines)", pub:"+3,4 à +4,1 % de PGF", lo:1.33, hi:1.60},
-  {n:"OCDE, Étude économique de la France", y:"2024", src:"même cadre, calibré sur données françaises",
-   choc:"+29,2 pts (moyenne 3 domaines)", pub:"+2,7 % de productivité", lo:0.92, hi:0.92},
-  {n:"OCDE, Adult Skills and Productivity", y:"2024", src:"productivité du travail pays × secteur, PIAAC 2023",
-   choc:"+10 % de score PIAAC", pub:"+18 % de productivité du travail", lo:1.01, hi:1.29},
-  {n:"CAE, Focus n° 91", y:"2022", src:"horizon 15 ans, mathématiques seules — borne basse",
-   choc:"+10 pts en mathématiques", pub:"+0,6 à +1,4 % de productivité", lo:0.60, hi:1.40, faible:true},
-  {n:"Contrôle micro — Hanushek et al.", y:"2015", src:"rendement salarial, sans externalité",
-   choc:"+1 écart-type PIAAC", pub:"+17,4 % de salaire horaire (France)", lo:0.49, hi:0.49, ctrl:true}
+  {n:"Égert, de la Maisonneuve et Turner (2022)", src:"capital humain, puis productivité globale des facteurs",
+   choc:"+25,5 points (moyenne des trois domaines)", pub:"+3,4 à +4,1 % de PGF", lo:1.33, hi:1.60, c:"bleu"},
+  {n:"OCDE, Étude économique de la France (2024)", src:"même cadre, calibré sur données françaises",
+   choc:"+29,2 points (moyenne des trois domaines)", pub:"+2,7 % de productivité", lo:0.92, hi:0.92, c:"bleu"},
+  {n:"OCDE, Adult Skills and Productivity (2024)", src:"productivité du travail par pays et secteur, PIAAC 2023",
+   choc:"+10 % de score PIAAC", pub:"+18 % de productivité du travail", lo:1.01, hi:1.29, c:"bleu"},
+  {n:"Conseil d'analyse économique (2022)", src:"horizon quinze ans, mathématiques seules",
+   choc:"+10 points en mathématiques", pub:"+0,6 à +1,4 % de productivité", lo:0.60, hi:1.40, c:"or"},
+  {n:"Hanushek, Schwerdt, Wiederhold et Woessmann (2015)", src:"rendement salarial individuel, sans externalité",
+   choc:"+1 écart-type de numératie", pub:"+17,4 % de salaire horaire", lo:0.49, hi:0.49, c:"vert"}
 ];
+const COUL={bleu:"var(--bleu)",or:"var(--or)",vert:"var(--vert)"};
 const REGLE=1.0;
 const SCORES=[[2006,493.0],[2009,497.0],[2012,499.7],[2015,495.7],[2018,493.7],[2022,478.3],[2025,465.7]];
 
-function tipHTML(tip,title,rows){
-  tip.textContent="";
-  const h=document.createElement("div");h.className="tip-head";h.textContent=title;tip.appendChild(h);
-  rows.forEach(r=>{
-    const d=document.createElement("div");d.className="tip-row";
-    const n=document.createElement("span");n.className="tip-name";n.textContent=r.name;
-    const v=document.createElement("span");v.className="tip-val";v.textContent=r.value;
-    d.appendChild(n);d.appendChild(v);tip.appendChild(d);
+function bulle(b,titre,lignes){
+  b.textContent="";
+  const t=document.createElement("div");t.className="t";t.textContent=titre;b.appendChild(t);
+  lignes.forEach(l=>{
+    const d=document.createElement("div");d.className="r";
+    const a=document.createElement("span");a.textContent=l.k;
+    const v=document.createElement("span");v.textContent=l.v;
+    d.appendChild(a);d.appendChild(v);b.appendChild(d);
   });
 }
+function txt(p){const t=el("text",{"font-family":SERIF,...p.a});t.textContent=p.s;return t;}
 
-/* ---------------- graphique 1 : les coefficients ---------------- */
+/* ================= Figure 1 : les coefficients ================= */
 (function(){
-  const W=880,rowH=58,P={t:32,r:96,b:44,l:268},H=P.t+COEF.length*rowH+P.b;
-  const mount=document.getElementById("ch-coef"),tip=document.getElementById("tip-coef");
-  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Effet sur la productivité de long terme de dix points de score PISA, selon cinq sources"});
+  const W=860,rowH=54,P={t:26,r:104,b:66,l:300},H=P.t+COEF.length*rowH+P.b;
+  const mount=document.getElementById("g-coef"),b=document.getElementById("b-coef");
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Effet sur la productivité de long terme de dix points de score PISA, cinq sources"});
   const X0=0,X1=1.8,px=v=>P.l+(v-X0)/(X1-X0)*(W-P.l-P.r);
+
+  [0.5,1.0,1.5].forEach(v=>svg.appendChild(el("line",{x1:px(v),x2:px(v),y1:P.t,y2:H-P.b,stroke:"var(--grille)","stroke-width":1})));
+  // repère de la règle retenue : pointillé gris, étiquette grise au-dessus du cadre
+  svg.appendChild(el("line",{x1:px(REGLE),x2:px(REGLE),y1:P.t-14,y2:H-P.b,stroke:"var(--gris-clair)","stroke-width":1,"stroke-dasharray":"2 3"}));
+  svg.appendChild(txt({s:"règle retenue, +1 %",a:{x:px(REGLE),y:P.t-20,"text-anchor":"middle",fill:"var(--gris)","font-size":13}}));
+  // axe des abscisses
+  svg.appendChild(el("line",{x1:px(0),x2:px(0),y1:P.t,y2:H-P.b,stroke:"var(--encre)","stroke-width":1}));
+  svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:H-P.b,y2:H-P.b,stroke:"var(--encre)","stroke-width":1}));
   [0,0.5,1.0,1.5].forEach(v=>{
-    svg.appendChild(el("line",{x1:px(v),x2:px(v),y1:P.t-12,y2:H-P.b,stroke:"var(--grid)","stroke-width":1}));
-    const t=el("text",{x:px(v),y:H-P.b+21,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
-    t.textContent="+"+fr(v,1)+" %";svg.appendChild(t);
+    svg.appendChild(el("line",{x1:px(v),x2:px(v),y1:H-P.b,y2:H-P.b+5,stroke:"var(--encre)","stroke-width":1}));
+    svg.appendChild(txt({s:(v?"+":"")+fr(v,1)+" %",a:{x:px(v),y:H-P.b+21,"text-anchor":"middle",fill:"var(--encre-2)","font-size":14}}));
   });
-  const ax=el("text",{x:px(0.9),y:H-P.b+40,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12});
-  ax.textContent="productivité de long terme, pour +10 points de score PISA moyen";svg.appendChild(ax);
-  svg.appendChild(el("line",{x1:px(REGLE),x2:px(REGLE),y1:P.t-12,y2:H-P.b,stroke:"var(--series-2)","stroke-width":1.5}));
-  const cl=el("text",{x:px(REGLE),y:P.t-19,"text-anchor":"middle",fill:"var(--series-2)","font-size":12,"font-weight":600});
-  cl.textContent="règle retenue : +1 %";svg.appendChild(cl);
+  svg.appendChild(txt({s:"% de productivité de long terme, pour +10 points de score PISA moyen",
+    a:{x:(P.l+W-P.r)/2,y:H-P.b+43,"text-anchor":"middle",fill:"var(--encre-2)","font-size":14}}));
 
   COEF.forEach((e,i)=>{
-    const y=P.t+i*rowH+rowH/2, dim=e.ctrl||e.faible;
-    const n=el("text",{x:P.l-18,y:y-3,"text-anchor":"end",fill:dim?"var(--text-secondary)":"var(--text-primary)","font-size":13,"font-weight":dim?500:600});
-    n.textContent=e.n+" ("+e.y+")";svg.appendChild(n);
-    const s=el("text",{x:P.l-18,y:y+14,"text-anchor":"end",fill:"var(--text-muted)","font-size":11.5});
-    s.textContent=e.src;svg.appendChild(s);
-    if(e.hi>e.lo)
-      svg.appendChild(el("rect",{x:px(e.lo),y:y-6,width:px(e.hi)-px(e.lo),height:12,rx:4,fill:"var(--series-1)","fill-opacity":dim?.14:.22}));
-    const mid=(e.lo+e.hi)/2;
-    svg.appendChild(el("circle",{cx:px(mid),cy:y,r:6.5,fill:"var(--series-1)","fill-opacity":dim?.45:1,stroke:"var(--surface-1)","stroke-width":2}));
-    const v=el("text",{x:W-P.r+10,y:y+5,fill:dim?"var(--text-secondary)":"var(--text-primary)","font-size":13.5,"font-weight":600,"font-family":"var(--mono)"});
-    v.textContent=e.hi>e.lo?"+"+fr(e.lo,1)+" à +"+fr(e.hi,1)+" %":pc(e.lo);svg.appendChild(v);
-    const hit=el("rect",{x:P.l-4,y:y-rowH/2,width:W-P.l-P.r+90,height:rowH,fill:"transparent",tabindex:0});
+    const y=P.t+i*rowH+rowH/2, col=COUL[e.c], mid=(e.lo+e.hi)/2;
+    svg.appendChild(txt({s:e.n,a:{x:P.l-16,y:y-2,"text-anchor":"end",fill:"var(--encre)","font-size":14.5}}));
+    svg.appendChild(txt({s:e.src,a:{x:P.l-16,y:y+15,"text-anchor":"end",fill:"var(--gris)","font-size":12.5}}));
+    if(e.hi>e.lo){
+      svg.appendChild(el("line",{x1:px(e.lo),x2:px(e.hi),y1:y,y2:y,stroke:col,"stroke-width":3.5,"stroke-linecap":"round"}));
+      svg.appendChild(el("circle",{cx:px(e.lo),cy:y,r:4.5,fill:col}));
+      svg.appendChild(el("circle",{cx:px(e.hi),cy:y,r:4.5,fill:col}));
+    } else svg.appendChild(el("circle",{cx:px(mid),cy:y,r:5,fill:col}));
+    svg.appendChild(txt({s:e.hi>e.lo?"+"+fr(e.lo,1)+" à +"+fr(e.hi,1):"+"+fr(e.lo,1),
+      a:{x:px(e.hi)+11,y:y+5,fill:col,"font-size":14.5,"font-weight":600}}));
+    const hit=el("rect",{x:P.l-4,y:y-rowH/2,width:W-P.l-P.r+92,height:rowH,fill:"transparent",tabindex:0});
     const show=()=>{
-      tipHTML(tip,e.n+" ("+e.y+")",[
-        {name:"choc étudié",value:e.choc},
-        {name:"effet publié",value:e.pub},
-        {name:"par +10 points",value:e.hi>e.lo?pc(e.lo)+" à "+pc(e.hi):pc(e.lo)}
-      ]);
+      bulle(b,e.n,[{k:"choc étudié",v:e.choc},{k:"effet publié",v:e.pub},
+                   {k:"pour +10 points",v:e.hi>e.lo?"+"+fr(e.lo,1)+" à +"+fr(e.hi,1)+" %":"+"+fr(e.lo,1)+" %"}]);
       const r=svg.getBoundingClientRect();
-      tip.style.left=(px(mid)/W*r.width)+"px";tip.style.top=((y-14)/H*r.height)+"px";tip.classList.add("on");
+      b.style.left=(px(mid)/W*r.width)+"px";b.style.top=((y-12)/H*r.height)+"px";b.classList.add("on");
     };
     hit.addEventListener("pointermove",show);hit.addEventListener("focus",show);
-    hit.addEventListener("pointerleave",()=>tip.classList.remove("on"));
-    hit.addEventListener("blur",()=>tip.classList.remove("on"));
+    hit.addEventListener("pointerleave",()=>b.classList.remove("on"));
+    hit.addEventListener("blur",()=>b.classList.remove("on"));
     svg.appendChild(hit);
+  });
+
+  // légende sous le graphique, centrée, sans cadre
+  const leg=[["bleu","estimations de niveau, retenues"],["or","horizon court, borne basse"],["vert","rendement salarial, contrôle"]];
+  let x=P.l-46;
+  const lw=leg.map(l=>l[1].length*6.6+34), tot=lw.reduce((a,c)=>a+c,0);
+  x=(P.l+W-P.r)/2-tot/2;
+  leg.forEach(([c,s],i)=>{
+    svg.appendChild(el("line",{x1:x,x2:x+18,y1:H-14,y2:H-14,stroke:COUL[c],"stroke-width":3.5,"stroke-linecap":"round"}));
+    svg.appendChild(txt({s:s,a:{x:x+25,y:H-9.5,fill:"var(--encre-2)","font-size":13.5}}));
+    x+=lw[i];
   });
   mount.appendChild(svg);
 
-  const t=document.getElementById("tb-coef");
+  // tableau
+  const t=document.getElementById("t-coef");
+  const cap=document.createElement("caption");
+  cap.innerHTML="<b>Tableau 1.</b> Les mêmes estimations, avec le choc étudié et l'effet tel qu'il est publié.";
+  t.appendChild(cap);
   const th=document.createElement("thead"),tr=document.createElement("tr");
-  ["Étude","Choc étudié","Effet publié","Pour +10 points"].forEach(h=>{const c=document.createElement("th");c.textContent=h;tr.appendChild(c);});
+  ["Source","Choc étudié","Effet publié","Pour +10 points"].forEach(h=>{const c=document.createElement("th");c.textContent=h;tr.appendChild(c);});
   th.appendChild(tr);t.appendChild(th);
   const tb=document.createElement("tbody");
   COEF.forEach(e=>{
-    const x=document.createElement("tr");if(e.ctrl)x.className="ctrl";
-    const cells=[[e.n+" ("+e.y+")","txt k"],[e.choc,"txt"],[e.pub,"txt"],
-                 [(e.hi>e.lo?pc(e.lo)+" à "+pc(e.hi):pc(e.lo))+(e.faible?" *":""),"res"]];
-    cells.forEach(([v,cl])=>{const c=document.createElement("td");c.textContent=v;c.className=cl;x.appendChild(c);});
+    const x=document.createElement("tr");if(e.c==="vert")x.className="ctrl";
+    const v=(e.hi>e.lo?"+"+fr(e.lo,1)+" à +"+fr(e.hi,1):"+"+fr(e.lo,1))+" %"+(e.c==="or"?" *":"");
+    [[e.n,""],[e.choc,""],[e.pub,""],[v,"num"]].forEach(([s,cl])=>{
+      const c=document.createElement("td");c.textContent=s;if(cl)c.className=cl;x.appendChild(c);
+    });
     tb.appendChild(x);
   });
   t.appendChild(tb);
-  const cap=document.createElement("caption");
-  cap.style.cssText="caption-side:bottom;text-align:left;font-size:12px;color:var(--text-muted);padding-top:10px";
-  cap.textContent="* horizon 15 ans et mathématiques seules : borne basse, exclue de la fourchette centrale.";
-  t.appendChild(cap);
 })();
 
-/* ---------------- graphique 2 : le choc français ---------------- */
+/* ================= Figure 2 : le choc français ================= */
 (function(){
-  const W=880,H=300,P={t:22,r:104,b:38,l:48};
-  const mount=document.getElementById("ch-choc"),tip=document.getElementById("tip-choc");
-  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Score PISA moyen de la France sur les trois domaines, de 2006 à 2025"});
-  const X=[2006,2025],Y=[460,505];
+  const W=860,H=310,P={t:24,r:118,b:46,l:58};
+  const mount=document.getElementById("g-choc"),b=document.getElementById("b-choc");
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Score PISA moyen de la France sur les trois domaines de 2006 à 2025"});
+  const X=[2006,2025],Y=[462,503];
   const px=v=>P.l+(v-X[0])/(X[1]-X[0])*(W-P.l-P.r), py=v=>P.t+(Y[1]-v)/(Y[1]-Y[0])*(H-P.t-P.b);
-  [465,475,485,495,505].forEach(v=>{
-    svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:py(v),y2:py(v),stroke:"var(--grid)","stroke-width":1}));
-    const t=el("text",{x:P.l-10,y:py(v)+4,"text-anchor":"end",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
-    t.textContent=String(v);svg.appendChild(t);
+  [470,480,490,500].forEach(v=>{
+    svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:py(v),y2:py(v),stroke:"var(--grille)","stroke-width":1}));
+    svg.appendChild(txt({s:String(v),a:{x:P.l-9,y:py(v)+5,"text-anchor":"end",fill:"var(--encre-2)","font-size":14}}));
   });
-  svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:H-P.b,y2:H-P.b,stroke:"var(--axis)","stroke-width":1}));
+  svg.appendChild(el("line",{x1:P.l,x2:W-P.r,y1:H-P.b,y2:H-P.b,stroke:"var(--encre)","stroke-width":1}));
   SCORES.forEach(p=>{
-    const t=el("text",{x:px(p[0]),y:H-P.b+22,"text-anchor":"middle",fill:"var(--text-muted)","font-size":12,"font-family":"var(--mono)"});
-    t.textContent=String(p[0]);svg.appendChild(t);
+    svg.appendChild(el("line",{x1:px(p[0]),x2:px(p[0]),y1:H-P.b,y2:H-P.b+5,stroke:"var(--encre)","stroke-width":1}));
+    svg.appendChild(txt({s:String(p[0]),a:{x:px(p[0]),y:H-P.b+21,"text-anchor":"middle",fill:"var(--encre-2)","font-size":14}}));
   });
+  svg.appendChild(txt({s:"score moyen",
+    a:{x:15,y:(P.t+H-P.b)/2,"text-anchor":"middle",fill:"var(--bleu)","font-size":13.5,transform:`rotate(-90 15 ${(P.t+H-P.b)/2})`}}));
   let d="";SCORES.forEach((p,i)=>{d+=(i?"L":"M")+px(p[0])+","+py(p[1]);});
-  svg.appendChild(el("path",{d:d,fill:"none",stroke:"var(--series-1)","stroke-width":2.5,"stroke-linejoin":"round","stroke-linecap":"round"}));
-  SCORES.forEach(p=>svg.appendChild(el("circle",{cx:px(p[0]),cy:py(p[1]),r:4.5,fill:"var(--series-1)",stroke:"var(--surface-1)","stroke-width":2})));
-  [[2018,493.7,"middle",-14],[2025,465.7,"end",-14]].forEach(([x,y,an,dy])=>{
-    const t=el("text",{x:px(x),y:py(y)+dy,"text-anchor":an,fill:"var(--text-primary)","font-size":13,"font-weight":600,"font-family":"var(--mono)"});
-    t.textContent=fr(y,1);svg.appendChild(t);
-  });
-  const bx=px(2025)+24;
-  svg.appendChild(el("line",{x1:bx,x2:bx,y1:py(493.7),y2:py(465.7),stroke:"var(--series-2)","stroke-width":2}));
-  [py(493.7),py(465.7)].forEach(yy=>svg.appendChild(el("line",{x1:bx-6,x2:bx+6,y1:yy,y2:yy,stroke:"var(--series-2)","stroke-width":2})));
-  const lab=el("text",{x:bx+12,y:(py(493.7)+py(465.7))/2+1,fill:"var(--text-primary)","font-size":13,"font-weight":600});
-  lab.textContent="−28 pts";svg.appendChild(lab);
+  svg.appendChild(el("path",{d:d,fill:"none",stroke:"var(--bleu)","stroke-width":2,"stroke-linejoin":"round","stroke-linecap":"round"}));
+  SCORES.forEach(p=>svg.appendChild(el("circle",{cx:px(p[0]),cy:py(p[1]),r:3.4,fill:"var(--bleu)"})));
+  svg.appendChild(txt({s:"493,7",a:{x:px(2018),y:py(493.7)-13,"text-anchor":"middle",fill:"var(--bleu)","font-size":14,"font-weight":600}}));
+  svg.appendChild(txt({s:"465,7",a:{x:px(2025)-16,y:py(465.7)+17,"text-anchor":"middle",fill:"var(--bleu)","font-size":14,"font-weight":600}}));
+  // accolade de l'écart, à droite
+  const bx=px(2025)+26;
+  svg.appendChild(el("line",{x1:bx,x2:bx,y1:py(493.7),y2:py(465.7),stroke:"var(--gris)","stroke-width":1}));
+  [py(493.7),py(465.7)].forEach(yy=>svg.appendChild(el("line",{x1:bx-4,x2:bx+4,y1:yy,y2:yy,stroke:"var(--gris)","stroke-width":1})));
+  svg.appendChild(txt({s:"−28 points",a:{x:bx+9,y:(py(493.7)+py(465.7))/2-1,fill:"var(--encre)","font-size":14,"font-weight":600}}));
+  svg.appendChild(txt({s:"2018 → 2025",a:{x:bx+9,y:(py(493.7)+py(465.7))/2+16,fill:"var(--gris)","font-size":12.5}}));
 
-  const hair=el("line",{x1:0,x2:0,y1:P.t,y2:H-P.b,stroke:"var(--axis)","stroke-width":1,opacity:0});svg.appendChild(hair);
-  const mk=el("circle",{r:5.5,fill:"var(--series-1)",stroke:"var(--surface-1)","stroke-width":2,opacity:0});svg.appendChild(mk);
+  const hair=el("line",{x1:0,x2:0,y1:P.t,y2:H-P.b,stroke:"var(--gris-clair)","stroke-width":1,opacity:0});svg.appendChild(hair);
+  const mk=el("circle",{r:4.6,fill:"var(--bleu)",opacity:0});svg.appendChild(mk);
   const hit=el("rect",{x:P.l,y:P.t,width:W-P.l-P.r,height:H-P.t-P.b,fill:"transparent"});svg.appendChild(hit);
   mount.appendChild(svg);
   hit.addEventListener("pointermove",ev=>{
@@ -331,11 +387,10 @@ function tipHTML(tip,title,rows){
     hair.setAttribute("x1",px(best[0]));hair.setAttribute("x2",px(best[0]));hair.setAttribute("opacity",1);
     mk.setAttribute("cx",px(best[0]));mk.setAttribute("cy",py(best[1]));mk.setAttribute("opacity",1);
     const dd=best[1]-493.7;
-    tipHTML(tip,"PISA "+best[0],[{name:"moyenne 3 domaines",value:fr(best[1],1)},
-      {name:"écart à 2018",value:(dd>0?"+":"−")+fr(Math.abs(dd),1)+" pts"}]);
-    tip.style.left=(px(best[0])/W*r.width)+"px";tip.style.top=(P.t/H*r.height+14)+"px";tip.classList.add("on");
+    bulle(b,"PISA "+best[0],[{k:"score moyen",v:fr(best[1],1)},{k:"écart à 2018",v:(dd>0?"+":"−")+fr(Math.abs(dd),1)+" pts"}]);
+    b.style.left=(px(best[0])/W*r.width)+"px";b.style.top=(P.t/H*r.height+12)+"px";b.classList.add("on");
   });
-  hit.addEventListener("pointerleave",()=>{hair.setAttribute("opacity",0);mk.setAttribute("opacity",0);tip.classList.remove("on");});
+  hit.addEventListener("pointerleave",()=>{hair.setAttribute("opacity",0);mk.setAttribute("opacity",0);b.classList.remove("on");});
 })();
 })();
 </script>
