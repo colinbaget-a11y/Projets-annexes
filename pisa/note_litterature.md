@@ -110,3 +110,44 @@ Ce qui ferait le plus bouger ces nombres, par ordre : (1) le passage des compét
 **Lues en entier** (version indiquée si différente de la publication) : Avvisati & Givord 2021 WP 257 et WP 249 ; OCDE PISA 2009, 2012, 2018, 2022, 2025 Vol. I (passages sur l'interprétation des scores) ; Hill, Bloom, Black & Lipsey 2008 (MDRC 2007) ; Luyten & Veldkamp 2011 (IRC 2008) ; Cliffordson 2008 ; Carlsson, Dahl, Öckert & Rooth 2015 (NBER 18484) ; Woessmann 2016 JEP ; Givord 2024 Insee Analyses 96 ; DEPP NI 23.48 et 26.40 ; Hanushek & Kimko 2000 ; Hanushek & Woessmann 2008 JEL, 2011 Economic Policy, 2012 JEG, 2020 OECD WP 225, 2021 Oxford Research Encyclopedia ; OCDE 2010 High Cost ; Breton 2011 (WP EAFIT) ; Appleton, Atherton & Bleaney 2008 ; Angrist, Djankov, Goldberg & Patrinos 2021 Nature (+ WP 8742) ; Heller-Sahlgren & Jordahl 2021 (IFN 1408) ; Jones 1995 QJE ; Hanushek, Schwerdt, Wiederhold & Woessmann 2015 EER ; Hampf, Wiederhold & Woessmann 2017 ; Chetty, Friedman & Rockoff 2014b (NBER 19424) ; Chetty et al. 2011 (WP) ; Watts 2020 ; Hanushek, Ruhose & Woessmann 2017 (NBER 21295) ; Hendricks & Schoellman 2018 (WP 2016) ; Psacharopoulos et al. 2021 (IZA 13641) ; Filmer et al. 2020 (WB 8591) ; Égert, de la Maisonneuve & Turner 2022 ; de la Maisonneuve, Égert & Turner 2022 (WP 1729) ; Andrews, Égert & de la Maisonneuve 2024 ; OCDE 2024 PIAAC et productivité ; CAE Note 75 et Focus 91, 92, 112 ; Trésor-Éco 377 ; HCSP Note d'analyse 155.
 
 **Non accessibles, non résumés** : Komatsu & Rappleye 2017 (Comparative Education) ; Rappleye & Komatsu 2019/2021 ; Ramirez, Luo, Schofer & Meyer 2006 ; Hanushek & Woessmann 2015 (livre) ; Gustafsson 2016 (résumé seul) ; Borgonovi et al. 2017 ; Schoellman 2012 (diapositives seulement) ; Luyten 2006 ; Luyten, Peschar & Coe 2008 ; Branche-Seigeot 2015 (Dares) ; OCDE Skills Matter 2016 ; Note du CAE de septembre 2026 sur l'école (PDF non trouvé).
+
+---
+
+# Annexe : d'où vient chaque coefficient du tableau principal
+
+Unité commune : effet sur le niveau de productivité de long terme d'une hausse durable de 10 points sur la
+**moyenne des trois domaines**. Base des logarithmes : 493,7 (France 2018), soit Δlog = +2,03 % pour 10 points.
+
+**Étape commune, PISA → compétences adultes.** Élasticité log-log de 0,278 (Égert, de la Maisonneuve & Turner
+2022, Table 4, col. 5, années d'études en contrôle). 10 points PISA → +0,56 % de score PIAAC → avec une
+moyenne française de 262,7 et un écart-type de 53,0, +0,028 écart-type adulte. Jamais un pour un.
+
+1. **Égert et al. 2022.** Capital humain → PGF, élasticité 2,36 (32 pays) à 2,84 (14 pays), panel DOLS avec
+   effets fixes pays. 0,278 × 2,36 à 2,84 × 2,03 % = **+1,33 à +1,60 %**. Contrôle : leur Table 8 publie
+   +3,4 à +4,1 % de PGF pour +5,14 % de score, soit +25,5 points, ce qui redonne +1,33 à +1,61 % pour 10 points.
+   Le CAE (Focus 91) cite indépendamment « entre 1,36 et 1,64 % » pour +10 points, ce qui confirme la lecture.
+2. **OCDE, Étude économique de la France 2024** (Table 5.2, p. 93). +2,7 % de productivité pour l'écart au
+   top 10 de l'OCDE dans chacun des trois domaines. Écart calculé sur PISA 2022 : top 10 en mathématiques
+   503,0, en compréhension de l'écrit 505,2, en sciences 514,2, moyenne 507,5 ; France 478,3 ; écart 29,2 points.
+   2,7 / 29,2 × 10 = **+0,92 %**.
+3. **OCDE, Adult Skills and Productivity (2024).** Productivité du travail au niveau pays × secteur régressée
+   sur le log du score PIAAC 2023 : coefficient 2,293 (Table 1, col. 1) ; le scénario agrégé de la note
+   (+10 % de score chez les trois premiers pays → +18 % de productivité) implique 1,8.
+   0,278 × 1,8 à 2,29 × 2,03 % = **+1,01 à +1,29 %**. Pas de contrôle de capital dans la régression, donc
+   l'élasticité inclut déjà l'approfondissement du capital.
+4. **CAE, Focus n° 91 (2022).** +10 points en mathématiques sur cinq ans puis plateau → +0,6 à +1,4 % de
+   productivité **à quinze ans**, donc avec un renouvellement partiel des cohortes, et sur un seul domaine.
+   Borne basse, exclue de la fourchette centrale.
+5. **Contrôle micro, Hanushek, Schwerdt, Wiederhold & Woessmann 2015.** +17,4 % de salaire horaire par
+   écart-type de numératie en France (PIAAC, salariés à temps plein de 35-54 ans). Le capital humain étant
+   augmentatif du travail, le produit par travailleur varie comme le salaire à ratio capital/production
+   constant : 0,174 × 0,028 = **+0,49 %**. Aucune externalité, aucun effet d'allocation.
+
+**Borne haute, régressions de croissance.** OCDE (2010), coefficient 1,736 point de croissance annuelle par
+écart-type : pour la France, +25 points valent +24,3 % de PIB en 2090, soit **+9,7 % pour 10 points** à cet
+horizon, l'écart continuant de croître ensuite. Cadre conceptuel différent, gardé hors du tableau.
+
+**Non retenu.** Andrews, Égert & de la Maisonneuve (2024, WP 1827) chiffrent la baisse OCDE de 2009-2018 à
+−1 % de productivité de long terme, mais sur leur propre série de scores chaînée avec la base Banque mondiale
+(−5,1 points là où la moyenne OCDE brute des trois domaines recule de 8,4) : l'échelle n'est pas celle des
+autres lignes et la conversion par 10 points serait fausse.
