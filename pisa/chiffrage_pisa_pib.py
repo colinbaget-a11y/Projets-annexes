@@ -1,94 +1,113 @@
 """
-Chiffrages simples : baisse des scores PISA de la France
-  1) équivalent en années de scolarité perdues
-  2) équivalent en PIB de long terme (deux cadres : effet de niveau vs effet de croissance)
+Effet de long terme d'une baisse durable des scores PISA français sur le PIB par tête.
 
-Toutes les hypothèses sont des paramètres explicites ci-dessous.
+Un seul choc, trois estimations, un même objet mesuré :
+  écart de niveau de PIB réel par tête (≈ productivité du travail à taux d'emploi inchangé)
+  une fois la population active entièrement composée de générations ayant subi la baisse.
+
+Toutes les hypothèses sont des constantes nommées ci-dessous. Sources : note_chiffrage.md.
 """
-import numpy as np
+import math
 
-# ---------- Scores France (moyennes OCDE publiées) ----------
-# Seules les comparaisons depuis l'année où le domaine était majeur sont valides :
-# lecture depuis 2000, maths depuis 2003, sciences depuis 2006.
-FRANCE = {
-    "maths":   {2003: 511, 2006: 496, 2009: 497, 2012: 495, 2015: 493, 2018: 495, 2022: 474, 2025: 458},
-    "lecture": {2000: 505, 2003: 496, 2006: 488, 2009: 496, 2012: 505, 2015: 499, 2018: 493, 2022: 474, 2025: 456},
-    "sciences":{2006: 495, 2009: 498, 2012: 499, 2015: 495, 2018: 493, 2022: 487, 2025: 483},
-}
-SD_PISA = 100.0   # écart-type élève OCDE à la base de l'échelle (Hanushek-Woessmann raisonnent dans cette unité)
+# ---------------------------------------------------------------- le choc
+# Moyenne des trois domaines (maths, compréhension de l'écrit, sciences).
+# Comparable à partir de 2006 seulement : les sciences ne sont majeures qu'à partir de ce cycle.
+FRANCE = {2006: (496, 488, 495), 2009: (497, 496, 498), 2012: (495, 505, 499),
+          2015: (493, 499, 495), 2018: (495, 493, 493), 2022: (474, 474, 487),
+          2025: (458, 456, 483)}
+MOYENNE = {y: sum(v) / 3 for y, v in FRANCE.items()}
+SD_ELEVE = 100.0          # écart-type élève, par construction de l'échelle PISA
+REFERENCE, COURANT = 2018, 2025
 
-# ---------- Paramètre 1 : points PISA par année de scolarité ----------
-POINTS_PAR_ANNEE = {
-    "Avvisati-Givord 2021, moyenne 31 pays (~1/5 SD)": 20,
-    "Avvisati-Givord 2021, pays riches européens (>=25)": 25,
-    "Hanushek-Woessmann 2020, règle 1 an = 1/3 SD": 33.3,
-    "Ancienne règle OCDE (rapports PISA <=2012)": 40,
-}
+# ------------------------------------------------- PISA 15 ans -> compétences adultes
+# Élasticité log(score PIAAC de la cohorte) / log(score PISA de la même cohorte),
+# Égert, de la Maisonneuve & Turner (2022, OECD ECO WP 1709), Table 4 : 0,278 avec les
+# années d'études en contrôle (valeur retenue par l'OCDE), 0,603 sans.
+# On NE suppose JAMAIS qu'un écart-type PISA devient un écart-type PIAAC.
+ELAST_PIAAC = {"retenue (années d'études contrôlées)": 0.278, "haute (sans contrôle)": 0.603}
+PIAAC_MOYENNE, PIAAC_SD = 262.7, 53.0   # France, numératie (Hanushek et al. 2015, Table 1)
 
-# ---------- Paramètre 2a : effet de niveau via rendement des compétences (PIAAC) ----------
-RENDEMENT_PAR_SD = {"France (HSWW 2015, Table 2)": 0.174, "Pooled 23 pays (HSWW 2015)": 0.178}
-# ---------- Paramètre 2b : effet de croissance (Hanushek-Woessmann 2012/2020) ----------
-CROISSANCE_PAR_SD = 1.98  # points de % de croissance annuelle du PIB/tête par SD de compétences de la main-d'oeuvre
-ANNEES_VIE_ACTIVE = 45    # durée pour que toute la main-d'oeuvre soit composée des cohortes touchées
-BASE_YEAR = 2025
+# ------------------------------------------------------------- les trois élasticités
+# 1. Cadre macro OCDE : capital humain -> productivité globale des facteurs.
+ELAST_PGF = (2.36, 2.84)                 # Égert et al. 2022, panel DOLS, effets fixes pays
+OCDE_FRANCE_PAR_POINT = 2.7 / 29.2       # Étude économique France 2024 : +2,7 % pour +29,2 points
+PART_CAPITAL = 1 / 3                     # PGF -> PIB par tête : ÷ (1 - part du capital)
 
-def baisse(domaine, depuis):
-    s = FRANCE[domaine]; return s[depuis] - s[2025]
+# 2. Productivité du travail sectorielle, PIAAC 2023 (OCDE 2024) : élasticité au score adulte.
+ELAST_SECTORIELLE = (1.80, 2.29)         # scénario agrégé (18 % pour 10 %) ; Table 1 col. 1
 
-def annees_perdues(delta_pts):
-    return {k: delta_pts / v for k, v in POINTS_PAR_ANNEE.items()}
+# 3. Rendement individuel des compétences, France (Hanushek et al. 2015, PIAAC).
+RENDEMENT = {"à diplôme donné": 0.094, "total": 0.174, "corrigé de l'erreur de mesure": 0.20}
 
-def pib_niveau(delta_pts, rendement):
-    """Effet de long terme sur log PIB/tête une fois toutes les cohortes remplacées."""
-    return -rendement * delta_pts / SD_PISA
+# ------------------------------------------------------------------ diffusion
+ENTREE, RENOUVELLEMENT_COMPLET = 2030, 2075
 
-def pib_croissance(delta_pts, horizon):
-    """Cadre H&W : la croissance annuelle baisse de 1.98 pp x SD x (part de la main-d'oeuvre touchée).
-    Baisse permanente pour toutes les cohortes à partir de BASE_YEAR ; la part touchée monte linéairement
-    de 0 à 1 sur ANNEES_VIE_ACTIVE. Retourne l'écart de log PIB à l'horizon."""
-    dS = delta_pts / SD_PISA
-    T = horizon - BASE_YEAR
-    ramp = min(T, ANNEES_VIE_ACTIVE)
-    integ = ramp**2 / (2 * ANNEES_VIE_ACTIVE) + max(0, T - ANNEES_VIE_ACTIVE)   # ∫ part(t) dt
-    return -(CROISSANCE_PAR_SD / 100) * dS * integ
+pct = lambda dlog: 100 * (math.exp(dlog) - 1)
 
-if __name__ == "__main__":
-    scen = [("maths", 2003), ("maths", 2018), ("maths", 2022), ("lecture", 2000), ("lecture", 2018), ("sciences", 2006)]
-    print("=== 1) Années de scolarité perdues (par élève de 15 ans, 2025 vs année de référence) ===")
-    for d, y in scen:
-        dp = baisse(d, y)
-        print(f"\n{d} : {FRANCE[d][y]} ({y}) -> {FRANCE[d][2025]} (2025) = {dp:+d} pts = {dp/SD_PISA:.2f} SD")
-        for k, v in annees_perdues(dp).items(): print(f"   {v:4.1f} an(s)  [{k}]")
-    print("\n=== 2a) PIB de long terme, effet de niveau (log-points, toutes cohortes remplacées) ===")
-    for d, y in scen:
-        dp = baisse(d, y)
-        vals = "  ".join(f"{100*pib_niveau(dp, r):+.1f}% [{k.split(' (')[0]}]" for k, r in RENDEMENT_PAR_SD.items())
-        print(f"{d} depuis {y} ({dp:+d} pts) : {vals}")
-    print("\n=== 2b) PIB, cadre 'effet de croissance' H&W (écart de log PIB à l'horizon) ===")
-    for d, y in scen:
-        dp = baisse(d, y)
-        print(f"{d} depuis {y} ({dp:+d} pts) : croissance -{CROISSANCE_PAR_SD*dp/SD_PISA:.2f} pp/an à terme ; "
-              + "  ".join(f"{h}: {100*pib_croissance(dp,h):+.0f}%" for h in (2040, 2050, 2075, 2100)))
 
-# ---------- Paramètre 2c : cadre macro OCDE (Égert, de la Maisonneuve & Turner 2022, WP 1709) ----------
-# Stock de capital humain = moyenne par cohorte des scores PISA passés (qualité) et des années d'études (quantité).
-# Élasticité des scores adultes (PIAAC) aux scores élèves : 0,278 (avec années d'études, Table 4 col. 5) à 0,603 (sans).
-# Élasticité de la PGF au stock de capital humain : 2,36 (32 pays) à 2,84 (14 pays), panel DOLS avec effets fixes pays.
-# Unité : moyenne des trois domaines, en log. Effet de long terme (~50 ans de renouvellement + ajustement).
-E_ATS = {"avec années d'études (retenu par l'OCDE)": 0.278, "sans années d'études": 0.603}
-E_MFP = (2.36, 2.84)
-FRANCE_3DOM = {y: (FRANCE["maths"][y] + FRANCE["lecture"][y] + FRANCE["sciences"][y]) / 3
-               for y in (2006, 2009, 2012, 2015, 2018, 2022, 2025)}
+def choc(reference=REFERENCE):
+    """Baisse en points, en écarts-types élève et en log."""
+    d = MOYENNE[COURANT] - MOYENNE[reference]
+    return d, d / SD_ELEVE, math.log(MOYENNE[COURANT] / MOYENNE[reference])
 
-def pgf_ocde(depuis, e_ats):
-    import math
-    dlog = math.log(FRANCE_3DOM[2025] / FRANCE_3DOM[depuis])
-    return [100 * (math.exp(dlog * e_ats * e) - 1) for e in E_MFP]
+
+def competences_adultes(dlog_pisa, elasticite):
+    """Retourne (variation en log du score PIAAC, variation en écarts-types adultes)."""
+    dlog = elasticite * dlog_pisa
+    return dlog, dlog * PIAAC_MOYENNE / PIAAC_SD
+
+
+def estimation_1(dlog_pisa, elasticite_piaac):
+    """Cadre macro OCDE : PISA -> capital humain -> PGF -> PIB par tête."""
+    dlog_ats, _ = competences_adultes(dlog_pisa, elasticite_piaac)
+    generique = tuple(pct(e * dlog_ats / (1 - PART_CAPITAL)) for e in ELAST_PGF)
+    france = pct(dlog_pisa * MOYENNE[REFERENCE] * OCDE_FRANCE_PAR_POINT / 100 / (1 - PART_CAPITAL))
+    return france, generique
+
+
+def estimation_2(dlog_pisa, elasticite_piaac):
+    """Productivité du travail sectorielle : PISA -> PIAAC -> productivité (OCDE 2024)."""
+    dlog_ats, _ = competences_adultes(dlog_pisa, elasticite_piaac)
+    return tuple(pct(e * dlog_ats) for e in ELAST_SECTORIELLE)
+
+
+def estimation_3(dlog_pisa, elasticite_piaac):
+    """Micro : PISA -> PIAAC -> rendement des compétences, sans externalité."""
+    _, dsd = competences_adultes(dlog_pisa, elasticite_piaac)
+    return {k: pct(r * dsd) for k, r in RENDEMENT.items()}
+
+
+def diffusion(effet_complet, annee):
+    part = min(1.0, max(0.0, (annee - ENTREE) / (RENOUVELLEMENT_COMPLET - ENTREE)))
+    return part, effet_complet * part
+
 
 if __name__ == "__main__":
-    print("\n=== 2c) PGF de long terme, cadre OCDE (moyenne des trois domaines) ===")
-    for y in (2006, 2012, 2018):
-        d = FRANCE_3DOM[2025] - FRANCE_3DOM[y]
-        for k, e in E_ATS.items():
-            lo, hi = pgf_ocde(y, e)
-            print(f"depuis {y} ({d:+.0f} pts sur la moyenne des 3 domaines) : PGF {lo:+.1f} % à {hi:+.1f} %  [élasticité PIAAC/PISA {e}, {k}]")
+    print("=== 1. Le choc (moyenne des trois domaines) ===")
+    for y in sorted(MOYENNE):
+        print(f"   {y} : {MOYENNE[y]:.1f}")
+    for ref in (2018, 2006):
+        d, dsd, dlog = choc(ref)
+        print(f"   {ref} -> 2025 : {d:+.1f} points = {dsd:+.2f} écart-type élève ({100*dlog:+.2f} % en log)")
+
+    _, _, dlog_pisa = choc()
+    print("\n=== 2. Étape commune : PISA à 15 ans -> compétences adultes ===")
+    for lab, e in ELAST_PIAAC.items():
+        dlog_ats, dsd = competences_adultes(dlog_pisa, e)
+        print(f"   élasticité {e} [{lab}] : score PIAAC {100*dlog_ats:+.2f} % = {dsd:+.3f} écart-type adulte"
+              f"  (persistance {abs(dsd)/abs(choc()[1]):.2f} SD par SD)")
+
+    e = ELAST_PIAAC["retenue (années d'études contrôlées)"]
+    print("\n=== 3. Trois estimations du PIB par tête de long terme ===")
+    fr, gen = estimation_1(dlog_pisa, e)
+    print(f"   1. Cadre macro OCDE      : {fr:+.1f} %   (calibration France 2024)"
+          f" ; élasticités génériques {gen[0]:+.1f} à {gen[1]:+.1f} %")
+    s = estimation_2(dlog_pisa, e)
+    print(f"   2. Productivité sectorielle : {s[0]:+.1f} à {s[1]:+.1f} %")
+    m = estimation_3(dlog_pisa, e)
+    print("   3. Micro, rendement      : " + " ; ".join(f"{v:+.1f} % [{k}]" for k, v in m.items()))
+
+    print("\n=== 4. Diffusion dans le temps (effet complet -3 %) ===")
+    for t in (2035, 2040, 2050, 2060, 2070, 2075):
+        part, v = diffusion(-3.0, t)
+        print(f"   {t} : {100*part:3.0f} % de l'effet  ->  {v:+.1f} %")

@@ -1,93 +1,141 @@
-# Baisse des scores PISA de la France : deux chiffrages à grand trait
+# Ce que coûterait une baisse durable du niveau scolaire français
 
-## Données (moyennes publiées, échelle PISA : moyenne OCDE 500 / écart-type élève 100 à l'année de base)
+**Question.** Si le niveau de compétences observé à PISA 2025 devenait durablement celui des générations
+françaises à venir, de combien le PIB par tête serait-il inférieur, une fois ces générations devenues
+l'ensemble de la population active, à ce qu'il aurait été au niveau de 2018 ?
 
-Les comparaisons ne sont valides qu'à partir du cycle où le domaine a été « majeur » : lecture depuis 2000,
-maths depuis 2003, sciences depuis 2006.
+**Réponse.** Environ **−3 %**, avec une fourchette plausible de −1 % à −6 %. C'est un scénario, pas une
+prévision : si les scores remontent, la perte est bien plus faible et transitoire.
 
-| France | 2000 | 2003 | 2006 | 2009 | 2012 | 2015 | 2018 | 2022 | 2025 |
-|---|---|---|---|---|---|---|---|---|---|
-| Maths | – | 511 | 496 | 497 | 495 | 493 | 495 | 474 | 458 |
-| Lecture | 505 | 496 | 488 | 496 | 505 | 499 | 493 | 474 | 456 |
-| Sciences | – | – | 495 | 498 | 499 | 495 | 493 | 487 | 483 |
+---
 
-Sources : 2022 et 2025 — notes DEPP n° 26.40 (sept. 2026) et notes pays OCDE (PISA 2022 et 2025) ;
-2003 maths (511) — DEPP 26.40 ; cycles intermédiaires — tableaux OCDE repris par l'IFRAP (les tableaux
-de tendance de l'OCDE eux-mêmes sont sur des pages inaccessibles depuis cet environnement).
-Moyenne OCDE : maths 485 (2015) → 463 (2025), sciences 489 → 482 (PISA 2025 Vol. I).
+## 1. Le choc que l'on chiffre
 
-Écarts retenus : maths −53 pts depuis 2003 (−37 depuis 2018, −16 depuis 2022) ; lecture −49 depuis 2000
-(−37 depuis 2018) ; sciences −12 depuis 2006. En écart-type élève : 0,53 / 0,37 / 0,16 / 0,49 / 0,12.
+Moyenne des trois domaines (mathématiques, compréhension de l'écrit, sciences), France, série comparable
+depuis 2006 :
 
-## 1. Équivalent en années de scolarité
+| 2006 | 2009 | 2012 | 2015 | 2018 | 2022 | 2025 |
+|---|---|---|---|---|---|---|
+| 493,0 | 497,0 | 499,7 | 495,7 | 493,7 | 478,3 | 465,7 |
 
-Paramètre : le rythme auquel une cohorte progresse en un an autour de 15 ans, maturation comprise (détail et sources dans `note_litterature.md`, section 1).
+**De 2018 à 2025, la France perd 28 points, soit 0,28 écart-type élève** (l'échelle PISA a un écart-type de
+100 points par construction). Le choix de la référence change peu : par rapport à la moyenne 2006-2018
+(495,8), la perte est de 30 points ; par rapport à 2006, de 27 points. Le niveau était stable entre 2006 et
+2018, la baisse est entièrement postérieure.
 
-* Avvisati & Givord (2021, WP 257 et 249) : discontinuité de date de naissance à âge d'entrée constant, PISA 2015-2018 : **≈ 20 points en moyenne (18 pays)** ; Autriche 26, Écosse 30, Luxembourg 31, Allemagne 34, Suisse 36. PISA 2025 Vol. I (Table I.2.7, 10 pays, 2015-2025) : ≈ 20, Angleterre 27, Écosse 29. L'OCDE a adopté 20 points comme référence dans PISA 2022.
-* Ancienne règle OCDE (PISA 2009/2012, Table A1.2) : 39-41 points, classe non instrumentée ; France 47-49, artefact du redoublement. Écartée.
-* Hors PISA : Carlsson et al. (2015), 180 jours d'école = 0,14-0,21 SD ; Hill et al. (2008), 0,19-0,25 SD par « année de vie » autour de la 3e-2de.
-* France : pas d'estimation causale possible (cohorte PISA = cohorte d'entrée au CP) ; Givord (2024) mesure l'effet de l'âge d'entrée, 14-18 points.
+Prendre la moyenne des trois domaines plutôt que les mathématiques depuis 2003 évite de retenir le
+sous-indicateur le plus spectaculaire : la baisse en maths depuis 2003 est de 53 points, presque le double.
 
-Résultat (2025 vs référence) :
+*Repère pédagogique, hors chaîne de calcul.* Autour de 15 ans, une cohorte progresse d'environ 20 points par
+an en moyenne dans l'OCDE, 25 à 35 dans les systèmes riches d'Europe de l'Ouest (Avvisati & Givord 2021 ;
+PISA 2025 Vol. I). Une baisse de 28 points représente donc de l'ordre d'une année d'apprentissage. Cette
+conversion sert à se représenter l'ampleur du choc ; **elle n'intervient dans aucun des chiffrages qui suivent**,
+qui raisonnent directement en écarts-types.
 
-| | −53 pts (maths, 2003) | −37 pts (maths ou lecture, 2018) | −16 pts (maths, 2022) |
-|---|---|---|---|
-| 20 pts/an (référence OCDE) | 2,65 ans | 1,85 an | 0,8 an |
-| **25 pts/an (retenu)** | **2,1 ans** | **1,5 an** | 0,6 an |
-| 35 pts/an (Allemagne, Suisse) | 1,5 an | 1,05 an | 0,45 an |
+## 2. L'étape commune : de PISA à 15 ans aux compétences des adultes
 
-Lecture : un élève de 15 ans de 2025 est, en maths, au niveau qu'avait un élève de 13-13,5 ans en 2003. L'OCDE et Avvisati-Givord refusent la conversion mécanique en années de scolarité ; « l'équivalent de 1,5 à 2,5 années d'apprentissage au rythme observé autour de 15 ans » est la formulation défendable.
+Aucune des trois estimations ne suppose qu'un écart-type PISA à 15 ans devienne un écart-type PIAAC à 40 ans.
+Égert, de la Maisonneuve & Turner (2022) apparient, pour 35 pays, chaque cohorte adulte de PIAAC aux scores
+PISA de la même cohorte quinze à quarante ans plus tôt, et estiment une élasticité de 0,278 (avec les années
+d'études en contrôle, valeur retenue par l'OCDE) à 0,603 sans contrôle. Gustafsson (2016) trouve, sur les
+tendances par pays, un coefficient de 0,55.
 
-## 2. Équivalent en PIB de long terme
+Appliqué à notre choc : **−28 points PISA (−0,28 écart-type élève) deviennent −1,6 % de score PIAAC, soit
+−0,08 écart-type adulte.** La persistance est donc d'environ **0,3 écart-type adulte par écart-type élève**
+(jusqu'à 0,6 avec l'élasticité haute). C'est un facteur d'atténuation de trois, et c'est le paramètre le plus
+incertain de l'exercice.
 
-Deux cadres coexistent dans la littérature et donnent des résultats sans commune mesure.
+## 3. Trois estimations
 
-### 2a. Effet de niveau (rendement des compétences) — le chiffrage défendable
+Toutes les trois mesurent le **niveau de PIB réel par tête à très long terme**, à taux d'emploi inchangé,
+une fois toute la population active renouvelée.
 
-Mécanisme : des élèves moins compétents à 15 ans deviennent des travailleurs moins productifs ; à l'équilibre
-le salaire mesure la productivité ; quand toute la population active est composée de ces cohortes, le PIB par
-tête est plus bas dans la proportion du rendement des compétences × la perte de compétences.
+**Estimation 1 — cadre macro de l'OCDE.** Le stock de capital humain d'un pays est construit comme la moyenne
+par cohorte des scores PISA passés et des années d'études ; la productivité globale des facteurs est ensuite
+régressée sur ce stock (panel de 32 pays, 1987-2018, effets fixes pays). L'OCDE a calibré ce cadre sur la
+France dans son Étude économique de 2024 : amener les élèves français au score moyen des dix meilleurs pays
+de l'OCDE dans chacun des trois domaines, soit **+29 points**, augmenterait la productivité de **2,7 %**.
+L'écart est presque exactement l'inverse du nôtre, ce qui rend l'extrapolation triviale : **−28 points
+donnent −2,6 % de productivité globale des facteurs**, soit **−3,9 % de PIB par tête** une fois le capital
+ajusté à ratio capital/production constant (division par 1 − part du capital, prise à 1/3). Les élasticités
+génériques du papier de 2022 donneraient davantage, −5,6 à −6,7 % ; la calibration française est donc le bas
+de la fourchette de ce cadre.
 
-Paramètre : Hanushek, Schwerdt, Wiederhold & Woessmann (2015, EER), PIAAC, salaire horaire des 35-54 ans à
-temps plein : **+17,4 % de salaire par écart-type de numératie en France** (17,8 % pour les 23 pays).
+**Estimation 2 — productivité du travail sectorielle.** L'OCDE (2024) régresse la productivité du travail au
+niveau pays × secteur sur les scores PIAAC de la vague 2023, sans passer par le capital humain agrégé ni par
+la PGF. Élasticité estimée : 2,29 en spécification de base ; le scénario agrégé de la note (combler l'écart de
+10 % de score avec les trois premiers pays relèverait la productivité de 18 %) implique 1,8.
+Appliqué à −1,6 % de score adulte : **−2,9 % à −3,6 %**, disons **−3,2 %**. Données et niveau d'estimation
+différents de l'estimation 1, mais même étape PISA → PIAAC.
 
-* −0,53 SD (maths depuis 2003) → **−9 %** de PIB par tête à terme ; −0,37 SD (depuis 2018) → **−6,5 %** ;
-  −0,16 SD (depuis 2022) → −3 %.
-* Calendrier : la cohorte de 2025 entre sur le marché du travail vers 2030 ; le remplacement complet des
-  actifs prend ~45 ans. Vers 2050, un peu plus de la moitié de l'effet est réalisé (≈ −3,5 % à −5 %).
-* Fourchette (détail dans `note_litterature.md`, section 2) : à diplôme donné 0,094 (−3,4 % / −4,9 %) ; emploi inclus 0,275
-  (−9,7 % / −13,6 %) ; passage PISA → PIAAC de 0,55 plutôt que 1 (−3,5 % / −4,9 %) ; l'OLS est plutôt une borne basse
-  (Hampf et al. 2017). Cadre macro OCDE (Égert et al. 2022, moyenne des trois domaines) : −3,8 à −4,5 % de PGF pour la
-  baisse depuis 2018 avec l'élasticité PISA→PIAAC de 0,278, −8 à −9,5 % avec 0,603 ; depuis 2003-2006 : −4,6 à −5,5 % / −9,7 à −11,6 %.
-  **Retenu : ≈ −5 % (−3,5 à −10) pour la baisse depuis 2018, ≈ −8 % (−4 à −14) pour la baisse depuis 2003.**
-* Hypothèses fortes : 1 SD PISA à 15 ans ≈ 1 SD PIAAC adulte (correspondance d'échelles, pas de
-  rattrapage ultérieur) ; pass-through complet à l'emploi et au PIB (capital qui s'ajuste) ; baisse permanente
-  des cohortes futures.
+**Estimation 3 — rendement individuel des compétences.** Hanushek, Schwerdt, Wiederhold & Woessmann (2015)
+estiment sur PIAAC qu'un écart-type de numératie vaut **+17,4 % de salaire horaire en France** (salariés à
+temps plein de 35-54 ans), 9,4 % à diplôme donné. En comptabilité du développement, le capital humain étant
+augmentatif du travail, le PIB par travailleur varie comme le salaire à ratio capital/production constant.
+Appliqué à −0,08 écart-type adulte : **−1,4 %** (−0,8 % à diplôme donné, −1,6 % en corrigeant l'erreur de
+mesure). Cette estimation n'inclut par construction **aucune externalité** ni effet d'allocation des
+compétences : c'est un plancher.
 
-### 2b. Effet de croissance (Hanushek & Woessmann 2012, 2020) — à manier avec précaution
+## 4. Le chiffre
 
-Régression de croissance 1960-2000 sur 50 pays : **+1,98 point de croissance annuelle par SD** de
-compétences de la main-d'œuvre (1,74 sur les seuls pays de l'OCDE ; 0,6 à 1,3 quand la croissance est mesurée après les tests). Appliqué mécaniquement à une baisse permanente de −0,37 SD (maths depuis
-2018) : la croissance française serait durablement inférieure de 0,7 pt/an une fois les cohortes
-remplacées, soit un PIB inférieur de ~5 % en 2050, ~20 % en 2075, ~38 % en 2100 (−55 % en 2100 pour
-−0,53 SD). Ce n'est pas un « niveau de long terme » : l'écart croît sans borne.
+| Méthode | Ce qu'elle mesure | Effet de long terme |
+|---|---|---:|
+| 1. Cadre macro OCDE (Égert et al.), calibration France 2024 | capital humain → PGF → PIB/tête | **−3,9 %** |
+| 2. Productivité sectorielle, PIAAC 2023 (OCDE 2024) | compétences adultes → productivité du travail | **−3,2 %** |
+| 3. Rendement micro des compétences (PIAAC France) | compétences adultes → salaire ≈ productivité | **−1,4 %** |
 
-Pourquoi ne pas retenir ces chiffres comme chiffrage central : (i) la spécification impose qu'un niveau de
-compétences change durablement le taux de croissance, alors que 40 ans de données ne distinguent pas un
-effet de croissance d'un long effet de niveau ; (ii) appliqué à la baisse de la moyenne OCDE (−37 pts en maths
-depuis 2003), il impliquerait que l'OCDE entière ait perdu ~0,7 pt de croissance tendancielle — proche de
-toute sa croissance par tête ; (iii) Hanushek & Woessmann eux-mêmes ne l'utilisent que pour une seule
-cohorte touchée (COVID : −0,11 SD → −1,5 % de PIB en moyenne sur le siècle, −2,6 % en 2100).
+> **Ordre de grandeur central : environ −3 % de PIB par tête à très long terme.**
 
-Calcul officiel OCDE (2010, coef. 1,736) inversé pour la France (`simulation_ocde2010.py`) : −37 pts → PIB −5 % en 2050,
-−25 % en 2090, croissance −0,64 pt à terme ; variante néoclassique (H&W 2011) : −17,5 % en 2090, état stationnaire −29 %.
+Je retiens la médiane plutôt que la moyenne (qui donnerait −2,8 %, très proche) parce que les trois
+estimations ne sont pas trois tirages indépendants du même paramètre : les deux premières sont des relations
+macroéconomiques de forme réduite qui incorporent les externalités et les effets d'allocation des compétences,
+la troisième les exclut par construction. Elles encadrent la réponse plutôt qu'elles ne la répliquent, et
+l'écart entre −1,4 % et −3,9 % mesure exactement ce que l'on ne sait pas identifier : l'ampleur des
+externalités. Fourchette raisonnable : **−1 % à −6 %**, en tenant compte de la sensibilité au paramètre de
+persistance PISA → PIAAC.
 
-### Ce qu'on peut dire
+## 5. Comment l'effet se diffuse
 
-« Les 15 ans de 2025 ont en maths environ deux ans de scolarité de retard sur ceux de 2003 (1,5 an sur ceux
-de 2018) ; si ce niveau se maintient et se traduit un pour un en compétences adultes, le PIB par tête de long
-terme est inférieur d'environ 5 à 8 % à ce qu'il aurait été (fourchette 3,5 à 14 %), effet atteint vers 2075 et à moitié
-réalisé vers 2050. » Les scénarios « effet de croissance » donnent des pertes plusieurs fois supérieures mais reposent sur
-une identification que la littérature ne juge pas établie.
+La cohorte évaluée en 2025 entre sur le marché du travail vers 2030 ; la population active se renouvelle
+entièrement en une quarantaine d'années. L'effet monte donc lentement :
 
-Le script `chiffrage_pisa_pib.py` reproduit tous les chiffres ; chaque paramètre est modifiable en tête de fichier.
+| 2035 | 2040 | 2050 | 2060 | 2070 | 2075 |
+|---|---|---|---|---|---|
+| −0,3 % | −0,7 % | −1,3 % | −2,0 % | −2,7 % | −3,0 % |
+
+Rien de visible avant 2035, la moitié de l'effet vers 2050, l'essentiel vers 2070. L'OCDE écrit qu'il faut
+« près de cinquante ans » avant qu'une amélioration soutenue des compétences des élèves soit pleinement
+reflétée dans la population active.
+
+## 6. Approche alternative donnant des effets beaucoup plus élevés
+
+Les régressions de croissance de Hanushek & Woessmann (1,98 point de croissance annuelle par écart-type de
+compétences ; 1,74 sur les seuls pays de l'OCDE) traitent le niveau de compétences comme un déterminant du
+**taux** de croissance et non du niveau. Appliqué à notre choc avec le modèle de projection de l'OCDE (2010) :
+PIB inférieur de **20 % en 2090**, croissance de long terme abaissée de 0,5 point par an. Trois raisons de ne
+pas le retenir comme chiffrage central :
+
+- l'identification d'un effet permanent sur le taux de croissance est fragile : les séries longues ne montrent
+  aucun changement durable des taux de croissance malgré l'explosion du capital humain (Jones 1995) ;
+- le coefficient varie du simple au triple selon l'échantillon et la période (1,3 hors Asie de l'Est ; 0,6 à
+  1,3 quand la croissance est mesurée après les tests plutôt que sur la même période) ;
+- une régression de croissance conditionnelle ne distingue pas un effet de niveau, une convergence plus lente
+  et une croissance permanente ; Hanushek et Woessmann l'écrivent eux-mêmes.
+
+## 7. Trois réserves
+
+1. **C'est un scénario de permanence.** Le chiffre suppose que toutes les générations futures restent au
+   niveau de 2025. Une remontée dans dix ans rendrait la perte transitoire et bien plus petite. Ne jamais
+   écrire « PISA 2025 coûte 3 % de PIB à la France ».
+2. **La persistance des compétences de 15 ans à l'âge adulte est le maillon faible.** Elle vaut 0,3 à 0,6 selon
+   les sources, et le résultat lui est proportionnel : c'est à elle seule un facteur deux.
+3. **L'écart entre l'estimation micro et les estimations macro n'est pas identifié.** Les élasticités macro
+   sont des corrélations de panel entre pays, où tout facteur national persistant corrélé aux scores se charge
+   sur le coefficient ; l'estimation micro exclut à l'inverse toute externalité. La vérité est entre les deux,
+   sans que l'on sache où.
+
+---
+
+*Détail des sources, des identifications et des textes non accessibles : `note_litterature.md`.
+Calculs : `chiffrage_pisa_pib.py`. Réplication du modèle de croissance de l'OCDE 2010 : `simulation_ocde2010.py`.
+Accès aux fichiers PISA : `README.md`.*

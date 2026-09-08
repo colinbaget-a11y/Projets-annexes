@@ -1,4 +1,9 @@
-# Accès aux bases PISA (2000 → 2025) et chiffrage PISA / PIB
+# Chiffrage PISA / PIB, et accès aux bases PISA (2000 → 2025)
+
+**Note principale : `note_chiffrage.md`** (2 pages, la réponse et les trois estimations).
+Annexes : `note_litterature.md` (revue détaillée), `chiffrage_pisa_pib.py` (calculs),
+`simulation_ocde2010.py` (modèle de croissance OCDE 2010), `graphiques.html` (version illustrée).
+Le reste de ce fichier documente l'accès aux fichiers PISA.
 
 Vérifié le 8 septembre 2026 depuis un environnement cloud (proxy HTTPS, sans navigateur).
 
@@ -35,8 +40,6 @@ Un navigateur ne résout pas le problème ici (Chromium ne traverse pas le proxy
 python3 chiffrage_pisa_pib.py              # les deux chiffrages, paramètres explicites en tête de script
 ```
 
-Le chiffrage et ses sources sont commentés dans `note_chiffrage.md` ; la revue de littérature (25 textes lus,
-paramètres, identification, textes inaccessibles) est dans `note_litterature.md` ; `simulation_ocde2010.py` réplique
-la projection OCDE 2010 pour la France et l'inverse pour une baisse. `graphiques.html` est une page autonome
+ `graphiques.html` est une page autonome
 (ouvrir dans un navigateur) avec les cinq graphiques : série France, années de scolarité, PIB par l'effet de
 niveau, comparaison des deux cadres, accès aux fichiers ; chaque graphique a sa table de données.
