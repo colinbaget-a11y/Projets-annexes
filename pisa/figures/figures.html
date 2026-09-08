@@ -3,30 +3,29 @@
 <style>
   :root{
     --encre:#1a1a1a; --encre2:#3d3d3d; --gris:#8a8a8a; --gris2:#aaaaaa;
-    --grille:#ebeceb; --bande:#eceded; --bleu:#003399; --bleu2:#6491c6; --vert:#1f7a4d;
+    --grille:#e8e9e8; --bande:#ececec; --bleu:#003399; --bleu2:#6491c6; --vert:#1f7a4d;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#fff}
-  .fig{width:1600px;height:900px;background:#fff;padding:56px 64px 52px;
-       font-family:'SS4',Cambria,serif;color:var(--encre);display:flex;flex-direction:column}
-  .titre{font-size:34px;font-weight:600;line-height:1.18;letter-spacing:-.004em}
-  .zone{flex:1;display:flex;align-items:center;margin-top:26px}
-  .zone svg{width:100%;height:100%;display:block}
+  .fig{width:1600px;background:#fff;padding:44px 52px 40px;
+       font-family:'SS4',Cambria,serif;color:var(--encre)}
+  .titre{font-size:33px;font-weight:600;line-height:1.2;letter-spacing:-.004em;margin-bottom:20px}
+  svg{display:block;width:100%;height:auto}
 </style>
 
 <div class="fig" id="fig1">
   <div class="titre">Si le niveau de PISA 2025 devenait durable : écart de productivité de long terme</div>
-  <div class="zone"><svg id="s1" viewBox="0 0 1470 700"></svg></div>
-</div>
-
-<div class="fig" id="fig2">
-  <div class="titre">Effet de +10 points de score PISA moyen sur la productivité de long terme</div>
-  <div class="zone"><svg id="s2" viewBox="0 0 1470 700"></svg></div>
+  <svg id="s1" viewBox="0 0 1496 990"></svg>
 </div>
 
 <div class="fig" id="fig3">
   <div class="titre">France, score PISA moyen des trois domaines</div>
-  <div class="zone"><svg id="s3" viewBox="0 0 1470 700"></svg></div>
+  <svg id="s3" viewBox="0 0 1496 990"></svg>
+</div>
+
+<div class="fig" id="fig2">
+  <div class="titre">Effet de +10 points de score PISA moyen sur la productivité de long terme</div>
+  <svg id="s2" viewBox="0 0 1496 452"></svg>
 </div>
 
 <script>
@@ -35,26 +34,30 @@ const E=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAtt
 const T=(s,a)=>{const n=E("text",Object.assign({"font-family":"SS4, serif"},a));n.textContent=s;return n;};
 const fr=(v,d)=>v.toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
 const SCORES=[[2006,493.0],[2009,497.0],[2012,499.7],[2015,495.7],[2018,493.7],[2022,478.3],[2025,465.7]];
+const AXE={stroke:"var(--encre)","stroke-width":1.3};
 
-/* ===== Figure 1 : la trajectoire de l'écart de productivité ===== */
+/* ===== Figure 1 : trajectoire de l'écart de productivité ===== */
 (function(){
-  const s=document.getElementById("s1"), W=1470;
-  const L=96,R=228,T0=52,B=614;
-  const px=v=>L+(v-2025)/(2080-2025)*(W-L-R), py=v=>T0+(0.28-v)/(0.28-(-3.15))*(B-T0);
+  const s=document.getElementById("s1"), W=1496;
+  const L=104,R=222,T0=54,B=902;
+  const px=v=>L+(v-2025)/(2080-2025)*(W-L-R), py=v=>T0+(0.25-v)/(0.25-(-3.15))*(B-T0);
   const part=t=>Math.min(1,Math.max(0,(t-2030)/(2075-2030)));
   const ANS=[];for(let t=2025;t<=2080;t++)ANS.push(t);
 
   s.appendChild(E("rect",{x:px(2030),y:T0,width:px(2075)-px(2030),height:B-T0,fill:"var(--bande)"}));
-  [-1,-2,-3].forEach(v=>{
+  [-0.5,-1,-1.5,-2,-2.5,-3].forEach(v=>{
     s.appendChild(E("line",{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:"var(--grille)","stroke-width":1}));
-    s.appendChild(T("−"+Math.abs(v)+" %",{x:L-14,y:py(v)+8,"text-anchor":"end",fill:"var(--encre2)","font-size":22}));
+    s.appendChild(E("line",Object.assign({x1:L-9,x2:L,y1:py(v),y2:py(v)},AXE)));
+    s.appendChild(T("−"+fr(Math.abs(v),1)+" %",{x:L-19,y:py(v)+9,"text-anchor":"end",fill:"var(--encre2)","font-size":25}));
   });
-  s.appendChild(E("line",{x1:L,x2:W-R,y1:py(0),y2:py(0),stroke:"var(--encre)","stroke-width":1.4}));
-  s.appendChild(T("0",{x:L-14,y:py(0)+8,"text-anchor":"end",fill:"var(--encre2)","font-size":22}));
-  s.appendChild(E("line",{x1:L,x2:W-R,y1:B,y2:B,stroke:"var(--encre)","stroke-width":1.4}));
-  [2030,2040,2050,2060,2075].forEach(v=>{
-    s.appendChild(E("line",{x1:px(v),x2:px(v),y1:B,y2:B+8,stroke:"var(--encre)","stroke-width":1}));
-    s.appendChild(T(String(v),{x:px(v),y:B+36,"text-anchor":"middle",fill:"var(--encre2)","font-size":22}));
+  s.appendChild(E("line",Object.assign({x1:L,x2:W-R,y1:py(0),y2:py(0)},AXE)));
+  s.appendChild(E("line",Object.assign({x1:L-9,x2:L,y1:py(0),y2:py(0)},AXE)));
+  s.appendChild(T("0",{x:L-19,y:py(0)+9,"text-anchor":"end",fill:"var(--encre2)","font-size":25}));
+  s.appendChild(E("line",Object.assign({x1:L,x2:L,y1:T0,y2:B},AXE)));
+  s.appendChild(E("line",Object.assign({x1:L,x2:W-R,y1:B,y2:B},AXE)));
+  [2030,2040,2050,2060,2070,2080].forEach(v=>{
+    s.appendChild(E("line",Object.assign({x1:px(v),x2:px(v),y1:B,y2:B+9},AXE)));
+    s.appendChild(T(String(v),{x:px(v),y:B+42,"text-anchor":"middle",fill:"var(--encre2)","font-size":25}));
   });
 
   const trace=(cible,coul,lw,op)=>{
@@ -64,81 +67,83 @@ const SCORES=[[2006,493.0],[2009,497.0],[2012,499.7],[2015,495.7],[2018,493.7],[
     s.appendChild(E("path",{d:a,fill:coul,"fill-opacity":op}));
     let c="";ANS.forEach((t,i)=>{c+=(i?"L":"M")+px(t)+","+py(cible*part(t));});
     s.appendChild(E("path",{d:c,fill:"none",stroke:coul,"stroke-width":lw,"stroke-linecap":"round"}));
-    s.appendChild(E("circle",{cx:px(2080),cy:py(cible),r:7,fill:coul}));
+    s.appendChild(E("circle",{cx:px(2080),cy:py(cible),r:8,fill:coul}));
   };
-  trace(-2.8,"var(--bleu2)",3,.12);
-  trace(-1.27,"var(--bleu)",4,.14);
-  s.appendChild(T("−1,3 %",{x:px(2080)+16,y:py(-1.27)+2,fill:"var(--bleu)","font-size":30,"font-weight":700}));
-  s.appendChild(T("la baisse de 2025",{x:px(2080)+16,y:py(-1.27)+30,fill:"var(--gris)","font-size":19}));
-  s.appendChild(T("−2,8 %",{x:px(2080)+16,y:py(-2.8)+2,fill:"var(--bleu2)","font-size":26,"font-weight":700}));
-  s.appendChild(T("cumul depuis 2018",{x:px(2080)+16,y:py(-2.8)+30,fill:"var(--gris)","font-size":19}));
+  trace(-2.8,"var(--bleu2)",3.4,.13);
+  trace(-1.27,"var(--bleu)",4.6,.15);
+  s.appendChild(T("−1,3 %",{x:px(2080)+18,y:py(-1.27)+3,fill:"var(--bleu)","font-size":34,"font-weight":700}));
+  s.appendChild(T("la baisse de 2025",{x:px(2080)+18,y:py(-1.27)+34,fill:"var(--gris)","font-size":22}));
+  s.appendChild(T("−2,8 %",{x:px(2080)+18,y:py(-2.8)+3,fill:"var(--bleu2)","font-size":30,"font-weight":700}));
+  s.appendChild(T("cumul depuis 2018",{x:px(2080)+18,y:py(-2.8)+34,fill:"var(--gris)","font-size":22}));
   s.appendChild(T("renouvellement de la population active",
-    {x:(px(2030)+px(2075))/2,y:T0-10,"text-anchor":"middle",fill:"var(--gris)","font-size":19}));
+    {x:(px(2030)+px(2075))/2,y:T0-16,"text-anchor":"middle",fill:"var(--gris)","font-size":23}));
+})();
+
+/* ===== Figure 3 : la série française ===== */
+(function(){
+  const s=document.getElementById("s3"), W=1496;
+  const L=112,R=384,T0=44,B=902;
+  const px=v=>L+(v-2006)/(2025-2006)*(W-L-R), py=v=>T0+(502-v)/(502-462)*(B-T0);
+  [465,470,475,480,485,490,495,500].forEach(v=>{
+    s.appendChild(E("line",{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:"var(--grille)","stroke-width":1}));
+    s.appendChild(E("line",Object.assign({x1:L-9,x2:L,y1:py(v),y2:py(v)},AXE)));
+    s.appendChild(T(String(v),{x:L-19,y:py(v)+9,"text-anchor":"end",fill:"var(--encre2)","font-size":25}));
+  });
+  s.appendChild(E("line",Object.assign({x1:L,x2:L,y1:T0,y2:B},AXE)));
+  s.appendChild(E("line",Object.assign({x1:L,x2:W-R,y1:B,y2:B},AXE)));
+  SCORES.forEach(p=>{
+    s.appendChild(E("line",Object.assign({x1:px(p[0]),x2:px(p[0]),y1:B,y2:B+9},AXE)));
+    s.appendChild(T(String(p[0]),{x:px(p[0]),y:B+42,"text-anchor":"middle",fill:"var(--encre2)","font-size":25}));
+  });
+  let d="";SCORES.forEach((p,i)=>{d+=(i?"L":"M")+px(p[0])+","+py(p[1]);});
+  s.appendChild(E("path",{d:d,fill:"none",stroke:"var(--bleu)","stroke-width":4.4,"stroke-linejoin":"round","stroke-linecap":"round"}));
+  SCORES.forEach(p=>s.appendChild(E("circle",{cx:px(p[0]),cy:py(p[1]),r:7.5,fill:"var(--bleu)"})));
+  s.appendChild(T("493,7",{x:px(2018),y:py(493.7)-24,"text-anchor":"middle",fill:"var(--bleu)","font-size":27,"font-weight":600}));
+  s.appendChild(T("478,3",{x:px(2022)+6,y:py(478.3)-24,"text-anchor":"middle",fill:"var(--bleu)","font-size":27,"font-weight":600}));
+  s.appendChild(T("465,7",{x:px(2025),y:py(465.7)+44,"text-anchor":"middle",fill:"var(--bleu)","font-size":27,"font-weight":600}));
+  const b1=px(2025)+52, b2=b1+146;
+  s.appendChild(E("line",{x1:b1,x2:b1,y1:py(478.3),y2:py(465.7),stroke:"var(--bleu)","stroke-width":2.4}));
+  [py(478.3),py(465.7)].forEach(y=>s.appendChild(E("line",{x1:b1-11,x2:b1+11,y1:y,y2:y,stroke:"var(--bleu)","stroke-width":2.4})));
+  s.appendChild(T("−12,7",{x:b1+22,y:(py(478.3)+py(465.7))/2+4,fill:"var(--bleu)","font-size":32,"font-weight":700}));
+  s.appendChild(T("depuis 2022",{x:b1+22,y:(py(478.3)+py(465.7))/2+34,fill:"var(--gris)","font-size":22}));
+  s.appendChild(E("line",{x1:b2,x2:b2,y1:py(493.7),y2:py(465.7),stroke:"var(--bleu2)","stroke-width":2.2}));
+  [py(493.7),py(465.7)].forEach(y=>s.appendChild(E("line",{x1:b2-11,x2:b2+11,y1:y,y2:y,stroke:"var(--bleu2)","stroke-width":2.2})));
+  s.appendChild(T("−28",{x:b2+22,y:(py(493.7)+py(465.7))/2+4,fill:"var(--bleu2)","font-size":30,"font-weight":700}));
+  s.appendChild(T("depuis 2018",{x:b2+22,y:(py(493.7)+py(465.7))/2+34,fill:"var(--gris)","font-size":22}));
 })();
 
 /* ===== Figure 2 : la règle de pouce ===== */
 (function(){
-  const s=document.getElementById("s2"), W=1470;
-  const L=690,R=170,T0=196,RH=156;
+  const s=document.getElementById("s2"), W=1496;
+  const L=716,R=182,T0=126,RH=104;
   const px=v=>L+v/1.8*(W-L-R);
   const R3=[
     {n:"Égert, de la Maisonneuve & Turner (2022)", s:"OECD Working Paper n° 1709", lo:1.33, hi:1.60, c:"var(--bleu)"},
     {n:"OCDE, Étude économique de la France (2024)", s:"applique le cadre d’Égert et al.", lo:0.92, hi:0.92, c:"var(--bleu)"},
     {n:"Hanushek, Schwerdt, Wiederhold & Woessmann (2015)", s:"rendement salarial, sans externalité", lo:0.49, hi:0.49, c:"var(--vert)"}
   ];
-  const yb=T0+R3.length*RH-52;
-  [0.5,1.0,1.5].forEach(v=>s.appendChild(E("line",{x1:px(v),x2:px(v),y1:T0-48,y2:yb,stroke:"var(--grille)","stroke-width":1})));
-  s.appendChild(E("line",{x1:px(1),x2:px(1),y1:T0-80,y2:yb,stroke:"var(--gris2)","stroke-width":1.6,"stroke-dasharray":"3 4"}));
-  s.appendChild(T("règle retenue : +1 %",{x:px(1),y:T0-90,"text-anchor":"middle",fill:"var(--gris)","font-size":21}));
-  s.appendChild(E("line",{x1:px(0),x2:px(0),y1:T0-48,y2:yb,stroke:"var(--encre)","stroke-width":1.4}));
+  const T1=T0-56, yb=T0+(R3.length-1)*RH+56;
+  [0.5,1.0,1.5].forEach(v=>s.appendChild(E("line",{x1:px(v),x2:px(v),y1:T1,y2:yb,stroke:"var(--grille)","stroke-width":1})));
+  s.appendChild(E("line",{x1:px(1),x2:px(1),y1:T1-40,y2:yb,stroke:"var(--gris2)","stroke-width":1.6,"stroke-dasharray":"3 4"}));
+  s.appendChild(T("règle retenue : +1 %",{x:px(1),y:T1-52,"text-anchor":"middle",fill:"var(--gris)","font-size":23}));
+  s.appendChild(E("line",Object.assign({x1:px(0),x2:px(0),y1:T1,y2:yb},AXE)));
 
   R3.forEach((e,i)=>{
     const y=T0+i*RH;
-    s.appendChild(T(e.n,{x:L-30,y:y-4,"text-anchor":"end",fill:"var(--encre)","font-size":22,"font-weight":600}));
-    s.appendChild(T(e.s,{x:L-30,y:y+24,"text-anchor":"end",fill:"var(--gris)","font-size":18}));
+    s.appendChild(T(e.n,{x:L-32,y:y-5,"text-anchor":"end",fill:"var(--encre)","font-size":24,"font-weight":600}));
+    s.appendChild(T(e.s,{x:L-32,y:y+25,"text-anchor":"end",fill:"var(--gris)","font-size":20}));
     if(e.hi>e.lo){
-      s.appendChild(E("line",{x1:px(e.lo),x2:px(e.hi),y1:y,y2:y,stroke:e.c,"stroke-width":7,"stroke-linecap":"round"}));
-      s.appendChild(E("circle",{cx:px(e.lo),cy:y,r:8,fill:e.c}));
-      s.appendChild(E("circle",{cx:px(e.hi),cy:y,r:8,fill:e.c}));
-    } else s.appendChild(E("circle",{cx:px(e.lo),cy:y,r:9,fill:e.c}));
+      s.appendChild(E("line",{x1:px(e.lo),x2:px(e.hi),y1:y,y2:y,stroke:e.c,"stroke-width":8,"stroke-linecap":"round"}));
+      s.appendChild(E("circle",{cx:px(e.lo),cy:y,r:9,fill:e.c}));
+      s.appendChild(E("circle",{cx:px(e.hi),cy:y,r:9,fill:e.c}));
+    } else s.appendChild(E("circle",{cx:px(e.lo),cy:y,r:10,fill:e.c}));
     s.appendChild(T(e.hi>e.lo?"+"+fr(e.lo,1)+" à +"+fr(e.hi,1)+" %":"+"+fr(e.lo,1)+" %",
-      {x:px(e.hi)+20,y:y+9,fill:e.c,"font-size":25,"font-weight":700}));
+      {x:px(e.hi)+22,y:y+10,fill:e.c,"font-size":28,"font-weight":700}));
   });
-  s.appendChild(E("line",{x1:L,x2:W-R,y1:yb,y2:yb,stroke:"var(--encre)","stroke-width":1.4}));
+  s.appendChild(E("line",Object.assign({x1:px(0),x2:W-R,y1:yb,y2:yb},AXE)));
   [0,0.5,1.0,1.5].forEach(v=>{
-    s.appendChild(E("line",{x1:px(v),x2:px(v),y1:yb,y2:yb+8,stroke:"var(--encre)","stroke-width":1}));
-    s.appendChild(T((v?"+":"")+fr(v,1)+" %",{x:px(v),y:yb+36,"text-anchor":"middle",fill:"var(--encre2)","font-size":22}));
+    s.appendChild(E("line",Object.assign({x1:px(v),x2:px(v),y1:yb,y2:yb+9},AXE)));
+    s.appendChild(T((v?"+":"")+fr(v,1)+" %",{x:px(v),y:yb+42,"text-anchor":"middle",fill:"var(--encre2)","font-size":25}));
   });
-})();
-
-/* ===== Figure 3 : la série française ===== */
-(function(){
-  const s=document.getElementById("s3"), W=1470;
-  const L=104,R=360,T0=58,B=606;
-  const px=v=>L+(v-2006)/(2025-2006)*(W-L-R), py=v=>T0+(503-v)/(503-461)*(B-T0);
-  [470,480,490,500].forEach(v=>{
-    s.appendChild(E("line",{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:"var(--grille)","stroke-width":1}));
-    s.appendChild(T(String(v),{x:L-16,y:py(v)+8,"text-anchor":"end",fill:"var(--encre2)","font-size":22}));
-  });
-  s.appendChild(E("line",{x1:L,x2:W-R,y1:B,y2:B,stroke:"var(--encre)","stroke-width":1.4}));
-  SCORES.forEach(p=>{
-    s.appendChild(E("line",{x1:px(p[0]),x2:px(p[0]),y1:B,y2:B+8,stroke:"var(--encre)","stroke-width":1}));
-    s.appendChild(T(String(p[0]),{x:px(p[0]),y:B+36,"text-anchor":"middle",fill:"var(--encre2)","font-size":22}));
-  });
-  let d="";SCORES.forEach((p,i)=>{d+=(i?"L":"M")+px(p[0])+","+py(p[1]);});
-  s.appendChild(E("path",{d:d,fill:"none",stroke:"var(--bleu)","stroke-width":3.6,"stroke-linejoin":"round","stroke-linecap":"round"}));
-  SCORES.forEach(p=>s.appendChild(E("circle",{cx:px(p[0]),cy:py(p[1]),r:6,fill:"var(--bleu)"})));
-  s.appendChild(T("493,7",{x:px(2018),y:py(493.7)-20,"text-anchor":"middle",fill:"var(--bleu)","font-size":23,"font-weight":600}));
-  s.appendChild(T("478,3",{x:px(2022),y:py(478.3)-20,"text-anchor":"middle",fill:"var(--bleu)","font-size":23,"font-weight":600}));
-  s.appendChild(T("465,7",{x:px(2025),y:py(465.7)+38,"text-anchor":"middle",fill:"var(--bleu)","font-size":23,"font-weight":600}));
-  const b1=px(2025)+46, b2=b1+140;
-  s.appendChild(E("line",{x1:b1,x2:b1,y1:py(478.3),y2:py(465.7),stroke:"var(--bleu)","stroke-width":2.2}));
-  [py(478.3),py(465.7)].forEach(y=>s.appendChild(E("line",{x1:b1-9,x2:b1+9,y1:y,y2:y,stroke:"var(--bleu)","stroke-width":2.2})));
-  s.appendChild(T("−12,7",{x:b1+18,y:(py(478.3)+py(465.7))/2+9,fill:"var(--bleu)","font-size":27,"font-weight":700}));
-  s.appendChild(T("depuis 2022",{x:b1+18,y:(py(478.3)+py(465.7))/2+34,fill:"var(--gris)","font-size":19}));
-  s.appendChild(E("line",{x1:b2,x2:b2,y1:py(493.7),y2:py(465.7),stroke:"var(--bleu2)","stroke-width":2}));
-  [py(493.7),py(465.7)].forEach(y=>s.appendChild(E("line",{x1:b2-9,x2:b2+9,y1:y,y2:y,stroke:"var(--bleu2)","stroke-width":2})));
-  s.appendChild(T("−28",{x:b2+18,y:(py(493.7)+py(465.7))/2+9,fill:"var(--bleu2)","font-size":25,"font-weight":700}));
-  s.appendChild(T("depuis 2018",{x:b2+18,y:(py(493.7)+py(465.7))/2+34,fill:"var(--gris)","font-size":19}));
 })();
 </script>

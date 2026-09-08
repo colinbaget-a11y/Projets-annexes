@@ -62,6 +62,12 @@ représente exactement.
 **Légende** sans cadre : à l'intérieur en bas à droite pour les séries temporelles, sous le graphique et
 centrée pour les barres et les plages. Traits pour les courbes, carrés pour les aplats.
 
+**Proportions.** Mesurée sur les figures du manuel, l'aire de tracé des graphiques de séries longues fait
+environ **1,5 de large pour 1 de haut** (figures 5.1 et 16.4), et les petits multiples 3:1 (figure 16.6).
+Les graphiques en barres et en plages sont plats : leur hauteur suit le nombre de lignes, à raison de lignes
+serrées (14 lignes tiennent dans la même hauteur qu'un demi-graphique de série). Une figure ne se compose
+donc pas dans un cadre de format fixe : **le cadre suit le contenu**, sinon il se remplit de blanc.
+
 **Formes retenues.** Séries longues : courbes de 1,5 à 2 points, sans marqueurs, interrompues là où la
 source ne mesure rien. Comparaisons de catégories : barres horizontales triées, une seule couleur, valeur
 en bout. Fourchettes d'estimations : segment horizontal avec un point rond, ou un point seul quand
