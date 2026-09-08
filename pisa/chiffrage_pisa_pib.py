@@ -69,3 +69,26 @@ if __name__ == "__main__":
         dp = baisse(d, y)
         print(f"{d} depuis {y} ({dp:+d} pts) : croissance -{CROISSANCE_PAR_SD*dp/SD_PISA:.2f} pp/an à terme ; "
               + "  ".join(f"{h}: {100*pib_croissance(dp,h):+.0f}%" for h in (2040, 2050, 2075, 2100)))
+
+# ---------- Paramètre 2c : cadre macro OCDE (Égert, de la Maisonneuve & Turner 2022, WP 1709) ----------
+# Stock de capital humain = moyenne par cohorte des scores PISA passés (qualité) et des années d'études (quantité).
+# Élasticité des scores adultes (PIAAC) aux scores élèves : 0,278 (avec années d'études, Table 4 col. 5) à 0,603 (sans).
+# Élasticité de la PGF au stock de capital humain : 2,36 (32 pays) à 2,84 (14 pays), panel DOLS avec effets fixes pays.
+# Unité : moyenne des trois domaines, en log. Effet de long terme (~50 ans de renouvellement + ajustement).
+E_ATS = {"avec années d'études (retenu par l'OCDE)": 0.278, "sans années d'études": 0.603}
+E_MFP = (2.36, 2.84)
+FRANCE_3DOM = {y: (FRANCE["maths"][y] + FRANCE["lecture"][y] + FRANCE["sciences"][y]) / 3
+               for y in (2006, 2009, 2012, 2015, 2018, 2022, 2025)}
+
+def pgf_ocde(depuis, e_ats):
+    import math
+    dlog = math.log(FRANCE_3DOM[2025] / FRANCE_3DOM[depuis])
+    return [100 * (math.exp(dlog * e_ats * e) - 1) for e in E_MFP]
+
+if __name__ == "__main__":
+    print("\n=== 2c) PGF de long terme, cadre OCDE (moyenne des trois domaines) ===")
+    for y in (2006, 2012, 2018):
+        d = FRANCE_3DOM[2025] - FRANCE_3DOM[y]
+        for k, e in E_ATS.items():
+            lo, hi = pgf_ocde(y, e)
+            print(f"depuis {y} ({d:+.0f} pts sur la moyenne des 3 domaines) : PGF {lo:+.1f} % à {hi:+.1f} %  [élasticité PIAAC/PISA {e}, {k}]")
