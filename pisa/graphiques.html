@@ -139,6 +139,11 @@ thead th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(
 tbody td{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--text-primary)}
 tbody td:first-child{font-family:var(--sans);color:var(--text-secondary)}
 
+.lit table{min-width:720px}
+.lit th,.lit td{white-space:normal;text-align:left;vertical-align:top;padding:8px 14px 8px 0;font-family:var(--sans)}
+.lit tbody td{color:var(--text-secondary);font-size:13px}
+.lit tbody td:first-child{color:var(--text-primary);font-weight:500}
+.lit tbody td:nth-child(2){font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--text-primary)}
 .callout{border-left:2px solid var(--series-2);padding:2px 0 2px 16px;color:var(--text-secondary);font-size:14.5px;max-width:70ch}
 .callout strong{color:var(--text-primary);font-weight:600}
 
@@ -156,10 +161,10 @@ a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radi
   <header class="masthead">
     <div class="kicker">Note de travail · 8 septembre 2026</div>
     <h1>Ce que la baisse de PISA coûte à la France</h1>
-    <p class="standfirst">Deux chiffrages à grand trait à partir de la littérature : la baisse des scores convertie en années de scolarité, puis en niveau de PIB de long terme. Les paramètres et leurs sources sont explicites ; les deux cadres théoriques disponibles pour le second chiffrage ne donnent pas du tout le même résultat.</p>
+    <p class="standfirst">Deux chiffrages à grand trait : la baisse des scores convertie en années d'apprentissage, puis en niveau de PIB de long terme. Les paramètres viennent d'une lecture de la littérature, vingt-cinq textes ouverts, résumée dans le tableau de la section Littérature ; les cadres disponibles pour le second chiffrage ne donnent pas du tout le même résultat, et la page explique pourquoi.</p>
     <div class="meta">
       <span>Scores : DEPP n° 26.40 · OCDE PISA 2025 Vol. I</span>
-      <span>Élasticités : PIAAC · Hanushek–Woessmann</span>
+      <span>Paramètres : Avvisati-Givord · PIAAC · Égert et al. · Hanushek-Woessmann</span>
     </div>
   </header>
 
@@ -172,12 +177,12 @@ a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radi
     <div class="kpi">
       <div class="kpi-label">Équivalent scolarité</div>
       <div class="kpi-value">≈ 2,1 ans</div>
-      <div class="kpi-sub">fourchette 1,3 à 2,6 ans selon le gain annuel retenu</div>
+      <div class="kpi-sub">fourchette 1,5 à 2,65 selon le rythme annuel retenu (20 à 35 points)</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">PIB par tête, long terme</div>
-      <div class="kpi-value">−6 à −9 %</div>
-      <div class="kpi-sub">effet de niveau, pleinement atteint vers 2075</div>
+      <div class="kpi-value">−5 à −8 %</div>
+      <div class="kpi-sub">effet de niveau, atteint vers 2075 ; fourchette −3,5 à −14 % selon les paramètres</div>
     </div>
   </div>
 
@@ -199,7 +204,7 @@ a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radi
   <section>
     <div class="eyebrow">Chiffrage 1</div>
     <h2>Combien d'années de scolarité cela représente-t-il ?</h2>
-    <p class="deck">Le paramètre est le nombre de points PISA qu'un élève gagne en une année d'école. <em>Avvisati &amp; Givord (2021)</em> l'identifient proprement : à âge égal, comparer des élèves séparés par une année de classe grâce à la discontinuité de date de naissance. Ils trouvent 20 points en moyenne sur 31 pays, et 25 points ou plus dans les pays riches européens. La France n'est pas identifiable par cette méthode, la coupure scolaire coïncidant avec l'année civile ; comparer directement troisième et seconde serait biaisé vers le haut par le redoublement.</p>
+    <p class="deck">Le paramètre est le rythme auquel une cohorte progresse en un an autour de 15 ans, maturation comprise. <em>Avvisati &amp; Givord (2021)</em> l'identifient dans les pays où la cohorte PISA chevauche deux cohortes scolaires : à âge d'entrée à l'école égal, les élèves nés de part et d'autre de la coupure ont un an d'âge et une classe d'écart. Moyenne de 18 pays : 20 points ; systèmes riches d'Europe de l'Ouest : Autriche 26, Écosse 30, Luxembourg 31, Allemagne 34, Suisse 36. L'OCDE a adopté 20 points comme référence dans PISA 2022, à la place de l'ancienne règle de 40 points, obtenue sans instrument sur la classe fréquentée et gonflée en France par le redoublement. La France elle-même n'est pas identifiable, sa cohorte PISA coïncidant avec la cohorte d'entrée au CP.</p>
     <div class="legend" id="lg-annees"></div>
     <div class="panel"><div class="tip" id="tip-annees"></div><div id="ch-annees"></div></div>
     <details>
@@ -212,7 +217,7 @@ a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radi
   <section>
     <div class="eyebrow">Chiffrage 2</div>
     <h2>Le PIB de long terme, par l'effet de niveau</h2>
-    <p class="deck">Le mécanisme est direct : des élèves moins compétents à 15 ans deviennent des travailleurs moins productifs, et le salaire mesure cette productivité. <em>Hanushek, Schwerdt, Wiederhold &amp; Woessmann (2015)</em> estiment sur PIAAC qu'un écart-type de numératie vaut +17,4 % de salaire horaire en France. L'effet se déploie au rythme du remplacement des actifs : la cohorte de 2025 entre sur le marché du travail vers 2030, la population active est entièrement renouvelée vers 2075.</p>
+    <p class="deck">Le mécanisme est direct : des élèves moins compétents à 15 ans deviennent des travailleurs moins productifs, et le salaire mesure cette productivité. <em>Hanushek, Schwerdt, Wiederhold &amp; Woessmann (2015)</em> estiment sur PIAAC qu'un écart-type de numératie vaut +17,4 % de salaire horaire en France. L'effet se déploie au rythme du remplacement des actifs : la cohorte de 2025 entre sur le marché du travail vers 2030, la population active est entièrement renouvelée vers 2075. Le cadre macro de l'OCDE (<em>Égert, de la Maisonneuve &amp; Turner 2022</em>), qui passe par les compétences adultes puis par la productivité globale des facteurs, donne pour la baisse depuis 2018 une PGF inférieure de 3,8 à 4,5 % à long terme avec l'élasticité retenue par l'OCDE, jusqu'à 9,5 % avec l'élasticité haute : le même ordre de grandeur par une chaîne indépendante.</p>
     <div class="legend" id="lg-niveau"></div>
     <div class="panel"><div class="tip" id="tip-niveau"></div><div id="ch-niveau"></div></div>
     <details>
@@ -224,15 +229,36 @@ a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radi
   <!-- 4 ---------------------------------------------------------------- -->
   <section>
     <div class="eyebrow">Contrôle</div>
-    <h2>Pourquoi le second cadre donne des chiffres cinq fois plus gros</h2>
-    <p class="deck">La littérature offre un autre cadre : la régression de croissance de <em>Hanushek &amp; Woessmann (2012)</em>, où un écart-type de compétences de la main-d'œuvre vaut 1,98 point de croissance annuelle du PIB par tête. Appliquée à la même baisse, elle ne produit pas un niveau de long terme mais un écart qui s'ouvre indéfiniment. Les deux courbes ci-dessous partent de la même perte de compétences ; seule l'hypothèse sur ce qu'elle affecte, le niveau ou le taux de croissance, change.</p>
+    <h2>Pourquoi le cadre « croissance » donne des chiffres trois à cinq fois plus gros</h2>
+    <p class="deck">L'autre cadre est la régression de croissance de <em>Hanushek &amp; Woessmann</em> : un écart-type de compétences de la main-d'œuvre vaut 1,98 point de croissance annuelle sur 50 pays, 1,74 sur les seuls pays de l'OCDE. L'OCDE en a fait en 2010 un outil de projection, appliqué à la France : +25 points PISA vaudraient +24 % de PIB en 2090. Les courbes orange et verte font tourner cet outil à l'envers pour la baisse depuis 2018, avec le coefficient OCDE et une vie active de 40 ans : version « croissance » (l'écart s'ouvre indéfiniment) et version néoclassique de Hanushek &amp; Woessmann (2011), où la croissance supplémentaire s'éteint à mesure que le niveau s'écarte. La courbe bleue est l'effet de niveau de la section précédente. Même perte de compétences ; seule change l'hypothèse sur ce qu'elle affecte.</p>
     <div class="legend" id="lg-cadres"></div>
     <div class="panel"><div class="tip" id="tip-cadres"></div><div id="ch-cadres"></div></div>
-    <p class="callout"><strong>Le cadre « croissance » n'est pas retenu comme chiffrage central.</strong> Quarante ans de données ne permettent pas de distinguer un effet de croissance d'un long effet de niveau. Surtout, appliqué à la baisse de la moyenne OCDE elle-même, il impliquerait que la zone entière ait perdu près de 0,5 point de croissance tendancielle, soit une bonne part de sa croissance par tête, ce que rien n'indique. Hanushek et Woessmann eux-mêmes ne l'appliquent qu'à une seule cohorte touchée.</p>
+    <p class="callout"><strong>Le cadre « croissance » n'est pas retenu comme chiffrage central.</strong> Le coefficient va du simple au triple selon la période et le décalage entre tests et croissance (1,3 hors Asie de l'Est ; 0,6 à 1,3 quand la croissance est mesurée après les tests, Heller-Sahlgren &amp; Jordahl 2021 ; relation presque absente chez Komatsu &amp; Rappleye 2017). Hanushek &amp; Woessmann écrivent eux-mêmes qu'on ne peut « distinguer une croissance de rattrapage temporaire de différences de croissance de long terme », et les séries longues ne montrent aucun changement permanent des taux de croissance malgré l'explosion du capital humain (Jones 1995). Lu comme un effet de niveau, leur modèle implique un état stationnaire de −29 % pour −37 points, quatre à six fois ce que les rendements des compétences permettent d'expliquer sans externalités massives. Appliqué à la baisse de la moyenne OCDE, il impliquerait une perte de près de 0,5 point de croissance tendancielle pour toute la zone.</p>
     <details>
       <summary>Voir les données</summary>
       <div class="tablewrap"><table id="tb-cadres"></table></div>
     </details>
+  </section>
+
+  <!-- L ---------------------------------------------------------------- -->
+  <section>
+    <div class="eyebrow">Littérature</div>
+    <h2>Les paramètres et ce qui les identifie</h2>
+    <p class="deck">Vingt-cinq textes ouverts et lus ; les chiffres sont ceux des versions lues, la note <em>note_litterature.md</em> du dépôt donne les pages et les textes restés inaccessibles.</p>
+    <div class="panel lit"><div class="tablewrap"><table>
+      <thead><tr><th>Paramètre</th><th>Estimation</th><th>Source et identification</th><th>Usage ici</th></tr></thead>
+      <tbody>
+        <tr><td>Gain annuel à 15 ans (âge + classe)</td><td>≈ 20 pts (18 pays) ; 22-36 en Europe de l'Ouest riche</td><td>Avvisati &amp; Givord 2021 (WP 257, 249) : discontinuité de date de naissance, PISA 2015-18 ; PISA 2025 Vol. I, Table I.2.7 (10 pays, 2015-25)</td><td>25 pts/an, fourchette 20-35</td></tr>
+        <tr><td>Ancienne règle OCDE</td><td>39-41 pts ; France 47-49</td><td>PISA 2009 et 2012, Table A1.2 : classe fréquentée non instrumentée, biais de redoublement</td><td>écartée (abandonnée par l'OCDE en 2018)</td></tr>
+        <tr><td>Effet école seul, 18 ans</td><td>0,14-0,21 SD pour 180 jours</td><td>Carlsson, Dahl, Öckert &amp; Rooth 2015 : date de test de conscription quasi aléatoire, Suède</td><td>contrôle d'ordre de grandeur</td></tr>
+        <tr><td>Rendement salarial des compétences, France</td><td>17,4 %/SD ; 9,4 % à diplôme donné ; 27,5 % emploi inclus</td><td>Hanushek, Schwerdt, Wiederhold &amp; Woessmann 2015 : PIAAC, OLS, 35-54 ans ; IV mesure +13 % (Hampf et al. 2017 : l'OLS est une borne basse)</td><td>0,174 central ; 0,094 et 0,275 comme bornes</td></tr>
+        <tr><td>Rendement en début de carrière, France</td><td>+7 % de salaire, +2,5 pts d'emploi par SD</td><td>Fajeau, Grenet &amp; Laveissière 2025 (CAE) : panel DEPP 1995, évaluations de 6e</td><td>cohérence</td></tr>
+        <tr><td>Passage PISA → compétences adultes</td><td>β = 0,55 ; élasticité 0,278-0,603</td><td>Gustafsson 2016 : tendances PISA vs PIAAC par pays ; Égert, de la Maisonneuve &amp; Turner 2022 : cohortes appariées, 35 pays</td><td>facteur 0,5 à 1 sur l'effet de niveau</td></tr>
+        <tr><td>Capital humain → PGF</td><td>élasticité 2,36-2,84 ; +25 pts PISA → PGF +3,4 à +4,1 %</td><td>Égert et al. 2022 : panel DOLS 1987-2018, effets fixes pays ; Andrews, Égert &amp; de la Maisonneuve 2024 : −5 pts OCDE → −1 % de PGF</td><td>cadre OCDE, section Chiffrage 2</td></tr>
+        <tr><td>Croissance annuelle par SD</td><td>1,98 (50 pays) ; 1,74 OCDE ; 1,3 hors Asie ; 0,6-1,3 sur 1990-2016</td><td>Hanushek &amp; Woessmann 2012 : coupe 1960-2000, IV institutionnels ; Heller-Sahlgren &amp; Jordahl 2021 ; Jones 1995 contre les effets de croissance permanents</td><td>cadre « croissance », non retenu</td></tr>
+        <tr><td>Projection OCDE 2010, France</td><td>+25 pts → PIB +3 % en 2042, +24 % en 2090 ; VA 268 % du PIB</td><td>OCDE 2010, <em>The High Cost of Low Educational Performance</em>, coef. 1,736, vie active 40 ans, actualisation 3 %</td><td>répliqué et inversé (section Contrôle)</td></tr>
+      </tbody>
+    </table></div></div>
   </section>
 
   <!-- 5 ---------------------------------------------------------------- -->
@@ -256,23 +282,23 @@ a:focus-visible{outline:2px solid var(--series-1);outline-offset:2px;border-radi
         <ul>
           <li><strong>2022 et 2025</strong> — DEPP, note d'information n° 26.40 (septembre 2026) ; OCDE, <em>PISA 2025 Results (Volume I)</em>.</li>
           <li><strong>2003 en mathématiques</strong> (511) — DEPP n° 26.40.</li>
-          <li><strong>Cycles intermédiaires</strong> — tableaux OCDE repris par la Fondation IFRAP. Les tableaux de tendance de l'OCDE eux-mêmes sont sur des pages inaccessibles hors navigateur ; ces valeurs sont cohérentes avec la DEPP là où les deux se recoupent.</li>
+          <li><strong>Cycles intermédiaires</strong> — tableaux OCDE repris par la Fondation IFRAP, cohérents avec la DEPP là où les deux se recoupent.</li>
         </ul>
       </div>
       <div>
         <h3>Paramètres</h3>
         <ul>
-          <li><strong>Points par année</strong> — Avvisati &amp; Givord, <em>OECD Education Working Paper</em> n° 257 (2021).</li>
-          <li><strong>Rendement des compétences</strong> — Hanushek, Schwerdt, Wiederhold &amp; Woessmann, <em>European Economic Review</em> 73 (2015), tableau 2, PIAAC, salariés à temps plein de 35 à 54 ans.</li>
-          <li><strong>Élasticité de croissance</strong> — Hanushek &amp; Woessmann, <em>Journal of Economic Growth</em> 17 (2012) ; application dans <em>OECD Education Working Paper</em> n° 225 (2020).</li>
+          <li><strong>Années</strong> — Avvisati &amp; Givord, OECD Education WP 249 et 257 (2021) ; OCDE, PISA 2022 et 2025 Vol. I ; Hill, Bloom, Black &amp; Lipsey (2008) ; Carlsson, Dahl, Öckert &amp; Rooth, <em>REStat</em> (2015) ; Givord, <em>Insee Analyses</em> 96 (2024).</li>
+          <li><strong>Niveau</strong> — Hanushek, Schwerdt, Wiederhold &amp; Woessmann, <em>EER</em> 73 (2015) ; Hampf, Wiederhold &amp; Woessmann (2017) ; Fajeau, Grenet &amp; Laveissière, CAE Focus 112 (2025) ; Égert, de la Maisonneuve &amp; Turner, OECD ECO WP 1709 (2022) ; Andrews, Égert &amp; de la Maisonneuve, WP 1827 (2024) ; CAE Focus 91 (2022) ; Trésor-Éco 377 (2025).</li>
+          <li><strong>Croissance</strong> — Hanushek &amp; Kimko, <em>AER</em> (2000) ; Hanushek &amp; Woessmann, <em>JEG</em> (2012) et <em>Economic Policy</em> (2011) ; OCDE (2010) ; Heller-Sahlgren &amp; Jordahl (2021) ; Appleton, Atherton &amp; Bleaney (2008) ; Jones, <em>QJE</em> (1995).</li>
         </ul>
       </div>
       <div>
         <h3>Ce qui peut faire bouger la conclusion</h3>
         <ul>
-          <li>L'équivalence entre un écart-type PISA à 15 ans et un écart-type PIAAC à l'âge adulte n'est pas établie : elle suppose aucune correction ultérieure par la formation ou l'expérience.</li>
-          <li>Le rendement estimé en coupe mélange un biais d'aptitude, qui le gonfle, et une erreur de mesure, qui le réduit ; il ignore les externalités de production.</li>
-          <li>Le chiffrage suppose la baisse permanente. Si elle est propre aux cohortes 2018-2025, l'effet sur le PIB est transitoire et bien plus petit.</li>
+          <li>Le passage des compétences à 15 ans aux compétences adultes n'est pas un pour un : les coefficients de pays (0,3 à 0,6 SD PIAAC par SD PISA) sont atténués, mais rien ne garantit 1. C'est le premier facteur d'incertitude de l'effet de niveau.</li>
+          <li>Le chiffrage suppose la baisse permanente ; si elle est propre aux cohortes 2018-2025, l'effet sur le PIB est transitoire et bien plus petit.</li>
+          <li>Rendement total ou à diplôme donné : facteur 2 sur l'effet de niveau ; externalités de production : non identifiées, dans un sens comme dans l'autre.</li>
         </ul>
       </div>
     </div>
@@ -309,7 +335,7 @@ const GAPS=[
   {label:"Mathématiques, depuis 2022", pts:16},
   {label:"Sciences, depuis 2006",      pts:12}
 ];
-const REND=0.174, REND_LO=0.12, REND_HI=0.20, GROWTH=1.98, ENTREE=2030, PLEIN=2075;
+const REND=0.174, REND_LO=0.12, REND_HI=0.20, ENTREE=2030, PLEIN=2075;
 const YEARS=[];for(let y=2025;y<=2100;y++)YEARS.push(y);
 const part=t=>t<=ENTREE?0:Math.min(1,(t-ENTREE)/(PLEIN-ENTREE));
 const integ=t=>{if(t<=ENTREE)return 0;const d=PLEIN-ENTREE,r=Math.min(t,PLEIN)-ENTREE;return r*r/(2*d)+Math.max(0,t-PLEIN);};
@@ -532,8 +558,22 @@ table("tb-niveau",["Année","Part des actifs touchés","−0,53 SD","−0,37 SD"
 /* ============================ 4. les deux cadres ============================ */
 legend("lg-cadres",[
   {name:"Effet de niveau — rendement PIAAC (retenu)",color:"var(--series-1)"},
-  {name:"Effet de croissance — Hanushek & Woessmann",color:"var(--series-2)"}
+  {name:"Effet de croissance — modèle OCDE 2010, coefficient OCDE 1,74",color:"var(--series-2)"},
+  {name:"Variante néoclassique — Hanushek & Woessmann 2011",color:"var(--series-3)"}
 ]);
+/* Port du modèle de projection OCDE 2010 / H&W 2011 : vie active 40 ans, croissance de référence 1,5 %,
+   baisse acquise pour toutes les cohortes entrant à partir de 2026. */
+function simOCDE(dpisa,o){
+  const coef=o.coef??1.736, T0=2025, W=40, g=0.015, nc=!!o.neoclassical, coefNc=o.coefNc??1.718, lam=o.lam??1.835;
+  let gn=1, gr=1; const out={2025:0};
+  for(let t=T0+1;t<=2100;t++){
+    let sh=0; for(let k=0;k<W;k++) if(t-k>T0) sh+=dpisa/100; sh/=W;
+    const delta = nc ? (coefNc*sh - lam*(Math.log(gr)-Math.log(gn)))/100 : coef*sh/100;
+    gn*=1+g; gr*=1+g+delta; out[t]=100*(gr/gn-1);
+  }
+  return out;
+}
+const OC_END=simOCDE(-37,{}), OC_NC=simOCDE(-37,{neoclassical:true});
 lineChart("ch-cadres","tip-cadres",{
   h:400,pad:{t:20,r:186,b:38,l:56},
   x:[2025,2100],y:[-32,1.2],
@@ -547,17 +587,19 @@ lineChart("ch-cadres","tip-cadres",{
     {name:"Effet de niveau",color:"var(--series-1)",dy:4,
      endLabel:sgn(pct(-REND*0.37),1," %"),
      points:YEARS.map(t=>[t,pct(-REND*0.37*part(t))])},
-    {name:"Effet de croissance",color:"var(--series-2)",dy:4,
-     endLabel:sgn(pct(-(GROWTH/100)*0.37*integ(t2100())),1," %"),
-     points:YEARS.map(t=>[t,pct(-(GROWTH/100)*0.37*integ(t))])}
+    {name:"Néoclassique (H&W 2011)",color:"var(--series-3)",dy:4,
+     endLabel:sgn(OC_NC[2100],1," %"),
+     points:YEARS.map(t=>[t,OC_NC[t]])},
+    {name:"Croissance (OCDE 2010)",color:"var(--series-2)",dy:4,
+     endLabel:sgn(OC_END[2100],1," %"),
+     points:YEARS.map(t=>[t,OC_END[t]])}
   ]
 });
-function t2100(){return 2100;}
-table("tb-cadres",["Année","Effet de niveau","Fourchette (rendement 0,12 à 0,20)","Effet de croissance"],
-  [2030,2040,2050,2060,2075,2100].map(t=>[String(t),
+table("tb-cadres",["Année","Effet de niveau","Fourchette (rendement 0,12 à 0,20)","Croissance (OCDE 2010)","Néoclassique (H&W 2011)"],
+  [2030,2040,2050,2060,2075,2090,2100].map(t=>[String(t),
     sgn(pct(-REND*0.37*part(t)),1," %"),
     sgn(pct(-REND_HI*0.37*part(t)),1," %")+" à "+sgn(pct(-REND_LO*0.37*part(t)),1," %"),
-    sgn(pct(-(GROWTH/100)*0.37*integ(t)),1," %")]));
+    sgn(OC_END[t],1," %"), sgn(OC_NC[t],1," %")]));
 
 /* ============================ 5. accès aux fichiers ============================ */
 (function(){
