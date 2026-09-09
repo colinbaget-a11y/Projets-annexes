@@ -1,0 +1,77 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root{
+    --encre:#1a1a1a; --encre2:#3d3d3d; --gris:#8a8a8a;
+    --grille:#e8e9e8; --bleu:#003399; --vert:#1f7a4d; --or:#c79100;
+    --grenat:#a50020; --grisserie:#808080;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff}
+  .fig{width:1600px;background:#fff;padding:44px 52px 40px;
+       font-family:'SS4',Cambria,serif;color:var(--encre)}
+  .titre{font-size:33px;font-weight:600;line-height:1.2;letter-spacing:-.004em;margin-bottom:20px}
+  svg{display:block;width:100%;height:auto}
+</style>
+
+<div class="fig" id="fig">
+  <div class="titre">Mathématiques à 15 ans : score moyen PISA, 2003-2022</div>
+  <svg id="s" viewBox="0 0 1496 880"></svg>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const E=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+const T=(s,a)=>{const n=E("text",Object.assign({"font-family":"SS4, serif"},a));n.textContent=s;return n;};
+const AXE={stroke:"var(--encre)","stroke-width":1.3};
+const ANS=[2003,2006,2009,2012,2015,2018,2022];
+
+const DATA=[
+ {label:"Finlande",     col:"var(--vert)",      v:[544.3,548.4,540.5,518.8,511.1,507.3,484.1]},
+ {label:"Allemagne",    col:"var(--or)",        v:[503.0,503.8,512.8,513.5,506.0,500.0,474.8]},
+ {label:"Suède",        col:"var(--grenat)",    v:[509.0,502.4,494.2,478.3,493.9,502.4,481.8]},
+ {label:"France",       col:"var(--bleu)",      v:[510.8,495.5,496.8,495.0,492.9,495.4,473.9]},
+ {label:"moyenne OCDE", col:"var(--grisserie)", v:[499.5,490.4,491.7,488.2,484.9,487.0,472.4]}
+];
+
+(function(){
+  const s=document.getElementById("s"), W=1496;
+  const L=104,R=278,T0=58,B=790;
+  const X0=2003,X1=2022, Y0=556,Y1=468;
+  const px=v=>L+(v-X0)/(X1-X0)*(W-L-R);
+  const py=v=>T0+(Y0-v)/(Y0-Y1)*(B-T0);
+
+  [480,500,520,540].forEach(v=>{
+    s.appendChild(E("line",{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:"var(--grille)","stroke-width":1}));
+    s.appendChild(E("line",Object.assign({x1:L-9,x2:L,y1:py(v),y2:py(v)},AXE)));
+    s.appendChild(T(String(v),{x:L-19,y:py(v)+9,"text-anchor":"end",fill:"var(--encre2)","font-size":25}));
+  });
+  s.appendChild(E("line",Object.assign({x1:L,x2:L,y1:T0,y2:B},AXE)));
+  s.appendChild(E("line",Object.assign({x1:L,x2:W-R,y1:B,y2:B},AXE)));
+  ANS.forEach(v=>{
+    s.appendChild(E("line",Object.assign({x1:px(v),x2:px(v),y1:B,y2:B+9},AXE)));
+    s.appendChild(T(String(v),{x:px(v),y:B+42,"text-anchor":"middle",fill:"var(--encre2)","font-size":25}));
+  });
+
+  DATA.forEach(d=>{
+    const ocde=d.label==="moyenne OCDE";
+    let p="";
+    d.v.forEach((y,i)=>{p+=(i?"L":"M")+px(ANS[i])+","+py(y);});
+    s.appendChild(E("path",{d:p,fill:"none",stroke:d.col,"stroke-width":ocde?2.2:3.0,
+       "stroke-linejoin":"round","stroke-linecap":"round"}));
+    d.v.forEach((y,i)=>s.appendChild(E("circle",{cx:px(ANS[i]),cy:py(y),r:ocde?4.4:5.6,fill:d.col})));
+  });
+
+  const lab=DATA.map(d=>({t:d.label,col:d.col,y0:py(d.v[d.v.length-1]),y:py(d.v[d.v.length-1])}));
+  lab.sort((a,b)=>a.y-b.y);
+  const GAP=38;
+  for(let i=1;i<lab.length;i++) if(lab[i].y-lab[i-1].y<GAP) lab[i].y=lab[i-1].y+GAP;
+  lab.forEach(o=>{
+    if(Math.abs(o.y-o.y0)>6)
+      s.appendChild(E("line",{x1:px(2022)+8,x2:px(2022)+26,y1:o.y0,y2:o.y-7,
+                              stroke:o.col,"stroke-width":1.2,opacity:.55}));
+    s.appendChild(T(o.t,{x:px(2022)+32,y:o.y,fill:o.col,"font-size":26,
+                         "font-weight":o.t==="moyenne OCDE"?400:600}));
+  });
+})();
+</script>
