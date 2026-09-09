@@ -251,6 +251,45 @@ Autrement dit, le graphique répond à la question posée — c'est la plus long
 disponible — mais sa lecture honnête est : *avant 1995, on ne sait pas grand-chose, et le peu qu'on
 croit savoir est brouillé par l'expansion de la scolarisation.*
 
+### Vérification du graphique contre PISA 2012 — et sa conséquence
+
+Test fait après coup, et il change la lecture. La dernière année du graphique, 2012, est une année
+PISA : on peut donc confronter directement l'échelle harmonisée aux scores réels. Sur les 45 pays
+présents dans les deux sources, la corrélation entre le score ADM 2012 (secondaire) et le score PISA
+2012 de mathématiques est de **r = 0,90**, et la régression donne une pente de 0,94 point ADM par
+point PISA. La structure d'ensemble est donc bonne.
+
+Mais l'écart-type des résidus vaut **23 points PISA**. Or l'écart total entre les cinq pays du
+graphique n'est que de 42 points (Pays-Bas 523, Finlande 519, France 495, Royaume-Uni 494,
+États-Unis 481 — valeurs vérifiées sur les tableaux NCES de PISA 2012). Le bruit de raccordement
+représente donc plus de la moitié de l'amplitude qu'on prétend lire.
+
+Le cas de la Finlande est le pire de l'échantillon : la base la situe **58 points PISA en dessous**
+de ce que son score réel prédit. Le décrochage finlandais spectaculaire qu'on voit sur le graphique
+est donc, pour une part importante, un artefact de mesure. À l'inverse, les États-Unis sont
+surestimés de 18 points.
+
+**Conséquence.** Cette base sépare correctement la Corée du Pérou, pas la France de la Finlande.
+Elle est utilisable pour un classement mondial grossier ou pour des régressions de croissance en
+coupe — son usage d'origine — mais pas pour comparer entre eux cinq pays de l'OCDE tenus dans un
+mouchoir de poche. Le graphique `outcomes_1965_2012.png` doit être lu comme une illustration de
+l'état des sources, pas comme un classement.
+
+**Ce qui est vraiment solide sur la période récente** : PISA lui-même, qui est raccordé en interne
+par des items communs entre vagues. Pour 2000-2025, il faut donc utiliser PISA directement plutôt
+qu'une base harmonisée — l'harmonisation n'apporte rien et ajoute 23 points de bruit.
+
+**Peut-on prolonger la série ADM avec les PISA récents ?** Techniquement oui, et sans commettre de
+raccordement nouveau : les derniers points de la série ADM (2000, 2003, 2005, 2009, 2012) sont déjà
+essentiellement des vagues PISA. Le procédé correct est de rester à l'intérieur d'un pays pour
+neutraliser son biais propre :
+
+    ADM_pays(t) = ADM_pays(2012) + 0,94 × [PISA_pays(t) − PISA_pays(2012)]
+
+Le biais pays s'annule dans la différence, et 0,94 est la pente estimée ci-dessus. Mais si l'on fait
+cela, autant tracer PISA directement : le résultat est le même à une transformation affine près, et
+il est plus lisible.
+
 **Variante si l'on préfère atteindre 2023 plutôt que remonter à 1965 :** Lee & Lee (2025) fournit
 10 à 12 points réellement observés par pays entre 1970 et 2023. Elle a l'avantage de couvrir la
 baisse récente, et l'inconvénient d'être elle aussi contaminée par la composition — c'est elle qui
