@@ -212,6 +212,50 @@ Ce qu'il ne faut pas faire : reprendre telle quelle une des bases harmonisées p
 France 1965-2025. Elle existe, elle est publiée, elle est téléchargeable en trois lignes — et elle
 est fausse à ±100 points sur la partie ancienne.
 
+## 7 bis. Le graphique long : ce qu'on obtient réellement
+
+`figures/outcomes_1965_2012.png` (source : `figures/figure_historique.html`).
+
+Construit à partir d'une quatrième base, la plus adaptée à cet exercice : **Altinok, Diebolt & de
+Meulemeester (2014)**, *A new international database on education quality: 1965-2010*, *Applied
+Economics* 46(11), version 2.2 du fichier, table 2. Deux avantages décisifs sur les précédentes :
+elle commence en 1965 et sa table panel porte **uniquement sur le secondaire**, ce qui élimine le
+mélange primaire/secondaire qui pollue la base Altinok-Angrist-Patrinos.
+
+Cinq pays retenus : France, Finlande, Pays-Bas, Angleterre, États-Unis.
+
+**Ce que le graphique montre involontairement, et qui est le vrai enseignement.** En ne reliant que
+les années réellement mesurées — les valeurs interpolées sont par construction alignées entre elles,
+donc la forme de la courbe est identique —, on voit que la période 1965-1995 ne repose, pour la
+plupart des pays, que sur **deux mesures : FIMS 1964 et SIMS 1980**. Tout le reste est du trait tiré
+entre deux points. La partie dense et continue ne commence qu'avec TIMSS 1995 et surtout PISA 2000.
+Une base annoncée « 1965-2010 » est, en pratique, une base 1995-2010 prolongée par deux points
+isolés.
+
+Trois anomalies repérées en manipulant les données, à connaître avant d'utiliser cette base :
+
+- **Le Japon est inutilisable après 2003** : sa valeur reste figée à 634,9 en 2005, 2007, 2009, 2010
+  et 2012, à la décimale près. C'est un report de valeur, alors que le Japon a passé PISA 2006, 2009
+  et 2012 et TIMSS 2007 et 2011. Je l'ai écarté du graphique pour cette raison, et remplacé par les
+  Pays-Bas.
+- **L'Italie a le même problème** entre 1990 et 2000 (534,9 constant).
+- **Les niveaux de 1965 sont contaminés par la sélectivité.** L'Angleterre passe de 607,9 en 1965 à
+  515,8 en 1980, soit −92 points. Ce n'est pas un effondrement de l'enseignement anglais : en 1964,
+  la population testée en fin de secondaire est une élite de *grammar schools*, alors qu'en 1980
+  l'école compréhensive a massivement élargi la base. Le même mécanisme joue en sens inverse pour
+  la France, qui *gagne* 53 points sur la même période. Deux pays qui ont tous deux massifié leur
+  secondaire bougent en sens opposé : c'est le signe que ces variations mesurent surtout qui passe
+  le test, pas ce que les élèves savent.
+
+Autrement dit, le graphique répond à la question posée — c'est la plus longue série harmonisée
+disponible — mais sa lecture honnête est : *avant 1995, on ne sait pas grand-chose, et le peu qu'on
+croit savoir est brouillé par l'expansion de la scolarisation.*
+
+**Variante si l'on préfère atteindre 2023 plutôt que remonter à 1965 :** Lee & Lee (2025) fournit
+10 à 12 points réellement observés par pays entre 1970 et 2023. Elle a l'avantage de couvrir la
+baisse récente, et l'inconvénient d'être elle aussi contaminée par la composition — c'est elle qui
+fait perdre 37 points à la France entre 2015 et 2019.
+
 ## 8. Où sont les données
 
 - **IEA Data Repository** — https://www.iea.nl/data-tools/repository — TIMSS, PIRLS, CIVED, SITES,
@@ -221,6 +265,13 @@ est fausse à ±100 points sur la partie ancienne.
 - **COMPEAT, Université de Göteborg** : documentation des études d'avant 1995.
 - **Altinok-Angrist-Patrinos (2018)** : version agrégée sur le dépôt GitHub d'Our World in Data
   (`owid/owid-datasets`), papier World Bank PRWP 8314.
+- **Altinok-Diebolt-de Meulemeester (2014)**, base 1965-2010 par niveau scolaire, et
+  **Altinok-Diebolt (2023)** LAYS 1970-2020 : les deux fichiers sont recensés sur
+  https://sites.google.com/view/nadiraltinok/datasets (le second est le matériel supplémentaire de
+  l'article Cliometrica, DOI 10.1007/s11698-023-00276-x).
+- **Harmonized Learning Outcomes de la Banque mondiale** (Angrist et al., *Nature* 2021) :
+  datacatalog.worldbank.org — attention, cette base-là ne couvre que **2000-2017**, elle ne remonte
+  pas aux années 1960.
 - **Lee & Lee (2025)** : Zenodo, DOI 10.5281/zenodo.16778072 (CSV et Stata).
 - **Hanushek & Woessmann** : données de *knowledge capital* sur hanushek.stanford.edu.
 - **DEPP** : notes d'information sur education.gouv.fr/depp et le portail
