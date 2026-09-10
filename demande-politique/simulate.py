@@ -579,6 +579,80 @@ def fig9_correlation(moms):
     fig.savefig(OUT / "fig9_correlation.png"); plt.close(fig)
 
 
+
+def sample_votes(P):
+    """Un vote par électeur, tiré selon ses probabilités (dernière colonne : abstention)."""
+    cum = np.cumsum(P, axis=1)
+    u = RNG.random(len(P))[:, None]
+    return (u > cum).sum(axis=1)
+
+
+ABST_COL = "#D3D6DA"
+
+
+def fig10_nuage(Z, votes):
+    """Un point par électeur, coloré par son vote ; la superposition fait la saillance."""
+    fig, ax = plt.subplots(figsize=(7.6, 7.2))
+    cols = [PARTIES[n]["col"] for n in PARTY_NAMES] + [ABST_COL]
+    abst = votes == len(PARTY_NAMES)
+    ax.scatter(Z[abst, 0], Z[abst, 1], s=4, c=ABST_COL, alpha=0.35, lw=0, zorder=1, rasterized=True)
+    idx = np.flatnonzero(~abst); RNG.shuffle(idx)
+    ax.scatter(Z[idx, 0], Z[idx, 1], s=5, c=[cols[v] for v in votes[idx]], alpha=0.38, lw=0, zorder=2, rasterized=True)
+    draw_parties(ax, ellipses=False, size=46, offsets={"Reconquête": (0.15, 0.2), "RN": (-0.9, -0.05), "LR": (0.18, -0.38), "PS": (0.14, 0.14)})
+    axes_ideo(ax)
+    ax.set_title("Où sont les électeurs de chaque parti ? Un point par électeur, coloré par son vote (« 2025 »)",
+                 loc="left", fontsize=11, pad=12)
+    ax.text(-2.95, 2.78, f"{len(Z):,} électeurs simulés\ngris : abstention ({100*abst.mean():.0f} %)".replace(",", " "),
+            fontsize=8, color=INK2, va="top", bbox=dict(boxstyle="round,pad=0.3", fc=SURFACE, ec="none", alpha=0.85))
+    fig.text(0.99, 0.005, "données entièrement simulées", fontsize=7.5, color=MUTED, ha="right")
+    fig.savefig(OUT / "fig10_nuage_electeurs.png"); plt.close(fig)
+
+
+def fig11_nuage_par_parti(Z, votes, metrics):
+    fig, axes = plt.subplots(2, 3, figsize=(12.6, 8.6), sharex=True, sharey=True)
+    for ax, (j, name) in zip(axes.ravel(), enumerate(PARTY_NAMES)):
+        ax.scatter(Z[:, 0], Z[:, 1], s=3, c="#C9CCD1", alpha=0.25, lw=0, zorder=1, rasterized=True)
+        m = votes == j
+        ax.scatter(Z[m, 0], Z[m, 1], s=5, c=PARTIES[name]["col"], alpha=0.5, lw=0, zorder=2, rasterized=True)
+        ax.scatter(*PARTIES[name]["mu"], s=60, color=PARTIES[name]["col"], ec=SURFACE, lw=1.4, zorder=5)
+        axes_ideo(ax, labels=False)
+        ax.set_title(f"{name}  ·  {100*metrics[name]['score_exprimes']:.0f} % des exprimés", loc="left",
+                     fontsize=10.5, fontweight="bold", color=PARTIES[name]["col"], pad=6)
+    for ax in axes[1]:
+        ax.set_xlabel("Économie   ←  interv.        libéral.  →")
+    for ax in axes[:, 0]:
+        ax.set_ylabel("Culture   ←  progr.        conserv.  →")
+    fig.suptitle("L'électorat de chaque parti dans le même plan (fond gris : tous les électeurs)",
+                 x=0.04, ha="left", fontsize=11.5, y=0.985)
+    fig.text(0.99, 0.008, "données entièrement simulées", fontsize=7.5, color=MUTED, ha="right")
+    fig.tight_layout(rect=(0, 0.02, 1, 0.97))
+    fig.savefig(OUT / "fig11_nuage_par_parti.png"); plt.close(fig)
+
+
+def fig12_nuage_enquete(Z, votes, n=3000, niveaux=11):
+    """Ce que donnerait une vraie enquête : n répondants, positions sur une échelle
+    discrète à `niveaux` modalités par axe, jitter pour dé-superposer."""
+    idx = RNG.choice(len(Z), n, replace=False)
+    pas = 2 * LIM / (niveaux - 1)
+    Zd = np.round(Z[idx] / pas) * pas + RNG.uniform(-0.42 * pas, 0.42 * pas, size=(n, 2))
+    v = votes[idx]
+    cols = [PARTIES[nm]["col"] for nm in PARTY_NAMES] + [ABST_COL]
+    fig, ax = plt.subplots(figsize=(7.6, 7.2))
+    abst = v == len(PARTY_NAMES)
+    ax.scatter(Zd[abst, 0], Zd[abst, 1], s=13, c=ABST_COL, alpha=0.6, lw=0, zorder=1)
+    k = np.flatnonzero(~abst); RNG.shuffle(k)
+    ax.scatter(Zd[k, 0], Zd[k, 1], s=15, c=[cols[t] for t in v[k]], alpha=0.65, lw=0, zorder=2)
+    draw_parties(ax, ellipses=False, size=46, offsets={"Reconquête": (0.15, 0.2), "RN": (-0.9, -0.05), "LR": (0.18, -0.38), "PS": (0.14, 0.14)})
+    axes_ideo(ax)
+    n_txt = f"{n:,}".replace(",", " ")
+    ax.set_title(f"À quoi ressemblerait une enquête réelle : {n_txt} répondants, échelles à {niveaux} points",
+                 loc="left", fontsize=11, pad=12)
+    ax.text(-2.95, 2.78, "chaque point : un répondant, auto-positionné sur deux\néchelles discrètes (jitter), coloré par son vote déclaré",
+            fontsize=8, color=INK2, va="top", bbox=dict(boxstyle="round,pad=0.3", fc=SURFACE, ec="none", alpha=0.85))
+    fig.text(0.99, 0.005, "données entièrement simulées", fontsize=7.5, color=MUTED, ha="right")
+    fig.savefig(OUT / "fig12_nuage_enquete.png"); plt.close(fig)
+
+
 # ============================================================================
 # 6. MAIN
 # ============================================================================
@@ -614,6 +688,10 @@ def main():
     fig7_vacant(E, C, D25, U)
     fig8_entrant(E, C, D25, share25, Eg, Cg, best)
     fig9_correlation(moms)
+    votes = sample_votes(choice_probs(attractions(Z25)))
+    fig10_nuage(Z25, votes)
+    fig11_nuage_par_parti(Z25, votes, metrics)
+    fig12_nuage_enquete(Z25, votes)
 
     kU = np.unravel_index(np.argmax(U), U.shape)
     resume = dict(

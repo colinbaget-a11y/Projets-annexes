@@ -5,7 +5,7 @@ d'électeurs, les scores : rien n'est une estimation. Le but est de fixer le lan
 quantités qu'on chercherait ensuite à estimer sur données réelles, et de juger si l'objet mérite
 d'être construit.
 
-`simulate.py` génère les données et les neuf figures (`figures/`), plus `resultats_simules.json`.
+`simulate.py` génère les données et les douze figures (`figures/`), plus `resultats_simules.json`.
 Environ 45 secondes d'exécution, dépendances : numpy, scipy, matplotlib.
 
 ---
@@ -135,6 +135,29 @@ les deux axes, et chaque ellipse le bassin estimé d'un parti — sa taille dira
 idéologique il recrute encore. On verrait immédiatement si un parti est posé sur une masse ou dans
 un creux, et où les bassins se recouvrent. Ici, RN, Reconquête et LR se chevauchent sur le
 quadrant conservateur, ce que la figure 5 quantifie.
+
+### Figures 10 à 12 — Les électeurs eux-mêmes
+![](figures/fig10_nuage_electeurs.png)
+
+Un point par électeur, coloré par son vote, abstention en gris ; la superposition fait la saillance.
+Avec de vraies données, c'est la forme la plus proche de l'observation brute : chaque point serait un
+répondant auto-positionné, coloré par son vote déclaré, et la « tache » de chaque parti apparaîtrait
+sans aucun lissage. Les zones de mélange de couleurs sont les zones de concurrence — ici la bande
+RN / Reconquête / LR en haut à droite, et la zone PS / Renaissance au centre.
+
+![](figures/fig11_nuage_par_parti.png)
+
+Même nuage, un panneau par parti, fond gris pour l'ensemble. Avec de vraies données, on comparerait
+directement l'étendue de chaque électorat : LFI compact, Renaissance large, LR et Reconquête
+dispersés dans une zone que le RN occupe densément. C'est la version « à l'œil » de la matrice de
+chevauchement.
+
+![](figures/fig12_nuage_enquete.png)
+
+Ce que donnerait une enquête réelle : 3 000 répondants au lieu de 20 000, positions sur des échelles
+discrètes à 11 modalités, jitter pour dé-superposer. La grille apparaît ; c'est le problème concret
+des auto-positionnements d'enquête, et la raison pour laquelle le lissage (KDE) ou le hexbin restent
+utiles pour les cartes de densité, même si le nuage brut reste la meilleure vue pour les électorats.
 
 ### Figure 2 — Quatre dates
 ![](figures/fig2_cartes_4_dates.png)
