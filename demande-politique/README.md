@@ -282,3 +282,14 @@ spatial et variera fortement d'une élection à l'autre ; elle est le résidu du
 résultat. Et les positions des partis bougent aussi : la décomposition demande/offre devra faire
 varier les deux, et la contribution de chacune n'est identifiée que si l'on accepte une forme
 fonctionnelle.
+
+## 6. Données réelles
+
+Le dossier `donnees_reelles/` refait les figures 10 à 12 sur des enquêtes réelles :
+CSES (France 2017 et 2012) et Baromètre de la confiance politique du CEVIPOF (décembre 2017,
+janvier 2022, janvier 2024, janvier-février 2025), avec un point par répondant coloré par son
+vote. Sources, construction des axes, résultats et limites sont documentés dans
+`donnees_reelles/NOTE.md`. Le résultat principal : le nuage réel est allongé le long de la
+diagonale interventionnisme-ouverture / libéralisme-fermeture (corrélation +0,3 à +0,4 selon la
+vague), les électorats se recouvrent largement (le vote explique environ un tiers de la variance
+sur chaque axe en 2017) et l'électorat Le Pen se situe au centre de l'axe économique.

@@ -177,3 +177,22 @@ repondérer sur une enquête probabiliste avant tout usage descriptif.
 4. **L'offre dans l'espace des électeurs.** Préférer les positions perçues ; CHES en contrôle.
 5. **Accès.** CDSP : inscription, fichiers restreints sur demande (Progedo-Quetelet). GESIS :
    inscription gratuite. ESS : inscription gratuite. Boussole : convention.
+
+## Mise à jour du 11 septembre 2026 : ce qui a été effectivement obtenu
+
+Vérifié sur les portails et les fichiers (voir `donnees_reelles/NOTE.md`) :
+
+- **CSES** (cses.org, sans inscription) : vagues France 2017 (module 5, N = 1 830) et 2012 (module 4,
+  N = 2 014) téléchargées et exploitées. Questionnaire commun court : un seul item économique en
+  2017, aucun item culturel en 2012.
+- **Baromètre de la confiance politique** (CEVIPOF, CC-BY, `doi:10.21410/7E4/9K3VGR`) : fichiers
+  ouverts via l'API du Dataverse de Sciences Po, sans compte. Vagues 9 (déc. 2017, N = 2 084),
+  13 (janv. 2022, N = 10 566), 15 (janv. 2024, N France = 3 514) et 16 (janv.-févr. 2025, N France =
+  3 561) exploitées : batteries économiques et culturelles (4 à 10 items selon la vague), vote
+  déclaré 2017 ou 2022, intention 2022, gauche-droite. C'est la base ouverte la plus riche pour
+  le nuage d'électeurs ; panel en ligne à quotas.
+- **CDSP / CEVIPOF (ENEF 2017, 2019, 2024, post-électorales 1962-2012, panel 2002)** : fiches et
+  documentation ouvertes, mais tous les fichiers de données sont « restricted » (API : 403) ;
+  compte et demande d'accès nécessaires. **ENEF 2022** : fiches publiées en juillet-août 2026,
+  aucun fichier encore exposé.
+- **ESS, EVS, ISSP** : inscription nécessaire, non tentée.
