@@ -1,0 +1,131 @@
+{
+  "millesime": "AMECO printemps 2026",
+  "annees": {
+    "2019": {
+      "base_C_PIB_valeur": 9.910950006389259,
+      "cible_BE_VA_volume": 12.902911880869546,
+      "ecart": 2.991961874480287,
+      "contributions": {
+        "numerateur_C_vers_BE": 2.1136536314917103,
+        "denominateur_PIB_vers_VA": 1.3843426425955767,
+        "valeur_vers_volume": -0.5060343996069998
+      },
+      "tous_ratios": {
+        "C/PIB/valeur": 9.910950006389259,
+        "C/PIB/volume": 9.394441287189915,
+        "C/VA/valeur": 11.208255137491236,
+        "C/VA/volume": 10.606490163412566,
+        "B-E/PIB/valeur": 11.844926179796882,
+        "B-E/PIB/volume": 11.428441098899187,
+        "B-E/VA/valeur": 13.39538133300302,
+        "B-E/VA/volume": 12.902911880869546
+      }
+    },
+    "2023": {
+      "base_C_PIB_valeur": 9.768704970367496,
+      "cible_BE_VA_volume": 11.816259728485395,
+      "ecart": 2.047554758117899,
+      "contributions": {
+        "numerateur_C_vers_BE": 2.5610162656725106,
+        "denominateur_PIB_vers_VA": 1.2251949648935778,
+        "valeur_vers_volume": -1.7386564724481894
+      },
+      "tous_ratios": {
+        "C/PIB/valeur": 9.768704970367496,
+        "C/PIB/volume": 8.92425659466942,
+        "C/VA/valeur": 10.877364395223163,
+        "C/VA/volume": 10.01198765975435,
+        "B-E/PIB/valeur": 13.028487287379296,
+        "B-E/PIB/volume": 10.532507369156082,
+        "B-E/VA/valeur": 14.507102443285874,
+        "B-E/VA/volume": 11.816259728485395
+      }
+    },
+    "2024": {
+      "base_C_PIB_valeur": 9.566475206906922,
+      "cible_BE_VA_volume": 12.04610210030389,
+      "ecart": 2.4796268933969685,
+      "contributions": {
+        "numerateur_C_vers_BE": 2.31795006326658,
+        "denominateur_PIB_vers_VA": 1.2193397330043052,
+        "valeur_vers_volume": -1.0576629028739166
+      },
+      "tous_ratios": {
+        "C/PIB/valeur": 9.566475206906922,
+        "C/PIB/volume": 9.023966149332724,
+        "C/VA/valeur": 10.697868135782116,
+        "C/VA/volume": 10.089285244291942,
+        "B-E/PIB/valeur": 12.210209671913752,
+        "B-E/PIB/volume": 10.774164368684856,
+        "B-E/VA/valeur": 13.654267653991907,
+        "B-E/VA/volume": 12.04610210030389
+      }
+    },
+    "2025": {
+      "base_C_PIB_valeur": 9.486224478783774,
+      "cible_BE_VA_volume": 11.91577412860242,
+      "ecart": 2.4295496498186466,
+      "contributions": {
+        "numerateur_C_vers_BE": 2.12035497615727,
+        "denominateur_PIB_vers_VA": 1.2374513775151101,
+        "valeur_vers_volume": -0.9282567038537335
+      },
+      "tous_ratios": {
+        "C/PIB/valeur": 9.486224478783774,
+        "C/PIB/volume": 8.986339503773744,
+        "C/VA/valeur": 10.654890598958614,
+        "C/VA/volume": 10.06357640014033,
+        "B-E/PIB/valeur": 11.844002039418076,
+        "B-E/PIB/volume": 10.640272156965187,
+        "B-E/VA/valeur": 13.303137224518004,
+        "B-E/VA/volume": 11.91577412860242
+      }
+    }
+  },
+  "revisions_1960_2024": {
+    "UVGD": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "OVGD": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "UVG0": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "OVG0": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "UVG2": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "OVG2": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "UVGM": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "OVGM": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "FETD": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "FET2": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    },
+    "FETM": {
+      "annees_communes": 65,
+      "annees_revisees": 0
+    }
+  }
+}
