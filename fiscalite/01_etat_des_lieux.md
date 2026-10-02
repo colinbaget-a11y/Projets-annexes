@@ -2,7 +2,8 @@
 
 Premier chapitre du projet. Objet : savoir ce que l'on taxe, pour combien, et où sont les
 défauts de construction. Tous les chiffres de ce document sortent des fichiers de `donnees/`
-et sont reproductibles par `panorama.py`. Les affirmations institutionnelles qui ne
+et sont reproductibles par `panorama.py` ; les douze figures sont produites par
+`graphiques.py` et décrites dans `figures/INDEX.md`. Les affirmations institutionnelles qui ne
 s'appuient pas encore sur une source téléchargée sont marquées **[à sourcer]**.
 
 ## 1. Le socle de données
