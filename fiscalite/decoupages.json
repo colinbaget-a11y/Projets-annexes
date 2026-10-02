@@ -1,0 +1,114 @@
+{
+ "total_meur": 1274865.0,
+ "pib_meur": 2935236.2,
+ "assiette": {
+  "meur": {
+   "conso_menages": 260966.0,
+   "profit": 89963.0,
+   "energie": 43273.0,
+   "intrant_entreprises": 28401.0,
+   "transaction": 17206.0,
+   "stock_capital": 48039.0,
+   "rente": 1559.0,
+   "travail": 490303.0,
+   "revenu_capital": 15617.0,
+   "revenu_global": 258522.0,
+   "transmission": 20819.0,
+   "autre": 197.0
+  },
+  "nombre": {
+   "conso_menages": 25,
+   "profit": 23,
+   "energie": 10,
+   "intrant_entreprises": 21,
+   "transaction": 3,
+   "stock_capital": 14,
+   "rente": 3,
+   "travail": 15,
+   "revenu_capital": 3,
+   "revenu_global": 4,
+   "transmission": 1,
+   "autre": 1
+  }
+ },
+ "intrant": {
+  "meur": {
+   "partiel": 574408.0,
+   "non": 581163.0,
+   "oui": 119294.0
+  },
+  "nombre": {
+   "partiel": 26,
+   "non": 60,
+   "oui": 37
+  }
+ },
+ "correctif": {
+  "meur": {
+   "non": 1198381.0,
+   "oui": 56611.0,
+   "partiel": 19873.0
+  },
+  "nombre": {
+   "non": 103,
+   "oui": 10,
+   "partiel": 10
+  }
+ },
+ "verdict": {
+  "meur": {
+   "conserver_base_large": 206332.0,
+   "non_examine": 1118.0,
+   "contrainte_europeenne": 2600.0,
+   "supprimer": 48406.0,
+   "a_identifier": 27323.0,
+   "refondre_prix_carbone": 38761.0,
+   "conserver_correctif": 31095.0,
+   "refondre": 41806.0,
+   "fusionner_tva": 96.0,
+   "contrainte_internationale": 785.0,
+   "refondre_fonciere": 50299.0,
+   "conserver_rente": 1559.0,
+   "supprimer_avec_tva": 17315.0,
+   "conserver_assurance": 1468.0,
+   "fusionner_cotisations": 433533.0,
+   "fusionner_impot_revenu": 265855.0,
+   "refondre_rendement_normal": 83615.0,
+   "fusionner_is": 1826.0,
+   "conserver_redevance": 57.0,
+   "refondre_assiette": 20819.0,
+   "autre": 197.0
+  },
+  "nombre": {
+   "conserver_base_large": 1,
+   "non_examine": 27,
+   "contrainte_europeenne": 1,
+   "supprimer": 20,
+   "a_identifier": 19,
+   "refondre_prix_carbone": 6,
+   "conserver_correctif": 11,
+   "refondre": 11,
+   "fusionner_tva": 1,
+   "contrainte_internationale": 1,
+   "refondre_fonciere": 3,
+   "conserver_rente": 3,
+   "supprimer_avec_tva": 1,
+   "conserver_assurance": 1,
+   "fusionner_cotisations": 3,
+   "fusionner_impot_revenu": 6,
+   "refondre_rendement_normal": 3,
+   "fusionner_is": 2,
+   "conserver_redevance": 1,
+   "refondre_assiette": 1,
+   "autre": 1
+  }
+ },
+ "agregats": {
+  "intrant_oui_meur": 119294.0,
+  "intrant_partiel_meur": 574408.0,
+  "intrant_oui_non_correctif_meur": 77048.0,
+  "transaction_meur": 17206.0,
+  "intrant_oui_pct_pib": 4.064204441196249,
+  "intrant_oui_non_correctif_pct_pib": 2.624933557306223
+ }
+}

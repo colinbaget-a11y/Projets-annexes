@@ -19,6 +19,18 @@ séries sont toujours identifiées par une étiquette directe, jamais par la cou
 | `g11_taux_global_pays.png` | Le taux de prélèvement de 1995 à 2024, chaque État membre en gris. |
 | `g12_fiscalite_energie.png` | La fiscalité de l'énergie : niveau depuis 1995 et composition en 2024. |
 
+## Découpages analytiques (chapitre 3)
+
+Produites par `graphiques_decoupages.py`, à partir de la classification de
+`donnees/classification_prelevements.csv`.
+
+| Fichier | Ce qu'il montre |
+|---|---|
+| `h1_ce_que_l_on_taxe.png` | Les 1 274,9 Md€ reclassés selon ce qu'ils atteignent en dernier ressort, et non selon leur étiquette comptable. |
+| `h2_efficience_productive.png` | La part des prélèvements qui distord les décisions de production, et celle qui le fait sans corriger de dommage. |
+| `h3_prelevements_sur_intrants.png` | Le détail des 77 Md€ assis sur un facteur de production sans justification correctrice. |
+| `h4_lecture_par_principe.png` | Ce que les principes du chapitre 2 impliqueraient, prélèvement par prélèvement. |
+
 Deux avertissements de lecture. Les listes nationales d'impôts sont libellées en monnaie
 nationale : les comparaisons entre pays passent donc par `gov_10a_taxag`, déjà exprimé en
 points de PIB. Et la Suède classe les cotisations patronales en impôts sur la production,

@@ -33,14 +33,15 @@ conséquence opératoire.
 
 1. **Ce que l'on cherche.** Les trois critères : efficience, équité, administrabilité. Ce que
    la théorie dit vraiment et ce qu'elle ne dit pas. Pourquoi l'exercice « from scratch » est
-   utile même si la transition ne l'est pas.
+   utile même si la transition ne l'est pas. → `02_cadre_theorique.md`, rédigé.
 2. **Les contraintes du cas français.** Le niveau de dépense à financer. L'ouverture et la
    mobilité des assiettes. La décentralisation et l'autonomie financière des collectivités. Le
    droit européen, le droit constitutionnel, la jurisprudence sur l'égalité devant l'impôt.
 
 ### Partie II — État des lieux (environ 45 pages)
 
-3. **Anatomie des 1 270 Md€.** → `01_etat_des_lieux.md`, déjà rédigé.
+3. **Anatomie des 1 270 Md€.** → `01_etat_des_lieux.md`, rédigé.
+   **Découper selon ce que font les prélèvements.** → `03_decoupages.md`, rédigé.
 4. **La taxation de la consommation.** TVA, accises, taxes sur les services spécifiques.
 5. **La taxation du travail.** Les deux impôts sur le revenu, les cotisations, les allègements,
    l'interaction avec les transferts. Le barème effectif.
@@ -91,6 +92,11 @@ téléchargée dans `sources/`. Les affirmations qui ne le sont pas encore porte
 | `donnees/pib_france_cp_meur.json` | PIB à prix courants, pour les ratios |
 | `panorama.json` | les chiffres du chapitre 3 |
 | `01_etat_des_lieux.md` | chapitre 3 rédigé |
+| `02_cadre_theorique.md` | les propositions de taxation optimale retenues, et leurs conditions |
+| `03_decoupages.md` | les quatre découpages analytiques et ce qu'ils commandent |
+| `classification.py` | reclassement des 123 prélèvements sur quatre dimensions |
+| `donnees/classification_prelevements.csv` | le classement ligne par ligne, avec le motif |
+| `graphiques.py`, `graphiques_decoupages.py` | les seize figures |
 
 ## Sources déjà mobilisées
 

@@ -1,0 +1,124 @@
+nom,sto,fonction,meur,assiette,intrant,correctif,verdict,methode,commentaire
+TVA,D211,C,206332.0,conso_menages,partiel,non,conserver_base_large,manuelle,"Neutre par construction tant que la chaîne de déduction est complète. Elle ne l'est pas : les secteurs exonérés ne déduisent pas la TVA de leurs intrants, qui reste incorporée dans leurs prix. Cette rémanence n'est pas isolable dans la liste Eurostat."
+Amendes et confiscations,D2121,C,40.0,conso_menages,non,non,non_examine,repli,
+Droits d'importation,D2121,C,2600.0,conso_menages,partiel,non,contrainte_europeenne,manuelle,"Ressource propre de l'Union ; un droit de douane distord la production, mais la décision n'est pas nationale."
+Octroi de mer,D2121,C,648.0,conso_menages,partiel,non,supprimer,manuelle,Taxe sur les entrées de biens outre-mer : protège la production locale au prix d'une distorsion de production.
+Prélèvements et taxes compensatoires à l'importation,D2122B,C,0.0,conso_menages,non,non,non_examine,repli,
+Autres taxes,D2122C,C,9.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Autres taxes,D214A,C,44.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Taxe intérieure sur la consommation de gaz naturel,D214A,C,3183.0,energie,oui,oui,refondre_prix_carbone,manuelle,
+Autres taxes sur la pollution,D214A,C,1011.0,energie,partiel,oui,conserver_correctif,manuelle,
+Autres taxes sur l'énergie,D214A,C,622.0,energie,oui,partiel,refondre_prix_carbone,manuelle,
+Octroi de mer,D214A,C,942.0,conso_menages,partiel,non,supprimer,manuelle,Taxe sur les entrées de biens outre-mer : protège la production locale au prix d'une distorsion de production.
+Taxe intérieure de consommation des produits énergétiques,D214A,C,29554.0,energie,oui,oui,refondre_prix_carbone,manuelle,"Frappe les ménages et les entreprises, à des tarifs très différents selon l'usage. Taxer un intrant est ici légitime : le dommage est le même quel que soit l'émetteur. Ce qui ne l'est pas, c'est que le prix implicite de la tonne varie d'un usage à l'autre."
+Accise sur l'électricité,D214A,C,4803.0,energie,oui,partiel,refondre_prix_carbone,manuelle,"L'électricité française est peu carbonée : la taxer décourage l'électrification, c'est-à-dire l'inverse de l'objectif."
+Taxes au profit de l'ADEME (Agence de l'environnement et de la maîtrise de l'énergie),D214A,C,0.0,conso_menages,non,non,non_examine,repli,
+Taxes sur les boissons,D214A,C,4749.0,conso_menages,non,oui,conserver_correctif,manuelle,
+Taxes sur les tabacs,D214A,C,13606.0,conso_menages,non,oui,conserver_correctif,manuelle,"Internalité et externalité ; le taux doit viser le dommage, pas le rendement."
+Taxe sur les mises à disposition de produits pétroliers pour le stockage stratégique,D214A,C,599.0,intrant_entreprises,oui,non,refondre_prix_carbone,manuelle,
+Contribution de sécurité immobilière,D214B,KS,692.0,transaction,non,non,supprimer,manuelle,
+Droits d'enregistrement (y compris taxe additionnelle),D214C,KS,14663.0,transaction,non,non,supprimer,manuelle,Taxe la mutation et non la détention : bloque les échanges dont le gain est inférieur au droit. Le ménage qui déménage pour un meilleur emploi paie ; celui qui reste ne paie rien.
+Impôt sur les opérations traitées dans les bourses de valeurs,D214C,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Taxe sur les transactions financières,D214C,KS,1851.0,transaction,non,non,supprimer,manuelle,
+Taxe sur les certificats d'immatriculation des véhicules,D214D,C,3122.0,conso_menages,partiel,partiel,refondre,manuelle,
+Autres taxes,D214E,C,5.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Taxes sur les spectacles,D214E,C,96.0,conso_menages,non,non,fusionner_tva,manuelle,
+Cotisation des entreprises cinématographiques au profit du CNC (Centre national du cinéma),D214E,C,708.0,intrant_entreprises,oui,non,refondre,manuelle,
+Produits de la loterie nationale et du loto,D214F,C,3988.0,conso_menages,non,partiel,conserver_correctif,manuelle,Mêle correction d'une internalité et prélèvement sur une rente de monopole.
+Taxes sur les jeux des casinos,D214F,C,1436.0,conso_menages,non,partiel,conserver_correctif,manuelle,
+Taxes sur les paris hippiques,D214F,C,1797.0,conso_menages,non,partiel,conserver_correctif,manuelle,
+Taxe de solidarité additionnelle,D214G,C,6211.0,conso_menages,partiel,non,refondre,manuelle,"Même logique, sur les complémentaires santé."
+Cotisations sur primes d'assurance,D214G,C,1728.0,conso_menages,partiel,non,refondre,manuelle,
+Taxe additionnelle sur les assurances automobile,D214G,C,0.0,conso_menages,non,non,non_examine,repli,
+Taxe spéciale sur les conventions d'assurance,D214G,C,10031.0,conso_menages,partiel,non,refondre,manuelle,"L'assurance étant exonérée de TVA, on taxe la prime. Or la prime n'est pas une consommation : elle achète un transfert de risque. Taxer le partage du risque réduit la couverture, ce que rien ne justifie."
+Taxe sur primes d'assurance automobile,D214G,C,1255.0,conso_menages,non,partiel,refondre,manuelle,
+Autres taxes,D214H,C,1144.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Autres taxes sur la pollution,D214H,C,1095.0,energie,partiel,oui,conserver_correctif,manuelle,
+Autres taxes sur l'énergie,D214H,C,0.0,energie,oui,partiel,refondre_prix_carbone,manuelle,
+Contributions sur les loyers immobiliers,D214H,C,511.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Redevances sur les prélèvements de l'eau,D214H,C,826.0,energie,oui,oui,conserver_correctif,manuelle,
+Taxes sur la construction,D214H,C,1194.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Taxes sur les services professionnels hors droits de mutations,D214H,C,1763.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Taxes sur les transports,D214H,C,1859.0,energie,partiel,partiel,refondre,manuelle,
+Taxe due par les opérateurs de communications électroniques,D214H,C,236.0,intrant_entreprises,oui,non,supprimer,manuelle,
+"Taxes pharmaceutiques (contribution grossistes répartiteurs, taxe sur les ventes de médicaments et de cosmétiques)",D214I,C,957.0,conso_menages,non,non,non_examine,repli,
+Taxe sur les services numériques,D214I,C,785.0,intrant_entreprises,oui,non,contrainte_internationale,manuelle,"Taxe sur le chiffre d'affaires, donc en cascade ; sa justification est l'impuissance à taxer le bénéfice là où il est créé."
+Autres taxes,D214L,C,182.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Contribution des distributeurs d'énergie électrique basse tension,D214L,C,378.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Autres taxes,D29A,KS,890.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Cotisation minimale de taxe professionnelle,D29A,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Foncier bâti,D29A,KS,42059.0,stock_capital,partiel,non,refondre_fonciere,manuelle,"Deux impôts en un : sur le terrain, c'est une taxe sur une rente, la meilleure assiette possible, l'offre de sol ne répondant pas au prix ; sur la construction, c'est une taxe sur le capital, qui décourage de bâtir. L'assiette reste celle des valeurs locatives de 1970."
+Foncier non-bâti (partie),D29A,KS,883.0,rente,non,non,conserver_rente,manuelle,"Assiette foncière pure, la plus proche d'une rente."
+Taxe professionnelle,D29A,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Cotisation foncière des entreprises,D29A,KS,7708.0,intrant_entreprises,oui,non,refondre_fonciere,manuelle,"Assise sur la valeur locative des locaux : taxe le capital productif, et le foncier d'activité."
+Part sur les salaires,D29A,LEYRS,2630.0,travail,oui,non,a_identifier,manuelle,"Ligne sans nom dans la source, base déclarée : salaires."
+Part sur le capital,D29A,KIC,1237.0,stock_capital,partiel,non,a_identifier,manuelle,"Lignes sans nom dans la source, base déclarée : capital."
+Impositions forfaitaires sur les entreprises de réseaux,D29A,KS,1864.0,intrant_entreprises,oui,non,refondre,manuelle,Assise sur les équipements de réseau : taxe directement un facteur de production.
+Taxe sur l'utilisation des voies navigables (dont taxe hydraulique),D29A,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Taxe sur les surfaces commerciales,D29A,KS,1268.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Produit de l'imposition chambre de commerce,D29A,KS,525.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Taxe chambre métier,D29A,KS,214.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Imposition sur les pylônes,D29A,KS,348.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Taxe sur construction de bureaux et sur les locaux à usage de bureaux,D29A,KS,1055.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Chambre d'agriculture,D29A,KS,227.0,intrant_entreprises,oui,non,supprimer,manuelle,
+Taxe GEMAPI,D29A,KS,532.0,intrant_entreprises,oui,non,refondre_fonciere,manuelle,
+Autres taxes,D29B,KS,167.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Taxe spéciale sur les véhicules routiers (taxe à l'essieu),D29B,KS,154.0,intrant_entreprises,oui,oui,conserver_correctif,manuelle,"Approxime l'usure de la voirie : correctif, donc légitimement assis sur un intrant."
+Taxes sur les véhicules à moteur payées par les producteurs,D29B,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Taxe sur les véhicules de tourisme des sociétés,D29B,KS,991.0,intrant_entreprises,oui,partiel,refondre,manuelle,
+"Taxe due par les entreprises de transport public aérien et maritime (Corse, DOM)",D29B,KS,47.0,stock_capital,partiel,non,non_examine,repli,
+Autres taxes,D29C,LEYRS,1364.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Contributions des entreprises à la formation professionnelle et à l'apprentissage,D29C,LEYRS,11359.0,travail,oui,non,refondre,manuelle,
+Taxes sur les salaires,D29C,LEYRS,17315.0,travail,oui,non,supprimer_avec_tva,manuelle,"Payée par les secteurs exonérés de TVA : substitut grossier à la TVA qu'ils n'acquittent pas, mais assis sur le seul facteur travail, donc il distord le choix capital-travail de ces secteurs."
+Taxes au profit de l'Association sur la garantie des salaires,D29C,LEYRS,1468.0,travail,oui,non,conserver_assurance,manuelle,
+Contribution de solidarité pour l'autonomie,D29C,LEYRS,2468.0,travail,oui,non,fusionner_cotisations,manuelle,
+Cotisation patronale pour le FNAL (Fonds national d'aide au logement),D29C,LEYRS,2935.0,travail,oui,non,supprimer,manuelle,
+Versement mobilité,D29C,LEYRS,12231.0,travail,oui,non,supprimer,manuelle,Finance les transports urbains par une taxe sur la masse salariale : aucun lien entre l'assiette et le service rendu.
+Taxes au profit du FNDMA (Financement National de Développement et de Modernisation de l'Apprentissage),D29C,LEYRS,0.0,travail,oui,non,non_examine,repli,
+Forfait social,D29C,LEYRS,6300.0,travail,non,non,fusionner_impot_revenu,manuelle,
+Contribution patronale sur stock-options,D29C,LEYRS,1033.0,travail,non,non,fusionner_impot_revenu,manuelle,
+Taxe exceptionnelle de solidarité sur les hautes rémunérations,D29C,LEYRS,2.0,travail,oui,non,non_examine,repli,
+Participation des employeurs à l'effort de construction,D29C,LEYRS,1497.0,travail,oui,non,supprimer,manuelle,
+Autres taxes,D29E,KS,168.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Autres taxes sur la pollution,D29F,C,320.0,energie,partiel,oui,conserver_correctif,manuelle,
+Taxe sur les émissions de CO2,D29F,C,2113.0,intrant_entreprises,oui,oui,conserver_correctif,manuelle,Produit des enchères de quotas : la seule assiette directement proportionnelle au dommage.
+Autres taxes,D29H,KS,295.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Contribution sociale de solidarité des sociétés,D29H,KS,5228.0,intrant_entreprises,oui,non,supprimer,manuelle,"Assise sur le chiffre d'affaires : chaque stade de la chaîne paie sur un montant qui inclut déjà la taxe payée en amont. Plus la chaîne compte d'étapes, plus le prélèvement total est élevé, à production identique."
+TVA sur subventions,D29H,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Contribution au SRF (single resolution fund),D29H,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Contribution sur les rentes infra marginales (électricité),D29H,KS,127.0,rente,non,non,conserver_rente,manuelle,Porte sur une rente infra-marginale : la base la moins distorsive qui soit.
+Achats d'énergies renouvelables à prix contractuels,D29H,KS,0.0,stock_capital,partiel,non,non_examine,repli,
+Autres taxes,D51A,SPLIT1,1127.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Avoir fiscal utilisé (positif),D51A,KIH,0.0,revenu_capital,non,non,non_examine,repli,
+Contribution au remboursement de la dette sociale,D51A,SPLIT1,9084.0,revenu_global,non,non,fusionner_impot_revenu,manuelle,
+Contribution sociale généralisée,D51A,SPLIT1,153131.0,revenu_global,non,non,fusionner_impot_revenu,manuelle,"Assiette large, taux proportionnel, unité individuelle. Avec l'impôt sur le revenu, la France entretient deux impôts sur le revenu dont ni l'assiette ni l'unité ne coïncident."
+Fonds de solidarité contribution des fonctionnaires,D51A,LEES,0.0,travail,non,non,non_examine,repli,
+Autres prélèvements sociaux,D51A,KIH,14646.0,revenu_capital,non,non,refondre_rendement_normal,manuelle,Prélèvements sociaux sur les revenus du capital : frappent le rendement normal comme les rentes.
+Impôt sur le revenu,D51A,SPLIT1,96163.0,revenu_global,non,non,fusionner_impot_revenu,manuelle,"Assiette étroite, barème progressif, unité familiale, rendement 1,6 fois plus faible que la CSG."
+Prélèvements sur les revenus des capitaux mobiliers,D51A,KIH,971.0,revenu_capital,non,non,refondre_rendement_normal,manuelle,
+Autres taxes,D51B,KIC,13387.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Avoir fiscal distribué (négatif),D51B,KIC,0.0,profit,non,non,non_examine,repli,
+Avoir fiscal utilisé (positif),D51B,KIC,0.0,profit,non,non,non_examine,repli,
+Impôts sur les sociétés y compris majoration et frais de poursuite,D51B,KIC,67998.0,profit,non,non,refondre_rendement_normal,manuelle,"Sans déduction d'un rendement normal des fonds propres, l'impôt frappe aussi la rémunération de l'attente, et favorise la dette sur les fonds propres puisque l'intérêt est déductible et pas le dividende."
+Impôt forfaitaire annuel,D51B,KIC,0.0,profit,non,non,non_examine,repli,
+Contribution sociale sur les bénéfices des sociétés,D51B,KIC,1166.0,profit,non,non,fusionner_is,manuelle,
+Retenue sur les bénéfices non commerciaux,D51B,KIC,660.0,profit,non,non,fusionner_is,manuelle,
+3% dividendes,D51B,KIC,0.0,profit,non,non,non_examine,repli,
+Contribution temporaire de solidarité,D51B,KIC,0.0,profit,non,non,non_examine,repli,
+Taxe sur infrastructures de transport longues distances,D51B,KIC,549.0,rente,non,non,conserver_rente,manuelle,Vise les concessions d'infrastructure : rente de monopole concédé.
+Autres taxes sur le revenu,D51E,KIH,144.0,revenu_global,non,non,fusionner_impot_revenu,manuelle,
+Autres taxes,D59A,KS,651.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Impôt de solidarité sur la fortune (jusque 2017) / Impôt sur la fortune immobilière (à partir de 2018),D59A,KS,2678.0,stock_capital,non,non,refondre,manuelle,Restreint à l'immobilier depuis 2018 : deux patrimoines de même valeur sont imposés différemment selon leur composition.
+Part sur le capital,D59A,KS,1990.0,stock_capital,partiel,non,a_identifier,manuelle,"Lignes sans nom dans la source, base déclarée : capital."
+Part sur la consommation,D59A,C,1327.0,conso_menages,non,non,a_identifier,manuelle,"Ligne sans nom dans la source, base déclarée : consommation."
+Taxe sur les véhicules (partie ménages),D59D,C,0.0,conso_menages,non,non,non_examine,repli,
+Droit annuel de francisation et de navigation,D59D,C,44.0,conso_menages,non,non,non_examine,repli,
+Contribution à l'audiovisuel public,D59D,C,0.0,conso_menages,non,non,non_examine,repli,
+Redevance cynégétique (permis de chasse),D59D,C,57.0,conso_menages,non,non,conserver_redevance,manuelle,
+Autres taxes,D59F,KS,248.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Taxe de risque systémique,D59F,KS,28.0,stock_capital,partiel,non,non_examine,repli,
+Mutations à titre gratuit,D91A,KS,20819.0,transmission,non,non,refondre_assiette,manuelle,"Taux faciaux élevés sur une assiette très réduite par les abattements, l'assurance-vie, l'exonération Dutreil et l'effacement des plus-values latentes au décès."
+Autres taxes,D91B,KS,458.0,profit,non,non,a_identifier,manuelle,"Poste non nommé de 13,4 Md€ sur les bénéfices."
+Recettes diverses et pénalités,D91C,KS,197.0,autre,non,non,autre,manuelle,
+Cotisations sociales effectives à la charge des employeurs,D611C,COTIS,293148.0,travail,partiel,non,fusionner_cotisations,manuelle,"Prélèvement sur la masse salariale. Sa distorsion dépend du lien perçu entre la cotisation et le droit qu'elle ouvre : à la marge, une cotisation qui achète un point de retraite n'est pas un impôt, une cotisation qui finance une prestation universelle en est un."
+Cotisations sociales effectives à la charge des ménages,D613,COTIS,137917.0,travail,non,non,fusionner_cotisations,manuelle,"Même question de contributivité, du côté du salarié et des indépendants."
