@@ -1,0 +1,945 @@
+{
+ "annee": 2024,
+ "pib_meur": 2935236.2,
+ "blocs": {
+  "D61": {
+   "meur": 482281.0,
+   "pct_pib": 16.430739032177375
+  },
+  "D2": {
+   "meur": 456277.0,
+   "pct_pib": 15.544813735943976
+  },
+  "D5": {
+   "meur": 366049.0,
+   "pct_pib": 12.470853282608056
+  },
+  "D91": {
+   "meur": 21474.0,
+   "pct_pib": 0.7315935937285046
+  }
+ },
+ "agregats": {
+  "ODA": {
+   "meur": 843800.0,
+   "pct_pib": 28.747260612280535
+  },
+  "ODB": {
+   "meur": 1270244.0,
+   "pct_pib": 43.2756995842447
+  },
+  "ODC": {
+   "meur": 1321460.0,
+   "pct_pib": 45.02056768037952
+  }
+ },
+ "n_impots": 121,
+ "concentration": {
+  "50": 3,
+  "75": 8,
+  "90": 21,
+  "95": 36,
+  "99": 66
+ },
+ "longue_traine": {
+  "seuil_meur": 150,
+  "nombre": 34,
+  "cumul_meur": 643.0
+ },
+ "classement": [
+  {
+   "nom": "TVA",
+   "sto": "D211",
+   "fonction": "C",
+   "meur": 206332.0,
+   "pct_pib": 7.0294853954172405
+  },
+  {
+   "nom": "Contribution sociale généralisée",
+   "sto": "D51A",
+   "fonction": "SPLIT1",
+   "meur": 153131.0,
+   "pct_pib": 5.216990714409968
+  },
+  {
+   "nom": "Impôt sur le revenu",
+   "sto": "D51A",
+   "fonction": "SPLIT1",
+   "meur": 96163.0,
+   "pct_pib": 3.276158831783282
+  },
+  {
+   "nom": "Impôts sur les sociétés y compris majoration et frais de poursuite",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 67998.0,
+   "pct_pib": 2.3166108403814314
+  },
+  {
+   "nom": "Foncier bâti",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 42059.0,
+   "pct_pib": 1.43290001670053
+  },
+  {
+   "nom": "Taxe intérieure de consommation des produits énergétiques",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 29554.0,
+   "pct_pib": 1.0068695664083183
+  },
+  {
+   "nom": "Mutations à titre gratuit",
+   "sto": "D91A",
+   "fonction": "KS",
+   "meur": 20819.0,
+   "pct_pib": 0.7092785241610198
+  },
+  {
+   "nom": "Taxes sur les salaires",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 17315.0,
+   "pct_pib": 0.5899014191771006
+  },
+  {
+   "nom": "Droits d'enregistrement (y compris taxe additionnelle)",
+   "sto": "D214C",
+   "fonction": "KS",
+   "meur": 14663.0,
+   "pct_pib": 0.4995509390351618
+  },
+  {
+   "nom": "Autres prélèvements sociaux",
+   "sto": "D51A",
+   "fonction": "KIH",
+   "meur": 14646.0,
+   "pct_pib": 0.49897176929066217
+  },
+  {
+   "nom": "Taxes sur les tabacs",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 13606.0,
+   "pct_pib": 0.46354020845068616
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 13387.0,
+   "pct_pib": 0.4560791393891912
+  },
+  {
+   "nom": "Versement mobilité",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 12231.0,
+   "pct_pib": 0.4166955967632179
+  },
+  {
+   "nom": "Contributions des entreprises à la formation professionnelle et à l'apprentissage",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 11359.0,
+   "pct_pib": 0.386987595751238
+  },
+  {
+   "nom": "Taxe spéciale sur les conventions d'assurance",
+   "sto": "D214G",
+   "fonction": "C",
+   "meur": 10031.0,
+   "pct_pib": 0.3417442180632686
+  },
+  {
+   "nom": "Contribution au remboursement de la dette sociale",
+   "sto": "D51A",
+   "fonction": "SPLIT1",
+   "meur": 9084.0,
+   "pct_pib": 0.3094810564137905
+  },
+  {
+   "nom": "Cotisation foncière des entreprises",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 7708.0,
+   "pct_pib": 0.2626023759178222
+  },
+  {
+   "nom": "Forfait social",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 6300.0,
+   "pct_pib": 0.21463349354985467
+  },
+  {
+   "nom": "Taxe de solidarité additionnelle",
+   "sto": "D214G",
+   "fonction": "C",
+   "meur": 6211.0,
+   "pct_pib": 0.21160136959335674
+  },
+  {
+   "nom": "Contribution sociale de solidarité des sociétés",
+   "sto": "D29H",
+   "fonction": "KS",
+   "meur": 5228.0,
+   "pct_pib": 0.1781117308378794
+  },
+  {
+   "nom": "Accise sur l'électricité",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 4803.0,
+   "pct_pib": 0.1636324872253892
+  },
+  {
+   "nom": "Taxes sur les boissons",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 4749.0,
+   "pct_pib": 0.16179277156639046
+  },
+  {
+   "nom": "Produits de la loterie nationale et du loto",
+   "sto": "D214F",
+   "fonction": "C",
+   "meur": 3988.0,
+   "pct_pib": 0.135866408297908
+  },
+  {
+   "nom": "Taxe intérieure sur la consommation de gaz naturel",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 3183.0,
+   "pct_pib": 0.10844101745542657
+  },
+  {
+   "nom": "Taxe sur les certificats d'immatriculation des véhicules",
+   "sto": "D214D",
+   "fonction": "C",
+   "meur": 3122.0,
+   "pct_pib": 0.10636282013692798
+  },
+  {
+   "nom": "Cotisation patronale pour le FNAL (Fonds national d'aide au logement)",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 2935.0,
+   "pct_pib": 0.0999919529474323
+  },
+  {
+   "nom": "Impôt de solidarité sur la fortune (jusque 2017) / Impôt sur la fortune immobilière (à partir de 2018)",
+   "sto": "D59A",
+   "fonction": "KS",
+   "meur": 2678.0,
+   "pct_pib": 0.09123626916293823
+  },
+  {
+   "nom": "Part sur les salaires",
+   "sto": "D29A",
+   "fonction": "LEYRS",
+   "meur": 2630.0,
+   "pct_pib": 0.08960096635493933
+  },
+  {
+   "nom": "Droits d'importation",
+   "sto": "D2121",
+   "fonction": "C",
+   "meur": 2600.0,
+   "pct_pib": 0.08857890209994003
+  },
+  {
+   "nom": "Contribution de solidarité pour l'autonomie",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 2468.0,
+   "pct_pib": 0.08408181937794307
+  },
+  {
+   "nom": "Taxe sur les émissions de CO2",
+   "sto": "D29F",
+   "fonction": "C",
+   "meur": 2113.0,
+   "pct_pib": 0.07198739236045126
+  },
+  {
+   "nom": "Part sur le capital",
+   "sto": "D59A",
+   "fonction": "KS",
+   "meur": 1990.0,
+   "pct_pib": 0.06779692891495409
+  },
+  {
+   "nom": "Impositions forfaitaires sur les entreprises de réseaux",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 1864.0,
+   "pct_pib": 0.063504259043957
+  },
+  {
+   "nom": "Taxes sur les transports",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 1859.0,
+   "pct_pib": 0.06333391500145712
+  },
+  {
+   "nom": "Taxe sur les transactions financières",
+   "sto": "D214C",
+   "fonction": "KS",
+   "meur": 1851.0,
+   "pct_pib": 0.0630613645334573
+  },
+  {
+   "nom": "Taxes sur les paris hippiques",
+   "sto": "D214F",
+   "fonction": "C",
+   "meur": 1797.0,
+   "pct_pib": 0.06122164887445855
+  },
+  {
+   "nom": "Taxes sur les services professionnels hors droits de mutations",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 1763.0,
+   "pct_pib": 0.06006330938545933
+  },
+  {
+   "nom": "Cotisations sur primes d'assurance",
+   "sto": "D214G",
+   "fonction": "C",
+   "meur": 1728.0,
+   "pct_pib": 0.05887090108796014
+  },
+  {
+   "nom": "Participation des employeurs à l'effort de construction",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 1497.0,
+   "pct_pib": 0.05100100632446547
+  },
+  {
+   "nom": "Taxes au profit de l'Association sur la garantie des salaires",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 1468.0,
+   "pct_pib": 0.05001301087796614
+  },
+  {
+   "nom": "Taxes sur les jeux des casinos",
+   "sto": "D214F",
+   "fonction": "C",
+   "meur": 1436.0,
+   "pct_pib": 0.04892280900596688
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 1364.0,
+   "pct_pib": 0.046469854793968535
+  },
+  {
+   "nom": "Part sur la consommation",
+   "sto": "D59A",
+   "fonction": "C",
+   "meur": 1327.0,
+   "pct_pib": 0.04520930887946939
+  },
+  {
+   "nom": "Taxe sur les surfaces commerciales",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 1268.0,
+   "pct_pib": 0.04319924917797075
+  },
+  {
+   "nom": "Taxe sur primes d'assurance automobile",
+   "sto": "D214G",
+   "fonction": "C",
+   "meur": 1255.0,
+   "pct_pib": 0.042756354667471054
+  },
+  {
+   "nom": "Part sur le capital",
+   "sto": "D29A",
+   "fonction": "KIC",
+   "meur": 1237.0,
+   "pct_pib": 0.04214311611447147
+  },
+  {
+   "nom": "Taxes sur la construction",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 1194.0,
+   "pct_pib": 0.04067815734897246
+  },
+  {
+   "nom": "Contribution sociale sur les bénéfices des sociétés",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 1166.0,
+   "pct_pib": 0.039724230710973106
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 1144.0,
+   "pct_pib": 0.03897471692397361
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D51A",
+   "fonction": "SPLIT1",
+   "meur": 1127.0,
+   "pct_pib": 0.03839554717947401
+  },
+  {
+   "nom": "Autres taxes sur la pollution",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 1095.0,
+   "pct_pib": 0.037305345307474744
+  },
+  {
+   "nom": "Taxe sur construction de bureaux et sur les locaux à usage de bureaux",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 1055.0,
+   "pct_pib": 0.035942592967475664
+  },
+  {
+   "nom": "Contribution patronale sur stock-options",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 1033.0,
+   "pct_pib": 0.03519307918047617
+  },
+  {
+   "nom": "Autres taxes sur la pollution",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 1011.0,
+   "pct_pib": 0.03444356539347668
+  },
+  {
+   "nom": "Taxe sur les véhicules de tourisme des sociétés",
+   "sto": "D29B",
+   "fonction": "KS",
+   "meur": 991.0,
+   "pct_pib": 0.03376218922347714
+  },
+  {
+   "nom": "Prélèvements sur les revenus des capitaux mobiliers",
+   "sto": "D51A",
+   "fonction": "KIH",
+   "meur": 971.0,
+   "pct_pib": 0.033080813053477605
+  },
+  {
+   "nom": "Taxes pharmaceutiques (contribution grossistes répartiteurs, taxe sur les ventes de médicaments et de cosmétiques)",
+   "sto": "D214I",
+   "fonction": "C",
+   "meur": 957.0,
+   "pct_pib": 0.03260384973447793
+  },
+  {
+   "nom": "Octroi de mer",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 942.0,
+   "pct_pib": 0.03209281760697827
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 890.0,
+   "pct_pib": 0.03032123956497947
+  },
+  {
+   "nom": "Foncier non-bâti (partie)",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 883.0,
+   "pct_pib": 0.03008275790547963
+  },
+  {
+   "nom": "Redevances sur les prélèvements de l'eau",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 826.0,
+   "pct_pib": 0.028140835820980946
+  },
+  {
+   "nom": "Taxe sur les services numériques",
+   "sto": "D214I",
+   "fonction": "C",
+   "meur": 785.0,
+   "pct_pib": 0.026744014672481893
+  },
+  {
+   "nom": "Cotisation des entreprises cinématographiques au profit du CNC (Centre national du cinéma)",
+   "sto": "D214E",
+   "fonction": "C",
+   "meur": 708.0,
+   "pct_pib": 0.02412071641798367
+  },
+  {
+   "nom": "Contribution de sécurité immobilière",
+   "sto": "D214B",
+   "fonction": "KS",
+   "meur": 692.0,
+   "pct_pib": 0.023575615481984037
+  },
+  {
+   "nom": "Retenue sur les bénéfices non commerciaux",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 660.0,
+   "pct_pib": 0.022485413609984777
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D59A",
+   "fonction": "KS",
+   "meur": 651.0,
+   "pct_pib": 0.022178794333484984
+  },
+  {
+   "nom": "Octroi de mer",
+   "sto": "D2121",
+   "fonction": "C",
+   "meur": 648.0,
+   "pct_pib": 0.022076587907985053
+  },
+  {
+   "nom": "Autres taxes sur l'énergie",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 622.0,
+   "pct_pib": 0.021190798886985652
+  },
+  {
+   "nom": "Taxe sur les mises à disposition de produits pétroliers pour le stockage stratégique",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 599.0,
+   "pct_pib": 0.020407216291486185
+  },
+  {
+   "nom": "Taxe sur infrastructures de transport longues distances",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 549.0,
+   "pct_pib": 0.018703775866487336
+  },
+  {
+   "nom": "Taxe GEMAPI",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 532.0,
+   "pct_pib": 0.018124606121987727
+  },
+  {
+   "nom": "Produit de l'imposition chambre de commerce",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 525.0,
+   "pct_pib": 0.01788612446248789
+  },
+  {
+   "nom": "Contributions sur les loyers immobiliers",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 511.0,
+   "pct_pib": 0.017409161143488214
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D91B",
+   "fonction": "KS",
+   "meur": 458.0,
+   "pct_pib": 0.015603514292989435
+  },
+  {
+   "nom": "Contribution des distributeurs d'énergie électrique basse tension",
+   "sto": "D214L",
+   "fonction": "C",
+   "meur": 378.0,
+   "pct_pib": 0.01287800961299128
+  },
+  {
+   "nom": "Imposition sur les pylônes",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 348.0,
+   "pct_pib": 0.011855945357991973
+  },
+  {
+   "nom": "Autres taxes sur la pollution",
+   "sto": "D29F",
+   "fonction": "C",
+   "meur": 320.0,
+   "pct_pib": 0.010902018719992619
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D29H",
+   "fonction": "KS",
+   "meur": 295.0,
+   "pct_pib": 0.010050298507493196
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D59F",
+   "fonction": "KS",
+   "meur": 248.0,
+   "pct_pib": 0.00844906450799428
+  },
+  {
+   "nom": "Taxe due par les opérateurs de communications électroniques",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 236.0,
+   "pct_pib": 0.008040238805994556
+  },
+  {
+   "nom": "Chambre d'agriculture",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 227.0,
+   "pct_pib": 0.007733619529494764
+  },
+  {
+   "nom": "Taxe chambre métier",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 214.0,
+   "pct_pib": 0.007290725018995064
+  },
+  {
+   "nom": "Recettes diverses et pénalités",
+   "sto": "D91C",
+   "fonction": "KS",
+   "meur": 197.0,
+   "pct_pib": 0.006711555274495456
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D214L",
+   "fonction": "C",
+   "meur": 182.0,
+   "pct_pib": 0.006200523146995802
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D29E",
+   "fonction": "KS",
+   "meur": 168.0,
+   "pct_pib": 0.005723559827996124
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D29B",
+   "fonction": "KS",
+   "meur": 167.0,
+   "pct_pib": 0.005689491019496148
+  },
+  {
+   "nom": "Taxe spéciale sur les véhicules routiers (taxe à l'essieu)",
+   "sto": "D29B",
+   "fonction": "KS",
+   "meur": 154.0,
+   "pct_pib": 0.0052465965089964475
+  },
+  {
+   "nom": "Autres taxes sur le revenu",
+   "sto": "D51E",
+   "fonction": "KIH",
+   "meur": 144.0,
+   "pct_pib": 0.0049059084239966785
+  },
+  {
+   "nom": "Contribution sur les rentes infra marginales (électricité)",
+   "sto": "D29H",
+   "fonction": "KS",
+   "meur": 127.0,
+   "pct_pib": 0.004326738679497071
+  },
+  {
+   "nom": "Taxes sur les spectacles",
+   "sto": "D214E",
+   "fonction": "C",
+   "meur": 96.0,
+   "pct_pib": 0.0032706056159977855
+  },
+  {
+   "nom": "Redevance cynégétique (permis de chasse)",
+   "sto": "D59D",
+   "fonction": "C",
+   "meur": 57.0,
+   "pct_pib": 0.0019419220844986852
+  },
+  {
+   "nom": "Taxe due par les entreprises de transport public aérien et maritime (Corse, DOM)",
+   "sto": "D29B",
+   "fonction": "KS",
+   "meur": 47.0,
+   "pct_pib": 0.0016012339994989158
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 44.0,
+   "pct_pib": 0.001499027573998985
+  },
+  {
+   "nom": "Droit annuel de francisation et de navigation",
+   "sto": "D59D",
+   "fonction": "C",
+   "meur": 44.0,
+   "pct_pib": 0.001499027573998985
+  },
+  {
+   "nom": "Amendes et confiscations",
+   "sto": "D2121",
+   "fonction": "C",
+   "meur": 40.0,
+   "pct_pib": 0.0013627523399990773
+  },
+  {
+   "nom": "Taxe de risque systémique",
+   "sto": "D59F",
+   "fonction": "KS",
+   "meur": 28.0,
+   "pct_pib": 0.0009539266379993541
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D2122C",
+   "fonction": "C",
+   "meur": 9.0,
+   "pct_pib": 0.0003066192764997924
+  },
+  {
+   "nom": "Autres taxes",
+   "sto": "D214E",
+   "fonction": "C",
+   "meur": 5.0,
+   "pct_pib": 0.00017034404249988467
+  },
+  {
+   "nom": "Taxe exceptionnelle de solidarité sur les hautes rémunérations",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 2.0,
+   "pct_pib": 6.813761699995387e-05
+  },
+  {
+   "nom": "Prélèvements et taxes compensatoires à l'importation",
+   "sto": "D2122B",
+   "fonction": "C",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxes au profit de l'ADEME (Agence de l'environnement et de la maîtrise de l'énergie)",
+   "sto": "D214A",
+   "fonction": "C",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Impôt sur les opérations traitées dans les bourses de valeurs",
+   "sto": "D214C",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxe additionnelle sur les assurances automobile",
+   "sto": "D214G",
+   "fonction": "C",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Autres taxes sur l'énergie",
+   "sto": "D214H",
+   "fonction": "C",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Cotisation minimale de taxe professionnelle",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxe professionnelle",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxe sur l'utilisation des voies navigables (dont taxe hydraulique)",
+   "sto": "D29A",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxes sur les véhicules à moteur payées par les producteurs",
+   "sto": "D29B",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxes au profit du FNDMA (Financement National de Développement et de Modernisation de l'Apprentissage)",
+   "sto": "D29C",
+   "fonction": "LEYRS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "TVA sur subventions",
+   "sto": "D29H",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Contribution au SRF (single resolution fund)",
+   "sto": "D29H",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Achats d'énergies renouvelables à prix contractuels",
+   "sto": "D29H",
+   "fonction": "KS",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Avoir fiscal utilisé (positif)",
+   "sto": "D51A",
+   "fonction": "KIH",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Fonds de solidarité contribution des fonctionnaires",
+   "sto": "D51A",
+   "fonction": "LEES",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Avoir fiscal distribué (négatif)",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Avoir fiscal utilisé (positif)",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Impôt forfaitaire annuel",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "3% dividendes",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Contribution temporaire de solidarité",
+   "sto": "D51B",
+   "fonction": "KIC",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Taxe sur les véhicules (partie ménages)",
+   "sto": "D59D",
+   "fonction": "C",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  },
+  {
+   "nom": "Contribution à l'audiovisuel public",
+   "sto": "D59D",
+   "fonction": "C",
+   "meur": 0.0,
+   "pct_pib": 0.0
+  }
+ ],
+ "structure_pct_pib": {
+  "Cotisations sociales": {
+   "1995": 19.871639845474135,
+   "2010": 18.047868038632412,
+   "2024": 16.430739032177375
+  },
+  "TVA": {
+   "1995": 7.341552104947383,
+   "2010": 6.805009490875368,
+   "2024": 7.0294853954172405
+  },
+  "Autres impôts sur les produits": {
+   "1995": 4.244683491843991,
+   "2010": 3.819445470764101,
+   "2024": 4.007377668618287
+  },
+  "Autres impôts sur la production": {
+   "1995": 4.116501993201406,
+   "2010": 4.128301585446359,
+   "2024": 4.395625810284024
+  },
+  "Impôts sur le revenu des ménages": {
+   "1995": 5.147592296456656,
+   "2010": 7.6785187090405564,
+   "2024": 9.373078732130654
+  },
+  "Impôts sur les sociétés": {
+   "1995": 1.7667263907274648,
+   "2010": 2.3090313585896642,
+   "2024": 2.853603399958068
+  },
+  "Autres impôts courants": {
+   "1995": 1.099135248158349,
+   "2010": 1.1385794051536438,
+   "2024": 0.239265242095338
+  },
+  "Impôts en capital": {
+   "1995": 0.3491984947995977,
+   "2010": 0.3876607648680152,
+   "2024": 0.7315935937285046
+  },
+  "TOTAL": {
+   "1995": 42.14566043630226,
+   "2010": 42.27772291733913,
+   "2024": 43.2756995842447
+  }
+ }
+}
