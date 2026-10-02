@@ -1,0 +1,1849 @@
+REF_AREA,TIME_PERIOD,SECTOR,Economic sector,EMISSIONS_SOURCE,PRICE_LEVEL,Carbon price level,OBS_VALUE
+BEL,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0
+BEL,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0
+BEL,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0
+BEL,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0
+BEL,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0
+BEL,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0
+BEL,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0
+BEL,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0
+BEL,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0
+BEL,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0
+BEL,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0
+BEL,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0
+DNK,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+DNK,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+DNK,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+DNK,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+POL,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+GBR,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+GBR,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+GBR,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+GBR,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+GBR,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+GBR,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+DNK,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+DNK,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+DNK,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+DNK,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+DEU,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+DEU,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+DEU,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+NLD,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+NLD,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+NLD,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+NLD,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+NLD,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+NLD,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+POL,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+SWE,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+SWE,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+GBR,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+GBR,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+GBR,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+GBR,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+GBR,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+GBR,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+FRA,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+FRA,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+GBR,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+GBR,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+GBR,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DNK,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DNK,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DNK,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DNK,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+FRA,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+FRA,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DEU,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DEU,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+DEU,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+POL,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+POL,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+SWE,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+SWE,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+GBR,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+GBR,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+GBR,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+AUT,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+FRA,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+ITA,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+NLD,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+POL,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+ESP,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+SWE,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+SWE,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+SWE,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,100
+SWE,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,100
+SWE,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,100
+AUT,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.83989716
+AUT,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.91112518
+AUT,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,97.13764954
+AUT,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,38.77235031
+AUT,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.55895996
+AUT,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.43756866
+AUT,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.50984573
+BEL,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,40.64215851
+BEL,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.4154129
+BEL,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,3.459477425
+BEL,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.63851738
+BEL,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.87221146
+BEL,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.57910347
+DNK,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,68.8744278
+DNK,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,31.98749352
+DNK,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.75603485
+DNK,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.88481903
+DNK,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.81864166
+DNK,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.38711929
+FRA,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,56.32742691
+FRA,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.88329315
+FRA,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,21.48429108
+FRA,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.9741478
+FRA,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,69.84178162
+FRA,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.25365067
+FRA,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.23102188
+DEU,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.307724
+DEU,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.72200012
+DEU,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,21.51337814
+DEU,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.19985199
+DEU,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,96.98513794
+DEU,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,87.96282959
+DEU,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,27.08163261
+ITA,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,58.3212738
+ITA,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.26402283
+ITA,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.28692245
+ITA,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.48899078
+ITA,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.76488495
+ITA,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,80.22531128
+ITA,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.77067566
+NLD,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,54.42554855
+NLD,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.823349
+NLD,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,9.687256813
+NLD,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,27.48104858
+NLD,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.33412933
+NLD,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.08529663
+NLD,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.99292946
+POL,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.03023529
+POL,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.746418
+POL,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.12994957
+POL,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.7026062
+POL,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,3.318309784
+POL,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,29.00530052
+ESP,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,49.62401962
+ESP,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.90551758
+ESP,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,1.09629631
+ESP,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.80421066
+ESP,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.59317017
+ESP,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.08493423
+ESP,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.80846596
+SWE,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,62.36952591
+SWE,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.36870575
+SWE,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.04646873
+SWE,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.8897934
+SWE,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,97.75632477
+SWE,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,73.47708893
+SWE,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.91796684
+GBR,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.04166794
+GBR,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.56674576
+GBR,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.62596512
+GBR,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,74.30608368
+GBR,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.18131828
+GBR,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.63246918
+AUT,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,46.95608521
+AUT,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,93.4548645
+AUT,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.98074341
+AUT,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,27.74199295
+AUT,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.55576706
+AUT,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.50008392
+AUT,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.87346458
+BEL,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.08036041
+BEL,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.27045441
+BEL,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,3.459477425
+BEL,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.16509247
+BEL,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.61277199
+BEL,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.70854568
+DNK,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,50.05076981
+DNK,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,94.59464264
+DNK,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,31.98749352
+DNK,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.1076355
+DNK,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,57.38350677
+DNK,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.47398376
+DNK,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.72198486
+FRA,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,50.03576279
+FRA,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.8904953
+FRA,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,21.48429108
+FRA,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.25371552
+FRA,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.95090485
+FRA,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,27.59504318
+FRA,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.99778938
+DEU,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.16745377
+DEU,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.73778534
+DEU,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.55945778
+DEU,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,31.7989769
+DEU,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.35131454
+DEU,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,67.23755646
+DEU,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,24.80078888
+ITA,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.18397522
+ITA,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.33369446
+ITA,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.28692245
+ITA,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.884655
+ITA,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.66052246
+ITA,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.43354797
+ITA,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.13851166
+NLD,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,51.16886902
+NLD,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.82837677
+NLD,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,9.89177227
+NLD,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.17743111
+NLD,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,63.3401413
+NLD,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.61417389
+NLD,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.91930771
+POL,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,31.38671494
+POL,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,94.93567657
+POL,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.746418
+POL,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.67891121
+POL,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,32.19274139
+POL,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,2.565038204
+POL,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,27.11575699
+ESP,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.36795044
+ESP,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.84947205
+ESP,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,1.079070568
+ESP,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,32.44657516
+ESP,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,72.25164032
+ESP,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.17230606
+ESP,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.65096092
+SWE,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.0901413
+SWE,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.88615417
+SWE,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.04646873
+SWE,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.96078491
+SWE,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.10017776
+SWE,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.81805611
+SWE,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,6.193113327
+GBR,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.42939377
+GBR,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.56674576
+GBR,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.52813339
+GBR,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.60306549
+GBR,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.1348877
+GBR,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.73277283
+AUT,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,51.50796127
+AUT,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.84551239
+AUT,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,62.31783676
+AUT,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.26592064
+AUT,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,65.48995972
+AUT,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,59.01714706
+AUT,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.25492287
+BEL,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.59438705
+BEL,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.41498566
+BEL,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.729738712
+BEL,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.31925583
+BEL,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.43610573
+BEL,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.2895546
+DNK,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,62.95834732
+DNK,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.04172516
+DNK,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,59.95032883
+DNK,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.17050934
+DNK,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.81848907
+DNK,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.19355965
+FRA,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.86239624
+FRA,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.78664398
+FRA,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.74214554
+FRA,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.34155846
+FRA,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,34.92815018
+FRA,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.68089867
+FRA,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.6155138
+DEU,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.13330078
+DEU,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.72200012
+DEU,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,21.43065262
+DEU,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.3691864
+DEU,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,48.49256897
+DEU,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,44.35098648
+DEU,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.54081631
+ITA,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,50.88187408
+ITA,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.21487427
+ITA,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.164452553
+ITA,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.70856285
+ITA,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,80.45940399
+ITA,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,77.01013947
+ITA,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.88533783
+NLD,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.82352448
+NLD,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.823349
+NLD,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.399033546
+NLD,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.77860832
+NLD,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,43.4422493
+NLD,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.07377625
+NLD,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.99646473
+POL,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.10654831
+POL,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,39.18515015
+POL,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.95714855
+POL,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.86637115
+POL,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.659154892
+POL,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.50265026
+ESP,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.52700043
+ESP,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.79312134
+ESP,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0.648981333
+ESP,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.48825073
+ESP,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.94053268
+ESP,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,20.12432861
+ESP,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.90423298
+SWE,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,55.1633606
+SWE,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.34039307
+SWE,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.523237228
+SWE,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,20.86983871
+SWE,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,96.98034668
+SWE,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.47628784
+SWE,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.958983421
+GBR,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.77735901
+GBR,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.60639954
+GBR,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.68983841
+GBR,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,65.81887054
+GBR,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.9595871
+GBR,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.31623173
+AUT,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,37.30129623
+AUT,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,93.39348602
+AUT,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,61.57562637
+AUT,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,17.36249924
+AUT,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,31.59961128
+AUT,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,28.4781456
+AUT,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.436732292
+BEL,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,28.93589211
+BEL,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,95.27005005
+BEL,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.729738712
+BEL,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.0825491
+BEL,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.306388855
+BEL,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.854269981
+DNK,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.75157928
+DNK,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,94.59464264
+DNK,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.04172516
+DNK,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.98272705
+DNK,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.24525833
+DNK,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,44.47391129
+DNK,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.36099243
+FRA,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.10773849
+FRA,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.79981232
+FRA,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.74214554
+FRA,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.43056774
+FRA,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.98230743
+FRA,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.83553123
+FRA,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.99889755
+DEU,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.95834732
+DEU,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.73778534
+DEU,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.4778347
+DEU,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.59115028
+DEU,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.67565727
+DEU,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.90127945
+DEU,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.40039444
+ITA,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.64904022
+ITA,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.28651428
+ITA,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.164452553
+ITA,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.62218475
+ITA,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,80.37172699
+ITA,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,53.21195221
+ITA,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.56925583
+NLD,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,43.16290665
+NLD,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.82837677
+NLD,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.606463432
+NLD,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.53979111
+NLD,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.48148727
+NLD,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,91.60351563
+NLD,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.95965385
+POL,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.49520493
+POL,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,94.93567657
+POL,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,39.18515015
+POL,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.64794445
+POL,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.10859108
+POL,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.282519102
+POL,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.55788136
+ESP,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,34.44630432
+ESP,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,91.74614716
+ESP,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0.638788939
+ESP,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.72636795
+ESP,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.08658981
+ESP,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.68132782
+ESP,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.82548332
+SWE,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.14438248
+SWE,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,91.85997009
+SWE,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.523237228
+SWE,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.74842739
+SWE,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,54.66279984
+SWE,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.81785393
+SWE,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,3.096556664
+GBR,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,35.55839157
+GBR,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.60639954
+GBR,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.60331345
+GBR,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,46.59477615
+GBR,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.15613365
+GBR,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.86638355
+AUT,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,42.12709808
+AUT,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.75917053
+AUT,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.51723862
+AUT,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.24686909
+AUT,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,32.74497986
+AUT,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.50857353
+AUT,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.627464294
+BEL,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.57050323
+BEL,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.41477203
+BEL,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.864869356
+BEL,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.659627914
+BEL,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.218052864
+BEL,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.644774437
+DNK,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,57.01820374
+DNK,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.02064323
+DNK,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,49.16915131
+DNK,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,23.69008064
+DNK,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.81066132
+DNK,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.596779823
+FRA,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.51389694
+FRA,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.69662476
+FRA,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.371069908
+FRA,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.670779228
+FRA,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.464077
+FRA,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.863603592
+FRA,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.307756901
+DEU,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,27.23101425
+DEU,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.25921631
+DEU,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,19.83466721
+DEU,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.184593201
+DEU,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.2462883
+DEU,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,22.52741432
+DEU,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.770408154
+ITA,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.14251709
+ITA,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,97.37401581
+ITA,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.908770561
+ITA,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.58934593
+ITA,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.42919159
+ITA,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,47.42479324
+ITA,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.442666054
+NLD,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.04507446
+NLD,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.57206726
+NLD,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.043081284
+NLD,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.271807671
+NLD,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.58360863
+NLD,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,74.97267914
+NLD,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.498235703
+POL,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.14470673
+POL,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.90451431
+POL,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.870745659
+POL,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.948253632
+POL,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.829577446
+POL,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.251328468
+ESP,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,32.41482544
+ESP,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.73693085
+ESP,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.425326824
+ESP,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.744125366
+ESP,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.97026634
+ESP,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.06216431
+ESP,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.45211935
+SWE,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,49.38994217
+SWE,2012,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.32623291
+SWE,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.261618614
+SWE,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.43491936
+SWE,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,77.79785156
+SWE,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,73.47588348
+SWE,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.479491711
+GBR,2012,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.84436226
+GBR,2012,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.61542511
+GBR,2012,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.433671
+GBR,2012,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,33.13285065
+GBR,2012,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.012856007
+GBR,2012,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.658119202
+AUT,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,30.50781441
+AUT,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,93.31272888
+AUT,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.07040405
+AUT,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.19376564
+AUT,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.7998085
+AUT,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.2390728
+AUT,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.718369484
+BEL,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.36365891
+BEL,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,95.26984406
+BEL,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.864869356
+BEL,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.04127121
+BEL,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.653191566
+BEL,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.427134991
+DNK,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.43490219
+DNK,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,94.59464264
+DNK,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.02064323
+DNK,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.97225952
+DNK,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.6332798
+DNK,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,44.47039413
+DNK,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.180496216
+FRA,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.54477692
+FRA,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.71535492
+FRA,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.371069908
+FRA,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.715280533
+FRA,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.49115753
+FRA,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.934041023
+FRA,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.999445915
+DEU,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.07515526
+DEU,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.30130005
+DEU,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.90312195
+DEU,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.295572281
+DEU,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.337831497
+DEU,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.21963882
+DEU,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.200194359
+ITA,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.21533966
+ITA,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,97.47942352
+ITA,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.908770561
+ITA,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.94787979
+ITA,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.38512802
+ITA,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,32.76926422
+ITA,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.784630775
+NLD,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.99274445
+NLD,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.61273956
+NLD,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.253587246
+NLD,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.578426361
+NLD,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.24835777
+NLD,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,69.319664
+NLD,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.979824066
+POL,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.04944801
+POL,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,94.93567657
+POL,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.90451431
+POL,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.132464409
+POL,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.066511154
+POL,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.641256571
+POL,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.77893734
+ESP,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.98152542
+ESP,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,91.69448853
+ESP,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.418645144
+ESP,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.36318779
+ESP,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.04329491
+ESP,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.84066391
+ESP,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.4127388
+SWE,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.12162971
+SWE,2012,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,91.84687805
+SWE,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.261618614
+SWE,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.874216557
+SWE,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.85061264
+SWE,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.81775284
+SWE,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.548278332
+GBR,2012,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.95534134
+GBR,2012,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.61542511
+GBR,2012,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.38347244
+GBR,2012,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,23.45554733
+GBR,2012,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.609230995
+GBR,2012,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.433195114
+AUT,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,53.26662064
+AUT,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.72189331
+AUT,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,53.12291336
+AUT,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.49213791
+AUT,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,62.38033676
+AUT,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.95486832
+AUT,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.31400871
+BEL,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.74687958
+BEL,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.30841064
+BEL,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0.158822536
+BEL,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.752239227
+BEL,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0.053322315
+BEL,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.749598503
+BEL,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.97395325
+DNK,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,57.08189774
+DNK,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.65942764
+DNK,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.20040894
+DNK,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.60248566
+DNK,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,86.19363403
+DNK,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.95601749
+FRA,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,54.00861359
+FRA,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.84584045
+FRA,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.874351501
+FRA,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.82261658
+FRA,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.38850403
+FRA,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,39.61002731
+FRA,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.06575584
+DEU,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.99562454
+DEU,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,35.95901108
+DEU,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,17.71945953
+DEU,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,47.1020813
+DEU,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,43.2506218
+DEU,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.15254021
+ITA,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,52.67684555
+ITA,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,97.88835907
+ITA,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.715004921
+ITA,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,17.97964478
+ITA,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,82.36899567
+ITA,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,77.75392151
+ITA,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.40773106
+NLD,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.64918137
+NLD,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.041763306
+NLD,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.43296242
+NLD,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,37.96559143
+NLD,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.38547516
+NLD,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.10937405
+POL,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.58964348
+POL,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.92533112
+POL,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.74197388
+POL,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,15.29372311
+POL,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.87781143
+POL,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,4.384970665
+POL,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.49378204
+ESP,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,42.34453964
+ESP,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.74030304
+ESP,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.0581646
+ESP,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.45142746
+ESP,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,46.51703262
+ESP,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.9490509
+ESP,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.16815567
+SWE,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,63.868927
+SWE,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.96794891
+SWE,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.377456665
+SWE,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,30.92930222
+SWE,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,93.32756805
+SWE,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,65.20149994
+SWE,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.28296089
+GBR,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,46.80821228
+GBR,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,31.45713234
+GBR,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.07102203
+GBR,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,75.03422546
+GBR,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.315288544
+GBR,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.70583725
+AUT,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.57497406
+AUT,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,91.79086304
+AUT,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,52.65008163
+AUT,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,17.64561462
+AUT,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.26131439
+AUT,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.42907333
+AUT,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.715999603
+BEL,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.08367538
+BEL,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,96.3796463
+BEL,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0.158822536
+BEL,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.700312138
+BEL,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,0.048553944
+BEL,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.832879066
+BEL,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.266215324
+DNK,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.96269989
+DNK,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,94.59072113
+DNK,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.65942764
+DNK,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.84962273
+DNK,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,35.05990601
+DNK,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.08090591
+DNK,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.532565117
+FRA,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,47.50628662
+FRA,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.85636902
+FRA,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.874351501
+FRA,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,15.49242783
+FRA,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.95370674
+FRA,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.12480927
+FRA,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.90460968
+DEU,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.42298889
+DEU,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.57878876
+DEU,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.58312988
+DEU,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.01834869
+DEU,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.02162933
+DEU,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.83057022
+DEU,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.8611517
+ITA,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,46.14611816
+ITA,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,97.96065521
+ITA,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.715004921
+ITA,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.65955734
+ITA,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,80.51129913
+ITA,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,52.77559662
+ITA,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.41991615
+NLD,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,43.35832596
+NLD,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.249378204
+NLD,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.1722374
+NLD,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.0100441
+NLD,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,90.87017059
+NLD,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.72763634
+POL,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.19508743
+POL,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.96977234
+POL,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.74197388
+POL,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.57490444
+POL,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.25353432
+POL,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,3.336596489
+POL,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.63201237
+ESP,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,39.02189636
+ESP,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.74967194
+ESP,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.15777016
+ESP,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.7418108
+ESP,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,43.97028732
+ESP,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,20.59048462
+ESP,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,13.42309761
+SWE,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,28.22581482
+SWE,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,86.74513245
+SWE,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.377456665
+SWE,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.599179268
+SWE,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,54.57706451
+SWE,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,17.48439026
+SWE,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,3.995043039
+GBR,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,43.39758682
+GBR,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,31.45713234
+GBR,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.60266876
+GBR,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.98973083
+GBR,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.519994736
+GBR,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.00891876
+AUT,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,49.10432053
+AUT,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.87158966
+AUT,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.42584229
+AUT,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,30.09079742
+AUT,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,46.13444138
+AUT,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.55999374
+AUT,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.43199158
+BEL,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.08478546
+BEL,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,96.3796463
+BEL,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0.317639112
+BEL,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.40063
+BEL,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0.097107887
+BEL,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.66575813
+BEL,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.53243065
+DNK,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.54310608
+DNK,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,94.59072113
+DNK,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.86349106
+DNK,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.71735382
+DNK,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.66418457
+DNK,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.67862701
+DNK,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,19.06513023
+FRA,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,58.1284523
+FRA,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.93187714
+FRA,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.74870968
+FRA,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,30.28546524
+FRA,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.4595871
+FRA,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.55478668
+FRA,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.80921173
+DEU,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.29642105
+DEU,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.57878876
+DEU,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.93032074
+DEU,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,31.73476982
+DEU,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,28.04326439
+DEU,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,67.09238434
+DEU,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.72229767
+ITA,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.90899277
+ITA,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.01799774
+ITA,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,14.1766367
+ITA,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,30.77446747
+ITA,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,93.39526367
+ITA,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.02377319
+ITA,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.83983803
+NLD,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,54.40614319
+NLD,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.65545845
+NLD,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,41.24429703
+NLD,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,54.13556671
+NLD,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,90.88355255
+NLD,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.4552784
+POL,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.51266479
+POL,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.97719574
+POL,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.406147
+POL,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.76417351
+POL,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.50706863
+POL,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,6.673187256
+POL,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.26403046
+ESP,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.99488068
+ESP,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.88363647
+ESP,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.16299438
+ESP,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.45866585
+ESP,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,79.10359955
+ESP,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,38.85839081
+ESP,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.84618759
+SWE,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,31.97789764
+SWE,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.74513245
+SWE,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,16.75491333
+SWE,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.2184124
+SWE,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,54.57706451
+SWE,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.50266647
+SWE,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,7.990086079
+GBR,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,56.221138
+GBR,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.1801033
+GBR,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,30.83394814
+GBR,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,61.02301025
+GBR,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,13.27265549
+GBR,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,74.67742157
+AUT,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,67.80615997
+AUT,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.80960846
+AUT,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,87.20200348
+AUT,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,41.76605988
+AUT,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.35108185
+AUT,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.7555542
+AUT,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.6280117
+BEL,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.50385284
+BEL,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.30841064
+BEL,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0.317639112
+BEL,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.50447845
+BEL,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,0.10664463
+BEL,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.49920273
+BEL,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,23.94790649
+DNK,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.25741577
+DNK,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.86349106
+DNK,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.01474762
+DNK,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,74.88687134
+DNK,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.85984039
+DNK,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.91204071
+FRA,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.71333313
+FRA,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.92688751
+FRA,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,15.74870968
+FRA,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.79550934
+FRA,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.30118561
+FRA,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.52308655
+FRA,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.13151741
+DEU,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.74814224
+DEU,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.38835526
+DEU,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.10281372
+DEU,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,94.2041626
+DEU,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,85.77410889
+DEU,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.30508614
+ITA,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,60.5483284
+ITA,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,97.94773102
+ITA,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,14.1766367
+ITA,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.21300125
+ITA,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.55023956
+ITA,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,81.06613159
+ITA,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.81546211
+NLD,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,57.42653656
+NLD,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.44876194
+NLD,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.5018692
+NLD,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,57.3051033
+NLD,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.40011597
+NLD,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.21874809
+POL,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.02558136
+POL,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.93306732
+POL,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.406147
+POL,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,29.026371
+POL,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.75562286
+POL,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.76994133
+POL,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.98756409
+ESP,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.45741653
+ESP,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.87928009
+ESP,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.07448578
+ESP,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,25.74459839
+ESP,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,83.68527222
+ESP,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,56.533535
+ESP,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,28.33631134
+SWE,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,71.82730103
+SWE,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.96794891
+SWE,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,16.75491333
+SWE,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.41540909
+SWE,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,93.32756805
+SWE,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.26966095
+SWE,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.56591606
+GBR,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,60.83905792
+GBR,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.1801033
+GBR,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.71654129
+GBR,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,80.34454346
+GBR,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,14.51157951
+GBR,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,85.31082916
+AUT,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.79216003
+AUT,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.64039612
+AUT,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,33.68323517
+AUT,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.3778038
+AUT,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.19016838
+AUT,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.47743034
+AUT,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.657004356
+BEL,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.36839485
+BEL,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.30841064
+BEL,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.079411268
+BEL,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.376119614
+BEL,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.026661158
+BEL,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.374802113
+BEL,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.986976624
+DNK,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,51.71421814
+DNK,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.01363945
+DNK,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.90261841
+DNK,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,22.52933311
+DNK,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,81.35884094
+DNK,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.478011608
+FRA,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,46.13615799
+FRA,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.75304413
+FRA,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,3.93717885
+FRA,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.411305428
+FRA,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.43197918
+FRA,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,19.83142471
+FRA,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.532877922
+DEU,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.44800949
+DEU,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.52170563
+DEU,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.05371857
+DEU,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.859729767
+DEU,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,23.55104065
+DEU,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,21.97369385
+DEU,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.576270103
+ITA,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,42.03443527
+ITA,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.80941772
+ITA,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.009497166
+ITA,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.2572155
+ITA,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.36009979
+ITA,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,47.68145752
+ITA,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.703865528
+NLD,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.67216873
+NLD,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.90040588
+NLD,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.838267326
+NLD,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.7473526
+NLD,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.28842926
+NLD,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,85.59282684
+NLD,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.554687023
+POL,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.65107727
+POL,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,95.64199829
+POL,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.90989304
+POL,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.232116699
+POL,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.43890572
+POL,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,2.192485332
+POL,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.746893883
+ESP,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.37639236
+ESP,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.67081451
+ESP,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.050009727
+ESP,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.728005409
+ESP,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,23.93913841
+ESP,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.03706551
+ESP,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.084077835
+SWE,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,57.10583496
+SWE,2015,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.96794891
+SWE,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.188728333
+SWE,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.13663864
+SWE,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,71.47653961
+SWE,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,54.69678497
+SWE,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.641477585
+GBR,2015,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.14612579
+GBR,2015,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.70542908
+GBR,2015,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.31518459
+GBR,2015,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,38.3984375
+GBR,2015,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.694896698
+GBR,2015,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,22.85292053
+AUT,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.71369934
+AUT,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,91.71585083
+AUT,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,33.38343048
+AUT,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.638177872
+AUT,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.6306572
+AUT,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.71453381
+AUT,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.357999802
+BEL,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,26.08311844
+BEL,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.3796463
+BEL,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.079411268
+BEL,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,3.850156069
+BEL,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.024276972
+BEL,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,3.916436434
+BEL,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.633111
+DNK,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,35.2988472
+DNK,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,94.59072113
+DNK,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.01363945
+DNK,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.88859653
+DNK,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,19.45388985
+DNK,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,30.28141785
+DNK,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.766285419
+FRA,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.92428207
+FRA,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.76990509
+FRA,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,3.93717885
+FRA,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.746213913
+FRA,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.70059395
+FRA,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.58048916
+FRA,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.95230484
+DEU,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.83442879
+DEU,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.1230011
+DEU,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.75487137
+DEU,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.009171486
+DEU,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.010817528
+DEU,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,17.18779182
+DEU,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.93057251
+ITA,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.00257111
+ITA,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.91869354
+ITA,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.009497166
+ITA,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.577537537
+ITA,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.42728424
+ITA,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,32.36386871
+ITA,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.709958076
+NLD,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,35.87543488
+NLD,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.90336609
+NLD,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.046340942
+NLD,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.49936867
+NLD,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,26.94034576
+NLD,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,78.25926208
+NLD,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.36382103
+POL,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.89292526
+POL,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,94.86125183
+POL,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.90989304
+POL,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.306927681
+POL,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.12677002
+POL,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.668298244
+POL,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.316006184
+ESP,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,33.66309357
+ESP,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.68268585
+ESP,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.155152321
+ESP,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.872893333
+ESP,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,22.6285038
+ESP,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.33819294
+ESP,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.711548805
+SWE,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.13117218
+SWE,2015,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,86.74513245
+SWE,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.188728333
+SWE,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.590647697
+SWE,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.79879379
+SWE,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.66745186
+SWE,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.9975245
+GBR,2015,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.56687927
+GBR,2015,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.70542908
+GBR,2015,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.0497303
+GBR,2015,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.16424179
+GBR,2015,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.294067383
+GBR,2015,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.0044632
+AUT,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,63.05894852
+AUT,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.77130127
+AUT,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.93717384
+AUT,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,39.18279266
+AUT,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,79.31624603
+AUT,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,63.02297211
+AUT,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.39399147
+BEL,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.71297455
+BEL,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.26526642
+BEL,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.856541634
+BEL,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.44729424
+BEL,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.538888931
+BEL,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.73501015
+DNK,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,69.36016846
+DNK,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.72130013
+DNK,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.39450455
+DNK,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,31.59299469
+DNK,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.802948
+DNK,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.36719322
+FRA,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,63.38611221
+FRA,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.91452026
+FRA,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.29422188
+FRA,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.95531464
+FRA,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.90023232
+FRA,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,75.12770081
+FRA,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.36719322
+DEU,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.03017044
+DEU,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.95648575
+DEU,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.07063675
+DEU,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,89.67469025
+DEU,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,42.57653427
+DEU,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.36719322
+ITA,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,58.36945724
+ITA,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,97.94580841
+ITA,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.20291901
+ITA,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.64474297
+ITA,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.74739838
+ITA,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,75.07614136
+ITA,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,28.11224365
+NLD,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,52.15465927
+NLD,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,7.465857506
+NLD,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.52447701
+NLD,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.25355148
+NLD,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,97.64241791
+NLD,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.36719322
+POL,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.47911835
+POL,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.9991684
+POL,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,88.05377197
+POL,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.67269516
+POL,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,64.431633
+POL,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,4.192000389
+POL,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.36719322
+ESP,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,49.70425415
+ESP,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.56969452
+ESP,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.9982357
+ESP,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.20194626
+ESP,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.69879341
+ESP,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,31.5518322
+ESP,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.65241241
+SWE,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,61.99070358
+SWE,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.45350838
+SWE,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.20573807
+SWE,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.55879211
+SWE,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,67.97357941
+SWE,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.36719322
+GBR,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,52.05355453
+GBR,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.15069962
+GBR,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.09329796
+GBR,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,58.67155838
+GBR,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,15.57644653
+GBR,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.37042999
+AUT,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,47.61527634
+AUT,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.78046417
+AUT,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.8347435
+AUT,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.52578354
+AUT,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.36166382
+AUT,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,30.46936417
+AUT,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.08589745
+BEL,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.64569092
+BEL,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.30519867
+BEL,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.856541634
+BEL,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.50340748
+BEL,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.459639549
+BEL,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.17888641
+DNK,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.36501694
+DNK,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.97315979
+DNK,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.72130013
+DNK,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.85762405
+DNK,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,26.9243412
+DNK,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,34.52228928
+DNK,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.98409843
+FRA,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,54.99629211
+FRA,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.6834259
+FRA,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,24.29422188
+FRA,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,20.51845169
+FRA,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.59209442
+FRA,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,50.64633942
+FRA,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.74683189
+DEU,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.78397751
+DEU,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.95123291
+DEU,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.38247299
+DEU,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.45768166
+DEU,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,72.58966827
+DEU,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,33.28506851
+DEU,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.45287132
+ITA,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,50.90539551
+ITA,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.02294159
+ITA,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.20291901
+ITA,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.69293594
+ITA,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,72.19049072
+ITA,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,51.25892258
+ITA,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.55517769
+NLD,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,49.55173874
+NLD,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.191066742
+NLD,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.15074539
+NLD,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,41.66355896
+NLD,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,88.76880646
+NLD,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.61881638
+POL,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,35.40885925
+POL,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.20849609
+POL,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,88.05377197
+POL,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.93927956
+POL,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,53.01821136
+POL,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,3.194659948
+POL,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.51007843
+ESP,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,45.91884613
+ESP,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.59425354
+ESP,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,19.12025261
+ESP,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.280056
+ESP,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,17.81027222
+ESP,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,21.42446709
+ESP,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,25.70905113
+SWE,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.02634048
+SWE,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,91.44955444
+SWE,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,12.45350838
+SWE,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.751540184
+SWE,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,58.94187546
+SWE,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.52296066
+SWE,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,8.600634575
+GBR,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,46.86707306
+GBR,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,29.15069962
+GBR,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.54957581
+GBR,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,48.59890366
+GBR,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,14.09463882
+GBR,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,44.23159409
+AUT,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,58.76510239
+AUT,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.83317566
+AUT,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.4387455
+AUT,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.3103447
+AUT,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.19505692
+AUT,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.84799194
+AUT,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.14920425
+BEL,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.48165512
+BEL,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.30519867
+BEL,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,3.663307428
+BEL,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,28.96522331
+BEL,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,16.63373184
+BEL,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.35777664
+DNK,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,51.53373337
+DNK,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.97315979
+DNK,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.77473068
+DNK,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.283535
+DNK,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.08776474
+DNK,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.56803513
+DNK,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.96819305
+FRA,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.88722229
+FRA,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.17154312
+FRA,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.21809387
+FRA,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.66547394
+FRA,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.29464722
+FRA,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.49366379
+DEU,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,60.58353043
+DEU,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.95123291
+DEU,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.48511887
+DEU,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.96860504
+DEU,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,77.89658356
+DEU,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.12779236
+DEU,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,46.90575027
+ITA,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,62.26592255
+ITA,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.09010315
+ITA,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.79870605
+ITA,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.91316605
+ITA,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,87.24981689
+ITA,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.66712189
+ITA,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.11034775
+NLD,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,63.55115128
+NLD,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.923167229
+NLD,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.13270569
+NLD,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.20449066
+NLD,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,89.66365814
+NLD,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,51.23763275
+POL,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.73216629
+POL,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.20928955
+POL,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.21180725
+POL,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.87540054
+POL,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.04233932
+POL,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,6.388437748
+POL,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,51.02016449
+ESP,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,60.66175842
+ESP,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.80115509
+ESP,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.62926102
+ESP,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.74110794
+ESP,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.86235809
+ESP,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.83360672
+ESP,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,51.41810226
+SWE,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,34.5520668
+SWE,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.44955444
+SWE,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,24.90701675
+SWE,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.45814133
+SWE,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,58.94187546
+SWE,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.55404282
+SWE,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.20126915
+GBR,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,59.53153229
+GBR,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.5109787
+GBR,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,41.06413651
+GBR,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,61.03000641
+GBR,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,19.87817955
+GBR,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,77.43711853
+AUT,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,78.31710815
+AUT,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.82707977
+AUT,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,17.5591526
+AUT,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,60.22854996
+AUT,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.64768982
+AUT,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.9690094
+AUT,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.75502777
+BEL,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.87647629
+BEL,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.26526642
+BEL,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,3.663307428
+BEL,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,32.847435
+BEL,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.75579453
+BEL,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.47001648
+DNK,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,78.90525818
+DNK,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.77473068
+DNK,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,68.28742981
+DNK,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,62.29113388
+DNK,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.82083893
+DNK,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.73438644
+FRA,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,76.45333099
+FRA,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.17154312
+FRA,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,44.04981613
+FRA,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.24524307
+FRA,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,96.85668182
+FRA,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.73438644
+DEU,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,67.43309784
+DEU,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.16162109
+DEU,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,49.97766495
+DEU,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,96.52882385
+DEU,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,84.5872345
+DEU,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.73438644
+ITA,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,71.65279388
+ITA,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.01559448
+ITA,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,33.79870605
+ITA,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.61309052
+ITA,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,89.13149261
+ITA,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,78.60330963
+ITA,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,56.2244873
+NLD,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,67.21470642
+NLD,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.203739166
+NLD,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.49051285
+NLD,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,70.23535156
+NLD,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.62800598
+NLD,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.73438644
+POL,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.21915054
+POL,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.21180725
+POL,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.65636444
+POL,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.46095276
+POL,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.382850647
+POL,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.73438644
+ESP,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.27947998
+ESP,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.78911591
+ESP,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,35.53748703
+ESP,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.39942551
+ESP,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.6283226
+ESP,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.74171448
+ESP,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.30482483
+SWE,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.1108017
+SWE,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,24.90701675
+SWE,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,57.65779114
+SWE,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.55879211
+SWE,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,68.08764648
+SWE,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,52.73438644
+GBR,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.40338135
+GBR,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,39.5109787
+GBR,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,49.33852386
+GBR,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,73.67913818
+GBR,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,21.96801949
+GBR,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.68881226
+AUT,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,49.97309494
+AUT,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.69491577
+AUT,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.62571144
+AUT,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,19.81438446
+AUT,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,62.71295547
+AUT,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.6480999
+AUT,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.1969986
+BEL,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.13113594
+BEL,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.26526642
+BEL,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.953161716
+BEL,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.246970177
+BEL,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.930436611
+BEL,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.86750507
+DNK,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,63.85825729
+DNK,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.85111237
+DNK,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,48.29221344
+DNK,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.96924019
+DNK,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.79399872
+DNK,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.18359947
+FRA,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,50.52085114
+FRA,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.79969025
+FRA,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.15019131
+FRA,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.92713928
+FRA,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.2135601
+FRA,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.63525009
+FRA,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.18359947
+DEU,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,33.36840439
+DEU,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.57543945
+DEU,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.00040817
+DEU,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.07794476
+DEU,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,86.24761963
+DEU,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,21.52644348
+DEU,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.18359947
+ITA,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,49.18119431
+ITA,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.769104
+ITA,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.512191772
+ITA,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.36481571
+ITA,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.93569183
+ITA,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,66.56608582
+ITA,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.05612183
+NLD,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.99305725
+NLD,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.96025848
+NLD,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.096916199
+NLD,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.4219265
+NLD,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.62881088
+NLD,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,95.93723297
+NLD,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.18359947
+POL,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.57621765
+POL,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.03588867
+POL,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,55.55913544
+POL,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.87564754
+POL,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,63.68955994
+POL,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,2.096003294
+POL,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.18359375
+ESP,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.7652092
+ESP,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.45999146
+ESP,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.6482687
+ESP,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.60303879
+ESP,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.734034538
+ESP,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.91514397
+ESP,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.82620907
+SWE,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,54.61213684
+SWE,2018,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.98116302
+SWE,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.226754189
+SWE,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.38135719
+SWE,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,86.00263214
+SWE,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,67.91654205
+SWE,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.18359947
+GBR,2018,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.63309479
+GBR,2018,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.80992413
+GBR,2018,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.56949234
+GBR,2018,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.38889885
+GBR,2018,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.791018486
+GBR,2018,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.18521309
+AUT,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,38.05286407
+AUT,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.70828247
+AUT,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.5322752
+AUT,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.9195385
+AUT,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,30.33140373
+AUT,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.30072689
+AUT,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.042948723
+BEL,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.72763252
+BEL,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.30519867
+BEL,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,0.953161716
+BEL,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.272273064
+BEL,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.372596741
+BEL,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.089446068
+DNK,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.81490707
+DNK,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.97315979
+DNK,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.85111237
+DNK,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.50954247
+DNK,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.60905743
+DNK,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.49940491
+DNK,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.492046356
+FRA,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.30258942
+FRA,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.45306396
+FRA,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,13.15019131
+FRA,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.62879562
+FRA,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.542173386
+FRA,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.37130737
+FRA,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.37341881
+DEU,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,30.47738075
+DEU,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.54759979
+DEU,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.51986885
+DEU,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.76719093
+DEU,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,69.93621826
+DEU,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.82873344
+DEU,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.72643852
+ITA,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.04717636
+ITA,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.89046478
+ITA,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.512191772
+ITA,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.34762669
+ITA,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.15592575
+ITA,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,45.44860077
+ITA,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.77758598
+NLD,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.96493149
+NLD,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.96216583
+NLD,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.825016975
+NLD,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.15147686
+NLD,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.37003899
+NLD,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,87.22058868
+NLD,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.80940819
+POL,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,27.36165619
+POL,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,95.4106369
+POL,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,55.55913544
+POL,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.44392014
+POL,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,52.40759277
+POL,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.597326994
+POL,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.75504208
+ESP,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.95909882
+ESP,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.49080658
+ESP,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.78556156
+ESP,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.14184856
+ESP,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.284234047
+ESP,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,10.80901051
+ESP,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.85452271
+SWE,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.91875267
+SWE,2018,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,91.43484497
+SWE,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,6.226754189
+SWE,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.565672874
+SWE,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,51.43282318
+SWE,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.50741577
+SWE,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,4.30031395
+GBR,2018,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.67048264
+GBR,2018,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.80992413
+GBR,2018,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.29380417
+GBR,2018,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.34344864
+GBR,2018,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,7.049852371
+GBR,2018,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,22.11579704
+AUT,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.74394226
+AUT,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.10244751
+AUT,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,77.44826508
+AUT,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,59.95432281
+AUT,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,84.36495972
+BEL,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.71994781
+BEL,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,3.306269646
+BEL,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.155424118
+BEL,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.05079651
+BEL,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,76.7532196
+DNK,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.98470116
+DNK,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.91361237
+DNK,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,96.86634827
+DNK,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,86.58595276
+FRA,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.93930054
+FRA,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,42.73902893
+FRA,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,18.94272041
+FRA,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,71.22705841
+FRA,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,86.41698456
+DEU,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,77.27771759
+DEU,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,96.07860565
+DEU,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,80.1447525
+DEU,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,84.85089874
+ITA,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,97.24465179
+ITA,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,37.91293335
+ITA,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,72.74012756
+ITA,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,71.31034851
+ITA,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,89.87178802
+NLD,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.354180336
+NLD,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,57.91137695
+NLD,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.50961304
+NLD,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,83.61335754
+POL,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.5640564
+POL,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,78.43476868
+POL,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.86567688
+POL,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,4.422694206
+POL,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,80.37619781
+ESP,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.35934448
+ESP,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.65048218
+ESP,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,51.57029724
+ESP,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.86069489
+ESP,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,89.18763733
+SWE,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,32.14965057
+SWE,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,78.36820984
+GBR,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.82208252
+GBR,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,50.07777405
+GBR,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,48.54258347
+GBR,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.63027859
+GBR,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.28582764
+AUT,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,63.32289124
+BEL,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.06720352
+DNK,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,83.57907867
+FRA,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,57.856987
+DEU,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.11990356
+ITA,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,67.20068359
+NLD,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,64.5635376
+POL,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,61.86641312
+ESP,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,67.07212067
+SWE,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,67.47173309
+GBR,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,64.6860733
+AUT,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,76.13124847
+BEL,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.41759491
+DNK,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,87.18090057
+FRA,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,76.40453339
+DEU,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,83.48213196
+ITA,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,81.88764954
+NLD,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,79.88857269
+POL,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,69.78320313
+ESP,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,76.16891479
+SWE,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,82.11132813
+GBR,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,65.3013382
+AUT,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,44.42312241
+BEL,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,49.10387421
+DNK,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.35930634
+FRA,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,47.56767654
+DEU,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,65.12202454
+ITA,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,62.26726913
+NLD,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,57.10548019
+POL,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,53.70166397
+ESP,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,57.82831192
+SWE,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,20.52748108
+GBR,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,52.59881592
+AUT,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.75520325
+AUT,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,72.37576294
+AUT,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.85987091
+AUT,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,28.77342033
+AUT,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,56.67471313
+BEL,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,98.83358765
+BEL,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,3.306269646
+BEL,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,1.101690531
+BEL,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,9.703546524
+BEL,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,59.09200287
+DNK,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.96128845
+DNK,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.98470116
+DNK,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.34118462
+DNK,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,38.50136566
+DNK,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,37.72985458
+FRA,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.58575439
+FRA,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,42.44800949
+FRA,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,16.68620682
+FRA,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,46.63672638
+FRA,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,70.27672577
+DEU,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.99699402
+DEU,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,77.65788269
+DEU,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,75.17663574
+DEU,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,60.0783577
+DEU,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.52557373
+ITA,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,97.36165619
+ITA,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,37.91293335
+ITA,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,70.94798279
+ITA,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,47.80537415
+ITA,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.49111176
+NLD,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,10.1593132
+NLD,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,51.83378601
+NLD,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,89.37808228
+NLD,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,68.20214081
+POL,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.58511353
+POL,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,78.43476868
+POL,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,58.12185287
+POL,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,2.731406689
+POL,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,76.90022278
+ESP,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.39151001
+ESP,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.73061371
+ESP,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,49.55699921
+ESP,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,23.96665192
+ESP,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,74.28868103
+SWE,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,91.60022736
+SWE,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,30.95993423
+SWE,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,66.10529327
+SWE,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,27.05197906
+SWE,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,22.62641716
+GBR,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,99.82907867
+GBR,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,50.07777405
+GBR,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,40.5567627
+GBR,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,11.03166962
+GBR,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,69.22092438
+AUT,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,55.87515259
+BEL,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,51.23993301
+DNK,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,51.86143494
+FRA,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,64.61904907
+DEU,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,73.26574707
+ITA,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,70.42397308
+NLD,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,71.45317841
+POL,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,61.37801361
+ESP,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,68.41503143
+SWE,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,36.00092697
+GBR,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_60,EUR 60 per tonne of CO2e benchmark,57.89093781
+AUT,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,84.05869293
+AUT,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,83.22309875
+BEL,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,5.056095123
+BEL,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,5.056095123
+DNK,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,28.2856884
+DNK,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,28.2856884
+FRA,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.46537018
+FRA,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,48.13534546
+DEU,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,94.06837463
+DEU,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,93.967453
+ITA,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.54040527
+ITA,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,42.54040527
+NLD,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,9.877687454
+NLD,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,10.67817211
+POL,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.02763367
+POL,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.02763367
+ESP,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.15377426
+ESP,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.08127594
+SWE,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.65135574
+SWE,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.25805283
+GBR,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,59.56126404
+GBR,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,59.56126404
+AUT,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,67.17803192
+BEL,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,90.03344727
+BEL,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,69.31639862
+DNK,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,43.57502365
+DNK,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.99998474
+FRA,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,81.32281494
+DEU,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.99998474
+DEU,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.65265656
+ITA,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,81.77328491
+NLD,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,81.56846619
+POL,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.67536926
+ESP,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,83.29481506
+SWE,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.77922821
+SWE,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,26.49843597
+GBR,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,69.79267883
+GBR,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.09764862
+AUT,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.59241486
+AUT,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.39890671
+BEL,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,1.101690531
+BEL,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,1.155424118
+DNK,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,54.14379883
+DNK,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,45.27809525
+FRA,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,32.59180832
+FRA,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,36.99926758
+DEU,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.85519409
+DEU,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,78.72318268
+ITA,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.00714111
+ITA,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,88.1796875
+NLD,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,76.73445129
+NLD,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.47325897
+POL,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,73.95687103
+POL,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,58.19361115
+ESP,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,81.38475037
+ESP,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,84.69967651
+SWE,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,66.10529327
+GBR,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.73448944
+GBR,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,54.92040634
+AUT,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.82030487
+AUT,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.82712555
+BEL,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.71994781
+BEL,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.83358765
+DNK,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.96128845
+DEU,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.99700928
+ITA,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,97.33602905
+ITA,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,97.44915009
+POL,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.97388458
+POL,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.9751358
+ESP,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.70172882
+ESP,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.68595886
+SWE,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,91.60022736
+GBR,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.82208252
+GBR,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.82907867
+AUT,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,47.5316124
+AUT,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.04018402
+BEL,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,18.91354942
+BEL,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,21.53835869
+DNK,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,38.62212372
+DNK,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,96.96655273
+FRA,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,96.05154419
+FRA,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,62.89083862
+DEU,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,74.28125
+DEU,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,98.95925903
+ITA,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,51.95448303
+ITA,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,77.4994812
+NLD,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,90.15962219
+NLD,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,99.37187195
+POL,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,8.73411274
+POL,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,5.394083023
+ESP,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,41.17082214
+ESP,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,56.42929077
+SWE,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,27.05197906
+GBR,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,19.3993454
+GBR,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,20.45200539
+AUT,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,76.68954468
+AUT,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.8002739
+BEL,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.70705414
+BEL,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,57.55647278
+DNK,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,90.24923706
+DNK,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,41.57476425
+FRA,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.12580109
+FRA,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,53.54379272
+DEU,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,76.84575653
+DEU,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.28307343
+ITA,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,69.07505798
+ITA,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,74.54786682
+NLD,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,74.5786438
+NLD,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.92821503
+POL,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,65.7872467
+POL,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.78946686
+ESP,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.35951996
+ESP,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.99440765
+SWE,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.13935852
+SWE,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,22.8242569
+GBR,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,76.08988953
+GBR,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,61.87171173
+AUT,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,88.68674469
+BEL,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.1079483
+DNK,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,92.5375061
+FRA,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,85.40536499
+DEU,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,95.26594543
+ITA,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,87.55028534
+NLD,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,88.79255676
+POL,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,81.21240997
+ESP,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,84.4043045
+SWE,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,86.59101868
+GBR,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,71.07458496
+AUT,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,64.85019684
+BEL,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,57.9475174
+DNK,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,55.0346489
+FRA,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,72.08961487
+DEU,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,83.47888947
+ITA,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.21489716
+NLD,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,79.27770233
+POL,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,71.27645111
+ESP,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,75.64815521
+SWE,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,37.78332901
+GBR,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_30,EUR 30 per tonne of CO2e benchmark,62.9143486
+AUT,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,56.41759491
+BEL,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.43629074
+DNK,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,73.80653381
+FRA,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,56.94546509
+DEU,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,53.39269638
+ITA,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,59.77934647
+NLD,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,58.94488525
+POL,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,44.54895401
+ESP,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,56.36122131
+SWE,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,65.03286743
+GBR,2021,ENE,Energy use sectors,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,49.92372894
+AUT,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.66785431
+BEL,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.71994781
+FRA,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.63391876
+DEU,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.92661285
+ITA,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.12403107
+NLD,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.89614868
+POL,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,89.7701416
+ESP,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.19603729
+SWE,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.98526001
+GBR,2021,ROAD,Road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.82208252
+AUT,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.99427414
+BEL,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.0564003
+DNK,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,61.70750809
+FRA,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.55104065
+DEU,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.1880455
+ITA,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.42625427
+NLD,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.8164711
+POL,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.23781586
+ESP,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.58507156
+SWE,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.66425323
+GBR,2021,INDUSTRY,Industry,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.44375229
+AUT,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.60320663
+AUT,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,61.64332581
+AUT,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,30.33064079
+AUT,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,42.19507599
+BEL,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.681411266
+BEL,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.155424118
+BEL,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.717754364
+BEL,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,38.3766098
+DNK,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.492350578
+DNK,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.29244232
+DNK,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.54295349
+DNK,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.29297638
+FRA,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,21.8151207
+FRA,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,9.749364853
+FRA,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,35.86572266
+FRA,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.20849228
+DEU,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,56.13499832
+DEU,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,86.47251129
+DEU,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.67997742
+DEU,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,42.42545319
+ITA,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,19.13666153
+ITA,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.4152832
+ITA,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,56.20475006
+ITA,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,44.93589401
+NLD,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.0185709
+NLD,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,39.77231979
+NLD,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.71389771
+NLD,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.80667877
+POL,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,50.3890152
+POL,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,66.986763
+POL,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,2.212351561
+POL,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,40.18809891
+ESP,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,21.79868317
+ESP,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,26.41596222
+ESP,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.97236824
+ESP,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,44.59381866
+SWE,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,16.07482529
+SWE,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,83.86785126
+SWE,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,39.18410492
+GBR,2021,OFFROAD,Off-road transport,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.03888702
+GBR,2021,AGRIFISH,Agriculture & fisheries,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.38138771
+GBR,2021,RESCOM,Buildings,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.89838028
+GBR,2021,ELEC,Electricity,FFUEL,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,60.98834229
+AUT,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,43.16976547
+AUT,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.33784103
+AUT,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,14.55635452
+AUT,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.34581757
+BEL,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.681411266
+BEL,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.101690531
+BEL,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.020332336
+BEL,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.54600525
+DNK,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.492350578
+DNK,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.95057011
+DNK,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,38.33258057
+DNK,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,18.8649292
+FRA,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,21.66657448
+FRA,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.587991714
+FRA,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,23.48348999
+FRA,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,35.13836288
+DEU,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,56.86891174
+DEU,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,67.41712952
+DEU,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,30.49367142
+DEU,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.76278687
+ITA,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,19.13666153
+ITA,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,35.51810455
+ITA,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.67881393
+ITA,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.74555588
+NLD,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,8.835565567
+NLD,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,36.01989746
+NLD,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,87.75047302
+NLD,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,34.1010704
+POL,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,50.3890152
+POL,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,52.7091217
+POL,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,1.366323233
+POL,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,38.45011139
+ESP,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,21.91132927
+ESP,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.3975029
+ESP,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,12.38183403
+ESP,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.14434052
+SWE,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,15.47996998
+SWE,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,57.39270401
+SWE,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,27.05197906
+SWE,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.31321144
+GBR,2021,OFFROAD,Off-road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,25.03888702
+GBR,2021,AGRIFISH,Agriculture & fisheries,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,20.37037086
+GBR,2021,RESCOM,Buildings,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,5.594789982
+GBR,2021,ELEC,Electricity,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,42.95298386
+AUT,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.5496521
+BEL,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.5718956
+DNK,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.28125954
+FRA,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,24.29566956
+DEU,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,33.12039185
+ITA,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,31.89891052
+NLD,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,32.6619339
+POL,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,27.11524391
+ESP,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.81822586
+SWE,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,11.59889126
+GBR,2021,INDUSTRY,Industry,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,28.00758553
+AUT,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.68353271
+BEL,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,98.83358765
+DNK,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.96128845
+FRA,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.81266785
+DEU,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.927742
+ITA,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,96.28863525
+NLD,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.9030838
+POL,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,90.26425171
+ESP,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.23639679
+SWE,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,91.58876801
+GBR,2021,ROAD,Road transport,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,99.82907867
+AUT,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,41.78324509
+BEL,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,37.3154335
+DNK,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,44.10622025
+FRA,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,47.9070015
+DEU,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,47.25948715
+ITA,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,51.71898651
+NLD,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,53.04856873
+POL,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,39.52351761
+ESP,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,51.05393982
+SWE,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,29.20562553
+GBR,2021,ENE,Energy use sectors,FFUEL_BIOF,BEN_EUR_TCO2E_120,EUR 120 per tonne of CO2e benchmark,44.51063156

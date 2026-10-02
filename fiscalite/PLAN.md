@@ -94,6 +94,8 @@ téléchargée dans `sources/`. Les affirmations qui ne le sont pas encore porte
 | `01_etat_des_lieux.md` | chapitre 3 rédigé |
 | `02_cadre_theorique.md` | les propositions de taxation optimale retenues, et leurs conditions |
 | `03_decoupages.md` | les quatre découpages analytiques et ce qu'ils commandent |
+| `04_mirrlees_applique.md` | les diagnostics chiffrés de Tax by Design répliqués sur la France |
+| `extract_mirrlees.py` | données OCDE TaxBEN et Effective Carbon Rates |
 | `classification.py` | reclassement des 123 prélèvements sur quatre dimensions |
 | `donnees/classification_prelevements.csv` | le classement ligne par ligne, avec le motif |
 | `graphiques.py`, `graphiques_decoupages.py` | les seize figures |

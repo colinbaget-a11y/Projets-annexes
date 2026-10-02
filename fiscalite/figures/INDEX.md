@@ -31,6 +31,17 @@ Produites par `graphiques_decoupages.py`, à partir de la classification de
 | `h3_prelevements_sur_intrants.png` | Le détail des 77 Md€ assis sur un facteur de production sans justification correctrice. |
 | `h4_lecture_par_principe.png` | Ce que les principes du chapitre 2 impliqueraient, prélèvement par prélèvement. |
 
+## Mirrlees Review appliquée à la France (chapitre 4)
+
+Produites par `graphiques_mirrlees.py`, à partir des données OCDE extraites par `extract_mirrlees.py`.
+
+| Fichier | Ce qu'il montre | Équivalent dans Tax by Design |
+|---|---|---|
+| `m1_prix_carbone_secteurs.png` | La dispersion du prix implicite du carbone entre secteurs français. | chapitre 11 |
+| `m2_carbone_comparaison.png` | Part des émissions tarifées au-dessus de 60 € la tonne, France et comparaisons. | chapitre 11 |
+| `m3_taux_marginaux_effectifs.png` | Taux effectif de prélèvement sur une hausse du temps de travail, par ménage et par pays. | figures 4.6 et 4.8 |
+| `m4_taux_participation.png` | Ce que rapporte une reprise d'emploi depuis le revenu minimum. | figures 4.5 et 4.7 |
+
 Deux avertissements de lecture. Les listes nationales d'impôts sont libellées en monnaie
 nationale : les comparaisons entre pays passent donc par `gov_10a_taxag`, déjà exprimé en
 points de PIB. Et la Suède classe les cotisations patronales en impôts sur la production,
