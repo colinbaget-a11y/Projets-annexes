@@ -1,0 +1,22 @@
+pays,code,impot_revenu_pct_cout,cotis_salarie_pct_cout,cotis_employeur_pct_cout,coin_total_pct_cout,total_pct_brut
+Belgique,BEL,20.09,11.0,21.4,52.48,66.77
+Allemagne,DEU,14.25,17.76,17.26,49.26,59.54
+France,FRA,12.23,8.29,26.66,47.18,64.33
+Autriche,AUT,11.4,14.05,21.64,47.09,60.09
+Italie,ITA,14.54,7.21,24.0,45.76,60.21
+Estonie,EST,16.18,1.2,25.26,42.64,57.05
+Finlande,FIN,17.58,7.92,16.98,42.48,51.17
+Moyenne UE de l'OCDE,EU22OECD,14.11,9.88,17.94,41.73,51.09
+Espagne,ESP,13.07,4.96,23.41,41.44,54.11
+Tchéquie,CZE,7.27,8.67,25.26,41.2,55.13
+Hongrie,HUN,13.27,16.37,11.5,41.15,46.5
+Suède,SWE,11.9,5.33,23.91,41.14,54.06
+Grèce,GRC,10.47,10.98,17.89,39.34,47.91
+Portugal,PRT,11.26,8.89,19.19,39.34,48.68
+Pays-Bas,NLD,15.85,8.9,11.19,35.94,40.47
+Danemark,DNK,35.09,0.0,0.66,35.76,36.0
+Moyenne OCDE,OECD_REP,13.28,8.24,14.25,35.08,41.72
+Pologne,POL,5.68,15.33,14.02,35.03,40.74
+Irlande,IRL,18.89,3.69,10.05,32.63,36.28
+Royaume-Uni,GBR,15.44,4.92,12.02,32.38,36.8
+États-Unis,USA,15.42,7.08,7.48,29.98,32.4

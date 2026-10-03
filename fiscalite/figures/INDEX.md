@@ -1,8 +1,15 @@
 # Figures de l'état des lieux
 
-Produites par `graphiques.py`. Palette catégorielle validée par le script de contrôle
-(bande de clarté, plancher de chroma, séparation en vision déficiente, contraste) ; les
-séries sont toujours identifiées par une étiquette directe, jamais par la couleur seule.
+Charte commune reprise du chapitre 18 du rapport : composition en serif, palette sobre de quatre
+couleurs dominantes — bleu `#003399`, vert `#1f7a4d`, ocre `#c79100`, gris `#6b6b6b` —, grille
+horizontale légère, légende encadrée, titre de panneau centré en italique, bloc « Sources : » et
+« Note : » sous la figure. Les séries sont toujours identifiées par une étiquette directe, jamais
+par la couleur seule. Les constantes et les fonctions de mise en forme sont dans `graphiques.py`.
+
+Les figures `g1` à `m4` portent encore un titre qui énonce leur conclusion ; les figures `s1` à
+`s4`, les plus récentes, suivent la convention du chapitre 18, où le titre décrit et où la
+conclusion est portée par la phrase d'ouverture du paragraphe qui commente la figure. Les
+premières seront converties au fur et à mesure que leur chapitre sera rédigé.
 
 | Fichier | Ce qu'il montre |
 |---|---|
@@ -41,6 +48,17 @@ Produites par `graphiques_mirrlees.py`, à partir des données OCDE extraites pa
 | `m2_carbone_comparaison.png` | Part des émissions tarifées au-dessus de 60 € la tonne, France et comparaisons. | chapitre 11 |
 | `m3_taux_marginaux_effectifs.png` | Taux effectif de prélèvement sur une hausse du temps de travail, par ménage et par pays. | figures 4.6 et 4.8 |
 | `m4_taux_participation.png` | Ce que rapporte une reprise d'emploi depuis le revenu minimum. | figures 4.5 et 4.7 |
+
+## Vue d'ensemble de la situation actuelle
+
+Produites par `graphiques_situation.py`, à partir de `extract_situation.py` et du socle Eurostat.
+
+| Fichier | Ce qu'il montre |
+|---|---|
+| `s1_carte_des_prelevements.png` | Les 1 274,9 Md€ de 2024, un rectangle par prélèvement, regroupés par assiette économique réelle. La carte complète du système en une image. |
+| `s2_coin_fiscal.png` | Le coin fiscal sur le travail et sa composition dans vingt pays : la France prélève 47 % du coût du travail, dont 27 points de cotisations employeur. |
+| `s3_entreprises.png` | Le taux effectif sur les bénéfices, où la France est dans la moyenne, et les impôts sur la production, où elle ne l'est pas. |
+| `s4_taux_global.png` | Impôts et cotisations en % du PIB depuis 1995, sept pays. |
 
 ## Les trois chapitres pédagogiques (partie III)
 

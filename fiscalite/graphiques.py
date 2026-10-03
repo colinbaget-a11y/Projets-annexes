@@ -22,40 +22,60 @@ OUT = HERE / "figures"
 OUT.mkdir(exist_ok=True)
 
 # ---------------------------------------------------------------- charte
-INK, INK2, MUTED, GRID, SURFACE = "#1F2328", "#4B5158", "#8A9099", "#E6E8EA", "#FCFCFB"
-# palette catégorielle validée (validate_palette.js, mode light : tous les tests passent,
-# avertissement de contraste levé par les étiquettes directes)
-PAL = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"]
-BLEU, SEQ = PAL[0], ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"]
+# Charte reprise du chapitre 18 du rapport : composition en serif, palette sobre de quatre
+# couleurs dominantes (bleu, vert, ocre, gris), grille horizontale légère, légende encadrée,
+# sources et note sous la figure. Le titre décrit ce que montre la figure ; la conclusion est
+# portée par la phrase d'ouverture du paragraphe qui la commente, pas par le graphique.
+INK, INK2, MUTED, GRID, SURFACE = "#1a1a1a", "#3d3d3d", "#6b6b6b", "#D9D9D9", "#FFFFFF"
+BLEU, VERT, OCRE, GRIS = "#003399", "#1f7a4d", "#c79100", "#6b6b6b"
+PAL = [BLEU, VERT, OCRE, GRIS, "#993333", "#5b3f8c", "#1f6b7a", "#a85b00"]
+SEQ = ["#d4ddf0", "#aabbdd", "#7691c8", "#4369b4", "#1d4ba6", "#133a84", "#0b2a61"]
 HALO = [pe.withStroke(linewidth=2.8, foreground=SURFACE)]
 
 plt.rcParams.update({
-    "font.family": "Liberation Sans", "font.size": 10,
-    "axes.edgecolor": MUTED, "axes.linewidth": 0.6,
-    "axes.labelcolor": INK2, "axes.titlecolor": INK,
-    "xtick.color": INK2, "ytick.color": INK2, "xtick.labelsize": 9, "ytick.labelsize": 9,
+    "font.family": "Liberation Serif", "font.size": 10,
+    "axes.edgecolor": INK, "axes.linewidth": 0.7,
+    "axes.labelcolor": INK, "axes.titlecolor": INK, "axes.labelsize": 9.5,
+    "xtick.color": INK, "ytick.color": INK, "xtick.labelsize": 9, "ytick.labelsize": 9,
+    "xtick.direction": "out", "ytick.direction": "out",
+    "xtick.major.size": 3.2, "ytick.major.size": 3.2, "xtick.major.width": 0.7,
+    "ytick.major.width": 0.7,
     "axes.spines.top": False, "axes.spines.right": False,
+    "legend.fontsize": 9, "legend.frameon": True, "legend.framealpha": 1,
+    "legend.edgecolor": INK, "legend.fancybox": False, "legend.borderpad": 0.45,
     "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
-    "figure.dpi": 200, "savefig.dpi": 200, "savefig.bbox": "tight", "savefig.pad_inches": 0.3,
+    "figure.dpi": 200, "savefig.dpi": 200, "savefig.bbox": "tight", "savefig.pad_inches": 0.28,
 })
 PCT = FuncFormatter(lambda v, _: f"{v:g} %".replace(".", ","))
 MDS = FuncFormatter(lambda v, _: f"{v:,.0f}".replace(",", " "))
 
 
 def grille(ax, axe="y"):
-    ax.grid(axis=axe, color=GRID, lw=0.7, zorder=0)
+    ax.grid(axis=axe, color=GRID, lw=0.6, zorder=0)
     ax.set_axisbelow(True)
 
 
 def titre(ax, t, st=None):
+    """Titre de figure : description de ce qui est montré, à gauche, en gras."""
     n = st.count("\n") + 1 if st else 0
-    ax.set_title(t, loc="left", fontsize=12, pad=10 + 14 * n, color=INK)
+    ax.set_title(t, loc="left", fontsize=11.5, pad=10 + 13 * n, color=INK, fontweight="bold")
     if st:
-        ax.text(0, 1.012, st, transform=ax.transAxes, fontsize=9.5, color=INK2, va="bottom")
+        ax.text(0, 1.012, st, transform=ax.transAxes, fontsize=9.3, color=INK2, va="bottom")
 
 
-def fin(fig, nom, src):
-    fig.text(0.005, -0.01, src, fontsize=7.5, color=MUTED, ha="left")
+def panneau(ax, t):
+    """Titre de panneau, centré et en italique, comme dans le chapitre de référence."""
+    ax.set_title(t, loc="center", fontsize=10, pad=8, color=INK, style="italic",
+                 fontweight="normal")
+
+
+def fin(fig, nom, src, note=None):
+    """Bloc de bas de figure : sources, puis note de lecture facultative."""
+    y = -0.01
+    fig.text(0.005, y, src, fontsize=7.6, color=INK2, ha="left")
+    if note:
+        fig.text(0.005, y - 0.040 - 0.030 * src.count("\n"), note, fontsize=7.6, color=INK2,
+                 ha="left")
     fig.savefig(OUT / nom)
     plt.close(fig)
     print("  ", nom)

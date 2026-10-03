@@ -39,6 +39,20 @@ L'équipe de rédaction penche du même côté sur la question de l'efficience. 
 chaque fois qu'une réforme améliore l'efficience au détriment de la progressivité, le rapport dit
 **par quoi** elle est compensée. Sans cela il sera lu comme une plaidoirie.
 
+## La charte
+
+**Les figures** reprennent celle du chapitre 18 du rapport : composition en serif, palette sobre de
+quatre couleurs dominantes — bleu `#003399`, vert `#1f7a4d`, ocre `#c79100`, gris `#6b6b6b` —,
+grille horizontale légère, légende encadrée, titre de panneau centré en italique, et sous la
+figure un bloc « Sources : » suivi le cas échéant d'une « Note : » de lecture. Le titre de figure
+**décrit** ce qui est montré ; la conclusion est portée par le texte, pas par le graphique. Les
+constantes et les fonctions `titre`, `panneau`, `grille` et `fin` sont partagées dans
+`graphiques.py` et importées par les autres scripts.
+
+**Les paragraphes** s'ouvrent sur une phrase en gras qui porte l'argument général, suivie de la
+démonstration, des chiffres et des exemples. Un lecteur qui ne lit que les phrases en gras doit
+pouvoir reconstituer la thèse du chapitre.
+
 ## La forme
 
 Les chapitres thématiques suivent tous la même marche : **ce qui existe aujourd'hui**, **ce que
@@ -309,6 +323,10 @@ réécris.
 | `03_decoupages.md` | matériau du chapitre 6 |
 | `04_mirrlees_applique.md` | diagnostics de *Tax by Design* répliqués, matériau des chapitres 8 et 16 |
 | `05_maquettes_de_reference.md` | chapitre 4 rédigé |
+| `06_lecons_taxation_optimale.md` | les quinze enseignements appliqués, matériau des chapitres 1 à 3 |
+| `07_ou_changer.md` | les neuf endroits où la France s'écarte de la théorie |
+| `extract_situation.py` | coin fiscal OCDE et taux effectifs d'imposition des sociétés |
+| `graphiques_situation.py` | figures `s1` à `s4`, vue d'ensemble de la situation actuelle |
 
 ## Sources déjà mobilisées
 
