@@ -42,6 +42,17 @@ Produites par `graphiques_mirrlees.py`, à partir des données OCDE extraites pa
 | `m3_taux_marginaux_effectifs.png` | Taux effectif de prélèvement sur une hausse du temps de travail, par ménage et par pays. | figures 4.6 et 4.8 |
 | `m4_taux_participation.png` | Ce que rapporte une reprise d'emploi depuis le revenu minimum. | figures 4.5 et 4.7 |
 
+## Les trois chapitres pédagogiques (partie III)
+
+Produites par `graphiques_pedagogie.py`, à partir des données extraites par
+`extract_pedagogie.py`.
+
+| Fichier | Ce qu'il montre |
+|---|---|
+| `p1_retraites_niveau_vie.png` | Le niveau de vie relatif des 65 ans et plus en Europe, et le taux de pauvreté par âge : la France est le pays où la vieillesse protège le mieux de la pauvreté et où l'enfance en protège le moins. |
+| `p2_salaire_pension.png` | Les prélèvements sociaux sur 100 € de salaire et sur 100 € de pension, en distinguant la part qui ouvre des droits : l'écart vaut 11,7 points ou 0,4 point selon la convention comptable retenue. |
+| `p3_stock_contre_flux.png` | Ce qu'un impôt annuel sur le patrimoine représente en taux sur le rendement : à 2 % du stock et 3 % de rendement réel, l'impôt dépasse la totalité du rendement. |
+
 Deux avertissements de lecture. Les listes nationales d'impôts sont libellées en monnaie
 nationale : les comparaisons entre pays passent donc par `gov_10a_taxag`, déjà exprimé en
 points de PIB. Et la Suède classe les cotisations patronales en impôts sur la production,

@@ -1,0 +1,16 @@
+categorie,libelle,taux_pct_brut,nature
+salaire,CSG,9.039,non contributif
+salaire,CRDS,0.4913,non contributif
+salaire,Vieillesse plafonnée,6.9,contributif
+salaire,Vieillesse déplafonnée,0.4,contributif
+salaire,Retraite complémentaire T1,3.15,contributif
+salaire,Contribution d'équilibre général T1,0.86,contributif
+pension_normal,CSG taux normal,8.3,non contributif
+pension_normal,CRDS,0.5,non contributif
+pension_normal,CASA,0.3,non contributif
+pension_median,CSG taux médian,6.6,non contributif
+pension_median,CRDS,0.5,non contributif
+pension_median,CASA,0.3,non contributif
+pension_reduit,CSG taux réduit,3.8,non contributif
+pension_reduit,CRDS,0.5,non contributif
+pension_exonere,Aucun prélèvement,0.0,non contributif

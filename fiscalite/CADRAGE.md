@@ -5,13 +5,46 @@ exactement avec la comptabilité nationale. Mais ce socle est compatible avec pl
 très différents, et je ne veux pas écrire cent cinquante pages avant de découvrir que je me suis
 trompé sur l'objet. Ce fichier liste ce que j'ai besoin de savoir.
 
-Chaque question est suivie de **ce que je ferai à défaut de réponse**. Tu peux donc ne répondre
-qu'à ce qui te paraît mal deviné.
+Chaque question est suivie de **ce que je ferai à défaut de réponse**. Les réponses données le
+3 octobre 2026 figurent en tête ; les questions restées sans réponse gardent leur défaut.
 
-## Les six qui décident de la forme du rapport
+## Réponses, 3 octobre 2026
 
-Ce sont les questions 4, 5, 6, 9, 15 et 18. Les autres ajustent un chapitre ; celles-là changent
-la nature de l'exercice. Si tu ne réponds qu'à six choses, que ce soit celles-là.
+| # | Question | Réponse retenue |
+|---|---|---|
+| 1 | Lectorat | Rapport de think tank. Les responsables politiques d'abord, puis les économistes, puis les citoyens. Pas un travail très quantitatif. |
+| 3 | Positions | Le rapport tranche sur les quatre blocs : patrimoine et transmissions, logement, travail et revenu, consommation et carbone. |
+| 4 | Rendement | Constant. Variante chiffrée à un ou deux points de plus, puisqu'il y a du déficit — 5,1 points de PIB en 2025. |
+| 5 | Transferts | Tous les transferts monétaires, y compris les prestations universelles. |
+| 6 | Cotisations | Toutes traitées comme un impôt. |
+| 7 | Retraites | Paramètres pris comme donnés ; seul leur financement est discuté. |
+| 9 | Norme | Éventail de préférences sociales, sans en privilégier aucune. Pas d'inverse optimum. |
+| 12 | Droit | L'idéal d'abord, la version faisable ensuite. |
+| 14 | Microdonnées | Aucun accès. |
+| 15 | Chiffrage | Ordres de grandeur. Pas de simulation distributive. |
+| 20 | Rythme | D'abord un plan détaillé et quelques graphiques, sans entrer dans le détail. |
+
+Trois demandes pédagogiques explicites, qui deviennent la troisième partie du rapport : la
+taxation des retraités, le danger des taux marginaux élevés, et le danger d'un impôt du type
+de celui que propose Gabriel Zucman.
+
+### Ce que ces réponses impliquent, et que je signale
+
+Compter toute cotisation comme un impôt est un choix défendable dans un exercice « from
+scratch », parce qu'il garde dans le champ la question de savoir s'il faut une épargne retraite
+obligatoire et publique. Mais il faut assumer sa conséquence : le coin fiscal français ainsi
+mesuré est surestimé par rapport à un pays dont les retraites sont capitalisées, et une partie
+des comparaisons internationales devient trompeuse si on ne le dit pas. La figure
+`p2_salaire_pension.png` montre exactement ce que cette convention décide à elle seule.
+
+Renoncer à tout chiffrage distributif a un coût précis : le rapport ne pourra pas démontrer
+qu'une réforme est compensable, seulement l'affirmer. Or l'argument central de Mirrlees sur la
+TVA — supprimer les taux réduits et compenser par le barème direct — ne vaut que si la
+compensation est chiffrée. Je retiens donc un minimum qui ne coûte presque rien : les
+distributions par décile déjà publiées par l'Insee, la DREES et l'IPP, qui ne sont pas des
+microdonnées. Dis-le si tu préfères t'en passer entièrement.
+
+Les questions 2, 8, 10, 11, 13, 16 à 19 et 21 à 23 gardent le défaut écrit ci-dessous.
 
 ---
 
