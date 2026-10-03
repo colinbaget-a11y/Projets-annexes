@@ -305,7 +305,7 @@ def s4():
     ax.yaxis.set_major_formatter(PCT)
     grille(ax)
     titre(ax, "Impôts et cotisations sociales en % du PIB, 1995-2024",
-          "Sept pays, cotisations imputées comprises.")
+          "Sept pays, hors cotisations imputées.")
     fin(fig, "s4_taux_global.png",
         "Source : Eurostat, gov_10a_taxag, secteur S13 et institutions européennes.",
         "Note : le niveau français monte de quatre points entre 2009 et 2017, puis revient à "

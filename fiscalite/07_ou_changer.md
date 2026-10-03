@@ -6,9 +6,9 @@
 
 ## Le verdict
 
-**Le problème français n'est pas le niveau de prélèvement, c'est la dispersion.** À 43,5 % du PIB,
-la France est au sommet européen, mais le Danemark est à 45,4 % sans que personne y voie une
-pathologie. Ce qui distingue la France n'est pas le total ; c'est que, pour un même euro de
+**Le problème français n'est pas le niveau de prélèvement, c'est la dispersion.** À 43,5 % du PIB
+hors cotisations imputées, la France est au sommet européen, mais le Danemark est à 45,4 % sans que
+personne y voie une pathologie. Ce qui distingue la France n'est pas le total ; c'est que, pour un même euro de
 richesse, le taux appliqué varie énormément selon la forme que prend cette richesse, selon le
 secteur qui la produit et selon le support qui la porte. Or c'est exactement ce que la théorie
 interdit : à coût égal pour le contribuable, un système dispersé détruit davantage qu'un système
@@ -183,8 +183,8 @@ quelles conditions.
 ## IV. Ce qu'il ne faut pas changer
 
 **Le niveau global de prélèvement n'est pas le premier problème, et le présenter comme tel ferait
-manquer le vrai diagnostic.** La France et le Danemark lèvent à peu près la même part du PIB avec
-des structures opposées : le Danemark par l'impôt sur le revenu, la France par les cotisations
+manquer le vrai diagnostic.** La France et le Danemark lèvent à peu près la même part du PIB — 43,5
+et 45,4 points en 2024 — avec des structures opposées : le Danemark par l'impôt sur le revenu, la France par les cotisations
 employeur. Si le niveau était la variable décisive, les deux pays devraient présenter les mêmes
 difficultés. Ce n'est pas le cas.
 
