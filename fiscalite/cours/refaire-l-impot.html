@@ -1,0 +1,1247 @@
+<title>Refaire l'impôt</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout : colonne unique de lecture à 68ch, numérotation des modules parce que le
+   parcours est réellement séquentiel, bandeau de navigation fin et collant.
+   Identité reprise de la charte du rapport : papier clair, bleu profond, vert, ocre. */
+:root{
+  --papier:#FCFCFA; --encre:#1A1A19; --encre2:#44433F; --sourdine:#7A7872;
+  --filet:#DEDCD4; --surface:#F4F2EB; --bleu:#003399; --bleu-trait:#1F4FB8;
+  --vert:#1F7A4D; --ocre:#C79100; --brique:#9B3B3B;
+  --serif:"Spectral", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --papier:#1A1A19; --encre:#EDEBE3; --encre2:#C2BFB4; --sourdine:#8B887E;
+  --filet:#34332F; --surface:#232320; --bleu:#8FAEF5; --bleu-trait:#5F8ADA;
+  --vert:#3F9E70; --ocre:#A8842C; --brique:#C06B6B;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --papier:#1A1A19; --encre:#EDEBE3; --encre2:#C2BFB4; --sourdine:#8B887E;
+  --filet:#34332F; --surface:#232320; --bleu:#8FAEF5; --bleu-trait:#5F8ADA;
+  --vert:#3F9E70; --ocre:#A8842C; --brique:#C06B6B;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--papier); color:var(--encre); font-family:var(--serif);
+     font-size:17px; line-height:1.62; margin:0; -webkit-font-smoothing:antialiased}
+.page{max-width:none; padding-inline:16px; padding-block:0}
+.col{max-width:40rem; margin:0 auto}
+.large{max-width:52rem; margin:0 auto}
+
+/* ---------- bandeau ---------- */
+.bandeau{position:sticky; top:env(safe-area-inset-top,0px); z-index:30;
+  background:color-mix(in srgb, var(--papier) 92%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--filet)}
+.bandeau .in{max-width:52rem; margin:0 auto; display:flex; align-items:center;
+  gap:12px; padding:9px 16px; font-family:var(--sans); font-size:12.5px}
+.marque{font-weight:600; color:var(--bleu); letter-spacing:.01em; white-space:nowrap}
+.bandeau nav{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; flex:1; min-width:0}
+.bandeau nav::-webkit-scrollbar{display:none}
+.bandeau a{color:var(--encre2); text-decoration:none; padding:3px 7px; border-radius:3px;
+  white-space:nowrap}
+.bandeau a:hover{background:var(--surface); color:var(--bleu)}
+.bandeau a.actif{color:var(--bleu); font-weight:600}
+#theme{font-family:var(--sans); font-size:12px; background:none; border:1px solid var(--filet);
+  color:var(--encre2); border-radius:3px; padding:3px 8px; cursor:pointer; white-space:nowrap}
+#theme:hover{border-color:var(--bleu); color:var(--bleu)}
+
+/* ---------- ouverture ---------- */
+.ouverture{padding-block:54px 40px; border-bottom:2px solid var(--bleu)}
+.surtitre{font-family:var(--sans); font-size:12px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--sourdine); margin:0 0 14px}
+h1{font-size:clamp(2.2rem,6.4vw,3.3rem); line-height:1.05; font-weight:700; margin:0 0 .4em;
+   letter-spacing:-.016em; text-wrap:balance}
+.chapeau{font-size:1.2rem; line-height:1.55; color:var(--encre2); margin:0 0 1.1em;
+  max-width:36rem}
+.depart{font-family:var(--sans); font-size:13px; color:var(--sourdine)}
+
+/* ---------- modules ---------- */
+section{padding-block:40px; border-bottom:1px solid var(--filet)}
+.num{font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.14em;
+  color:var(--ocre); text-transform:uppercase; margin:0 0 6px}
+h2{font-size:clamp(1.45rem,3.6vw,1.95rem); line-height:1.17; font-weight:600; margin:0 0 .55em;
+   color:var(--bleu); letter-spacing:-.012em; text-wrap:balance}
+h3{font-size:1.1rem; font-weight:600; margin:2em 0 .5em; letter-spacing:-.005em}
+p{margin:0 0 1.05em}
+p.lead > strong:first-child, p > strong:first-child{font-weight:600}
+.col > p{max-width:40rem}
+em{font-style:italic}
+a.ext{color:var(--bleu); text-decoration:underline; text-underline-offset:2px;
+  text-decoration-thickness:.5px}
+
+/* ---------- encadrés ---------- */
+.encadre{background:var(--surface); border-left:3px solid var(--vert);
+  padding:20px 22px; margin:1.6em 0; border-radius:0 3px 3px 0}
+.encadre .tag{font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--vert); margin:0 0 10px}
+.encadre p:last-child{margin-bottom:0}
+.encadre dl{margin:0} .encadre dt{font-weight:600; margin-top:.7em}
+.encadre dt:first-child{margin-top:0} .encadre dd{margin:0 0 0 0; color:var(--encre2)}
+
+.citation{border-left:3px solid var(--ocre); padding:4px 0 4px 18px; margin:1.6em 0;
+  font-style:italic; color:var(--encre2)}
+
+/* ---------- widgets ---------- */
+.atelier{border:1px solid var(--filet); border-radius:4px; margin:1.8em 0;
+  background:var(--papier); overflow:hidden}
+.atelier > header{background:var(--surface); border-bottom:1px solid var(--filet);
+  padding:11px 18px}
+.atelier > header .tag{font-family:var(--sans); font-size:11px; font-weight:600;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--bleu); margin:0}
+.atelier > header h4{margin:3px 0 0; font-size:1.02rem; font-weight:600; letter-spacing:-.005em}
+.corps{padding:18px}
+.reglages{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  margin-bottom:16px}
+.reglage{min-width:0}
+.reglage label{display:flex; justify-content:space-between; align-items:baseline; gap:8px;
+  font-family:var(--sans); font-size:12.5px; color:var(--encre2); margin-bottom:5px}
+.reglage .val{font-variant-numeric:tabular-nums; font-weight:600; color:var(--bleu)}
+input[type=range]{width:100%; accent-color:var(--bleu-trait); height:20px; margin:0}
+input[type=range]:focus-visible{outline:2px solid var(--bleu); outline-offset:3px}
+.sortie{font-family:var(--sans); background:var(--surface); border-radius:3px;
+  padding:13px 16px; margin-top:14px; font-size:14px; line-height:1.5; color:var(--encre2)}
+.sortie b{color:var(--encre); font-weight:600; font-variant-numeric:tabular-nums}
+.sortie .gros{display:block; font-size:1.5rem; font-weight:600; color:var(--bleu);
+  font-variant-numeric:tabular-nums; line-height:1.2; margin-bottom:2px}
+figure{margin:0}
+svg{display:block; width:100%; height:auto; overflow:visible}
+.axe{font-family:var(--sans); font-size:10.5px; fill:var(--sourdine)}
+.etiq{font-family:var(--sans); font-size:11.5px; font-weight:600}
+.legende{font-family:var(--sans); font-size:12px; color:var(--encre2);
+  display:flex; flex-wrap:wrap; gap:14px; margin-top:10px}
+.legende span{display:inline-flex; align-items:center; gap:6px}
+.puce{width:11px; height:11px; border-radius:2px; flex:none}
+.note{font-family:var(--sans); font-size:11.5px; color:var(--sourdine); line-height:1.5;
+  margin-top:10px}
+.note b{color:var(--encre2); font-weight:600}
+
+/* ---------- tableaux ---------- */
+.rouleau{overflow-x:auto; margin:1.6em 0; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; width:100%; font-family:var(--sans); font-size:13.5px;
+  min-width:min(100%,540px)}
+caption{text-align:left; font-family:var(--sans); font-size:12px; color:var(--sourdine);
+  padding-bottom:8px}
+th,td{text-align:left; padding:9px 12px 9px 0; border-bottom:1px solid var(--filet);
+  vertical-align:top}
+th{font-weight:600; color:var(--encre); border-bottom:1.5px solid var(--encre2);
+  font-size:12px; letter-spacing:.03em; text-transform:uppercase}
+td.n{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.pays{font-weight:600}
+
+/* ---------- divers ---------- */
+.cles{display:grid; gap:1px; background:var(--filet); border:1px solid var(--filet);
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin:1.8em 0; border-radius:4px;
+  overflow:hidden}
+.cle{background:var(--papier); padding:15px 16px}
+.cle .v{font-family:var(--sans); font-size:1.5rem; font-weight:600; color:var(--bleu);
+  font-variant-numeric:tabular-nums; line-height:1.15}
+.cle .k{font-family:var(--sans); font-size:12px; color:var(--sourdine); margin-top:4px;
+  line-height:1.4}
+ol.retenir{counter-reset:r; list-style:none; padding:0; margin:1.4em 0}
+ol.retenir li{counter-increment:r; position:relative; padding-left:38px; margin-bottom:1em}
+ol.retenir li::before{content:counter(r); position:absolute; left:0; top:1px;
+  font-family:var(--sans); font-size:12px; font-weight:600; color:var(--papier);
+  background:var(--bleu); width:23px; height:23px; border-radius:50%;
+  display:grid; place-items:center}
+footer{padding-block:34px 56px; font-family:var(--sans); font-size:12.5px;
+  color:var(--sourdine); line-height:1.6}
+footer a{color:var(--bleu)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+
+<div class="bandeau">
+  <div class="in">
+    <span class="marque">Refaire l'impôt</span>
+    <nav id="nav">
+      <a href="#cadre">Cadre</a>
+      <a href="#cout">Coût</a>
+      <a href="#production">Production</a>
+      <a href="#bareme">Barème</a>
+      <a href="#capital">Capital</a>
+      <a href="#terre">Terre</a>
+      <a href="#systeme">Système</a>
+      <a href="#revues">Revues</a>
+      <a href="#foundation">Tax Foundation</a>
+      <a href="#france">France</a>
+    </nav>
+    <button id="theme" type="button" aria-label="Changer de thème">Thème</button>
+  </div>
+</div>
+
+<div class="page">
+
+<header class="ouverture col">
+  <p class="surtitre">Cours en dix modules</p>
+  <h1>Refaire l'impôt</h1>
+  <p class="chapeau">Ce que la théorie de la taxation optimale apprend vraiment, ce que les
+  grandes revues fiscales étrangères en ont fait, et ce que tout cela dit du système
+  français.</p>
+  <p class="depart">Chaque module tient en une idée, un mécanisme déroulé jusqu'au bout, et un
+  chiffre vérifiable. Quatre ateliers interactifs permettent de faire bouger les paramètres
+  soi-même.</p>
+</header>
+
+<!-- ===================== 0. CADRE ===================== -->
+<section id="cadre" class="col">
+  <p class="num">Module 0</p>
+  <h2>Ce que la théorie peut dire, et ce qu'elle ne dira jamais</h2>
+
+  <p><strong>La théorie de la taxation optimale ne dit pas combien il faut redistribuer, et aucun
+  théorème ne le dira jamais.</strong> Le poids qu'on accorde à un euro supplémentaire pour un
+  ménage modeste par rapport à un ménage aisé est un jugement politique. Elle ne dit pas non plus
+  quel niveau de dépense publique est souhaitable. Les économistes qui prétendent le contraire font
+  passer leurs préférences pour des résultats.</p>
+
+  <p><strong>Ce qu'elle dit, et qui est considérable, tient en une phrase : pour un degré de
+  redistribution donné et un rendement donné, certains systèmes coûtent beaucoup moins cher que
+  d'autres.</strong> Le désaccord politique porte sur le degré de redistribution. Il ne porte pas
+  sur le fait qu'il vaut mieux l'obtenir au prix de dix milliards de richesse détruite plutôt que de
+  trente. C'est ce qui rend l'exercice utilisable malgré les désaccords : un lecteur de gauche et un
+  lecteur de droite peuvent diverger sur la progressivité souhaitable et converger entièrement sur
+  le diagnostic.</p>
+
+  <p><strong>Les modules qui suivent sont rangés du plus solide au plus discutable.</strong> Les
+  premiers reposent sur des mécanismes vérifiables et font l'objet d'un accord large. Les derniers
+  sont des jugements informés sur lesquels des économistes compétents divergent. Le degré de
+  certitude est signalé à chaque fois : un cours qui présente tout avec le même aplomb ne permet pas
+  de savoir où l'on peut s'appuyer.</p>
+</section>
+
+<!-- ===================== 1. COÛT ===================== -->
+<section id="cout" class="col">
+  <p class="num">Module 1</p>
+  <h2>Un impôt coûte plus que ce qu'il rapporte</h2>
+
+  <p><strong>Un impôt ne fait pas que déplacer de l'argent : il empêche des échanges d'avoir lieu,
+  et la valeur que ces échanges auraient créée n'apparaît nulle part.</strong> Prenons une personne
+  qui ferait volontiers deux heures de ménage par semaine chez un voisin pour 20 € de l'heure, et un
+  voisin prêt à payer jusqu'à 26 € pour s'en dispenser. Sans impôt, l'échange se fait à 23 € : la
+  première gagne 3 € de plus que son prix de réserve, le second économise 3 € sur ce qu'il était
+  prêt à payer. Six euros de valeur apparaissent chaque heure, à partir de rien d'autre que le fait
+  que les deux se soient mis d'accord.</p>
+
+  <p><strong>Instaurons un prélèvement de 10 € par heure, et l'échange disparaît.</strong> Pour que
+  la première touche encore 20 €, le voisin doit débourser 30 € : il refuse. L'État ne perçoit rien,
+  puisqu'il n'y a plus de transaction à taxer — mais les 6 € de valeur ont disparu aussi. Personne
+  ne les a. Ils n'existent plus.</p>
+
+  <div class="encadre">
+    <p class="tag">Comment ça marche — la perte sèche</p>
+    <p>Un impôt fait deux choses très différentes. Sur les échanges qui continuent d'avoir lieu, il
+    <strong>transfère</strong> : l'argent passe des parties à l'État. Ce transfert peut être jugé
+    souhaitable ou non, mais il ne détruit rien.</p>
+    <p>Sur les échanges qui n'ont plus lieu parce que l'impôt les a rendus non rentables, il
+    <strong>détruit</strong> : la valeur que ces échanges auraient créée n'apparaît pas, et l'État
+    n'encaisse rien non plus.</p>
+    <p>La perte sèche est la seconde partie. Elle est invisible dans les comptes publics, puisqu'elle
+    consiste précisément en ce qui ne s'est pas produit. C'est pourquoi elle est si facilement
+    oubliée : on voit ce qu'un impôt rapporte, on ne voit jamais ce qu'il a empêché.</p>
+  </div>
+
+  <p><strong>Cette perte croît approximativement avec le carré du taux, et c'est le résultat le plus
+  important de toute la matière.</strong> Doubler un taux ne double pas le coût : il le quadruple.
+  La raison est intuitive. Le premier euro d'impôt ne tue que les échanges qui ne valaient presque
+  rien à leurs parties, ceux dont le gain se comptait en centimes, et qui ne manquent à personne.
+  Mais à mesure que le taux monte, l'impôt élimine des échanges de plus en plus précieux. Chaque
+  point de taux supplémentaire détruit donc davantage que le précédent.</p>
+</section>
+
+<section class="col" style="border-bottom:none; padding-top:0">
+  <div class="atelier">
+    <header>
+      <p class="tag">Atelier 1</p>
+      <h4>La perte croît au carré du taux</h4>
+    </header>
+    <div class="corps">
+      <div class="reglages">
+        <div class="reglage">
+          <label for="a1t">Taux de l'impôt <span class="val" id="a1tv">20 %</span></label>
+          <input type="range" id="a1t" min="0" max="60" value="20" step="1">
+        </div>
+      </div>
+      <figure><svg id="a1svg" viewBox="0 0 640 230" role="img"
+        aria-label="Courbe de la perte sèche en fonction du taux de l'impôt"></svg></figure>
+      <p class="sortie" id="a1out"></p>
+      <p class="note"><b>Lecture.</b> La perte est exprimée en indice, base 100 pour un taux de
+      20 %. Elle vaut environ le carré du taux multiplié par l'élasticité de l'assiette, de sorte
+      que seule la forme compte ici, pas l'unité.</p>
+    </div>
+  </div>
+
+  <p><strong>Trois conséquences pratiques suivent, et elles commandent tout le reste du
+  cours.</strong> À rendement égal, il faut toujours préférer une assiette large et un taux bas :
+  20 % sur une assiette large coûte environ quatre fois moins par euro d'assiette que 40 % sur une
+  assiette deux fois plus étroite. Il ne faut jamais appliquer deux taux différents à des choses
+  semblables : 10 % sur un bien et 30 % sur un bien voisin coûtent plus qu'un taux uniforme de 20 %
+  rapportant la même somme, et le calcul tient en une ligne — 10² + 30² = 1 000 contre
+  20² + 20² = 800. Enfin, une niche fiscale n'est jamais gratuite, même intégralement gagée : elle
+  rétrécit l'assiette, oblige à relever le taux sur ce qui reste, et ce relèvement coûte au
+  carré.</p>
+
+  <h3>L'élasticité, et le fait qu'elle se fabrique</h3>
+
+  <p><strong>Un impôt ne détruit de la valeur que dans la mesure où les gens peuvent y échapper en
+  changeant de comportement.</strong> Dans l'exemple précédent, tout tenait à une chose : le voisin
+  pouvait renoncer. Si le service lui avait été indispensable, il aurait payé les 30 € et l'État
+  aurait encaissé ses 10 € sans rien détruire. Ce qui ne bouge pas peut être taxé sans dommage ; ce
+  qui bouge beaucoup ne peut pas l'être sans coût.</p>
+
+  <p><strong>Ce qu'il faut en retenir est presque toujours absent du débat français : l'élasticité
+  n'est pas une donnée de la nature, elle est en grande partie fabriquée par le
+  législateur.</strong> Ce qui compte n'est pas l'élasticité de l'effort mais celle du revenu
+  <em>imposable</em>, et celle-ci dépend du nombre de portes de sortie que la loi laisse ouvertes.
+  Un système sans niches et sans possibilité de requalifier un revenu en un autre présente une
+  élasticité faible : il supporte des taux élevés à faible coût. Un système criblé d'exceptions
+  présente une élasticité forte, et le même taux y coûte beaucoup plus cher — non pas parce que les
+  gens travaillent moins, mais parce qu'ils déplacent leur revenu.</p>
+
+  <p><strong>D'où un ordre des opérations : l'assiette d'abord, le taux ensuite.</strong> Se battre
+  sur le taux marginal supérieur pendant que l'assiette reste poreuse, c'est se tromper de combat.
+  L'inverse — monter le taux sans toucher à l'assiette — produit surtout des stratégies d'évitement,
+  c'est-à-dire des dépenses privées qui ne créent rien.</p>
+</section>
+
+<!-- ===================== 2. PRODUCTION ===================== -->
+<section id="production" class="col">
+  <p class="num">Module 2</p>
+  <h2>Ne jamais taxer ce qui sert à produire</h2>
+
+  <p><strong>On peut taxer ce que les gens consomment, ce qu'ils gagnent, ce qu'ils possèdent ; on
+  ne devrait jamais taxer ce qui sert à produire.</strong> C'est le théorème d'efficience productive
+  de Diamond et Mirrlees (1971). Taxer un intrant — un local, une machine, une masse salariale, un
+  chiffre d'affaires — modifie la façon dont l'entreprise combine ses moyens : elle utilise moins de
+  l'élément taxé et plus des autres, non parce que c'est techniquement meilleur, mais parce que
+  c'est fiscalement moins coûteux. L'économie produit alors moins de biens avec les mêmes
+  ressources. Le gâteau rétrécit avant même qu'on ait commencé à le partager.</p>
+
+  <p><strong>Le point décisif est qu'on peut toujours obtenir la même redistribution autrement, ce
+  qui fait de cette réforme un gain sans contrepartie.</strong> Si l'on supprime la taxe sur
+  l'intrant et qu'on lève le même montant sur la consommation ou le revenu des mêmes personnes,
+  chacun se retrouve dans la même situation qu'avant — sauf qu'il y a davantage à partager. Il n'y a
+  donc pas d'arbitrage entre efficience et équité à cet endroit. C'est rare, et c'est pour cela que
+  cette réforme devrait venir en premier.</p>
+
+  <p><strong>Deux conditions doivent être énoncées, parce qu'on les invoque pour contester le
+  résultat.</strong> Il suppose que les profits purs puissent être taxés — sinon, taxer un intrant
+  peut être un moyen indirect d'atteindre une rente qu'on ne sait pas atteindre autrement — et que
+  l'État dispose d'un jeu complet d'impôts sur les biens finals. Ces conditions ne sont jamais
+  parfaitement remplies. Elles sont cependant très loin de justifier les 119 Md€ que la France
+  prélève sur des facteurs de production, dont 42 Md€ seulement corrigent une externalité.</p>
+
+  <h3>Et ne pas différencier les taux de consommation</h3>
+
+  <p><strong>Si l'on dispose d'un barème sur le revenu bien construit, il ne sert à rien d'appliquer
+  des taux différents aux différents biens.</strong> C'est le résultat d'Atkinson et Stiglitz
+  (1976), et son argument est plus simple que sa réputation. Deux personnes qui gagnent le même
+  revenu et paient le même impôt consomment différemment selon leurs goûts ; taxer plus lourdement
+  le bien qu'aime la première ne redistribue rien, cela pénalise un goût et non une situation.</p>
+
+  <p><strong>L'argument décisif n'est pas théorique : un taux réduit donne plus d'euros aux riches
+  qu'aux pauvres.</strong> Un ménage modeste consacre une part plus élevée de son revenu à
+  l'alimentation — disons 18 % de 1 500 € par mois, soit 270 €. Un ménage aisé y consacre une part
+  plus faible — 9 % de 5 000 €, soit 450 €. Un taux réduit qui fait économiser quinze points de TVA
+  donne donc <strong>40 € par mois au ménage modeste et 67 € au ménage aisé</strong>. La mesure est
+  progressive en pourcentage du revenu et régressive en euros. Or ce qui achète du pain, ce sont des
+  euros.</p>
+
+  <p><strong>La théorie admet deux écarts à l'uniformité, et seulement deux.</strong> Les biens
+  complémentaires du loisir peuvent être taxés davantage, puisqu'on ne sait pas taxer le temps libre
+  directement ; et les biens qui révèlent une capacité contributive que le revenu déclaré ne montre
+  pas. Ces exceptions sont réelles mais étroites, et elles ne justifient pas l'architecture actuelle
+  des taux réduits français, qui s'explique par l'histoire et par les rapports de force
+  sectoriels.</p>
+
+  <div class="encadre">
+    <p class="tag">La condition qu'il faut dire</p>
+    <p>Le résultat d'Atkinson-Stiglitz suppose que la façon de répartir son budget entre les biens
+    ne dépende pas du temps passé à travailler. C'est une hypothèse, pas un fait. Elle est
+    raisonnable pour la plupart des biens et clairement fausse pour quelques-uns — la garde
+    d'enfants, les repas pris à l'extérieur, les transports domicile-travail, qui ne sont consommés
+    que parce qu'on travaille. Ces cas méritent un traitement particulier, et ce ne sont pas ceux
+    auxquels la France applique ses taux réduits.</p>
+  </div>
+</section>
+
+<!-- ===================== 3. BARÈME ===================== -->
+<section id="bareme" class="col">
+  <p class="num">Module 3</p>
+  <h2>Le barème optimal est en U, pas croissant</h2>
+
+  <div class="encadre">
+    <p class="tag">Comment ça marche — taux marginal et taux moyen</p>
+    <dl>
+      <dt>Taux moyen</dt>
+      <dd>Ce que vous payez rapporté à ce que vous gagnez. Il détermine ce qu'il vous reste.</dd>
+      <dt>Taux marginal</dt>
+      <dd>Ce que vous paierez sur l'euro suivant. Il détermine, seul, vos décisions : une heure de
+      plus, une promotion, un revenu déclaré plutôt qu'un autre.</dd>
+    </dl>
+    <p style="margin-top:.9em">Un salarié dont le taux marginal atteint 60 % ne perd pas 60 % de son
+    revenu : son taux moyen peut rester à 20 %. Toute la théorie du barème optimal porte sur le taux
+    marginal ; presque toute la discussion publique porte sur le taux moyen. D'où un dialogue de
+    sourds permanent.</p>
+  </div>
+
+  <p><strong>Le taux marginal optimal à un niveau de revenu donné dépend de trois choses, et de
+  trois seulement.</strong> L'élasticité du revenu imposable : plus elle est forte, plus le taux
+  doit être bas. Le nombre de personnes situées au-dessus, rapporté au nombre de personnes situées
+  exactement à ce niveau. Et le poids que l'on accorde au revenu de ceux qui sont au-dessus, seul
+  paramètre réellement politique.</p>
+
+  <p><strong>Le deuxième ingrédient mérite d'être déplié, parce qu'il explique toute la forme du
+  barème.</strong> Un taux marginal appliqué à un niveau de revenu rapporte sur <em>tous</em> ceux
+  qui gagnent davantage : pour eux, cet euro-là est déjà franchi, et l'impôt supplémentaire est
+  acquis sans qu'ils changent quoi que ce soit. Il ne coûte en distorsion que sur ceux qui sont
+  <em>exactement</em> à ce niveau, puisqu'eux seuls arbitrent sur cet euro précis.</p>
+
+  <p><strong>Ce ratio dessine un U.</strong> En bas, un taux élevé est optimal : presque tout le
+  monde est au-dessus, donc la recette est maximale, et très peu de gens sont exactement là, donc la
+  distorsion est faible — c'est ce que fait mécaniquement tout transfert sous condition de
+  ressources, et c'est le prix du ciblage, pas un défaut. Au milieu, le taux doit baisser : c'est là
+  que se trouve le gros de la population. En haut, il remonte : peu de gens sont au niveau
+  considéré, mais ceux qui sont au-dessus concentrent une masse importante de revenu.</p>
+
+  <div class="atelier">
+    <header>
+      <p class="tag">Atelier 2</p>
+      <h4>Le taux supérieur qui maximise les recettes</h4>
+    </header>
+    <div class="corps">
+      <div class="reglages">
+        <div class="reglage">
+          <label for="a2e">Élasticité du revenu imposable <span class="val" id="a2ev">0,25</span></label>
+          <input type="range" id="a2e" min="5" max="100" value="25" step="5">
+        </div>
+        <div class="reglage">
+          <label for="a2a">Épaisseur de la queue haute <span class="val" id="a2av">2,0</span></label>
+          <input type="range" id="a2a" min="15" max="30" value="20" step="1">
+        </div>
+      </div>
+      <figure><svg id="a2svg" viewBox="0 0 640 230" role="img"
+        aria-label="Taux supérieur maximisant les recettes selon l'élasticité"></svg></figure>
+      <p class="sortie" id="a2out"></p>
+      <p class="note"><b>Trois avertissements.</b> Ce taux maximise les <i>recettes</i> ; il ne
+      serait le taux <i>optimal</i> que si l'on accordait un poids strictement nul au bien-être des
+      contribuables concernés. Passer d'une élasticité de 0,25 à 0,5 fait perdre dix-sept points :
+      toute recommandation chiffrée repose sur une estimation dont l'intervalle couvre l'essentiel
+      du désaccord politique. Et cette élasticité dépend du système lui-même, donc le barème au
+      sommet se discute avec l'assiette qui le porte, jamais séparément.</p>
+    </div>
+  </div>
+
+  <h3>Travailler plus, ou travailler : deux marges, deux barèmes</h3>
+
+  <p><strong>Ce qui précède suppose que les gens ajustent combien ils travaillent ; en bas de
+  l'échelle, la décision est le plus souvent binaire, et cela renverse la conclusion.</strong> Un
+  cadre arbitre sur l'intensité. Une personne au voisinage du minimum social arbitre souvent sur la
+  participation : prendre un emploi, ou pas. Quand la réaction porte sur cette seconde marge, ce qui
+  compte n'est plus le taux marginal mais le gain total que procure la reprise d'un emploi.</p>
+
+  <p><strong>Saez (2002) a montré que dans ce cas le barème optimal subventionne le premier euro de
+  revenu d'activité au lieu de le taxer.</strong> Les taux marginaux optimaux deviennent négatifs en
+  bas de l'échelle. C'est la logique des crédits d'impôt sur les revenus d'activité :
+  l'<i>Earned Income Tax Credit</i> américain, le <i>Working Tax Credit</i> britannique, et en
+  France la prime d'activité.</p>
+
+  <p><strong>Appliquée à la France, la distinction donne un résultat inattendu : le problème n'est
+  pas d'inciter à reprendre un emploi, c'est d'inciter à en faire davantage une fois en
+  poste.</strong> Le taux de prélèvement sur la reprise d'emploi y est dans la moyenne de l'OCDE et à
+  peu près plat du minimum au salaire moyen. En revanche le taux marginal effectif sur
+  l'augmentation du temps de travail est parmi les plus élevés, et il n'est pas monotone : un
+  célibataire sans enfant fait face à 51 % à 67 % du salaire moyen, puis 47 % au salaire moyen.
+  Personne n'a voulu ce creux ; il résulte de l'empilement de dispositifs conçus séparément.</p>
+</section>
+
+<!-- ===================== 4. CAPITAL ===================== -->
+<section id="capital" class="col">
+  <p class="num">Module 4</p>
+  <h2>Taxer le rendement, c'est taxer la patience</h2>
+
+  <p><strong>Deux personnes gagnent le même salaire et paient le même impôt dessus ; si le rendement
+  de l'épargne est taxé, celle qui attend paie un second impôt que celle qui dépense ne paie
+  pas.</strong> Le système traite donc différemment deux personnes qui ont gagné exactement la même
+  chose, et la seule différence entre elles est le moment où elles consomment.</p>
+
+  <div class="atelier">
+    <header>
+      <p class="tag">Atelier 3</p>
+      <h4>L'impôt implicite sur la consommation différée</h4>
+    </header>
+    <div class="corps">
+      <div class="reglages">
+        <div class="reglage">
+          <label for="a3t">Taux sur le rendement <span class="val" id="a3tv">30 %</span></label>
+          <input type="range" id="a3t" min="0" max="60" value="30" step="1">
+        </div>
+        <div class="reglage">
+          <label for="a3r">Rendement réel annuel <span class="val" id="a3rv">3,0 %</span></label>
+          <input type="range" id="a3r" min="10" max="80" value="30" step="5">
+        </div>
+        <div class="reglage">
+          <label for="a3n">Durée de détention <span class="val" id="a3nv">30 ans</span></label>
+          <input type="range" id="a3n" min="1" max="45" value="30" step="1">
+        </div>
+      </div>
+      <figure><svg id="a3svg" viewBox="0 0 640 230" role="img"
+        aria-label="Taux d'imposition implicite de la consommation différée selon la durée"></svg></figure>
+      <p class="sortie" id="a3out"></p>
+      <p class="note"><b>Les trois régimes français marqués sur l'axe.</b> 17,2 % pour les
+      prélèvements sociaux seuls, 30 % pour le prélèvement forfaitaire unique, 47,2 % pour un revenu
+      foncier au taux marginal de 30 %.</p>
+    </div>
+  </div>
+
+  <p><strong>La réponse de la théorie n'est pas de ne pas taxer le capital, qui est un slogan, mais
+  de séparer le rendement normal de la rente.</strong> Le rendement normal rémunère le seul fait
+  d'attendre : le taxer taxe la patience, et rien d'autre. La rente est tout ce qui dépasse — une
+  position de marché, une information que les autres n'avaient pas, un terrain bien placé. La taxer
+  ne décourage rien, puisque par définition elle serait apparue de toute façon. C'est la distinction
+  la plus utile de toute la fiscalité du capital, et le système français ne la fait nulle part.</p>
+
+  <p><strong>Le résultat classique selon lequel l'impôt optimal sur le capital serait nul à long
+  terme est beaucoup moins solide qu'on ne le dit.</strong> Les modèles de Chamley et Judd
+  concluaient en ce sens ; Straub et Werning (2020) ont montré que la conclusion dépend de
+  paramètres pour lesquels elle s'inverse, et que la convergence invoquée peut ne jamais se
+  produire. Ce qui subsiste, et qui est solide, c'est la distinction entre rendement normal et
+  rente — pas l'exonération du capital.</p>
+
+  <h3>Convertir un impôt sur le stock en taux sur le flux</h3>
+
+  <p><strong>Un impôt sur le patrimoine ne se compare pas à un impôt sur le revenu : il faut d'abord
+  le convertir.</strong> C'est l'opération que le débat public saute presque toujours, et elle
+  change les ordres de grandeur du tout au tout. Un prélèvement annuel de 2 % sur un capital qui
+  rapporte 3 % en termes réels prend les deux tiers du rendement. Avec le prélèvement forfaitaire
+  unique, qui s'applique déjà au rendement nominal, il prend plus que la totalité du rendement
+  réel.</p>
+
+  <div class="atelier">
+    <header>
+      <p class="tag">Atelier 4</p>
+      <h4>Deux pour cent du stock, combien sur le rendement ?</h4>
+    </header>
+    <div class="corps">
+      <div class="reglages">
+        <div class="reglage">
+          <label for="a4s">Impôt annuel sur le stock <span class="val" id="a4sv">2,0 %</span></label>
+          <input type="range" id="a4s" min="0" max="40" value="20" step="1">
+        </div>
+        <div class="reglage">
+          <label for="a4r">Rendement réel annuel <span class="val" id="a4rv">3,0 %</span></label>
+          <input type="range" id="a4r" min="10" max="80" value="30" step="5">
+        </div>
+        <div class="reglage">
+          <label for="a4p">Impôt sur le rendement nominal <span class="val" id="a4pv">30 %</span></label>
+          <input type="range" id="a4p" min="0" max="60" value="30" step="1">
+        </div>
+      </div>
+      <figure><svg id="a4svg" viewBox="0 0 640 240" role="img"
+        aria-label="Part du rendement réel prélevée selon le rendement et le taux sur le stock"></svg></figure>
+      <p class="sortie" id="a4out"></p>
+      <p class="note"><b>Inflation supposée de 2 % par an.</b> Deux enseignements tombent du même
+      calcul. Un impôt sur le stock frappe d'autant plus durement que le placement rapporte peu : il
+      est régressif par rapport au rendement obtenu, ce qui est l'inverse de l'intention affichée.
+      Et même sans impôt sur le stock, un prélèvement de 30 % sur le rendement nominal prend la
+      moitié d'un rendement réel de 3 %, parce qu'il taxe la part inflationniste.</p>
+    </div>
+  </div>
+
+  <p><strong>Le précédent néerlandais sert de contre-épreuve et mérite d'être connu.</strong>
+  Pendant vingt ans, les Pays-Bas ont taxé l'épargne non sur le revenu réellement perçu mais sur un
+  rendement <em>présumé</em>, fixé par la loi. Quand les taux d'intérêt sont tombés près de zéro,
+  l'État a continué de taxer un revenu que les épargnants ne percevaient pas. Le 24 décembre 2021,
+  la Cour suprême néerlandaise a jugé que ce régime violait le droit de propriété et l'interdiction
+  de discrimination de la Convention européenne des droits de l'homme, et a imposé de revenir au
+  rendement réellement réalisé. La leçon dépasse le cas néerlandais : taxer un rendement présumé
+  revient à taxer le stock, et tant que le rendement réel dépasse le rendement présumé, personne ne
+  proteste.</p>
+</section>
+
+<!-- ===================== 5. TERRE ===================== -->
+<section id="terre" class="col">
+  <p class="num">Module 5</p>
+  <h2>La terre, la transaction, et le prix du carbone</h2>
+
+  <p><strong>Un impôt annuel sur la valeur du terrain nu possède une propriété qu'aucun autre impôt
+  ne possède : il ne change aucune décision.</strong> Le terrain ne se déplace pas, ne se cache pas,
+  et sa quantité ne dépend pas de ce qu'on prélève dessus. Le propriétaire ne peut ni en produire
+  moins ni l'emmener ailleurs. La perte sèche est donc nulle — exactement nulle, et non pas faible.
+  Mieux : la valeur d'un terrain vient pour l'essentiel de ce qui l'entoure, les transports, les
+  écoles, les emplois, c'est-à-dire pour une large part de la dépense publique elle-même.</p>
+
+  <p><strong>L'objection sérieuse est politique et il vaut mieux l'énoncer que la masquer : un impôt
+  foncier annoncé est immédiatement capitalisé dans le prix.</strong> La valeur du terrain baisse du
+  montant actualisé de tous les impôts futurs. Le propriétaire du jour paie donc la totalité, d'un
+  coup, et les acquéreurs suivants ne paient rien de net puisqu'ils ont acheté moins cher. C'est
+  précisément ce qui rend l'impôt efficient — il ne pèse sur aucune décision future — et ce qui le
+  rend brutal pour une génération de propriétaires.</p>
+
+  <p><strong>Un droit de mutation ne frappe pas ceux qui possèdent, il frappe ceux qui bougent.</strong>
+  Deux ménages au patrimoine identique paieront l'un beaucoup et l'autre rien, selon qu'ils ont
+  déménagé ou non. Un salarié à qui l'on propose un meilleur emploi à 300 km soustrait de son gain
+  plusieurs dizaines de milliers d'euros de frais ; un couple dont les enfants sont partis garde un
+  logement trop grand. Des droits de 5 % acquittés tous les sept ans équivalent, en coût actualisé
+  moyen, à un impôt annuel d'environ 0,7 % de la valeur du bien — mais concentré sur exactement le
+  comportement qu'il ne faudrait pas décourager.</p>
+
+  <h3>Pour une externalité, un prix — et un seul</h3>
+
+  <p><strong>Quand une activité impose un coût à autrui sans le payer, un prélèvement égal à ce coût
+  ne détruit pas de valeur : il en crée.</strong> C'est le seul cas où un impôt améliore
+  l'allocation des ressources au lieu de la dégrader, et c'est pourquoi les prélèvements correcteurs
+  devraient venir en premier dans tout système reconstruit.</p>
+
+  <p><strong>L'argument décisif n'est pourtant pas le niveau du prix, c'est son unicité — et c'est
+  là que le débat se trompe de sujet.</strong> Supposons deux émetteurs : l'un peut éviter une tonne
+  pour 20 €, l'autre pour 100 €. Si le prix est de 120 € pour le second et nul pour le premier, seul
+  le second réduit : on dépense 100 € pour éviter une tonne alors qu'une autre pouvait être évitée
+  pour 20 €. On achète la tonne chère et on laisse la tonne bon marché. Pour une réduction totale
+  donnée, un prix unique est toujours moins coûteux qu'un prix dispersé, quel que soit le niveau
+  choisi — ce qui en fait la réforme la plus consensuelle du domaine, et celle qui n'est pas
+  faite.</p>
+
+  <div class="rouleau">
+    <table>
+      <caption>Part des émissions françaises tarifées, par secteur, 2021</caption>
+      <thead><tr><th>Secteur</th><th class="n">Au-dessus de 120 €/t</th>
+        <th class="n">Au-dessus de 60 €/t</th><th class="n">Non tarifées</th></tr></thead>
+      <tbody>
+        <tr><td class="pays">Transport routier</td><td class="n">94 %</td><td class="n">94 %</td><td class="n">2 %</td></tr>
+        <tr><td class="pays">Industrie</td><td class="n">0 %</td><td class="n">6 %</td><td class="n">41 %</td></tr>
+        <tr><td class="pays">Bâtiments</td><td class="n">0 %</td><td class="n">0,5 %</td><td class="n">36 %</td></tr>
+        <tr><td class="pays">Électricité</td><td class="n">0 %</td><td class="n">0 %</td><td class="n">19 %</td></tr>
+        <tr><td class="pays">Agriculture</td><td class="n">0 %</td><td class="n">0 %</td><td class="n">78 % sous 30 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note"><b>Source.</b> OCDE, <i>Effective Carbon Rates</i>, données 2021. Le cas le plus
+  perturbant est l'électricité : l'énergie la moins carbonée du bouquet français voit 81 % de ses
+  émissions tarifées entre 30 et 60 € la tonne, soit un signal-prix plus fort que celui des
+  bâtiments, là où il y a le moins à décarboner.</p>
+</section>
+
+<!-- ===================== 6. SYSTÈME ===================== -->
+<section id="systeme" class="col">
+  <p class="num">Module 6</p>
+  <h2>Juger un système, jamais un impôt isolé</h2>
+
+  <p><strong>Il n'y a aucune raison pour que chaque impôt soit progressif ; il faut que l'ensemble
+  le soit, dans la mesure voulue.</strong> On débat de savoir si la TVA est régressive — elle l'est,
+  rapportée au revenu courant — comme si cela suffisait à la condamner. Mais une TVA à taux unique
+  assortie d'un transfert forfaitaire est globalement progressive, et plus efficace qu'une TVA à
+  taux multiples sans transfert.</p>
+
+  <p><strong>La conséquence pratique est qu'aucune réforme ne doit être évaluée sans sa
+  compensation.</strong> Proposer un taux unique de TVA sans dire par quoi le choc sur les bas
+  revenus est compensé n'est pas une proposition, c'est la moitié d'une proposition — et c'est ce
+  qui permet à une bonne idée d'être rejetée pour de mauvaises raisons.</p>
+
+  <h3>L'incidence ne suit pas l'étiquette</h3>
+
+  <p><strong>Celui qui verse l'impôt au Trésor n'est presque jamais celui qui le supporte : la
+  charge se déplace jusqu'à se fixer sur celui qui peut le moins s'y soustraire.</strong> Si l'on
+  instaure une cotisation patronale de dix points, l'employeur peut accepter de payer plus, modérer
+  les salaires futurs, ou embaucher moins. S'il existe beaucoup de candidats pour peu de postes,
+  c'est le salaire qui s'ajuste et le salarié supporte la cotisation que l'employeur verse. La
+  question « qui paie ? » n'a pas de réponse juridique ; elle a une réponse économique, qui dépend
+  de qui a le plus d'alternatives.</p>
+
+  <figure style="margin:1.8em 0">
+    <p class="etiq" style="font-size:14px; margin:0 0 2px">Coin fiscal sur le travail et sa composition, 2025</p>
+    <p class="note" style="margin:0 0 12px">Célibataire sans enfant au salaire moyen, en % du coût
+    total du travail.</p>
+    <svg id="coin" viewBox="0 0 640 300" role="img"
+      aria-label="Décomposition du coin fiscal sur le travail dans six pays"></svg>
+    <div class="legende">
+      <span><i class="puce" style="background:var(--vert)"></i>Impôt sur le revenu</span>
+      <span><i class="puce" style="background:var(--bleu-trait)"></i>Cotisations salariales</span>
+      <span><i class="puce" style="background:var(--ocre)"></i>Cotisations employeur</span>
+    </div>
+    <p class="note"><b>Source.</b> OCDE, <i>Taxing Wages</i>, 2025. <b>Lecture.</b> La France et le
+    Danemark n'ont pas des systèmes opposés : ils ont des conventions d'affichage opposées. Le
+    Danemark lève 35 de ses 36 points par l'impôt sur le revenu ; la France lève 27 de ses 47 points
+    par les cotisations employeur.</p>
+  </figure>
+
+  <h3>L'administrabilité est une contrainte de premier ordre</h3>
+
+  <p><strong>Un impôt théoriquement optimal qu'on ne sait pas recouvrer est inférieur à un impôt
+  imparfait qui fonctionne.</strong> Ce n'est pas une concession au réalisme : l'information dont
+  dispose l'administration fait partie des contraintes du problème, au même titre que les
+  élasticités. Trois coûts s'additionnent, dont deux n'apparaissent dans aucun compte — le coût de
+  gestion, le coût de conformité supporté par le contribuable, et le coût de l'instabilité, qui fait
+  qu'un investisseur ignorant le régime fiscal dans cinq ans exige une prime que personne
+  n'encaisse.</p>
+
+  <p><strong>Un point mérite d'être énoncé franchement parce qu'il est contre-intuitif : la
+  complexité est régressive.</strong> Les niches, les régimes dérogatoires et les montages ne
+  profitent qu'à ceux qui peuvent payer un conseil pour les trouver. À barème identique, un système
+  simple est donc plus redistributif qu'un système complexe, et simplifier n'est pas une
+  revendication de technicien mais une mesure d'équité.</p>
+</section>
+
+<!-- ===================== 7. REVUES ===================== -->
+<section id="revues" class="large">
+  <p class="num">Module 7</p>
+  <h2>Les grandes revues fiscales, et ce sur quoi elles convergent</h2>
+
+  <div class="col" style="margin:0">
+  <p><strong>La <i>Mirrlees Review</i> reste la référence du genre, et elle n'a jamais eu de
+  successeur.</strong> Menée de 2006 à 2011 par l'Institute for Fiscal Studies sous la présidence du
+  prix Nobel James Mirrlees, elle a produit deux volumes — <i>Dimensions of Tax Design</i> (2010) et
+  <i>Tax by Design</i> (2011) — avec une méthode qui est sa vraie contribution : une proposition
+  théorique, un diagnostic chiffré qui montre l'écart, une réforme chiffrée avec ses gagnants et ses
+  perdants. Au Royaume-Uni, ce qui s'en rapproche aujourd'hui est la <i>Deaton Review</i> de l'IFS,
+  qui porte sur les inégalités et non sur la fiscalité.</p>
+
+  <p><strong>Quatre pays ont depuis mené un exercice comparable, et leurs conclusions se
+  ressemblent au point que la convergence devient elle-même une donnée.</strong> Aucun de ces
+  rapports n'a été écrit par les mêmes personnes, aucun n'a le même mandat politique, et tous
+  recommandent d'élargir les assiettes, de réduire le nombre de taux, de déplacer la charge du
+  travail vers la consommation et le patrimoine, et de taxer le foncier sur sa valeur réelle.</p>
+  </div>
+
+  <div class="rouleau">
+    <table>
+      <caption>Cinq revues fiscales d'ensemble et leurs recommandations principales</caption>
+      <thead><tr><th>Pays et année</th><th>Exercice</th><th>Ce qu'elle recommande</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="pays">Royaume-Uni<br>2010-2011</td>
+          <td><i>Mirrlees Review</i>, Institute for Fiscal Studies</td>
+          <td>TVA à base large et taux unique, compensée par le barème direct. Fusion de l'impôt sur
+          le revenu et des cotisations. Exonération du rendement normal de l'épargne, allocation
+          pour fonds propres des sociétés. Impôt foncier assis sur la valeur, en remplacement des
+          droits de mutation. Prix unique du carbone.</td>
+        </tr>
+        <tr>
+          <td class="pays">Nouvelle-Zélande<br>2018-2019</td>
+          <td><i>Tax Working Group</i>, mandat gouvernemental</td>
+          <td>Maintien d'une TVA à base large et taux uniforme, considérée comme un acquis à ne pas
+          abîmer. Le mandat excluait explicitement toute hausse du taux de TVA.</td>
+        </tr>
+        <tr>
+          <td class="pays">Irlande<br>2022</td>
+          <td><i>Commission on Taxation and Welfare</i>,<br>« Foundations for the Future »</td>
+          <td>116 recommandations. Déplacer la charge du travail vers le capital, le patrimoine et
+          la consommation. Fusionner les taux réduits de TVA et les relever progressivement. Imposer
+          la valeur du terrain et relever la taxe foncière locale. Supprimer les effets de seuil des
+          prestations.</td>
+        </tr>
+        <tr>
+          <td class="pays">Norvège<br>2022</td>
+          <td>Comité Torvik, NOU 2022:20</td>
+          <td>Conserver l'impôt sur la fortune mais baisser son taux, élargir son assiette et
+          supprimer toutes les décotes d'évaluation pour valoriser les actifs à 100 % de leur valeur
+          de marché. Rétablir un impôt sur les successions assis sur la valeur de marché. Réduire de
+          trois à deux le nombre de taux de TVA, voire aller au taux unique de 25 %.</td>
+        </tr>
+        <tr>
+          <td class="pays">Pays-Bas<br>2024</td>
+          <td>« Belastingen in maatschappelijk perspectief »,<br>groupe de travail interministériel</td>
+          <td>Constat que l'instrumentalisation fiscale est allée trop loin et qu'il faut moins de
+          règles. Faire contribuer davantage les retraités en fiscalisant les cotisations de retraite
+          de base. Éteindre la subvention au logement occupé par son propriétaire. Imposer plus
+          uniformément les revenus du capital et les transmissions. Mieux tarifer les externalités.
+          Le produit sert à alléger la charge pesant sur le travail.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col" style="margin:0">
+  <p><strong>Deux de ces rapports posent frontalement une question que la France n'ouvre pas : la
+  contribution des retraités.</strong> Le rapport néerlandais recommande explicitement de fiscaliser
+  les cotisations de retraite de base, et la commission irlandaise de rééquilibrer entre générations.
+  Le fait français mérite d'être rappelé : le niveau de vie médian des 65 ans et plus atteint 94 % de
+  celui de l'ensemble de la population, contre 90 % dans l'Union, 83 % en Allemagne et 78 % au
+  Danemark ; et la pauvreté frappe 21,4 % des moins de 18 ans contre 12,4 % des plus de 65 ans, soit
+  l'inverse exact du profil allemand.</p>
+
+  <p><strong>Un point de méthode, enfin, sépare ces rapports de la plupart des travaux
+  administratifs : ils chiffrent les perdants.</strong> C'est ce qui permet à une recommandation
+  d'être discutée plutôt que rejetée d'emblée, et c'est le plus coûteux à produire. La Mirrlees
+  Review a construit ses paquets de réformes de façon à être neutres sur le rendement <i>et</i> sur
+  la distribution, et c'est ce double gage qui lui a donné son autorité.</p>
+  </div>
+</section>
+
+<!-- ===================== 8. TAX FOUNDATION ===================== -->
+<section id="foundation" class="col">
+  <p class="num">Module 8</p>
+  <h2>Ce que dit la Tax Foundation, et comment la lire</h2>
+
+  <p><strong>La Tax Foundation est un think tank américain qui juge les systèmes fiscaux à l'aune de
+  quatre principes déclarés : simplicité, transparence, neutralité et stabilité.</strong> La
+  neutralité y est entendue au sens fort — l'impôt ne doit ni encourager ni décourager une décision
+  personnelle ou professionnelle, sa seule fonction étant de lever des recettes. Ces principes
+  recoupent largement ceux de Mirrlees, avec une différence de poids : la redistribution n'y figure
+  pas comme objectif, ce qui n'est pas un oubli mais une position.</p>
+
+  <p><strong>Son indicateur le plus cité, l'<i>International Tax Competitiveness Index</i>, classe
+  la France au dernier rang des trente-huit pays de l'OCDE en 2025, avec un score de 45,8 sur
+  100.</strong> Le détail est plus instructif que le rang global : 38<sup>e</sup> sur l'impôt des
+  sociétés, 34<sup>e</sup> sur les impôts fonciers, 31<sup>e</sup> sur l'impôt sur le revenu,
+  31<sup>e</sup> sur les taxes à la consommation — mais 12<sup>e</sup> sur les règles fiscales
+  internationales. L'Estonie est première pour la douzième année consécutive avec un score de 100,
+  devant la Lettonie (92,8), la Nouvelle-Zélande (87,8), la Suisse (86) et la Lituanie (81,8).</p>
+
+  <div class="cles">
+    <div class="cle"><div class="v">38<sup>e</sup>/38</div><div class="k">Rang de la France à l'indice 2025</div></div>
+    <div class="cle"><div class="v">36,13 %</div><div class="k">Taux combiné d'impôt sur les sociétés, surtaxes comprises, le plus élevé de l'OCDE</div></div>
+    <div class="cle"><div class="v">≈ 50 %</div><div class="k">Part de la consommation finale effectivement couverte par la TVA française</div></div>
+    <div class="cle"><div class="v">12<sup>e</sup></div><div class="k">Rang français sur les règles fiscales internationales, sa meilleure catégorie</div></div>
+  </div>
+
+  <p><strong>Trois critiques précises du système français ressortent de cet indice, et aucune n'est
+  en désaccord avec les modules précédents.</strong> Le taux combiné d'impôt sur les sociétés, le
+  plus élevé de l'OCDE à 36,13 % une fois les surtaxes incluses, auquel s'ajoutent des impôts de
+  production que l'indice qualifie de distorsifs — c'est exactement le module 2. L'empilement
+  d'impôts fonciers distincts : successions, actifs bancaires, transactions financières, et une
+  taxe sur la fortune immobilière — c'est le module 5. Et une TVA dont la base ne couvre qu'environ
+  la moitié de la consommation finale, conséquence directe des taux réduits et des exonérations —
+  c'est le module 2 encore.</p>
+
+  <div class="citation">
+    Un indice est un argument déguisé en mesure. Celui-ci agrège plus de quarante variables selon
+    une pondération que ses auteurs ont choisie, et cette pondération encode une préférence : pour
+    la neutralité à l'égard de l'investissement, et pour une charge faible sur le capital.
+  </div>
+
+  <p><strong>D'où la façon dont il faut lire ce classement : comme un diagnostic utile sur les
+  points où il rejoint la théorie, et comme une prise de position là où il va au-delà.</strong>
+  Quand l'indice pénalise les impôts de production, il mesure une distorsion que le théorème
+  d'efficience productive établit indépendamment de toute préférence politique. Quand il pénalise la
+  progressivité de l'impôt sur le revenu ou l'existence d'un impôt sur le patrimoine, il applique un
+  jugement normatif que la théorie ne tranche pas. Le premier usage est légitime, le second doit
+  être discuté comme ce qu'il est.</p>
+
+  <p><strong>Sur le patrimoine, la position de la Tax Foundation rejoint pourtant l'arithmétique du
+  module 4, et c'est son argument le plus fort.</strong> Un impôt sur le stock pèse sur le rendement
+  normal, donc sur l'arbitrage entre consommer aujourd'hui et investir pour demain ; la plupart des
+  impôts européens sur la fortune ont été abrogés pour des raisons administratives et de rendement
+  décevant ; et une taxation progressive de la consommation atteindrait les mêmes personnes à un
+  coût moindre. On peut refuser la conclusion politique et devoir admettre le calcul.</p>
+</section>
+
+<!-- ===================== 9. FRANCE ===================== -->
+<section id="france" class="col">
+  <p class="num">Module 9</p>
+  <h2>La France mesurée à cette aune</h2>
+
+  <p><strong>Le problème français n'est pas le niveau de prélèvement, c'est la dispersion.</strong>
+  À 43,5 % du PIB hors cotisations imputées, la France est au sommet européen, mais le Danemark est
+  à 45,4 % sans que personne y voie une pathologie. Ce qui distingue la France est que, pour un même
+  euro de richesse, le taux appliqué varie énormément selon la forme que prend cette richesse, selon
+  le secteur qui la produit et selon le support qui la porte. Or c'est exactement ce que le module 1
+  interdit.</p>
+
+  <figure style="margin:1.8em 0">
+    <p class="etiq" style="font-size:14px; margin:0 0 2px">Les 1 274,9 Md€ de prélèvements obligatoires de 2024</p>
+    <p class="note" style="margin:0 0 12px">Classés selon ce qu'ils atteignent en dernier ressort, et
+    non selon leur étiquette comptable. En milliards d'euros.</p>
+    <svg id="assiettes" viewBox="0 0 640 400" role="img"
+      aria-label="Répartition des prélèvements obligatoires français par assiette économique"></svg>
+    <p class="note"><b>Source.</b> Eurostat, <i>National Tax List</i> France, table 0900 du SEC 2010,
+    mise à jour du 21 juillet 2026 ; classement par assiette économique réelle. Les 123 lignes se
+    réconcilient exactement avec le total de comptabilité nationale.</p>
+  </figure>
+
+  <p><strong>Neuf écarts ressortent, et les trois premiers offrent un gain sans contrepartie
+  distributive.</strong> Sur les 1 274,9 Md€ prélevés en 2024, 119,3 Md€ frappent directement un
+  facteur de production ; 42,2 Md€ se justifient par la correction d'une externalité ; restent
+  <strong>77 Md€ qui déforment la production sans rien corriger</strong> — taxes sur les salaires,
+  versement mobilité, contributions à la formation professionnelle, cotisation foncière des
+  entreprises, contribution de solidarité des sociétés. Vient ensuite la dispersion du prix du
+  carbone, puis les valeurs locatives de 1970, qui rendent arbitraire toute la fiscalité foncière et
+  interdisent de l'utiliser tant qu'elles ne sont pas révisées.</p>
+
+  <ol class="retenir">
+    <li><strong>Les 77 Md€ sur des facteurs de production.</strong> Le seul gain qui ne dépend
+    d'aucune hypothèse de comportement.</li>
+    <li><strong>La dispersion du prix du carbone.</strong> Même réduction d'émissions, coût
+    inférieur, sans accord préalable sur l'ambition climatique.</li>
+    <li><strong>Les valeurs locatives de 1970.</strong> Préalable technique à toute réforme du
+    foncier.</li>
+    <li><strong>Les droits de mutation contre la taxation de la détention.</strong> 17 Md€ contre
+    48 Md€, soit l'inverse du partage souhaitable.</li>
+    <li><strong>Le creux de taux marginal effectif au-dessus du salaire minimum.</strong> Personne
+    ne l'a voulu ; il résulte de l'empilement.</li>
+    <li><strong>Les taux réduits de TVA.</strong> Réforme la mieux documentée et la plus rejetée ;
+    elle n'a de sens qu'accompagnée de sa compensation chiffrée.</li>
+    <li><strong>Le rendement normal et l'inflation dans la fiscalité du capital.</strong> Le même
+    taux frappe l'intérêt d'un livret et la plus-value d'un fondateur.</li>
+    <li><strong>Deux impôts sur le revenu qui ne partagent ni assiette, ni unité, ni barème.</strong>
+    153 Md€ de CSG et 96 Md€ d'impôt sur le revenu.</li>
+    <li><strong>Le biais entre dette et fonds propres.</strong> Correction connue, mais devenue
+    incertaine sous l'imposition minimale mondiale à 15 %.</li>
+  </ol>
+
+  <h3>Ce qu'il ne faut pas changer</h3>
+
+  <p><strong>L'impôt sur les bénéfices n'est pas un outlier français et ne devrait pas être la cible
+  prioritaire.</strong> Le taux effectif moyen sur un investissement s'établit à 23,8 % en France,
+  contre 27,0 % en Allemagne, 25,4 % en Italie, 24,2 % en Belgique et 28,2 % au Portugal. Ce qui
+  distingue la France est ce qu'elle prélève <em>avant</em> le bénéfice — 4,4 points de PIB d'autres
+  impôts sur la production, contre 1,0 en Allemagne — pas ce qu'elle prélève dessus. Le classement
+  de la Tax Foundation, qui agrège les deux dans la même note, masque cette distinction qui est
+  pourtant la plus utile.</p>
+
+  <p><strong>Et le prix du carbone sur les carburants routiers n'a pas besoin d'être relevé ; il a
+  besoin d'être étendu.</strong> C'est le seul endroit où la France applique déjà un prix élevé et
+  cohérent avec ses objectifs. La réforme consiste à aligner le reste sur lui.</p>
+</section>
+
+<!-- ===================== ÉPILOGUE ===================== -->
+<section class="col" style="border-bottom:none">
+  <p class="num">Pour finir</p>
+  <h2>Ce que la théorie ne tranche pas</h2>
+
+  <p><strong>Un cours qui prétendrait que la théorie tranche tout perdrait sa crédibilité sur le
+  reste.</strong> Cinq questions au moins relèvent du jugement.</p>
+
+  <p><strong>Le degré de redistribution est le seul vrai désaccord politique, et il est
+  légitime.</strong> Tout ce que la théorie offre est la possibilité de dire : <i>si</i> vous
+  accordez tel poids, <i>alors</i> voici le barème qui en découle.</p>
+
+  <p><strong>Le traitement de l'héritage oppose deux cadres également cohérents.</strong> Pour l'un,
+  un héritage est un revenu comme un autre pour celui qui le reçoit. Pour l'autre, il est la
+  consommation différée d'un défunt déjà taxé. Le choix dépend de ce que l'on pense devoir à
+  l'égalité des chances, pas d'un calcul d'efficience.</p>
+
+  <p><strong>L'unité d'imposition, le poids des générations futures et l'équité horizontale sont
+  dans le même cas.</strong> La théorie dit que l'imposition jointe pèse sur le second apporteur de
+  revenu, là où l'élasticité est la plus forte ; elle ne dit pas si cela doit l'emporter sur
+  l'équité entre ménages de même revenu total. Le taux auquel on actualise le bien-être des
+  générations futures est un choix éthique déguisé en hypothèse technique. Et traiter identiquement
+  deux personnes dans la même situation est une exigence de justice largement partagée qui ne
+  découle d'aucun modèle de bien-être standard.</p>
+
+  <h3>Les cinq règles à emporter</h3>
+
+  <ol class="retenir">
+    <li><strong>Le coût d'un impôt croît avec le carré du taux.</strong> Assiettes larges, taux bas,
+    et jamais deux taux différents sur des choses semblables.</li>
+    <li><strong>Ne jamais taxer un facteur de production.</strong> Le seul gain d'efficience
+    disponible sans aucune contrepartie distributive.</li>
+    <li><strong>La redistribution doit passer par le barème direct</strong>, et non par la
+    différenciation des taux sur les biens, qui donne plus d'euros aux riches qu'aux pauvres.</li>
+    <li><strong>Séparer le rendement normal de la rente.</strong> Taxer le premier taxe la patience ;
+    taxer la seconde ne décourage rien.</li>
+    <li><strong>Un prix unique pour une externalité</strong>, quel que soit le niveau sur lequel on
+    s'accorde.</li>
+  </ol>
+
+  <p><strong>C'est leur caractère non partisan qui les rend utilisables.</strong> Un gouvernement qui
+  veut redistribuer davantage et un gouvernement qui veut redistribuer moins ont le même intérêt à
+  les appliquer : le premier obtiendra plus de redistribution pour le même coût, le second lèvera la
+  même somme en détruisant moins.</p>
+</section>
+
+<footer class="col">
+  <p><strong>Sources.</strong> Eurostat, <i>National Tax Lists</i> et <code>gov_10a_taxag</code>,
+  <code>ilc_pnp2</code>, <code>ilc_li02</code> · OCDE, <i>Taxing Wages</i>, <i>Corporate Tax
+  Statistics</i>, <i>Effective Carbon Rates</i> et modèle TaxBEN · Institute for Fiscal Studies,
+  <i>Tax by Design</i> (2011) · Commission on Taxation and Welfare, <i>Foundations for the Future</i>
+  (Irlande, 2022) · NOU 2022:20, comité Torvik (Norvège) · <i>Belastingen in maatschappelijk
+  perspectief</i> (Pays-Bas, 2024) · Tax Foundation, <i>International Tax Competitiveness
+  Index 2025</i> · Urssaf et service-public.gouv.fr pour les taux statutaires.</p>
+  <p>Les calculs des ateliers sont de l'arithmétique pure : leurs formules sont données dans les
+  notes de lecture, et aucun ne dépend d'une estimation économétrique.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const NS = "http://www.w3.org/2000/svg";
+  const fr = (v,d) => v.toFixed(d).replace(".", ",");
+
+  function el(tag, attrs, txt){
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (txt != null) e.textContent = txt;
+    return e;
+  }
+  function clear(svg){ while (svg.firstChild) svg.removeChild(svg.firstChild); }
+
+  /* cadre de tracé commun : grille horizontale légère, axe des abscisses, étiquettes */
+  function cadre(svg, o){
+    const {x0,y0,x1,y1, ymax, ymin=0, xmin, xmax, yticks=4, xticks, ylab, suffixe="%"} = o;
+    const encre2 = css("--encre2"), filet = css("--filet"), sourdine = css("--sourdine");
+    for (let i=0; i<=yticks; i++){
+      const v = ymin + (ymax-ymin)*i/yticks;
+      const y = y1 - (v-ymin)/(ymax-ymin)*(y1-y0);
+      svg.appendChild(el("line",{x1:x0,x2:x1,y1:y,y2:y,stroke:filet,"stroke-width":1}));
+      const t = el("text",{x:x0-8,y:y+3.5,"text-anchor":"end",class:"axe"},
+                   fr(v, ymax<=3?1:0)+" "+suffixe);
+      t.setAttribute("fill", sourdine); svg.appendChild(t);
+    }
+    svg.appendChild(el("line",{x1:x0,x2:x1,y1:y1,y2:y1,stroke:encre2,"stroke-width":1}));
+    (xticks||[]).forEach(function(tk){
+      const x = x0 + (tk.v-xmin)/(xmax-xmin)*(x1-x0);
+      svg.appendChild(el("line",{x1:x,x2:x,y1:y1,y2:y1+4,stroke:encre2,"stroke-width":1}));
+      const t = el("text",{x:x,y:y1+17,"text-anchor":"middle",class:"axe"}, tk.l);
+      t.setAttribute("fill", sourdine); svg.appendChild(t);
+    });
+    if (ylab){
+      const t = el("text",{x:x0,y:y0-11,"text-anchor":"start",class:"axe"}, ylab);
+      t.setAttribute("fill", sourdine); svg.appendChild(t);
+    }
+  }
+  function courbe(svg, pts, o){
+    const d = pts.map((p,i)=> (i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+    svg.appendChild(el("path",{d:d, fill:"none", stroke:o.couleur,
+      "stroke-width":o.w||2, "stroke-linejoin":"round","stroke-linecap":"round"}));
+  }
+  function point(svg, x, y, couleur){
+    svg.appendChild(el("circle",{cx:x,cy:y,r:5.5,fill:couleur,
+      stroke:css("--papier"),"stroke-width":2}));
+  }
+
+  /* ---------------- atelier 1 : la perte au carré du taux ---------------- */
+  const a1t = document.getElementById("a1t");
+  function a1(){
+    const tau = +a1t.value;
+    document.getElementById("a1tv").textContent = tau + " %";
+    const svg = document.getElementById("a1svg"); clear(svg);
+    const X0=60, Y0=18, X1=600, Y1=190, YMAX=900;
+    cadre(svg,{x0:X0,y0:Y0,x1:X1,y1:Y1,ymax:YMAX,xmin:0,xmax:60,yticks:3,suffixe:"",
+      ylab:"perte, indice 100 à un taux de 20 %",
+      xticks:[{v:0,l:"0"},{v:10,l:"10 %"},{v:20,l:"20 %"},{v:30,l:"30 %"},
+              {v:40,l:"40 %"},{v:50,l:"50 %"},{v:60,l:"60 %"}]});
+    const f = t => 100*(t*t)/400;
+    const px = t => X0 + t/60*(X1-X0), py = v => Y1 - Math.min(v,YMAX)/YMAX*(Y1-Y0);
+    const pts = []; for (let t=0;t<=60;t+=0.5) pts.push([px(t), py(f(t))]);
+    courbe(svg, pts, {couleur:css("--bleu-trait"), w:2.2});
+    point(svg, px(tau), py(Math.min(f(tau),YMAX)), css("--bleu-trait"));
+    const ref = el("line",{x1:px(20),x2:px(20),y1:Y1,y2:py(100),
+      stroke:css("--sourdine"),"stroke-width":1,"stroke-dasharray":"3 3"});
+    svg.appendChild(ref);
+    const out = document.getElementById("a1out");
+    const v = f(tau), k = tau/20;
+    let phrase;
+    if (tau === 0) phrase = 'Sans impôt, aucun échange n’est empêché : la perte est nulle.';
+    else if (tau === 20) phrase = 'C’est la référence. Faites glisser le curseur : un taux '+
+      'deux fois plus élevé donne une perte quatre fois plus grande.';
+    else phrase = 'Le taux vaut <b>'+fr(k,2)+' fois</b> celui de référence, et la perte '+
+      '<b>'+fr(k*k,2)+' fois</b> — soit le carré du rapport des taux.';
+    out.innerHTML = '<span class="gros">'+fr(v,0)+'</span>'+
+      'indice de perte sèche à un taux de <b>'+tau+' %</b>. '+phrase;
+  }
+  a1t.addEventListener("input", a1);
+
+  /* ---------------- atelier 2 : le taux supérieur ---------------- */
+  const a2e = document.getElementById("a2e"), a2a = document.getElementById("a2a");
+  function a2(){
+    const e = +a2e.value/100, a = +a2a.value/10;
+    document.getElementById("a2ev").textContent = fr(e,2);
+    document.getElementById("a2av").textContent = fr(a,1);
+    const svg = document.getElementById("a2svg"); clear(svg);
+    const X0=60, Y0=18, X1=600, Y1=190;
+    cadre(svg,{x0:X0,y0:Y0,x1:X1,y1:Y1,ymax:100,xmin:0.05,xmax:1,yticks:4,
+      ylab:"taux supérieur maximisant les recettes",
+      xticks:[{v:0.1,l:"0,1"},{v:0.25,l:"0,25"},{v:0.4,l:"0,4"},{v:0.55,l:"0,55"},
+              {v:0.7,l:"0,7"},{v:0.85,l:"0,85"},{v:1,l:"1,0"}]});
+    const f = x => 100/(1+a*x);
+    const px = x => X0 + (x-0.05)/0.95*(X1-X0), py = v => Y1 - v/100*(Y1-Y0);
+    const pts = []; for (let x=0.05;x<=1.0001;x+=0.01) pts.push([px(x), py(f(x))]);
+    courbe(svg, pts, {couleur:css("--bleu-trait"), w:2.2});
+    point(svg, px(e), py(f(e)), css("--bleu-trait"));
+    const lab = el("text",{x:px(e)+10,y:py(f(e))-9,class:"etiq"}, fr(f(e),0)+" %");
+    lab.setAttribute("fill", css("--bleu-trait")); svg.appendChild(lab);
+    const out = document.getElementById("a2out");
+    out.innerHTML = '<span class="gros">'+fr(f(e),1)+' %</span>'+
+      'Avec une élasticité de <b>'+fr(e,2)+'</b> et une queue haute d’épaisseur <b>'+fr(a,1)+
+      '</b>, le taux marginal supérieur qui maximise les recettes vaut 1 / (1 + '+fr(a,1)+
+      ' × '+fr(e,2)+'). Le taux <i>optimal</i> est inférieur, d’autant plus qu’on accorde '+
+      'du poids au bien-être des contribuables concernés.';
+  }
+  a2e.addEventListener("input", a2); a2a.addEventListener("input", a2);
+
+  /* ---------------- atelier 3 : l'impôt sur la patience ---------------- */
+  const a3t=document.getElementById("a3t"), a3r=document.getElementById("a3r"),
+        a3n=document.getElementById("a3n");
+  function a3(){
+    const tau=+a3t.value/100, r=+a3r.value/1000, n=+a3n.value;
+    document.getElementById("a3tv").textContent = (+a3t.value)+" %";
+    document.getElementById("a3rv").textContent = fr(r*100,1)+" %";
+    document.getElementById("a3nv").textContent = n+" ans";
+    const svg=document.getElementById("a3svg"); clear(svg);
+    const X0=60,Y0=18,X1=600,Y1=190;
+    cadre(svg,{x0:X0,y0:Y0,x1:X1,y1:Y1,ymax:60,xmin:0,xmax:45,yticks:4,
+      ylab:"impôt implicite sur la consommation différée",
+      xticks:[{v:0,l:"0"},{v:10,l:"10 ans"},{v:20,l:"20 ans"},{v:30,l:"30 ans"},
+              {v:40,l:"40 ans"}]});
+    const f = (T,t) => (1 - Math.pow((1+r*(1-t))/(1+r), T))*100;
+    const px = T => X0 + T/45*(X1-X0), py = v => Y1 - Math.min(v,60)/60*(Y1-Y0);
+    [[0.172,css("--vert")],[0.30,css("--bleu-trait")],[0.472,css("--ocre")]].forEach(function(s){
+      const pts=[]; for(let T=0;T<=45;T+=0.5) pts.push([px(T),py(f(T,s[0]))]);
+      courbe(svg,pts,{couleur:s[1],w:1.4});
+    });
+    const pts=[]; for(let T=0;T<=45;T+=0.5) pts.push([px(T),py(f(T,tau))]);
+    courbe(svg,pts,{couleur:css("--encre"),w:2.6});
+    point(svg,px(n),py(f(n,tau)),css("--encre"));
+    const lab=el("text",{x:px(n)+10,y:py(f(n,tau))-9,class:"etiq"},fr(f(n,tau),0)+" %");
+    lab.setAttribute("fill",css("--encre")); svg.appendChild(lab);
+    document.getElementById("a3out").innerHTML =
+      '<span class="gros">'+fr(f(n,tau),1)+' %</span>'+
+      'Avec un rendement réel de <b>'+fr(r*100,1)+' %</b> et un prélèvement de <b>'+(+a3t.value)+
+      ' %</b> sur ce rendement, <b>'+n+' ans</b> d’épargne équivalent à un impôt de '+
+      fr(f(n,tau),1)+' % sur la consommation — contre zéro pour celui qui a dépensé tout de suite. '+
+      'Les trois courbes fines sont les régimes français de référence.';
+  }
+  [a3t,a3r,a3n].forEach(s=>s.addEventListener("input",a3));
+
+  /* ---------------- atelier 4 : stock contre flux ---------------- */
+  const a4s=document.getElementById("a4s"), a4r=document.getElementById("a4r"),
+        a4p=document.getElementById("a4p");
+  function a4(){
+    const s=+a4s.value/10, r=+a4r.value/10, p=+a4p.value/100, infl=2;
+    document.getElementById("a4sv").textContent = fr(s,1)+" %";
+    document.getElementById("a4rv").textContent = fr(r,1)+" %";
+    document.getElementById("a4pv").textContent = (+a4p.value)+" %";
+    const svg=document.getElementById("a4svg"); clear(svg);
+    const X0=60,Y0=18,X1=600,Y1=200,YMAX=200;
+    cadre(svg,{x0:X0,y0:Y0,x1:X1,y1:Y1,ymax:YMAX,xmin:1,xmax:8,yticks:4,
+      ylab:"part du rendement réel prélevée",
+      xticks:[{v:1,l:"1 %"},{v:2,l:"2 %"},{v:3,l:"3 %"},{v:4,l:"4 %"},{v:5,l:"5 %"},
+              {v:6,l:"6 %"},{v:7,l:"7 %"},{v:8,l:"8 %"}]});
+    const f = x => (s + p*(x+infl))/x*100;
+    const px = x => X0 + (x-1)/7*(X1-X0), py = v => Y1 - Math.min(v,YMAX)/YMAX*(Y1-Y0);
+    const y100 = py(100);
+    svg.appendChild(el("line",{x1:X0,x2:X1,y1:y100,y2:y100,stroke:css("--brique"),
+      "stroke-width":1.2,"stroke-dasharray":"5 3"}));
+    const l100=el("text",{x:X1,y:y100-7,"text-anchor":"end",class:"axe"},
+      "au-dessus, l’impôt dépasse tout le rendement réel");
+    l100.setAttribute("fill",css("--brique")); svg.appendChild(l100);
+    const sansStock=[]; for(let x=1;x<=8.001;x+=0.05)
+      sansStock.push([px(x),py((p*(x+infl))/x*100)]);
+    courbe(svg,sansStock,{couleur:css("--sourdine"),w:1.4});
+    const pts=[]; for(let x=1;x<=8.001;x+=0.05) pts.push([px(x),py(f(x))]);
+    courbe(svg,pts,{couleur:css("--bleu-trait"),w:2.6});
+    point(svg,px(r),py(f(r)),css("--bleu-trait"));
+    const lab=el("text",{x:px(r)+10,y:py(f(r))-9,class:"etiq"},fr(f(r),0)+" %");
+    lab.setAttribute("fill",css("--bleu-trait")); svg.appendChild(lab);
+    const lg=el("text",{x:px(8),y:py((p*10)/8*100)+15,"text-anchor":"end",class:"axe"},
+      "sans impôt sur le stock");
+    lg.setAttribute("fill",css("--sourdine")); svg.appendChild(lg);
+    const v=f(r);
+    document.getElementById("a4out").innerHTML =
+      '<span class="gros">'+fr(v,0)+' %</span>'+
+      'Un impôt annuel de <b>'+fr(s,1)+' %</b> sur le stock, ajouté à <b>'+(+a4p.value)+
+      ' %</b> sur le rendement nominal, prélève '+fr(v,0)+' % d’un rendement réel de <b>'+
+      fr(r,1)+' %</b>'+(v>100?' — soit davantage que la totalité de ce que le placement rapporte.':
+      '.');
+  }
+  [a4s,a4r,a4p].forEach(s=>s.addEventListener("input",a4));
+
+  /* ---------------- figure : le coin fiscal ---------------- */
+  const COIN = [
+    {p:"Belgique", ir:20.1, es:11.0, em:21.4},
+    {p:"Allemagne", ir:14.3, es:17.8, em:17.3},
+    {p:"France",   ir:12.2, es:8.3,  em:26.7},
+    {p:"Italie",   ir:14.5, es:7.2,  em:24.0},
+    {p:"Moyenne OCDE", ir:13.3, es:8.2, em:14.3},
+    {p:"Danemark", ir:35.1, es:0.0,  em:0.7},
+    {p:"États-Unis", ir:15.4, es:7.1, em:7.5}
+  ];
+  function coin(){
+    const svg=document.getElementById("coin"); clear(svg);
+    const X0=120,X1=560,Y0=10,H=30,G=8, MAX=56;
+    const cols=[css("--vert"),css("--bleu-trait"),css("--ocre")];
+    COIN.forEach(function(d,i){
+      const y=Y0+i*(H+G); let x=X0;
+      [d.ir,d.es,d.em].forEach(function(v,k){
+        const w=v/MAX*(X1-X0);
+        if (w>0.5){
+          svg.appendChild(el("rect",{x:x,y:y,width:Math.max(w-2,1),height:H,fill:cols[k],rx:2}));
+          if (w>34){
+            const t=el("text",{x:x+(w-2)/2,y:y+H/2+4,"text-anchor":"middle",class:"etiq"},
+                        fr(v,0));
+            t.setAttribute("fill",css("--papier")); svg.appendChild(t);
+          }
+        }
+        x+=w;
+      });
+      const tot=d.ir+d.es+d.em;
+      const lp=el("text",{x:X0-12,y:y+H/2+4,"text-anchor":"end",class:"etiq"},d.p);
+      lp.setAttribute("fill", d.p==="France"?css("--bleu"):css("--encre"));
+      if (d.p!=="France") lp.setAttribute("font-weight","400");
+      svg.appendChild(lp);
+      const lt=el("text",{x:x+8,y:y+H/2+4,class:"etiq"},fr(tot,0)+" %");
+      lt.setAttribute("fill", d.p==="France"?css("--bleu"):css("--encre2"));
+      svg.appendChild(lt);
+    });
+  }
+
+  /* ---------------- figure : les assiettes ---------------- */
+  const ASS = [
+    {n:"Le travail", v:490.3},
+    {n:"La consommation des ménages", v:261.0},
+    {n:"Le revenu, toutes sources", v:258.5},
+    {n:"Le profit des sociétés", v:90.0},
+    {n:"Le stock de patrimoine", v:48.0},
+    {n:"L'énergie", v:43.3},
+    {n:"Les intrants des entreprises", v:28.4},
+    {n:"Les transmissions", v:20.8},
+    {n:"Les transactions", v:17.2},
+    {n:"Les revenus du capital", v:15.6},
+    {n:"Les rentes", v:1.6}
+  ];
+  function assiettes(){
+    const svg=document.getElementById("assiettes"); clear(svg);
+    const X0=190,X1=580,Y0=8,H=26,G=7,MAX=500;
+    ASS.forEach(function(d,i){
+      const y=Y0+i*(H+G), w=d.v/MAX*(X1-X0);
+      const c = i<3 ? css("--bleu-trait") : (i<7 ? css("--vert") : css("--ocre"));
+      svg.appendChild(el("rect",{x:X0,y:y,width:Math.max(w,1.5),height:H,fill:c,rx:2}));
+      const ln=el("text",{x:X0-12,y:y+H/2+4,"text-anchor":"end",class:"etiq"},d.n);
+      ln.setAttribute("fill",css("--encre")); ln.setAttribute("font-weight","400");
+      svg.appendChild(ln);
+      const lv=el("text",{x:X0+w+8,y:y+H/2+4,class:"etiq"},fr(d.v,1));
+      lv.setAttribute("fill",css("--encre2")); svg.appendChild(lv);
+    });
+  }
+
+  /* ---------------- thème ---------------- */
+  const btn=document.getElementById("theme");
+  function peindre(){ a1(); a2(); a3(); a4(); coin(); assiettes(); }
+  btn.addEventListener("click", function(){
+    const r=document.documentElement;
+    const sombre = r.getAttribute("data-theme")==="dark" ||
+      (!r.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+    r.setAttribute("data-theme", sombre ? "light" : "dark");
+    try { localStorage.setItem("theme-cours", sombre ? "light" : "dark"); } catch(e){}
+    peindre();
+  });
+  try {
+    const t=localStorage.getItem("theme-cours");
+    if (t==="dark"||t==="light") document.documentElement.setAttribute("data-theme",t);
+  } catch(e){}
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", peindre);
+
+  /* ---------------- navigation active ---------------- */
+  const liens=[].slice.call(document.querySelectorAll("#nav a"));
+  const cibles=liens.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window && cibles.length){
+    const io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        liens.forEach(a=>a.classList.toggle("actif",
+          a.getAttribute("href")==="#"+en.target.id));
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    cibles.forEach(c=>io.observe(c));
+  }
+
+  peindre();
+})();
+</script>
