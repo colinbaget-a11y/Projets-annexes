@@ -440,40 +440,9 @@ def c9():
         "position là où il va au-delà.")
 
 
-# ------------- c10 : le classement de l'OCDE appliqué à la structure française
-def c10():
-    blocs = [("Impôts récurrents\nsur l'immobilier", 48.0, VERT),
-             ("Taxes sur la\nconsommation", 304.3, VERT),
-             ("Autres impôts\nsur le patrimoine", 53.6, OCRE),
-             ("Prélèvements sur\nle revenu du travail", 748.8, OCRE),
-             ("Impôts sur\nles sociétés", 90.0, BRIQUE)]
-    fig, ax = plt.subplots(figsize=(11.2, 5.4))
-    x = range(len(blocs))
-    ax.bar(x, [b[1] for b in blocs], width=0.56, color=[b[2] for b in blocs], zorder=2)
-    for i, b in enumerate(blocs):
-        ax.text(i, b[1] + 16, fr(b[1], 0) + " Md€", ha="center", fontsize=11,
-                fontweight="bold", color=b[2])
-    ax.set_xticks(list(x), [b[0] for b in blocs], fontsize=9.5)
-    ax.set_ylim(0, 960)
-    ax.set_yticks([0, 200, 400, 600, 800], ["0", "200", "400", "600", "800 Md€"])
-    grille(ax)
-    ax.annotate("", xy=(4.35, 862), xytext=(-0.35, 862),
-                arrowprops=dict(arrowstyle="->", color=INK2, lw=1.2))
-    ax.text(2, 886, "classement de l'OCDE : du moins au plus défavorable à la croissance",
-            ha="center", fontsize=9.5, color=INK2, style="italic")
-    titre(ax, "La France lève le plus là où le classement de l'OCDE place le plus de dommage",
-          "Prélèvements obligatoires français de 2024 rangés selon le classement « fiscalité et "
-          "croissance » de l'OCDE.")
-    fin(fig, "c10_classement_ocde.png",
-        "Sources : classement de Johansson, Heady, Arnold, Brys et Vartia, OCDE, document de "
-        "travail n° 620, 2008 ; montants Eurostat, National Tax List France, 2024.",
-        "Note de prudence : ce classement vient de régressions de croissance sur panel de pays, "
-        "pas d'un théorème. Xing (2012) montre que l'ordre n'est pas robuste, et notamment que "
-        "l'avantage attribué aux impôts récurrents sur l'immobilier ne résiste pas au changement "
-        "de spécification. Ce qui subsiste est l'accord entre cet ordre et ce que la théorie "
-        "prédit pour des raisons indépendantes : une assiette immobile se taxe sans dommage, un "
-        "prélèvement sur un facteur de production en fait le plus.")
-
+# c10 retirée : ses montants étaient saisis à la main et ne se reconstituaient pas à partir de
+# la National Tax List. Elle est remplacée par r12 (graphiques_reels.py), construite sur les
+# catégories de recettes de l'OCDE.
 
 # --------- c11 : un taux unique avec abattement est déjà progressif
 def c11():
@@ -940,6 +909,6 @@ def c21():
 
 
 if __name__ == "__main__":
-    for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11,
+    for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c11,
               c12, c13, c14, c15, c16, c17, c18, c19, c20, c21):
         f()

@@ -101,8 +101,9 @@ def m2():
         if t.get_text() == "France":
             t.set_fontweight("bold"); t.set_color(INK)
     i = [p for p, _ in d].index("FRA")
-    ax.annotate(f"France  {d[i][1]:.0f} %".replace(".", ","), (i, d[i][1]), xytext=(0, 7),
-                textcoords="offset points", ha="center", fontsize=10.5, fontweight="bold", color=PAL[0])
+    ax.annotate(f"{d[i][1]:.0f} %".replace(".", ","), (i, d[i][1]), xytext=(0, 6),
+                textcoords="offset points", ha="center", fontsize=10.5, fontweight="bold", color=PAL[0],
+                path_effects=HALO)
     grille(ax); ax.yaxis.set_major_formatter(PCT); ax.set_ylim(0, 72)
     titre(ax, "Un tiers des émissions françaises sont tarifées au-dessus de 60 € la tonne",
           "Part des émissions de CO2 issues de l'énergie dont le prix dépasse 60 € par tonne, tous secteurs, 2021.")
