@@ -15,7 +15,7 @@ from textwrap import wrap
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-from graphiques import (ANS, BLEU, GRID, GRIS, HALO, INK, INK2, MUTED, NOMS, OCRE, PAL, PCT,
+from graphiques import (NU, ANS, BLEU, GRID, GRIS, HALO, INK, INK2, MUTED, NOMS, OCRE, PAL, PCT,
                         SURFACE, TOTAL, VERT, fin, grille, panneau, pc, titre)
 
 HERE = Path(__file__).resolve().parent

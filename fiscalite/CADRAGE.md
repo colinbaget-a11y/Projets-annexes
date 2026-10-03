@@ -13,7 +13,7 @@ Chaque question est suivie de **ce que je ferai à défaut de réponse**. Les r�
 | # | Question | Réponse retenue |
 |---|---|---|
 | 1 | Lectorat | Rapport de think tank. Les responsables politiques d'abord, puis les économistes, puis les citoyens. Pas un travail très quantitatif. |
-| 2 | Commande | Think tank centriste : des gens de centre gauche mais plutôt libéraux. Dans l'équipe de rédaction, les experts sont plutôt libéraux, et toi le plus libéral. |
+| 2 | Commande | Think tank orienté centre droit, avec une équipe d'experts libérale. L'orientation ne doit pas être visible dans le texte : le rapport doit se lire comme une analyse, pas comme un plaidoyer. |
 | 3 | Positions | Le rapport tranche sur les quatre blocs : patrimoine et transmissions, logement, travail et revenu, consommation et carbone. |
 | 4 | Rendement | Constant. Variante chiffrée à un ou deux points de plus, puisqu'il y a du déficit — 5,1 points de PIB en 2025. |
 | 5 | Transferts | Tous les transferts monétaires, y compris les prestations universelles. |
@@ -60,12 +60,33 @@ compensation est chiffrée. Je retiens donc un minimum qui ne coûte presque rie
 distributions par décile déjà publiées par l'Insee, la DREES et l'IPP, qui ne sont pas des
 microdonnées.
 
-La composition de l'équipe change la manière d'argumenter, pas les conclusions. Un rapport écrit
-par des auteurs tous situés du même côté sur la question de l'efficience doit être
-particulièrement exigeant sur la contrainte de redistribution, faute de quoi il sera lu comme
-une plaidoirie et non comme une analyse. Concrètement : chaque fois qu'une réforme améliore
-l'efficience au détriment de la progressivité, le rapport dit par quoi elle est compensée, et ne
-se contente pas d'affirmer qu'elle le serait.
+La composition de l'équipe ne change aucune conclusion, mais elle change ce qu'il faut défendre.
+Quand les recommandations d'un rapport coïncident avec les préférences connues de ceux qui le
+publient, la charge de la preuve monte au lieu de baisser : le lecteur hostile y verra un
+plaidoyer, et le lecteur favorable ne le lira pas assez sévèrement. La consigne est donc que
+l'orientation ne se voie pas, et le seul moyen fiable d'y parvenir n'est pas d'adoucir le style.
+
+**C'est de laisser les conclusions inconfortables se tenir.** La théorie de la taxation optimale
+produit plusieurs recommandations qu'un lectorat de centre droit n'attend pas, et ce sont elles qui
+établiront que le rapport n'est pas une plaidoirie. L'impôt le plus efficient qui existe est un
+prélèvement annuel sur la valeur du terrain, et il tombe intégralement sur les propriétaires
+actuels par capitalisation. La non-taxation du loyer imputé des propriétaires occupants est une
+subvention massive et régressive. La suppression des taux réduits de TVA n'a de sens
+qu'accompagnée d'une hausse chiffrée des transferts, faute de quoi elle est exactement l'erreur
+contre laquelle Mirrlees met en garde. Uniformiser le prix du carbone revient à le relever là où il
+est quasi nul, c'est-à-dire sur l'industrie et l'agriculture. Et le niveau global de prélèvement
+n'est pas le premier problème français, ce qu'un rapport de ce bord est tenté de faire passer au
+premier plan.
+
+Symétriquement, les recommandations qui vont dans le sens attendu — supprimer les prélèvements sur
+les intrants, exonérer le rendement normal, corriger le biais d'endettement — doivent être les plus
+solidement établies et les plus précisément chiffrées du rapport, puisque ce sont celles qu'on
+soupçonnera d'être là par préférence.
+
+**Dispositif retenu : chaque chapitre de réforme porte un passage « l'objection la plus forte ».**
+Il énonce le meilleur argument contre la recommandation, pas une liste de limites de politesse, et
+il dit ce qui le ferait l'emporter. C'est la contrepartie du fait que personne, dans l'équipe, ne
+jouera ce rôle spontanément.
 
 Mobilité des bases traitée en contrainte forte : c'est le choix le plus exposé du cadrage. Le
 rapport affirmera que certains taux sont inatteignables parce que les bases partiraient, ce qui

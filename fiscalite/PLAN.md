@@ -72,9 +72,17 @@ lecture du plan.
 10. **Traçabilité stricte.** Tout chiffre renvoie à un fichier de `donnees/`. Un chapitre n'est
     fini que sans marque **[à sourcer]** résiduelle.
 
-L'équipe de rédaction penche du même côté sur la question de l'efficience. Conséquence pratique :
-chaque fois qu'une réforme améliore l'efficience au détriment de la progressivité, le rapport dit
-**par quoi** elle est compensée.
+Le rapport est publié par un think tank orienté centre droit, et son orientation ne doit pas être
+visible : il doit se lire comme une analyse et non comme un plaidoyer. Trois conséquences
+pratiques, qui ne touchent pas aux conclusions mais à ce qu'il faut démontrer. Chaque fois qu'une
+réforme améliore l'efficience au détriment de la progressivité, le rapport dit **par quoi** elle
+est compensée. Les recommandations qui vont dans le sens attendu — supprimer les prélèvements sur
+les intrants, exonérer le rendement normal, corriger le biais d'endettement — sont les plus
+solidement chiffrées du rapport, puisque ce sont celles qu'on soupçonnera d'être là par préférence.
+Et les conclusions que ce bord n'attend pas — la rente foncière qui tombe sur les propriétaires
+actuels, le loyer imputé, la compensation qui doit accompagner la réforme de la TVA, le carbone sur
+l'industrie et l'agriculture — sont développées plutôt qu'escamotées, parce que ce sont elles qui
+établissent que le rapport n'est pas une plaidoirie.
 
 ## Les dispositifs pédagogiques, construits systématiquement
 
@@ -93,7 +101,11 @@ chaque fois qu'une réforme améliore l'efficience au détriment de la progressi
   accédant à la propriété ; un couple de retraités propriétaires sans emprunt, au niveau de vie
   médian. Ils couvrent les trois marges qui comptent : les transferts, le logement, et la frontière
   entre actifs et retraités.
-- **Une idée par figure**, dont le titre décrit et dont la conclusion est portée par le texte.
+- **L'objection la plus forte**, une fois par chapitre de réforme : le meilleur argument contre la
+  recommandation, et ce qui le ferait l'emporter. Pas une liste de limites de politesse. C'est la
+  contrepartie du fait que personne, dans l'équipe, ne jouera ce rôle spontanément.
+- **Une idée par figure**, dont le titre décrit et dont la conclusion est portée par le texte. Le
+  rapport est délibérément très illustré : chaque argument qui peut se montrer se montre.
 - **Définitions en marge**, plus un glossaire final.
 
 ## La charte

@@ -8,6 +8,8 @@ courants, rapportés au PIB à prix courants. Sorties dans figures/.
 """
 import csv
 import json
+import os
+import textwrap
 from collections import defaultdict
 from pathlib import Path
 
@@ -18,8 +20,12 @@ import matplotlib.patheffects as pe
 from matplotlib.ticker import FuncFormatter
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE / "figures"
-OUT.mkdir(exist_ok=True)
+# FIG_NU=1 produit des figures « nues » pour le document LaTeX : le titre principal devient la
+# légende LaTeX et n'est donc pas dessiné dans l'image ; le sous-titre, les sources et la note
+# restent dans la figure.
+NU = bool(os.environ.get("FIG_NU"))
+OUT = HERE / ("figures/nu" if NU else "figures")
+OUT.mkdir(parents=True, exist_ok=True)
 
 # ---------------------------------------------------------------- charte
 # Charte reprise du chapitre 18 du rapport : composition en serif, palette sobre de quatre
@@ -46,6 +52,35 @@ plt.rcParams.update({
     "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
     "figure.dpi": 200, "savefig.dpi": 200, "savefig.bbox": "tight", "savefig.pad_inches": 0.28,
 })
+# En mode nu, la figure est composée à la taille à laquelle elle sera imprimée dans le document
+# LaTeX : on réduit le format et, proportionnellement, toutes les tailles de texte, de sorte que
+# l'image ne soit plus redimensionnée à l'inclusion et que les étiquettes restent lisibles.
+ECH_FIG, ECH_TXT = (0.62, 0.78) if NU else (1.0, 1.0)
+if NU:
+    import matplotlib.axes as _ax
+
+    def _mise_echelle(f):
+        def g(self, *a, **k):
+            if "fontsize" in k and isinstance(k["fontsize"], (int, float)):
+                k["fontsize"] = k["fontsize"] * ECH_TXT
+            return f(self, *a, **k)
+        return g
+
+    for _n in ("text", "annotate", "set_title", "set_xlabel", "set_ylabel", "legend"):
+        setattr(_ax.Axes, _n, _mise_echelle(getattr(_ax.Axes, _n)))
+
+    _subplots = plt.subplots
+
+    def subplots_nu(*a, **k):
+        if "figsize" in k:
+            k["figsize"] = tuple(v * ECH_FIG for v in k["figsize"])
+        return _subplots(*a, **k)
+
+    plt.subplots = subplots_nu
+    plt.rcParams.update({k: v * ECH_TXT for k, v in {
+        "font.size": 10, "axes.labelsize": 9.5, "xtick.labelsize": 9,
+        "ytick.labelsize": 9, "legend.fontsize": 9}.items()})
+
 PCT = FuncFormatter(lambda v, _: f"{v:g} %".replace(".", ","))
 MDS = FuncFormatter(lambda v, _: f"{v:,.0f}".replace(",", " "))
 
@@ -58,7 +93,10 @@ def grille(ax, axe="y"):
 def titre(ax, t, st=None):
     """Titre de figure : description de ce qui est montré, à gauche, en gras."""
     n = st.count("\n") + 1 if st else 0
-    ax.set_title(t, loc="left", fontsize=11.5, pad=10 + 13 * n, color=INK, fontweight="bold")
+    if NU:
+        ax.set_title(" ", loc="left", fontsize=11.5, pad=2 + 13 * n, color=INK)
+    else:
+        ax.set_title(t, loc="left", fontsize=11.5, pad=10 + 13 * n, color=INK, fontweight="bold")
     if st:
         ax.text(0, 1.012, st, transform=ax.transAxes, fontsize=9.3, color=INK2, va="bottom")
 
@@ -69,14 +107,21 @@ def panneau(ax, t):
                  fontweight="normal")
 
 
+def _plier(t, large=150):
+    """Replie un texte long sur plusieurs lignes, pour que le bas de figure n'élargisse pas la
+    figure entière quand la note de lecture est longue."""
+    return "\n".join(textwrap.wrap(t, large)) if t else t
+
+
 def fin(fig, nom, src, note=None):
     """Bloc de bas de figure : sources, puis note de lecture facultative."""
-    y = -0.01
-    fig.text(0.005, y, src, fontsize=7.6, color=INK2, ha="left")
-    if note:
-        fig.text(0.005, y - 0.040 - 0.030 * src.count("\n"), note, fontsize=7.6, color=INK2,
-                 ha="left")
-    fig.savefig(OUT / nom)
+    bloc = _plier(src, 120 if NU else 150) + ("\n\n" + _plier(note, 120 if NU else 150)
+                                               if note else "")
+    fig.text(0.005, -0.015, bloc, fontsize=7.6 * ECH_TXT, color=INK2, ha="left", va="top",
+             linespacing=1.5)
+    if not NU:
+        fig.savefig(OUT / nom)
+    fig.savefig(OUT / (Path(nom).stem + ".pdf"))   # version vectorielle pour le document LaTeX
     plt.close(fig)
     print("  ", nom)
 
