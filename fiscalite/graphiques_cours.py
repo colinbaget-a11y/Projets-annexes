@@ -440,5 +440,81 @@ def c9():
         "position là où il va au-delà.")
 
 
+# ------------- c10 : le classement de l'OCDE appliqué à la structure française
+def c10():
+    blocs = [("Impôts récurrents\nsur l'immobilier", 48.0, VERT),
+             ("Taxes sur la\nconsommation", 304.3, VERT),
+             ("Autres impôts\nsur le patrimoine", 53.6, OCRE),
+             ("Prélèvements sur\nle revenu du travail", 748.8, OCRE),
+             ("Impôts sur\nles sociétés", 90.0, BRIQUE)]
+    fig, ax = plt.subplots(figsize=(11.2, 5.4))
+    x = range(len(blocs))
+    ax.bar(x, [b[1] for b in blocs], width=0.56, color=[b[2] for b in blocs], zorder=2)
+    for i, b in enumerate(blocs):
+        ax.text(i, b[1] + 16, fr(b[1], 0) + " Md€", ha="center", fontsize=11,
+                fontweight="bold", color=b[2])
+    ax.set_xticks(list(x), [b[0] for b in blocs], fontsize=9.5)
+    ax.set_ylim(0, 960)
+    ax.set_yticks([0, 200, 400, 600, 800], ["0", "200", "400", "600", "800 Md€"])
+    grille(ax)
+    ax.annotate("", xy=(4.35, 862), xytext=(-0.35, 862),
+                arrowprops=dict(arrowstyle="->", color=INK2, lw=1.2))
+    ax.text(2, 886, "classement de l'OCDE : du moins au plus défavorable à la croissance",
+            ha="center", fontsize=9.5, color=INK2, style="italic")
+    titre(ax, "La France lève le plus là où le classement de l'OCDE place le plus de dommage",
+          "Prélèvements obligatoires français de 2024 rangés selon le classement « fiscalité et "
+          "croissance » de l'OCDE.")
+    fin(fig, "c10_classement_ocde.png",
+        "Sources : classement de Johansson, Heady, Arnold, Brys et Vartia, OCDE, document de "
+        "travail n° 620, 2008 ; montants Eurostat, National Tax List France, 2024.",
+        "Note de prudence : ce classement vient de régressions de croissance sur panel de pays, "
+        "pas d'un théorème. Xing (2012) montre que l'ordre n'est pas robuste, et notamment que "
+        "l'avantage attribué aux impôts récurrents sur l'immobilier ne résiste pas au changement "
+        "de spécification. Ce qui subsiste est l'accord entre cet ordre et ce que la théorie "
+        "prédit pour des raisons indépendantes : une assiette immobile se taxe sans dommage, un "
+        "prélèvement sur un facteur de production en fait le plus.")
+
+
+# --------- c11 : un taux unique avec abattement est déjà progressif
+def c11():
+    A, t = 12000, 0.30
+    ys = list(range(0, 100001, 500))
+    moy = [0 if y <= A else 100 * t * (1 - A / y) for y in ys]
+    fig, ax = plt.subplots(figsize=(11.2, 5.4))
+    ax.plot([0, A, A, 100000], [0, 0, 30, 30], color=OCRE, lw=2.2, zorder=3)
+    ax.plot(ys, moy, color=BLEU, lw=2.6, zorder=4)
+    ax.text(101500, 30, "taux marginal\nconstant à 30 %", va="center", fontsize=9.5,
+            color=OCRE, fontweight="bold", linespacing=1.4)
+    ax.text(101500, moy[-1], "taux moyen,\nqui monte sans cesse", va="center", fontsize=9.5,
+            color=BLEU, fontweight="bold", linespacing=1.4)
+    for y in (20000, 50000, 100000):
+        v = 100 * t * (1 - A / y)
+        ax.plot([y], [v], "o", ms=6, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.5,
+                zorder=5)
+        ax.annotate(fr(v, 1) + " %", (y, v),
+                    xytext=(0, 11) if y < 100000 else (0, -20), textcoords="offset points",
+                    ha="center", fontsize=9.5, color=BLEU, fontweight="bold",
+                    path_effects=HALO)
+    ax.axvspan(0, A, color=GRIS, alpha=0.1, zorder=1)
+    ax.text(A / 2, 27, "abattement", ha="center", fontsize=9, color=GRIS, rotation=90)
+    ax.set_xlim(0, 139000)
+    ax.set_ylim(0, 35)
+    ax.set_xticks([0, 20000, 40000, 60000, 80000, 100000],
+                  ["0", "20 000", "40 000", "60 000", "80 000", "100 000 €"])
+    ax.set_xlabel("revenu annuel")
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "Un taux unique assorti d'un abattement est déjà un impôt progressif",
+          "Taux marginal et taux moyen d'un impôt à taux unique de 30 % au-delà d'un abattement "
+          "de 12 000 €.")
+    fin(fig, "c11_flat_tax_progressive.png",
+        "Calcul arithmétique. Définition de la progressivité reprise de l'encadré 2.1 de Tax by "
+        "Design : un impôt est progressif lorsque le taux moyen augmente avec l'assiette.",
+        "Note : la progressivité ne demande pas que le taux marginal augmente. Trois leviers la "
+        "renforcent : relever l'abattement, relever le taux unique, ou ajouter une tranche "
+        "supérieure. Le premier est le plus efficient, puisqu'il ne change le taux marginal de "
+        "personne au-dessus du seuil.")
+
+
 if __name__ == "__main__":
-    c1(); c2(); c3(); c4(); c5(); c6(); c7(); c8(); c9()
+    c1(); c2(); c3(); c4(); c5(); c6(); c7(); c8(); c9(); c10(); c11()
