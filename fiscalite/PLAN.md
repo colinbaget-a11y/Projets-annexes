@@ -86,6 +86,7 @@ téléchargée dans `sources/`. Les affirmations qui ne le sont pas encore porte
 
 | Fichier | Contenu |
 |---|---|
+| `CADRAGE.md` | les questions de cadrage posées, et le défaut retenu pour chacune |
 | `extract_donnees.py` | télécharge et extrait les trois sources de base |
 | `panorama.py` | agrégats, classement, concentration, déformation depuis 1995 |
 | `donnees/ntl_france.csv` | 121 prélèvements français, rendement 1995-2024, code SEC, fonction économique |
