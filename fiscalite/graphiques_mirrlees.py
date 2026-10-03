@@ -132,10 +132,12 @@ def m3():
         for i, x in enumerate(v):
             a1.text(i + (k - 1) * larg, x + 1.2, f"{x:.0f}", ha="center", fontsize=8.5, color=INK2)
     a1.set_xticks(range(len(men)))
-    a1.set_xticklabels([MEN[m].replace(", ", ",\n") for m in men], fontsize=9.5)
+    court = {"S_C0": "Célibataire", "S_C2": "Célibataire\n2 enfants",
+             "C_C0": "Couple", "C_C2": "Couple\n2 enfants"}
+    a1.set_xticklabels([court[m] for m in men], fontsize=9)
     a1.legend(frameon=False, fontsize=9, loc="upper left", ncol=1)
     grille(a1); a1.set_ylim(0, 72); a1.yaxis.set_major_formatter(PCT)
-    a1.set_title("France, par type de ménage", loc="left", fontsize=10.5, color=INK2)
+    a1.set_title("France, par type de ménage (sans enfant sauf mention)", loc="left", fontsize=10.5, color=INK2)
 
     d = sorted(((p, v.get("AW67", float("nan"))) for p, v in pays.items() if "AW67" in v), key=lambda t: -t[1])
     a2.bar(range(len(d)), [v for _, v in d], width=0.72,

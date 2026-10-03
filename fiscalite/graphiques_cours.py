@@ -94,9 +94,9 @@ def c1():
 def c2():
     fig, ax = plt.subplots(figsize=(10.6, 5.2))
     xs = [x / 100 for x in range(5, 101)]
-    for a, c, lab, xl, dy in ((1.5, "#7fa4e0", "queue plus fine, a = 1,5", 0.66, 7),
-                              (2.0, BLEU, "France, a = 2,0", 0.52, -8),
-                              (2.5, "#001f5c", "queue plus épaisse, a = 2,5", 0.40, -8)):
+    for a, c, lab, xl, dy in ((1.5, "#7fa4e0", "queue plus fine, a = 1,5", 0.70, 7),
+                              (2.0, BLEU, "France, a = 2,0", 0.64, -11),
+                              (2.5, "#001f5c", "queue plus épaisse, a = 2,5", 0.30, -12)):
         ys = [100 / (1 + a * x) for x in xs]
         ax.plot(xs, ys, color=c, lw=2.5 if a == 2 else 1.6, zorder=3)
         ax.text(xl, 100 / (1 + a * xl) + dy, lab, va="center", ha="left" if a == 1.5 else "center",
@@ -154,12 +154,12 @@ def c3():
         fig.text(0.0, 1.10, "Un taux réduit donne plus d'euros au ménage aisé qu'au ménage modeste",
              fontsize=11.5, fontweight="bold", color=INK, transform=a1.transAxes)
     fin(fig, "c3_taux_reduit.png",
-        "Calcul arithmétique. Parts budgétaires illustratives : 18 % du revenu consacrés à "
-        "l'alimentation pour le ménage modeste, 9 % pour le ménage aisé ; écart de taux de TVA de "
-        "quinze points.",
+        "Calcul arithmétique. Parts budgétaires illustratives : la dépense alimentaire hors taxe "
+        "vaut 18 % du revenu pour le ménage modeste et 9 % pour le ménage aisé ; l'écart de taux "
+        "de TVA est de quinze points.",
         "Note : la mesure est progressive rapportée au revenu et régressive en euros. Or c'est "
-        "avec des euros que l'on achète. Verser directement 67 € au ménage modeste coûte moins "
-        "cher au budget que d'en distribuer 40 à l'un et 67 à l'autre, et l'aide davantage.")
+        "avec des euros que l'on achète. Verser directement 68 € au ménage modeste coûte moins "
+        "cher au budget que d'en distribuer 40 à l'un et 68 à l'autre, et l'aide davantage.")
 
 
 # --------------------- c4 : coin fiscal moyen et marginal, par niveau de salaire
@@ -681,10 +681,12 @@ def c15():
 # ------------- c16 : le coin fiscal à trois niveaux de salaire
 def c16():
     d = lire("coin_par_niveau.csv", ",")
-    garde = {"FRA", "DEU", "BEL", "ITA", "SWE", "DNK", "NLD", "GBR", "USA", "OECD_REP", "POL"}
+    garde = {"FRA", "DEU", "BEL", "AUT", "ITA", "SWE", "DNK", "NLD", "GBR", "USA",
+             "OECD_REP", "HUN"}
     d = [x for x in d if x["code"] in garde]
     fig, ax = plt.subplots(figsize=(10.6, 6.0))
     xs = [0, 1, 2]
+    bouts = []
     for x in d:
         vs = [float(x["aw67"]), float(x["aw100"]), float(x["aw167"])]
         fr_ = x["code"] == "FRA"
@@ -693,13 +695,19 @@ def c16():
         ax.plot(xs, vs, color=c, lw=2.6 if fr_ else (1.8 if oc else 1.2),
                 marker="o", ms=5.5 if fr_ else 3.5, zorder=4 if fr_ else 2,
                 markeredgecolor=SURFACE, markeredgewidth=1.0)
-        ax.text(2.06, vs[2], x["pays"], va="center", fontsize=9 if fr_ or oc else 8.4,
-                color=c, fontweight="bold" if fr_ or oc else "normal")
+        bouts.append([vs[2], x["pays"], c, fr_ or oc])
         if fr_:
             for xx, v in zip(xs, vs):
                 ax.annotate(fr(v, 1), (xx, v), xytext=(0, 10), textcoords="offset points",
                             ha="center", fontsize=9.5, color=BLEU, fontweight="bold",
                             path_effects=HALO)
+    bouts.sort(key=lambda b: b[0])
+    for i in range(1, len(bouts)):
+        if bouts[i][0] - bouts[i - 1][0] < 1.45:
+            bouts[i][0] = bouts[i - 1][0] + 1.45
+    for yy, nom, c, gras in bouts:
+        ax.text(2.06, yy, nom, va="center", fontsize=9 if gras else 8.4, color=c,
+                fontweight="bold" if gras else "normal")
     ax.set_xticks(xs, ["67 % du salaire moyen", "salaire moyen", "167 % du salaire moyen"],
                   fontsize=9.5)
     ax.set_xlim(-0.12, 2.75)
@@ -742,9 +750,11 @@ def c17():
         "Source : Eurostat, National Tax List France, catégories SEC D21, D29 et D51 ; PIB "
         "Eurostat nama_10_gdp.",
         "Note : la catégorie D29 rassemble les prélèvements que l'entreprise acquitte "
-        "indépendamment de son résultat. Elle atteignait 4,0 points de PIB en 1995 et en vaut "
-        "4,4 en 2024, malgré la suppression progressive de la cotisation sur la valeur ajoutée "
-        "des entreprises engagée en 2021.")
+        "indépendamment de son résultat. Elle valait 4,1 points de PIB en 1995 et en vaut 4,4 "
+        "en 2024, malgré la suppression progressive de la cotisation sur la valeur ajoutée des "
+        "entreprises engagée en 2021. Son contenu diffère d'un pays à l'autre : la Suède y "
+        "classe une large part de ses cotisations employeur, ce qui porte sa D29 à 10,2 points "
+        "sans que cela désigne les mêmes prélèvements.")
 
 
 # ------------- c18 : le taux effectif sur l'épargne selon le support
