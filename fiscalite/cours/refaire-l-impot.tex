@@ -47,11 +47,31 @@
 % --- environnements maison -------------------------------------------------
 \newcommand{\amorce}[1]{\textbf{#1}}
 
+\newcommand{\partie}[2]{%
+  \clearpage
+  \vspace*{0.4cm}
+  {\color{bleu}\hrule height 1.6pt}
+  \vspace{10pt}
+  {\footnotesize\color{ocre}\bfseries\MakeUppercase{#1}\par}
+  \vspace{6pt}
+  {\fontsize{19}{23}\selectfont\bfseries\color{bleu}#2\par}
+  \vspace{8pt}
+  {\color{bleu}\hrule height 0.6pt}
+  \vspace{16pt}}
+
 \newenvironment{encadre}[1]
   {\par\medskip\noindent\begin{minipage}{\linewidth}%
    \color{encre}\setlength{\parskip}{0.6em}%
    \hrule height 0.8pt width \linewidth \vspace{6pt}%
    {\footnotesize\bfseries\color{vert}\MakeUppercase{#1}}\par\vspace{-2pt}%
+   \small}
+  {\par\vspace{4pt}\hrule height 0.4pt width \linewidth\end{minipage}\par\medskip}
+
+\newenvironment{source}[1]
+  {\par\medskip\noindent\begin{minipage}{\linewidth}%
+   \color{encre}\setlength{\parskip}{0.6em}%
+   \hrule height 0.8pt width \linewidth \vspace{6pt}%
+   {\footnotesize\bfseries\color{ocre}\MakeUppercase{#1}}\par\vspace{-2pt}%
    \small}
   {\par\vspace{4pt}\hrule height 0.4pt width \linewidth\end{minipage}\par\medskip}
 
@@ -69,26 +89,41 @@
 
 % ===========================================================================
 \begin{document}
+\addto\captionsfrench{\renewcommand{\figurename}{Figure}%
+  \renewcommand{\tablename}{Tableau}}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
 
 \thispagestyle{empty}
-\vspace*{1.5cm}
-{\footnotesize\color{ocre}\bfseries COURS EN DIX MODULES\par}
+\vspace*{1.2cm}
+{\footnotesize\color{ocre}\bfseries COURS EN QUINZE MODULES\par}
 \vspace{10pt}
 {\fontsize{30}{34}\selectfont\bfseries Refaire l'impôt\par}
 \vspace{14pt}
-{\large Ce que la théorie de la taxation optimale apprend vraiment, ce que les grandes revues
-fiscales étrangères en ont fait, et ce que tout cela dit du système français.\par}
-\vspace{10pt}
+{\large Ce que la théorie de la taxation optimale établit vraiment, ce que trois grands textes en
+ont tiré, et ce que tout cela dit du système français.\par}
+\vspace{12pt}
+{\small\color{encre}Ce cours est d'abord une lecture guidée de trois documents. L'article de
+Mankiw, Weinzierl et Yagan (2009) fait l'inventaire de ce que la théorie recommande et de ce que
+les gouvernements en ont retenu. La \emph{Mirrlees Review} (2011) montre comment on passe de ces
+principes à un système entier plutôt qu'à une liste d'impôts. Le document de travail de l'OCDE sur
+fiscalité et croissance (2008) met l'ensemble à l'épreuve des données, et sa principale leçon
+n'est pas celle qu'on en cite d'ordinaire. On lit chacun pour ce qu'il démontre, et on dit où il
+s'arrête.\par}
+\vspace{12pt}
 {\small\color{encre}Chaque module tient en une idée, un mécanisme déroulé jusqu'au bout, et un
 chiffre vérifiable. Les figures portent chacune une seule affirmation : un lecteur pressé peut
 suivre l'argument en ne lisant que les phrases en gras et les figures.\par}
 \vspace{18pt}
 {\color{bleu}\hrule height 1.6pt}
-\vspace{20pt}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{1.2cm}
 
 {\small
-\textbf{Sommaire}\par\vspace{4pt}
+{\fontsize{15}{18}\selectfont\bfseries\color{bleu}Sommaire\par}\vspace{14pt}
 \begin{tabular}{@{}r@{\hspace{10pt}}l@{}}
+\multicolumn{2}{@{}l}{\itshape\color{ocre} Première partie --- Ce que la théorie établit}\\[2pt]
 0 & Ce que la théorie peut dire, et ce qu'elle ne dira jamais\\
 1 & Un impôt coûte plus que ce qu'il rapporte\\
 2 & Ne jamais taxer ce qui sert à produire\\
@@ -96,18 +131,25 @@ suivre l'argument en ne lisant que les phrases en gras et les figures.\par}
 4 & Le barème optimal est en U, pas croissant\\
 5 & Taxer le rendement, c'est taxer la patience\\
 6 & La terre, la transaction et le prix du carbone\\
-7 & Juger un système, jamais un impôt isolé\\
-8 & Les grandes revues fiscales et ce sur quoi elles convergent\\
-9 & Lire un classement, et savoir ce qu'il vaut\\
-10 & La France mesurée à cette aune\\
+7 & Juger un système, jamais un impôt isolé\\[6pt]
+\multicolumn{2}{@{}l}{\itshape\color{ocre} Deuxième partie --- Trois lectures}\\[2pt]
+8 & Mankiw, Weinzierl et Yagan : huit leçons, et ce que la pratique en a fait\\
+9 & La \emph{Mirrlees Review} : la méthode avant les propositions\\
+10 & L'OCDE : ce qu'une régression établit, et ce qu'elle suggère seulement\\[6pt]
+\multicolumn{2}{@{}l}{\itshape\color{ocre} Troisième partie --- Ce que cela donne pour la France}\\[2pt]
+11 & Quatre autres revues, et ce sur quoi elles convergent\\
+12 & Lire un indice, et savoir ce qu'il vaut\\
+13 & La France mesurée à cette aune\\
+14 & Ce qu'il faut retenir\\
 \end{tabular}}
 
 \clearpage
 
+\partie{Première partie}{Ce que la théorie établit}
+
 % ===========================================================================
+\setcounter{section}{-1}
 \section{Ce que la théorie peut dire, et ce qu'elle ne dira jamais}
-\setcounter{section}{0}
-\renewcommand{\thesection}{\arabic{section}}
 
 \amorce{La théorie de la taxation optimale ne dit pas combien il faut redistribuer, et aucun
 théorème ne le dira jamais.} Le poids qu'on accorde à un euro supplémentaire pour un ménage
@@ -146,6 +188,15 @@ on le décourage. C'est la formalisation de Mirrlees (1971), et c'est de là que
 la perte sèche, la forme du barème optimal, la question de ce qu'on peut taxer d'autre que le
 revenu. Le problème fiscal n'est pas un problème de prélèvement, c'est un problème d'information.
 
+\amorce{Mirrlees l'avait écrit en toutes lettres, et la phrase mérite d'être citée parce qu'elle
+contient à elle seule le programme des cinquante années suivantes.} « On pourrait obtenir des
+informations sur le potentiel de gain d'un homme à partir de son quotient intellectuel apparent,
+du nombre de ses diplômes, de son adresse, de son âge ou de sa couleur ; mais l'indicateur naturel,
+et vraisemblablement le plus fiable, de son potentiel de gain est son revenu. » Toute la suite
+consiste à explorer ce « mais » : chaque fois qu'on trouve une information fiable qui n'est pas le
+revenu, on améliore le système ; chaque fois qu'on n'en trouve pas, on paie le prix de
+l'ignorance.
+
 \amorce{Une conséquence pratique en découle immédiatement, et elle orientera plusieurs modules :
 tout ce que l'administration peut observer et que le contribuable ne peut pas manipuler est, en
 principe, une meilleure assiette que le revenu.} La surface d'un terrain, l'âge, la situation de
@@ -153,11 +204,16 @@ handicap, l'immatriculation d'un véhicule : ce sont des informations qui ne se 
 réaction à l'impôt. On verra au module~4 jusqu'où ce raisonnement peut aller, et pourquoi les
 sociétés refusent de le suivre jusqu'au bout.
 
-\amorce{Les modules qui suivent sont rangés du plus solide au plus discutable.} Les premiers
-reposent sur des mécanismes vérifiables et font l'objet d'un accord large. Les derniers sont des
-jugements informés sur lesquels des économistes compétents divergent. Le degré de certitude est
-signalé à chaque fois : un cours qui présente tout avec le même aplomb ne permet pas de savoir où
-l'on peut s'appuyer.
+\begin{encadre}{Comment lire ce cours}
+Les modules sont rangés du plus solide au plus discutable. Les premiers reposent sur des
+mécanismes vérifiables qui font l'objet d'un accord large entre économistes de toutes
+sensibilités. Les derniers sont des jugements informés sur lesquels des gens compétents divergent.
+
+Le degré de certitude est signalé à chaque fois, et c'est délibéré : un cours qui présente tout
+avec le même aplomb ne permet pas de savoir où l'on peut s'appuyer. Quand une affirmation repose
+sur de l'arithmétique, on la montre. Quand elle repose sur une estimation économétrique, on dit
+laquelle et ce qui la fragilise. Quand elle repose sur un jugement, on le dit aussi.
+\end{encadre}
 
 % ===========================================================================
 \section{Un impôt coûte plus que ce qu'il rapporte}
@@ -230,6 +286,31 @@ marginal supérieur pendant que l'assiette reste poreuse, c'est se tromper de co
 monter le taux sans toucher à l'assiette --- produit surtout des stratégies d'évitement,
 c'est-à-dire des dépenses privées qui ne créent rien.
 
+\subsection{Où se trouve le sommet des recettes}
+
+\amorce{Cette élasticité détermine à elle seule le point au-delà duquel monter un taux fait
+baisser les recettes, et le calcul est d'une simplicité qui surprend.} Si l'assiette se contracte
+d'un pourcentage fixe quand le revenu net après impôt baisse d'un pourcentage donné --- c'est la
+définition d'une élasticité constante $e$ --- alors les recettes sont maximales exactement au taux
+$1/(1+e)$. Avec une élasticité de 0,25, le sommet est à 80~\% ; avec 0,5, à 67~\% ; avec 1, à
+50~\% (figure~\ref{fig:sommet}).
+
+\figbloc{c12_sommet_recettes}{Le sommet des recettes ne dépend que de l'élasticité de
+l'assiette}{fig:sommet}
+
+\amorce{Trois précisions évitent le mésusage habituel de cette courbe.} Elle ne dit rien du niveau
+des recettes : elle dit seulement où se situe le maximum. Elle ne dit pas qu'il faut s'y placer,
+puisque le taux qui maximise les recettes n'est le taux souhaitable que si l'on accorde un poids
+strictement nul au bien-être des personnes concernées. Et comme l'élasticité dépend de l'assiette,
+le sommet se déplace quand on réforme l'assiette : c'est l'ordre des opérations du paragraphe
+précédent, vu sous un autre angle.
+
+\amorce{La courbe est plate au voisinage de son sommet, ce qui est la propriété la plus utile et
+la moins commentée.} Entre 60 et 75~\% de taux, pour une élasticité de 0,5, les recettes
+restent à moins de 3~\% de leur maximum. Autrement dit, personne ne peut sérieusement prétendre savoir, à cinq points
+près, où se trouve le maximum --- et il n'y a presque rien à gagner à le chercher. En revanche, la
+courbe chute vite loin du sommet, et c'est de ce côté-là que les erreurs coûtent.
+
 % ===========================================================================
 \section{Ne jamais taxer ce qui sert à produire}
 
@@ -247,33 +328,71 @@ lève le même montant sur la consommation ou le revenu des mêmes personnes, ch
 la même situation qu'avant --- sauf qu'il y a davantage à partager. Il n'y a donc pas d'arbitrage
 entre efficience et équité à cet endroit. C'est rare.
 
+\amorce{La portée du théorème est plus large qu'on ne le croit, et Mankiw, Weinzierl et Yagan en
+dressent la liste.} Maintenir l'efficience productive exclut les impôts dont l'effet diffère selon
+les secteurs, les branches ou les périodes. Cela proscrit les taxes sur les intrants, parce
+qu'elles déforment la combinaison des facteurs. Cela joue contre l'impôt sur le bénéfice comptable
+des sociétés, parce qu'il modifie le rendement du capital pour une partie seulement de l'économie
+et pousse le capital hors du secteur des sociétés. Et cela s'étend au capital humain comme au
+capital physique, puisque l'un et l'autre servent à produire demain.
+
 \amorce{Deux conditions doivent être énoncées, parce qu'on les invoque pour contester le
 résultat.} Il suppose que les profits purs puissent être taxés --- sinon, taxer un intrant peut
 être un moyen indirect d'atteindre une rente qu'on ne sait pas atteindre autrement --- et que
 l'État dispose d'un jeu complet d'impôts sur les biens finals. Ces conditions ne sont jamais
-parfaitement remplies.
+parfaitement remplies. La seconde explique pourquoi les taxes sur l'énergie restent légitimes :
+elles ne visent pas l'intrant pour lui-même, elles corrigent une externalité qu'aucun impôt sur le
+bien final ne saurait atteindre aussi précisément.
 
-\amorce{La taxe sur le chiffre d'affaires est le cas le plus clair, parce que son défaut est
-arithmétique et non conjecturel.} Un prélèvement assis sur les ventes frappe le même produit
-autant de fois qu'il change de mains. Une entreprise intégrée qui fabrique tout elle-même le
-supporte une fois ; une chaîne de quatre entreprises successives le supporte deux fois et demie
-(figure~\ref{fig:pyramidage}). La taxe subventionne donc la concentration verticale, et pénalise
-la sous-traitance et la spécialisation, sans que personne l'ait décidé. La TVA, qui ouvre droit à
-déduction à chaque étape, ne produit pas cet effet : c'est précisément ce pour quoi elle a été
-inventée.
+\subsection{Le cas le plus clair : la taxe sur le chiffre d'affaires}
+
+\amorce{Un prélèvement assis sur les ventes frappe le même produit autant de fois qu'il change de
+mains, et ce défaut est arithmétique, non conjectural.} Une entreprise intégrée qui fabrique tout
+elle-même le supporte une fois ; une chaîne de quatre entreprises successives le supporte deux
+fois et demie (figure~\ref{fig:pyramidage}). La taxe subventionne donc la concentration verticale,
+et pénalise la sous-traitance et la spécialisation, sans que personne l'ait décidé. La TVA, qui
+ouvre droit à déduction à chaque étape, ne produit pas cet effet : c'est précisément ce pour quoi
+elle a été inventée.
 
 \figbloc{c7_pyramidage}{Une taxe sur le chiffre d'affaires frappe plusieurs fois le même
 produit}{fig:pyramidage}
 
-\amorce{La durée d'amortissement est l'autre endroit, moins visible, où l'impôt sur les sociétés
-atteint ce qu'il ne devrait pas atteindre.} Une entreprise qui investit 100~\euro{} ne récupère
-fiscalement ces 100~\euro{} que si elle les déduit immédiatement. Étalée sur vingt ans, la
-déduction ne vaut plus que 62~\euro{} d'aujourd'hui (figure~\ref{fig:amort}). La différence est un
-impôt qui pèse sur le rendement normal de l'investissement --- exactement ce que le module~5
-recommandera de ne pas taxer. Plus l'inflation et les taux d'intérêt sont élevés, plus l'écart se
-creuse, sans qu'aucun taux affiché ait bougé.
+\amorce{Le taux affiché de ces prélèvements est si faible qu'il désarme la critique, et c'est
+exactement ce qui les rend durables.} Personne ne se mobilise contre 0,16~\%. Mais ce taux
+s'applique au chiffre d'affaires, c'est-à-dire à une base dix à vingt fois plus large que le
+bénéfice, et il frappe l'entreprise qui perd de l'argent autant que celle qui en gagne. Pour une
+entreprise dont la marge nette est de 2~\%, un prélèvement de 0,16~\% sur les ventes équivaut à
+8~\% du résultat ; pour une entreprise à l'équilibre, il est infini.
+
+\subsection{L'amortissement, ou l'impôt qu'on ne voit pas}
+
+\amorce{Une entreprise qui investit 100~\euro{} ne récupère fiscalement ces 100~\euro{} que si
+elle les déduit immédiatement.} Étalée sur vingt ans, la déduction ne vaut plus que 62~\euro{}
+d'aujourd'hui (figure~\ref{fig:amort}). La différence est un impôt qui pèse sur le rendement
+normal de l'investissement --- exactement ce que le module~5 recommandera de ne pas taxer. Plus
+l'inflation et les taux d'intérêt sont élevés, plus l'écart se creuse, sans qu'aucun taux affiché
+ait bougé.
 
 \figbloc{c8_amortissement}{Ce que vaut aujourd'hui une déduction étalée dans le temps}{fig:amort}
+
+\amorce{C'est le genre de paramètre qui ne figure jamais dans un débat sur « le taux de l'impôt
+sur les sociétés », et qui en détermine pourtant une bonne part.} Deux pays affichant le même taux
+de 25~\% mais pratiquant l'un la déduction immédiate, l'autre un étalement sur vingt ans,
+n'imposent pas la même chose : le premier ne taxe que la rente, le second taxe aussi une partie du
+rendement normal. La comparaison internationale des taux faciaux, qui occupe l'essentiel de la
+discussion publique, passe entièrement à côté.
+
+\subsection{Ce que la France en fait}
+
+\amorce{Les prélèvements que l'entreprise acquitte indépendamment de son résultat n'ont pas reculé
+en trente ans, malgré les annonces.} La catégorie que la comptabilité européenne appelle « autres
+impôts sur la production » valait 4,0 points de PIB en 1995 ; elle en vaut 4,4 en 2024, après la
+suppression progressive de la cotisation sur la valeur ajoutée des entreprises engagée en 2021
+(figure~\ref{fig:production}). Chaque suppression a été compensée par une création ailleurs, ou
+par la croissance spontanée des bases restantes.
+
+\figbloc{c17_production_depuis_1995}{Les impôts sur la production n'ont pas reculé en trente
+ans}{fig:production}
 
 % ===========================================================================
 \section{Ne pas différencier les taux de consommation}
@@ -283,6 +402,15 @@ des taux différents aux différents biens.} C'est le résultat d'Atkinson et St
 argument est plus simple que sa réputation. Deux personnes qui gagnent le même revenu et paient le
 même impôt consomment différemment selon leurs goûts ; taxer plus lourdement le bien qu'aime la
 première ne redistribue rien, cela pénalise un goût et non une situation.
+
+\amorce{La formulation exacte du résultat mérite d'être donnée, parce qu'elle contient sa propre
+limite.} Si la fonction d'utilité est faiblement séparable entre le loisir et l'ensemble de la
+consommation, et si les préférences entre biens ne dépendent pas de la capacité, alors la taxation
+optimale des biens finals est uniforme dès lors qu'un impôt non linéaire sur le revenu est
+disponible. La raison en est que le choix de consommation ne révèle alors aucune information sur
+la capacité que le revenu ne révèle déjà. Si le choix de consommation révélait quelque chose de
+plus, il faudrait l'exploiter --- et c'est précisément la porte par laquelle rentrent les
+exceptions légitimes.
 
 \amorce{L'argument décisif n'est pas théorique : un taux réduit donne plus d'euros aux riches
 qu'aux pauvres.} Un ménage modeste consacre une part plus élevée de son revenu à l'alimentation
@@ -308,7 +436,40 @@ pour la plupart des biens et clairement fausse pour quelques-uns --- la garde d'
 pris à l'extérieur, les transports domicile-travail, qui ne sont consommés que parce qu'on
 travaille. Ces cas méritent un traitement particulier, et ce ne sont pas ceux auxquels la France
 applique ses taux réduits.
+
+Une autre voie de contestation existe, plus sérieuse : si le niveau des salaires de différents
+types de travailleurs dépend de la structure des taxes sur les biens, l'uniformité peut cesser
+d'être optimale. L'argument est théoriquement correct et empiriquement difficile à mobiliser dans
+un cas concret, parce qu'il faudrait savoir quel bien emploie quel type de travailleur et dans
+quelle proportion.
 \end{encadre}
+
+\subsection{Ce que la TVA taxe réellement}
+
+\amorce{Une TVA à 20~\% ne prélève pas 20~\% de la consommation, et l'écart mesure tout ce que les
+taux réduits et les exonérations ont retiré de l'assiette.} Rapportées à ce qu'elles seraient si
+toute la consommation des ménages était taxée au taux normal, les recettes françaises représentent
+64,7~\% du maximum théorique --- contre 84,7~\% au Danemark et 76,9~\% aux Pays-Bas
+(figure~\ref{fig:assiette}). Autrement dit, un tiers de l'assiette potentielle échappe au taux
+affiché.
+
+\figbloc{c15_assiette_tva}{La TVA française ne rapporte que les deux tiers de ce que son taux
+laisse croire}{fig:assiette}
+
+\amorce{Ce ratio mélange trois choses très différentes, et il faut le dire avant de s'en servir.}
+Il additionne les taux réduits, les exonérations de secteurs entiers --- santé, enseignement,
+services financiers, loyers --- et ce qui échappe à l'impôt. Il ne les sépare pas. On ne peut donc
+pas lire le complément à 100~\% comme un gisement de recettes : une part correspond à des
+exonérations que personne ne propose sérieusement de lever, à commencer par les loyers. Ce que la
+comparaison établit, parce que le dénominateur est construit de la même façon partout, c'est que
+la France se situe dans le tiers inférieur des pays européens.
+
+\amorce{Un détail de construction mérite d'être signalé, parce qu'il change la lecture d'un
+chiffre qu'on verra ailleurs.} Le ratio calculé ici rapporte les recettes à la seule consommation
+des ménages. L'OCDE publie un indicateur voisin dont le dénominateur inclut la consommation des
+administrations : le ratio français y tombe autour de la moitié. Les deux chiffres sont exacts et
+ne mesurent pas la même chose. Celui qui cite l'un sans dire lequel donne une information
+incomplète.
 
 % ===========================================================================
 \section{Le barème optimal est en U, pas croissant}
@@ -358,23 +519,57 @@ ressources, et c'est le prix du ciblage, pas un défaut. Au milieu, le taux doit
 que se trouve le gros de la population. En haut, il remonte : peu de gens sont au niveau
 considéré, mais ceux qui sont au-dessus concentrent une masse importante de revenu.
 
+\subsection{Le sommet du barème, et pourquoi on ne sait pas le fixer}
+
 \amorce{Le taux qui maximise les recettes au sommet se calcule, et il dépend presque entièrement
 d'un paramètre mal connu.} La formule vaut $1/(1+a\,e)$, où $e$ est l'élasticité du revenu
 imposable et $a$ l'épaisseur de la queue haute de la distribution, autour de 2 en France. Avec une
 élasticité de 0,25, elle donne 67~\% ; avec 0,5, elle donne 50~\% ; avec 1, elle donne 33~\%
-(figure~\ref{fig:taupsup}). Trois avertissements comptent plus que ce chiffre. Ce taux maximise
-les \emph{recettes} et n'est le taux \emph{optimal} que si l'on accorde un poids strictement nul
-au bien-être des contribuables concernés. L'écart entre deux estimations plausibles de
-l'élasticité couvre l'essentiel du désaccord politique. Et cette élasticité dépend du système
-lui-même, donc le barème au sommet se discute avec l'assiette qui le porte, jamais séparément.
+(figure~\ref{fig:taupsup}). L'écart entre deux estimations plausibles de l'élasticité couvre
+l'essentiel du désaccord politique sur le sujet.
 
 \figbloc{c2_taux_superieur}{Le taux marginal supérieur qui maximise les recettes}{fig:taupsup}
+
+\amorce{L'histoire de ce paramètre est un cas d'école de la façon dont une hypothèse de forme
+commande une conclusion de politique publique.} Mirrlees (1971) obtenait, dans ses simulations, un
+taux marginal nul tout en haut : si une personne gagne le revenu le plus élevé de l'économie, un
+taux positif sur son dernier euro décourage son effort sans rien rapporter, puisque personne ne se
+trouve au-dessus. Tuomala (1990), en supposant une distribution log-normale des capacités, obtenait
+des taux marginaux \emph{décroissants} sur une large plage de hauts revenus. Diamond (1998) et
+Saez (2001), en supposant une queue de Pareto --- plus épaisse ---, obtenaient l'inverse exact :
+des taux croissants entre les revenus moyens et élevés, et au sommet des taux « qui ne devraient
+pas être inférieurs à 50~\% et peuvent atteindre 80~\% ».
+
+\amorce{La différence entre ces conclusions opposées ne tient à aucune donnée nouvelle : elle
+tient au choix de la loi ajustée à la queue de la distribution.} Et ce choix est difficile à
+trancher empiriquement. Mankiw, Weinzierl et Yagan le montrent directement : sur les salaires
+horaires américains correspondant à des revenus annuels compris entre 100\,000 et
+200\,000~dollars, les ajustements log-normal et de Pareto sont visuellement indiscernables, et
+les données au-delà de ce seuil ne sont pas publiques. On
+dispose donc d'un résultat --- le taux optimal au sommet --- qui dépend de façon décisive d'un
+objet qu'on observe mal.
+
+\begin{encadre}{Trois avertissements sur le taux supérieur}
+\textbf{Premièrement}, le taux calculé maximise les \emph{recettes}. Il n'est le taux
+\emph{optimal} que si l'on accorde un poids strictement nul au bien-être des contribuables
+concernés --- hypothèse que personne ne défend explicitement et que beaucoup adoptent
+implicitement.
+
+\textbf{Deuxièmement}, l'élasticité n'est pas une constante de la nature : elle dépend de
+l'assiette que la loi a construite. Le barème au sommet se discute donc avec l'assiette qui le
+porte, jamais séparément.
+
+\textbf{Troisièmement}, l'hétérogénéité des préférences réduit le taux optimal. Plusieurs travaux
+montrent que si les gens diffèrent non seulement par leur capacité mais aussi par leur goût pour
+le travail ou la consommation, l'étendue optimale de la redistribution diminue, parce qu'une part
+de l'inégalité observée reflète alors des choix plutôt que des contraintes.
+\end{encadre}
 
 \subsection{Deux résultats que ce raisonnement produit, et qui surprennent}
 
 \amorce{Le premier est qu'un impôt à taux unique assorti d'un transfert universel peut être proche
-de l'optimum.} Mirrlees lui-même, dans son article fondateur, obtenait des barèmes optimaux
-presque plats sur une large plage de revenus. La robustesse de ce résultat reste discutée, car il
+de l'optimum.} Mirrlees lui-même écrivait de ses résultats : « Le trait le plus frappant est
+peut-être la quasi-linéarité des barèmes. » La robustesse de ce résultat reste discutée, car il
 dépend de détails de la distribution des capacités et de la forme de la fonction d'utilité qu'on
 ne sait pas fixer avec précision. Mais il suffit à écarter une idée fausse : un barème à nombreuses
 tranches n'est pas plus « optimal » par nature qu'un barème simple. Ce qui fait la redistribution
@@ -384,9 +579,11 @@ n'est pas le nombre de tranches, c'est le niveau du transfert et celui du taux.
 de la redistribution augmente avec l'inégalité des salaires.} Quand la distribution des capacités
 s'étale, le modèle recommande des taux moyens plus élevés en haut \emph{et} des transferts plus
 généreux en bas. La raison est mécanique : un sommet plus riche rend un euro prélevé en haut moins
-coûteux en bien-être, et finance davantage en bas. Sur les quatorze pays suivis par Mankiw,
-Weinzierl et Yagan, neuf montrent effectivement une corrélation positive entre l'inégalité des
-revenus avant impôt et la part du PIB consacrée aux dépenses sociales.
+coûteux en bien-être, et finance davantage en bas. Mankiw, Weinzierl et Yagan vérifient cette
+prédiction sur les pays suivis par la \emph{Luxembourg Income Study} : sur les onze pays pour
+lesquels la série est exploitable, neuf montrent une relation positive entre l'inégalité des
+revenus avant impôt et la part du PIB consacrée aux dépenses sociales, et la régression groupée
+avec effets fixes pays donne un coefficient positif et significatif.
 
 \subsection{Taxer sur ce qui ne se triche pas}
 
@@ -397,6 +594,14 @@ change pour des raisons fiscales ne décourage pas le travail, puisqu'il ne dimi
 gagne davantage. Les prestations liées au handicap, les minima vieillesse et les allocations
 familiales reposent sur ce principe, et c'est ce qui permet d'atteindre des populations précises
 sans créer les taux marginaux élevés qu'engendre toute condition de ressources.
+
+\amorce{La condition de validité est stricte, et elle explique la plupart des échecs observés.} Il
+faut que les personnes à forte capacité ne puissent pas se faire passer pour des membres du groupe
+ciblé --- ou que la tricherie soit rendue coûteuse, par exemple en alourdissant les démarches.
+Il faut aussi que le signal soit net : un indice faiblement corrélé à la capacité fait peser un
+prélèvement forfaitaire sur ceux des « bons types » qui ont en réalité une faible capacité, et
+corriger cette erreur suppose de réintroduire de la progressivité, ce qui annule le bénéfice
+recherché.
 
 \amorce{La théorie va beaucoup plus loin que la pratique, et l'écart est instructif.} Elle
 recommande de faire dépendre le barème de toute caractéristique largement exogène, facile à
@@ -411,8 +616,8 @@ d'une vie et que chacun pourrait connaître --- la parentalité, le handicap, la
 refusent celles qui sont fixées à la naissance. Deux principes extérieurs à la théorie expliquent
 ce refus : l'équité horizontale, selon laquelle deux personnes de même situation doivent payer
 autant quelles que soient leurs caractéristiques fixes, et le principe du bénéfice, selon lequel
-l'impôt devrait être lié à ce que l'on reçoit de l'État. La question de la contribution des
-retraités relève exactement de ce débat, et le module~8 y revient.
+l'impôt devrait être lié à ce que l'on reçoit de l'État. Le module~8 revient longuement sur ce
+point, parce que c'est là que la théorie rend des comptes plutôt que l'inverse.
 
 \subsection{Travailler plus, ou travailler : deux marges, deux barèmes}
 
@@ -442,6 +647,18 @@ monotone}{fig:coinniveau}
 \figbloc{m3_taux_marginaux_effectifs}{Ce que coûte une augmentation du temps de travail, par type
 de ménage et par pays}{fig:metr}
 
+\amorce{Le niveau moyen, lui, raconte une autre histoire, et elle n'est pas celle de la
+progressivité.} Le coin fiscal moyen d'un célibataire sans enfant atteint 41,2~\% du coût du
+travail à 67~\% du salaire moyen, 47,2~\% au salaire moyen et 54,1~\% à 167~\%
+(figure~\ref{fig:cointrois}). L'écart entre les deux extrémités, treize points, est plus faible
+qu'en Italie, en Irlande ou aux Pays-Bas, et égal à celui de la Belgique. Mais il part d'un niveau
+que la moyenne de l'OCDE n'atteint pas même au plus haut des trois points : à 67~\% du salaire
+moyen, seules l'Allemagne et la Belgique font davantage. Le problème français n'est donc pas la
+progressivité du prélèvement sur le travail, c'est son point de départ.
+
+\figbloc{c16_coin_trois_niveaux}{Le coin fiscal français est élevé dès le bas de l'échelle, et le
+reste}{fig:cointrois}
+
 % ===========================================================================
 \section{Taxer le rendement, c'est taxer la patience}
 
@@ -455,6 +672,13 @@ consommation, contre zéro pour l'autre ; à quarante ans, 30~\% (figure~\ref{fi
 \figbloc{p4_impot_sur_l_attente}{L'impôt implicite sur la consommation différée croît avec la
 durée}{fig:attente}
 
+\amorce{C'est exactement la violation la plus extrême du principe du module~3, et cette façon de
+le dire éclaire mieux que toutes les autres.} Consommer en 2050 et consommer en 2026 sont deux
+biens différents. Un impôt sur le rendement les taxe à des taux différents --- et l'écart
+s'accroît avec l'éloignement. Si l'on juge injustifié d'appliquer 5,5~\% aux pâtes et 20~\% aux
+biscuits, il faut expliquer pourquoi on applique 0~\% à la consommation de cette année et
+l'équivalent de 30~\% à celle d'il y a quarante ans.
+
 \amorce{La réponse de la théorie n'est pas de ne pas taxer le capital, qui est un slogan, mais de
 séparer le rendement normal de la rente.} Le rendement normal rémunère le seul fait d'attendre :
 le taxer taxe la patience, et rien d'autre. La rente est tout ce qui dépasse --- une position de
@@ -462,103 +686,166 @@ marché, une information que les autres n'avaient pas, un terrain bien placé. L
 rien, puisque par définition elle serait apparue de toute façon. C'est la distinction la plus
 utile de toute la fiscalité du capital, et le système français ne la fait nulle part.
 
-\amorce{Le résultat classique selon lequel l'impôt optimal sur le capital serait nul à long terme
-est beaucoup moins solide qu'on ne le dit.} Les modèles de Chamley et Judd concluaient en ce sens ;
-Straub et Werning (2020) ont montré que la conclusion dépend de paramètres pour lesquels elle
-s'inverse, et que la convergence invoquée peut ne jamais se produire. Ce qui subsiste, et qui est
-solide, c'est la distinction entre rendement normal et rente --- pas l'exonération du capital.
+\begin{encadre}{Comment ça marche --- l'abattement pour rendement normal}
+Le mécanisme qui met en \oe uvre cette distinction est plus simple que son nom. On laisse le
+contribuable déduire chaque année, du revenu de son placement, un montant égal au capital investi
+multiplié par un taux sans risque --- celui de la dette publique, par exemple. Ce qui dépasse est
+imposé au barème ordinaire ; ce qui reste en deçà ne l'est pas, et le solde non utilisé est
+reporté sur les années suivantes avec intérêts.
 
-\amorce{Une difficulté purement française mérite d'être signalée : le système taxe le rendement
-nominal, donc taxe l'inflation sans que personne l'ait voté.} À 2~\% d'inflation et 3~\% de
-rendement réel, un prélèvement de 30~\% porte sur 5~\%, soit la moitié du rendement réel. Le taux
-affiché est 30~\%, le taux effectif est 50~\%, et il monte avec l'inflation
-(figure~\ref{fig:inflation}). Un épargnant dont le placement rapporte exactement l'inflation paie
-un impôt sur un gain qui n'existe pas.
+Deux propriétés méritent d'être soulignées. Le placement qui ne rapporte que le rendement normal
+n'est jamais imposé, quelle que soit la durée de détention : l'arbitrage entre consommer
+aujourd'hui et consommer demain redevient neutre. Et la rente, elle, est imposée intégralement au
+barème --- donc davantage, dans la plupart des cas, qu'un prélèvement forfaitaire. Ce n'est pas un
+cadeau au capital : c'est un déplacement de l'assiette vers ce qui ne se décourage pas.
+
+La Norvège applique ce mécanisme aux dividendes et plus-values des actionnaires depuis 2006, la
+Belgique et l'Italie l'ont appliqué aux fonds propres des sociétés. L'objection sérieuse ne porte
+pas sur le principe mais sur le choix du taux : trop élevé, il exonère une part de la rente ; trop
+bas, il laisse subsister l'impôt sur la patience.
+\end{encadre}
+
+\amorce{Le résultat classique selon lequel l'impôt optimal sur le capital serait nul à long terme
+est beaucoup moins solide qu'on ne le dit.} Les modèles de Chamley et Judd concluaient en ce sens,
+pour une raison précise : si les ménages ont un horizon infini, leur épargne devient à long terme
+parfaitement élastique au rendement net, de sorte qu'un impôt sur le capital ne réduit pas ce
+rendement net mais élève le rendement brut exigé, donc contracte le stock de capital et la
+production. Straub et Werning (2020) ont montré que la conclusion dépend de paramètres pour
+lesquels elle s'inverse, et que la convergence invoquée peut ne jamais se produire. Ce qui
+subsiste, et qui est solide, c'est la distinction entre rendement normal et rente --- pas
+l'exonération du capital.
+
+\amorce{Deux autres objections au résultat classique sont recevables et pointent dans la même
+direction.} Si les horizons sont courts, comme dans les modèles à générations imbriquées, taxer le
+capital redistribue sans produire les effets dramatiques sur l'accumulation qu'identifie la
+littérature à horizon infini. Et si les ménages accumulent une épargne de précaution faute de
+pouvoir s'assurer contre les aléas, le capital peut être suraccumulé à l'échelle agrégée, ce qui
+justifie de le taxer. Aucune de ces objections ne rétablit l'opportunité de taxer le rendement
+normal plus lourdement à mesure qu'on attend : elles portent sur le niveau, pas sur l'uniformité.
+
+\subsection{Une difficulté purement française : l'inflation}
+
+\amorce{Le système taxe le rendement nominal, donc taxe l'inflation sans que personne l'ait voté.}
+À 2~\% d'inflation et 3~\% de rendement réel, un prélèvement de 30~\% porte sur 5~\%, soit la
+moitié du rendement réel. Le taux affiché est 30~\%, le taux effectif est 50~\%, et il monte avec
+l'inflation jusqu'à dépasser 100~\% (figure~\ref{fig:inflation}). À 4~\% d'inflation, l'épargnant
+paie plus que l'intégralité de son gain réel : il s'appauvrit en étant imposé sur un
+enrichissement qui n'a pas eu lieu.
 
 \figbloc{c5_inflation}{Un impôt assis sur le rendement nominal taxe l'inflation}{fig:inflation}
 
+\amorce{Ce défaut est parfaitement connu et reste non corrigé, pour une raison qu'il faut nommer :
+il rapporte.} Indexer l'assiette sur l'inflation est techniquement simple --- plusieurs pays le
+font pour les plus-values --- mais coûteux pour le budget, et le coût est visible tandis que le
+prélèvement supplémentaire ne l'est pas. C'est un cas d'école d'impôt qui prospère parce qu'il
+n'apparaît dans aucune ligne de la loi de finances.
+
+\subsection{Le même rendement, six taux différents}
+
+\amorce{Le système français applique au même rendement réel des taux effectifs qui vont de zéro à
+97~\%, selon la seule enveloppe qui le porte.} Un livret réglementé est exonéré ; un plan
+d'épargne en actions après cinq ans supporte 17,2~\% affichés, soit 28,7~\% de taux effectif sur
+le rendement réel ; le prélèvement forfaitaire unique en supporte 50~\% ; un revenu foncier imposé
+au taux marginal de 41~\% en supporte 97~\% (figure~\ref{fig:supports}). Aucun de ces écarts ne
+correspond à une différence économique entre les placements.
+
+\figbloc{c18_supports_epargne}{Le même rendement réel de 3~\% supporte de 0 à 97~\% d'impôt selon
+le support}{fig:supports}
+
+\amorce{C'est la définition même d'un système non neutre, et le mécanisme par lequel il détruit de
+la valeur est direct.} L'épargnant ne place pas là où le rendement avant impôt est le plus élevé,
+mais là où le rendement après impôt l'est --- donc dans l'enveloppe la mieux traitée, qui n'est
+pas nécessairement l'emploi le plus productif de son argent. Le coût ne se voit nulle part : il
+consiste en projets non financés, dont on ne connaît ni le nom ni le montant.
+
 \subsection{Convertir un impôt sur le stock en taux sur le flux}
 
-\amorce{Un impôt sur le patrimoine ne se compare pas à un impôt sur le revenu : il faut d'abord le
-convertir.} C'est l'opération que le débat public saute presque toujours, et elle change les
-ordres de grandeur du tout au tout. Un prélèvement annuel de 2~\% sur un capital qui rapporte
-3~\% en termes réels prend les deux tiers du rendement. Avec le prélèvement forfaitaire unique,
-qui s'applique déjà au rendement nominal, il prend plus que la totalité du rendement réel
-(figure~\ref{fig:stockflux}).
+\amorce{Un impôt annuel sur un patrimoine n'est pas comparable à un impôt sur un revenu tant qu'on
+ne l'a pas converti, et la conversion est de l'arithmétique.} Un prélèvement de 1~\% par an sur un
+capital qui rapporte 2~\% réels absorbe la moitié du rendement. Le même prélèvement sur un capital
+qui rapporte 5~\% en absorbe un cinquième. Le taux affiché est identique dans les deux cas ; le
+taux réel ne l'est pas (figure~\ref{fig:stockflux}).
 
 \figbloc{p3_stock_contre_flux}{Part du rendement réel absorbée par un impôt annuel sur le
-stock}{fig:stockflux}
+patrimoine}{fig:stockflux}
 
-\amorce{Deux enseignements tombent du même calcul, et le second est le plus contre-intuitif.} Un
-impôt sur le stock frappe d'autant plus durement que le placement rapporte peu : il est donc
-régressif par rapport au rendement obtenu, ce qui est l'inverse de l'intention affichée. Et même
-sans impôt sur le stock, un prélèvement de 30~\% sur le rendement nominal prend déjà la moitié
-d'un rendement réel de 3~\%.
-
-\amorce{Le précédent néerlandais sert de contre-épreuve et mérite d'être connu.} Pendant vingt
-ans, les Pays-Bas ont taxé l'épargne non sur le revenu réellement perçu mais sur un rendement
-\emph{présumé}, fixé par la loi. Quand les taux d'intérêt sont tombés près de zéro, l'État a
-continué de taxer un revenu que les épargnants ne percevaient pas. Le 24 décembre 2021, la Cour
-suprême néerlandaise a jugé que ce régime violait le droit de propriété et l'interdiction de
-discrimination de la Convention européenne des droits de l'homme, et a imposé de revenir au
-rendement réellement réalisé. La leçon dépasse le cas néerlandais : taxer un rendement présumé
-revient à taxer le stock, et tant que le rendement réel dépasse le rendement présumé, personne ne
-proteste.
+\amorce{Cette conversion est le seul moyen de discuter sérieusement d'un impôt sur la fortune, et
+elle ne tranche pas le débat --- elle le déplace.} Elle montre qu'un taux de 2~\% sur un actif peu
+rentable est confiscatoire sur le rendement, ce qui est un argument contre. Elle montre aussi que
+le même taux sur une rente foncière élevée ne l'est pas, ce qui est un argument pour, à condition
+de savoir distinguer les deux. L'arithmétique impose de poser la question en termes de rendement ;
+elle n'impose pas la réponse.
 
 \subsection{Deux impôts successifs sur le même profit}
 
-\amorce{Quand le profit d'une société est distribué, il est taxé deux fois, et c'est le taux
-combiné qui compte pour l'actionnaire.} Sur 100~\euro{} de profit, l'impôt sur les sociétés en
-prélève 36,1 au taux français de 2025 surtaxes comprises ; les 63,9 restants, distribués, sont
-imposés à 34~\% au sommet du barème, soit 21,7 de plus. L'actionnaire conserve 42,1~\euro{}
-(figure~\ref{fig:cascade}). Le taux combiné de 57,9~\% place la France au premier rang des pays
-comparés. La précision importe : il s'agit de taux statutaires au sommet, un actionnaire moyen
-supporte moins, et une partie de la surtaxe est présentée comme temporaire.
+\amorce{Le profit d'une société est taxé deux fois --- une fois dans la société, une fois chez
+l'actionnaire --- et seul le produit des deux a un sens.} Au sommet du barème français, l'impôt sur les sociétés
+surtaxes comprises prélève 36,1~\euro{} sur 100~\euro{} de profit ; les 63,9~\euro{} restants,
+distribués en dividende, en perdent 21,7 de plus au prélèvement forfaitaire majoré de la
+contribution sur les hauts revenus. Il reste 42,2~\euro{} à l'actionnaire : le taux combiné est de
+57,9~\%, le plus élevé de l'OCDE, et c'est le seul chiffre qui compte pour la décision d'investir
+(figure~\ref{fig:cascade}). Un actionnaire moyen supporte moins, parce que ni la surtaxe ni la
+contribution ne le concernent ; mais c'est bien ce taux-là que considère celui qui arbitre sur le
+dernier euro.
 
 \figbloc{c6_cascade_profit}{Ce que deux impôts successifs font à cent euros de profit}{fig:cascade}
+
+\amorce{La conséquence pratique est qu'on ne peut pas réformer l'un sans l'autre, et que la
+discussion française les traite systématiquement séparément.} Baisser l'impôt sur les sociétés
+sans toucher au prélèvement sur les dividendes déplace la charge sans la réduire ; relever le
+second en compensation du premier ne change rien pour l'actionnaire résident, mais change tout
+pour l'actionnaire non résident, qui n'y est pas soumis. C'est l'une des raisons pour lesquelles
+la concurrence fiscale porte sur le taux de l'impôt sur les sociétés plutôt que sur le taux
+combiné.
 
 % ===========================================================================
 \section{La terre, la transaction et le prix du carbone}
 
-\amorce{Un impôt annuel sur la valeur du terrain nu possède une propriété qu'aucun autre impôt ne
-possède : il ne change aucune décision.} Le terrain ne se déplace pas, ne se cache pas, et sa
-quantité ne dépend pas de ce qu'on prélève dessus. Le propriétaire ne peut ni en produire moins ni
-l'emmener ailleurs. La perte sèche est donc nulle --- exactement nulle, et non pas faible. Mieux :
-la valeur d'un terrain vient pour l'essentiel de ce qui l'entoure, les transports, les écoles, les
-emplois, c'est-à-dire pour une large part de la dépense publique elle-même.
+\amorce{La valeur d'un terrain nu est la rente la plus pure qui existe, et la taxer ne décourage
+rien.} Personne ne produit de terrain : l'offre est fixe. Un impôt sur sa valeur ne peut donc pas
+en réduire la quantité, et son prix s'ajuste à la baisse pour absorber l'impôt. C'est le seul
+prélèvement dont l'absence de perte sèche ne repose sur aucune hypothèse de comportement.
 
-\amorce{L'objection sérieuse est politique et il vaut mieux l'énoncer que la masquer : un impôt
-foncier annoncé est immédiatement capitalisé dans le prix.} La valeur du terrain baisse du montant
-actualisé de tous les impôts futurs. Le propriétaire du jour paie donc la totalité, d'un coup, et
-les acquéreurs suivants ne paient rien de net puisqu'ils ont acheté moins cher. C'est précisément
-ce qui rend l'impôt efficient --- il ne pèse sur aucune décision future --- et ce qui le rend
-brutal pour une génération de propriétaires.
+\amorce{Cette propriété a une contrepartie brutale qu'il faut énoncer avant de recommander quoi
+que ce soit : un tel impôt est payé d'un coup, par les propriétaires du jour de l'annonce.} La
+valeur d'un terrain est son loyer futur actualisé. Un impôt annuel de 1~\% sur un terrain actualisé
+à 4~\% fait tomber sa valeur de 20~\% immédiatement ; un impôt de 2~\%, de 33~\%
+(figure~\ref{fig:capitalisation}). Tous les acquéreurs suivants achètent moins cher et ne
+supportent rien. C'est ce qui rend l'impôt efficient, et c'est ce qui le rend politiquement
+impossible sans un traitement explicite de la génération qui le subit.
 
-\amorce{Un droit de mutation ne frappe pas ceux qui possèdent, il frappe ceux qui bougent.} Deux
-ménages au patrimoine identique paieront l'un beaucoup et l'autre rien, selon qu'ils ont déménagé
-ou non. Un salarié à qui l'on propose un meilleur emploi à 300~km soustrait de son gain plusieurs
-dizaines de milliers d'euros de frais ; un couple dont les enfants sont partis garde un logement
-trop grand. Des droits de 5~\% acquittés tous les sept ans équivalent, en coût actualisé moyen, à
-un impôt annuel d'environ 0,7~\% de la valeur du bien --- mais concentré sur exactement le
-comportement qu'il ne faudrait pas décourager.
+\figbloc{c19_capitalisation}{Un impôt foncier annoncé est payé d'un coup par le propriétaire du
+jour}{fig:capitalisation}
+
+\amorce{Il faut en tirer une conséquence que les partisans de cet impôt escamotent et que ses
+adversaires n'exploitent pas correctement.} L'argument « c'est un impôt sans distorsion » et
+l'argument « c'est une spoliation d'une génération de propriétaires » sont tous les deux exacts,
+et ils décrivent la même propriété. Un projet sérieux doit donc comporter un étalement, un
+mécanisme de report pour les propriétaires à faible revenu, ou une montée en charge assez lente
+pour que la capitalisation se diffuse. Sans cela, la proposition est économiquement juste et
+politiquement morte, ce qui revient à ne rien proposer.
+
+\amorce{À l'inverse, taxer la transaction plutôt que la détention est à peu près la pire
+construction possible.} Un droit de mutation ne frappe que ceux qui déménagent. Il décourage donc
+le déménagement, c'est-à-dire la mobilité résidentielle, donc la mobilité professionnelle, donc
+l'appariement entre les travailleurs et les emplois. Il laisse intacte la situation de celui qui
+ne bouge pas, quelle que soit la valeur de son bien. La France prélève 17~Md\euro{} sur les
+transactions et 48 sur la détention, soit l'inverse du partage souhaitable
+(figure~\ref{fig:detention}).
 
 \figbloc{g10_detention_transaction}{Taxer la détention ou taxer la transaction : où se situe la
 France}{fig:detention}
 
 \subsection{Pour une externalité, un prix --- et un seul}
 
-\amorce{Quand une activité impose un coût à autrui sans le payer, un prélèvement égal à ce coût ne
-détruit pas de valeur : il en crée.} C'est le seul cas où un impôt améliore l'allocation des
-ressources au lieu de la dégrader, et c'est pourquoi les prélèvements correcteurs devraient venir
-en premier dans tout système reconstruit.
-
-\amorce{L'argument décisif n'est pourtant pas le niveau du prix, c'est son unicité --- et c'est là
-que le débat se trompe de sujet.} Supposons deux émetteurs : l'un peut éviter une tonne pour
-20~\euro{}, l'autre pour 100~\euro{}. Si le prix est de 120~\euro{} pour le second et nul pour le
-premier, seul le second réduit : on dépense 100~\euro{} pour éviter une tonne alors qu'une autre
-pouvait être évitée pour 20. On achète la tonne chère et on laisse la tonne bon marché. Pour une
-réduction totale donnée, un prix unique est toujours moins coûteux qu'un prix dispersé, quel que
-soit le niveau choisi.
+\amorce{Une tonne de carbone émise par un camion et une tonne émise par une cimenterie causent le
+même dommage ; les taxer différemment revient à payer plus cher une réduction donnée
+d'émissions.} Le mécanisme est direct : à prix unique, chacun réduit tant que son coût de
+réduction est inférieur au prix, de sorte que les réductions les moins coûteuses sont faites en
+premier, où qu'elles se trouvent. Avec deux prix différents, le secteur fortement taxé effectue
+des réductions coûteuses pendant que le secteur faiblement taxé laisse passer des réductions bon
+marché. Pour une réduction totale donnée, un prix unique est toujours moins coûteux qu'un prix
+dispersé, quel que soit le niveau choisi.
 
 \amorce{C'est un gain qui ne demande aucun accord préalable sur l'ambition climatique.} Même celui
 qui juge l'objectif trop élevé a intérêt à ce qu'il soit atteint au moindre coût, puisque c'est
@@ -568,6 +855,13 @@ spectaculaire (figure~\ref{fig:carbone}).
 \figbloc{m1_prix_carbone_secteurs}{La dispersion du prix implicite du carbone entre secteurs
 français}{fig:carbone}
 
+\amorce{Le même raisonnement s'applique aux quotas échangeables, à une condition que la
+\emph{Mirrlees Review} souligne et qu'on oublie régulièrement : il faut les vendre aux enchères,
+pas les distribuer.} Un quota gratuit produit le même signal-prix qu'une taxe --- l'entreprise qui
+émet renonce à vendre son quota --- mais il ne rapporte rien à l'État, donc il ne permet pas
+d'alléger d'autres prélèvements distorsifs. Distribuer les quotas revient à offrir une rente aux
+émetteurs installés et à renoncer au seul bénéfice secondaire du dispositif.
+
 % ===========================================================================
 \section{Juger un système, jamais un impôt isolé}
 
@@ -575,15 +869,18 @@ français}{fig:carbone}
 soit, dans la mesure voulue.} On débat de savoir si la TVA est régressive --- elle l'est,
 rapportée au revenu courant --- comme si cela suffisait à la condamner. Mais une TVA à taux unique
 assortie d'un transfert forfaitaire est globalement progressive, et plus efficace qu'une TVA à
-taux multiples sans transfert.
+taux multiples sans transfert. Des impôts différents servent des fins différentes : la taxe sur le
+tabac est franchement régressive et ne vise pas la progressivité.
 
 \amorce{Une deuxième raison de juger l'ensemble est que l'instantané trompe : la progressivité
 devrait s'apprécier sur une vie, pas sur une année.} Les revenus montent, descendent et se
 déplacent. Sur la période 1991-2008 au Royaume-Uni, 34~\% des personnes situées dans le cinquième
 le plus pauvre y étaient encore dix-sept ans plus tard, mais 8~\% avaient rejoint le cinquième le
 plus riche ; symétriquement, 38~\% des plus riches étaient restés en place et 10~\% avaient rejoint
-le cinquième le plus pauvre. Une réforme qui frappe les hauts revenus d'une année donnée ne frappe
-pas une classe stable.
+le cinquième le plus pauvre (figure~\ref{fig:mobilite}). Une réforme qui frappe les hauts revenus
+d'une année donnée ne frappe pas une classe stable.
+
+\figbloc{c14_mobilite}{Les riches d'une année ne sont pas les riches de la décennie}{fig:mobilite}
 
 \amorce{De là découle une règle de mesure qui règle à elle seule l'essentiel du débat sur la
 régressivité de la TVA : rapporter les impôts sur le revenu au revenu courant, et les impôts sur la
@@ -598,6 +895,8 @@ dénominateur.
 Proposer un taux unique de TVA sans dire par quoi le choc sur les bas revenus est compensé n'est
 pas une proposition, c'est la moitié d'une proposition --- et c'est ce qui permet à une bonne idée
 d'être rejetée pour de mauvaises raisons.
+
+\subsection{Qui paie n'est pas qui verse}
 
 \amorce{Celui qui verse l'impôt au Trésor n'est presque jamais celui qui le supporte : la charge
 se déplace jusqu'à se fixer sur celui qui peut le moins s'y soustraire.} Si l'on instaure une
@@ -639,22 +938,573 @@ peuvent payer un conseil pour les trouver. À barème identique, un système sim
 redistributif qu'un système complexe, et simplifier n'est pas une revendication de technicien mais
 une mesure d'équité.
 
+\begin{encadre}{L'unité d'imposition, une question qu'aucun modèle ne tranche}
+La théorie économique du comportement est construite sur l'individu. La plupart des gens vivent en
+ménage, dont la composition change au fil des naissances, des séparations et des décès. Faut-il
+imposer l'individu ou le foyer ?
+
+Aucun résultat ne départage. La \emph{Mirrlees Review} constate que la pratique britannique est
+elle-même incohérente --- impôt et cotisations sur l'individu, prestations sur le ménage --- et
+renonce à trancher. La France a fait le choix inverse du Royaume-Uni en imposant le foyer, et ce
+choix a des conséquences précises et mesurables sur l'offre de travail du second apporteur de
+revenu, qui fait face au taux marginal du premier dès son premier euro. Que ce soit un sujet de
+désaccord légitime ne dispense pas de mesurer ce que le choix actuel coûte.
+\end{encadre}
+
+\partie{Deuxième partie}{Trois lectures}
+
+Cette partie lit trois documents dans l'ordre où ils éclairent le sujet. Le premier établit
+l'inventaire de ce que la théorie recommande et de ce que les systèmes en ont retenu. Le deuxième
+montre comment on passe de principes à un système entier. Le troisième met l'ensemble à l'épreuve
+des données, et c'est celui dont il faut le plus se méfier --- y compris en suivant les
+avertissements de ses propres auteurs.
+
 % ===========================================================================
-\section{Les grandes revues fiscales et ce sur quoi elles convergent}
+\section{Mankiw, Weinzierl et Yagan : huit leçons, et ce que la pratique en a fait}
 
-\amorce{La \emph{Mirrlees Review} reste la référence du genre, et elle n'a jamais eu de
-successeur.} Menée de 2006 à 2011 par l'Institute for Fiscal Studies sous la présidence du prix
-Nobel James Mirrlees, elle a produit deux volumes --- \emph{Dimensions of Tax Design} (2010) et
-\emph{Tax by Design} (2011) --- avec une méthode qui est sa vraie contribution : une proposition
-théorique, un diagnostic chiffré qui montre l'écart, une réforme chiffrée avec ses gagnants et ses
-perdants. Ce qui s'en rapproche aujourd'hui au Royaume-Uni est la \emph{Deaton Review} de l'IFS,
-qui porte sur les inégalités et non sur la fiscalité.
+\begin{source}{Le texte}
+N. Gregory Mankiw, Matthew Weinzierl et Danny Yagan, « Optimal Taxation in Theory and Practice »,
+\emph{Journal of Economic Perspectives} 23(4), automne 2009, p.~147-174.
 
-\amorce{Quatre pays ont depuis mené un exercice comparable, et leurs conclusions se ressemblent au
-point que la convergence devient elle-même une donnée.} Aucun de ces rapports n'a été écrit par
-les mêmes personnes, aucun n'a le même mandat politique, et tous recommandent d'élargir les
-assiettes, de réduire le nombre de taux, de déplacer la charge du travail vers la consommation et
-le patrimoine, et de taxer le foncier sur sa valeur réelle.
+Vingt-huit pages, aucune équation dans le corps du texte, huit sections. Les auteurs dressent
+l'inventaire de ce que la théorie de la taxation optimale a produit depuis Mirrlees (1971), et
+confrontent chaque enseignement à l'évolution observée des systèmes fiscaux de l'OCDE. La question
+qui organise tout l'article est posée dans les deux sens : la pratique a-t-elle appris de la
+théorie, et là où elle ne l'a pas fait, est-ce la pratique ou la théorie qui a tort ?
+
+C'est le meilleur point d'entrée dans la matière, et de loin. Il se lit en deux heures.
+\end{source}
+
+\amorce{La structure de l'article est son principal apport pédagogique : chaque leçon est exposée
+deux fois, une fois comme résultat théorique, une fois comme fait observé.} Cette discipline
+interdit la confusion la plus répandue dans les discussions fiscales, qui consiste à présenter
+comme un constat ce qui n'est qu'une conclusion de modèle, ou à traiter un usage répandu comme la
+preuve de sa propre rationalité. Le tableau de la figure~\ref{fig:lecons} résume l'état des huit
+confrontations.
+
+\figbloc{c13_lecons_mankiw}{Les huit leçons de la théorie, et ce que la pratique en a
+fait}{fig:lecons}
+
+\subsection{Les quatre premières leçons : le barème sur le travail}
+
+\amorce{La première leçon est un résultat de cadrage plutôt qu'une recommandation : le barème
+optimal dépend de la distribution des capacités.} Elle n'est pas directement testable, puisque la
+distribution des capacités n'est pas observée. Son importance est ailleurs : elle signale que
+toute affirmation sur le barème optimal repose sur une hypothèse concernant un objet inobservable,
+et que cette hypothèse doit être explicitée. C'est le fil qui relie les leçons~2 et~3.
+
+\amorce{La deuxième leçon est la plus déstabilisante : le barème marginal optimal pourrait
+décroître en haut de l'échelle.} Le module~4 en a exposé le mécanisme et la fragilité. Ce qui
+importe ici est la confrontation avec les faits : indépendamment de l'ambiguïté théorique, la
+politique fiscale est allée dans ce sens pendant trente ans. Le coin marginal supérieur --- taux
+marginal de l'impôt sur le revenu combiné à la TVA --- est passé dans l'OCDE de près de 80~\% à
+légèrement plus de 60~\% entre 1983 et 2007, et le taux marginal appliqué à un revenu représentant
+250~\% de la rémunération moyenne a baissé dans 11~pays sur 14, de 11~points en moyenne sur
+vingt-cinq ans.
+
+\amorce{Le mouvement s'est interrompu après 2000, et la trajectoire française est la plus
+singulière du lot.} Le taux statutaire supérieur français passe de 58,3~\% en 2000 à 45,8~\% en
+2006, où il demeure quatre ans, puis remonte jusqu'à 55,4~\% en 2018 et s'y maintient
+(figure~\ref{fig:tauxsuph}). Aucun des cinq autres pays suivis ne fait cet aller-retour :
+l'Allemagne baisse de six points et s'arrête, la Suède et les États-Unis de trois, le Royaume-Uni
+remonte de cinq points après la crise de 2008 et s'y tient. La France finit la période au niveau le
+plus élevé du groupe, après l'avoir quitté puis retrouvé.
+
+\amorce{Deux lectures en sont possibles et le cours ne tranche pas.} Soit la France a cessé de
+suivre un mouvement dont rien ne garantit qu'il était justifié, soit elle a renoncé à un ajustement
+que ses partenaires ont jugé nécessaire. Ce qui est certain est qu'un taux affiché ne dit rien de
+l'assiette à laquelle il s'applique : deux pays au même taux facial peuvent avoir des élasticités
+très différentes selon la porosité de leur base, et c'est l'assiette, non le taux, qui détermine
+le coût du prélèvement.
+
+\figbloc{c21_taux_superieurs}{La France a abandonné douze points de taux supérieur, puis les a
+repris}{fig:tauxsuph}
+
+\amorce{La troisième leçon réhabilite une proposition qu'on croyait réservée aux économistes de
+droite : un impôt à taux unique assorti d'un transfert universel peut être proche de l'optimum.}
+C'est le résultat de Mirrlees lui-même. Sa portée politique est double et symétrique. Elle retire
+un argument à ceux qui tiennent la multiplication des tranches pour une mesure de justice : ce qui
+redistribue est le niveau du transfert et celui du taux, pas le nombre de seuils. Elle en retire un
+autre à ceux qui tiennent le taux unique pour une mesure libérale : un taux unique assorti d'un
+transfert suffisamment élevé redistribue beaucoup.
+
+\amorce{La quatrième leçon est celle que les lecteurs libéraux de l'article lisent le moins
+volontiers : l'ampleur optimale de la redistribution croît avec l'inégalité des salaires.} Le
+mécanisme a été exposé au module~4. La vérification empirique des auteurs est modeste mais elle
+va dans le bon sens : neuf des onze pays pour lesquels la série est exploitable montrent une
+relation positive entre inégalité avant impôt et dépenses sociales rapportées au PIB. Ce n'est pas
+une identification causale --- rien n'exclut qu'un troisième facteur fasse bouger les deux --- mais
+c'est la prédiction du modèle, et elle n'est pas contredite.
+
+\subsection{La cinquième leçon : là où la théorie demande ce que personne ne veut}
+
+\amorce{C'est la leçon la plus instructive de l'article, parce que c'est celle où la théorie est
+claire, cohérente, et universellement refusée.} Elle recommande que l'impôt dépende de toute
+caractéristique personnelle largement exogène, facile à contrôler et liée à la capacité ou aux
+préférences. Les auteurs en donnent la liste sans euphémisme : le sexe, la taille, la couleur de
+peau, l'apparence physique, la santé, l'éducation des parents. Deux travaux récents ont chiffré
+les gains d'un impôt dépendant du sexe et d'un impôt dépendant de la taille, et les ont trouvés
+substantiels.
+
+\amorce{Aucun système fiscal moderne ne pratique rien de tel, et les auteurs écartent
+l'explication paresseuse.} Le ciblage existe bel et bien --- les prestations familiales
+représentaient 2,4~\% du PIB en moyenne dans l'OCDE en 2003, et presque tous les pays développés
+réservent des avantages aux ménages pauvres avec enfants, aux personnes handicapées et aux
+personnes âgées. La seule exception à la règle générale est l'âge : plusieurs pays allègent la
+charge au-delà de 55 ou 65 ans. Ce n'est donc pas que le ciblage soit impossible ou incompris,
+c'est qu'il s'arrête à une frontière précise.
+
+\amorce{Cette frontière est la suivante, et la formuler est la contribution la plus durable de
+l'article.} Les sociétés acceptent de cibler sur des caractéristiques qui surviennent au cours
+d'une vie et que chacun pourrait connaître --- devenir parent, devenir handicapé, vieillir --- et
+refusent celles qui sont fixées à la naissance. Deux principes extérieurs au modèle rendent compte
+de ce refus. L'équité horizontale : deux personnes de capacité semblable doivent payer autant,
+quelles que soient leurs caractéristiques fixes. Et le principe du bénéfice : l'impôt devrait être
+lié à ce que l'on reçoit de la collectivité.
+
+\begin{encadre}{Pourquoi cette frontière n'est pas qu'un préjugé}
+Il y a une raison économique derrière la distinction entre caractéristiques acquises et
+caractéristiques innées, et les auteurs la formulent en une phrase.
+
+Un système qui cible une caractéristique qui peut survenir à n'importe qui ressemble à une
+assurance : avant de savoir si l'on sera handicapé, chacun a intérêt à ce qu'un dispositif allège
+la charge de ceux qui le deviendront. Tout le monde peut y souscrire derrière le voile
+d'ignorance.
+
+Un système qui cible une caractéristique connue dès la naissance n'est plus une assurance : c'est
+un transfert pur, et ceux qui savent déjà qu'ils sont du « mauvais » côté s'y opposeront
+rationnellement. Le refus du \emph{tagging} sur caractéristiques innées n'est donc pas une
+irrationalité des électeurs : c'est ce qui reste quand on retire au dispositif sa dimension
+assurantielle.
+\end{encadre}
+
+\subsection{Les sixième et septième leçons : les biens et le capital}
+
+\amorce{La sixième leçon est celle où la pratique a le mieux suivi, et le véhicule est la TVA.}
+Diamond et Mirrlees prescrivent de ne pas taxer les biens intermédiaires, Atkinson et Stiglitz de
+taxer uniformément les biens finals ; une TVA bien construite fait exactement les deux. Le
+mouvement est massif : 29 des 30 pays de l'OCDE en disposaient en 2009, contre 12 en 1976 ; sur
+ces douze, onze ont relevé leur taux, et le taux moyen est passé de 15,6 à 20,4~\%. La part des
+recettes tirées des taxes générales sur la consommation a doublé entre les années 1960 et le
+milieu des années 2000, de 9,5 à près de 19~\%, pendant que celle des accises spécifiques tombait
+de 24,1 à 11,5~\%.
+
+\amorce{Un détail de cette série concerne directement la France, et il mérite d'être relevé.} Sur
+les douze pays dotés d'une TVA en 1976, la France est le seul à avoir baissé son taux normal sur
+la période --- de 20 à 19,6~\%. Autrement dit, la France a appliqué le principe tôt, puis n'a pas
+suivi le mouvement de bascule vers la consommation que ses partenaires ont opéré. Le taux est
+depuis remonté à 20~\%, mais l'écart de structure est resté.
+
+\amorce{Les auteurs ne cachent pas que la pratique s'écarte du principe sur l'uniformité.} Presque
+tous les pays exonèrent ou allègent les « biens de base », alimentation en tête, et la motivation
+affichée --- alléger la charge des ménages modestes --- est précisément celle qu'Atkinson et
+Stiglitz démontrent être mal servie par cet instrument. Mais sur l'essentiel, la conclusion est
+claire : les gouvernements ont intériorisé une partie des leçons de la théorie en matière de
+taxation des biens.
+
+\amorce{La septième leçon --- ne pas taxer le revenu du capital, au moins en espérance --- donne
+lieu à la confrontation empirique la plus intéressante de l'article, parce que les deux mesures
+disponibles se contredisent.} Les taux statutaires ont fortement baissé : impôt sur les sociétés de
+45-50~\% au milieu des années 1980 à environ 28~\% en moyenne dans l'OCDE en 2007 ; imposition
+personnelle des dividendes de 55~\% au début des années 1980 à moins de 20~\% en 2005. Mais les
+taux implicites, qui rapportent l'impôt effectivement payé à l'assiette économique
+correspondante, vont dans l'autre sens : Carey et Rabesona (2004) trouvent une hausse de
+6,4~points entre 1975-80 et 1990-2000 sur l'excédent net d'exploitation.
+
+\amorce{Cette contradiction apparente a une explication simple et une leçon de méthode.}
+L'explication est que les gouvernements ont fait ce que la règle de bon sens recommande ---
+élargir l'assiette, baisser le taux --- ou, moins charitablement, qu'ils ont réduit la partie
+visible du prélèvement en compensant ailleurs. La leçon de méthode est qu'un taux affiché ne
+mesure pas une charge fiscale, et qu'un débat conduit sur les seuls taux faciaux est un débat sur
+l'emballage. Dans les deux cas, les auteurs concluent que l'écart avec la recommandation théorique
+---~zéro~--- reste considérable.
+
+\subsection{La huitième leçon : la théorie qu'aucun conseiller n'oserait proposer}
+
+\amorce{Dans les modèles dynamiques avec incertitude, l'impôt optimal dépend de l'historique des
+revenus de chacun, et la recommandation qui en sort est, selon les termes des auteurs eux-mêmes,
+« assez choquante ».} L'impôt sur le capital devrait être d'autant plus élevé que le revenu du
+travail déclaré est anormalement bas. Autrement dit : positif pour celui qui gagne étonnamment
+peu, négatif pour celui qui gagne étonnamment beaucoup.
+
+\amorce{Le mécanisme est pourtant limpide une fois exposé.} Le problème central de la
+redistribution est qu'elle incite à travailler moins pour être mieux traité. Dans une économie
+dynamique, cette tentation est plus forte encore, parce qu'on peut accumuler des actifs et
+s'en servir pour maintenir sa consommation les années où l'on prétend avoir une faible capacité.
+Un impôt sur le capital plus lourd quand le revenu du travail chute rend cette stratégie coûteuse,
+puisqu'il réduit le rendement de l'épargne de celui qui gagne peu. Il décourage donc la triche, et
+permet de redistribuer davantage.
+
+\amorce{Kocherlakota (2005) ajoute le résultat qui réconcilie cette leçon avec la précédente :
+l'espérance de l'impôt sur le capital, calculée avant que la capacité ne soit révélée, est nulle.}
+Le système recommandé ne lève donc, en moyenne, aucune recette sur le capital --- il s'en sert
+comme d'un instrument d'information, pas comme d'une assiette. C'est une distinction que le débat
+public ne fait jamais, et qui change tout : il ne s'agit pas de taxer le capital davantage ou
+moins, il s'agit de s'en servir pour autre chose.
+
+\amorce{La confrontation avec la pratique est sans appel, et les auteurs ont l'honnêteté de la
+mener sur le seul point testable.} La théorie recommande de conditionner les prestations
+d'invalidité au patrimoine, pour la même raison. Sur dix pays examinés --- Australie, Canada,
+France, Allemagne, Italie, Japon, Mexique, Suède, Royaume-Uni, États-Unis --- trois seulement le
+font pour au moins une partie des versements. L'effet de cette branche de la littérature sur les
+politiques publiques, concluent-ils, est à ce jour modeste.
+
+\subsection{La conclusion, et pourquoi elle est la partie la plus utile}
+
+\amorce{Les auteurs refusent de trancher, et ce refus est argumenté plutôt que prudent.} Certaines
+évolutions ressemblent à des victoires de la théorie : la baisse mondiale de l'imposition statutaire
+du capital, l'aplatissement des barèmes, la généralisation de la TVA. D'autres recommandations
+n'apparaissent nulle part et n'y apparaîtront pas : le \emph{tagging} sur caractéristiques innées,
+l'impôt sur le capital régressif en variation du revenu du travail. « Peu d'économistes conseillant
+un candidat ou un ministre auraient l'audace d'avancer ces idées dans une discussion pratique de
+politique fiscale. »
+
+\amorce{Deux explications sont possibles, et le choix entre elles est le vrai sujet du texte.}
+Soit la théorie a raison et le public comme les gouvernements tardent à comprendre des résultats
+contre-intuitifs mais justes. Soit --- hypothèse au moins aussi plausible selon les auteurs --- la
+tradition des finances publiques contient des idées que la théorie moderne a laissées de côté :
+le principe du bénéfice et l'équité horizontale, qu'aucune fonction de bien-être standard ne
+contient.
+
+\begin{encadre}{Ce que ce rapport retient de cette conclusion}
+La position adoptée ici est la suivante, et elle commande la méthode du reste du cours.
+
+Là où la théorie établit un mécanisme vérifiable --- la perte sèche qui croît au carré du taux, la
+distorsion produite par un impôt sur un intrant, l'arithmétique qui convertit un impôt sur le
+stock en taux sur le flux, le fait qu'un taux réduit donne plus d'euros aux riches --- elle
+l'emporte sur l'habitude, et l'écart avec la pratique est un défaut à corriger.
+
+Là où elle produit une recommandation que toutes les sociétés refusent, l'hypothèse de travail est
+que la théorie omet quelque chose, et c'est à elle de rendre des comptes.
+
+Ce critère n'est pas arbitraire : il distingue les résultats qui tiennent par un calcul qu'on peut
+refaire de ceux qui tiennent par une fonction de bien-être qu'on a choisie.
+\end{encadre}
+
+% ===========================================================================
+\section{La \emph{Mirrlees Review} : la méthode avant les propositions}
+
+\begin{source}{Le texte}
+\emph{Tax by Design}, James Mirrlees, Stuart Adam, Timothy Besley, Richard Blundell, Stephen Bond,
+Robert Chote, Malcolm Gammie, Paul Johnson, Gareth Myles et James Poterba, Institute for Fiscal
+Studies et Oxford University Press, 2011. 548~pages, 20~chapitres, en accès libre sur le site de
+l'IFS.
+
+C'est le second volume d'un ensemble dont le premier, \emph{Dimensions of Tax Design} (2010),
+rassemble treize études commandées à des spécialistes avec les commentaires de leurs pairs.
+L'exercice a duré cinq ans et a porté sur le système britannique dans son entier.
+
+Trois chapitres suffisent à en saisir la méthode : le chapitre~2 sur l'approche économique, le
+chapitre~20 sur le système recherché, et le chapitre correspondant à l'impôt qu'on veut étudier.
+Les chapitres sont autonomes.
+\end{source}
+
+\amorce{La contribution durable de cet ouvrage n'est pas une proposition particulière, c'est une
+méthode, et elle tient en trois exigences.} Juger le système dans son ensemble, et non chaque
+impôt séparément. Partir d'une description précise de la population et de l'économie sur
+lesquelles le système opère, et non d'un idéal abstrait. Chiffrer chaque réforme, y compris ses
+perdants. Aucune de ces trois exigences n'est spectaculaire ; leur application systématique
+produit un document qui n'a pas d'équivalent.
+
+\subsection{Ce que les auteurs demandent à un système fiscal}
+
+\amorce{Le point de départ est un refus : celui de la liste de principes qui ne hiérarchise rien.}
+Les auteurs citent les quatre canons d'Adam Smith --- contribution proportionnelle aux facultés,
+certitude, commodité, coût minimal au-delà de ce que l'impôt rapporte --- pour observer qu'ils
+recueillent un assentiment quasi universel et ne servent à rien dès qu'un objectif entre en
+conflit avec un autre. C'est exactement le défaut de la plupart des rapports sur la fiscalité.
+
+\amorce{La formulation qu'ils retiennent est conditionnelle, et cette conditionnelle est tout.}
+\emph{Pour un résultat distributif donné}, ce qui compte est : minimiser les effets négatifs sur
+l'efficience et le bien-être ; minimiser les coûts d'administration et de conformité ; respecter
+l'équité au sens non distributif --- équité de procédure, absence de discrimination, respect des
+attentes légitimes ; et la transparence, un système que les gens comprennent valant mieux qu'un
+système qui prélève par inadvertance.
+
+\amorce{La simplicité, la neutralité et la stabilité ne figurent pas dans cette liste, et les
+auteurs prennent soin de dire pourquoi.} Elles sont des moyens d'atteindre les quatre objectifs
+ci-dessus, pas des fins en soi. Un système simple est préférable parce qu'il coûte moins à
+administrer et se comprend mieux, pas parce que la simplicité serait bonne en elle-même. Cette
+précision a une portée pratique immédiate : elle autorise l'exception quand elle est justifiée ---
+le prix du carbone, les accises sur le tabac et l'alcool --- et interdit d'invoquer la neutralité
+comme un argument qui se suffirait à lui-même.
+
+\begin{encadre}{Le test du statu quo}
+Le dispositif rhétorique le plus efficace de l'ouvrage tient en une inversion de la charge de la
+preuve.
+
+Ne pas taxer quelque chose revient à en subventionner l'usage par rapport à tout ce qui est taxé.
+Un taux réduit sur la restauration est une subvention aux repas pris à l'extérieur, financée par
+un taux plus élevé sur tout le reste. L'absence de TVA sur les loyers imputés du propriétaire
+occupant est une subvention à l'occupation par rapport à la location.
+
+La question n'est donc jamais « faut-il taxer ceci ? » mais « pourquoi subventionne-t-on ceci ? ».
+Posée dans ce sens, elle appelle une justification là où l'habitude n'en demande aucune --- et la
+plupart des régimes dérogatoires n'en ont pas.
+\end{encadre}
+
+\subsection{Les propositions, et ce qui les relie}
+
+\amorce{Le système recherché tient en cinq rubriques, et chacune découle directement d'un des
+modules de la première partie.} Les auteurs les présentent en vis-à-vis du système britannique
+existant, dans un tableau qui est le c\oe ur du chapitre~20. Le tableau~\ref{tab:confrontation}
+reprend ce dispositif en substituant la France au Royaume-Uni.
+
+\begin{table}[htbp]
+\caption{Un bon système fiscal, et le système français actuel}
+\label{tab:confrontation}
+\small
+\begin{tabular}{@{}p{7.0cm}p{7.3cm}@{}}
+\toprule
+\textbf{Un bon système fiscal} & \textbf{Le système français actuel}\\
+\midrule
+\multicolumn{2}{@{}l}{\itshape Impôts sur les revenus du travail}\\
+Un impôt progressif sur le revenu, de structure transparente et cohérente &
+Deux impôts sur le revenu qui ne partagent ni assiette, ni unité d'imposition, ni barème ---
+contribution sociale généralisée sur l'individu, impôt sur le revenu sur le foyer\\
+Une prestation unique et intégrée pour les revenus faibles et les besoins élevés &
+Un empilement de prestations aux conditions de ressources différentes\\
+Un profil de taux effectifs qui tienne compte de ce que l'on sait des réactions de comportement &
+Un profil non monotone, avec un creux au-dessus du salaire minimum que personne n'a voulu\\
+\midrule
+\multicolumn{2}{@{}l}{\itshape Impôts indirects}\\
+Une TVA largement uniforme, avec un petit nombre d'exceptions justifiées par l'efficience, et des
+équivalents pour les services financiers et le logement &
+Trois taux réduits et un ensemble d'exonérations sectorielles ; un tiers de l'assiette potentielle
+hors du taux normal\\
+Aucune taxe sur les transactions &
+17~Md\euro{} de droits de mutation à titre onéreux\\
+\midrule
+\multicolumn{2}{@{}l}{\itshape Fiscalité environnementale}\\
+Un prix cohérent sur les émissions de carbone &
+Des prix implicites dispersés selon les secteurs, nuls pour certains\\
+Une taxation bien ciblée de la congestion &
+Une taxation du carburant qui ne distingue pas le lieu ni l'heure\\
+\midrule
+\multicolumn{2}{@{}l}{\itshape Épargne et patrimoine}\\
+Aucun impôt sur le rendement normal de l'épargne &
+Le rendement normal imposé sur la plupart des supports, exonéré sur quelques-uns, à des taux
+effectifs allant de 0 à 97~\%\\
+Le barème ordinaire appliqué aux revenus de toutes origines après abattement pour rendement normal
+&
+Des régimes séparés par support, sans logique d'ensemble\\
+Un impôt sur les transmissions reçues au cours de la vie &
+Des droits de succession au barème élevé sur une assiette amputée par un ensemble de régimes
+dérogatoires\\
+\midrule
+\multicolumn{2}{@{}l}{\itshape Fiscalité des entreprises}\\
+Un taux unique d'impôt sur les sociétés, sans imposition du rendement normal de l'investissement &
+Un taux unique assorti de surtaxes, sans déduction du coût des fonds propres, donc un biais en
+faveur de la dette\\
+Un traitement identique du salariat, de l'indépendance et de la petite société &
+Des régimes distincts, avec des écarts de prélèvement pour une même activité\\
+Aucun impôt sur les intrants, mais un impôt sur la valeur du terrain &
+77~Md\euro{} assis sur des facteurs de production, et une taxe foncière assise sur des valeurs
+locatives de 1970\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\amorce{Le fil qui relie ces rubriques est unique : imposer une fois, au bon endroit, et à un taux
+qui ne dépend pas de la forme.} L'impôt frappe le revenu du travail une fois, par un barème
+lisible. Il frappe la consommation une fois, à un taux unique. Il ne frappe pas le rendement
+normal de l'épargne, parce que ce serait frapper une seconde fois le même revenu du travail. Il
+frappe la rente, parce qu'elle ne se décourage pas. Et il frappe le dommage environnemental à son
+coût social, une seule fois et au même prix pour tous.
+
+\subsection{Trois propositions qui dérangent, dans trois directions différentes}
+
+\amorce{La première est l'imposition du loyer implicite du propriétaire occupant, et elle
+n'arrange personne.} Deux ménages de même revenu, dont l'un possède son logement et l'autre loue
+le sien, ne sont pas traités de la même façon : le propriétaire consomme un service de logement
+sans que cette consommation soit jamais taxée, tandis que le locataire paie un loyer sur un revenu
+déjà imposé. Le raisonnement est exactement celui du module~3 --- deux formes de la même
+consommation taxées à des taux différents --- et sa conclusion est électoralement intenable dans
+tous les pays où elle a été énoncée.
+
+\amorce{La deuxième est l'abandon des taux réduits de TVA, assorti d'une compensation chiffrée, et
+elle heurte la gauche de l'échiquier.} Les auteurs ne se contentent pas de recommander
+l'uniformité : ils construisent un paquet neutre sur le rendement \emph{et} sur la distribution, en
+utilisant le barème direct et les prestations pour rendre au décile inférieur ce que la hausse de
+TVA lui a pris. C'est le travail le plus coûteux de l'ouvrage, et c'est ce qui lui donne son
+autorité : la réforme peut être discutée sur ses mérites plutôt que rejetée sur ses effets de
+premier tour.
+
+\amorce{La troisième est la déduction du coût des fonds propres dans l'impôt sur les sociétés, et
+elle heurte la droite de l'échiquier autant que la gauche, pour des raisons opposées.} Elle réduit
+l'assiette de l'impôt sur les sociétés, ce qui paraît un cadeau ; elle supprime le biais en faveur
+de l'endettement, ce qui est un gain d'efficience net ; et pour maintenir le rendement, elle
+suppose de relever le taux appliqué à ce qui reste, c'est-à-dire à la rente. Le résultat est un
+impôt sur les sociétés qui rapporte autant en ne taxant plus que ce qui ne se décourage pas.
+
+\subsection{Ce que la France peut en tirer, et ce qu'elle ne peut pas}
+
+\amorce{Le transfert direct des propositions britanniques serait une erreur de méthode, et les
+auteurs de la \emph{Review} seraient les premiers à le dire.} Un système fiscal s'évalue sur la
+population et l'économie auxquelles il s'applique. Deux différences comptent. La France finance
+par cotisations une part de sa protection sociale que le Royaume-Uni finance par l'impôt, ce qui
+donne à la logique contributive une place qu'elle n'a pas là-bas. Et la France impose le foyer
+quand le Royaume-Uni impose l'individu, ce qui modifie la totalité du calcul des taux marginaux du
+second apporteur de revenu.
+
+\amorce{Ce qui se transfère, en revanche, c'est la méthode, et elle se transfère entièrement.}
+Le tableau en vis-à-vis, le chiffrage des perdants, le test du statu quo, la règle de dénominateur
+pour la mesure de la progressivité, le refus de juger un impôt isolé : rien de tout cela ne dépend
+du pays. C'est ce que le présent rapport emprunte.
+
+\amorce{Une limite de l'ouvrage mérite d'être signalée, parce qu'elle est le prix de sa qualité.}
+L'exercice suppose une capacité de chiffrage microéconomique --- un modèle de microsimulation, un
+accès aux données fiscales individuelles --- dont tout le monde ne dispose pas. Un rapport qui
+n'en dispose pas doit le dire et s'en tenir aux ordres de grandeur, plutôt que de produire des
+chiffres précis dont il ne pourrait pas justifier la construction.
+
+% ===========================================================================
+\section{L'OCDE : ce qu'une régression établit, et ce qu'elle suggère seulement}
+
+\begin{source}{Le texte}
+Åsa Johansson, Christopher Heady, Jens Arnold, Bert Brys et Laura Vartia, « Taxation and Economic
+Growth », OCDE, document de travail du département des affaires économiques n°~620, 2008.
+83~pages, en accès libre.
+
+Le document combine une revue de la littérature, une description de l'évolution des structures
+fiscales dans l'OCDE depuis 1975, et trois jeux d'estimations : une régression de panel sur le PIB
+par habitant de 21~pays entre 1970 et 2005, des régressions sectorielles sur l'investissement, et
+des régressions sur la productivité au niveau des entreprises et des branches.
+
+C'est le texte le plus cité des trois, le plus souvent mal cité, et celui dont les auteurs sont les
+plus explicites sur les limites de ce qu'ils ont trouvé.
+\end{source}
+
+\amorce{Le résultat qui a fait la fortune du document tient en une phrase : les impôts récurrents
+sur l'immobilier seraient les moins défavorables à la croissance, devant les taxes sur la
+consommation, puis les impôts sur le revenu des personnes, les impôts sur les sociétés étant les
+plus nocifs.} La recommandation qui en découle est attendue : à rendement constant, déplacer une
+partie de l'assiette des impôts sur le revenu vers des prélèvements moins distorsifs.
+
+\amorce{Appliqué à la structure française, l'exercice donne une image très nette, et c'est la
+raison pour laquelle on le cite tant.} La France lève 749~Md\euro{} dans la catégorie que le
+classement place en avant-dernier, 90 dans celle qu'il place en dernier, et 48 dans celle qu'il
+place en premier (figure~\ref{fig:ocde}). Si le classement dit vrai, la France a construit sa
+structure fiscale presque exactement à l'envers de ce qu'il recommande.
+
+\figbloc{c10_classement_ocde}{La France lève le plus là où le classement de l'OCDE place le plus
+de dommage}{fig:ocde}
+
+\subsection{Comment le résultat est obtenu}
+
+\amorce{Il faut dire ce que la méthode fait, parce que c'est elle qui détermine ce que le résultat
+peut signifier.} Les auteurs régressent le logarithme du PIB par habitant sur les déterminants
+habituels --- capital physique, capital humain, croissance démographique --- en ajoutant le niveau
+global des prélèvements rapporté au PIB, puis la part de chaque catégorie d'impôt dans les
+recettes totales. Le niveau étant contrôlé séparément, les coefficients sur les parts s'interprètent
+comme l'effet d'un déplacement à rendement constant d'une catégorie vers une autre.
+
+\amorce{Deux précautions de construction méritent d'être connues avant d'utiliser un chiffre
+issu de ce travail.} La première est que le modèle suppose que les parts et le niveau sont
+indépendants dans les données, ce que les auteurs reconnaissent comme improbable --- et ce qui
+peut biaiser les coefficients précisément là où on veut s'en servir. La seconde est qu'il s'agit
+d'une comparaison entre pays sur longue période : ce qu'on identifie est une association entre des
+structures fiscales durablement différentes et des niveaux de revenu durablement différents, non
+l'effet d'une réforme.
+
+\subsection{Ce que les auteurs disent eux-mêmes de leur magnitude}
+
+\amorce{C'est ici que le document est le plus intéressant, et c'est la partie que les citations
+omettent systématiquement.} L'estimation centrale est qu'un déplacement de 1~\% des recettes
+fiscales des impôts sur le revenu vers les taxes sur la consommation et sur le patrimoine
+augmenterait le PIB par habitant d'un quart de point à un point à long terme, selon la
+spécification. Et les auteurs écrivent immédiatement après : « L'ordre de grandeur de l'effet
+estimé est plus élevé que ce à quoi on pourrait raisonnablement s'attendre. »
+
+\amorce{Ils poursuivent, et la phrase suivante devrait figurer dans toute citation de ce
+travail.} « Étant donné la large dispersion des estimations ponctuelles entre spécifications, il
+est clair que l'ampleur des effets ne peut pas être mesurée avec précision dans un cadre de
+comparaison entre pays. » Ils proposent même un mécanisme expliquant la surestimation : un
+déplacement de structure peut déclencher des déplacements analogues chez les partenaires
+commerciaux, ce qui annule une partie du bénéfice pour le pays considéré.
+
+\begin{encadre}{Pourquoi un quart de point est déjà beaucoup trop}
+Un déplacement de 1~\% des recettes représente, en France, environ 13~Md\euro{}. L'estimation
+basse du document attribue à ce déplacement un gain permanent d'un quart de point de PIB par
+habitant, soit de l'ordre de 7~Md\euro{} par an.
+
+Autrement dit, déplacer treize milliards d'une catégorie d'impôt à une autre produirait chaque
+année, indéfiniment, un gain équivalent à la moitié du montant déplacé. Aucun mécanisme
+microéconomique connu ne produit un rendement pareil. C'est exactement ce que les auteurs veulent
+dire en écrivant que la magnitude est « plus élevée que ce à quoi on pourrait raisonnablement
+s'attendre ».
+
+On peut donc retenir le signe et l'ordre du classement. On ne peut pas retenir les nombres, et
+quiconque chiffre une réforme française à partir de ces coefficients produit un résultat
+fantaisiste.
+\end{encadre}
+
+\amorce{La robustesse de l'ordre lui-même a par ailleurs été sérieusement contestée.} Xing (2012)
+montre que le classement ne résiste pas au changement de spécification, et que l'avantage attribué
+aux impôts récurrents sur l'immobilier --- le résultat le plus repris --- disparaît en particulier.
+Ce qui subsiste n'est pas rien : l'ordre obtenu coïncide avec ce que la théorie prédit pour des
+raisons entièrement indépendantes. Une assiette immobile se taxe sans dommage ; un prélèvement sur
+un facteur de production fait le plus de dégâts. Le classement est donc une confirmation plausible
+d'un mécanisme établi ailleurs, et non une preuve autonome. C'est sous ce statut qu'il faut le
+citer, et c'est sous ce statut qu'il est utilisé ici.
+
+\subsection{Les recommandations plus solides, et moins citées}
+
+\amorce{Le document contient un résultat plus utile que le classement, et les auteurs y insistent
+sans être entendus : l'essentiel des gains vient de la réforme de chaque impôt, pas du déplacement
+entre impôts.} Changer l'équilibre entre sources de recettes ne remplace pas l'amélioration de la
+conception de chaque impôt pris séparément. Élargir l'assiette d'une taxe sur la consommation vaut
+mieux qu'en relever le taux, parce qu'une assiette large améliore l'efficience tandis qu'un taux
+élevé nourrit l'économie souterraine. Plus généralement, la plupart des impôts gagneraient à la
+combinaison d'un élargissement d'assiette et d'une baisse de taux.
+
+\amorce{C'est précisément la conclusion du module~1, obtenue par une voie entièrement différente,
+et c'est ce qui lui donne du poids.} Le raisonnement théorique part de la perte sèche qui croît au
+carré du taux ; l'estimation empirique part d'un panel de vingt-et-un pays sur trente-cinq ans. Les
+deux aboutissent à la même recommandation opérationnelle. Quand deux méthodes sans rapport
+convergent, la conclusion est plus solide que chacune prise isolément.
+
+\amorce{Le document ne cache pas les arbitrages, et c'est un point d'honnêteté qui mérite d'être
+relevé.} Un déplacement du revenu vers la consommation réduit la progressivité : les auteurs
+l'écrivent noir sur blanc. Un déplacement de l'impôt sur les sociétés vers la consommation élève
+les cours de bourse, donc l'inégalité de patrimoine, en même temps qu'il allège l'imposition du
+revenu du capital. Aplatir le barème pourrait favoriser l'entrepreneuriat et élève l'inégalité des
+revenus. Rien de tout cela n'est présenté comme un gain pur ; tout est présenté comme un arbitrage
+que chaque pays évaluera différemment.
+
+\amorce{Deux recommandations plus précises concernent directement la France.} La première : baisser
+le taux de l'impôt sur les sociétés très au-dessous du taux marginal supérieur de l'impôt sur le
+revenu compromet l'intégrité du système, parce que les contribuables à haut revenu logent alors
+leur épargne dans des sociétés. C'est un argument contre les écarts de taux que le débat français
+sur la « flat tax » néglige. La seconde : les prestations liées à l'exercice d'un emploi peuvent
+constituer une réforme gagnante des deux côtés --- elles relèvent le revenu des ménages modestes
+et améliorent l'efficience si le gain de participation l'emporte sur la désincitation aux heures
+supplémentaires créée par la dégressivité. C'est le mécanisme de la prime d'activité, et c'est
+aussi, exactement, la source du creux de taux marginal décrit au module~4.
+
+\amorce{Un dernier point concerne la distinction entre participation et heures travaillées, et il
+aurait mérité de passer dans le débat français.} Réduire les prélèvements moyens sur le travail
+favorise la participation ; réduire les taux marginaux favorise les heures travaillées. Ce ne sont
+pas les mêmes instruments, et la France a massivement utilisé le premier --- les allègements de
+cotisations au voisinage du salaire minimum --- en dégradant le second, puisque la sortie de ces
+allègements crée précisément des taux marginaux élevés. Le document de l'OCDE ne dit pas que
+c'était une erreur ; il dit que les deux objectifs sont distincts et qu'une réforme doit savoir
+lequel elle poursuit.
+
+\partie{Troisième partie}{Ce que cela donne pour la France}
+
+% ===========================================================================
+\section{Quatre autres revues, et ce sur quoi elles convergent}
+
+\amorce{La \emph{Mirrlees Review} n'a jamais eu de successeur au Royaume-Uni, mais quatre pays ont
+mené depuis un exercice comparable, et leurs conclusions se ressemblent au point que la
+convergence devient elle-même une donnée.} Aucun de ces rapports n'a été écrit par les mêmes
+personnes, aucun n'a le même mandat politique, et tous recommandent d'élargir les assiettes, de
+réduire le nombre de taux, de déplacer la charge du travail vers la consommation et le patrimoine,
+et de taxer le foncier sur sa valeur réelle (figure~\ref{fig:convergence}).
+
+\figbloc{c20_convergence_revues}{Cinq revues indépendantes, et des recommandations qui se
+recoupent largement}{fig:convergence}
 
 \begin{table}[htbp]
 \caption{Cinq revues fiscales d'ensemble et leurs recommandations principales}
@@ -692,6 +1542,13 @@ travail.\\
 \end{tabular}
 \end{table}
 
+\amorce{Il faut dire ce que cette convergence prouve et ce qu'elle ne prouve pas.} Elle ne prouve
+pas que les recommandations soient justes : cinq groupes d'économistes formés dans la même
+tradition peuvent se tromper ensemble. Elle établit en revanche qu'il ne s'agit pas de
+préférences nationales ni de positionnements politiques, puisque les mandats, les majorités
+commanditaires et les systèmes de départ différaient. Ce qui converge, ce sont les conclusions
+tirées d'un même corps de résultats appliqué à des situations différentes.
+
 \amorce{Deux de ces rapports posent frontalement une question que la France n'ouvre pas : la
 contribution des retraités.} Le rapport néerlandais recommande explicitement de fiscaliser les
 cotisations de retraite de base, et la commission irlandaise de rééquilibrer entre générations. Le
@@ -703,54 +1560,21 @@ soit l'inverse exact du profil allemand (figure~\ref{fig:retraites}).
 \figbloc{p1_retraites_niveau_vie}{Niveau de vie relatif des 65 ans et plus, et taux de pauvreté par
 âge, 2024}{fig:retraites}
 
+\amorce{Ce constat ne dicte aucune conclusion, et il est important de dire pourquoi.} Le niveau de
+vie relatif des retraités résulte de décisions passées, prises en connaissance de cause, sur
+lesquelles les intéressés ont fondé des plans de long terme. Le respect des attentes légitimes
+figure explicitement parmi les critères d'équité de la \emph{Mirrlees Review}. Ce que le constat
+impose, c'est que la question soit posée et traitée comme une question de répartition entre
+générations, et non évacuée.
+
 \amorce{Un point de méthode sépare ces rapports de la plupart des travaux administratifs : ils
 chiffrent les perdants.} C'est ce qui permet à une recommandation d'être discutée plutôt que
-rejetée d'emblée, et c'est le plus coûteux à produire. La Mirrlees Review a construit ses paquets
-de réformes de façon à être neutres sur le rendement \emph{et} sur la distribution, et c'est ce
-double gage qui lui a donné son autorité.
+rejetée d'emblée, et c'est le plus coûteux à produire. La \emph{Mirrlees Review} a construit ses
+paquets de réformes de façon à être neutres sur le rendement \emph{et} sur la distribution, et
+c'est ce double gage qui lui a donné son autorité.
 
 % ===========================================================================
-\section{Lire un classement, et savoir ce qu'il vaut}
-
-\amorce{Deux tentatives célèbres prétendent ranger les impôts, et elles ne reposent pas sur la
-même chose.} La première est empirique : l'OCDE a estimé, sur un panel de pays, l'effet de la
-composition des prélèvements sur le PIB par habitant. La seconde est normative : la Tax Foundation
-agrège plus de quarante variables selon une pondération choisie. Les deux sont utiles et aucune ne
-dit ce qu'elle a l'air de dire.
-
-\subsection{Le classement « fiscalité et croissance » de l'OCDE}
-
-\amorce{Le résultat est devenu l'un des plus cités de la politique fiscale : les impôts récurrents
-sur l'immobilier seraient les moins défavorables à la croissance, devant les taxes sur la
-consommation, puis les impôts sur le revenu des personnes, les impôts sur les sociétés étant les
-plus nocifs.} Johansson, Heady, Arnold, Brys et Vartia en tirent la recommandation attendue : à
-rendement constant, déplacer une partie de l'assiette des impôts sur le revenu vers des
-prélèvements moins distorsifs. Appliqué à la structure française, l'exercice donne une image très
-nette (figure~\ref{fig:ocde}) : la France lève 749~Md\euro{} dans la catégorie que le classement
-place en avant-dernier, 90 dans celle qu'il place en dernier, et 48 dans celle qu'il place en
-premier.
-
-\figbloc{c10_classement_ocde}{La France lève le plus là où le classement de l'OCDE place le plus
-de dommage}{fig:ocde}
-
-\amorce{Trois précautions s'imposent avant d'utiliser ce classement, et la troisième est
-décisive.} D'abord, les auteurs eux-mêmes répètent qu'un déplacement du revenu vers la
-consommation réduit la progressivité, et qu'il s'agit donc d'un arbitrage et non d'un gain pur.
-Ensuite, ils insistent sur un point plus utile que le classement lui-même : l'essentiel des gains
-vient de la réforme de chaque impôt, pas du déplacement entre impôts --- élargir l'assiette d'un
-impôt sur la consommation vaut mieux qu'en relever le taux, parce qu'un taux élevé nourrit
-l'économie souterraine.
-
-\amorce{Enfin, et c'est la précaution qui compte : ce classement n'est pas un théorème, c'est une
-régression, et sa robustesse a été sérieusement contestée.} Xing (2012) montre que l'ordre ne
-résiste pas au changement de spécification, et que l'avantage attribué aux impôts récurrents sur
-l'immobilier --- le résultat le plus repris --- disparaît en particulier. Ce qui subsiste n'est pas
-rien : l'ordre obtenu coïncide avec ce que la théorie prédit pour des raisons entièrement
-indépendantes. Une assiette immobile se taxe sans dommage, un prélèvement sur un facteur de
-production en fait le plus. Autrement dit, le classement est une confirmation plausible d'un
-mécanisme établi ailleurs, et non une preuve autonome. C'est sous ce statut qu'il faut le citer.
-
-\subsection{L'indice de compétitivité fiscale de la Tax Foundation}
+\section{Lire un indice, et savoir ce qu'il vaut}
 
 \amorce{La Tax Foundation juge les systèmes fiscaux à l'aune de quatre principes déclarés :
 simplicité, transparence, neutralité et stabilité.} La neutralité y est entendue au sens fort ---
@@ -771,11 +1595,11 @@ tableaux}{fig:indice}
 
 \amorce{Trois critiques précises du système français ressortent de cet indice, et aucune n'est en
 désaccord avec les modules précédents.} Le taux combiné d'impôt sur les sociétés, le plus élevé de
-l'OCDE à 36,13~\% une fois les surtaxes incluses, auquel s'ajoutent des impôts de production que
-l'indice qualifie de distorsifs --- c'est le module~2. L'empilement d'impôts fonciers distincts :
+l'OCDE une fois les surtaxes incluses, auquel s'ajoutent des impôts de production que l'indice
+qualifie de distorsifs --- c'est le module~2. L'empilement d'impôts fonciers distincts :
 successions, actifs bancaires, transactions financières, et une taxe sur la fortune immobilière
---- c'est le module~6. Et une TVA dont la base ne couvre qu'environ la moitié de la consommation
-finale, conséquence directe des taux réduits et des exonérations --- c'est le module~3.
+--- c'est le module~6. Et une TVA dont la base ne couvre qu'une partie de la consommation finale,
+conséquence directe des taux réduits et des exonérations --- c'est le module~3.
 
 \begin{encadre}{Un indice est un argument déguisé en mesure}
 Celui-ci agrège plus de quarante variables selon une pondération que ses auteurs ont choisie, et
@@ -787,6 +1611,9 @@ distorsion que le théorème d'efficience productive établit indépendamment de
 politique. Quand il pénalise la progressivité de l'impôt sur le revenu ou l'existence d'un impôt
 sur le patrimoine, il applique un jugement normatif que la théorie ne tranche pas. Le premier
 usage est légitime, le second doit être discuté comme ce qu'il est.
+
+Le test est simple : un indice dont on peut reconstituer le calcul variable par variable mesure
+quelque chose ; un rang global agrégé mesure surtout la pondération de celui qui l'a construit.
 \end{encadre}
 
 \amorce{Sur le patrimoine, la position de la Tax Foundation rejoint pourtant l'arithmétique du
@@ -795,6 +1622,12 @@ donc sur l'arbitrage entre consommer aujourd'hui et investir pour demain ; la pl
 européens sur la fortune ont été abrogés pour des raisons administratives et de rendement
 décevant ; et une taxation progressive de la consommation atteindrait les mêmes personnes à un
 coût moindre. On peut refuser la conclusion politique et devoir admettre le calcul.
+
+\amorce{L'apport réel de cette institution n'est pas son classement, c'est sa manière d'exposer
+les mécanismes, et c'est ce que ce cours lui emprunte.} La cascade des cent euros de profit, le
+pyramidage d'une taxe sur le chiffre d'affaires, la valeur actualisée d'un amortissement : ce sont
+des dispositifs pédagogiques, pas des prises de position, et ils fonctionnent indépendamment des
+conclusions qu'on en tire. On peut emprunter l'instrument sans souscrire à l'usage qui en est fait.
 
 % ===========================================================================
 \section{La France mesurée à cette aune}
@@ -842,12 +1675,21 @@ voulu ; il résulte de l'empilement.
 \item \textbf{Les taux réduits de TVA.} Réforme la mieux documentée et la plus rejetée ; elle n'a
 de sens qu'accompagnée de sa compensation chiffrée.
 \item \textbf{Le rendement normal et l'inflation dans la fiscalité du capital.} Le même taux
-frappe l'intérêt d'un livret et la plus-value d'un fondateur.
+frappe l'intérêt d'un livret et la plus-value d'un fondateur, et des taux effectifs allant de 0 à
+97~\% frappent le même rendement réel selon l'enveloppe.
 \item \textbf{Deux impôts sur le revenu qui ne partagent ni assiette, ni unité, ni barème.}
 153~Md\euro{} de contribution sociale généralisée et 96~Md\euro{} d'impôt sur le revenu.
 \item \textbf{Le biais entre dette et fonds propres.} Correction connue, mais devenue incertaine
 sous l'imposition minimale mondiale à 15~\%.
 \end{enumerate}
+
+\amorce{Le classement par certitude est délibéré, et il définit ce qu'un rapport sérieux peut
+affirmer.} Les quatre premiers écarts reposent sur des mécanismes qui ne dépendent d'aucune
+estimation : supprimer une taxe sur un intrant améliore l'allocation, un prix unique du carbone
+atteint un objectif donné à moindre coût, une assiette fausse produit des écarts arbitraires, et
+taxer la transaction plutôt que la détention décourage la mobilité. Les suivants supposent des
+réactions de comportement dont l'ampleur se discute. Le dernier dépend d'un environnement
+international qui a changé depuis que la correction a été proposée.
 
 \subsection{Ce qu'il ne faut pas changer}
 
@@ -865,6 +1707,9 @@ de l'argument le plus solide dont elle dispose.
 besoin d'être étendu.} C'est le seul endroit où la France applique déjà un prix élevé et cohérent
 avec ses objectifs. La réforme consiste à aligner le reste sur lui, pas à le pousser plus haut.
 
+% ===========================================================================
+\section{Ce qu'il faut retenir}
+
 \subsection{Les cinq règles à emporter}
 
 \begin{enumerate}[leftmargin=1.5em,itemsep=0.35em]
@@ -878,6 +1723,25 @@ des taux sur les biens, qui donne plus d'euros aux riches qu'aux pauvres.
 la seconde ne décourage rien.
 \item \textbf{Un prix unique pour une externalité}, quel que soit le niveau sur lequel on
 s'accorde.
+\end{enumerate}
+
+\subsection{Les cinq habitudes de raisonnement}
+
+\begin{enumerate}[leftmargin=1.5em,itemsep=0.35em]
+\item \textbf{Distinguer ce qui est un mécanisme de ce qui est une estimation.} Un calcul qu'on
+peut refaire et une régression de panel n'ont pas le même statut, et le second doit être cité avec
+les réserves de ses propres auteurs.
+\item \textbf{Juger le système, pas l'impôt.} Rendre chaque prélèvement progressif n'est ni
+nécessaire ni efficient ; ce qui compte est l'effet d'ensemble, prestations comprises.
+\item \textbf{Vérifier le dénominateur.} Les impôts sur le revenu se rapportent au revenu, ceux
+sur la dépense à la dépense. Beaucoup de constats de régressivité sont des erreurs de
+dénominateur.
+\item \textbf{Appliquer le test du statu quo.} Ne pas taxer quelque chose revient à en
+subventionner l'usage. La question n'est pas « faut-il taxer ceci ? » mais « pourquoi
+subventionne-t-on ceci ? ».
+\item \textbf{Chiffrer les perdants.} Une réforme sans sa compensation n'est pas une proposition,
+c'est la moitié d'une proposition --- et c'est ce qui fait rejeter les bonnes idées pour de
+mauvaises raisons.
 \end{enumerate}
 
 \subsection{Quand la théorie et la pratique divergent, qui doit apprendre ?}
@@ -904,10 +1768,11 @@ sur le flux --- elle l'emporte sur l'habitude, et l'écart avec la pratique est 
 corriger. Là où elle produit une recommandation que toutes les sociétés refusent, l'hypothèse de
 travail est que la théorie omet quelque chose, et c'est à elle de rendre des comptes.
 
-\amorce{C'est leur caractère non partisan qui les rend utilisables.} Un gouvernement qui veut
-redistribuer davantage et un gouvernement qui veut redistribuer moins ont le même intérêt à les
-appliquer : le premier obtiendra plus de redistribution pour le même coût, le second lèvera la
-même somme en détruisant moins.
+\amorce{C'est le caractère non partisan de ces règles qui les rend utilisables.} Un gouvernement
+qui veut redistribuer davantage et un gouvernement qui veut redistribuer moins ont le même intérêt
+à les appliquer : le premier obtiendra plus de redistribution pour le même coût, le second lèvera
+la même somme en détruisant moins. Rien dans ce cours ne dit lequel des deux a raison, et c'est
+voulu.
 
 % ===========================================================================
 \vspace{1.4em}
@@ -915,30 +1780,40 @@ même somme en détruisant moins.
 \vspace{0.8em}
 
 {\small
-\textbf{Sources.} Eurostat, \emph{National Tax Lists} et \texttt{gov\_10a\_taxag},
-\texttt{ilc\_pnp2}, \texttt{ilc\_li02} \textbullet{} OCDE, \emph{Taxing Wages},
-\emph{Corporate Tax Statistics}, \emph{Effective Carbon Rates} et modèle TaxBEN \textbullet{}
-Institute for Fiscal Studies, \emph{Tax by Design} (2011) \textbullet{} Commission on Taxation and
-Welfare, \emph{Foundations for the Future} (Irlande, 2022) \textbullet{} NOU 2022:20, comité
-Torvik (Norvège) \textbullet{} \emph{Belastingen in maatschappelijk perspectief} (Pays-Bas, 2024)
-\textbullet{} Tax Foundation, \emph{International Tax Competitiveness Index 2025} \textbullet{}
-Urssaf et service-public.gouv.fr pour les taux statutaires.
+\textbf{Les trois textes.} N. Gregory Mankiw, Matthew Weinzierl et Danny Yagan, « Optimal Taxation
+in Theory and Practice », \emph{Journal of Economic Perspectives} 23(4), 2009, p.~147-174
+\textbullet{} James Mirrlees \emph{et al.}, \emph{Tax by Design}, Institute for Fiscal Studies et
+Oxford University Press, 2011, et le volume de travaux préparatoires \emph{Dimensions of Tax
+Design} (2010) \textbullet{} Åsa Johansson, Christopher Heady, Jens Arnold, Bert Brys et Laura
+Vartia, « Taxation and Economic Growth », OCDE, document de travail du département des affaires
+économiques n°~620, 2008, et la mise en cause de sa robustesse par Jing Xing, « Tax structure and
+growth: how robust is the empirical evidence~? », \emph{Economics Letters}, 2012.
 
-\textbf{Lectures dont ce cours est tiré.} James Mirrlees \emph{et al.}, \emph{Tax by Design},
-Institute for Fiscal Studies et Oxford University Press, 2011, en particulier le chapitre~2 sur
-l'approche économique et le chapitre~20 sur le système recherché \textbullet{} N. Gregory Mankiw,
-Matthew Weinzierl et Danny Yagan, « Optimal Taxation in Theory and Practice », \emph{Journal of
-Economic Perspectives} 23(4), 2009, p.~147-174 \textbullet{} Åsa Johansson, Christopher Heady,
-Jens Arnold, Bert Brys et Laura Vartia, « Taxation and Economic Growth », OCDE, document de travail
-du département des affaires économiques n°~620, 2008, et la mise en cause de sa robustesse par Jing
-Xing, « Tax structure and growth: how robust is the empirical evidence~? », \emph{Economics
-Letters}, 2012 \textbullet{} Peter Diamond et James Mirrlees (1971), Anthony Atkinson et Joseph
-Stiglitz (1976), Emmanuel Saez (2001 et 2002), George Akerlof (1978), Ludwig Straub et Iván Werning
-(2020) pour les résultats cités nommément.
+\textbf{Résultats cités nommément.} James Mirrlees (1971) pour le problème d'information et la
+quasi-linéarité des barèmes simulés \textbullet{} Peter Diamond et James Mirrlees (1971) pour
+l'efficience productive \textbullet{} Anthony Atkinson et Joseph Stiglitz (1976) pour l'uniformité
+des taxes sur les biens finals \textbullet{} George Akerlof (1978) pour le \emph{tagging}
+\textbullet{} Matti Tuomala (1990), Peter Diamond (1998) et Emmanuel Saez (2001) pour la forme du
+barème au sommet \textbullet{} Emmanuel Saez (2002) pour la marge de participation \textbullet{}
+Christophe Chamley (1986) et Kenneth Judd (1985) pour l'impôt nul sur le capital à long terme,
+Ludwig Straub et Iván Werning (2020) pour sa remise en cause \textbullet{} Narayana Kocherlakota
+(2005) pour l'espérance nulle de l'impôt sur le capital \textbullet{} David Carey et Josette
+Rabesona (2004) pour les taux implicites sur le capital.
 
-\textbf{Méthode.} Les calculs des figures 1 à 5 et 8 sont de l'arithmétique pure : leurs formules
-sont données dans les notes de lecture sous chaque figure, et aucun ne dépend d'une estimation
-économétrique. Les figures construites sur données reposent sur les sources ci-dessus, et chaque
-chiffre du cours renvoie à un fichier du dépôt.}
+\textbf{Données.} Eurostat, \emph{National Tax Lists}, \texttt{gov\_10a\_taxag},
+\texttt{nama\_10\_gdp}, \texttt{ilc\_pnp2}, \texttt{ilc\_li02} \textbullet{} OCDE, \emph{Taxing
+Wages}, base de données fiscale, \emph{Corporate Tax Statistics}, \emph{Effective Carbon Rates} et
+modèle TaxBEN \textbullet{} Tax Foundation, \emph{International Tax Competitiveness Index 2025} et
+relevé des taux normaux de TVA de janvier 2026 \textbullet{} Urssaf et service-public.gouv.fr pour
+les taux statutaires français \textbullet{} Commission on Taxation and Welfare, \emph{Foundations
+for the Future} (Irlande, 2022) ; NOU 2022:20, comité Torvik (Norvège) ; \emph{Belastingen in
+maatschappelijk perspectief} (Pays-Bas, 2024) ; \emph{Tax Working Group} (Nouvelle-Zélande, 2019).
+
+\textbf{Méthode.} Les figures 1, 2, 3, 4, 6, 8, 9, 13, 14, 15, 16 et 18 sont de l'arithmétique
+pure : leurs formules sont données dans les notes de lecture sous chaque figure, et aucune ne
+dépend d'une estimation économétrique. La figure 17 l'est pour son panneau de gauche, construit à
+partir des taux statutaires. Les autres reposent sur les sources ci-dessus, et chaque chiffre
+du cours renvoie à un fichier du dépôt. Les chiffres encore en attente de source sont signalés
+comme tels dans les documents de travail, et n'apparaissent pas ici.}
 
 \end{document}

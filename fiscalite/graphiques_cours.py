@@ -516,5 +516,420 @@ def c11():
         "personne au-dessus du seuil.")
 
 
+
+
+
+# ================================================================= second jeu
+# ------------------------- c12 : où se trouve le sommet des recettes
+def c12():
+    fig, ax = plt.subplots(figsize=(10.6, 5.2))
+    taux = [t / 200 for t in range(0, 199)]
+    series = ((1.0, "#001f5c", "élasticité 1,00"), (0.5, BLEU, "élasticité 0,50"),
+              (0.25, "#7fa4e0", "élasticité 0,25"))
+    for i, (e, c, lab) in enumerate(series):
+        ys = [100 * t * (1 - t) ** e / max(x * (1 - x) ** e for x in taux) for t in taux]
+        ax.plot([t * 100 for t in taux], ys, color=c, lw=2.5 if e == 0.5 else 1.7, zorder=3)
+        ts = 1 / (1 + e)
+        ax.plot([ts * 100], [100], "o", ms=6.5, color=c, markeredgecolor=SURFACE,
+                markeredgewidth=1.6, zorder=4)
+        ax.annotate(f"sommet\nà {fr(ts * 100)} %", (ts * 100, 100), xytext=(0, 12),
+                    textcoords="offset points", ha="center", fontsize=9.5, color=c,
+                    fontweight="bold", linespacing=1.4, path_effects=HALO)
+        xl = 28.0
+        yl = 100 * (xl / 100) * (1 - xl / 100) ** e / max(x * (1 - x) ** e for x in taux)
+        ax.annotate(lab, (xl, yl), xytext=(0, 11 if e > 0.3 else -16),
+                    textcoords="offset points", ha="center", fontsize=9.5, color=c,
+                    fontweight="bold", path_effects=HALO, zorder=5)
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 128)
+    ax.set_xlabel("taux de l'impôt")
+    ax.xaxis.set_major_formatter(PCT)
+    ax.set_yticks([0, 25, 50, 75, 100], ["0", "25", "50", "75", "100"])
+    grille(ax)
+    titre(ax, "Le sommet des recettes ne dépend que de l'élasticité de l'assiette",
+          "Recettes d'un impôt proportionnel sur une assiette dont l'élasticité au taux net est "
+          "constante, en indice 100 au maximum.")
+    fin(fig, "c12_sommet_recettes.png",
+        "Calcul arithmétique. L'assiette vaut (1 − t) puissance e ; les recettes valent donc "
+        "t (1 − t) puissance e, maximales en t = 1 / (1 + e).",
+        "Note : ce n'est pas une courbe de Laffer au sens où on l'invoque d'ordinaire, puisqu'elle "
+        "ne dit rien du niveau réel des recettes. Elle dit seulement où se trouve le sommet, et "
+        "que ce point ne dépend que d'un paramètre. Pour une élasticité de 0,5, le sommet est à "
+        "67 % : au-dessous, monter le taux rapporte toujours quelque chose, et de moins en moins.")
+
+
+# -------------- c13 : les huit leçons de Mankiw, théorie et pratique
+LECONS = [
+    ("Le barème optimal dépend de la distribution des capacités", "fondation"),
+    ("Le taux marginal optimal peut décroître en haut de l'échelle", "partielle"),
+    ("Un taux unique avec transfert forfaitaire peut être proche de l'optimum", "convergence"),
+    ("L'ampleur optimale de la redistribution croît avec l'inégalité", "convergence"),
+    ("L'impôt devrait dépendre de caractéristiques personnelles observables", "divergence"),
+    ("Seuls les biens finals doivent être taxés, et uniformément", "convergence"),
+    ("Le revenu du capital ne devrait pas être taxé, au moins en espérance", "partielle"),
+    ("En économie dynamique, l'impôt optimal dépend de l'historique", "divergence"),
+]
+ETAT = {"convergence": (VERT, "la pratique a suivi"), "partielle": (OCRE, "en partie seulement"),
+        "divergence": (BRIQUE, "la pratique n'a pas suivi"),
+        "fondation": (GRIS, "résultat de cadrage, non testable")}
+
+
+def c13():
+    fig, ax = plt.subplots(figsize=(10.4, 5.4))
+    for i, (txt, etat) in enumerate(LECONS):
+        y = len(LECONS) - 1 - i
+        c, lab = ETAT[etat]
+        ax.add_patch(Rectangle((0, y - 0.34), 0.42, 0.68, facecolor=c, edgecolor="none"))
+        ax.text(0.62, y, f"{i + 1}.", fontsize=11, color=INK2, va="center", ha="right")
+        ax.text(0.85, y, txt, fontsize=11, color=INK, va="center")
+        ax.text(12.3, y, lab, fontsize=10.5, color=c, va="center", ha="right",
+                fontweight="bold" if etat != "fondation" else "normal")
+    ax.set_xlim(0, 12.3)
+    ax.set_ylim(-0.8, len(LECONS) - 0.2)
+    ax.axis("off")
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.88, bottom=0.04)
+    titre(ax, "Les huit leçons de la théorie, et ce que la pratique en a fait",
+          "Synthèse de Mankiw, Weinzierl et Yagan (2009), qui comparent chaque enseignement de la "
+          "théorie de la taxation optimale\nà l'évolution observée des systèmes fiscaux de l'OCDE.")
+    fin(fig, "c13_lecons_mankiw.png",
+        "Source : N. G. Mankiw, M. Weinzierl et D. Yagan, « Optimal Taxation in Theory and "
+        "Practice », Journal of Economic Perspectives 23(4), 2009.",
+        "Note : les auteurs posent la question dans les deux sens. Là où la pratique n'a pas "
+        "suivi, soit les gouvernements tardent à comprendre, soit la théorie omet quelque chose "
+        "que la tradition des finances publiques connaît — le principe du bénéfice et l'équité "
+        "horizontale, qu'aucun modèle standard ne contient.")
+
+
+# ------------------- c14 : la mobilité dans la distribution des revenus
+MOBILITE = [[34, 23, 18, 15, 10], [25, 26, 21, 18, 11], [18, 22, 21, 20, 18],
+            [16, 17, 21, 23, 23], [8, 12, 18, 25, 38]]
+QUINT = ["le plus pauvre", "deuxième", "troisième", "quatrième", "le plus riche"]
+
+
+def c14():
+    fig, ax = plt.subplots(figsize=(8.6, 6.4))
+    for i, ligne in enumerate(MOBILITE):
+        y = len(MOBILITE) - 1 - i
+        for j, v in enumerate(ligne):
+            t = 0.12 + 0.88 * (v - 8) / 30
+            c = f"#{int(255 - 200 * t):02x}{int(255 - 160 * t):02x}{int(255 - 70 * t):02x}"
+            ax.add_patch(Rectangle((j, y), 0.94, 0.9, facecolor=c, edgecolor=SURFACE, lw=1.4))
+            ax.text(j + 0.47, y + 0.45, str(v), ha="center", va="center", fontsize=11,
+                    color="white" if v > 24 else INK, fontweight="bold" if i == j else "normal")
+        ax.text(-0.2, y + 0.45, QUINT[i], ha="right", va="center", fontsize=9.5, color=INK)
+    for j, q in enumerate(QUINT):
+        ax.text(j + 0.47, len(MOBILITE) + 0.12, q, ha="center", va="bottom", fontsize=9.5,
+                color=INK2)
+    ax.text(2.35, len(MOBILITE) + 0.72, "position en 1991", ha="center", fontsize=10,
+            color=INK, style="italic")
+    ax.text(-1.85, 2.45, "position en 2008", va="center", rotation=90, fontsize=10, color=INK,
+            style="italic")
+    ax.set_xlim(-2.1, 5.1)
+    ax.set_ylim(-0.3, len(MOBILITE) + 1.2)
+    ax.axis("off")
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.88, bottom=0.04)
+    titre(ax, "Les riches d'une année ne sont pas les riches de la décennie",
+          "Où se trouvaient en 2008 les personnes classées dans chaque cinquième de la "
+          "distribution des revenus en 1991, en %.")
+    fin(fig, "c14_mobilite.png",
+        "Source : Tax by Design, tableau 2.1, d'après le Department for Work and Pensions "
+        "britannique. Données du Royaume-Uni, 1991-2008.",
+        "Note : 8 % des personnes situées dans le cinquième le plus pauvre en 1991 se trouvaient "
+        "dans le plus riche dix-sept ans plus tard, et 10 % du trajet inverse. Juger la "
+        "progressivité sur le revenu d'une seule année revient donc à juger une photographie "
+        "pour un film. Aucune donnée française équivalente n'est publiée sous cette forme.")
+
+
+# ----------------------- c15 : ce que la TVA taxe réellement
+def c15():
+    d = lire("assiette_tva.csv", ",")
+    d.sort(key=lambda x: float(x["taux_de_couverture"]))
+    fig, ax = plt.subplots(figsize=(10.8, 6.4))
+    y = list(range(len(d)))
+    cou = [BLEU if x["code"] == "FR" else "#C9CDD2" for x in d]
+    ax.barh(y, [float(x["taux_de_couverture"]) for x in d], color=cou, height=0.72, zorder=2)
+    for i, x in enumerate(d):
+        v = float(x["taux_de_couverture"])
+        ax.text(v + 1.1, i, fr(v, 1) + " %", va="center", fontsize=9,
+                color=BLEU if x["code"] == "FR" else INK2,
+                fontweight="bold" if x["code"] == "FR" else "normal")
+        ax.text(2, i, f"taux normal {fr(float(x['taux_normal']), 1)} %", va="center",
+                fontsize=8.2, color="white" if v > 60 else INK2)
+    ax.set_yticks(y, [x["pays"] for x in d], fontsize=9.5)
+    for t, x in zip(ax.get_yticklabels(), d):
+        if x["code"] == "FR":
+            t.set_color(BLEU)
+            t.set_fontweight("bold")
+    ax.set_xlim(0, 100)
+    ax.xaxis.set_major_formatter(PCT)
+    grille(ax, "x")
+    ax.spines["left"].set_visible(False)
+    ax.tick_params(left=False)
+    titre(ax, "La TVA française ne rapporte que les deux tiers de ce que son taux laisse croire",
+          "Recettes de TVA rapportées à ce qu'elles seraient si toute la consommation des ménages "
+          "était taxée au taux normal, 2024.")
+    fin(fig, "c15_assiette_tva.png",
+        "Sources : Eurostat, gov_10a_taxag catégorie D211 et nama_10_gdp poste P31_S14_S15, "
+        "données 2024 ; taux normaux de janvier 2026 relevés par la Tax Foundation.",
+        "Note : l'écart à 100 % mesure ensemble les taux réduits, les exonérations et ce qui "
+        "échappe. Il ne les sépare pas. La comparaison reste significative parce que le "
+        "dénominateur est le même pour tous les pays, mais le niveau dépend de la définition "
+        "retenue de la consommation : élargie à la consommation publique, le ratio français "
+        "tomberait autour de la moitié.")
+
+
+# ------------- c16 : le coin fiscal à trois niveaux de salaire
+def c16():
+    d = lire("coin_par_niveau.csv", ",")
+    garde = {"FRA", "DEU", "BEL", "ITA", "SWE", "DNK", "NLD", "GBR", "USA", "OECD_REP", "POL"}
+    d = [x for x in d if x["code"] in garde]
+    fig, ax = plt.subplots(figsize=(10.6, 6.0))
+    xs = [0, 1, 2]
+    for x in d:
+        vs = [float(x["aw67"]), float(x["aw100"]), float(x["aw167"])]
+        fr_ = x["code"] == "FRA"
+        oc = x["code"] == "OECD_REP"
+        c = BLEU if fr_ else (GRIS if oc else "#C4C8CE")
+        ax.plot(xs, vs, color=c, lw=2.6 if fr_ else (1.8 if oc else 1.2),
+                marker="o", ms=5.5 if fr_ else 3.5, zorder=4 if fr_ else 2,
+                markeredgecolor=SURFACE, markeredgewidth=1.0)
+        ax.text(2.06, vs[2], x["pays"], va="center", fontsize=9 if fr_ or oc else 8.4,
+                color=c, fontweight="bold" if fr_ or oc else "normal")
+        if fr_:
+            for xx, v in zip(xs, vs):
+                ax.annotate(fr(v, 1), (xx, v), xytext=(0, 10), textcoords="offset points",
+                            ha="center", fontsize=9.5, color=BLEU, fontweight="bold",
+                            path_effects=HALO)
+    ax.set_xticks(xs, ["67 % du salaire moyen", "salaire moyen", "167 % du salaire moyen"],
+                  fontsize=9.5)
+    ax.set_xlim(-0.12, 2.75)
+    ax.set_ylim(20, 62)
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "Le coin fiscal français est élevé dès le bas de l'échelle, et le reste",
+          "Coin fiscal moyen d'un célibataire sans enfant, en % du coût du travail, 2025.")
+    fin(fig, "c16_coin_trois_niveaux.png",
+        "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.",
+        "Note : la pente de chaque ligne mesure la progressivité du prélèvement sur le travail. "
+        "Celle de la France est modérée, mais elle part d'un niveau que peu de pays atteignent au "
+        "salaire moyen. Ce n'est donc pas un problème de progressivité, c'est un problème de "
+        "niveau au point de départ.")
+
+
+# ------------- c17 : les impôts sur la production en France depuis 1995
+def c17():
+    from graphiques import ANS, serie
+    fig, ax = plt.subplots(figsize=(10.6, 5.2))
+    for code, c, lab in (("D29", BLEU, "Autres impôts sur la production"),
+                         ("D51", VERT, "Impôts courants sur le revenu"),
+                         ("D21", OCRE, "Impôts sur les produits")):
+        ys = serie(code)
+        ax.plot(ANS, ys, color=c, lw=2.6 if code == "D29" else 1.5, zorder=3)
+        ax.text(ANS[-1] + 0.4, ys[-1], f"{lab}  {fr(ys[-1], 1)}", va="center", fontsize=9.5,
+                color=c, fontweight="bold" if code == "D29" else "normal")
+    ax.set_xlim(1995, 2037)
+    ax.set_ylim(0, 16)
+    ax.set_xticks([1995, 2000, 2005, 2010, 2015, 2020, 2024])
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    ax.annotate("suppression progressive\nde la CVAE", xy=(2022, 4.7), xytext=(2011.5, 1.7),
+                fontsize=9, color=INK2, linespacing=1.45,
+                arrowprops=dict(arrowstyle="->", color=GRIS, lw=0.9,
+                                connectionstyle="arc3,rad=-0.25"))
+    titre(ax, "Les impôts sur la production n'ont pas reculé en trente ans",
+          "Trois catégories de prélèvements en % du PIB, France, 1995-2024.")
+    fin(fig, "c17_production_depuis_1995.png",
+        "Source : Eurostat, National Tax List France, catégories SEC D21, D29 et D51 ; PIB "
+        "Eurostat nama_10_gdp.",
+        "Note : la catégorie D29 rassemble les prélèvements que l'entreprise acquitte "
+        "indépendamment de son résultat. Elle atteignait 4,0 points de PIB en 1995 et en vaut "
+        "4,4 en 2024, malgré la suppression progressive de la cotisation sur la valeur ajoutée "
+        "des entreprises engagée en 2021.")
+
+
+# ------------- c18 : le taux effectif sur l'épargne selon le support
+SUPPORTS = [("Livret A, LDDS", 0.0), ("PEA après cinq ans", 17.2),
+            ("Assurance vie, dans l'abattement", 17.2), ("Prélèvement forfaitaire unique", 30.0),
+            ("Revenu foncier, taux marginal 30 %", 47.2),
+            ("Revenu foncier, taux marginal 41 %", 58.2)]
+
+
+def c18():
+    r, infl = 3.0, 2.0
+    k = (r + infl) / r
+    fig, ax = plt.subplots(figsize=(11.0, 5.6))
+    y = list(range(len(SUPPORTS)))[::-1]
+    nom = [s[1] for s in SUPPORTS]
+    eff = [min(s[1] * k, 115) for s in SUPPORTS]
+    ax.barh(y, eff, color=[BRIQUE if e > 60 else (OCRE if e > 30 else VERT) for e in eff],
+            height=0.6, zorder=2)
+    ax.barh(y, nom, color="#8C8C8C", height=0.24, zorder=3)
+    for yy, n, e in zip(y, nom, eff):
+        ax.text(e + 1.4, yy, fr(e, 1) + " %", va="center", fontsize=10.5, fontweight="bold",
+                color=BRIQUE if e > 60 else (OCRE if e > 30 else VERT))
+        if n > 0:
+            ax.text(n - 1.4, yy, fr(n, 1) + " %", va="center", ha="right", fontsize=8.6,
+                    color="white" if n > 20 else INK2)
+    ax.set_yticks(y, [s[0] for s in SUPPORTS], fontsize=9.5)
+    ax.set_xlim(0, 112)
+    ax.xaxis.set_major_formatter(PCT)
+    grille(ax, "x")
+    ax.spines["left"].set_visible(False)
+    ax.tick_params(left=False)
+    ax.text(70, 4.6, "barre fine : taux affiché\nbarre large : taux effectif\nsur le rendement réel",
+            fontsize=9, color=INK2, linespacing=1.5)
+    titre(ax, "Le même rendement réel de 3 % supporte de 0 à 97 % d'impôt selon le support",
+          "Taux effectif sur le rendement réel, pour un rendement réel de 3 % et une inflation de "
+          "2 % par an.")
+    fin(fig, "c18_supports_epargne.png",
+        "Calcul arithmétique à partir des taux statutaires français. Le taux effectif vaut le "
+        "taux affiché multiplié par le rapport du rendement nominal au rendement réel, soit "
+        "cinq tiers dans cet exemple.",
+        "Note : aucune de ces différences ne correspond à une différence économique entre les "
+        "placements. Elles tiennent à l'enveloppe qui les porte. C'est la définition même d'un "
+        "système non neutre, et c'est ce que l'exonération du rendement normal supprimerait "
+        "d'un coup.")
+
+
+# ------------- c19 : la capitalisation d'un impôt foncier dans le prix
+def c19():
+    fig, ax = plt.subplots(figsize=(10.6, 5.2))
+    taux = [t / 100 for t in range(0, 301)]
+    for d_, c, lab in ((3.0, "#7fa4e0", "taux d'actualisation 3 %"),
+                       (4.0, BLEU, "taux d'actualisation 4 %"),
+                       (5.0, "#001f5c", "taux d'actualisation 5 %")):
+        ys = [100 * (1 - d_ / (d_ + t)) for t in taux]
+        ax.plot(taux, ys, color=c, lw=2.5 if d_ == 4 else 1.6, zorder=3)
+        ax.text(3.06, ys[-1], lab, va="center", fontsize=9.5, color=c,
+                fontweight="bold" if d_ == 4 else "normal")
+    for t in (0.5, 1.0, 2.0):
+        v = 100 * (1 - 4.0 / (4.0 + t))
+        ax.plot([t], [v], "o", ms=6.5, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.6,
+                zorder=4)
+        ax.annotate(f"impôt de {fr(t, 1)} %\n→ valeur −{fr(v)} %", (t, v), xytext=(0, 13),
+                    textcoords="offset points", ha="center", fontsize=9.5, color=BLEU,
+                    fontweight="bold", linespacing=1.4, path_effects=HALO)
+    ax.set_xlim(0, 4.3)
+    ax.set_ylim(0, 56)
+    ax.set_xticks([0, 0.5, 1, 1.5, 2, 2.5, 3],
+                  ["0", "0,5 %", "1 %", "1,5 %", "2 %", "2,5 %", "3 %"])
+    ax.set_xlabel("taux de l'impôt annuel sur la valeur du terrain")
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "Un impôt foncier annoncé est payé d'un coup par le propriétaire du jour",
+          "Baisse immédiate de la valeur du terrain, en % de sa valeur d'avant l'annonce.")
+    fin(fig, "c19_capitalisation.png",
+        "Calcul arithmétique. La valeur d'un terrain est le loyer annuel actualisé ; un impôt "
+        "annuel au taux t fait passer cette valeur de R/d à R/(d + t).",
+        "Note : c'est la propriété qui rend cet impôt efficient — il ne pèse sur aucune décision "
+        "future, puisque tous les acquéreurs suivants ont acheté moins cher — et c'est celle qui "
+        "le rend politiquement brutal, puisqu'une seule génération de propriétaires acquitte la "
+        "totalité. Toute réforme crédible doit traiter cette génération, et c'est pourquoi aucun "
+        "gouvernement ne l'a tentée.")
+
+
+# ------------- c20 : ce que recommandent les cinq revues
+REVUES = ["Mirrlees\n2011", "N.-Zélande\n2019", "Irlande\n2022", "Norvège\n2022",
+          "Pays-Bas\n2024"]
+RECO = [
+    ("TVA à base large et taux unique ou resserré", [1, 1, 1, 1, 0]),
+    ("Déplacer la charge du travail vers la consommation et le patrimoine", [1, 0, 1, 0, 1]),
+    ("Imposer le foncier sur sa valeur réelle, ou la valeur du terrain", [1, 0, 1, 0, 0]),
+    ("Supprimer ou réduire les droits de mutation", [1, 0, 0, 0, 0]),
+    ("Exonérer le rendement normal de l'épargne", [1, 0, 0, 0, 0]),
+    ("Imposer plus uniformément les revenus du capital", [1, 0, 1, 1, 1]),
+    ("Rétablir ou élargir l'imposition des transmissions", [1, 0, 0, 1, 1]),
+    ("Éteindre l'avantage fiscal du logement occupé par son propriétaire", [1, 0, 0, 0, 1]),
+    ("Faire contribuer davantage les retraités", [0, 0, 1, 0, 1]),
+    ("Supprimer les effets de seuil des prestations", [1, 0, 1, 0, 0]),
+    ("Mieux tarifer les externalités, prix unique du carbone", [1, 0, 0, 0, 1]),
+    ("Supprimer les dépenses fiscales mal évaluées", [1, 0, 1, 0, 1]),
+]
+
+
+def c20():
+    fig, ax = plt.subplots(figsize=(10.4, 6.4))
+    n = len(RECO)
+    for i, (txt, marques) in enumerate(RECO):
+        y = n - 1 - i
+        if i % 2 == 0:
+            ax.add_patch(Rectangle((-7.6, y - 0.42), 12.9, 0.84, facecolor="#F2F1EC",
+                                   edgecolor="none", zorder=1))
+        ax.text(-0.25, y, txt, ha="right", va="center", fontsize=10.4, color=INK, zorder=3)
+        for j, m in enumerate(marques):
+            if m:
+                ax.add_patch(Rectangle((j + 0.14, y - 0.27), 0.72, 0.54, facecolor=VERT,
+                                       edgecolor="none", zorder=3))
+    for j, r in enumerate(REVUES):
+        ax.text(j + 0.5, n - 0.3, r, ha="center", va="bottom", fontsize=10.4, color=INK2,
+                linespacing=1.35)
+    ax.set_xlim(-7.6, 5.3)
+    ax.set_ylim(-0.7, n + 0.9)
+    ax.axis("off")
+    fig.subplots_adjust(left=0.02, right=0.98, top=0.86, bottom=0.04)
+    titre(ax, "Cinq revues indépendantes, et des recommandations qui se recoupent largement",
+          "Recommandations retenues par chacune des cinq grandes revues fiscales d'ensemble des "
+          "vingt dernières années.")
+    fin(fig, "c20_convergence_revues.png",
+        "Sources : Tax by Design (2011) ; Tax Working Group néo-zélandais (2019) ; Commission on "
+        "Taxation and Welfare, Foundations for the Future (2022) ; NOU 2022:20, comité Torvik ; "
+        "Belastingen in maatschappelijk perspectief (2024).",
+        "Note : une case vide signifie que la recommandation n'a pas été relevée dans la source "
+        "consultée, et non qu'elle a été écartée. Le mandat néo-zélandais excluait explicitement "
+        "toute hausse du taux de TVA, ce qui explique la rareté de ses marques. La convergence "
+        "sur l'assiette de la consommation et sur l'uniformité de la taxation du capital est le "
+        "fait le plus net du tableau.")
+
+
+# ------------- c21 : les taux supérieurs de l'impôt sur le revenu depuis 2000
+def c21():
+    d = lire("taux_superieur_ir.csv", ",")
+    ans = [int(c) for c in d[0] if c.isdigit()]
+    garde = {"FRA": BLEU, "DEU": GRIS, "SWE": OCRE, "GBR": VERT, "USA": BRIQUE, "EST": "#7a63a8"}
+    # La base de l'OCDE publie 122,8 % pour la France en 2013. C'est un point isolé dans une série
+    # qui tient sinon entre 45 et 59 pour ce pays ; on l'écarte du tracé et on le signale en note.
+    ECART = {("FRA", "2013")}
+    fig, ax = plt.subplots(figsize=(10.6, 5.4))
+    bouts = []
+    for x in d:
+        if x["code"] not in garde:
+            continue
+        c = garde[x["code"]]
+        pts = [(a, float(x[str(a)])) for a in ans
+               if x.get(str(a)) and (x["code"], str(a)) not in ECART]
+        ax.plot([p[0] for p in pts], [p[1] for p in pts], color=c,
+                lw=2.6 if x["code"] == "FRA" else 1.6, zorder=4 if x["code"] == "FRA" else 2)
+        bouts.append([pts[-1][0], pts[-1][1], f"{x['pays']}  {fr(pts[-1][1], 1)}", c,
+                      x["code"] == "FRA"])
+    # écartement vertical minimal des étiquettes de fin de courbe
+    bouts.sort(key=lambda b: b[1])
+    for i in range(1, len(bouts)):
+        if bouts[i][1] - bouts[i - 1][1] < 2.6:
+            bouts[i][1] = bouts[i - 1][1] + 2.6
+    for xx, yy, lab, c, gras in bouts:
+        ax.text(xx + 0.5, yy, lab, va="center", fontsize=9.5, color=c,
+                fontweight="bold" if gras else "normal")
+    ax.set_xlim(2000, 2036)
+    ax.set_ylim(0, 70)
+    ax.set_xticks([2000, 2005, 2010, 2015, 2020, 2025])
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "La France a abandonné douze points de taux supérieur, puis les a repris",
+          "Taux statutaire supérieur de l'impôt sur le revenu des personnes, prélèvements assimilés "
+          "compris, 2000-2025.")
+    fin(fig, "c21_taux_superieurs.png",
+        "Source : OCDE, base de données fiscale, taux statutaire supérieur de l'impôt sur le "
+        "revenu des personnes physiques.",
+        "Note : le taux français passe de 58,3 % en 2000 à 46,7 % en 2010, puis remonte à 55,4 % "
+        "où il se maintient depuis. La valeur publiée pour la France en 2013, 122,8 %, est "
+        "écartée du tracé : c'est un point isolé dans une série qui tient sinon entre 45 et 59 "
+        "pour ce pays, et la source ne documente pas ce qui le produit. L'Estonie applique un taux unique depuis sa réforme des "
+        "années 1990. Un taux statutaire ne dit rien de l'assiette à laquelle il s'applique, et "
+        "c'est précisément l'objet du module 1 : deux pays au même taux affiché peuvent avoir des "
+        "élasticités très différentes selon la porosité de leur assiette.")
+
+
 if __name__ == "__main__":
-    c1(); c2(); c3(); c4(); c5(); c6(); c7(); c8(); c9(); c10(); c11()
+    for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11,
+              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21):
+        f()

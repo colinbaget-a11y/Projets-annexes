@@ -1,2 +1,5 @@
 sources/
 __pycache__/
+cours/*.aux
+cours/*.log
+cours/*.out

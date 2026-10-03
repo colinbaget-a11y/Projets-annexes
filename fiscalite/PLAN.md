@@ -350,7 +350,8 @@ fois, soumis avant de passer au suivant.
 | `05_maquettes_de_reference.md` | les quatre maquettes, matériau du chapitre 8 |
 | `06_lecons_taxation_optimale.md` | les quinze enseignements, matériau du chapitre 2 et des sept chapitres de théorie |
 | `07_ou_changer.md` | les neuf écarts, matériau des chapitres de réforme et du chapitre 18 |
-| `cours/refaire-l-impot.html` | le cours en dix modules, version publique du matériau théorique |
+| `cours/refaire-l-impot.tex` | le cours en quinze modules : les principes, la lecture guidée de Mankiw-Weinzierl-Yagan, de la *Mirrlees Review* et de l'OCDE, puis la France |
+| `cours/refaire-l-impot.html` | l'ancienne version en dix modules, conservée pour la lecture en ligne |
 | `extract_donnees.py` | télécharge et extrait les trois sources de base |
 | `extract_mirrlees.py` | données OCDE TaxBEN et Effective Carbon Rates |
 | `extract_pedagogie.py` | Eurostat sur la situation des retraités, taux sociaux statutaires 2026 |
