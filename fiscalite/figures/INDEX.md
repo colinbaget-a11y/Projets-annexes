@@ -51,6 +51,7 @@ Produites par `graphiques_pedagogie.py`, à partir des données extraites par
 |---|---|
 | `p1_retraites_niveau_vie.png` | Le niveau de vie relatif des 65 ans et plus en Europe, et le taux de pauvreté par âge : la France est le pays où la vieillesse protège le mieux de la pauvreté et où l'enfance en protège le moins. |
 | `p2_salaire_pension.png` | Les prélèvements sociaux sur 100 € de salaire et sur 100 € de pension, en distinguant la part qui ouvre des droits : l'écart vaut 11,7 points ou 0,4 point selon la convention comptable retenue. |
+| `p4_impot_sur_l_attente.png` | Le taux d'imposition implicite de la consommation différée, qui croît avec la durée de détention : trente ans d'épargne au prélèvement forfaitaire unique reviennent à taxer la consommation à 23 %. |
 | `p3_stock_contre_flux.png` | Ce qu'un impôt annuel sur le patrimoine représente en taux sur le rendement : à 2 % du stock et 3 % de rendement réel, l'impôt dépasse la totalité du rendement. |
 
 Deux avertissements de lecture. Les listes nationales d'impôts sont libellées en monnaie

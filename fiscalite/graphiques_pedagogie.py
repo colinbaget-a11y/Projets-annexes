@@ -191,6 +191,45 @@ def p3():
         "le rendement nominal.")
 
 
+# ------------------------------- p4 : l'impôt sur le rendement est un impôt sur l'attente
+def p4():
+    r = 0.03
+    cas = [(0.172, "17,2 %\nprélèvements sociaux seuls", "#9ec5f4"),
+           (0.300, "30 %\nprélèvement forfaitaire unique", PAL[0]),
+           (0.472, "47,2 %\nrevenu foncier au taux marginal de 30 %", PAL[1])]
+    ans = list(range(0, 41))
+
+    fig, ax = plt.subplots(figsize=(11.2, 6.0))
+    for tau, lab, c in cas:
+        y = [(1 - ((1 + r * (1 - tau)) / (1 + r)) ** t) * 100 for t in ans]
+        ax.plot(ans, y, color=c, lw=2.3, zorder=3)
+        ax.text(40.6, y[-1], lab, va="center", fontsize=9.5, color=c, fontweight="bold",
+                linespacing=1.4)
+        ax.plot([30], [y[30]], "o", ms=5.5, color=c, zorder=4,
+                markeredgecolor="white", markeredgewidth=1.1)
+        ax.text(29.4, y[30] + 1.6, f"{y[30]:.0f} %".replace(".", ","), ha="right",
+                fontsize=9.5, color=c, fontweight="bold", path_effects=HALO)
+    ax.axvline(30, color=MUTED, lw=0.8, ls=(0, (3, 3)), zorder=1)
+    ax.text(29.4, 2, "après trente ans\nd'épargne", ha="right", fontsize=9, color=INK2,
+            linespacing=1.4)
+
+    ax.set_xlim(0, 52)
+    ax.set_ylim(0, 48)
+    ax.set_xticks(range(0, 41, 10), ["0", "10 ans", "20 ans", "30 ans", "40 ans"])
+    ax.yaxis.set_major_formatter(PCT)
+    ax.set_xlabel("durée pendant laquelle l'épargne est conservée")
+    grille(ax)
+    titre(ax, "Un impôt sur le rendement est un impôt sur la durée de l'attente",
+          "Taux d'imposition implicite de la consommation différée, pour un rendement réel de "
+          "3 % par an. Lire : trente ans d'épargne\ntaxée au prélèvement forfaitaire unique "
+          "reviennent à taxer la consommation à 23 %, contre zéro pour la consommation "
+          "immédiate.")
+    fin(fig, "p4_impot_sur_l_attente.png",
+        "Calcul arithmétique. Trois régimes français : 17,2 % de prélèvements sociaux seuls, "
+        "30 % pour le prélèvement forfaitaire unique, 47,2 % pour un revenu foncier taxé au "
+        "taux marginal de 30 %.")
+
+
 if __name__ == "__main__":
-    p1(); p2(); p3()
-    print("p1, p2, p3 écrits dans figures/")
+    p1(); p2(); p3(); p4()
+    print("p1 à p4 écrits dans figures/")

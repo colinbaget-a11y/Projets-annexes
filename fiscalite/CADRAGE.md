@@ -13,16 +13,32 @@ Chaque question est suivie de **ce que je ferai à défaut de réponse**. Les r�
 | # | Question | Réponse retenue |
 |---|---|---|
 | 1 | Lectorat | Rapport de think tank. Les responsables politiques d'abord, puis les économistes, puis les citoyens. Pas un travail très quantitatif. |
+| 2 | Commande | Think tank centriste : des gens de centre gauche mais plutôt libéraux. Dans l'équipe de rédaction, les experts sont plutôt libéraux, et toi le plus libéral. |
 | 3 | Positions | Le rapport tranche sur les quatre blocs : patrimoine et transmissions, logement, travail et revenu, consommation et carbone. |
 | 4 | Rendement | Constant. Variante chiffrée à un ou deux points de plus, puisqu'il y a du déficit — 5,1 points de PIB en 2025. |
 | 5 | Transferts | Tous les transferts monétaires, y compris les prestations universelles. |
 | 6 | Cotisations | Toutes traitées comme un impôt. |
 | 7 | Retraites | Paramètres pris comme donnés ; seul leur financement est discuté. |
+| 8 | Périmètre | Liste Eurostat pour tous les chiffres, et un encadré nommant ce qui en est exclu avec son ordre de grandeur. |
 | 9 | Norme | Éventail de préférences sociales, sans en privilégier aucune. Pas d'inverse optimum. |
+| 10 | Unité d'imposition | Une section du chapitre sur le travail, sans recommandation autonome. |
+| 11 | Mobilité | Contrainte forte et assumée : la mobilité des bases borne d'emblée les taux sur le capital et sur le sommet du barème. |
 | 12 | Droit | L'idéal d'abord, la version faisable ensuite. |
+| 13 | Fiscalité locale | Chapitre dédié : assiette foncière réévaluée, pouvoir de taux réel, péréquation explicite. |
 | 14 | Microdonnées | Aucun accès. |
 | 15 | Chiffrage | Ordres de grandeur. Pas de simulation distributive. |
-| 20 | Rythme | D'abord un plan détaillé et quelques graphiques, sans entrer dans le détail. |
+| 16 | Littérature empirique | Résumé pour tous les papiers, sans examen de la stratégie d'identification. |
+| 17 | Maquettes de référence | À expliquer avant de choisir. Cours livré dans `05_maquettes_de_reference.md`. |
+| 18 | Où trancher | Les quatre blocs, plus les trois pédagogies ci-dessous. |
+| 19 | Précautions | Oui, tu me diras lesquelles. En attendant, je ne touche à rien de manifestement sensible. |
+| 20 | Pédagogie | Les quatre dispositifs : encadrés « comment ça marche », un cas chiffré récurrent, une idée par figure, définitions en marge. |
+| 21 | Rédaction | Je rédige les chapitres complets avec leurs figures, tu arbitres et tu réécris. |
+| 22 | Format | Markdown dans le dépôt, bascule LaTeX quand une partie est stabilisée. |
+| 23 | Traçabilité | Stricte. Aucun chapitre n'est fini s'il reste une marque **[à sourcer]**. |
+
+**Le but global du rapport est d'être pédagogique.** C'est la consigne qui prime sur les autres
+quand elles entrent en conflit : mieux vaut un chapitre que le lecteur comprend entièrement
+qu'un chapitre exhaustif qu'il abandonne.
 
 Trois demandes pédagogiques explicites, qui deviennent la troisième partie du rapport : la
 taxation des retraités, le danger des taux marginaux élevés, et le danger d'un impôt du type
@@ -42,9 +58,23 @@ qu'une réforme est compensable, seulement l'affirmer. Or l'argument central de 
 TVA — supprimer les taux réduits et compenser par le barème direct — ne vaut que si la
 compensation est chiffrée. Je retiens donc un minimum qui ne coûte presque rien : les
 distributions par décile déjà publiées par l'Insee, la DREES et l'IPP, qui ne sont pas des
-microdonnées. Dis-le si tu préfères t'en passer entièrement.
+microdonnées.
 
-Les questions 2, 8, 10, 11, 13, 16 à 19 et 21 à 23 gardent le défaut écrit ci-dessous.
+La composition de l'équipe change la manière d'argumenter, pas les conclusions. Un rapport écrit
+par des auteurs tous situés du même côté sur la question de l'efficience doit être
+particulièrement exigeant sur la contrainte de redistribution, faute de quoi il sera lu comme
+une plaidoirie et non comme une analyse. Concrètement : chaque fois qu'une réforme améliore
+l'efficience au détriment de la progressivité, le rapport dit par quoi elle est compensée, et ne
+se contente pas d'affirmer qu'elle le serait.
+
+Mobilité des bases traitée en contrainte forte : c'est le choix le plus exposé du cadrage. Le
+rapport affirmera que certains taux sont inatteignables parce que les bases partiraient, ce qui
+est vrai mais invérifiable au niveau de preuve que nous nous donnons. Je dirai donc systématiquement
+sur quoi repose chaque affirmation de mobilité, et je distinguerai les cas documentés — footballeurs
+danois, inventeurs, régimes d'impatriés — des extrapolations.
+
+Toutes les questions sont tranchées. Reste à nommer les sujets à traiter avec précaution,
+question 19.
 
 ---
 
