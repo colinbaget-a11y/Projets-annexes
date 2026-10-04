@@ -1,6 +1,6 @@
 % Complément au chapitre 1 de « Refaire l'impôt » : les élasticités estimées sur données françaises
 % Compilation : pdflatex elasticites-france.tex (deux passes pour les renvois)
-% Données de la figure : ../donnees/elasticites_france.csv ; figure : graphiques_cours.py, fonction c25
+% Données des figures : ../donnees/elasticites_france.csv ; figures : graphiques_cours.py, fonctions c26 à c28
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
@@ -43,12 +43,15 @@
 \setlength{\parskip}{0.72em}
 \linespread{1.06}
 \renewcommand{\arraystretch}{1.22}
+% Une figure d'une demi-page se place en haut d'une page de texte plutôt que seule sur une page.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\floatpagefraction}{0.8}
 
-% Figure haute : légende au-dessus, image, puis sources et note de lecture en texte.
-\newcommand{\figblocgrand}[3]{%
+% Figure : légende au-dessus, image, puis sources et note de lecture en texte.
+\newcommand{\figbloc}[3]{%
   \begin{figure}[htbp]\centering
   \caption{#2}\label{#3}
-  \includegraphics[max width=\linewidth,max height=0.68\textheight]{../figures/nu/#1.pdf}
+  \includegraphics[max width=\linewidth,max height=0.42\textheight]{../figures/nu/#1.pdf}
   \IfFileExists{../figures/nu/#1_note.tex}{\par\vspace{4pt}%
     \parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
     \input{../figures/nu/#1_note.tex}}}{}%
@@ -71,15 +74,17 @@
 
 Le chapitre~1 retient que le coût d'un impôt dépend de la sensibilité de son assiette au taux, et
 que cette sensibilité tient en partie à ce que la loi permet. Douze travaux publiés depuis 2010 la
-mesurent sur données françaises, mais ils ne mesurent pas tous la même chose. Six estiment de
-combien un revenu déclaré réagit au taux net marginal qui le frappe ; la
-figure~\ref{fig:elasticites} les rassemble, et ils dessinent une hiérarchie nette : le revenu
-d'activité réagit peu, les revenus du capital davantage, les dividendes des dirigeants qui
-contrôlent leur société bien plus encore. Les six autres mesurent la réaction d'autres grandeurs ---
-patrimoine déclaré, lieu de résidence, montant dissimulé, dons, décision de travailler --- à
-d'autres taux. Leurs chiffres ne se rangent pas sur la même échelle ; le tableau~\ref{tab:autres}
-dit ce que chacun mesure. Pris un à un, ils montrent que les règles de déclaration et de contrôle
-pèsent autant que le taux.
+mesurent sur données françaises. Six estiment de combien un revenu déclaré réagit au taux net
+marginal qui le frappe ; les six autres mesurent la réaction d'autres grandeurs --- patrimoine
+déclaré, lieu de résidence, montant dissimulé, dons, décision de travailler --- à d'autres taux, et
+le tableau~\ref{tab:autres} dit ce que chacun mesure. Même entre les six premiers, les chiffres se
+comparent mal, parce que les revenus, les populations, les années et les méthodes diffèrent. Chaque
+étude compare en revanche deux ou trois situations sur les mêmes données et avec la même méthode ;
+ce sont ces comparaisons internes que montrent les figures. Elles disent qui réagit, et à quoi : le
+haut de la distribution plus que le reste, l'impôt sur le revenu plus que les prestations, le revenu
+du capital bien plus que celui du travail, les dividendes de ceux qui contrôlent une société plus
+que ceux des autres foyers. Elles montrent aussi que les règles de déclaration et de contrôle pèsent
+autant que le taux.
 
 \section{Ce que l'on mesure}
 
@@ -108,9 +113,6 @@ groupe épargné, puis divise l'écart d'évolution du revenu par l'écart d'év
 Presque toutes les estimations françaises sont de court terme : elles portent sur des variations
 d'une année sur l'autre, et ne disent rien de ce qui se passe en cinq ou dix ans.
 
-\figblocgrand{c25_elasticites_france}{La réaction des revenus déclarés au taux net marginal qui les
-frappe, études françaises depuis 2010}{fig:elasticites}
-
 \section{Revenu imposable et revenus d'activité}
 
 \subsection{Cabannes, Houdré et Landais (2014) : presque rien en moyenne, 0,31 en haut}
@@ -125,14 +127,17 @@ revenu selon le nombre de leurs enfants, et les baisses successives des taux du 
 de l'année précédente.
 
 L'élasticité compensée vaut 0,02 sur l'ensemble des foyers, premier décile exclu : à peu près rien.
-Elle n'est pas significative entre le premier et le neuvième décile, et vaut 0,31 pour le décile
-supérieur (0,50 avec une autre pondération et un effet revenu). Les auteurs, qui ne publient que
+Elle n'est pas significative du deuxième au neuvième décile, et vaut 0,31 pour le décile
+supérieur (figure~\ref{fig:activite}) (0,50 avec une autre pondération et un effet revenu). Les auteurs, qui ne publient que
 des seuils de significativité et pas d'écart-type, encadrent cette valeur centrale par deux
 scénarios à 0,15 et 0,45 ; ils en tirent, à titre indicatif, un taux maximisant les recettes de
 61~\% sur l'assiette de 2004, entre 76 et 51~\% selon le scénario. Deux limites tiennent aux
 données : en haut de la distribution, les baisses de taux ont été presque identiques pour tous les
 foyers, ce qui fragilise l'identification ; et deux années consécutives ne disent rien des réponses
 de long terme.
+
+\figbloc{c26_elasticites_activite}{La réaction du revenu imposable et du revenu d'activité,
+comparée à l'intérieur de chaque étude}{fig:activite}
 
 \subsection{Lehmann, Marical et Rioux (2013) : l'impôt sur le revenu, pas les cotisations}
 
@@ -148,7 +153,7 @@ convergence des deux barèmes d'allègements de cotisations patronales, celui de
 
 Le salaire réagit au taux marginal de l'impôt sur le revenu avec une élasticité d'environ 0,2
 (0,225 avec tous les contrôles, écart-type 0,085, dans la version de travail), et pas du tout au
-taux marginal des cotisations. La réponse vient des femmes (0,88) ; parmi les salariés modestes
+taux marginal des cotisations (figure~\ref{fig:activite}). La réponse vient des femmes (0,88) ; parmi les salariés modestes
 employés toute l'année les deux années, elle tombe à 0,03. Elle passe donc par le nombre de mois
 travaillés plutôt que par les heures. Les auteurs expliquent l'asymétrie par la rigidité de court
 terme du salaire horaire, négocié à intervalles espacés : la prime pour l'emploi joue sur la décision
@@ -165,8 +170,9 @@ période --- barème de 2007, tranche à 45~\% en 2013, gel du barème de 2011 �
 du quotient familial, création du RSA activité en 2009, modulation des allocations familiales ---,
 il estime l'élasticité compensée du revenu d'activité au taux net marginal de chaque dispositif. Elle
 vaut 0,26 pour l'impôt sur le revenu (écart-type 0,018), 0,09 pour le RSA activité et zéro pour les
-prestations familiales ; 0,09 pour l'ensemble des transferts. Elle est plus forte en haut de la
-distribution (0,51 pour les 10~\% de revenus d'activité les plus élevés), chez les personnes seules
+prestations familiales ; 0,09 pour l'ensemble des transferts. Elle croît avec le revenu
+d'activité : 0,22 dans la moitié du bas, 0,33 dans les 40~\% du milieu, 0,51 dans les 10~\% du
+haut (figure~\ref{fig:activite}). Elle est aussi plus forte chez les personnes seules
 sans enfant (0,53) et chez les indépendants (0,43, très imprécise), plus faible chez les couples avec
 enfants (0,17).
 
@@ -187,7 +193,7 @@ accumulations dans un modèle de perception erronée, il estime une élasticité
 marginal perçu et une attention d'environ 75~\% au vrai barème ; environ 80~\% des déclarants
 concernés n'ajustent pas leur déclaration. La réponse est purement déclarative et ne concerne qu'une
 petite population ; elle montre surtout qu'une partie des contribuables optimise sur un barème
-qu'elle comprend mal. Ce 0,7 ne se compare pas aux chiffres de la figure~\ref{fig:elasticites} :
+qu'elle comprend mal. Ce 0,7 ne se compare pas aux chiffres de la figure~\ref{fig:activite} :
 c'est l'élasticité des seuls déclarants qui ajustent, corrigée des frictions, au taux qu'ils croient
 payer, alors que les autres études mesurent une réaction moyenne sur tous les contribuables, y
 compris ceux qui ne bougent pas.
@@ -222,6 +228,18 @@ Stratégie en 2020, avec Zanoutene, trouvait 0,67 en spécification de base, 0,3
 deux ans et 1,17 avec les instruments de Weber. L'ordre de grandeur, entre 0,3 et 1, est solide ; le
 chiffre exact ne l'est pas.
 
+Ce rapport estime aussi, dans la même équation et sur le même échantillon de 2,85~millions de
+foyers que l'élasticité des revenus du capital, celle des revenus d'activité et des pensions à leur
+propre taux net : 0,05, contre 0,67 (figure~\ref{fig:capital}). Parmi les études recensées ici,
+c'est la seule comparaison du travail et du capital faite sur les mêmes contribuables, et elle
+résiste aux choix de méthode : dans chacune des quinze spécifications publiées, l'élasticité des
+revenus du capital dépasse celle des revenus d'activité d'au moins 0,34. Le 0,05 est plus bas que
+les 0,2 à 0,3 de Lehmann et al. et de Sicsic ; les auteurs avancent une explication, les retraités,
+nombreux dans leur échantillon (42~\% des foyers en comptent un), dont la pension ne réagit pas.
+
+\figbloc{c27_elasticites_capital}{La réaction des revenus du capital et des dividendes, comparée à
+l'intérieur de chaque étude}{fig:capital}
+
 \subsection{Bach et al. (2024) : le dirigeant laisse le bénéfice dans la société}
 
 Bach, Bozio, Guillouzouic, Leroy et Malgouyres cherchent ce que recouvrent ces réactions. Ils
@@ -235,15 +253,17 @@ leurs revenus réguliers placent dans les tranches supérieures, touchés par le
 Les dividendes des foyers qui contrôlent une société baissent de 20~\% en 2013 et montent de 20~\% en
 2018. Rapporté à la variation du taux net, cela donne une élasticité de 2,5 pour la baisse de 2018,
 que les auteurs jugent la mieux mesurée, et de 3,2 pour la hausse de 2013. Celle des foyers sans
-société est nulle en 2018. La différence tient à la capacité d'agir plutôt qu'aux préférences : le
+société est nulle en 2018 ; elle atteint 2,4 en 2013, mais la détention des sociétés est alors mal
+mesurée, et des dirigeants non repérés se trouvent parmi ces foyers (figure~\ref{fig:capital}). La
+différence tient à la capacité d'agir plutôt qu'aux préférences : le
 dirigeant décide de la distribution. Du côté des sociétés, l'investissement ne bouge dans aucun des
 deux cas. En 2013, la baisse des dividendes est passée par une hausse de l'épargne des sociétés,
 puis par une baisse du bénéfice imposable des plus petites ; en 2018, la baisse de l'épargne des
 sociétés explique à elle seule la hausse des dividendes. Les dirigeants traitent leur société comme
 un placement peu taxé, où le bénéfice peut attendre que le dividende soit moins imposé. Ni un
 déplacement vers d'autres revenus du capital, ni une substitution entre salaire et dividende
-n'expliquent plus qu'une petite part de la réaction. Les élasticités sont publiées sans écart-type,
-et la détention de sociétés est mal mesurée pour 2013.
+n'expliquent plus qu'une petite part de la réaction. Les élasticités sont publiées sans
+écart-type.
 
 Une élasticité de 2,5, prise telle quelle, donnerait un taux maximisant les recettes de 29~\% sur les
 dividendes. Elle mesure pourtant surtout un report : le bénéfice laissé dans la société reste
@@ -269,13 +289,13 @@ les salaires.
 
 Les études de cette partie ne mesurent pas la réaction d'un revenu déclaré au taux net qui le
 frappe. Elles mesurent celle d'autres grandeurs, à d'autres taux, et leurs chiffres ne se comparent
-ni entre eux ni avec ceux de la figure~\ref{fig:elasticites} ; le tableau~\ref{tab:autres} dit ce
-que chacun mesure. Ce qui les rapproche est une leçon que chacune établit à l'intérieur de son propre
-cadre : changer les règles de déclaration ou de contrôle déplace autant, ou plus, que changer le
-taux.
+ni entre eux ni avec ceux des parties précédentes ; le tableau~\ref{tab:autres} dit ce que chacun
+mesure. Ce qui les rapproche est une leçon que chacune établit à l'intérieur de son propre cadre :
+changer les règles de déclaration ou de contrôle déplace autant, ou plus, que changer le taux
+(figure~\ref{fig:information}).
 
 \begin{table}[htbp]
-\caption{Les élasticités qui ne se placent pas sur la figure~\ref{fig:elasticites}}
+\caption{Les autres élasticités : ce qui réagit, et à quoi}
 \label{tab:autres}
 \footnotesize
 \renewcommand{\arraystretch}{1.25}
@@ -312,7 +332,8 @@ significative au troisième. Ils réagissent en revanche à l'information demand
 foyers dont le patrimoine était inférieur à un seuil --- 3~millions d'euros, puis 2,57~millions à
 partir de 2013 --- pouvaient déclarer un montant global sans détailler leurs actifs. Après
 l'abaissement du seuil, les foyers proches ont ralenti la croissance déclarée de leur patrimoine pour
-rester dessous : de 0,28~point par an en moyenne, dix fois la réaction aux seuils de tranche. Pour
+rester dessous : de 0,28~point par an en moyenne, dix fois la réaction aux seuils de tranche
+(figure~\ref{fig:information}). Pour
 obtenir le même effet par le taux, il aurait fallu porter le taux marginal de 0,7 à 2,84~\%. Les
 foyers restés sous le seuil ont sous-déclaré 18,4~\% de l'impôt qu'ils auraient payé. Les indices
 --- montants ronds, immobilier plus touché que les actifs financiers, revenus déclarés par des tiers
@@ -335,10 +356,14 @@ le super-simplifié --- et à une élasticité du montant dissimulé au taux d'i
 En 1983, l'administration a exigé que les reçus des dons soient joints à la déclaration, alors qu'il
 suffisait auparavant de les conserver. Les dons déclarés ont chuté, sans rupture dans les dons reçus
 par la Fondation de France : la baisse venait donc surtout de dons déclarés qui n'avaient pas été
-faits. L'élasticité-prix des dons déclarés est passée de $-1{,}86$ à $-0{,}36$. Les données ---
+faits. L'élasticité-prix des dons déclarés est passée de $-1{,}86$ à $-0{,}36$
+(figure~\ref{fig:information}). Les données ---
 échantillons de déclarations de 1975 à 1988 --- sont anciennes, mais le résultat est le plus net de
 cette revue : la même déduction, au même taux, devient cinq fois moins élastique quand
 l'administration vérifie.
+
+\figbloc{c28_elasticites_information}{Le taux, l'information et le contrôle, comparés à
+l'intérieur de chaque étude}{fig:information}
 
 \subsection{Le Focus du CAE (2025) : des départs sensibles à l'impôt, mais rares}
 
@@ -365,11 +390,10 @@ travaux sur le RSA recensés par Sicsic (2023) trouvent des effets faibles ou nu
 
 \section{Ce qu'on peut en conclure}
 
-Parmi les estimations comparables, les revenus du capital réagissent environ trois fois plus que le
-revenu d'activité, et les dividendes de ceux qui contrôlent leur société dix fois plus ; ces
-rapports sont approximatifs, puisque les populations et les horizons diffèrent. Cette hiérarchie
-suit la facilité de changer la
-forme, la date ou le lieu d'un revenu sans changer d'activité. Un salaire déclaré par
+Sur les mêmes foyers et avec la même méthode, les revenus du capital réagissent bien plus que les
+revenus d'activité, 0,67 contre 0,05 ; parmi les assujettis à l'ISF, les dividendes de ceux qui
+contrôlent une société réagissent à la baisse de 2018, ceux des autres foyers non. Ces écarts
+suivent la facilité de changer la forme, la date ou le lieu d'un revenu sans changer d'activité. Un salaire déclaré par
 l'employeur ne se déplace pas ; un dividende que le dirigeant peut laisser dans sa société se
 déplace d'une année à l'autre ; un patrimoine déclaré en un seul chiffre, ou un don qu'on n'a pas à
 justifier, se déplace dans la déclaration elle-même.

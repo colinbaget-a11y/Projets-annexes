@@ -21,8 +21,8 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
 
-from graphiques import (NU, BLEU, GRIS, HALO, INK, INK2, MUTED, OCRE, PAL, PCT, SURFACE, VERT,
-                        fin, grille, panneau, titre)
+from graphiques import (ECH_TXT, NU, BLEU, GRIS, HALO, INK, INK2, MUTED, OCRE, PAL, PCT,
+                        SURFACE, VERT, fin, grille, panneau, titre)
 
 HERE = Path(__file__).resolve().parent
 BRIQUE = "#993333"
@@ -1082,121 +1082,177 @@ def c24():
         "est réduite d'environ deux points, et celle de la France presque entièrement.")
 
 
-# ------------------- c25 : les élasticités estimées sur données françaises depuis 2010
+# ------------------------- c25 à c28 : les élasticités, comparées à l'intérieur de chaque étude
+# Chaque panneau compare deux ou trois estimations tirées d'une seule étude, sur les mêmes données
+# et avec la même méthode : seule change la dimension que nomme son titre. Les panneaux ne se
+# comparent pas entre eux, et chacun a sa propre échelle, sauf les quatre qui portent sur le
+# revenu imposable ou d'activité, qui mesurent la même grandeur et partagent la leur.
 BLEU_PALE = "#C9D3EA"
+ECH_ACTIVITE = ((-0.25, 0.75), (0, 0.25, 0.5, 0.75))
+PANNEAUX = {
+    # nom : (titre, grandeur mesurée, bornes de l'axe, graduations)
+    "chl_revenu": ("Cabannes et al. (2014) : selon le niveau de revenu",
+                   "élasticité du revenu imposable au taux net", *ECH_ACTIVITE),
+    "sicsic_revenu": ("Sicsic (2022) : selon le niveau de revenu",
+                      "élasticité du revenu d'activité au taux net de l'impôt", *ECH_ACTIVITE),
+    "lmr_prelevement": ("Lehmann et al. (2013) : selon le prélèvement",
+                        "élasticité du salaire au taux net de chaque prélèvement", *ECH_ACTIVITE),
+    "sicsic_dispositif": ("Sicsic (2022) : selon le dispositif",
+                          "élasticité du revenu d'activité au taux net de chacun", *ECH_ACTIVITE),
+    "lefebvre_travail_capital": ("Lefebvre et al. (2020) : deux revenus des mêmes foyers",
+                                 "élasticité de chaque revenu à son propre taux net",
+                                 (-0.35, 1.25), (0, 0.5, 1)),
+    "bach_controle": ("Bach et al. (2024) : selon le contrôle d'une société",
+                      "élasticité des dividendes au taux net, assujettis à l'ISF",
+                      (-0.3, 3.7), (0, 1, 2, 3)),
+    "garbinti_information": ("Garbinti et al. (2026) : ce qui change au seuil",
+                             "baisse de la croissance annuelle du patrimoine déclaré, en points",
+                             (-0.02, 0.38), (0, 0.1, 0.2, 0.3)),
+    "fack_controle": ("Fack et Landais (2016) : avant et après le contrôle",
+                      "élasticité-prix des dons déclarés, en valeur absolue",
+                      (0, 2.5), (0, 1, 2)),
+}
+SRC_ELAST = ("Sources : études citées, présentées dans le complément « Les élasticités estimées sur "
+             "données françaises » ; chaque chiffre, avec sa page et son tableau, figure dans "
+             "donnees/elasticites_france.csv.")
+
+
+def _fs(t):
+    """Taille de texte voulue à l'impression : en mode nu, graphiques.py réduit le texte posé sur
+    les axes d'un facteur ECH_TXT, que l'on compense ici."""
+    return t / ECH_TXT
+
+
+def _petit_panneau(ax, nom, lignes):
+    """Un point par estimation (plein pour l'estimation principale, creux pour une autre estimation
+    de la même étude), l'intervalle de confiance à 95 % quand l'étude publie un écart-type, et en
+    barre claire l'éventail des spécifications publiées."""
+    _, _, (y0, y1), graduations = PANNEAUX[nom]
+    n = max(int(x["ordre"]) for x in lignes)
+    ax.set_xlim(-0.62, n - 0.38)
+    ax.set_ylim(y0, y1)
+    ax.axhline(0, color="#BFBFBF", lw=0.8, zorder=1)
+    libelles = {}
+    for x in lignes:
+        c, v = int(x["ordre"]) - 1, float(x["valeur"])
+        plein = x["statut"] == "principal"
+        libelles[c] = x["libelle"].replace("|", "\n")
+        if x["spec_bas"]:
+            ax.plot([c, c], [float(x["spec_bas"]), float(x["spec_haut"])], color=BLEU_PALE,
+                    lw=6.5, solid_capstyle="butt", zorder=2)
+        if x["es"]:
+            e = 1.96 * float(x["es"])
+            ax.plot([c, c], [v - e, v + e], color=BLEU, lw=1.2, zorder=3)
+        ax.plot([c], [v], "o", ms=5.6, zorder=5, color=BLEU if plein else SURFACE,
+                markeredgecolor=BLEU, markeredgewidth=1.2)
+        ax.text(c + 0.12, v, x["affichage"], fontsize=_fs(7.0), ha="left", va="center",
+                color=INK, fontweight="bold" if plein else "normal", path_effects=HALO, zorder=6)
+    ax.set_xticks(range(n), [libelles[c] for c in range(n)])
+    ax.set_yticks(graduations, [f"{g:g}".replace(".", ",") for g in graduations])
+    ax.tick_params(axis="y", labelsize=6.6, length=2.2, pad=1.5, width=0.6, colors=INK2)
+    ax.tick_params(axis="x", labelsize=6.9, length=0, pad=3, colors=INK)
+    for s_ in ("top", "right", "bottom"):
+        ax.spines[s_].set_visible(False)
+    ax.spines["left"].set_color("#BFBFBF")
+    ax.spines["left"].set_linewidth(0.6)
+    ax.grid(axis="y", color="#ECECEC", lw=0.5, zorder=0)
+    ax.set_axisbelow(True)
+
+
+def _planche(noms, nom_fichier, note, ncol=2):
+    """Assemble les panneaux en grille. Mise en page fixe, en pouces, pour que titres, graduations
+    et libellés ne se chevauchent jamais."""
+    donnees = lire("elasticites_france.csv")
+    W, GOUT, MARGE = 5.7, 0.42, 0.34      # largeur, gouttière entre colonnes, place des graduations
+    ENT, AXE, LIB, SEP, LEG = 0.36, 1.05, 0.32, 0.24, 0.24
+    nlig = -(-len(noms) // ncol)
+    CW = (W - (ncol - 1) * GOUT) / ncol
+    H = nlig * (ENT + AXE + LIB) + (nlig - 1) * SEP + LEG
+    fig = plt.figure(figsize=(W, H))
+    codes = set()
+    for k, nom in enumerate(noms):
+        i, j = divmod(k, ncol)
+        x0, haut = j * (CW + GOUT), i * (ENT + AXE + LIB + SEP)
+        ax = fig.add_axes([(x0 + MARGE) / W, 1 - (haut + ENT + AXE) / H, (CW - MARGE) / W,
+                           AXE / H])
+        titre_, mesure = PANNEAUX[nom][:2]
+        fig.text(x0 / W, 1 - haut / H, titre_, ha="left", va="top", fontsize=7.8,
+                 fontweight="bold", color=INK)
+        fig.text(x0 / W, 1 - (haut + 0.16) / H, mesure, ha="left", va="top", fontsize=7.0,
+                 color=INK2)
+        lignes = [x for x in donnees if x["panneau"] == nom]
+        _petit_panneau(ax, nom, lignes)
+        codes |= {"creux" for x in lignes if x["statut"] != "principal"}
+        codes |= {"ic" for x in lignes if x["es"]}
+        codes |= {"spec" for x in lignes if x["spec_bas"]}
+    poignees = [Line2D([], [], marker="o", ls="", ms=5, color=BLEU)]
+    textes = ["estimation principale"]
+    if "creux" in codes:
+        poignees.append(Line2D([], [], marker="o", ls="", ms=5, color=SURFACE,
+                               markeredgecolor=BLEU, markeredgewidth=1.2))
+        textes.append("autre estimation de l'étude")
+    if "ic" in codes:
+        poignees.append(Line2D([], [], color=BLEU, lw=1.2))
+        textes.append("intervalle de confiance à 95 %")
+    if "spec" in codes:
+        poignees.append(Line2D([], [], color=BLEU_PALE, lw=6.5, solid_capstyle="butt"))
+        textes.append("éventail des spécifications publiées")
+    fig.legend(poignees, textes, loc="lower left", bbox_to_anchor=(0, 0), ncol=len(textes),
+               fontsize=6.8, frameon=False, handlelength=1.5, handletextpad=0.5,
+               columnspacing=1.3, labelcolor=INK2, borderaxespad=0.05, borderpad=0.1)
+    fin(fig, nom_fichier, SRC_ELAST, note)
 
 
 def c25():
-    """Une ligne par estimation publiée depuis 2010 sur données françaises : le point (plein pour
-    l'estimation principale d'une étude, creux pour un sous-groupe ou une variante), l'intervalle
-    de confiance à 95 % quand l'étude donne un écart-type, et en barre claire l'éventail des
-    spécifications que les auteurs publient. Les valeurs hors de l'échelle sont signalées par une
-    flèche ; la colonne de droite donne toujours le chiffre. Mise en page en pouces, fixe, pour que
-    les trois colonnes de texte ne se chevauchent jamais."""
-    # Seules les estimations qui mesurent la même chose : la réaction d'un revenu déclaré au taux
-    # net marginal qui le frappe. Les autres élasticités du fichier (patrimoine, résidence, fraude,
-    # dons, participation, élasticité croisée, élasticité structurelle) ne vont pas sur cette échelle.
-    lignes = [x for x in lire("elasticites_france.csv") if x["figure"] == "1"]
-    TITRES = {"imposable": "Revenu imposable, tous revenus confondus",
-              "activite": "Revenus d'activité",
-              "capital": "Revenus du capital",
-              "dividendes": "Dividendes des assujettis à l'ISF"}
-    XMIN, XMAX = -0.2, 1.35
-    PAS, ENTETE, HAUT, BAS = 0.168, 0.30, 0.08, 0.78
-    W, X_ETUDE, X_PREC, X0, X1, X_VAL = 5.7, 0.0, 1.30, 2.95, 5.02, 5.14
-    # ordonnées en pouces depuis le haut
-    y, rangs, titres, precedent = HAUT, [], [], None
-    for x in lignes:
-        if x["groupe"] != precedent:
-            y += ENTETE if precedent else ENTETE * 0.75
-            titres.append((y - 0.06, TITRES.get(x["groupe"], x["groupe"])))
-            precedent, etude_prec = x["groupe"], None
-        y += PAS
-        rangs.append((y, x, x["etude"] != etude_prec))
-        etude_prec = x["etude"]
-    y += 0.16                           # marge sous la dernière ligne, au-dessus de l'axe
-    H = y + BAS
-    fig = plt.figure(figsize=(W, H))
-    ax = fig.add_axes([X0 / W, BAS / H, (X1 - X0) / W, (H - BAS - HAUT) / H])
-    ax.set_xlim(XMIN, XMAX)
-    ax.set_ylim(H - BAS, HAUT)          # axe des y en pouces depuis le haut, inversé
+    _planche(["chl_revenu", "sicsic_dispositif", "lefebvre_travail_capital", "bach_controle",
+              "garbinti_information", "fack_controle"], "c25_elasticites_comparees.png",
+             "Lecture : chaque panneau compare deux estimations ou plus d'une même étude, obtenues "
+             "sur les mêmes données avec la même méthode ; seule change la dimension que nomme "
+             "son titre. Les panneaux ne se comparent pas entre eux, et leurs échelles diffèrent. "
+             "Une élasticité de 0,2 signifie +2 % de revenu déclaré pour +10 % de part gardée sur "
+             "l'euro marginal. Cabannes et al. et Bach et al. ne publient pas d'écart-type ; chez "
+             "les premiers, seul le décile supérieur est significatif. Chez Lefebvre et al., les "
+             "pensions, qui ne réagissent pas, sont comptées avec les revenus d'activité.")
 
-    def fy(yy):                          # ordonnée en fraction de figure
-        return 1 - yy / H
 
-    ax.axvspan(0.12, 0.40, color="#EEF0F3", zorder=0, lw=0)
-    ax.axvline(0, color="#BFBFBF", lw=0.8, zorder=1)
+def c26():
+    _planche(["chl_revenu", "sicsic_revenu", "lmr_prelevement", "sicsic_dispositif"],
+             "c26_elasticites_activite.png",
+             "Lecture : chaque panneau compare des estimations d'une même étude. Les quatre "
+             "mesurent la même grandeur et partagent la même échelle, mais portent sur des "
+             "revenus, des années et des populations différents. Cabannes et al. ne publient pas "
+             "d'écart-type : seul le décile supérieur est significatif, et un autre de leurs "
+             "modèles y donne 0,50. Chez Lehmann et al., les réformes qui identifient l'effet ne "
+             "touchaient que les salariés gagnant moins de deux fois le salaire minimum.")
 
-    def num(v):
-        return float(v) if v not in ("", None) else None
 
-    def segment(a_, b_, yy, **kw):
-        a2, b2 = max(a_, XMIN), min(b_, XMAX)
-        ax.plot([a2, b2], [yy, yy], solid_capstyle="butt", **kw)
-        if b_ > XMAX:
-            ax.plot([XMAX - 0.008], [yy], marker=">", ms=4.2, color=kw.get("color"), zorder=4,
-                    clip_on=False)
+def c27():
+    _planche(["lefebvre_travail_capital", "bach_controle"], "c27_elasticites_capital.png",
+             "Lecture : chez Lefebvre et al., les deux élasticités sont estimées ensemble sur les "
+             "mêmes 2,85 millions de foyers, dont le revenu fiscal de référence dépasse 30 000 € "
+             "et qui déclarent chaque année des revenus des deux sortes ; les revenus d'activité "
+             "comprennent les pensions, qui ne réagissent pas. La barre "
+             "claire couvre les quinze spécifications publiées : dans chacune, l'élasticité des "
+             "revenus du capital dépasse celle des revenus d'activité d'au moins 0,34 ; les "
+             "intervalles de confiance sont plus étroits que les points. Chez Bach "
+             "et al., l'élasticité vient de la comparaison, sur plusieurs années, des assujettis à "
+             "l'ISF touchés par la réforme et des autres ; aucun écart-type n'est publié. En "
+             "2013, la détention des sociétés est mal mesurée, ce qui, selon les auteurs, "
+             "surestime la réaction des autres foyers et sous-estime celle des dirigeants.")
 
-    for yy, x, premiere in rangs:
-        v, lo, hi = num(x["valeur"]), num(x["ic_bas"]), num(x["ic_haut"])
-        sb, sh = num(x["spec_bas"]), num(x["spec_haut"])
-        plein = x["prefere"] == "1"
-        if sb is not None:
-            segment(sb, sh, yy, color=BLEU_PALE, lw=5.2, zorder=2)
-        if lo is not None:
-            segment(lo, hi, yy, color=BLEU, lw=1.2, zorder=3)
-        if v is not None:
-            if v > XMAX:
-                ax.plot([XMAX - 0.01], [yy], marker=">", ms=6.2, zorder=5, clip_on=False,
-                        color=BLEU if plein else SURFACE, markeredgecolor=BLEU,
-                        markeredgewidth=1.1)
-            else:
-                ax.plot([v], [yy], "o", ms=5.2, zorder=5, color=BLEU if plein else SURFACE,
-                        markeredgecolor=BLEU, markeredgewidth=1.2)
-        if premiere:
-            fig.text(X_ETUDE / W, fy(yy), x["court"], ha="left", va="center", fontsize=7.3,
-                     color=INK)
-        fig.text(X_PREC / W, fy(yy), x["precision"], ha="left", va="center", fontsize=6.9,
-                 color=INK2)
-        fig.text(X_VAL / W, fy(yy), x["affichage"], ha="left", va="center", fontsize=7.3,
-                 color=INK, fontweight="bold" if plein else "normal")
-    for yy, t in titres:
-        fig.text(X_ETUDE / W, fy(yy), t, ha="left", va="center", fontsize=8.2, color=BLEU,
-                 fontweight="bold")
-    ax.set_yticks([])
-    ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0, 1.25], ["0", "0,25", "0,5", "0,75", "1", "1,25"],
-                  fontsize=7.2)
-    for s_ in ("left", "right", "top"):
-        ax.spines[s_].set_visible(False)
-    ax.spines["bottom"].set_color("#BFBFBF")
-    ax.tick_params(axis="x", colors=INK2, length=2.5, pad=2)
-    ax.set_xlabel("élasticité", fontsize=7.4, color=INK2, labelpad=2)
-    poignees = [Line2D([], [], marker="o", ls="", ms=5, color=BLEU, markeredgecolor=BLEU),
-                Line2D([], [], marker="o", ls="", ms=5, color=SURFACE, markeredgecolor=BLEU,
-                       markeredgewidth=1.2),
-                Line2D([], [], color=BLEU, lw=1.2),
-                Line2D([], [], color=BLEU_PALE, lw=5.2, solid_capstyle="butt")]
-    fig.legend(poignees, ["estimation principale de l'étude", "sous-groupe ou variante",
-                          "intervalle de confiance à 95 %", "éventail des spécifications publiées"],
-               loc="lower left", bbox_to_anchor=(X_ETUDE / W, 0.0), ncol=2, fontsize=6.9,
-               frameon=False, handlelength=1.6, columnspacing=1.4, labelcolor=INK2,
-               borderaxespad=0.1)
-    fin(fig, "c25_elasticites_france.png",
-        "Sources : études citées, présentées dans le complément « Les élasticités estimées sur "
-        "données françaises » ; chaque chiffre, avec sa page et son tableau, figure dans "
-        "donnees/elasticites_france.csv.",
-        "Lecture : chaque ligne mesure la même chose, de combien un revenu déclaré augmente quand "
-        "la part que le contribuable garde de l'euro marginal de ce revenu augmente ; 0,2 signifie "
-        "+2 % de revenu pour +10 % de part gardée. Les estimations diffèrent encore par la population "
-        "et l'horizon : variations d'une année sur l'autre, sauf pour Bach et al., qui comparent "
-        "plusieurs années avant et après chaque réforme parmi les seuls assujettis à l'ISF. Les "
-        "élasticités d'autres grandeurs (patrimoine déclaré, résidence, fraude, dons, participation) "
-        "ne se placent pas sur cette échelle. La bande grise marque la fourchette de 0,12 à 0,40 que "
-        "Saez, Slemrod et Giertz (2012) retiennent pour le revenu imposable aux États-Unis ; les "
-        "flèches, des valeurs hors de l'échelle.")
+
+def c28():
+    _planche(["garbinti_information", "fack_controle"], "c28_elasticites_information.png",
+             "Lecture : les deux panneaux mesurent des grandeurs différentes et ne se comparent pas. "
+             "Chez Garbinti et al., les deux baisses sont estimées par la même méthode, aux seuils "
+             "de tranche de 2006 à 2010, au seuil de la déclaration simplifiée entre 2012 et 2013. "
+             "Chez Fack et Landais, l'élasticité est négative, puisqu'un don moins cher accroît les "
+             "dons déclarés : la figure en donne la valeur absolue, et la barre claire couvre les "
+             "cinq spécifications de leur tableau 2.")
 
 
 if __name__ == "__main__":
     for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c11,
-              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25):
+              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26,
+              c27, c28):
         f()
