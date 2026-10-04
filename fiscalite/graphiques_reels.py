@@ -317,11 +317,9 @@ def r6():
     fin(fig, "r6_taux_superieur_et_seuil.png",
         "Source : OCDE, base de données fiscale, taux statutaire supérieur de l'impôt sur le revenu "
         "et seuil d'application (DSD_TAX_PIT, mesures TS_PIT et TS_PIT_TH).",
-        "Note : la Belgique et le Danemark appliquent un taux comparable au taux français à partir "
-        "d'un revenu proche du salaire moyen ; la France l'applique à partir de treize fois ce "
-        "salaire. Le taux marginal "
-        "qui pèse sur un grand nombre de salariés français n'est donc pas celui-ci, mais celui du "
-        "bas de l'échelle (figure du module sur le travail).")
+        "Lecture : la Belgique et le Danemark appliquent un taux comparable au taux français à "
+        "partir d'un revenu proche du salaire moyen ; la France l'applique à partir de treize fois "
+        "ce salaire.")
 
 
 # ------------------------------------------------ r7 : TVA, taux et assiette
@@ -591,10 +589,7 @@ def r12():
         "Sources : classement de Johansson, Heady, Arnold, Brys et Vartia, OCDE, document de travail "
         "n° 620, 2008 ; recettes OCDE, Revenue Statistics, catégories 1100, 1200, 2000, 3000, 4000, "
         "4100 et 5000.",
-        "Note : les catégories 1300 et 6000, non classées, sont omises. Le classement vient de "
-        "régressions sur un panel de vingt-et-un pays ; son ordre n'est pas robuste à tous les "
-        "changements de spécification (Xing, 2012), et ses auteurs jugent eux-mêmes l'ampleur des "
-        "effets estimés plus élevée que ce à quoi on peut raisonnablement s'attendre.")
+        "Note : les catégories 1300 et 6000, non classées, sont omises.")
 
 
 if __name__ == "__main__":

@@ -28,5 +28,8 @@ l'ait prouvé, que… »).
 ## Style et figures
 
 Prose dense et concrète ; pas de structures « A, et A' » répétées, ni de paragraphes d'annonce ou de
-conclusions récapitulatives. Les sources et notes de lecture des figures sont écrites dans
+conclusions récapitulatives. Le cours ne doit pas s'allonger : une idée n'est exposée qu'une fois,
+les chapitres suivants y renvoient ; la mécanique détaillée d'un impôt n'a sa place que si elle
+illustre un point général ; une figure ne redit ni le texte ni une autre figure, et sa note ne
+recopie pas le texte. Les sources et notes de lecture des figures sont écrites dans
 `figures/nu/<figure>_note.tex` et composées en texte par `\figbloc`, jamais dans l'image.

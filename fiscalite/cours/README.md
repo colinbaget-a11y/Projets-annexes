@@ -1,7 +1,7 @@
 # Le cours
 
-`refaire-l-impot.tex` est la version de référence : 74 pages, treize chapitres en trois parties,
-quarante-cinq figures, trois tableaux et dix rapports publics français cités là où ils servent.
+`refaire-l-impot.tex` est la version de référence : 62 pages, treize chapitres en trois parties,
+quarante et une figures, deux tableaux et dix rapports publics français cités là où ils servent.
 
 ## Organisation
 
@@ -180,3 +180,38 @@ CVAE déjà perçue par l'État ; réduction générale unique de 2026 ; prestat
 ressources ; valeurs locatives (révision des logements repoussée à 2031) ; Dutreil (seuils de
 l'engagement) ; droits de mutation (option à 5 % depuis 2025) ; carbone (composante figée à
 44,6 €/t, biomasse, enchères, ETS2 en 2028, MACF depuis 2026).
+
+## Raccourcissement (octobre 2026)
+
+Le cours est passé de 77 à 62 pages : 25 700 mots de texte courant ramenés à 19 700 environ
+(−24 %), 20 % de mots en moins sur l'ensemble du PDF, notes et bibliographie comprises. Les coupes
+ont suivi trois priorités.
+
+- **Idées répétées.** La régressivité apparente de la TVA n'est plus exposée qu'au chapitre 3 (le
+  chapitre 7 y renvoie) ; le chèque du CPO n'est plus refait au chapitre 7 ; le rôle de l'IS comme
+  filet de sécurité n'est développé qu'une fois ; les notes de figures qui recopiaient le texte
+  (c4, c13, c16, c21, r6, r12) ont été réduites à leurs sources et à ce qu'elles ajoutent. Quatre
+  figures et un tableau qui redisaient une autre figure ou le texte ont été retirés du cours (les
+  scripts les produisent toujours) : c2 (taux supérieur maximal, déjà donné par la courbe du
+  chapitre 1), r3 (taux et recettes de l'IS en coupe, même message que c23), r5 (taxes sur la
+  masse salariale, déjà dans r1 et dans le texte), c9 (rangs de l'indice de la Tax Foundation,
+  énumérés dans le texte), et le tableau des cinq revues, que résume la figure c20.
+- **Mécanique d'impôts particuliers.** Conditions et plafonds de la C3S, conditions du
+  commissionnaire, barème et affectation de la CVAE, détail des contributions annexes de l'IS
+  (CSB, décote de la CDHR, option pour le barème), seuils des allègements de 2023 à 2026,
+  conditions du pacte Dutreil et liste des biens exclus en 2026, régimes LMNP, affectations du
+  versement mobilité et des contributions à la formation. Les chiffres qui portent un argument sont
+  restés.
+- **Passages qui relativisaient.** La phrase sur le Danemark « sans que personne y voie une
+  pathologie » et le paragraphe « Le niveau global de prélèvement n'est pas le premier problème »
+  du chapitre 13 disparaissent : le
+  chapitre 11 dit désormais que, d'après la règle du carré, le coût d'un niveau élevé croît plus
+  vite que le niveau, et d'autant plus que les taux sont dispersés. Disparaissent aussi la leçon de
+  Mankiw, Weinzierl et Yagan sur la redistribution qui croît avec l'inégalité et sa corrélation
+  dans la *Luxembourg Income Study*, et l'encadré qui défendait la progressivité contre l'indice de
+  la Tax Foundation ; le paragraphe sur les retraités dit qu'une transition lente est due, pas que
+  la question peut être évitée.
+
+Les cinq hypothèses de l'auteur, la section des principes du chapitre 13 et les réponses à la
+relecture d'octobre sont conservées.
+

@@ -187,11 +187,7 @@ def c4():
           "Célibataire sans enfant, 2025, en % du coût du travail : prélevé sur tout le salaire "
           "(moyen) et sur l'euro suivant (marginal).")
     fin(fig, "c4_coin_par_niveau.png",
-        "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.",
-        "Note : personne n'a décidé que l'euro supplémentaire serait plus taxé à 67 % du salaire "
-        "moyen qu'au salaire moyen. Ce creux résulte de la superposition des allègements de "
-        "cotisations, de la prime d'activité et des aides sous condition de ressources, dont "
-        "chacun est défendable isolément.")
+        "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.")
 
 
 # ----------------------- c5 : ce que l'inflation fait à un impôt sur le rendement
@@ -583,11 +579,7 @@ def c13():
           "théorie de la taxation optimale\nà l'évolution observée des systèmes fiscaux de l'OCDE.")
     fin(fig, "c13_lecons_mankiw.png",
         "Source : N. G. Mankiw, M. Weinzierl et D. Yagan, « Optimal Taxation in Theory and "
-        "Practice », Journal of Economic Perspectives 23(4), 2009.",
-        "Note : les auteurs posent la question dans les deux sens. Là où la pratique n'a pas "
-        "suivi, soit les gouvernements tardent à comprendre, soit la théorie omet quelque chose "
-        "que la tradition des finances publiques connaît — le principe du bénéfice et l'équité "
-        "horizontale, qu'aucun modèle standard ne contient.")
+        "Practice », Journal of Economic Perspectives 23(4), 2009.")
 
 
 # ------------------- c14 : la mobilité dans la distribution des revenus
@@ -720,9 +712,7 @@ def c16():
           "Coin fiscal moyen d'un célibataire sans enfant, en % du coût du travail, 2025.")
     fin(fig, "c16_coin_trois_niveaux.png",
         "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.",
-        "Note : la pente de chaque ligne mesure la progressivité du prélèvement sur le travail. "
-        "Celle de la France est modérée, mais elle part d'un niveau que peu de pays atteignent au "
-        "salaire moyen : l'écart français tient au niveau de départ plus qu'à la progressivité.")
+        "Note : la pente de chaque ligne mesure la progressivité du prélèvement sur le travail.")
 
 
 # ------------- c17 : les impôts sur la production en France depuis 1995
@@ -938,13 +928,10 @@ def c21():
     fin(fig, "c21_taux_superieurs.png",
         "Source : OCDE, base de données fiscale, taux statutaire supérieur de l'impôt sur le "
         "revenu des personnes physiques.",
-        "Note : le taux français passe de 58,3 % en 2000 à 45,8 % de 2006 à 2009, puis remonte à 55,4 % "
-        "où il se maintient depuis. La valeur publiée pour la France en 2013, 122,8 %, est "
-        "écartée du tracé : c'est un point isolé dans une série qui tient sinon entre 45 et 59 "
-        "pour ce pays, et la source ne documente pas ce qui le produit. L'Estonie applique un taux unique depuis sa réforme des "
-        "années 1990. Un taux statutaire ne dit rien de l'assiette à laquelle il s'applique, et "
-        "c'est précisément l'objet du module 1 : deux pays au même taux affiché peuvent avoir des "
-        "élasticités très différentes selon la porosité de leur assiette.")
+        "Note : la valeur publiée pour la France en 2013, 122,8 %, est écartée du tracé : c'est un "
+        "point isolé dans une série qui tient sinon entre 45 et 59 pour ce pays, et la source ne "
+        "documente pas ce qui le produit. L'Estonie applique un taux unique depuis sa réforme des "
+        "années 1990.")
 
 
 # ----------------------------- c22 : la TVA sur une vie entière, une personne
