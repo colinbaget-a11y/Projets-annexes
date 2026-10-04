@@ -157,3 +157,11 @@ rapports), avec quatre recherches documentaires menées en parallèle.
 - **Graphiques nouveaux.** c23 (taux et recettes de l'IS, 18 pays, 1981-2023), c24 (taux implicite
   de Carey et Rabesona) ; c6 refait sur le cas courant, c14 sur données françaises, s1 lisible à
   la taille d'impression.
+- **Hypothèses de l'auteur.** Cinq intuitions de la relecture sont gardées dans le texte comme
+  hypothèses explicitement non démontrées (C3S et agglomération, ch. 4 ; montée en gamme, ch. 4 ;
+  propriété du logement et croissance, ch. 3 ; imposition commune et formation des couples, ch. 3 ;
+  baisse des taux, élargissement des assiettes et recettes, ch. 5), et rappelées au chapitre 13.
+- **Principes.** Le chapitre 13 contient une section « Les principes qui guident ces
+  propositions » : séparer le démontré du supposé, juger sur le cas courant et l'ordre de
+  grandeur, vérifier les hypothèses d'un résultat avant de l'appliquer, regarder comment on échappe
+  à l'impôt, chiffrer coût et financement, juger la progressivité sur l'ensemble du système.
