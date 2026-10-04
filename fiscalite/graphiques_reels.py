@@ -237,11 +237,10 @@ def r4():
     titre(ax, "Les amortissements français ne sont pas le problème",
           "Valeur actuelle des déductions fiscales pour 100 € investis, 38 pays de l'OCDE, 2025.")
     fin(fig, "r4_amortissements.png", SRC_TF,
-        "Note : chaque point est un pays ; les déductions sont actualisées à 7,5 % par an, "
-        "hypothèse de la Tax Foundation. 100 € signifierait une déduction immédiate et complète, "
-        "c'est-à-dire un impôt qui ne frappe que la rente. La France se situe au-dessus de la "
-        "moyenne pour les trois actifs ; l'écart avec l'idéal est réel, mais il est commun à presque "
-        "tous les pays et n'explique pas ce qui distingue la France.")
+        "Lecture : pour 100 € dépensés pour acquérir un actif incorporel, un brevet par exemple, "
+        "les déductions fiscales autorisées en France, étalées sur cinq ans, valent 87 € "
+        "aujourd'hui ; 100 € correspondrait à une déduction immédiate. Chaque point est un pays ; "
+        "les déductions sont actualisées à 7,5 % par an, hypothèse de la Tax Foundation.")
 
 
 # --------------------------------------- r5 : taxes sur la masse salariale
@@ -277,8 +276,8 @@ def r5():
         "Note : ces prélèvements ne sont pas des cotisations, puisqu'ils n'ouvrent pas de droits "
         "proportionnels aux sommes versées. En France, ce sont pour l'essentiel la taxe sur les "
         "salaires, le versement mobilité et les contributions à la formation professionnelle et à "
-        "l'apprentissage. La Suède y classe la fraction de ses prélèvements patronaux qui n'ouvre "
-        "aucun droit, ce qui explique son niveau.")
+        "l'apprentissage. En Suède, c'est la part des prélèvements patronaux qui n'ouvre aucun "
+        "droit.")
 
 
 # ------------------------------------- r6 : taux supérieur de l'IR et seuil
@@ -370,9 +369,16 @@ def r7():
 
 
 # --------------------------------- r8 : dividendes et plus-values au sommet
+R8_PAYS = {"FRA", "DEU", "AUT", "BEL", "DNK", "ESP", "EST", "USA", "FIN", "IRL", "ITA", "JPN",
+           "NOR", "NLD", "POL", "PRT", "GBR", "SWE", "CHE", "CAN", "KOR"}
+
+
 def r8():
+    # Vingt pays de comparaison et la France : les trente-huit pays ne tiennent pas lisiblement
+    # à la largeur d'une page ; la moyenne de l'OCDE est donnée en note.
     pts = sorted(((idx(p, "dividends_rate"), idx(p, "capital_gains_rate"), p) for p in IDX
-                  if idx(p, "dividends_rate") is not None and idx(p, "capital_gains_rate") is not None),
+                  if p in R8_PAYS and idx(p, "dividends_rate") is not None
+                  and idx(p, "capital_gains_rate") is not None),
                  key=lambda t: (t[0], t[1]))
     fig, ax = plt.subplots(figsize=(10.6, 7.2))
     for i, (dv, pv, p) in enumerate(pts):
@@ -384,7 +390,7 @@ def r8():
                 markeredgecolor=c, markeredgewidth=1.6)
         ax.plot([100 * dv], [i], "o", ms=5.5 if fr_ else 4.5, color=c, zorder=4,
                 markeredgecolor=c, markeredgewidth=0)
-    ax.set_yticks(range(len(pts)), [NOMS.get(p, IDX[p]["pays"]) for *_, p in pts], fontsize=8.6)
+    ax.set_yticks(range(len(pts)), [NOMS.get(p, IDX[p]["pays"]) for *_, p in pts], fontsize=9)
     for t, (*_, p) in zip(ax.get_yticklabels(), pts):
         if p == "FRA":
             t.set_color(BLEU)
@@ -403,7 +409,8 @@ def r8():
           "Taux personnel supérieur sur les dividendes et sur les plus-values de cession d'actions, "
           "pays de l'OCDE.")
     fin(fig, "r8_dividendes_plus_values.png", SRC_TF,
-        "Note : un point plein dans un cercle signale deux taux égaux. Taux au niveau de "
+        "Note : vingt pays de comparaison. Un point plein dans un cercle signale deux taux égaux. "
+        "Taux au niveau de "
         "l'actionnaire seulement ; l'impôt déjà payé par la société "
         "s'ajoute pour les dividendes (figure de la cascade). Le taux français de 34 % est le "
         "prélèvement forfaitaire unique de 30 % augmenté de la contribution sur les hauts revenus. "
@@ -552,10 +559,10 @@ def r12():
             "is": rev(code, "T_1200"),
         }
         return g
-    lab = [("immo", "Impôts récurrents\nsur l'immobilier"), ("conso", "Taxes sur la\nconsommation"),
-           ("autres_patr", "Autres impôts\nsur le patrimoine"),
-           ("revenu", "Revenu des personnes,\ncotisations et masse salariale"),
-           ("is", "Impôt sur\nles sociétés")]
+    lab = [("immo", "immobilier\n(récurrent)"), ("conso", "consommation"),
+           ("autres_patr", "autres impôts\nsur le patrimoine"),
+           ("revenu", "revenus, cotisations,\nmasse salariale"),
+           ("is", "bénéfices\ndes sociétés")]
     f, o = cat("FRA"), cat("OECD_REP")
     fig, ax = plt.subplots(figsize=(10.6, 5.6))
     x = list(range(len(lab)))

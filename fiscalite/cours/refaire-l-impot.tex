@@ -9,6 +9,7 @@
 \usepackage[french]{babel}
 \usepackage[a4paper,left=3.1cm,right=3.1cm,top=2.9cm,bottom=3.1cm]{geometry}
 \usepackage{graphicx}
+\usepackage[export]{adjustbox}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{xcolor}
@@ -75,10 +76,15 @@
    \large\itshape}
   {\par\vspace{7pt}\hrule height 0.4pt width \linewidth\end{minipage}\par\medskip}
 
+% Figure : légende au-dessus, image, puis sources et note de lecture en texte (fichier
+% <figure>_note.tex écrit par les scripts de figures en mode FIG_NU).
 \newcommand{\figbloc}[3]{%
   \begin{figure}[htbp]\centering
   \caption{#2}\label{#3}
-  \includegraphics[width=\linewidth]{../figures/nu/#1.pdf}
+  \includegraphics[max width=\linewidth,max height=0.42\textheight]{../figures/nu/#1.pdf}
+  \IfFileExists{../figures/nu/#1_note.tex}{\par\vspace{4pt}%
+    \parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}}{}%
   \end{figure}}
 
 % ===========================================================================
@@ -132,9 +138,9 @@ et de la Tax Foundation.\par}
 9 & L'immobilier et les transmissions\\
 10 & Le carbone\\[6pt]
 \multicolumn{2}{@{}l}{\itshape\color{ocre} Troisième partie --- Le système d'ensemble}\\[2pt]
-11 & Niveau, structure, et ce que vaut le classement de l'OCDE\\
+11 & Le niveau des prélèvements et le classement de l'OCDE\\
 12 & Ce que font les autres pays\\
-13 & Ce qu'il faudrait changer, et ce qu'il ne faut pas changer\\
+13 & Ce qu'il faudrait changer\\
 \end{tabular}}
 
 \clearpage
@@ -143,312 +149,470 @@ et de la Tax Foundation.\par}
 \section*{Avant de commencer}
 \addcontentsline{toc}{section}{Avant de commencer}
 
-\subsection{Ce que la théorie peut dire, et ce qu'elle ne dira jamais}
+\subsection{Ce que la théorie peut dire}
 
-\amorce{La théorie de la taxation optimale ne dit pas combien il faut redistribuer, et aucun
-théorème ne le dira jamais.} Le poids qu'on accorde à un euro supplémentaire pour un ménage
-modeste par rapport à un ménage aisé est un jugement politique. Elle ne dit pas non plus quel
-niveau de dépense publique est souhaitable. Les économistes qui prétendent le contraire font
+La théorie de la taxation optimale ne dit pas combien il faut redistribuer. Le poids qu'on accorde
+à un euro de plus pour un ménage modeste plutôt que pour un ménage aisé est un jugement de valeur,
+comme le niveau souhaitable de la dépense publique. Les économistes qui prétendent le contraire font
 passer leurs préférences pour des résultats.
 
-\amorce{Ce qu'elle dit tient en une phrase : pour un degré de redistribution donné et un
-rendement donné, certains systèmes coûtent beaucoup moins cher que d'autres.} Le désaccord
-politique porte sur le degré de redistribution. Il ne porte pas sur le fait qu'il vaut mieux
-l'obtenir au prix de dix milliards de richesse détruite plutôt que de trente. Un lecteur de gauche
-et un lecteur de droite peuvent donc diverger sur la progressivité souhaitable et converger
-entièrement sur le diagnostic.
+Ce qu'elle établit tient en une phrase : pour un degré de redistribution donné et une recette
+donnée, certains systèmes détruisent beaucoup moins de richesse que d'autres. Deux lecteurs qui ne
+souhaitent pas la même progressivité peuvent donc s'accorder sur le diagnostic. Ni l'un ni l'autre
+n'a intérêt à payer trente milliards de pertes pour obtenir ce que dix milliards suffiraient à
+obtenir.
 
-\amorce{Si l'État pouvait observer ce que chacun est capable de gagner, la fiscalité ne poserait
-aucun problème économique.} Il suffirait de demander à chacun une somme fixe, calculée sur sa
-capacité et non sur ce qu'il fait. Une somme fixe ne dépend d'aucune décision : elle ne décourage
-ni le travail, ni l'épargne, ni l'investissement. On pourrait redistribuer autant qu'on le
-souhaite sans détruire la moindre valeur.
+Si l'État pouvait observer ce que chacun est capable de gagner, la fiscalité ne poserait aucun
+problème économique. Il suffirait de demander à chacun une somme fixe, calculée sur sa capacité et
+non sur ce qu'il fait. Une somme qui ne dépend d'aucune décision ne décourage ni le travail, ni
+l'épargne, ni l'investissement : on pourrait redistribuer autant qu'on le souhaite sans rien
+détruire.
 
-\amorce{Un gouvernement a essayé la version simple de cette idée, et elle lui a coûté son
-mandat.} Le Royaume-Uni instaure en 1989 en Écosse, l'année suivante en Angleterre et au pays de
-Galles, une \emph{community charge} locale : un montant forfaitaire identique pour chaque adulte,
-indépendant du revenu et du logement. Le prélèvement est parfaitement efficient, puisque personne
-ne peut rien faire pour l'éviter. Il est aussi parfaitement régressif, puisque la même somme pèse
-infiniment plus sur un ménage pauvre. Margaret Thatcher quitte ses fonctions en novembre 1990,
-l'impôt est abrogé en 1993.
+Le Royaume-Uni a essayé la version la plus simple de cette idée : la même somme pour tous, sans
+rien chercher à savoir de la capacité de chacun. En 1989 en Écosse, l'année suivante en Angleterre et
+au pays de Galles, il a remplacé l'impôt local assis sur la valeur locative des logements par une contribution
+due par chaque adulte, la \emph{community charge}, vite appelée \emph{poll tax}. Elle n'avait
+pourtant de forfaitaire que le principe. Chaque collectivité en fixait le montant, qui variait
+fortement de l'une à l'autre. Les ménages modestes pouvaient en obtenir une réduction allant jusqu'à
+80~\%, qui diminuait de 15 pence pour chaque livre de revenu supplémentaire : c'était un impôt de
+plus sur le revenu, pour des ménages dont les aides baissaient déjà à mesure que leur revenu
+augmentait.
+L'assiette, enfin, était un registre auquel on pouvait se soustraire. Selon les estimations de
+l'époque, jusqu'à 600\,000 personnes ont quitté les listes électorales pour ne pas être retrouvées,
+et le non-paiement a dépassé la moitié des sommes dues dans plusieurs collectivités (Besley, Preston
+et Ridge, 1997). La \emph{poll tax} a été remplacée dès 1993. L'expérience montre pourquoi un impôt
+forfaitaire, efficient dans le modèle, ne se lève pas : une somme identique pour tous paraît
+injuste dès qu'elle est élevée ; il faut alors la moduler selon le revenu, ce qui recrée la
+distorsion qu'on voulait éviter ; et ceux qui ne peuvent pas payer cessent de payer.
 
-\amorce{La version savante bute sur un obstacle plus fondamental : l'État n'observe pas la
-capacité, il observe le revenu.} Or le revenu résulte à la fois de la capacité et de l'effort. Dès
-qu'on taxe le revenu pour atteindre ceux qui peuvent beaucoup gagner, on taxe aussi l'effort, donc
-on le décourage. C'est la formalisation de Mirrlees (1971), qui l'écrivait en toutes lettres :
-«~On pourrait obtenir des informations sur le potentiel de gain d'un homme à partir de son
-quotient intellectuel apparent, du nombre de ses diplômes, de son adresse, de son âge ou de sa
-couleur ; mais l'indicateur naturel, et vraisemblablement le plus fiable, de son potentiel de gain
-est son revenu.~» Tout ce qui suit découle de ce problème d'information.
+L'obstacle de fond est ailleurs : l'État n'observe pas la capacité, il observe le revenu. Or le
+revenu résulte à la fois de la capacité et de l'effort. Taxer le revenu pour atteindre ceux qui
+peuvent beaucoup gagner revient à taxer aussi l'effort, donc à le décourager. Mirrlees (1971) l'a
+formalisé et l'écrivait en toutes lettres : «~On pourrait obtenir des informations sur le
+potentiel de gain d'un homme à partir de son quotient intellectuel apparent, du nombre de ses
+diplômes, de son adresse, de son âge ou de sa couleur ; mais l'indicateur naturel, et
+vraisemblablement le plus fiable, de son potentiel de gain est son revenu.~» Le reste du cours
+découle de ce problème d'information.
 
-\subsection{Les trois textes, et ce qu'on peut leur demander}
+\subsection{Les sources}
 
-\amorce{L'article de Mankiw, Weinzierl et Yagan est le meilleur point d'entrée, et sa méthode est
-sa principale leçon.} «~Optimal Taxation in Theory and Practice~», \emph{Journal of Economic
-Perspectives} 23(4), 2009, vingt-huit pages sans équation. Les auteurs tirent huit leçons de la
-théorie et confrontent chacune à l'évolution observée des systèmes de l'OCDE. Cette discipline ---
-exposer chaque résultat une fois comme conclusion de modèle, une fois comme fait --- interdit la
-confusion la plus répandue dans les débats fiscaux.
+L'article de Mankiw, Weinzierl et Yagan, «~Optimal Taxation in Theory and Practice~»
+(\emph{Journal of Economic Perspectives} 23(4), 2009), est le meilleur point d'entrée : vingt-huit
+pages sans équation, huit leçons tirées de la théorie, chacune confrontée à l'évolution observée
+des systèmes de l'OCDE. Exposer chaque résultat une fois comme conclusion d'un modèle, une fois
+comme fait, évite la confusion la plus répandue dans les débats fiscaux.
 
-\amorce{La \emph{Mirrlees Review} apporte une méthode plus qu'une liste de propositions.}
-\emph{Tax by Design}, Institute for Fiscal Studies et Oxford University Press, 2011, 548~pages,
-en accès libre. Elle juge le système dans son ensemble plutôt qu'impôt par impôt, part d'une
-description chiffrée de la population à laquelle il s'applique, et chiffre chaque réforme avec
-ses perdants. Ses propositions sont reprises dans les chapitres consacrés aux impôts qu'elles
-concernent.
+La \emph{Mirrlees Review} (\emph{Tax by Design}, Institute for Fiscal Studies et Oxford
+University Press, 2011, en accès libre) juge le système dans son ensemble plutôt qu'impôt par
+impôt. Elle part d'une description chiffrée de la population à laquelle il s'applique et chiffre
+chaque réforme avec ses perdants.
 
-\amorce{Le document de l'OCDE est le plus cité des trois, et celui dont il faut le plus se
-méfier, en suivant d'ailleurs ses propres auteurs.} Johansson, Heady, Arnold, Brys et Vartia,
-«~Taxation and Economic Growth~», document de travail n°~620, 2008. Il établit un classement des
-impôts selon leur effet sur la croissance à partir d'une régression sur vingt-et-un pays. Le
-chapitre~11 montre ce que ce classement vaut, et ce que ses auteurs écrivent de l'ampleur des
-effets qu'ils estiment.
+Le document de l'OCDE de Johansson, Heady, Arnold, Brys et Vartia, «~Taxation and Economic
+Growth~» (document de travail n°~620, 2008), est le plus cité des trois. Il classe les impôts
+selon leur effet sur la croissance à partir de régressions sur vingt et un pays ; ses auteurs
+écrivent eux-mêmes que l'ampleur des effets estimés dépasse ce qu'on peut raisonnablement attendre.
+Le chapitre~11 dit ce que vaut ce classement.
 
-\amorce{Dix rapports publics français appliquent ces raisonnements aux impôts français, et ce
-qu'ils valent tient à leurs données, pas à leur signature.} Les notes du Conseil d'analyse
-économique, placé auprès du Premier ministre, sont écrites par des économistes universitaires et
-n'engagent que leurs auteurs ; plusieurs contiennent une estimation originale sur données
-d'entreprises ou données fiscales. Le Conseil des prélèvements obligatoires, présidé par le Premier
-président de la Cour des comptes, appuie ses rapports sur des études qu'il commande à l'Insee, à
-l'Institut des politiques publiques ou à l'administration. La Cour des comptes évalue des
-dispositifs à partir des fichiers de l'administration fiscale et sociale. Chaque rapport est cité
-dans le chapitre de l'impôt qu'il concerne, avec ce sur quoi repose le chiffre retenu ; la liste
-figure à la fin du cours.
-
-\amorce{Le cours distingue partout ce qui se calcule de ce qui s'estime.} Un mécanisme qu'on peut
-refaire au crayon --- la perte sèche qui croît avec le carré du taux, le pyramidage d'une taxe sur
-le chiffre d'affaires, l'impôt implicite sur l'attente --- n'a pas le statut d'une régression sur
-panel de pays, et une régression n'a pas le statut d'un jugement. Quand une affirmation change de
-statut, le texte le dit.
+Dix rapports publics français appliquent ces raisonnements aux impôts français. Leur poids tient à
+leurs données. Les notes du Conseil d'analyse économique, placé auprès du Premier ministre, sont
+écrites par des économistes universitaires et n'engagent que leurs auteurs ; plusieurs contiennent
+une estimation originale sur données d'entreprises ou données fiscales. Le Conseil des
+prélèvements obligatoires, présidé par le Premier président de la Cour des comptes, s'appuie sur
+des études qu'il commande à l'Insee, à l'Institut des politiques publiques ou à l'administration.
+La Cour des comptes évalue des dispositifs à partir des fichiers de l'administration fiscale et
+sociale. La liste figure à la fin du cours.
 
 \partie{Première partie}{Trois questions à poser à n'importe quel impôt}
 
 % ===========================================================================
 \section{Que détruit-il ?}
 
-\amorce{Un impôt ne fait pas que déplacer de l'argent : il empêche des échanges d'avoir lieu, et
-la valeur que ces échanges auraient créée n'apparaît nulle part.} Prenons une personne qui ferait
-volontiers deux heures de ménage par semaine chez un voisin pour 20~\euro{} de l'heure, et un
-voisin prêt à payer jusqu'à 26~\euro{} pour s'en dispenser. Sans impôt, l'échange se fait à
-23~\euro{} : la première gagne 3~\euro{} de plus que son prix de réserve, le second économise
-3~\euro{} sur ce qu'il était prêt à payer. Six euros de valeur apparaissent chaque heure, à partir
-de rien d'autre que le fait que les deux se soient mis d'accord.
+Prenons une personne qui ferait volontiers deux heures de ménage par semaine chez un voisin pour
+20~\euro{} de l'heure, et ce voisin, prêt à payer jusqu'à 26~\euro{} pour s'en dispenser. Sans
+impôt, ils s'entendent par exemple sur 23~\euro{} : elle gagne 3~\euro{} de plus que le minimum
+qu'elle exigeait, il paie 3~\euro{} de moins que le maximum qu'il acceptait. Chaque heure crée
+6~\euro{} de valeur, du seul fait qu'ils se sont mis d'accord.
 
-\amorce{Instaurons un prélèvement de 10~\euro{} par heure, et l'échange disparaît.} Pour que la
-première touche encore 20~\euro{}, le voisin doit débourser 30~\euro{} : il refuse. L'État ne
-perçoit rien, puisqu'il n'y a plus de transaction à taxer --- mais les 6~\euro{} de valeur ont
-disparu aussi. Personne ne les a. Ils n'existent plus.
+Un prélèvement de 10~\euro{} par heure fait disparaître cet échange. Pour qu'elle touche encore
+20~\euro{}, il devrait débourser 30~\euro{}, et il refuse. L'État ne perçoit rien, puisqu'il n'y a
+plus rien à taxer, et les 6~\euro{} de valeur ont disparu avec l'échange : personne ne les a.
 
-\amorce{Ces six euros sont la perte sèche, et elle n'apparaît dans aucun compte public.} Un impôt
-fait deux choses. Sur les échanges qui ont encore lieu, il transfère : l'argent passe des parties à
-l'État, et rien n'est détruit. Sur les échanges qu'il a rendus non rentables, il détruit : la
-valeur n'apparaît pas et l'État n'encaisse rien non plus. La seconde partie est invisible parce
-qu'elle consiste en ce qui ne s'est pas produit. On voit ce qu'un impôt rapporte ; on ne voit
-jamais ce qu'il a empêché.
+Ces 6~\euro{} sont ce que les économistes appellent la perte sèche. Sur les échanges qui ont encore
+lieu, l'impôt fait passer de l'argent des parties à l'État sans rien détruire. Sur ceux qu'il rend
+non rentables, il détruit de la valeur sans rien rapporter. La première partie apparaît dans les
+comptes publics ; la seconde consiste en ce qui ne s'est pas produit, et n'apparaît nulle part.
 
 \subsection{Le coût croît avec le carré du taux}
 
-\amorce{Doubler un taux ne double pas le coût : il le quadruple, et c'est le résultat le plus
-important de toute la matière.} La raison est intuitive. Le premier euro d'impôt ne tue que les
-échanges qui ne valaient presque rien à leurs parties, ceux dont le gain se comptait en centimes.
-À mesure que le taux monte, l'impôt élimine des échanges de plus en plus précieux. Chaque point de
-taux supplémentaire détruit donc davantage que le précédent (figure~\ref{fig:carre}).
+Imaginons mille échanges possibles, tous différents : le plus avantageux rapporte 100~\euro{} à
+ses deux parties, le moins avantageux presque rien, et les autres s'étagent régulièrement entre
+les deux. Une taxe de 10~\euro{} par échange fait disparaître ceux qui rapportaient moins de
+10~\euro{}. Il y en a cent, et ils rapportaient en moyenne 5~\euro{} : la perte vaut 500~\euro{}.
+Une taxe de 20~\euro{} fait disparaître deux cents échanges, qui rapportaient en moyenne
+10~\euro{} : la perte vaut 2\,000~\euro{}. Doubler la taxe a doublé le nombre d'échanges supprimés
+et doublé la valeur moyenne de chacun ; la perte est multipliée par quatre. Les recettes, elles,
+passent seulement de 9\,000 à 16\,000~\euro{}. Chaque euro prélevé coûte 5,6 centimes de perte
+avec une taxe de 10~\euro{}, 12,5 avec une taxe de 20~\euro{}, 21,4 avec une taxe de 30~\euro{}
+(figure~\ref{fig:carre}).
 
-\figbloc{c1_perte_au_carre}{Pourquoi le coût d'un impôt croît avec le carré du taux}{fig:carre}
+\figbloc{c1_perte_au_carre}{Doubler une taxe quadruple la perte}{fig:carre}
 
-\amorce{Trois règles pratiques en découlent, et on les retrouvera dans chaque chapitre.} À
-rendement égal, il faut toujours préférer une assiette large et un taux bas : 20~\% sur une
-assiette large coûte environ quatre fois moins par euro d'assiette que 40~\% sur une assiette deux
-fois plus étroite. Il ne faut jamais appliquer deux taux différents à des choses semblables :
-10~\% sur un bien et 30~\% sur un bien voisin coûtent plus qu'un taux uniforme de 20~\% rapportant
-la même somme, et le calcul tient en une ligne --- $10^2 + 30^2 = 1\,000$ contre
-$20^2 + 20^2 = 800$. Enfin, une niche fiscale n'est jamais gratuite, même intégralement gagée :
-elle rétrécit l'assiette, oblige à relever le taux sur ce qui reste, et ce relèvement coûte au
-carré.
+La règle vient de Jules Dupuit, ingénieur des Ponts et Chaussées, qui l'énonce en 1844 : «~l'utilité
+perdue est proportionnelle au quarré de la taxe ; ainsi la taxe 10 fr. ferait perdre 100 fois plus
+d'utilité que la taxe 1 fr.~» La règle découle du calcul : elle est exacte quand les échanges
+menacés s'étagent régulièrement, comme dans l'exemple, et approchée sinon, tant que la taxe reste
+modérée ; Dupuit la réservait lui-même aux «~taxes faibles~». On ne la teste donc pas directement. Ce que les études mesurent est la sensibilité des comportements à l'impôt,
+dont on déduit ensuite le coût. Avec une élasticité du revenu imposable de 0,25, au milieu des
+estimations disponibles (voir plus bas), la formule de Saez, Slemrod et Giertz (2012) donne le coût
+d'un euro de recette supplémentaire : 7 centimes de perte s'il est obtenu en relevant un taux de
+20~\%, 20 centimes à partir d'un taux de 40~\%, 60 centimes à partir de 60~\%. Le coût du dernier
+euro prélevé croît plus vite que le taux : c'est la traduction pratique de la règle du carré.
 
-\subsection{Ce qui bouge, et ce que la loi fait bouger}
+Trois conséquences pratiques en découlent. À recette égale, une assiette large taxée à 20~\%
+détruit deux fois moins qu'une assiette deux fois plus étroite taxée à 40~\%. Deux taux différents
+sur des biens semblables coûtent plus qu'un taux unique qui rapporte autant : 10~\% sur l'un et
+30~\% sur l'autre détruisent l'équivalent de $10^2 + 30^2 = 1\,000$, un taux de 20~\% sur les deux
+$20^2 + 20^2 = 800$. Une niche fiscale, enfin, n'est jamais gratuite, même compensée ailleurs : elle
+rétrécit l'assiette, oblige à relever le taux sur ce qui reste, et la perte croît plus vite que le
+taux.
 
-\amorce{Un impôt ne détruit de la valeur que dans la mesure où les gens peuvent y échapper en
-changeant de comportement.} Dans l'exemple du ménage, tout tenait à une chose : le voisin pouvait
-renoncer. Si le service lui avait été indispensable, il aurait payé les 30~\euro{} et l'État
-aurait encaissé ses 10~\euro{} sans rien détruire. Ce qui ne bouge pas peut être taxé sans
-dommage ; ce qui bouge beaucoup ne peut pas l'être sans coût. La sensibilité de l'assiette à
-l'impôt s'appelle son élasticité.
+\subsection{Ce que la loi fait bouger}
 
-\amorce{Cette élasticité n'est pas une donnée de la nature : elle est en grande partie fabriquée
-par le législateur.} Ce qui compte n'est pas la réaction de l'effort mais celle du revenu
-\emph{imposable}, et celle-ci dépend du nombre de portes de sortie que la loi laisse ouvertes. Un
-système sans niches, où l'on ne peut pas requalifier un revenu en un autre, présente une
-élasticité faible et supporte des taux élevés à faible coût. Un système criblé d'exceptions
-présente une élasticité forte, et le même taux y coûte beaucoup plus cher --- non parce que les
-gens travaillent moins, mais parce qu'ils déplacent leur revenu vers la forme la mieux traitée.
-D'où un ordre des opérations : l'assiette d'abord, le taux ensuite.
+Un impôt ne détruit de la valeur que dans la mesure où les gens peuvent y échapper en changeant de
+comportement. Dans l'exemple du ménage, tout tenait au fait que le voisin pouvait renoncer. Si le
+service lui avait été indispensable, il aurait payé 30~\euro{}, l'État aurait encaissé 10~\euro{}
+et rien n'aurait été détruit. La sensibilité de l'assiette à l'impôt s'appelle son élasticité.
+
+On la mesure par rapport à ce qui reste au contribuable sur un euro supplémentaire, et non par rapport
+au taux d'impôt. Avec un taux marginal de 50~\%, il garde 50 centimes ; si le taux descend à 45~\%,
+il en garde 55, soit 10~\% de plus. Une élasticité de 1 signifie que son revenu déclaré augmente
+alors de 10~\%, une élasticité de 0,25 qu'il augmente de 2,5~\%. L'élasticité relie deux
+pourcentages, celui du revenu et celui de ce qui reste après impôt ; un point d'impôt en plus ne
+fait donc pas perdre un point de revenu.
+
+Le revenu déclaré peut réagir de deux façons. Le contribuable peut travailler moins, investir moins,
+renoncer à une promotion : c'est la réponse réelle, et aucune réforme de l'assiette ne la fait
+disparaître. Il peut aussi déclarer autrement le même revenu, en le faisant passer dans une
+catégorie moins taxée, en le reportant à une année plus favorable, en le logeant dans une société
+ou un placement exonéré. Cette seconde réponse dépend de ce que la loi permet. En haut de la
+distribution, c'est surtout elle qu'on observe : selon la synthèse de Saez, Slemrod et Giertz
+(2012), les réactions mesurées sont pour l'essentiel des déplacements dans le temps et des montages
+plutôt que des changements d'activité, et les meilleures estimations de l'élasticité vont de 0,12
+à 0,40. En France, Cabannes, Houdré et Landais (2014) trouvent 0,02 pour l'ensemble des foyers et
+0,31 pour les 10~\% les plus aisés, sur les réformes de 1997 à 2004 ; Lehmann, Marical et Rioux
+(2013) trouvent environ 0,2 pour les salariés payés moins de deux fois le salaire minimum.
+
+C'est ce qui donne à l'assiette son importance. Une loi qui ferme les possibilités de requalifier un
+revenu supprime la seconde réponse et laisse la première intacte : l'élasticité qui reste est plus
+faible, et le coût d'un taux donné aussi. Slemrod et Kopczuk (2002) en concluent que l'élasticité
+est en partie un choix de politique publique.
 
 \subsection{Où se trouve le sommet des recettes}
 
-\amorce{Cette élasticité détermine à elle seule le point au-delà duquel monter un taux fait
-baisser les recettes.} Si l'assiette se contracte d'un pourcentage fixe quand le revenu net après
-impôt baisse d'un pourcentage donné --- c'est la définition d'une élasticité constante $e$ ---
-alors les recettes sont maximales exactement au taux $1/(1+e)$. Avec une élasticité de 0,25, le
-sommet est à 80~\% ; avec 0,5, à 67~\% ; avec 1, à 50~\% (figure~\ref{fig:sommet}).
+Quand un taux monte, chaque euro d'assiette rapporte davantage, mais il y a moins d'euros
+d'assiette. Au-delà d'un certain taux, le second effet l'emporte et les recettes baissent. C'est la
+courbe de Laffer, prise au sérieux : si l'élasticité est constante et vaut $e$, le sommet se
+trouve exactement au taux $1/(1+e)$, soit 80~\% pour une élasticité de 0,25, 67~\% pour 0,5 et
+50~\% pour 1 (figure~\ref{fig:sommet}). L'usage politique habituel de la courbe --- une baisse
+d'impôt qui se financerait d'elle-même --- suppose qu'on se trouve au-delà de ce sommet. Pour un
+taux de 30~\%, il faudrait une élasticité supérieure à 2,3, six à vingt fois les meilleures
+estimations.
 
 \figbloc{c12_sommet_recettes}{Le sommet des recettes ne dépend que de l'élasticité de
 l'assiette}{fig:sommet}
 
-\amorce{Le taux qui maximise les recettes n'est pas le taux souhaitable, et la courbe est plate
-au voisinage de son sommet.} Le premier point est une affaire de définition : maximiser la recette
-revient à accorder un poids nul au bien-être de ceux qui paient. Le second est arithmétique : entre
-60 et 75~\% de taux, pour une élasticité de 0,5, les recettes restent à moins de 3~\% de leur
-maximum. Personne ne peut donc prétendre savoir à cinq points près où se trouve ce maximum, et il
-n'y a presque rien à gagner à s'en approcher. Loin du sommet, en revanche, la courbe chute vite.
+Ce sommet est une borne, pas un objectif. Au-delà, monter le taux appauvrit à la fois les
+contribuables et l'État ; aucun objectif ne justifie de s'y placer. En deçà, chaque point
+supplémentaire rapporte, de moins en moins, et coûte de plus en plus à ceux qui le paient. Le taux
+souhaitable se trouve donc entre zéro et le sommet, et sa position dépend du poids accordé au
+revenu de ceux qui le paient. Si ce poids est nul, le taux souhaitable est au sommet. S'il est le
+même que celui d'un euro de recette publique, le taux souhaitable est nul : prendre un euro à
+quelqu'un pour le donner à l'État n'apporte alors rien, et la perte sèche s'y ajoute. Le choix de
+ce poids est politique ; la position du sommet, elle, se calcule. Près de ce sommet, la courbe est
+d'ailleurs plate : pour une élasticité de 0,5, les recettes restent à moins de 3~\% de leur maximum
+entre 60 et 75~\% de taux.
 
 % ===========================================================================
 \section{Qui le paie vraiment ?}
 
-\amorce{Celui qui verse l'impôt au Trésor n'est presque jamais celui qui le supporte : la charge
-se déplace jusqu'à se fixer sur celui qui peut le moins s'y soustraire.} Si l'on instaure une
-cotisation patronale de dix points, l'employeur peut accepter de payer plus, modérer les salaires
-futurs, ou embaucher moins. S'il existe beaucoup de candidats pour peu de postes, c'est le salaire
-qui s'ajuste, et le salarié supporte la cotisation que l'employeur verse. La question «~qui
-paie ?~» n'a pas de réponse juridique ; elle a une réponse économique, qui dépend de qui a le plus
-d'alternatives.
+Celui qui verse l'impôt au Trésor n'est pas forcément celui qui le supporte. La charge glisse vers
+celui qui peut le moins s'y soustraire. Si l'on instaure une cotisation patronale de dix points,
+l'employeur peut accepter de payer plus, modérer les salaires futurs ou embaucher moins. S'il y a
+beaucoup de candidats pour peu de postes, c'est le salaire qui s'ajuste, et le salarié supporte la
+cotisation que l'employeur verse. La loi désigne celui qui paie ; celui qui supporte dépend de qui
+a le plus d'alternatives.
 
-\amorce{Les droits de mutation sont acquittés par l'acheteur et supportés par le vendeur.}
-Supposons l'offre de logements fixe à court terme. Ce que l'acheteur est prêt à décaisser au
-total, prix et droits compris, ne change pas parce qu'on instaure un droit : le prix doit donc
-baisser de ce qu'il faut pour que ce total reste le même. L'acheteur paie l'administration, le
-vendeur paie l'impôt.
+Les droits de mutation en donnent l'exemple le plus simple. Supposons l'offre de logements fixe à
+court terme. Ce que l'acheteur est prêt à décaisser au total, prix et droits compris, ne change pas
+parce qu'on instaure un droit : le prix doit donc baisser d'autant pour que ce total reste le même.
+L'acheteur fait le virement à l'administration, le vendeur supporte l'impôt.
 
-\amorce{Une entreprise ne supporte jamais un impôt, parce qu'une entreprise n'est qu'un contrat.}
-Elle n'a pas de bien-être propre. Tout prélèvement qu'elle acquitte se retrouve nécessairement
-dans une baisse du revenu de ses actionnaires, de ses salariés ou de ses fournisseurs, ou dans une
-hausse du prix payé par ses clients. La répartition entre ces quatre est souvent indéterminée, y
-compris pour les économistes, ce qui rend ces impôts politiquement commodes : ils paraissent sans
-victime. C'est probablement aussi pourquoi la part patronale des cotisations sociales l'emporte
-sur la part salariale dans seize des dix-neuf pays de notre échantillon, dix-huit européens et
-les États-Unis ---
-un prélèvement qui semble payé par l'employeur se vote plus facilement.
+Une entreprise, elle, ne supporte jamais un impôt, parce qu'elle n'est qu'un ensemble de contrats
+et n'a pas de bien-être propre. Tout prélèvement qu'elle acquitte se retrouve dans une baisse du
+revenu de ses actionnaires, de ses salariés ou de ses fournisseurs, ou dans une hausse du prix
+payé par ses clients. La répartition entre eux est souvent difficile à établir, y compris pour les
+économistes, ce qui rend ces impôts politiquement commodes : ils paraissent sans victime. C'est
+probablement aussi pourquoi la part patronale des cotisations sociales dépasse la part salariale
+dans seize des dix-neuf pays de notre échantillon (dix-huit pays européens et les États-Unis) : un
+prélèvement qui semble payé par l'employeur se vote plus facilement.
 
-\amorce{La France et le Danemark en donnent la démonstration la plus nette.} Les deux pays
-prélèvent une part importante du coût du travail --- 47~\% et 36~\% --- mais le Danemark lève 35
-de ses 36 points par l'impôt sur le revenu, quand la France lève 27 de ses 47 points par les
-cotisations employeur (figure~\ref{fig:coin}). Les deux pays n'ont pas des systèmes opposés : ils
-ont des conventions d'affichage opposées. Pour le salarié, ce qui compte est l'écart entre ce que
-son travail coûte et ce qu'il touche, quelle que soit l'étiquette.
+La comparaison entre la France et le Danemark le montre. L'OCDE mesure ce qu'elle appelle le coin
+fiscal : la part du coût total d'un salarié qui part en cotisations et en impôt sur le revenu, pour
+un célibataire payé au salaire moyen. En France, sur 100~\euro{} que ce salarié coûte à son
+employeur, 47~\euro{} vont aux cotisations et à l'impôt, dont 27~\euro{} de cotisations patronales ;
+il en garde 53. Au Danemark, il en part 36, dont 35 par l'impôt sur le revenu
+(figure~\ref{fig:coin}). Il s'agit d'un taux moyen, au salaire moyen : la part prélevée monte avec
+le salaire, jusqu'à 54~\% en France à 1,67 fois le salaire moyen (chapitre~6). La différence de
+composition entre les deux pays tient largement à une convention : ce que la France prélève sous le
+nom de cotisation patronale, le Danemark le prélève sous le nom d'impôt sur le revenu. Pour le
+salarié, ce qui compte est l'écart entre ce que son travail coûte et ce qu'il touche, quelle que
+soit l'étiquette.
 
-\figbloc{s2_coin_fiscal}{Coin fiscal sur le travail et sa composition, 2025}{fig:coin}
+\figbloc{s2_coin_fiscal}{Le coin fiscal sur le travail et sa composition, 2025}{fig:coin}
 
 % ===========================================================================
 \section{Comment le juger ?}
 
-\amorce{Il n'y a aucune raison pour que chaque impôt soit progressif ; il faut que l'ensemble le
-soit, dans la mesure voulue.} On débat de savoir si la TVA est régressive --- elle l'est,
-rapportée au revenu courant --- comme si cela suffisait à la condamner. Mais une TVA à taux unique
-assortie d'un transfert forfaitaire est globalement progressive, et plus efficace qu'une TVA à
-taux multiples sans transfert. Des impôts différents servent des fins différentes : la taxe sur le
-tabac est franchement régressive et ne vise pas la progressivité.
+La progressivité se juge sur l'ensemble du système, pas impôt par impôt. Le débat public fait
+l'inverse : une hausse de TVA y est dite injuste parce que la TVA pèse davantage, rapportée au
+revenu, sur les ménages modestes, même lorsqu'elle finance une prestation qui leur rapporte plus
+qu'elle ne leur coûte. Or ce qui compte pour un ménage est ce qu'il paie au total et ce qu'il reçoit
+au total. Le Conseil des prélèvements obligatoires en donne un exemple chiffré dans son rapport de
+février 2023 sur la TVA. Pour un même coût de 9,4~Md\euro{}, supprimer la TVA sur l'alimentation
+relèverait le niveau de vie des 10~\% de ménages les plus modestes de 1,5~\% ; verser un chèque de
+1\,620~\euro{} aux ménages éligibles au chèque énergie le relèverait de 7,3~\%. La baisse de TVA,
+présentée comme la mesure sociale, l'est près de cinq fois moins que la prestation, et rien n'empêche de
+financer la prestation par un impôt qui, pris isolément, n'est pas progressif. Juger chaque impôt
+séparément conduit à écarter des réformes qui, compensation comprise, améliorent la situation des
+plus modestes. C'est la règle la plus difficile à faire admettre, et celle dont dépendent plusieurs
+propositions de la troisième partie. Une taxe sur le tabac, elle, est franchement
+régressive ; elle ne vise pas la redistribution et n'a pas à la viser.
 
-\amorce{L'instantané trompe : la progressivité devrait s'apprécier sur une vie, pas sur une
-année.} Les revenus montent, descendent et se déplacent. Au Royaume-Uni, sur la période 1991-2008,
-34~\% des personnes situées dans le cinquième le plus pauvre y étaient encore dix-sept ans plus
-tard, mais 8~\% avaient rejoint le cinquième le plus riche ; symétriquement, 38~\% des plus riches
-étaient restés en place et 10~\% avaient rejoint le cinquième le plus pauvre
-(figure~\ref{fig:mobilite}). Une réforme qui frappe les hauts revenus d'une année donnée ne frappe
-pas une classe stable.
+\subsection{Sur une vie plutôt que sur une année}
 
-\figbloc{c14_mobilite}{Les riches d'une année ne sont pas les riches de la décennie}{fig:mobilite}
+Le revenu d'une année mesure mal la position d'une personne. Il varie d'abord avec l'âge : faible
+pendant les études et les premières années de travail, il monte jusqu'au milieu de la carrière,
+puis baisse à la retraite. Une photographie prise une année donnée mêle des étudiants, des actifs au
+sommet de leur carrière et des retraités, et une partie de ce qu'elle présente comme des écarts entre
+riches et pauvres sépare en réalité des âges. Il varie ensuite d'une année sur l'autre, avec le
+chômage, une prime, les résultats d'un indépendant.
 
-\amorce{Une règle de mesure dissipe à elle seule l'essentiel du débat sur la régressivité de la
-TVA : rapporter les impôts sur le revenu au revenu courant, et les impôts sur la dépense à la
-dépense courante.} Rapporter la TVA payée au revenu d'une année donne une image faussement
-régressive, parce que les ménages dont le revenu est temporairement bas consomment plus qu'ils ne
-gagnent, en empruntant ou en puisant dans leur épargne. Rapportée à la dépense, approximation des
-ressources de long terme, la même TVA apparaît à peu près proportionnelle. C'est la correction
-d'une erreur de dénominateur, que la \emph{Mirrlees Review} recommande explicitement.
+Suivre les mêmes personnes pendant longtemps permet de mesurer ce second effet. L'Insee a classé
+chaque année, à partir de leurs déclarations de revenus, les personnes âgées de 25 à 49 ans en 2003,
+selon leur revenu avant impôt, retraites et allocations chômage comprises (figure~\ref{fig:mobilite}).
+Seize ans plus tard, 63~\% de celles qui faisaient partie des 20~\% les plus aisés en 2003 y sont
+encore, et 3,5~\% seulement sont passées parmi les 20~\% les plus modestes ; en bas, 62~\% sont
+restées et 2~\% ont rejoint le cinquième le plus aisé. L'échelle des revenus bouge donc lentement en
+France. Elle bouge tout de même : au bout de trois ans, une personne sur cinq a déjà quitté le
+cinquième le plus aisé. Le tableau que cite la \emph{Mirrlees Review} pour le Royaume-Uni est bien
+plus mobile --- 38~\% des plus riches de 1991 encore au sommet en 2008, 10~\% parmi les plus
+pauvres ---, mais il porte sur des personnes de tous âges, enfants et retraités compris, et sur un
+revenu hebdomadaire déclaré à une enquête. Une partie des passages du haut vers le bas tient
+probablement au départ à la retraite, que ni la \emph{Review} ni la statistique britannique dont
+elle tire le tableau ne détaillent. Les deux séries ne se comparent pas.
 
-\amorce{Aucune réforme ne doit être évaluée sans sa compensation.} Proposer un taux unique de TVA
-sans dire par quoi le choc sur les bas revenus est compensé n'est que la moitié d'une
-proposition, et c'est ce qui permet à une bonne idée d'être rejetée pour de mauvaises raisons. La
-\emph{Mirrlees Review} a construit ses réformes de façon à être neutres sur le rendement \emph{et}
-sur la distribution, et c'est ce double gage qui lui a donné son autorité.
+\figbloc{c14_mobilite}{Seize ans plus tard, deux tiers des plus aisés le sont encore}{fig:mobilite}
 
-\amorce{La complexité est régressive.} Les niches, les régimes dérogatoires et les montages ne
-profitent qu'à ceux qui peuvent payer un conseil pour les trouver. À barème identique, un système
-simple est donc plus redistributif qu'un système complexe, et simplifier n'est pas une
-revendication de technicien mais une mesure d'équité.
+Même modérée, cette mobilité a deux conséquences concrètes. La première est qu'un barème progressif
+appliqué année par année taxe davantage un revenu irrégulier qu'un revenu stable de même total.
+Prenons deux célibataires qui gagnent chacun 500\,000~\euro{} en dix ans. Le premier a un revenu
+imposable de 50\,000~\euro{} chaque année et paie, au barème de 2025, 8\,165~\euro{} par an. Le
+second gagne alternativement 20\,000 et 80\,000~\euro{} : il paie 470~\euro{} les mauvaises années
+et 17\,165~\euro{} les bonnes, soit 8\,818~\euro{} en moyenne, 8~\% de plus pour le même revenu. Les
+revenus irréguliers sont ceux des indépendants, des agriculteurs, des artistes, des salariés qui
+traversent des périodes de chômage, et le barème annuel les pénalise sans que personne l'ait
+décidé. Le droit français ne lisse que les revenus exceptionnels, par le système du quotient, qui
+impose un tel revenu comme s'il avait été perçu sur quatre ans ; les variations ordinaires ne sont
+pas lissées.
 
-\amorce{L'assiette percée a un chiffre officiel, et il est sous-estimé.} Une dépense fiscale est
-une exception à la règle générale d'un impôt ; elle fait le travail d'une subvention sans passer par
-le budget. La Cour des comptes en recense 474 en 2025, pour 91,8~Md\euro{}, plus du quart des
-recettes fiscales nettes de l'État (\emph{Le budget de l'État en 2025}, avril 2026). Elles
-représentent l'équivalent de 46~\% du produit de l'impôt sur le revenu et de 52~\% de celui de
-l'accise sur les énergies. Pour 13~\% d'entre elles le coût est inconnu, pour 42~\% le nombre de
-bénéficiaires ; douze dispositifs dont le gain par bénéficiaire est inférieur à 100~\euro{} coûtent
-ensemble 2,2~Md\euro{}. Le total dépend en outre d'une convention : depuis 2024, les dépenses
-fiscales de TVA ne sont comptées que sur la part qui revient à l'État, ce qui les divise par deux ;
-avec la convention antérieure, celui de 2025 dépasse 105~Md\euro{}. La Cour relève enfin que la
-prévision est systématiquement inférieure au coût définitif : celui du pacte Dutreil a été
-multiplié par six pour 2024 après l'évaluation qu'elle en a faite (chapitre~9).
+La seconde conséquence porte sur le diagnostic. Mesurées sur le revenu moyen de 2003 à 2020 plutôt
+qu'année par année, les inégalités entre les personnes suivies par l'Insee sont inférieures de
+6,6~\%. L'écart est modeste pour des actifs d'âge comparable ; il grandit nécessairement quand la
+photographie mêle des âges différents, puisque s'y ajoutent les écarts entre jeunes, actifs et
+retraités. C'est le cas de toutes les statistiques annuelles sur les ménages, et c'est ce qui fausse
+le jugement porté sur la TVA.
+
+Rapportée au revenu d'une année, la TVA paraît régressive : elle représente 12,5~\% du revenu disponible des 10~\% de ménages les plus modestes et
+4,7~\% de celui des 10~\% les plus aisés (CPO, 2023). Mais une partie de ces ménages modestes ne le
+sont que pour un temps --- étudiants, personnes entre deux emplois, retraités --- et consomment plus
+qu'ils ne gagnent, en empruntant ou en puisant dans leur épargne. La figure~\ref{fig:tvavie} suit
+une même personne à trois âges. Jeune, elle dépense plus qu'elle ne gagne ; au milieu de sa
+carrière, elle épargne ; retraitée, elle dépense son épargne. La TVA représente pour elle 18~\%,
+puis 12~\%, puis 20~\% du revenu de l'année, et une photographie qui mêlerait des personnes des
+trois âges ferait apparaître un impôt régressif. Sur sa vie entière, elle paie 15~\% de ce qu'elle
+gagne : la TVA est proportionnelle à ses ressources. D'où la règle de mesure que recommande la
+\emph{Mirrlees Review} : rapporter un impôt sur la dépense à la dépense, et non au revenu de
+l'année. Sur données françaises, une analyse sur le cycle de vie réalisée pour le CPO réduit la
+régressivité de la TVA de près de moitié sans l'annuler, notamment parce que les ménages aisés ne
+consomment pas toutes leurs ressources de leur vivant (chapitre~7).
+
+\figbloc{c22_tva_cycle_de_vie}{La TVA paraît régressive sur une année, elle est proportionnelle
+sur une vie}{fig:tvavie}
+
+\subsection{Juger une réforme}
+
+Une réforme ne s'évalue qu'avec sa compensation. Proposer un taux unique de TVA sans dire comment
+le choc est compensé pour les bas revenus n'est que la moitié d'une proposition, et c'est ce qui
+permet à une bonne idée d'être rejetée pour de mauvaises raisons. La \emph{Mirrlees Review} a
+construit ses réformes pour qu'elles soient neutres à la fois sur la recette et sur la
+distribution ; c'est ce qui leur a donné leur crédit.
+
+La complexité, de son côté, profite à ceux qui peuvent payer un conseil. Les niches, les régimes
+dérogatoires et les montages servent d'abord ceux qui savent les trouver ; à barème identique, un
+système simple redistribue davantage qu'un système complexe.
+
+La Cour des comptes chiffre ce que coûtent ces exceptions. Une dépense fiscale est une exception à
+la règle générale d'un impôt, qui fait le travail d'une subvention sans passer par le budget ; la
+Cour en recense 474 en 2025, pour 91,8~Md\euro{}, plus du quart des recettes fiscales nettes de
+l'État (\emph{Le budget de l'État en 2025}, avril 2026). Elles représentent l'équivalent de 46~\%
+du produit de l'impôt sur le revenu et de 52~\% de celui de l'accise sur les énergies. Pour 13~\%
+d'entre elles le coût est inconnu, pour 42~\% le nombre de bénéficiaires. Le total dépend en outre
+d'une convention : depuis 2024, les dépenses fiscales de TVA ne sont comptées que sur la part qui
+revient à l'État, ce qui les divise par deux, et avec la convention antérieure le total de 2025
+dépasse 105~Md\euro{}. La prévision, enfin, est systématiquement inférieure au coût définitif :
+celui du pacte Dutreil a été multiplié par six pour 2024 après l'évaluation que la Cour en a faite
+(chapitre~9). Le tableau~\ref{tab:niches} donne les plus coûteuses.
+
+\begin{table}[htbp]
+\caption{Les quinze dépenses fiscales les plus coûteuses, chiffrage pour 2026}
+\label{tab:niches}
+\footnotesize
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\linewidth}{@{}r>{\raggedright\arraybackslash}X l r@{}}
+\toprule
+ & \textbf{Dépense fiscale} & \textbf{Impôt} & \textbf{Md\euro{}}\\
+\midrule
+1 & Crédit d'impôt recherche & IR et IS & 8,0\\
+2 & Crédit d'impôt pour l'emploi d'un salarié à domicile & IR & 7,2\\
+3 & Abattement de 10~\% sur les pensions et retraites & IR & 4,7\\
+4 & Pacte Dutreil : transmission d'entreprises & successions & 4,0\\
+5 & Participation, intéressement et épargne salariale & IR & 2,9\\
+6 & TVA à 10~\% sur les travaux dans les logements & TVA & 2,5\\
+7 & TVA à 10~\% sur la restauration & TVA & 2,3\\
+8 & Exonération des heures supplémentaires & IR & 2,3\\
+9 & Réduction d'impôt pour les dons des particuliers & IR & 2,2\\
+10 & Déduction des travaux sur les logements loués & IR & 2,0\\
+11 & Crédit d'impôt pour la garde des enfants de moins de 6 ans & IR & 1,8\\
+12 & Réduction d'impôt pour les dons des entreprises & IR et IS & 1,7\\
+13 & Gazole à tarif réduit pour les travaux agricoles et forestiers & accise & 1,7\\
+14 & Exonération des prestations familiales et de l'allocation aux adultes handicapés & IR & 1,6\\
+15 & Accise réduite sur les carburants outre-mer & accise & 1,5\\
+\midrule
+ & \textbf{Total des quinze} & & \textbf{46,2}\\
+\bottomrule
+\end{tabularx}
+
+\vspace{4pt}
+\parbox{\linewidth}{\raggedright\scriptsize\color{encre}Source : projet de loi de finances pour
+2026, \emph{Évaluation des voies et moyens}, tome II, p.~25. Ces quinze mesures font plus de la
+moitié du coût total des 474 dépenses fiscales. Le chiffrage du pacte Dutreil a été relevé de
+0,8 à 4~Md\euro{} pour 2025 après l'évaluation de la Cour des comptes.}
+\end{table}
+
+La Cour relève aussi que douze dépenses fiscales dont le gain moyen par bénéficiaire est inférieur
+à 100~\euro{} par an coûtent ensemble 2,2~Md\euro{}. Son rapport n'en donne pas la liste. En
+appliquant le même critère aux chiffrages de 2023 publiés avec le projet de loi de finances pour
+2025, on retrouve exactement douze dépenses pour 2,2~Md\euro{}, ce qui laisse penser qu'il s'agit
+des mêmes. Les plus coûteuses sont l'exonération des revenus de l'épargne salariale (590~M\euro{},
+soit 49~\euro{} en moyenne pour 12~millions de bénéficiaires), celle de la contribution de
+l'employeur aux titres-restaurant (479~M\euro{}, 92~\euro{}), l'abattement accordé aux personnes
+âgées ou invalides de condition modeste (362~M\euro{}, 52~\euro{}), la réduction d'impôt pour frais
+de scolarité dans le secondaire (218~M\euro{}, 70~\euro{}) et l'exonération de la prise en charge
+des frais de transport domicile-travail (189~M\euro{}, 33~\euro{}). Ces montants ne comptent que
+l'impôt sur le revenu : certaines de ces exonérations valent aussi pour les cotisations sociales,
+et l'avantage réel est alors plus élevé.
 
 \subsection{Ce qu'on demande à un système fiscal}
 
-\amorce{La \emph{Mirrlees Review} refuse les listes de principes qui ne hiérarchisent rien, et sa
-formulation est conditionnelle.} Les quatre canons d'Adam Smith --- contribution proportionnelle
-aux facultés, certitude, commodité, coût minimal au-delà de ce que l'impôt rapporte --- recueillent
-un assentiment universel et ne servent à rien dès que deux objectifs entrent en conflit. Les
-auteurs posent donc la question autrement : \emph{pour un résultat distributif donné}, ce qui
-compte est de minimiser les effets négatifs sur l'efficience, les coûts d'administration et de
-conformité, de respecter l'équité de procédure et les attentes légitimes, et d'être compris
-plutôt que de prélever par inadvertance.
-
-\amorce{La simplicité, la neutralité et la stabilité ne sont pas des fins : ce sont des moyens
-d'atteindre ces objectifs.} Un système simple est préférable parce qu'il coûte moins à
-administrer et se comprend mieux, pas parce que la simplicité serait bonne en elle-même. La
-précision autorise l'exception quand elle est justifiée --- le prix du carbone, les accises sur le
-tabac et l'alcool --- et interdit d'invoquer la neutralité comme un argument qui se suffirait à
-lui-même.
+Tout le monde s'accorde sur les quatre règles d'Adam Smith : que chacun paie selon ses facultés,
+que l'impôt soit certain et non arbitraire, commode à payer et peu coûteux à percevoir. Elles ne
+disent rien de ce qu'il faut faire quand elles se contredisent --- quand l'impôt le plus juste est
+aussi le plus coûteux à percevoir, par exemple. La \emph{Mirrlees Review} pose une question plus
+étroite : pour une redistribution donnée, quel système réduit au minimum les pertes d'activité, les
+coûts de gestion pour l'administration et de déclaration pour les contribuables, tout en restant
+compréhensible et prévisible ? La simplicité, la neutralité et la stabilité y servent ces
+objectifs : un système simple coûte moins à gérer et se comprend mieux. La même logique autorise
+une exception quand elle se justifie, comme le prix du carbone ou les accises sur le tabac, et
+interdit d'invoquer la neutralité comme un argument qui se suffirait à lui-même.
 
 \begin{encadre}{Le test du statu quo}
 Ne pas taxer quelque chose revient à en subventionner l'usage par rapport à tout ce qui est taxé.
 Un taux réduit sur la restauration est une subvention aux repas pris à l'extérieur, financée par
 un taux plus élevé sur tout le reste. L'absence d'impôt sur le loyer implicite du propriétaire
-occupant est une subvention à l'occupation par rapport à la location.
+occupant --- le loyer qu'il ne paie pas parce qu'il est chez lui --- est une subvention à la
+propriété par rapport à la location.
 
 La question n'est donc jamais «~faut-il taxer ceci ?~» mais «~pourquoi subventionne-t-on ceci ?~».
-Posée dans ce sens, elle appelle une justification là où l'habitude n'en demande aucune --- et la
+Posée dans ce sens, elle appelle une justification là où l'habitude n'en demande aucune, et la
 plupart des régimes dérogatoires n'en ont pas.
 \end{encadre}
 
-\begin{encadre}{L'unité d'imposition, une question qu'aucun modèle ne tranche}
-La théorie du comportement est construite sur l'individu ; la plupart des gens vivent en ménage,
-dont la composition change au fil des naissances, des séparations et des décès. Aucun résultat ne
-départage l'imposition de l'individu et celle du foyer. La \emph{Mirrlees Review} constate que la
-pratique britannique est elle-même incohérente --- impôt et cotisations sur l'individu, prestations
-sur le ménage --- et renonce à trancher.
+Ce que la subvention au propriétaire occupant produit à long terme est moins établi qu'on ne le
+dit. Aucune étude ne
+mesure de façon convaincante son effet sur la croissance. Les modèles calibrés trouvent qu'en
+orientant l'épargne vers le logement plutôt que vers le capital des entreprises, elle réduit le
+bien-être, et que taxer le loyer implicite l'augmenterait (Gervais, 2002) ; seuls quatre pays de
+l'OCDE le taxent, et la Suisse a voté en 2025 la suppression du sien. Sur le marché du travail,
+l'hypothèse d'Oswald veut qu'une part élevée de propriétaires augmente le chômage, parce qu'un
+propriétaire déménage moins facilement pour un emploi. La preuve la plus solide vient de Finlande,
+où la libéralisation des loyers au début des années 1990 permet d'isoler l'effet : une hausse de la
+part des propriétaires y a fait monter le chômage, alors même que les propriétaires sont eux-mêmes
+moins souvent au chômage que les locataires (Laamanen, 2017). L'effet passerait par le marché local
+dans son ensemble plutôt que par les propriétaires (Blanchflower et Oswald, 2013). La subvention à
+la propriété fausse donc le choix entre placements, et probablement le fonctionnement du marché du
+travail ; on ne sait pas en chiffrer le coût en croissance, et l'argument pour la supprimer reste
+un argument de neutralité.
 
-La France impose le foyer, et ce choix a une conséquence mesurable : le second apporteur de
-revenu fait face, dès son premier euro, au taux marginal du premier. Que ce soit un sujet de
-désaccord légitime ne dispense pas de mesurer ce que le choix actuel coûte.
+\begin{encadre}{Imposer l'individu ou le couple}
+La France impose le foyer. Le revenu d'un couple marié ou pacsé est divisé en deux parts ; l'impôt
+est calculé sur une part, puis multiplié par deux. Chaque enfant ajoute une demi-part, le troisième
+une part entière. Trois exemples, au barème de 2025, montrent ce que ce choix change.
+
+Un couple dont un seul membre gagne 60\,000~\euro{} de revenu imposable paie 4\,331~\euro{}.
+Imposés comme deux personnes seules, ils paieraient 11\,165~\euro{} : le quotient conjugal leur fait
+gagner 6\,835~\euro{}, et cet avantage n'est pas plafonné. Un couple dont chaque membre gagne
+30\,000~\euro{} paie 4\,331~\euro{} dans les deux systèmes : le quotient ne profite qu'aux couples
+dont les revenus sont inégaux. Si, dans le premier couple, le second conjoint prend un emploi qui
+lui rapporte 15\,000~\euro{}, l'impôt du foyer augmente de 4\,500~\euro{} : son salaire est taxé à
+30~\% dès le premier euro, alors qu'imposé seul il ne paierait rien.
+
+Le système favorise donc le mariage et le PACS des couples dont les revenus sont inégaux --- les
+couples non mariés sont imposés séparément --- et décourage le travail du second apporteur de
+revenu, une femme dans les trois quarts des cas. Selon l'Insee,
+l'imposition commune relève de 5,9 points le taux marginal des seconds apporteurs et abaisse de
+13 points celui des premiers. L'imposition individuelle ne favorise ni ne pénalise le mariage, et
+taxe chaque salaire à son propre taux. Pour les enfants, la demi-part réduit l'impôt de
+1\,791~\euro{} par an au plus, et d'autant plus que le revenu est élevé ; son effet mesuré sur la
+natalité est positif mais très faible (Landais, 2003). Un crédit d'impôt d'un même montant par
+enfant donnerait autant pour chaque enfant ; le quotient repose sur un autre principe, qui compare
+les familles à niveau de vie égal.
+
+Aucun résultat théorique ne départage l'imposition de l'individu et celle du couple, et la
+\emph{Mirrlees Review} renonce à trancher. Le Conseil des prélèvements obligatoires chiffre le coût
+du quotient conjugal entre 10,6 et 13,5~Md\euro{}. L'avantage peut atteindre 35\,355~\euro{} pour un
+foyer, et près de la moitié du total va aux 10~\% de ménages les plus aisés. À l'inverse, trois
+millions de couples, pour l'essentiel des classes moyennes, paient plus que s'ils étaient imposés
+séparément, parce que la décote qui allège l'impôt des petits contribuables n'est pas doublée pour
+un couple. Le Conseil propose de la doubler, pour un coût de 1,3~Md\euro{}, et de plafonner
+l'avantage du quotient conjugal à 10\,000~\euro{}, ce qui rapporterait 1,1~Md\euro{}.
 \end{encadre}
 
 \partie{Deuxième partie}{Impôt par impôt}
 
-\amorce{La France prélève dix points de PIB de plus que la moyenne des pays de l'OCDE, et cet
-écart a une adresse précise.} Sur 43,9~\% du PIB en 2023 contre 33,7~\% pour la moyenne, 5,7
-points viennent des cotisations sociales et 1,5 des taxes sur la masse salariale ; viennent
-ensuite l'impôt sur le revenu, l'impôt foncier, les successions. Une seule grande catégorie est
-en dessous de la moyenne : l'impôt sur les sociétés (figure~\ref{fig:ecarts}).
+La France prélève 43,9~\% du PIB en 2023, dix points de plus que la moyenne des pays de l'OCDE
+(33,7~\%). L'écart se concentre sur quelques catégories : 5,7 points viennent des cotisations
+sociales et 1,5 des taxes sur la masse salariale ; suivent l'impôt sur le revenu, l'impôt foncier et
+les successions (figure~\ref{fig:ecarts}). Une seule grande catégorie rapporte moins que la
+moyenne : l'impôt sur les sociétés, 2,35~\% du PIB contre 3,75~\%. Il s'agit de recettes, pas de
+taux. Le taux français est un peu au-dessus de la moyenne (chapitre~5), mais ce qu'il rapporte
+dépend aussi de la part des bénéfices dans l'économie et de l'étroitesse de l'assiette, et la
+moyenne est tirée vers le haut par des pays qui taxent des rentes de ressources naturelles
+(Norvège, 12~\% du PIB ; Colombie, Australie, Chili) ou qui accueillent les bénéfices de
+multinationales (Luxembourg, Pays-Bas). L'Allemagne et les États-Unis, à 2,2~\%, sont au niveau de
+la France ; la médiane de l'OCDE est à 3,4~\%.
 
 \figbloc{r1_carte_des_ecarts}{D'où viennent les dix points d'écart avec la moyenne de
 l'OCDE}{fig:ecarts}
-
-\amorce{Chaque chapitre de cette partie prend une ligne de ce graphique et répond à la même
-question : pourquoi cet impôt coûte-t-il ce qu'il coûte ?} L'argument est donné en tête, en une
-phrase. Vient ensuite un exemple chiffré qu'on peut refaire de tête, puis les données
-internationales, la situation française, ce qu'il faudrait faire, et l'objection la plus forte
-qu'on puisse opposer à la recommandation. Les chapitres sont rangés du plus solide au plus
-discuté : le premier repose sur un théorème que personne ne conteste, les derniers sur des
-arbitrages où des économistes compétents divergent.
 
 % ===========================================================================
 \section{Les impôts sur la production}
@@ -459,288 +623,511 @@ On peut toujours lever la même somme, sur les mêmes personnes, sans cette pert
 gain d'efficience qui ne coûte rien à personne.
 \end{argument}
 
-\amorce{Taxer un intrant --- un local, une masse salariale, un chiffre d'affaires --- change la
-façon dont l'entreprise combine ses moyens.} Elle utilise moins de l'élément taxé et plus des
-autres, non parce que c'est techniquement meilleur, mais parce que c'est fiscalement moins
-coûteux. L'économie produit alors moins avec les mêmes ressources. C'est le théorème d'efficience
-productive de Diamond et Mirrlees (1971) : on peut taxer ce que les gens consomment, ce qu'ils
-gagnent, ce qu'ils possèdent, mais on ne devrait jamais taxer ce qui sert à produire.
+Un intrant est ce qu'une entreprise utilise pour produire : du travail, des machines, des locaux,
+des fournitures achetées à d'autres entreprises. Taxer un intrant, comme les locaux ou la masse
+salariale, ou taxer les ventes que les entreprises se font entre elles, change la façon dont
+l'entreprise combine ses moyens. Elle utilise moins
+de l'élément taxé et davantage des autres, uniquement parce que c'est fiscalement moins coûteux, et
+l'économie produit moins avec les mêmes ressources. C'est le théorème d'efficience productive de
+Diamond et Mirrlees (1971) : l'État peut taxer ce que les ménages consomment, ce qu'ils gagnent, ce
+qu'ils possèdent, mais il ne devrait pas taxer ce qui s'échange entre entreprises pour produire.
 
-\amorce{Le point décisif est qu'il n'y a ici aucun arbitrage entre efficience et équité.} Si l'on
-supprime la taxe sur l'intrant et qu'on lève le même montant sur la consommation ou le revenu des
-mêmes personnes, chacun se retrouve dans la même situation qu'avant --- sauf qu'il y a davantage à
-partager. C'est rare en fiscalité, et c'est ce qui place ce chapitre en premier.
+Ce résultat a une propriété rare en fiscalité : il ne demande aucun arbitrage entre efficience et
+équité. Si l'on supprime une taxe sur un intrant et qu'on lève le même montant sur la consommation
+ou le revenu des mêmes personnes, chacun se retrouve dans la situation d'avant, avec davantage à
+partager.
+
+Le théorème suppose toutefois que l'État peut taxer en aval tout ce qu'il veut taxer : la
+consommation, les salaires, les dividendes. Quand il ne le peut pas, prélever au niveau de
+l'entreprise redevient utile, et c'est la meilleure justification de l'impôt sur les sociétés. Un
+entrepreneur qui laisse ses bénéfices dans sa société, ou dans une société holding, ne se verse ni
+salaire ni dividende : son revenu échappe à l'impôt sur le revenu aussi longtemps qu'il le
+souhaite, et seul l'impôt sur les sociétés le frappe l'année où il est gagné. L'impôt sur les
+sociétés atteint aussi les actionnaires étrangers, hors de portée de l'impôt sur le revenu
+français (chapitre~5). Il n'est d'ailleurs pas un impôt sur un intrant au sens du théorème : il
+frappe le bénéfice, ce qui reste une fois tous les intrants payés. Les impôts de ce chapitre, eux,
+frappent les intrants avant tout bénéfice.
 
 \subsection{L'exemple : une taxe de 0,16 \% qui en vaut 0,40}
 
-\amorce{Un prélèvement assis sur les ventes frappe le même produit autant de fois qu'il change de
-mains.} La contribution sociale de solidarité des sociétés prélève 0,16~\% du chiffre d'affaires.
-Une entreprise intégrée qui fabrique tout elle-même la supporte une fois. Dans une chaîne de
-quatre entreprises successives, chacune la paie sur un chiffre d'affaires qui inclut la valeur
-produite par les précédentes : la valeur créée au premier stade est taxée quatre fois, celle du
-deuxième trois fois, et ainsi de suite. Au total, la taxe représente 0,40~\% du prix final, deux
-fois et demie le taux affiché (figure~\ref{fig:pyramidage}). La taxe subventionne donc l'intégration verticale et
-pénalise la sous-traitance, sans que personne l'ait décidé. La TVA, qui ouvre droit à déduction à
-chaque étape, ne produit pas cet effet : c'est précisément ce pour quoi elle a été inventée.
+La contribution sociale de solidarité des sociétés (C3S) prélève 0,16~\% du chiffre d'affaires des
+sociétés, au-delà d'un abattement de 19~millions d'euros de ventes ; elle a rapporté 5,3~Md\euro{}
+en 2025. Un prélèvement assis sur les ventes frappe le même produit chaque fois qu'il change de mains.
+Supposons un produit vendu 100~\euro{} au consommateur et fabriqué en quatre étapes qui ajoutent
+chacune 25~\euro{} de valeur. Une entreprise qui ferait tout elle-même paierait la taxe une fois,
+sur 100~\euro{}. Dans une chaîne de quatre entreprises, la première la paie sur 25~\euro{}, la
+deuxième sur 50, la troisième sur 75, la quatrième sur 100 : la taxe porte au total sur
+250~\euro{}, et elle représente 0,40~\% du prix final au lieu de 0,16
+(figure~\ref{fig:pyramidage}). Faire fabriquer une pièce par un sous-traitant coûte donc plus cher
+que la fabriquer soi-même, sans que personne l'ait décidé. La TVA ne produit pas cet effet, puisque
+chaque entreprise déduit la taxe déjà payée par son fournisseur : c'est précisément pour supprimer
+ces cascades qu'elle a été inventée.
 
 \figbloc{c7_pyramidage}{Une taxe sur le chiffre d'affaires frappe plusieurs fois le même
 produit}{fig:pyramidage}
 
-\amorce{Le taux affiché est si faible qu'il désarme la critique, et c'est ce qui rend ces taxes
-durables.} Personne ne se mobilise contre 0,16~\%. Mais ce taux s'applique au chiffre d'affaires,
-et il est dû que l'entreprise gagne ou perde de l'argent. Pour une entreprise dont la marge nette
-est de 2~\%, il prend 8~\% du résultat ; pour une entreprise à l'équilibre, il est dû quand même.
+L'Allemagne en a fait l'expérience. Jusqu'en 1967, elle prélevait une taxe de 4~\% sur le chiffre
+d'affaires à chaque stade, dont son ministre des Finances écrivait en 1963 qu'elle «~favorise la
+concentration verticale~». En 1966, la Cour constitutionnelle fédérale a constaté qu'elle n'était
+pas neutre entre entreprises intégrées et non intégrées, tout en l'admettant jusqu'à la réforme alors
+en préparation : la TVA l'a remplacée le 1\ier{}~janvier 1968. La France avait connu le même défaut
+avec sa taxe sur le chiffre d'affaires de 1920, dont la charge dépendait de la longueur du circuit de
+production ; la TVA de Maurice Lauré, en 1954, est l'aboutissement des réformes engagées pour le
+supprimer. L'effet a pu être mesuré là où l'expérience a été faite proprement : dans l'État de
+Washington, remplacer une taxe de 25~\% prélevée à chaque stade de la filière du cannabis par une
+taxe sur la seule vente au détail a réduit l'intégration verticale et augmenté la production de
+23~\% (Hansen, Miller et Weber, 2022). À 0,16~\%, la C3S est bien plus faible, et aucune étude ne
+mesure son effet sur l'organisation des filières françaises, encore moins sur les effets
+d'agglomération ; le sens de l'effet, lui, n'est pas douteux. Selon le CAE, aucun autre pays
+européen n'a d'équivalent ; les plus proches sont des taxes sur le chiffre d'affaires de quelques
+États américains.
 
-\amorce{Le Conseil d'analyse économique a mesuré ce pyramidage sur l'économie française, puis
-son effet sur les entreprises.} Sa note de juin 2019, signée par Philippe Martin et Alain Trannoy,
-suit la taxe le long des échanges entre branches décrits par la comptabilité nationale, en
-supposant que chaque entreprise la répercute à ses clients. Dans l'industrie manufacturière, elle
-relève les prix d'environ 0,19~\%, près de deux fois son taux effectif de 0,11~\% ; selon les
-secteurs, le rapport va de 1,2 à 3, du même ordre que l'exemple. Les auteurs comparent ensuite près
-de 80\,000 entreprises manufacturières : celles que les abattements de 2015 et 2016 ont fait sortir
-de l'assiette ont vu leurs exportations progresser d'environ 1~\% de plus que les autres, résultat
-qu'ils qualifient eux-mêmes de préliminaire. La taxe n'est pas remboursée à l'exportation, et un
-bien intermédiaire importé n'a pas traversé les étapes de la cascade qu'a traversées un bien produit
-en France : elle agit, selon le mot des auteurs, comme un droit de douane que la France imposerait
-à sa propre production. Un modèle multisectoriel chiffre enfin la seule perte de productivité à 360
-à 720~millions d'euros de PIB par an, soit 10 à 20~\% de ce que la taxe rapportait alors.
+Personne ne se mobilise contre un taux de 0,16~\%. Mais ce taux s'applique au chiffre d'affaires,
+et il est dû que l'entreprise gagne ou perde de l'argent. Pour un distributeur dont le bénéfice
+avant impôt représente 1~\% des ventes, 0,16~\% du chiffre d'affaires en prend 16~\% ; à 0,5~\% de
+marge, près d'un tiers ; en perte, la taxe reste due. Le législateur l'a admis pour quelques métiers
+seulement : dans le commerce international, le négoce de produits agricoles et celui des
+combustibles et carburants, la contribution est plafonnée à 3,08~\% de la marge brute lorsque celle-ci ne dépasse
+pas 4~\% du chiffre d'affaires, et pour les banques à 1,6~\% de leur produit net bancaire. Les
+autres activités à faible marge n'ont pas de plafond.
+
+La taxe pousse aussi à s'organiser pour l'éviter. L'abattement de 19~millions s'applique société
+par société, sans consolidation au niveau du groupe et sans règle particulière contre le
+fractionnement : un groupe qui répartit ses ventes entre plusieurs filiales plus petites paie moins.
+Un intermédiaire qui vend en qualité de commissionnaire, sans devenir propriétaire des
+marchandises, n'est taxé que sur sa commission ; un distributeur qui achète et revend l'est sur tout
+le prix. Quand ils sont faits pour la taxe, ces choix d'organisation ne produisent rien et coûtent du
+conseil.
+
+La note du Conseil d'analyse économique de juin 2019, signée par Philippe Martin et Alain Trannoy,
+a mesuré ce pyramidage sur l'économie française. Elle suit la taxe le long des échanges entre
+branches décrits par la comptabilité nationale, en supposant que chaque entreprise la répercute à
+ses clients. Dans l'industrie manufacturière, la taxe relève les prix d'environ 0,19~\%, près de
+deux fois son taux effectif de 0,11~\% ; selon les secteurs, le rapport va de 1,2 à 3. Les auteurs
+comparent ensuite près de 80\,000 entreprises manufacturières : celles que les abattements de 2015
+et 2016 ont fait sortir de l'assiette ont vu leurs exportations progresser d'environ 1~\% de plus
+que les autres, résultat qu'ils qualifient eux-mêmes de préliminaire. La taxe n'est pas remboursée
+à l'exportation, et un bien intermédiaire importé n'a pas traversé les étapes de la cascade qu'a
+traversées un bien produit en France : elle agit, selon le mot des auteurs, comme un droit de douane
+que la France imposerait à sa propre production.
+
+Un modèle multisectoriel chiffre enfin la seule perte de productivité à 360 à 720~millions d'euros
+de PIB par an, 10 à 20~\% de ce que la taxe rapportait alors. Le montant paraît modeste ; c'est le
+rapport à la recette qui frappe. Une taxe de 0,16~\% sur un bien final ne détruirait, d'après la
+règle du carré du chapitre~1, qu'une fraction de centime par euro prélevé. Le modèle trouve 10 à 20
+centimes, parce que la taxe porte sur des intrants et se propage d'entreprise en entreprise. Ce
+chiffre ne compte ni l'effet sur les exportations ni les défaillances, que la même note estime plus
+fréquentes dans les entreprises assujetties pendant la crise de 2009.
 
 \subsection{Ce que montrent les données}
 
-\amorce{La France prélève 77 milliards d'euros sur des facteurs de production sans que ces
-prélèvements corrigent quoi que ce soit.} Sur les 119,3~Md\euro{} assis sur un intrant en 2024,
-42,2 corrigent une externalité --- pour l'essentiel les taxes sur l'énergie, que le théorème admet
-comme exception. Les 77,0 restants ne sont pas un résidu : taxe sur les salaires pour 17,3,
-versement mobilité pour 12,2, contributions à la formation professionnelle et à l'apprentissage
-pour 11,4, cotisation foncière des entreprises pour 7,7, contribution de solidarité des sociétés
-pour 5,2 (figure~\ref{fig:77md}).
+Sur les 1\,275~Md\euro{} de prélèvements obligatoires français en 2024, 119,3~Md\euro{} sont
+calculés sur un intrant, c'est-à-dire sur quelque chose que l'entreprise utilise pour produire ---
+sa masse salariale, ses locaux, son chiffre d'affaires --- plutôt que sur ce qu'elle vend aux
+ménages ou sur son bénéfice. Parmi eux, 42,2 corrigent une externalité : ce sont pour l'essentiel
+les taxes sur l'énergie, que le théorème admet comme exception. Les 77,0 restants ne corrigent rien.
+La taxe sur les salaires en représente 17,3, le versement mobilité 12,2, les contributions à la
+formation professionnelle et à l'apprentissage 11,4, la cotisation foncière des entreprises 7,7, la
+contribution de solidarité 5,2 (figure~\ref{fig:77md}).
 
-\figbloc{r11_77_milliards}{Le détail des prélèvements français assis sur un facteur de production
-et sans fonction corrective}{fig:77md}
+\figbloc{r11_77_milliards}{Les prélèvements français assis sur un facteur de production et sans
+fonction corrective}{fig:77md}
 
-\amorce{Sur les taxes assises sur la masse salariale, la France est troisième de l'OCDE.} Elles
-atteignent 1,9~\% du PIB, quatre fois la moyenne de 0,46 ; seules la Suède et l'Autriche font
-davantage, et la Suède y classe une fraction de ses prélèvements patronaux qui joue le rôle d'une
-cotisation (figure~\ref{fig:masse}). Ces taxes ne sont pas des cotisations, puisqu'elles n'ouvrent
-pas de droits proportionnels aux sommes versées : ce sont des impôts sur l'emploi.
+Ces 77 milliards ne forment pas un bloc. La contribution de solidarité et la cotisation foncière
+frappent la production elle-même. Les taxes assises sur la masse salariale --- taxe sur les
+salaires, versement mobilité, formation, logement, autonomie --- sont des cotisations sans droits :
+elles n'ouvrent aucune prestation proportionnelle aux sommes versées, et finissent largement dans
+des salaires plus bas (chapitre~2). Les premières devraient disparaître ; les secondes devraient
+être fondues dans le prélèvement général sur les revenus du travail, plutôt que maintenues comme
+autant d'impôts sur l'emploi à assiette étroite. Dans les deux cas, la recommandation est de lever
+les mêmes sommes sur des assiettes larges.
+
+Sur les taxes assises sur la masse salariale, la France est troisième de l'OCDE : elles atteignent
+1,9~\% du PIB, quatre fois la moyenne de 0,46~\%, derrière la Suède et l'Autriche
+(figure~\ref{fig:masse}).
 
 \figbloc{r5_masse_salariale}{Les taxes sur la masse salariale, hors cotisations sociales, dans
 l'OCDE}{fig:masse}
 
-\amorce{Les annonces de baisse n'ont pas fait reculer l'ensemble en trente ans.} La catégorie que
-la comptabilité européenne appelle «~autres impôts sur la production~» valait 4,1 points de PIB en
-1995 ; elle en vaut 4,4 en 2024, après la suppression progressive de la cotisation sur la valeur
-ajoutée des entreprises engagée en 2021 (figure~\ref{fig:production}). Chaque suppression a été
-compensée par une création ailleurs, ou par la croissance des bases restantes. Le même agrégat
-vaut 1,0 point en Allemagne et 1,2 aux Pays-Bas --- la comparaison demandant une réserve, car son
-contenu varie d'un pays à l'autre : la Suède y range une large part de ses prélèvements patronaux
-et affiche 10,2 points.
+Les annonces de baisse n'ont pas fait reculer l'ensemble en trente ans. La catégorie que la
+comptabilité européenne appelle «~autres impôts sur la production~» valait 4,1 points de PIB en
+1995 ; elle en vaut 4,4 en 2024, malgré la suppression progressive de la cotisation sur la valeur
+ajoutée engagée en 2021 (figure~\ref{fig:production}). Chaque suppression a été compensée par une
+création ailleurs, ou par la croissance des bases restantes. Le même agrégat vaut 1,0 point en
+Allemagne et 1,2 aux Pays-Bas, mais son contenu varie d'un pays à l'autre. La note du CAE contourne
+la difficulté en retirant les taxes assises sur la masse salariale : ce qui reste représentait en
+France 3,6~\% de la valeur ajoutée des entreprises, contre 0,5~\% en Allemagne ; l'Autriche, les
+Pays-Bas et la Suède prélevaient entre 0,5 et 1,5~\%, et seule la Grèce davantage que la France.
 
 \figbloc{c17_production_depuis_1995}{Les impôts sur la production n'ont pas reculé en trente
 ans}{fig:production}
 
-\amorce{Retirer les taxes assises sur la masse salariale lève la difficulté, et l'écart demeure.}
-C'est le choix de la note du CAE, pour que la comparaison ne dépende pas de ce que chaque pays
-range parmi les cotisations. Ce qui reste représentait en France 3,6~\% de la valeur ajoutée des
-entreprises, contre 0,5~\% en Allemagne ; l'Autriche, les Pays-Bas et la Suède prélevaient entre
-0,5 et 1,5~\%, et seule la Grèce davantage que la France.
-
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{L'ordre de suppression suit le degré de distorsion, et la taxe sur le chiffre
-d'affaires vient en premier.} Elle cumule les deux défauts : elle frappe un intrant et elle se
-multiplie le long de la chaîne. Deux rapports publics y arrivent à six ans d'écart. Le CAE
-recommandait en 2019 de finaliser la suppression de la contribution sociale de solidarité des
-sociétés, engagée en 2015 puis interrompue en 2017, avant de programmer celle de la cotisation sur
-la valeur ajoutée. Le Conseil des prélèvements obligatoires, dans son rapport de septembre 2025 sur
-l'industrie, juge que si l'effort en faveur des entreprises se poursuit, il doit porter sur la
-première plutôt que sur l'achèvement de la seconde, prévu pour 2030 : la contribution rapporte
-5,4~Md\euro{}, et l'industrie, qui produit 14,5~\% de la valeur ajoutée, en acquitte 29,6~\%. Il
-propose de la financer en supprimant les exonérations fiscales et sociales des heures
-supplémentaires, qui coûtent un montant comparable (chapitre~6).
+La taxe sur le chiffre d'affaires vient en premier, parce qu'elle cumule les deux défauts : elle
+frappe un intrant et elle se multiplie le long de la chaîne. Deux rapports publics y arrivent à six
+ans d'écart. Le CAE recommandait en 2019 de finaliser la suppression de la C3S, engagée en 2015 puis
+interrompue en 2017, avant de programmer celle de la cotisation sur la valeur ajoutée des
+entreprises (CVAE). Le Conseil des prélèvements obligatoires, dans son rapport de septembre 2025 sur
+l'industrie, juge que si l'effort en faveur des entreprises se poursuit, il doit porter sur la C3S
+plutôt que sur l'achèvement de la suppression de la CVAE, prévu pour 2030 : l'industrie, qui
+produit 14,5~\% de la valeur ajoutée, acquitte 29,6~\% de la C3S. Il propose de la financer en
+supprimant les exonérations fiscales et sociales des heures supplémentaires, qui coûtent un montant
+comparable et n'ont pas d'effet mesuré sur les heures travaillées (chapitre~6).
 
-\amorce{La cotisation sur la valeur ajoutée et la cotisation foncière viennent ensuite, pour des
-raisons différentes.} La première a une assiette neutre en principe, puisqu'elle ne dépend pas de
-la façon dont l'entreprise combine travail et capital ; mais son taux dépendait du chiffre
-d'affaires, si bien qu'à valeur ajoutée égale le CAE trouvait des taux allant du simple au double.
-La seconde taxe en partie le capital productif ; le CAE n'y voit pas de distorsion majeure, et la
-part de sa base qui correspond au terrain pourrait être reprise par un impôt foncier assis sur le
-sol (chapitre~9). Les taxes sur la masse salariale viennent en dernier, parce qu'elles se reportent
-largement sur les salaires et ressemblent alors, pour le salarié, à un impôt sur le revenu mal
-construit.
+La CVAE vient ensuite. Son assiette, la valeur ajoutée, est neutre en principe : c'est la somme de
+ce que l'entreprise verse à ses salariés et de ce qui lui reste, et la taxer ne pousse pas à
+préférer les machines aux personnes. Mais son taux dépendait du chiffre d'affaires, si bien qu'à
+valeur ajoutée égale le CAE trouvait des taux allant du simple au double, et elle ne déduit pas les
+achats de machines, qu'elle taxe donc à leur tour. Faut-il alors la remplacer par un impôt sur le
+bénéfice ? En partie. Un impôt sur le bénéfice n'est dû que si l'entreprise gagne de l'argent, et il
+ne se multiplie pas le long de la chaîne de production ; le CAE le juge moins nocif que les impôts
+sur la production. Il a cependant ses propres défauts : il frappe le rendement normal du capital, ce
+qui renchérit l'investissement, et il porte sur des bénéfices que les groupes peuvent déplacer d'un
+pays à l'autre (chapitre~5). Le CAE proposait donc d'en élargir
+l'assiette, par une meilleure imposition des multinationales et la réduction de ses niches, plutôt
+que d'en relever le taux, et de supprimer des taux réduits de TVA peu efficaces, comme celui de la
+restauration. La suppression se finance d'ailleurs en partie d'elle-même : la CVAE étant déduite du
+bénéfice imposable, sa disparition augmente mécaniquement l'impôt sur les sociétés, de
+2,6~Md\euro{} selon le chiffrage de 2019. La recette des collectivités serait remplacée par une
+part d'un impôt national.
 
-\amorce{Un cas demande un traitement à part : la taxe sur les salaires n'est pas une taxe sur la
-production comme les autres.} Elle est due par les employeurs qui ne collectent pas la TVA ---
-banques, assurances, établissements de santé, associations. Elle fonctionne donc comme un
-substitut grossier à la TVA que ces secteurs n'acquittent pas. Sa suppression pure créerait un
-avantage fiscal ; la bonne réforme est celle que la \emph{Mirrlees Review} propose pour les
-services financiers : leur appliquer un équivalent de la TVA, puis supprimer le substitut.
+La cotisation foncière des entreprises taxe en partie le capital productif, mais le CAE n'y voit pas
+de distorsion majeure, et la part de sa base qui correspond au terrain pourrait être reprise par un
+impôt foncier assis sur le sol (chapitre~9). Les taxes sur la masse salariale viennent en dernier,
+pour la raison donnée plus haut.
+
+La taxe sur les salaires demande un traitement à part. Elle est due par les employeurs qui ne
+collectent pas la TVA --- banques, assurances, établissements de santé, associations --- et
+fonctionne donc comme un substitut grossier à la TVA que ces secteurs n'acquittent pas. La supprimer
+sans rien mettre à la place leur donnerait un avantage fiscal. La \emph{Mirrlees Review} recommande de soumettre les services
+financiers à un équivalent de la TVA. La façon la plus simple, proposée par le FMI en 2010, consiste
+à taxer la somme des salaires et des bénéfices, c'est-à-dire la valeur ajoutée calculée par
+addition. Prenons une banque dont les clients sont des ménages : ses marges d'intérêts et ses
+commissions lui rapportent 120, elle achète 30 à d'autres entreprises, verse 50 de salaires et
+dégage 40 de bénéfice. Sa valeur ajoutée vaut 90 ; une taxe de 20~\% sur les salaires et le bénéfice
+rapporte 18, exactement ce que rapporterait une TVA de 20~\% sur ses marges, 24, diminuée de la TVA
+payée sur ses achats, 6. Aujourd'hui, exonérée de TVA, elle ne verse que ces 6, qu'elle ne peut pas
+récupérer, et une taxe sur les salaires qui ignore le bénéfice et renchérit l'emploi plutôt que le
+capital. Israël applique ce principe aux banques, en taxant leurs salaires et leurs bénéfices au
+taux de la TVA ; le Danemark ne taxe que la masse salariale du secteur financier. La difficulté
+tient aux clients professionnels : une entreprise ne pourrait pas déduire la taxe contenue dans ses
+frais bancaires, et la cascade reviendrait. Il faut donc retirer de l'assiette les opérations
+réalisées avec des entreprises, ce qui complique le calcul ; la \emph{Review} ne choisit pas entre
+les méthodes possibles, mais recommande d'en adopter une.
 
 \subsection{L'objection la plus forte}
 
-\amorce{Ces prélèvements financent des politiques précises --- transports urbains, formation,
-logement, autonomie --- et beaucoup sont affectés à un organisme ou à une collectivité.} Les
-supprimer reviendrait soit à supprimer ces politiques, soit à reporter leur financement ailleurs,
-et ceux qui en bénéficient ont toutes les raisons de défendre un financement dédié.
+Ces prélèvements financent des politiques précises --- transports urbains, formation, logement,
+autonomie --- et beaucoup sont affectés à un organisme ou à une collectivité. La règle de
+l'universalité budgétaire, qui interdit d'affecter une recette à une dépense, ne vaut que pour le
+budget de l'État : le versement mobilité va aux autorités organisatrices des transports, les
+contributions à la formation à France compétences, la cotisation au Fonds national d'aide au
+logement à ce fonds. Supprimer la ressource oblige à en trouver une autre pour chacun de ces
+organismes, et chacun a de bonnes raisons de défendre la sienne.
 
-\amorce{L'objection porte sur la dépense, pas sur l'assiette, et c'est pourquoi elle ne suffit
-pas.} Rien n'oblige à financer les transports urbains par un impôt sur l'emploi plutôt que par un
-impôt sur le foncier qu'ils valorisent, ou la formation par une taxe sur les salaires plutôt que
-par le budget général. À recette égale, transférer le financement vers une assiette large laisse
-chaque politique intacte et supprime la perte. L'affectation rend la réforme plus difficile à
-négocier ; elle ne la rend pas moins juste.
+L'objection vise pourtant la dépense, que la réforme ne touche pas. Rien n'oblige à financer les
+transports urbains par un impôt sur l'emploi plutôt que par un impôt sur le foncier qu'ils
+valorisent, ni la formation par une taxe sur les salaires plutôt que par une dotation. L'argent
+étant fongible, transférer le financement vers une assiette large à recette égale laisse chaque
+politique intacte et supprime la perte. L'affectation rend la réforme plus difficile à négocier ;
+elle ne la rend pas moins juste.
+
+On entend enfin l'argument inverse : un impôt dû même sans bénéfice éliminerait les entreprises
+peu rentables et pousserait les autres à monter en gamme. Aucune étude ne le montre, et les travaux
+disponibles vont plutôt dans l'autre sens. Selon la note du CAE, 20~\% des entreprises redevables de
+la C3S ne font pas de bénéfice, et la contribution a accru la probabilité de disparition des
+entreprises assujetties pendant la crise de 2009, sans indication qu'elle ait frappé les moins
+productives. Elle ne le peut pas : une taxe sur le chiffre d'affaires trie les entreprises selon
+leur marge, pas selon leur productivité. Un grossiste dont la valeur ajoutée représente 6~\% des
+ventes paie en C3S l'équivalent de 2,7~\% de sa valeur ajoutée ; un industriel dont la valeur
+ajoutée représente 35~\% des ventes, 0,46~\%. Le premier n'est pas moins productif, il exerce un
+métier où l'on vend beaucoup pour une petite marge, et le législateur l'a reconnu en plafonnant la
+contribution de certains négociants. L'argument a une version sérieuse, mais pour un autre impôt :
+un impôt sur le patrimoine, dû quel que soit le rendement, pèse relativement plus sur les
+entrepreneurs dont le capital rapporte peu (Guvenen \emph{et al.}, 2023).
 
 % ===========================================================================
 \section{L'impôt sur les sociétés}
 
 \begin{argument}
-L'impôt sur les sociétés frappe la base la plus mobile, s'ajoute à l'impôt de l'actionnaire et
-taxe le rendement normal de l'investissement en plus de la rente. C'est l'impôt que le classement
-de l'OCDE place en dernier, pour des raisons que la théorie explique sans avoir besoin de ce
-classement.
+L'impôt sur les sociétés est le seul moyen d'atteindre les bénéfices que leurs propriétaires
+laissent dans l'entreprise et ceux qui reviennent à des actionnaires étrangers. Tel qu'il est
+construit, il frappe aussi le rendement normal de l'investissement et favorise l'endettement. Son
+assiette compte davantage que son taux.
 \end{argument}
 
-\subsection{L'exemple : cent euros de profit}
+\subsection{L'exemple : cent euros de bénéfice}
 
-\amorce{Le profit d'une société est taxé deux fois --- dans la société, puis chez l'actionnaire
---- et seul le produit des deux a un sens pour celui qui décide d'investir.} Au sommet du barème
-français en 2025, l'impôt sur les sociétés, surtaxe comprise, prélève 36,1~\euro{} sur
-100~\euro{} de profit ; les 63,9~\euro{} restants, distribués en dividende, en perdent 21,7 de
-plus au prélèvement forfaitaire majoré de la contribution sur les hauts revenus. Il reste
-42,1~\euro{} à l'actionnaire : le taux combiné est de 57,9~\%, le plus élevé des quinze pays
-comparés (figure~\ref{fig:cascade}). Un actionnaire moyen supporte moins, parce que ni la surtaxe
-ni la contribution ne le concernent ; mais c'est ce taux-là que considère celui qui arbitre sur
-le dernier euro.
+Une société qui réalise 100~\euro{} de bénéfice paie d'abord l'impôt sur les sociétés, au taux
+normal de 25~\% : il lui reste 75~\euro{}. Si elle les distribue à un actionnaire qui réside en
+France, celui-ci acquitte le prélèvement forfaitaire unique de 30~\% --- 12,8~\% d'impôt sur le
+revenu et 17,2~\% de prélèvements sociaux ---, soit 22,5~\euro{}. Il garde 52,5~\euro{} : le
+bénéfice a supporté 47,5~\% d'impôt en deux étapes (figure~\ref{fig:cascade}). En 2026, la hausse
+de la CSG sur les revenus de placement porte le prélèvement forfaitaire à 31,4~\%, et ce taux
+combiné à 48,6~\%. Une petite entreprise, dont le chiffre d'affaires ne dépasse pas 10~millions
+d'euros et dont le capital est détenu aux trois quarts par des personnes physiques, ne paie que
+15~\% sur ses 42\,500 premiers euros de bénéfice.
 
-\figbloc{c6_cascade_profit}{Ce que deux impôts successifs font à cent euros de profit}{fig:cascade}
+Trois contributions s'ajoutent pour les grandes entreprises et les gros actionnaires. Une
+entreprise dont l'impôt dépasse 763\,000~\euro{}, soit un bénéfice d'environ 3~millions d'euros,
+paie une contribution sociale de 3,3~\% de l'impôt au-delà de ce montant, ce qui porte son taux
+marginal à 25,8~\%. Un actionnaire dont le revenu fiscal de référence dépasse 250\,000~\euro{}, pour
+une personne seule, paie la contribution exceptionnelle sur les hauts revenus, de 3 puis 4~\% ; ce
+revenu de référence comprend les dividendes. Le taux combiné atteint alors 51~\% ; parmi les pays de
+la figure, seuls l'Irlande, le Danemark et le Royaume-Uni font davantage. Depuis 2025, enfin, la
+contribution différentielle sur les hauts revenus oblige les foyers dont le revenu de référence
+dépasse ce seuil à payer au moins 20~\% de ce revenu en impôt sur le revenu et en contribution sur
+les hauts revenus. Pour un foyer qui vit surtout de dividendes, elle porte le prélèvement sur le
+dividende à 37,2~\% et le taux combiné à 53,4~\%.
 
-\amorce{On ne peut donc pas réformer l'un sans l'autre, et la discussion française les traite
-toujours séparément.} Baisser l'impôt sur les sociétés sans toucher au prélèvement sur les
-dividendes déplace la charge sans la réduire ; relever le second en compensation du premier ne
-change rien pour l'actionnaire résident, mais change tout pour l'actionnaire non résident, qui
-n'y est pas soumis. C'est l'une des raisons pour lesquelles la concurrence fiscale porte sur le
-taux de l'impôt sur les sociétés plutôt que sur le taux combiné.
+Le taux de 36,1~\% souvent cité pour la France ne concerne que les plus grandes entreprises. La loi
+de finances pour 2025 a créé une contribution exceptionnelle sur leurs bénéfices, égale à 20,6~\% de
+l'impôt pour celles dont le chiffre d'affaires réalisé en France dépasse un milliard d'euros et à
+41,2~\% au-delà de trois milliards ; celle de 2026 l'a reconduite pour un an aux mêmes taux, en
+relevant le premier seuil à 1,5~milliard. Le taux d'impôt passe ainsi à 31,0~\% dans le premier cas
+et à 36,1~\% dans le second, et le taux combiné au sommet à 57,8~\%, le plus élevé des pays
+comparés. Le Gouvernement prévoyait environ 450 entreprises redevables en 2025, et la contribution a
+rapporté 7,5~Md\euro{} cette année-là. Pour toutes les autres entreprises, le taux reste de 25 ou
+25,8~\%.
+
+La double imposition décrit qui verse l'impôt. Qui en supporte la charge dépend d'autre chose. La
+société verse l'impôt sur les sociétés, mais celui-ci réduit ce que rapporte, après impôt, un investissement
+réalisé en France. Si les investisseurs peuvent obtenir ailleurs le même rendement, ils n'investissent
+en France que dans les projets assez rentables pour compenser l'impôt. Il y a alors moins de
+machines par salarié, la production par salarié est plus faible, et les salaires aussi : une partie
+de l'impôt finit chez des salariés qui n'en ont jamais versé un euro. Ce n'est pas qu'une hypothèse. En Allemagne, où chaque commune fixe le taux de
+son impôt sur les bénéfices des entreprises, Fuest, Peichl et Siegloch (2018) ont suivi 6\,800
+changements de taux sur vingt ans : les salariés supportent environ la moitié de la charge. Aux
+États-Unis, Suárez Serrato et Zidar (2016) l'attribuent pour 40~\% aux actionnaires, pour 30 à
+35~\% aux salariés et pour 25 à 30~\% aux propriétaires du sol. Le taux combiné
+garde pourtant son sens. Il mesure l'écart entre ce que l'investissement rapporte avant impôt et ce
+qu'en reçoit l'actionnaire, et c'est cet écart qui décide si l'investissement se fait ; la façon
+dont la charge se répartit ensuite entre actionnaires et salariés est la question de l'incidence,
+traitée au chapitre~2.
+
+\figbloc{c6_cascade_profit}{Ce que deux impôts successifs font à cent euros de bénéfice}{fig:cascade}
+
+Les deux impôts se réforment donc ensemble. Baisser l'impôt sur les sociétés en relevant d'autant
+le prélèvement sur les dividendes ne change rien pour l'actionnaire résident qui reçoit tout le
+bénéfice en dividende. Cela allège en revanche la charge sur les bénéfices réinvestis dans
+l'entreprise, et sur ceux qui reviennent aux actionnaires étrangers. Ces derniers ne paient pas le
+prélèvement français sur les dividendes : ils sont imposés dans leur pays, la France ne prélevant
+qu'une retenue à la source que les conventions fiscales limitent en général. Pour la part du
+bénéfice qui leur revient, l'impôt sur les sociétés est le seul impôt français. C'est l'un de ses
+arguments les plus solides, et c'est aussi pourquoi la concurrence fiscale entre pays porte sur
+son taux : c'est lui que voit l'investisseur étranger.
 
 \subsection{Le mécanisme : rendement normal et rente}
 
-\amorce{Une entreprise qui investit 100~\euro{} ne récupère fiscalement ces 100~\euro{} que si
-elle les déduit immédiatement.} Étalée sur vingt ans, la déduction ne vaut plus que 62~\euro{}
-d'aujourd'hui à un taux d'actualisation de 5~\% (figure~\ref{fig:amort}). La différence est un
-impôt qui pèse sur le rendement normal de l'investissement, c'est-à-dire sur la simple
-rémunération de l'attente, et non sur la rente --- le profit qui dépasse ce rendement normal et
-qui serait apparu de toute façon. Plus l'inflation et les taux d'intérêt sont élevés, plus
-l'écart se creuse, sans qu'aucun taux affiché ait bougé.
+Pour calculer son bénéfice imposable, une entreprise déduit ses coûts. Une machine qui servira vingt
+ans n'est pas déduite l'année de son achat : son coût est étalé, ici 5~\euro{} par an pendant vingt
+ans pour une machine de 100~\euro{}. Or un euro déduit dans dix ans vaut moins qu'un euro déduit
+aujourd'hui, comme un euro reçu dans dix ans : à 5~\% d'intérêt, il vaut 61 centimes. Additionnées
+en valeur d'aujourd'hui, les vingt déductions de 5~\euro{} ne valent que 62~\euro{}
+(figure~\ref{fig:amort}). L'entreprise est imposée comme si la machine ne lui avait coûté que
+62~\euro{} ; 38~\euro{} de son coût ne sont jamais déduits. Plus l'inflation et les taux d'intérêt
+sont élevés, plus l'écart se creuse, sans qu'aucun taux affiché ait bougé.
 
 \figbloc{c8_amortissement}{Ce que vaut aujourd'hui une déduction étalée dans le
 temps}{fig:amort}
 
-\amorce{L'impôt sur les sociétés favorise en outre la dette au détriment des fonds propres.} Les
-intérêts d'emprunt sont déductibles, le coût des fonds propres ne l'est pas. Une entreprise qui
-finance le même investissement par emprunt paie donc moins d'impôt que celle qui le finance par
-ses actionnaires, ce qui pousse à l'endettement sans raison économique. La \emph{Mirrlees Review}
-propose d'y remédier en déduisant aussi un rendement normal sur les fonds propres : l'impôt ne
-frappe plus alors que la rente, quel que soit le mode de financement.
+Ce coût non déduit fait peser l'impôt sur ce que les économistes appellent le rendement normal :
+ce que l'investissement doit rapporter simplement pour rémunérer l'argent immobilisé, au taux qu'on
+obtiendrait ailleurs. La rente est ce qui dépasse --- un emplacement unique, un brevet, une position
+de marché. Prenons un investissement de 100~\euro{} qui rapporte exactement 5~\euro{} par an quand
+l'actionnaire pourrait obtenir 5~\% ailleurs. Taxé, il rapporte moins de 5~\% après impôt et ne
+sera pas fait, alors qu'il crée de la valeur. Un investissement qui rapporte 15~\euro{} sera fait
+même taxé, puisqu'il lui reste une partie des 10~\euro{} de rente. Un impôt qui ne frappe que la rente
+ne décourage aucun investissement ; un impôt qui frappe aussi le rendement normal décourage ceux qui
+sont tout juste rentables.
+
+L'impôt sur les sociétés favorise en outre l'endettement. Les intérêts d'emprunt sont déductibles,
+le coût des fonds propres ne l'est pas : une entreprise qui finance un investissement en empruntant
+paie moins d'impôt que celle qui le finance avec l'argent de ses actionnaires. La \emph{Mirrlees
+Review} propose de traiter les fonds propres comme la dette, en laissant l'entreprise déduire
+chaque année un rendement normal sur ses capitaux propres : c'est la déduction pour fonds propres.
+Dans l'exemple, une entreprise financée par 100~\euro{} de fonds propres déduirait 5~\euro{} par an.
+Si l'investissement rapporte 5~\euro{}, son bénéfice imposable est nul ; s'il rapporte 15~\euro{},
+elle est imposée sur 10~\euro{}, c'est-à-dire sur la rente seulement. Elle est traitée comme si
+elle s'était endettée, et le biais en faveur de la dette disparaît.
+
+La même déduction répare le défaut de l'amortissement. Tant que la machine n'est pas entièrement
+amortie, la part de son coût qui n'a pas encore été déduite reste dans les fonds propres de
+l'entreprise et ouvre droit, chaque année, à la déduction de 5~\%. Plus l'amortissement est lent,
+plus cette part reste élevée longtemps, et plus la déduction pour fonds propres est importante. Les
+deux effets se compensent exactement : dans l'exemple de la machine amortie sur vingt ans, les
+déductions pour fonds propres valent 38~\euro{} aujourd'hui, ce qui manquait pour revenir à
+100~\euro{}. Quel que soit le rythme d'amortissement, l'entreprise déduit donc l'équivalent de ce
+qu'elle a investi, et l'impôt ne frappe plus que la rente.
 
 \subsection{Ce que montrent les données}
 
-\amorce{Le taux français a suivi la baisse générale avec une dizaine d'années de retard.} Il
-était de 50~\% en 1985, un peu au-dessus de la moyenne des pays de l'OCDE (47~\%) ; il est resté
-entre 34 et 38~\% de 2006 à 2019 pendant que la moyenne passait de 27 à 24~\%, et n'est descendu à
-25,8~\% qu'en 2022, encore deux points au-dessus de la moyenne. En 2025,
-la contribution exceptionnelle sur les bénéfices des entreprises dont le chiffre d'affaires dépasse
-un milliard d'euros porte le taux supérieur à 36,1~\%, le plus élevé de l'OCDE
-(figure~\ref{fig:is_temps}).
+Le taux français était de 50~\% en 1985, un peu au-dessus de la moyenne des pays de l'OCDE
+(47~\%). Il est resté entre 34 et 38~\% de 2006 à 2019, pendant que la moyenne passait de 27 à
+24~\%, et n'est descendu à 25,8~\% qu'en 2022 : la France a suivi la baisse générale avec une
+dizaine d'années de retard (figure~\ref{fig:is_temps}). La contribution exceptionnelle de 2025
+porte le taux des plus grandes entreprises à 36,1~\%, le plus élevé de l'OCDE, mais c'est le taux
+de 25,8~\% que paient les autres.
 
 \figbloc{r2_is_depuis_1985}{Le taux d'impôt sur les sociétés depuis 1985}{fig:is_temps}
 
-\amorce{La baisse du taux s'est retrouvée dans ce que les entreprises paient.} Rapporté à
-l'excédent brut d'exploitation, qui est l'assiette économique de l'impôt, l'impôt sur les sociétés
-des entreprises industrielles est passé, avant crédits d'impôt, de 23,2 à 17,5~\% entre 2016 et
-2022, et celui de l'ensemble des entreprises de 20,7 à 17,5~\%, selon une étude de la DGFiP et de
-l'Insee réalisée pour le Conseil des prélèvements obligatoires.
+La baisse du taux s'est retrouvée dans ce que les entreprises paient. Rapporté à l'excédent brut
+d'exploitation, qui est l'assiette économique de l'impôt, l'impôt sur les sociétés des entreprises
+industrielles est passé, avant crédits d'impôt, de 23,2 à 17,5~\% entre 2016 et 2022, et celui de
+l'ensemble des entreprises de 20,7 à 17,5~\%, selon une étude de la DGFiP et de l'Insee réalisée
+pour le Conseil des prélèvements obligatoires.
 
-\amorce{Un taux élevé ne fait pas une recette élevée, et la France en est l'exemple.} En 2023, son
-taux se situait au treizième rang sur trente-huit ; sa recette, 2,35~\% du PIB contre 3,75~\% en
-moyenne, au septième rang en partant du bas (figure~\ref{fig:is_recette}). Le graphique n'établit
-aucune relation causale --- la recette dépend aussi de la part des profits dans l'économie, de la
-taille du secteur des sociétés et des régimes particuliers. Il interdit seulement de raisonner sur
-le taux comme s'il mesurait ce que l'impôt rapporte ou ce qu'il coûte.
+Un taux élevé ne fait pas pour autant une recette élevée. En 2023, le taux français se situait au
+treizième rang sur trente-huit, sa recette, 2,35~\% du PIB contre 3,75~\% en moyenne, au septième
+rang en partant du bas (figure~\ref{fig:is_recette}). Le graphique n'établit aucune relation
+causale : la recette dépend aussi de la part des bénéfices dans l'économie, de la taille du secteur
+des sociétés et des régimes particuliers.
 
 \figbloc{r3_is_taux_et_recettes}{Taux statutaire et recettes de l'impôt sur les sociétés dans
 l'OCDE}{fig:is_recette}
 
-\amorce{Les règles d'amortissement françaises ne sont pas le problème.} Calculée par la Tax
-Foundation pour les trente-huit pays de l'OCDE, la valeur actuelle des déductions pour 100~\euro{}
-investis est en France supérieure à la moyenne pour les trois catégories d'actifs : 88~\euro{}
-pour les machines contre 86, 55 pour les bâtiments contre 50, 87 pour les incorporels contre 77
-(figure~\ref{fig:amort_ocde}). Le mécanisme de la section précédente est réel, mais il est commun
-à presque tous les pays et n'explique pas ce qui distingue la France.
+La même dissociation apparaît dans le temps. Dans les dix-huit pays de l'OCDE pour lesquels les
+séries sont complètes depuis 1981, le taux légal moyen de l'impôt sur les sociétés a été divisé par
+deux, de 48 à 24~\%, pendant que sa recette passait de 1,9 à 3,5~\% du PIB
+(figure~\ref{fig:tauxrecettes}). La France a suivi le mouvement des taux avec retard, et sa recette
+a peu augmenté.
+
+\figbloc{c23_taux_et_recettes_is}{Le taux de l'impôt sur les sociétés a été divisé par deux, sa
+recette a presque doublé}{fig:tauxrecettes}
+
+Des travaux plus fins mesurent la réaction de l'assiette au taux, en comparant des entreprises
+soumises à des changements de taux différents. Une méta-analyse de Beer, de Mooij et Liu (2020)
+conclut qu'une baisse d'un point du taux d'un pays augmente d'environ 1~\% les bénéfices que les
+filiales des multinationales y déclarent, et de 1,5~\% dans les années récentes : une partie de la
+base est déplacée d'un pays à l'autre plutôt que créée ou détruite. Sur données fiscales
+américaines, Coles, Patel, Seegert et Smith (2022) trouvent qu'une hausse de 10~\% du taux marginal
+anticipé réduit le revenu imposable des sociétés non cotées de 9,1~\%, dont 3 points de réaction
+réelle et 6 points de réaction comptable. Tørsløv, Wier et Zucman (2023), par une méthode
+comptable qui n'identifie pas de causalité, estiment que 36~\% des bénéfices des multinationales
+étaient logés dans des paradis fiscaux en 2015 et que la France y perdait 21~\% de son impôt sur les
+sociétés. Le taux qui maximiserait la recette reste mal connu : 33~\% selon Clausing (2007) sur
+les pays de l'OCDE de 1979 à 2002, beaucoup plus dès qu'on tient compte des différences permanentes
+entre pays (Kawano et Slemrod, 2016) ; ce sont des corrélations.
+
+La valeur actuelle des déductions permet de comparer les règles d'amortissement des pays. La Tax
+Foundation calcule,
+pour 100~\euro{} investis, ce que valent aujourd'hui les déductions que chaque pays autorise, en
+actualisant à 7,5~\% par an : 100 correspondrait à une déduction immédiate, et plus la déduction est
+étalée, plus le chiffre est bas. Pour la France, elle retient un amortissement sur vingt ans pour
+un bâtiment industriel : 5~\euro{} de déduction par an, dont la somme vaut 55~\euro{} aujourd'hui.
+Un actif incorporel acquis, comme un brevet, est amorti sur cinq ans : 20~\euro{} par an, qui valent
+87~\euro{} parce qu'ils arrivent plus tôt. Pour une machine, le chiffre est de 88~\euro{}. La France
+est au-dessus de la moyenne de l'OCDE pour les trois actifs, qui est de 50 pour les bâtiments, 77
+pour les incorporels et 86 pour les machines (figure~\ref{fig:amort_ocde}). Le défaut décrit plus
+haut est réel, mais il est commun à presque tous les pays et ne distingue pas la France.
 
 \figbloc{r4_amortissements}{La valeur actuelle des amortissements dans les pays de
 l'OCDE}{fig:amort_ocde}
 
-\amorce{Le taux effectif sur un investissement ne fait pas non plus de la France une exception :
-ce qui la distingue est ce qu'elle prélève avant le bénéfice.} Le taux effectif moyen, qui tient
-compte de l'assiette et des amortissements, s'établit à 23,8~\% en France, contre 27,0~\% en
-Allemagne, 25,4~\% en Italie et 24,2~\% en Belgique. Les impôts sur la production du chapitre
-précédent, eux, sont acquittés que l'entreprise gagne de l'argent ou non (figure~\ref{fig:entreprises}).
+Ce qui la distingue est ce qu'elle prélève avant le bénéfice. Le taux effectif moyen sur un
+investissement, qui tient compte du taux, de l'assiette et des amortissements, s'établit à 23,8~\%
+en France, contre 27,0~\% en Allemagne, 25,4~\% en Italie et 24,2~\% en Belgique. Les impôts sur la
+production du chapitre précédent, eux, sont acquittés que l'entreprise gagne de l'argent ou non :
+ils représentent 4,4~\% du PIB en France, contre 1,0~\% en Allemagne (figure~\ref{fig:entreprises}).
 
 \figbloc{s3_entreprises}{Imposition des entreprises : le bénéfice et ce qui le précède}{fig:entreprises}
 
 \subsection{Ce qu'en disent les trois textes}
 
-\amorce{Mankiw, Weinzierl et Yagan montrent que la baisse des taux affichés ne dit pas tout de la
-charge sur le capital.} Les taux statutaires d'impôt sur les sociétés sont passés de 45-50~\% au
-milieu des années 1980 à environ 28~\% en moyenne dans l'OCDE en 2007, et l'imposition personnelle
-des dividendes de 55~\% à moins de 20~\%. Mais les taux implicites, qui rapportent l'impôt
-effectivement payé à l'assiette économique, ont augmenté : Carey et Rabesona (2004) mesurent une
-hausse de 6,4 points entre 1975-1980 et 1990-2000. Les gouvernements ont élargi l'assiette en
-baissant le taux, ou réduit la partie visible du prélèvement en compensant ailleurs. Un débat
-conduit sur les seuls taux affichés est un débat sur l'emballage.
+Mankiw, Weinzierl et Yagan relèvent que la baisse des taux affichés ne dit pas tout de la charge
+sur le capital. Les taux légaux de l'impôt sur les sociétés sont passés de 45 à 50~\% au milieu des
+années 1980 à environ 28~\% en moyenne dans l'OCDE en 2007, et le taux moyen de l'impôt personnel
+sur les dividendes de 55~\% à moins de 20~\%. Carey et Rabesona rapportent pourtant l'ensemble des
+impôts payés sur les revenus du capital à ces revenus, tels que les mesure la comptabilité
+nationale, et ce ratio a augmenté : de 39,9~\% en 1975-1980 à 46,3~\% en 1990-2000 en moyenne dans
+seize pays de l'OCDE, de 42,0 à 55,9~\% en France (figure~\ref{fig:carey}). La recette de l'impôt
+sur les sociétés a suivi le même chemin jusqu'à aujourd'hui (figure~\ref{fig:tauxrecettes}).
 
-\amorce{Le document de l'OCDE ajoute deux recommandations qui concernent directement la France.}
-Pour attirer l'investissement, baisser le taux de l'impôt sur les sociétés vaut mieux que baisser
-l'imposition des dividendes, qui ne touche que les actionnaires résidents. Mais un taux d'impôt
-sur les sociétés très inférieur au taux supérieur de l'impôt sur le revenu compromet l'intégrité
-du système, parce que les contribuables à haut revenu logent alors leurs revenus dans des sociétés
-qui ne distribuent pas. En France, l'écart atteint trente points --- 25,8~\% contre 55,4~\% --- et
-le chapitre~8 montre ce qu'il produit dans les holdings patrimoniales.
+\figbloc{c24_carey_rabesona}{La charge effective sur le capital a augmenté pendant que les taux
+baissaient}{fig:carey}
+
+Ces chiffres ne mesurent pas le seul effet de l'élargissement des assiettes. La recette dépend aussi
+de la part des bénéfices dans le revenu national et de la part de l'activité exercée en société
+plutôt qu'en entreprise individuelle. Le passage à la forme sociétaire, encouragé par l'écart croissant entre
+l'impôt sur les sociétés et l'impôt sur le revenu, expliquerait à lui seul 12 à 21~\% des recettes
+européennes de l'impôt sur les sociétés (de Mooij et Nicodème, 2008). L'élargissement des assiettes
+est néanmoins réel. Dans plus de la moitié des années où un pays de l'OCDE a changé son taux entre
+1980 et 2004, il a aussi changé son assiette, et les baisses de taux se sont plus souvent
+accompagnées d'un élargissement que d'un rétrécissement (Kawano et Slemrod, 2016). Devereux,
+Griffith et Klemm (2002) en montrent l'effet : le taux effectif sur l'investissement tout juste
+rentable est resté à peu près stable, celui sur les investissements très rentables a baissé. Les ratios de Carey et Rabesona sont en outre
+sensibles aux conventions : si l'on attribue au travail une partie du revenu des indépendants, la
+hausse moyenne est réduite d'environ deux points, et la hausse française de 14 points tombe à moins
+de 2. Mankiw, Weinzierl et Yagan en tirent une conclusion prudente : la baisse des taux légaux ne
+prouve pas que l'imposition du capital ait baissé. Les gouvernements ont pu appliquer la règle selon
+laquelle un taux bas sur une assiette large décourage moins l'activité qu'un taux élevé sur une
+assiette étroite, ou réduire la partie la plus visible de l'impôt en compensant ailleurs. Dans les
+deux cas, un débat conduit sur les seuls taux affichés manque l'essentiel.
+
+Le document de l'OCDE ajoute deux recommandations qui concernent directement la France. Pour
+attirer l'investissement, baisser le taux de l'impôt sur les sociétés vaut mieux que baisser
+l'imposition des dividendes, qui ne touche que les actionnaires résidents. Mais un taux d'impôt sur
+les sociétés très inférieur au taux supérieur de l'impôt sur le revenu compromet l'intégrité du
+système : les contribuables à haut revenu logent alors leurs revenus dans des sociétés qui ne
+distribuent pas. En France, l'écart atteint trente points --- 25,8~\% contre 55,4~\% ---, et le
+chapitre~8 montre ce qu'il produit dans les holdings patrimoniales.
 
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{Un taux stable, sans surtaxe, et une assiette qui ne frappe que la rente.} La déduction
-d'un rendement normal sur les fonds propres, que propose la \emph{Mirrlees Review}, supprime à la
-fois l'impôt sur le rendement normal et le biais en faveur de la dette. Elle réduit l'assiette ;
-pour maintenir la recette, il faut appliquer un taux un peu plus élevé à ce qui reste, c'est-à-dire
-à la rente, qui ne se décourage pas. Cinq pays de l'OCDE appliquaient en 2025 un dispositif de ce
-type, dont l'Estonie et la Lettonie, qui n'imposent les bénéfices que lorsqu'ils sont distribués.
+Il faudrait un taux stable, sans surtaxe, et une assiette qui ne frappe que la rente. La déduction
+d'un rendement normal sur les fonds propres supprime à la fois l'impôt sur le rendement normal et le
+biais en faveur de la dette. Elle réduit l'assiette ; pour garder la même recette, il faut appliquer
+un taux un peu plus élevé à ce qui reste, c'est-à-dire à la rente, qui ne se décourage pas. La Tax
+Foundation compte en 2025 cinq pays de l'OCDE qui ne taxent pas le rendement normal des fonds
+propres : la Pologne, le Portugal et la Turquie, par une déduction de ce type, l'Estonie et la
+Lettonie, parce qu'elles n'imposent les bénéfices qu'au moment où ils sont distribués.
 
-\amorce{La stabilité est aussi ce que demande le Conseil des prélèvements obligatoires.} Son
-rapport de septembre 2025 propose d'inscrire dans la loi de programmation des finances publiques
-une trajectoire des prélèvements par grandes catégories, la suppression de la contribution
+La stabilité est aussi ce que demande le Conseil des prélèvements obligatoires. Son rapport de
+septembre 2025 propose d'inscrire dans la loi de programmation des finances publiques une
+trajectoire des prélèvements par grandes catégories, la suppression de la contribution
 exceptionnelle sur les bénéfices des grandes entreprises et le maintien du taux normal à 25~\%. Il
 propose de financer la fin de la contribution en partie en resserrant les dépenses fiscales qui
-réduisent le rendement de l'impôt, comme le crédit d'impôt recherche, qu'il voudrait calculer au niveau du groupe, ou les
-régimes réservés à certaines zones. L'argument tient à la durée de l'investissement industriel :
-une usine se décide pour quinze ou vingt ans, sur la base du taux qui s'appliquera pendant toute
-cette durée, et une entreprise qui ne peut pas le prévoir attend, ou exige un rendement plus élevé
-avant d'investir.
+réduisent le rendement de l'impôt, comme le crédit d'impôt recherche, qu'il voudrait calculer au
+niveau du groupe, ou les régimes réservés à certaines zones. L'argument tient à la durée de
+l'investissement industriel : une usine se décide pour quinze ou vingt ans, sur la base du taux qui
+s'appliquera pendant toute cette durée, et une entreprise qui ne peut pas le prévoir attend, ou
+exige un rendement plus élevé avant d'investir.
 
 \subsection{L'objection la plus forte}
 
-\amorce{L'impôt minimum mondial de 15~\% aurait rendu la concurrence fiscale moins dangereuse, et
-une déduction des fonds propres coûte cher.} La première partie de l'objection porte : les
-multinationales concernées paieront au moins 15~\% sur une assiette harmonisée, ce qui réduit
-l'intérêt de délocaliser les bénéfices. La seconde aussi : la Belgique, qui avait adopté une
-déduction pour fonds propres en 2006, l'a réduite au point de la vider de sa substance, et l'Italie
-a supprimé la sienne à compter de 2024.
+Une déduction pour fonds propres coûte cher, et les deux pays européens qui l'avaient appliquée le
+plus largement y ont renoncé. La
+Belgique l'a introduite en 2006 sur la totalité des fonds propres, au taux des obligations d'État à
+dix ans, entre 3 et 4,5~\% selon les années. Les entreprises belges ont renforcé leurs fonds propres :
+leur part dans le bilan des entreprises moyennes et grandes a augmenté d'environ trois points par
+rapport à des entreprises comparables des pays voisins (Meki, 2023). Mais le coût a explosé. Annoncé à
+un demi-milliard d'euros par an, il a atteint 5,4~Md\euro{} en 2011 et 6,2~Md\euro{} en 2012 selon
+l'administration fiscale belge, plus de la moitié de la recette de l'impôt sur les sociétés, en
+partie parce que des groupes ont logé en Belgique des fonds propres qu'ils prêtaient ensuite à leurs
+filiales étrangères : environ 10~Md\euro{} pour les seuls groupes allemands (Hebous et Ruf, 2017).
+La Belgique a plafonné le taux, l'a limitée à la hausse des fonds propres en 2018, puis l'a supprimée
+en 2023. L'Italie avait choisi d'emblée cette version incrémentale, qui ne porte que sur les fonds
+propres apportés depuis 2010. Elle a réduit d'environ 9 points l'endettement des entreprises
+bénéficiaires (Branzoli et Caiumi, 2020), pour un coût resté la première année sous les prévisions,
+avant d'être supprimée en 2024 pour financer d'autres mesures, contre l'avis de l'office
+parlementaire du budget. Sur l'investissement, les résultats sont faibles et contradictoires : une
+hausse de 3~\% pour les PME belges et de 6~\% pour les filiales belges de multinationales selon deux
+études, aucun effet selon une troisième.
 
-\amorce{Mais l'impôt minimum fixe un plancher, pas un taux souhaitable, et il ne protège pas
-l'investissement réel.} Un plancher de 15~\% n'est pas une raison de taxer à 36~\% le rendement
-normal d'une usine qui, elle, peut être construite ailleurs. Quant au coût de la déduction, il
-dépend du taux de rendement normal retenu et des règles anti-abus : c'est un problème de
-conception, que l'expérience belge et italienne permet justement de résoudre, non une objection de
-principe.
+L'objection porte sur la mise en œuvre plus que sur le principe. Une déduction sur le stock de
+fonds propres coûte cher dès le premier jour, parce qu'elle récompense aussi les fonds propres qui
+existaient déjà et ne changent aucune décision ; une déduction sur les seuls fonds propres nouveaux
+coûte peu au départ, et son coût monte à mesure qu'elle touche plus d'investissements. Dans les deux
+cas, il faut des règles contre les montages entre filiales. Le FMI chiffre le coût d'une déduction
+complète à environ 15~\% de la recette de l'impôt sur les sociétés, 0,5~\% du PIB, dont les
+trois quarts seraient récupérés à long terme selon ses simulations. Celles de
+de Mooij et Devereux (2011) trouvent un gain pour l'économie si la déduction est financée par des
+impôts sur le travail ou la consommation, et une perte si elle l'est par une hausse du taux de
+l'impôt sur les sociétés, qui fait fuir les bénéfices. La réforme ne vaut donc que financée par une
+assiette moins mobile. Quant à l'impôt minimum mondial de 15~\%, il fixe un plancher pour les
+grands groupes, pas un taux souhaitable, et ne dit rien de l'imposition du rendement normal d'une
+usine qui peut être construite ailleurs.
 
 % ===========================================================================
 \section{Les prélèvements sur le travail}
@@ -751,17 +1138,15 @@ suivant. En France, cet euro est le plus lourdement prélevé au bas de l'échel
 et le niveau moyen du prélèvement est élevé dès le salaire minimum.
 \end{argument}
 
-\subsection{L'exemple : deux taux qui ne font pas le même travail}
+\subsection{L'exemple : taux moyen et taux marginal}
 
-\amorce{Le taux moyen est ce que vous payez rapporté à ce que vous gagnez ; le taux marginal est
-ce que vous paierez sur l'euro suivant.} Le premier détermine ce qu'il vous reste. Le second
+Le taux moyen rapporte ce que l'on paie à ce que l'on gagne. Le taux marginal est ce que l'on paiera sur l'euro suivant. Le premier détermine ce qu'il vous reste. Le second
 détermine, seul, vos décisions : une heure de plus, une promotion, un revenu déclaré sous une
 forme plutôt qu'une autre. Un salarié dont le taux marginal atteint 60~\% ne perd pas 60~\% de
 son revenu ; son taux moyen peut rester à 20~\%. Toute la théorie du barème optimal porte sur le
 taux marginal, presque toute la discussion publique sur le taux moyen.
 
-\amorce{La progressivité se définit sur le taux moyen, et cette définition a une conséquence que
-le débat public ignore : elle ne demande pas que le taux marginal augmente.} Un impôt est
+La progressivité se définit sur le taux moyen. Elle n'exige donc pas que le taux marginal augmente. Un impôt est
 progressif lorsque le taux moyen croît avec le revenu. Un taux unique de 30~\% au-delà d'un
 abattement de 12\,000~\euro{} l'est donc : celui qui gagne 20\,000~\euro{} a un taux moyen de
 12~\%, celui qui gagne 100\,000~\euro{} de 26,4~\%, et tous deux ont le même taux marginal
@@ -770,7 +1155,7 @@ abattement de 12\,000~\euro{} l'est donc : celui qui gagne 20\,000~\euro{} a un 
 \figbloc{c11_flat_tax_progressive}{Un taux unique assorti d'un abattement est déjà un impôt
 progressif}{fig:flat}
 
-\amorce{Trois leviers rendent un tel impôt plus progressif, et ils n'ont pas le même coût.}
+Trois leviers rendent un tel impôt plus progressif, à des coûts différents.
 Relever l'abattement ne change le taux marginal de personne au-dessus du seuil : c'est le plus
 efficient. Relever le taux unique le change pour tout le monde. Ajouter une tranche supérieure ne
 le change que pour ceux qu'elle atteint, mais c'est précisément là que les revenus imposables
@@ -778,13 +1163,12 @@ réagissent le plus.
 
 \subsection{Ce que dit la théorie : un barème en U}
 
-\amorce{Le taux marginal optimal à un niveau de revenu donné dépend de trois choses, et de trois
-seulement.} L'élasticité du revenu imposable : plus elle est forte, plus le taux doit être bas. Le
+Le taux marginal optimal à un niveau de revenu donné dépend de trois choses. L'élasticité du revenu imposable : plus elle est forte, plus le taux doit être bas. Le
 nombre de personnes situées au-dessus de ce niveau, rapporté au nombre de personnes situées
 exactement à ce niveau. Et le poids que l'on accorde au revenu de ceux qui sont au-dessus, seul
 paramètre réellement politique.
 
-\amorce{Le deuxième ingrédient explique toute la forme du barème.} Un taux marginal appliqué à un
+Le deuxième ingrédient explique toute la forme du barème. Un taux marginal appliqué à un
 niveau de revenu rapporte sur \emph{tous} ceux qui gagnent davantage : pour eux, cet euro-là est
 déjà franchi, et l'impôt supplémentaire est acquis sans qu'ils changent quoi que ce soit. Il ne
 coûte en distorsion que sur ceux qui sont \emph{exactement} à ce niveau, puisqu'eux seuls
@@ -794,8 +1178,7 @@ condition de ressources, et c'est le prix du ciblage. Au milieu, où se trouve l
 population, le taux doit baisser. En haut, il remonte, parce que ceux qui sont au-dessus
 concentrent une masse importante de revenu.
 
-\amorce{Le taux qui maximise les recettes au sommet se calcule, et il dépend presque entièrement
-d'un paramètre mal connu.} La formule vaut $1/(1+a\,e)$, où $e$ est l'élasticité du revenu
+Au sommet, le taux qui maximise les recettes dépend presque entièrement d'un paramètre mal connu. La formule vaut $1/(1+a\,e)$, où $e$ est l'élasticité du revenu
 imposable et $a$ l'épaisseur de la queue haute de la distribution, autour de 2 en France. Avec une
 élasticité de 0,25, elle donne 67~\% ; avec 0,5, elle donne 50~\% ; avec 1, elle donne 33~\%
 (figure~\ref{fig:taupsup}). L'écart entre deux estimations plausibles de l'élasticité couvre
@@ -803,8 +1186,8 @@ l'essentiel du désaccord politique sur le sujet.
 
 \figbloc{c2_taux_superieur}{Le taux marginal supérieur qui maximise les recettes}{fig:taupsup}
 
-\amorce{L'histoire de ce paramètre montre comment une hypothèse de forme commande une conclusion
-de politique publique.} Mirrlees (1971) obtenait un taux marginal nul tout en haut : un taux
+L'histoire de ce paramètre montre comment une hypothèse de forme commande une conclusion
+de politique publique. Mirrlees (1971) obtenait un taux marginal nul tout en haut : un taux
 positif sur le dernier euro de la personne la plus riche décourage son effort sans rien
 rapporter, puisque personne n'est au-dessus. Tuomala (1990), en supposant une distribution
 log-normale des capacités, obtenait des taux \emph{décroissants} sur une large plage de hauts
@@ -827,8 +1210,7 @@ consommation, et pas seulement par leur capacité, l'étendue optimale de la red
 diminue, parce qu'une part de l'inégalité observée reflète alors des choix.
 \end{encadre}
 
-\amorce{Deux résultats de Mankiw, Weinzierl et Yagan vont dans des sens opposés, et il faut les
-citer ensemble.} Le premier est qu'un impôt à taux unique assorti d'un transfert universel peut
+Deux résultats de Mankiw, Weinzierl et Yagan tirent en sens opposés. Le premier est qu'un impôt à taux unique assorti d'un transfert universel peut
 être proche de l'optimum : Mirrlees lui-même relevait «~la quasi-linéarité des barèmes~» obtenus.
 Ce qui redistribue n'est donc pas le nombre de tranches, mais le niveau du transfert et celui du
 taux. Le second est que l'ampleur optimale de la redistribution croît avec l'inégalité des
@@ -838,9 +1220,9 @@ exploitable, neuf montrent une relation positive entre inégalité avant impôt 
 sociales --- une corrélation, pas une identification causale, mais la prédiction du modèle n'est
 pas contredite.
 
-\subsection{Travailler, ou travailler plus : deux marges}
+\subsection{Travailler ou travailler plus}
 
-\amorce{En bas de l'échelle, la décision est souvent binaire, et cela renverse la conclusion.} Un
+En bas de l'échelle, la décision change de nature. Un
 cadre arbitre sur l'intensité de son travail. Une personne au voisinage du minimum social arbitre
 souvent sur la participation : prendre un emploi, ou pas. Quand la réaction porte sur cette
 seconde marge, ce qui compte n'est plus le taux marginal mais le gain total que procure l'emploi.
@@ -848,14 +1230,14 @@ Saez (2002) a montré que le barème optimal subventionne alors le premier euro 
 d'activité au lieu de le taxer : c'est la logique de l'\emph{Earned Income Tax Credit} américain
 et, en France, de la prime d'activité.
 
-\amorce{Le document de l'OCDE tire de cette distinction une règle qui n'est jamais passée dans le
-débat français.} Réduire les prélèvements moyens sur le travail favorise la participation ;
+Le document de l'OCDE tire de cette distinction une règle qui n'est jamais passée dans le
+débat français. Réduire les prélèvements moyens sur le travail favorise la participation ;
 réduire les taux marginaux favorise les heures travaillées. Ce ne sont pas les mêmes instruments.
 La France a massivement utilisé le premier --- les allègements de cotisations au voisinage du
 salaire minimum --- et ce faisant a dégradé le second, puisque la sortie progressive de ces
 allègements crée précisément des taux marginaux élevés.
 
-\amorce{La Cour des comptes a chiffré la pente que cela produit, et ce qu'elle coûte.} Son rapport
+La Cour des comptes a chiffré cette pente. Son rapport
 de mai 2025 sur la sécurité sociale montre que les cotisations patronales passent de 4,3~\% du
 salaire brut au salaire minimum à 43,4~\% à 3,5 fois ce salaire. Les allègements qui creusent cet écart ont
 coûté 77,3~Md\euro{} en 2024, presque quatre fois les 20,9~Md\euro{} de 2014. Les neuf
@@ -864,7 +1246,7 @@ hausse, par un effet que personne n'avait voté : les plafonds sont exprimés en
 minimum, si bien que chaque revalorisation fait entrer sous les plafonds des salaires qui n'ont pas
 augmenté aussi vite.
 
-\amorce{Ce que ces allègements ont produit dépend du niveau de salaire où ils portent.} La note
+Ce que ces allègements ont produit dépend du niveau de salaire où ils portent. La note
 du CAE de janvier 2019, signée par Yannick L'Horty, Philippe Martin et Thierry Mayer, rassemble les
 évaluations existantes et en ajoute une sur données d'entreprises. Les baisses concentrées sous
 1,6 fois le salaire minimum ont un effet positif sur l'emploi, que les évaluations retrouvent
@@ -881,8 +1263,8 @@ au voisinage du salaire minimum dont les auteurs attendaient 80\,000 à 200\,000
 comparaison rapproche une évaluation après coup et une estimation avant coup, et ils la présentent
 comme un ordre de grandeur.
 
-\amorce{L'exonération des heures supplémentaires montre ce que la loi fait bouger quand elle
-abaisse un taux marginal.} Elle réduit précisément le prélèvement sur l'heure en plus, et elle
+L'exonération des heures supplémentaires montre ce que la loi fait bouger quand elle
+abaisse un taux marginal. Elle réduit précisément le prélèvement sur l'heure en plus, et elle
 coûte de l'ordre de 5~Md\euro{} en 2025. Les évaluations que cite le Conseil des prélèvements
 obligatoires constatent une hausse des heures déclarées comme supplémentaires, sans effet
 significatif sur les heures travaillées. La marge qui a réagi est la déclaration, pas le travail :
@@ -890,7 +1272,7 @@ c'est l'élasticité fabriquée par la loi du chapitre~1.
 
 \subsection{Ce que montrent les données}
 
-\amorce{Le taux supérieur français est élevé, mais il ne concerne presque personne.} En 2025, il
+Le taux supérieur français ne concerne presque personne. En 2025, il
 atteint 55,4~\%, prélèvements assimilés compris, mais ne s'applique qu'à partir de treize fois le
 salaire moyen. La Belgique (52,7~\%) et le Danemark (55,9~\%) appliquent un taux comparable dès un
 revenu proche du salaire moyen ; l'Allemagne applique 47,5~\% à partir de quatre fois ce salaire
@@ -899,7 +1281,7 @@ revenu proche du salaire moyen ; l'Allemagne applique 47,5~\% à partir de quatr
 \figbloc{r6_taux_superieur_et_seuil}{Taux marginal supérieur de l'impôt sur le revenu et seuil
 d'application dans l'OCDE}{fig:seuil}
 
-\amorce{La trajectoire française du taux supérieur est la plus singulière des grands pays.}
+La trajectoire française du taux supérieur est la plus singulière des grands pays.
 Mankiw, Weinzierl et Yagan documentent la baisse générale entre 1983 et 2007 : le taux marginal
 supérieur combiné à la TVA est passé dans l'OCDE de près de 80~\% à un peu plus de 60~\%. En
 France, le taux statutaire supérieur passe de 58,3~\% en 2000 à 45,8~\% en 2006, puis remonte
@@ -910,7 +1292,7 @@ rend cinq (figure~\ref{fig:tauxsuph}).
 \figbloc{c21_taux_superieurs}{La France a abandonné douze points de taux supérieur, puis les a
 repris}{fig:tauxsuph}
 
-\amorce{Le prélèvement sur l'euro suivant est le plus lourd au bas de l'échelle.} Pour un
+Le prélèvement sur l'euro suivant est le plus lourd au bas de l'échelle. Pour un
 célibataire sans enfant, le coin fiscal marginal atteint 64,6~\% à 67~\% du salaire moyen,
 redescend à 58,2~\% au salaire moyen, puis remonte à 60,0~\% à 167~\%
 (figure~\ref{fig:coinniveau}). Personne n'a voulu ce creux ; il résulte de la superposition des
@@ -920,8 +1302,7 @@ dont chacun est défendable isolément.
 \figbloc{c4_coin_par_niveau}{Le profil français des prélèvements sur le travail n'est pas
 monotone}{fig:coinniveau}
 
-\amorce{Le mécanisme du creux se chiffre ; ses effets sur la distribution des salaires se voient
-mal.} Les plafonds des deux baisses proportionnelles, à 2,5 et 3,5 fois le salaire minimum, étaient
+Les effets de ce creux sur la distribution des salaires sont plus difficiles à voir que le creux lui-même. Les plafonds des deux baisses proportionnelles, à 2,5 et 3,5 fois le salaire minimum, étaient
 de vrais seuils : un euro de plus faisait perdre six points, ou 1,8 point, de cotisations sur la
 totalité du salaire. La Cour des comptes ne trouve pourtant aucune concentration de salariés juste
 en dessous de ces plafonds, ni de celui de 1,6 fois le salaire minimum. La part des salariés payés
@@ -929,8 +1310,8 @@ au salaire minimum, montée à 17,3~\% en 2023 avec les revalorisations, est rev
 Le risque d'une «~trappe à bas salaires~» est inscrit dans le barème ; il n'apparaît pas, à ce
 jour, dans la distribution observée.
 
-\amorce{Passer d'un mi-temps à un temps plein coûte d'autant plus cher qu'on est déjà au-dessus
-du salaire minimum.} La part du salaire supplémentaire absorbée par les cotisations, l'impôt et le
+Passer d'un mi-temps à un temps plein coûte d'autant plus cher qu'on est déjà au-dessus
+du salaire minimum. La part du salaire supplémentaire absorbée par les cotisations, l'impôt et le
 retrait des prestations est de 32~\% au salaire minimum, quel que soit le ménage, mais de 41 à
 54~\% à 67~\% du salaire moyen et au salaire moyen. Pour un célibataire à 67~\% du salaire moyen,
 elle atteint 51~\%, ce qui place la France au deuxième rang des pays comparés, derrière la
@@ -939,8 +1320,7 @@ Belgique (figure~\ref{fig:metr}).
 \figbloc{m3_taux_marginaux_effectifs}{Ce que coûte une augmentation du temps de travail, par type
 de ménage et par pays}{fig:metr}
 
-\amorce{Le niveau moyen, lui, raconte une autre histoire, et elle n'est pas celle de la
-progressivité.} Le coin fiscal moyen d'un célibataire sans enfant atteint 41,2~\% du coût du
+Le niveau moyen du prélèvement raconte une autre histoire. Le coin fiscal moyen d'un célibataire sans enfant atteint 41,2~\% du coût du
 travail à 67~\% du salaire moyen, 47,2~\% au salaire moyen et 54,1~\% à 167~\%
 (figure~\ref{fig:cointrois}). L'écart entre les deux extrémités, treize points, est plus faible
 qu'en Italie, en Irlande ou aux Pays-Bas. Mais il part d'un niveau que la moyenne de l'OCDE
@@ -954,8 +1334,8 @@ reste}{fig:cointrois}
 
 \subsection{Taxer sur ce qui ne se triche pas}
 
-\amorce{Puisque le problème vient de ce que l'État n'observe pas la capacité, tout indice
-observable et non manipulable qui lui est corrélé améliore le système.} Akerlof (1978) a nommé
+Puisque le problème vient de ce que l'État n'observe pas la capacité, tout indice
+observable et non manipulable qui lui est corrélé améliore le système. Akerlof (1978) a nommé
 cette idée le \emph{tagging}. Un transfert conditionné à une caractéristique que personne ne
 change pour des raisons fiscales ne décourage pas le travail, puisqu'il ne diminue pas quand on
 gagne davantage. Les prestations liées au handicap, les minima vieillesse et les allocations
@@ -964,8 +1344,7 @@ taux marginaux élevés qu'engendre toute condition de ressources. La condition 
 stricte : il faut que les personnes à forte capacité ne puissent pas se faire passer pour membres
 du groupe ciblé, et que le signal soit net.
 
-\amorce{La théorie va beaucoup plus loin que la pratique, et c'est ici qu'elle est universellement
-refusée.} Elle recommande que l'impôt dépende de toute caractéristique largement exogène, facile à
+La théorie va ici beaucoup plus loin que ce qu'aucun pays n'accepte. Elle recommande que l'impôt dépende de toute caractéristique largement exogène, facile à
 contrôler et liée à la capacité ; Mankiw, Weinzierl et Yagan en donnent la liste sans euphémisme :
 le sexe, la taille, la couleur de peau, l'apparence physique, la santé, l'éducation des parents.
 Des travaux sérieux ont chiffré les gains d'un impôt dépendant du sexe ou de la taille, et les ont
@@ -989,12 +1368,12 @@ l'impôt devrait être lié à ce que l'on reçoit de la collectivité.
 
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{Lisser le creux au-dessus du salaire minimum avant de toucher au sommet.} C'est là que le
+Lisser le creux au-dessus du salaire minimum avant de toucher au sommet. C'est là que le
 prélèvement sur l'euro suivant est le plus lourd et que l'effectif concerné est le plus nombreux.
 Le moyen est de reprofiler ensemble la sortie des allègements de cotisations et celle de la prime
 d'activité, qui sont aujourd'hui conçues séparément.
 
-\amorce{La réforme engagée va dans ce sens, sans aller jusqu'au bout.} La loi de financement de la
+La réforme engagée en 2026 va dans ce sens. La loi de financement de la
 sécurité sociale pour 2025 fusionne en 2026 les trois dispositifs en une seule réduction dégressive,
 plafonnée à trois fois le salaire minimum : les seuils disparaissent, remplacés par une pente plus
 longue. Le CAE recommandait en 2019 d'aller plus loin, en concentrant les allègements sous 1,6 fois
@@ -1004,7 +1383,7 @@ compléments de salaire dans la rémunération qui sert à les calculer. La limi
 simulation que cite la Cour, supprimer tous les allègements détruirait de l'ordre d'un million
 d'emplois. Il s'agit de reprofiler la pente, pas de la supprimer.
 
-\amorce{Fusionner les deux impôts sur le revenu.} La France prélève 153~Md\euro{} de contribution
+Fusionner les deux impôts sur le revenu. La France prélève 153~Md\euro{} de contribution
 sociale généralisée et 96~Md\euro{} d'impôt sur le revenu, sur des assiettes différentes, l'une
 sur l'individu, l'autre sur le foyer, l'une proportionnelle, l'autre progressive. Un impôt unique,
 de structure lisible, avec un abattement plutôt qu'un empilement de tranches, ferait le même
@@ -1012,14 +1391,13 @@ travail redistributif et rendrait visible ce que chacun paie à la marge.
 
 \subsection{L'objection la plus forte}
 
-\amorce{Les cotisations ne sont pas des impôts : elles ouvrent des droits, et les fusionner avec
-l'impôt détruirait la logique contributive.} C'est le principe du bénéfice, et il est sérieux. Une
+On objectera que les cotisations ouvrent des droits et que les fondre dans l'impôt détruirait la logique contributive. C'est le principe du bénéfice, et il est sérieux. Une
 cotisation de retraite proportionnelle au salaire, qui ouvre une pension proportionnelle aux
 cotisations, est en partie une épargne forcée et non un prélèvement sans contrepartie ; le
 salarié la perçoit comme telle, et son effet sur l'offre de travail est plus faible que celui d'un
 impôt du même montant.
 
-\amorce{L'objection vaut pour la part contributive, et pour elle seulement.} Les cotisations
+L'objection ne vaut que pour la part contributive. Les cotisations
 d'assurance maladie et de famille n'ouvrent aucun droit proportionnel à ce qui est versé, pas plus
 que la contribution sociale généralisée. La comparaison avec le Danemark montre que l'étiquette ne
 change rien à ce que le salarié perd sur l'euro suivant. Une réforme peut donc préserver la
@@ -1037,7 +1415,7 @@ aux ménages aisés qu'aux ménages modestes.
 
 \subsection{L'exemple : un taux réduit sur l'alimentation}
 
-\amorce{Un taux réduit donne plus d'euros aux riches qu'aux pauvres.} Un ménage modeste consacre
+Un taux réduit donne plus d'euros aux riches qu'aux pauvres. Un ménage modeste consacre
 une part plus élevée de son revenu à l'alimentation --- disons 18~\% de 1\,500~\euro{} par mois,
 soit 270~\euro{} hors taxe. Un ménage aisé y consacre une part plus faible, 9~\% de 5\,000~\euro{},
 mais cela fait 450~\euro{}. Quinze points de TVA en moins valent donc 40~\euro{} par mois au
@@ -1050,15 +1428,15 @@ modeste}{fig:tauxreduit}
 
 \subsection{Ce que dit la théorie}
 
-\amorce{Si l'on dispose d'un barème sur le revenu bien construit, il ne sert à rien d'appliquer
-des taux différents aux différents biens.} C'est le résultat d'Atkinson et Stiglitz (1976). Deux
+Si l'on dispose d'un barème sur le revenu bien construit, il ne sert à rien d'appliquer
+des taux différents aux différents biens. C'est le résultat d'Atkinson et Stiglitz (1976). Deux
 personnes qui gagnent le même revenu et paient le même impôt consomment différemment selon leurs
 goûts ; taxer plus lourdement le bien qu'aime la première ne redistribue rien, cela pénalise un
 goût et non une situation. La formulation exacte contient sa limite : le résultat suppose que la
 façon de répartir son budget ne dépend pas du temps passé à travailler, ni de la capacité, de
 sorte que le choix de consommation ne révèle rien que le revenu ne révèle déjà.
 
-\amorce{La théorie admet trois écarts à l'uniformité, et seulement trois.} Les biens
+La théorie admet trois écarts à l'uniformité. Les biens
 complémentaires du travail --- garde d'enfants, transport domicile-travail, repas pris dehors
 parce qu'on travaille --- peuvent être traités à part. Les biens qui révèlent une capacité que le
 revenu déclaré ne montre pas peuvent être taxés davantage. Et si la structure des taxes modifie le
@@ -1067,8 +1445,7 @@ argument correct en théorie, qu'on ne sait pas mobiliser dans un cas concret. L
 française des taux réduits ne s'explique par aucune de ces trois exceptions, mais par l'histoire
 et par les rapports de force sectoriels.
 
-\amorce{C'est la leçon de la théorie que la pratique a le mieux suivie, et Mankiw, Weinzierl et
-Yagan en mesurent l'ampleur.} Une TVA bien construite ne taxe pas les biens intermédiaires et taxe
+C'est la leçon de la théorie que la pratique a le mieux suivie. Une TVA bien construite ne taxe pas les biens intermédiaires et taxe
 uniformément les biens finals : elle applique à la fois Diamond-Mirrlees et Atkinson-Stiglitz.
 Vingt-neuf des trente pays de l'OCDE en disposaient en 2009, contre douze en 1976 ; sur ces douze,
 onze ont relevé leur taux, de 15,6 à 20,4~\% en moyenne, et la France est le seul à l'avoir
@@ -1079,7 +1456,7 @@ pour les «~biens de base~».
 
 \subsection{Ce que montrent les données}
 
-\amorce{La TVA française a un taux dans la moyenne et une assiette plus étroite que la moyenne.}
+La TVA française a un taux dans la moyenne et une assiette plus étroite que la moyenne.
 Son taux normal de 20~\% est proche de la moyenne de l'OCDE (19,4~\%) et inférieur à la médiane
 (21~\%). Son ratio de recettes --- ce qu'elle rapporte, rapporté à ce qu'elle rapporterait si toute
 la consommation était taxée au taux normal --- est de 51~\%, contre 55~\% en moyenne ; la
@@ -1090,7 +1467,7 @@ exonérations que personne ne propose de lever, à commencer par les loyers.
 
 \figbloc{r7_tva_taux_et_assiette}{Taux normal et assiette de la TVA dans l'OCDE}{fig:tva}
 
-\amorce{Le Conseil des prélèvements obligatoires a chiffré ce que coûtent les exceptions.} Son
+Le Conseil des prélèvements obligatoires a chiffré ce que coûtent les exceptions. Son
 rapport de février 2023 sur la TVA évalue à au moins 47~Md\euro{} le manque à gagner dû aux taux
 réduits et aux autres dérogations au taux normal, 24~\% de ce que l'impôt rapportait en 2021. Une
 centaine de catégories de biens et de services en bénéficient, mais les dix premières mesures font
@@ -1098,8 +1475,7 @@ plus de 82~\% du total. Seuls 17~Md\euro{} sont comptés comme dépenses fiscale
 considéré comme faisant partie de la norme, et n'apparaît donc pas dans la liste officielle des
 niches.
 
-\amorce{La TVA est régressive rapportée au revenu d'une année, et près de deux fois moins rapportée
-aux ressources d'une vie.} Sur données françaises, le CPO la mesure à 12,5~\% du revenu disponible du
+Rapportée au revenu d'une année, la TVA est régressive. Sur données françaises, le CPO la mesure à 12,5~\% du revenu disponible du
 dixième le plus modeste et à 4,7~\% de celui du dixième le plus aisé ; l'écart s'explique
 entièrement par la part du revenu consommée. C'est l'erreur de dénominateur du chapitre~3 : les
 ménages dont le revenu est temporairement bas consomment plus qu'ils ne gagnent, et paraissent donc
@@ -1112,8 +1488,8 @@ durablement modestes, et c'est pourquoi toute réforme doit venir avec sa compen
 
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{Élargir l'assiette plutôt que relever le taux, et compenser les ménages modestes par un
-transfert.} C'est la recommandation de la \emph{Mirrlees Review}, qui a chiffré un paquet neutre
+Élargir l'assiette plutôt que relever le taux, et compenser les ménages modestes par un
+transfert. C'est la recommandation de la \emph{Mirrlees Review}, qui a chiffré un paquet neutre
 à la fois sur le rendement et sur la distribution : convergence des taux réduits vers le taux
 normal, et retour du produit aux premiers déciles par le barème direct et les prestations. Le
 document de l'OCDE arrive à la même conclusion par une autre voie : élargir l'assiette d'une taxe
@@ -1121,11 +1497,10 @@ sur la consommation vaut mieux qu'en relever le taux, parce qu'un taux élevé n
 souterraine. Le taux normal français n'a pas besoin d'être relevé ; ce sont les trois taux réduits
 --- 10, 5,5 et 2,1~\% --- qu'il faut rapprocher.
 
-\amorce{Le CPO a fait le calcul sur les ménages français, et il tranche la question de
-l'instrument.} Pour un même coût de 9,4~Md\euro{}, supprimer la TVA sur l'alimentation relèverait
-le niveau de vie du dixième le plus modeste de 1,5~\%, même en supposant que 80~\% de la baisse se
-retrouve dans les prix ; un chèque de 1\,620~\euro{} versé aux ménages éligibles au chèque énergie
-le relèverait de 7,3~\%. Une structure de taux plus différenciée encore --- 2,1~\% sur toute
+Le CPO a fait le calcul sur les ménages français. On a vu au chapitre~3 que, pour un même coût, un
+chèque ciblé relève près de cinq fois plus le niveau de vie des plus modestes qu'une TVA nulle sur
+l'alimentation, même en supposant que 80~\% de la baisse de TVA se retrouve dans les prix. Une
+structure de taux plus différenciée encore --- 2,1~\% sur toute
 l'alimentation, le taux normal sur la restauration --- ne réduirait que d'un demi-point l'écart de
 huit points de taux d'effort entre le premier et le dernier dixième. Un taux réduit redistribue mal
 parce qu'il ne peut pas distinguer qui achète. Le CPO recommande donc de supprimer les taux réduits
@@ -1134,8 +1509,8 @@ de soutenir le pouvoir d'achat des ménages modestes par des transferts ciblés.
 
 \subsection{L'objection la plus forte}
 
-\amorce{Les taux réduits soutiennent l'emploi dans des secteurs qui en créent beaucoup, comme la
-restauration ou le bâtiment.} L'argument est empirique, et il a été testé. La baisse de la TVA
+Les taux réduits soutiennent l'emploi dans des secteurs qui en créent beaucoup, comme la
+restauration ou le bâtiment. L'argument est empirique, et il a été testé. La baisse de la TVA
 sur la restauration, passée de 19,6 à 5,5~\% en 2009, a été évaluée par Benzarti et Carloni
 (\emph{American Economic Journal: Economic Policy}, 2019), qui comparent les restaurants à d'autres
 services marchands sur données d'entreprises. Les propriétaires ont capté 41~\% de l'avantage sous
@@ -1156,8 +1531,7 @@ recommande de taxer la rente plutôt que la patience.
 
 \subsection{L'exemple : deux salariés identiques}
 
-\amorce{Deux personnes gagnent le même salaire et paient le même impôt dessus ; si le rendement de
-l'épargne est taxé, celle qui attend paie un second impôt que celle qui dépense ne paie pas.} À
+Deux personnes gagnent le même salaire et paient le même impôt dessus. Si le rendement de l'épargne est taxé, celle qui attend pour consommer paie un second impôt que l'autre ne paie pas. À
 3~\% de rendement réel et 30~\% de prélèvement, celle qui épargne trente ans avant de consommer
 subit l'équivalent d'un impôt de 23~\% sur sa consommation, contre zéro pour l'autre ; à quarante
 ans, 30~\% (figure~\ref{fig:attente}). La seule différence entre elles est le moment où elles
@@ -1166,7 +1540,7 @@ consomment.
 \figbloc{p4_impot_sur_l_attente}{L'impôt implicite sur la consommation différée croît avec la
 durée}{fig:attente}
 
-\amorce{C'est la violation la plus extrême du principe d'uniformité du chapitre~7.} Consommer en
+C'est la violation la plus extrême du principe d'uniformité du chapitre~7. Consommer en
 2050 et consommer en 2026 sont deux biens différents, et un impôt sur le rendement les taxe à des
 taux différents, d'autant plus que l'échéance est lointaine. Si l'on juge injustifié d'appliquer
 5,5~\% aux pâtes et 20~\% aux biscuits, il faut expliquer pourquoi on applique 0~\% à la
@@ -1174,13 +1548,13 @@ consommation de cette année et l'équivalent de 30~\% à celle qu'on diffère d
 
 \subsection{Le mécanisme : rendement normal et rente}
 
-\amorce{Le rendement normal rémunère le seul fait d'attendre ; la rente est tout ce qui dépasse.}
+Le rendement normal rémunère le seul fait d'attendre ; la rente est tout ce qui dépasse.
 Taxer le premier taxe la patience, et rien d'autre. La rente --- une position de marché, une
 information que les autres n'avaient pas, un terrain bien placé --- serait apparue de toute façon :
 la taxer ne décourage rien. C'est la distinction la plus utile de toute la fiscalité du capital,
 et le système français ne la fait nulle part.
 
-\amorce{Le mécanisme qui la met en \oe uvre est plus simple que son nom.} On laisse le
+Le mécanisme qui la met en \oe uvre est plus simple que son nom. On laisse le
 contribuable déduire chaque année, du revenu de son placement, un montant égal au capital investi
 multiplié par un taux sans risque --- celui de la dette publique, par exemple. Ce qui dépasse est
 imposé au barème ordinaire ; ce qui reste en deçà ne l'est pas, et le solde non utilisé est
@@ -1190,8 +1564,8 @@ applique ce mécanisme aux dividendes et plus-values des actionnaires depuis 200
 \emph{Mirrlees Review} le recommande pour toute l'épargne, avec un avantage supplémentaire pour
 l'épargne retraite.
 
-\amorce{Le résultat classique selon lequel l'impôt optimal sur le capital serait nul à long terme
-est beaucoup moins solide qu'on ne le dit.} Les modèles de Chamley et Judd concluaient en ce sens
+Le résultat classique selon lequel l'impôt optimal sur le capital serait nul à long terme
+est beaucoup moins solide qu'on ne le dit. Les modèles de Chamley et Judd concluaient en ce sens
 parce que, si les ménages ont un horizon infini, leur épargne devient à long terme parfaitement
 sensible au rendement net : un impôt sur le capital ne réduit pas ce rendement net, il élève le
 rendement brut exigé, donc contracte le stock de capital et la production. Straub et Werning
@@ -1200,20 +1574,19 @@ horizons sont courts, ou si les ménages épargnent par précaution faute de pou
 le capital peut redevenir souhaitable. Aucune de ces objections ne justifie de taxer le rendement
 normal plus lourdement à mesure qu'on attend : elles portent sur le niveau, pas sur l'uniformité.
 
-\amorce{Mankiw, Weinzierl et Yagan ajoutent un résultat que le débat public ignore : dans les
-modèles dynamiques, l'impôt sur le capital sert d'abord d'instrument d'information.} Le problème de
+Dans les modèles dynamiques, l'impôt sur le capital sert d'abord d'instrument d'information, un résultat que rappellent Mankiw, Weinzierl et Yagan. Le problème de
 la redistribution est qu'elle incite à travailler moins pour être mieux traité ; dans une économie
 dynamique, on peut en outre épargner pour maintenir sa consommation les années où l'on gagne peu.
 Un impôt sur le capital plus lourd quand le revenu du travail chute rend cette stratégie coûteuse.
 Kocherlakota (2005) montre que l'espérance de cet impôt, calculée avant que chacun connaisse sa
 capacité, est nulle : il ne lève, en moyenne, aucune recette. Aucun conseiller ne proposerait un
-impôt de ce genre à un ministre, et les auteurs le disent ; mais le résultat montre que la
-question n'est pas «~taxer le capital davantage ou moins~», c'est «~pour quoi faire~».
+impôt de ce genre à un ministre, et les auteurs le disent. Le résultat montre seulement que la
+question utile, pour l'impôt sur le capital, est «~pour quoi faire~».
 
 \subsection{Ce que montrent les données}
 
-\amorce{Le système taxe le rendement nominal, donc taxe l'inflation sans que personne l'ait
-voté.} À 2~\% d'inflation et 3~\% de rendement réel, un prélèvement de 30~\% porte sur 5~\%, soit
+Le système taxe le rendement nominal, donc taxe l'inflation sans que personne l'ait
+voté. À 2~\% d'inflation et 3~\% de rendement réel, un prélèvement de 30~\% porte sur 5~\%, soit
 la moitié du rendement réel : le taux affiché est 30~\%, le taux effectif 50~\%. L'impôt absorbe la
 totalité du gain réel à 7~\% d'inflation pour un rendement réel de 3~\%, et dès 4,7~\% pour un
 rendement réel de 2~\% (figure~\ref{fig:inflation}). Le défaut est connu et reste non corrigé parce
@@ -1221,10 +1594,10 @@ qu'il rapporte, et que ce qu'il rapporte n'apparaît dans aucune ligne de la loi
 
 \figbloc{c5_inflation}{Un impôt assis sur le rendement nominal taxe l'inflation}{fig:inflation}
 
-\amorce{Le même rendement réel supporte en France de zéro à 97~\% d'impôt, selon la seule
-enveloppe qui le porte.} Un livret réglementé est exonéré ; un plan d'épargne en actions après cinq
+Le même rendement réel supporte en France de zéro à 97~\% d'impôt, selon la seule
+enveloppe qui le porte. Un livret réglementé est exonéré ; un plan d'épargne en actions après cinq
 ans supporte 17,2~\% affichés, soit 28,7~\% sur le rendement réel ; le prélèvement forfaitaire
-unique en prend 50~\% ; un revenu foncier imposé au taux marginal de 41~\% en prend 97~\%
+unique de 2025, 30~\%, en prend 50~\%, et 52~\% à son taux de 2026, 31,4~\% ; un revenu foncier imposé au taux marginal de 41~\% en prend 97~\%
 (figure~\ref{fig:supports}). Aucun de ces écarts ne correspond à une différence économique entre
 les placements. L'épargnant place donc là où le rendement après impôt est le plus élevé, pas là où
 son argent serait le plus utile, et le coût consiste en projets non financés dont on ne connaît ni
@@ -1233,8 +1606,8 @@ le nom ni le montant.
 \figbloc{c18_supports_epargne}{Le même rendement réel de 3~\% supporte de 0 à 97~\% d'impôt selon
 le support}{fig:supports}
 
-\amorce{Au sommet, le revenu de l'épargne en actions est taxé en France nettement au-dessus de la
-moyenne.} Le taux personnel supérieur est de 34~\% sur les dividendes comme sur les plus-values,
+Au sommet, le revenu de l'épargne en actions est taxé en France nettement au-dessus de la
+moyenne. Le taux personnel supérieur est de 34~\% sur les dividendes comme sur les plus-values,
 contre 25 et 20~\% en moyenne dans l'OCDE, ce qui place la France au huitième et au sixième rang
 (figure~\ref{fig:dividendes}). Pour les dividendes, l'impôt sur les sociétés s'y ajoute : c'est la
 cascade du chapitre~5.
@@ -1244,8 +1617,7 @@ plus-values dans l'OCDE}{fig:dividendes}
 
 \subsection{Taxer le stock plutôt que le flux}
 
-\amorce{Un impôt annuel sur un patrimoine n'est comparable à un impôt sur un revenu qu'une fois
-converti, et la conversion est de l'arithmétique.} Un prélèvement de 1~\% par an sur un capital
+Un impôt annuel sur un patrimoine ne se compare à un impôt sur le revenu qu'une fois converti en taux sur le rendement. Un prélèvement de 1~\% par an sur un capital
 qui rapporte 2~\% réels absorbe la moitié du rendement ; le même prélèvement sur un capital qui
 rapporte 5~\% en absorbe un cinquième (figure~\ref{fig:stockflux}). Le taux affiché est identique,
 le taux réel ne l'est pas, et un impôt sur la fortune frappe donc le plus lourdement les actifs qui
@@ -1254,16 +1626,14 @@ rapportent le moins.
 \figbloc{p3_stock_contre_flux}{Part du rendement réel absorbée par un impôt annuel sur le
 patrimoine}{fig:stockflux}
 
-\amorce{La proposition d'impôt minimum sur les très grands patrimoines se juge avec cette
-arithmétique, et avec l'argument qui la fonde.} Elle consiste à prélever chaque année 2~\% des
+La proposition d'impôt minimum sur les très grands patrimoines se juge avec cette arithmétique. Elle consiste à prélever chaque année 2~\% des
 patrimoines supérieurs à 100~millions d'euros, l'impôt sur le revenu déjà acquitté venant en
 déduction. Son argument le plus fort est réel : une large part du revenu économique des très
 grandes fortunes reste logée dans des sociétés holding, où les dividendes reçus des filiales sont
 exonérés à 95~\%, de sorte que le revenu imposable du détenteur peut être très inférieur à ce que
 son patrimoine lui rapporte. L'impôt minimum ne mord que dans ce cas, et c'est sa justification.
 
-\amorce{Son défaut tient en une conversion : 2~\% du patrimoine, c'est 67~\% d'un rendement réel
-de 3~\%, et 100~\% d'un rendement de 2~\%.} Pour le fondateur d'une entreprise non cotée valorisée
+Son défaut apparaît dès la conversion : 2~\% du patrimoine, c'est 67~\% d'un rendement réel de 3~\%, et 100~\% d'un rendement de 2~\%. Pour le fondateur d'une entreprise non cotée valorisée
 un milliard, cela représente 20~millions d'euros à trouver chaque année, qu'elle distribue ou non :
 il faut alors céder des titres ou emprunter, et la valeur retenue pour une société non cotée est
 contestable par construction. L'impôt frappe en outre le rendement normal autant que la rente, ce
@@ -1273,8 +1643,8 @@ taux de leur détenteur, ce qui atteint les mêmes personnes sans taxer l'attent
 
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{Un seul traitement pour toute l'épargne : abattement pour rendement normal, imposition de
-ce qui dépasse au barème, assiette indexée sur l'inflation.} Les enveloppes perdraient leur raison
+Un seul traitement pour toute l'épargne : abattement pour rendement normal, imposition de
+ce qui dépasse au barème, assiette indexée sur l'inflation. Les enveloppes perdraient leur raison
 d'être, puisque le rendement normal ne serait plus taxé nulle part ; la rente le serait partout, au
 même taux. L'épargne retraite peut garder un avantage, que la \emph{Mirrlees Review} justifie non par la
 neutralité, mais par le manque de prévoyance de certains épargnants et par ce que coûtent à la
@@ -1282,11 +1652,11 @@ collectivité ceux qui arrivent à la retraite sans épargne.
 
 \subsection{L'objection la plus forte}
 
-\amorce{Le patrimoine est très concentré, et exonérer le rendement normal profiterait d'abord aux
-plus riches.} L'objection est sérieuse, puisque la part du rendement normal dans le revenu des
+Le patrimoine est très concentré, et exonérer le rendement normal profiterait d'abord aux
+plus riches. L'objection est sérieuse, puisque la part du rendement normal dans le revenu des
 patrimoines importants est élevée en valeur absolue.
 
-\amorce{Elle confond pourtant deux questions.} Le rendement normal d'un grand patrimoine reste
+Elle confond pourtant deux questions. Le rendement normal d'un grand patrimoine reste
 taxé au moment de sa transmission, dont le chapitre~9 montre qu'elle rapporte déjà davantage en
 France que partout ailleurs dans l'OCDE. La rente, elle, serait imposée au barème, donc, pour les
 hauts revenus, à un taux supérieur au prélèvement forfaitaire actuel. Et la concentration du patrimoine appelle un impôt sur les
@@ -1304,8 +1674,8 @@ possible, puisqu'elle frappe celui qui bouge et laisse intact celui qui ne bouge
 
 \subsection{L'exemple : un impôt annoncé est payé d'un coup}
 
-\amorce{Un impôt sur la valeur du sol ne peut pas en réduire la quantité ; c'est son prix qui
-baisse.} La valeur d'un terrain est le loyer qu'il rapportera, actualisé. Un impôt annuel de 1~\%
+Un impôt sur la valeur du sol ne peut pas en réduire la quantité ; c'est son prix qui
+baisse. La valeur d'un terrain est le loyer qu'il rapportera, actualisé. Un impôt annuel de 1~\%
 sur un terrain actualisé à 4~\% fait tomber sa valeur de 20~\% le jour de l'annonce ; un impôt de
 2~\%, de 33~\% (figure~\ref{fig:capitalisation}). Tous les acquéreurs suivants achètent moins cher
 et ne supportent rien. C'est ce qui rend l'impôt efficient --- il ne pèse sur aucune décision future
@@ -1315,16 +1685,20 @@ la totalité.
 \figbloc{c19_capitalisation}{Un impôt foncier annoncé est payé d'un coup par le propriétaire du
 jour}{fig:capitalisation}
 
-\amorce{Un droit de mutation, lui, ne frappe que ceux qui déménagent.} Il décourage donc le
-déménagement, c'est-à-dire la mobilité résidentielle, donc la mobilité professionnelle, donc
-l'appariement entre les travailleurs et les emplois. Il laisse intacte la situation de celui qui ne
-bouge pas, quelle que soit la valeur de son bien. Et il est payé par le vendeur plus que par
-l'acheteur qui le verse (chapitre~2).
+Un droit de mutation, lui, ne frappe que ceux qui déménagent, et il décourage le déménagement.
+Au Royaume-Uni, le passage du droit de 1 à 3~\% au-delà de 250\,000~£ réduit d'environ 37~\% la
+mobilité des ménages concernés (Hilber et Lyytikäinen, 2017), et la suppression temporaire d'un
+droit de 1~\% en 2008-2009 a augmenté les transactions de 20~\% (Best et Kleven, 2018). L'effet
+porte surtout sur les déménagements courts, liés au logement ; Hilber et Lyytikäinen ne trouvent
+pas d'effet sur les mobilités liées à l'emploi, si bien que le coût pour l'appariement entre
+travailleurs et emplois, souvent invoqué, est moins établi. En France, la hausse de 0,7 point des
+droits en 2014 n'a réduit les transactions qu'à court terme (Bérard et Trannoy, 2018). Le droit
+laisse intacte la situation de celui qui ne bouge pas, quelle que soit la valeur de son bien, et il
+est payé par le vendeur plus que par l'acheteur qui le verse (chapitre~2).
 
 \subsection{Ce que disent les trois textes}
 
-\amorce{La \emph{Mirrlees Review} recommande d'abandonner les taxes sur les transactions et de
-taxer la valeur du sol, et elle va plus loin sur le logement occupé par son propriétaire.} Deux
+La \emph{Mirrlees Review} recommande d'abandonner les taxes sur les transactions au profit d'un impôt sur la valeur du sol. Elle va plus loin pour le logement occupé par son propriétaire. Deux
 ménages de même revenu, dont l'un possède son logement et l'autre loue le sien, ne sont pas traités
 de la même façon : le propriétaire consomme un service de logement que rien ne taxe, tandis que le
 locataire paie un loyer sur un revenu déjà imposé. C'est le raisonnement du chapitre~7 --- deux
@@ -1333,25 +1707,24 @@ implicite, est électoralement intenable dans la plupart des pays où elle a ét
 Pays-Bas, qui imposent un loyer implicite mais laissent déduire les intérêts d'emprunt, ont
 recommandé en 2024 d'éteindre l'avantage net qui en résulte.
 
-\amorce{Le document de l'OCDE place les impôts récurrents sur l'immobilier au premier rang des
-impôts les moins défavorables à la croissance.} C'est le résultat le plus repris de ce travail, et
+Le document de l'OCDE place les impôts récurrents sur l'immobilier au premier rang des
+impôts les moins défavorables à la croissance. C'est le résultat le plus repris de ce travail, et
 c'est aussi celui dont la robustesse a été la plus contestée (chapitre~11). Il coïncide en tout cas
 avec ce que la théorie prédit pour des raisons indépendantes : une assiette immobile se taxe sans
 dommage.
 
 \subsection{Ce que montrent les données}
 
-\amorce{La France taxe deux fois plus que la moyenne de l'OCDE à la fois la détention et la
-transaction.} Les impôts récurrents sur la propriété immobilière atteignent 1,9~\% du PIB, contre
+La France taxe deux fois plus que la moyenne de l'OCDE à la fois la détention et la
+transaction. Les impôts récurrents sur la propriété immobilière atteignent 1,9~\% du PIB, contre
 0,95~\% en moyenne ; les droits sur les transactions, 0,7~\% contre 0,37~\% (figure~\ref{fig:immo}).
-Le partage entre les deux est donc celui de la moyenne. Ce qui distingue la France n'est pas d'avoir
-choisi la transaction plutôt que la détention, c'est le niveau des droits sur les transactions et
-l'assiette de l'impôt récurrent.
+Le partage entre les deux est donc celui de la moyenne. Ce qui distingue la France est le niveau
+des droits sur les transactions et l'assiette de l'impôt récurrent.
 
 \figbloc{r9_detention_et_transaction}{Impôts récurrents sur l'immobilier et droits sur les
 transactions dans l'OCDE}{fig:immo}
 
-\amorce{Les droits de mutation suivent le marché, ce qui en fait aussi une recette instable.} Ils
+Les droits de mutation suivent le marché, ce qui en fait aussi une recette instable. Ils
 sont tombés de 0,74 à 0,50~\% du PIB entre 2022 et 2024, alors que la taxe foncière n'a pas bougé
 (figure~\ref{fig:detention}). Pour les départements, qui en tirent l'essentiel, c'est une recette
 qui baisse exactement quand l'activité ralentit. En 2024, les droits d'enregistrement sur les
@@ -1361,15 +1734,14 @@ fortune immobilière, 45,6~Md\euro{}.
 \figbloc{g10_detention_transaction}{Taxer la détention, la transmission ou la transaction, en \%
 du PIB}{fig:detention}
 
-\amorce{L'assiette de l'impôt récurrent est fausse, et c'est le premier problème à régler.} La
+L'assiette de l'impôt récurrent est fausse. La
 taxe foncière des logements est assise sur des valeurs locatives établies en 1970 et revalorisées
 depuis par coefficients forfaitaires. Deux logements de même valeur de marché peuvent donc supporter des
 impôts très différents selon que leur quartier s'est valorisé ou déprécié depuis cinquante-cinq
 ans. Tant que l'assiette reste fausse, toute hausse de l'impôt foncier amplifierait des écarts
 injustifiés.
 
-\amorce{L'assiette fausse ne produit pas seulement des écarts arbitraires : elle rend l'impôt
-régressif.} Une étude de l'Insee pour le Conseil des prélèvements obligatoires, publiée avec son
+Cette assiette rend aussi l'impôt régressif. Une étude de l'Insee pour le Conseil des prélèvements obligatoires, publiée avec son
 rapport de décembre 2023 sur le logement, montre que, parmi les propriétaires, la taxe foncière
 pèse relativement plus sur les moins aisés. La raison principale est l'assiette : les valeurs de
 1970 sous-évaluent davantage les logements des communes les plus aisées. S'y ajoute que les
@@ -1380,13 +1752,13 @@ soixante-dix dispositifs, pour la plupart ni bornés dans le temps ni évalués.
 
 \subsection{Les transmissions}
 
-\amorce{Aucun pays de l'OCDE ne prélève autant que la France sur les successions et les
-donations.} Ces impôts y rapportent 0,76~\% du PIB, cinq fois la moyenne de l'OCDE (0,15~\%) ; la
+Aucun pays de l'OCDE ne prélève autant que la France sur les successions et les
+donations. Ces impôts y rapportent 0,76~\% du PIB, cinq fois la moyenne de l'OCDE (0,15~\%) ; la
 Corée, la Belgique et le Japon suivent autour de 0,6~\% (figure~\ref{fig:successions}).
 
 \figbloc{r10_successions}{Impôts sur les successions et donations dans l'OCDE}{fig:successions}
 
-\amorce{Ce rendement élevé est obtenu avec un barème élevé sur une assiette percée.} Le barème en
+Ce rendement élevé est obtenu avec un barème élevé sur une assiette percée. Le barème en
 ligne directe monte jusqu'à 45~\%, mais l'abattement de 100\,000~\euro{} par parent et par enfant
 se reconstitue tous les quinze ans, l'assurance vie suit un régime propre, et les transmissions d'entreprises
 bénéficient d'une exonération de 75~\% de leur valeur sous condition d'engagement de conservation.
@@ -1394,8 +1766,8 @@ Le résultat est l'inverse de la règle du chapitre~1 : des taux élevés sur un
 donc une forte incitation à organiser sa transmission, et une charge qui dépend moins du montant
 transmis que de la qualité du conseil.
 
-\amorce{Le Conseil d'analyse économique a mesuré ce que l'assiette percée fait à la
-progressivité.} Sa note de décembre 2021, signée par Clément Dherbécourt, Gabrielle Fack, Camille
+Le Conseil d'analyse économique a mesuré ce que l'assiette percée fait à la
+progressivité. Sa note de décembre 2021, signée par Clément Dherbécourt, Gabrielle Fack, Camille
 Landais et Stefanie Stantcheva, s'appuie sur les données de transmission de la DGFiP, complétées
 par les comptes de patrimoine. Le millième le plus aisé de chaque génération, qui reçoit au cours
 de sa vie de l'ordre de 13~millions d'euros, acquitte à peine 10~\% de droits sur l'ensemble, loin
@@ -1407,9 +1779,8 @@ assurance vie, démembrement de propriété, transmission d'entreprises --- coû
 de 2 à 5~milliards d'euros par an chacune. L'enjeu grandit : l'héritage représente 60~\% du
 patrimoine total, contre 35~\% au début des années 1970.
 
-\amorce{L'une de ces exceptions a depuis été évaluée par la Cour des comptes, et son coût a changé
-d'échelle.} Le pacte
-Dutreil exonère 75~\% de la valeur d'une entreprise transmise si la famille s'engage à en conserver
+La Cour des comptes a depuis évalué l'une de ces exceptions, le pacte Dutreil. Celui-ci
+exonère 75~\% de la valeur d'une entreprise transmise si la famille s'engage à en conserver
 le contrôle quelques années ; ajouté à la réduction de moitié accordée aux donations avant 70 ans,
 il ramène le taux maximal de 45 à 5,6~\%. Dans son rapport de novembre 2025, la Cour estime qu'il a
 coûté 5,5~Md\euro{} en 2024, contre 1,2~Md\euro{} en 2020 --- en partie à cause d'une très grosse
@@ -1418,7 +1789,7 @@ demi-milliard par an de 2011 à 2024. Près des deux tiers de l'avantage, 65~\%,
 bénéficiaires, 110~personnes en 2024, qui en retirent en moyenne 30~millions d'euros chacune ; l'industrie,
 souvent invoquée pour le justifier, en reçoit 17~\%.
 
-\amorce{Ce que le dispositif produit a été mesuré, et la méthode dit jusqu'où le résultat va.} Avec
+L'évaluation mesure aussi ce que le dispositif produit. Avec
 l'Institut des politiques publiques, la Cour compare des entreprises transmises entre 2010 et 2018
 sous pacte et hors pacte : les premières sont plus grandes en moyenne, mais leur rentabilité et
 leur investissement étaient proches avant la transmission. Elles changent moins souvent de
@@ -1431,10 +1802,14 @@ La Cour admet sa prémisse --- un taux marginal de 45~\% est élevé pour des ac
 en comparaison européenne --- mais propose de réduire l'abattement, d'en exclure les actifs non
 professionnels et la trésorerie excédentaire qui en profitent aujourd'hui, de le rendre dégressif
 au-delà d'un certain montant transmis, et de faciliter en contrepartie le paiement différé et
-fractionné des droits.
+fractionné des droits. La loi de finances pour 2026 n'a retenu qu'une partie de ces pistes : pour
+les transmissions réalisées depuis le 21~février 2026, l'engagement individuel de conservation
+passe de quatre à six ans, et certains biens --- logements, yachts, aéronefs, objets d'art, vins,
+chevaux de course --- sortent de l'exonération lorsque la société ne les affecte pas exclusivement
+à son activité depuis au moins trois ans. Le taux de 75~\% n'a pas changé.
 
-\amorce{La \emph{Mirrlees Review} propose un impôt sur l'ensemble des sommes reçues au cours de
-la vie.} Toutes les transmissions, entre vifs ou au décès, quelle que soit la forme de l'actif,
+La \emph{Mirrlees Review} propose un impôt sur l'ensemble des sommes reçues au cours de
+la vie. Toutes les transmissions, entre vifs ou au décès, quelle que soit la forme de l'actif,
 seraient additionnées pour chaque bénéficiaire et taxées selon un barème unique. L'argument est
 d'équité --- réduire l'inégalité des chances qui naît du hasard de la naissance --- pour un coût
 économique faible, puisque l'impôt porte sur ce que le bénéficiaire n'a pas produit. C'est aussi
@@ -1443,8 +1818,8 @@ pourraient réduire les droits de 99~\% de la population tout en dégageant un s
 
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{Réviser les valeurs locatives d'abord, puis déplacer progressivement la charge des droits
-de mutation vers l'impôt récurrent, en l'asseyant autant que possible sur le sol.} L'ordre importe :
+Réviser les valeurs locatives d'abord, puis déplacer progressivement la charge des droits
+de mutation vers l'impôt récurrent, en l'asseyant autant que possible sur le sol. L'ordre importe :
 alourdir un impôt assis sur des valeurs fausses serait injuste, et l'asseoir sur le bâti plutôt que
 sur le sol revient à taxer le capital investi dans la construction. C'est l'ordre que recommande
 le Conseil des prélèvements obligatoires en 2023 : relier d'abord l'assiette de la taxe foncière aux
@@ -1455,8 +1830,8 @@ immobilières, qui récompensent l'attente et incitent à garder des terrains in
 seule prise en compte de l'érosion monétaire et des travaux --- la logique d'indexation du
 chapitre~8 --- et d'unifier à terme les régimes de la location meublée et de la location nue.
 
-\amorce{Pour les transmissions : élargir l'assiette, en plafonnant les régimes dérogatoires, et
-baisser les taux, à rendement constant.} Le CAE en 2021 et la Cour des comptes en 2025 proposent
+Pour les transmissions : élargir l'assiette, en plafonnant les régimes dérogatoires, et
+baisser les taux, à rendement constant. Le CAE en 2021 et la Cour des comptes en 2025 proposent
 tous deux de réduire fortement l'abattement Dutreil en facilitant l'étalement du paiement des
 droits ; le CAE jugeait même préférable de le supprimer, et chiffrait à au moins 1,5~Md\euro{} le
 seul passage de 75 à 50~\% assorti de la fin de la réduction pour donation avant 70 ans. Il y
@@ -1467,12 +1842,11 @@ constant.
 
 \subsection{L'objection la plus forte}
 
-\amorce{L'argument «~c'est un impôt sans distorsion~» et l'argument «~c'est une spoliation d'une
-génération de propriétaires~» sont tous les deux exacts, et ils décrivent la même propriété.} La
+«~C'est un impôt sans distorsion~» et «~c'est une spoliation d'une génération de propriétaires~» sont deux descriptions exactes de la même propriété. La
 capitalisation fait payer en une fois les propriétaires du jour de l'annonce, y compris ceux qui
 ont un patrimoine immobilier important et des revenus faibles --- souvent des retraités.
 
-\amorce{Un projet sérieux doit donc traiter cette génération, et il en a les moyens.} Une montée en
+Un projet sérieux doit donc traiter cette génération. Une montée en
 charge assez lente pour que la capitalisation se diffuse, et la possibilité de reporter le paiement
 jusqu'à la vente ou à la succession pour les propriétaires à faible revenu, avec un intérêt modéré.
 Sans ces dispositions, la proposition est économiquement juste et politiquement morte, ce qui
@@ -1489,23 +1863,23 @@ niveau d'ambition retenu.
 
 \subsection{L'exemple : deux entreprises, deux tonnes}
 
-\amorce{Supposons qu'on veuille réduire les émissions de deux tonnes, et que deux entreprises
-puissent le faire.} La première peut supprimer chaque tonne pour 30~\euro{}, la seconde pour
+Supposons qu'on veuille réduire les émissions de deux tonnes, et que deux entreprises
+puissent le faire. La première peut supprimer chaque tonne pour 30~\euro{}, la seconde pour
 90~\euro{}. Avec un prix unique de 50~\euro{} la tonne, la première réduit ses deux tonnes, puisque
 cela lui coûte moins que de payer, et la seconde ne fait rien : l'objectif est atteint pour
 60~\euro{}. Si l'on taxe la seconde à 100~\euro{} et pas la première, c'est la seconde qui réduit
 ses deux tonnes : même résultat pour le climat, 180~\euro{} de coût. Le prix unique garantit que les
 réductions les moins chères sont faites en premier, où qu'elles se trouvent.
 
-\amorce{C'est un gain qui ne demande aucun accord préalable sur l'ambition climatique.} Même celui
+C'est un gain qui ne demande aucun accord préalable sur l'ambition climatique. Même celui
 qui juge l'objectif trop élevé a intérêt à ce qu'il soit atteint au moindre coût, puisque ce sont
 autant de ressources qui restent disponibles pour autre chose.
 
 \subsection{Ce que montrent les données}
 
-\amorce{En France, la tonne de CO$_2$ émise sur la route paie plus de 120~\euro{} ; celle émise
+En France, la tonne de CO$_2$ émise sur la route paie plus de 120~\euro{} ; celle émise
 dans l'industrie ou les bâtiments, presque toujours moins de 60~\euro{}, quand elle paie quelque
-chose.} En 2021, 94~\% des émissions du transport routier étaient tarifées au-dessus de
+chose. En 2021, 94~\% des émissions du transport routier étaient tarifées au-dessus de
 120~\euro{} la tonne ; 41~\% de celles de l'industrie, 36~\% de celles des bâtiments et la moitié
 de celles des transports hors route ne supportaient aucun prix (figure~\ref{fig:carbone}). Au
 total, un tiers des
@@ -1520,15 +1894,15 @@ français, 2021}{fig:carbone}
 
 \subsection{Ce qu'il faudrait faire}
 
-\amorce{Étendre le prix, pas le relever.} Le transport routier est le seul secteur où la France
+Étendre le prix, pas le relever. Le transport routier est le seul secteur où la France
 applique déjà un prix élevé et cohérent avec ses objectifs ; la réforme consiste à aligner le reste
 sur lui. Les quotas échangeables produisent le même signal qu'une taxe, à une condition que la
 \emph{Mirrlees Review} rappelle : les vendre aux enchères plutôt que les distribuer. Un quota
 gratuit ne rapporte rien à l'État, donc ne permet d'alléger aucun autre prélèvement, et revient à
 offrir une rente aux émetteurs installés.
 
-\amorce{Les exceptions ont un coût chiffré, et toutes ne sont pas injustifiées.} La note du CAE de
-mars 2019, signée par Dominique Bureau, Fanny Henriet et Katheline Schubert, relevait que 15~\% des
+Les exceptions ont un coût, que la note du CAE de mars 2019 a chiffré. Signée par Dominique
+Bureau, Fanny Henriet et Katheline Schubert, elle relevait que 15~\% des
 émissions liées à l'énergie échappaient alors à tout prix, ni composante carbone ni quotas
 européens. Les principales exonérations étaient le carburant de l'aviation commerciale
 (3,6~Md\euro{} en 2019), le remboursement partiel aux transporteurs routiers (1,5~Md\euro{}) et le
@@ -1540,13 +1914,13 @@ soit l'usage, et ne moduler que le reste.
 
 \subsection{L'objection la plus forte}
 
-\amorce{Un prix du carbone élevé et uniforme pèse lourdement sur les ménages qui dépendent de la
-voiture et sur les industries exposées à la concurrence internationale.} La France l'a éprouvé :
+Un prix du carbone élevé et uniforme pèse lourdement sur les ménages qui dépendent de la
+voiture et sur les industries exposées à la concurrence internationale. La France l'a éprouvé :
 la trajectoire de la taxe carbone a été gelée fin 2018 après le mouvement des gilets jaunes. Et une
 industrie taxée seule peut perdre des parts de marché au profit de concurrents qui émettent davantage
 ailleurs.
 
-\amorce{La note du CAE a chiffré la première moitié de l'objection.} La hausse prévue avant le
+La note du CAE a chiffré la première moitié de l'objection. La hausse prévue avant le
 gel --- de 44,6 à 86,2~\euro{} la tonne, avec le rattrapage du gazole sur l'essence --- aurait
 coûté près de 1~\% de leur revenu disponible aux 10~\% de ménages les plus modestes, contre 0,3~\%
 aux plus aisés. Reversée en totalité sous la forme d'un même montant par unité de consommation, la
@@ -1558,7 +1932,7 @@ l'équipement : avant reversement et à revenu égal, un ménage rural perd 130~
 unité de consommation qu'un ménage de l'agglomération parisienne, mais 20~\euro{} seulement à
 chauffage et véhicule identiques.
 
-\amorce{Les deux problèmes ont des réponses qui préservent le prix.} Le premier se traite par un
+Les deux problèmes ont des réponses qui préservent le prix. Le premier se traite par un
 reversement du produit, qui laisse intact le signal sur chaque litre consommé tout en compensant
 les ménages modestes --- c'est la règle du chapitre~3 : juger la réforme avec sa compensation. Un
 transfert décroissant avec le revenu et modulé selon le territoire permettait, selon le CAE, de
@@ -1571,9 +1945,9 @@ industries depuis 2026. Exonérer un secteur, en revanche, revient à payer plus
 \partie{Troisième partie}{Le système d'ensemble}
 
 % ===========================================================================
-\section{Niveau, structure, et ce que vaut le classement de l'OCDE}
+\section{Le niveau des prélèvements et le classement de l'OCDE}
 
-\amorce{Le problème français n'est pas d'abord le niveau de prélèvement, c'est la dispersion.} À
+Le problème français tient d'abord à la dispersion des prélèvements. À
 43,5~\% du PIB en 2024, cotisations imputées exclues, la France arrive au deuxième rang européen,
 à égalité avec l'Autriche et derrière le Danemark, qui est à 45,4~\% sans que personne y voie une
 pathologie (figure~\ref{fig:niveau}). Ce qui distingue la France est que, pour un même euro de
@@ -1589,17 +1963,17 @@ TVA, contribution sociale généralisée, impôt sur le revenu --- font plus des
 \figbloc{s1_carte_des_prelevements}{Les prélèvements obligatoires français de 2024, un rectangle
 par prélèvement}{fig:carte}
 
-\subsection{Le classement de l'OCDE, appliqué à la France}
+\subsection{Le classement de l'OCDE appliqué à la France}
 
-\amorce{Le résultat qui a fait la fortune du document de l'OCDE tient en une phrase : les impôts
+Le résultat qui a fait la fortune du document de l'OCDE tient en une phrase : les impôts
 récurrents sur l'immobilier seraient les moins défavorables à la croissance, devant les taxes sur
 la consommation et les autres impôts sur le patrimoine, puis les impôts sur le revenu des
-personnes, les impôts sur les sociétés étant les plus nocifs.} La recommandation qui en découle est
+personnes, les impôts sur les sociétés étant les plus nocifs. La recommandation qui en découle est
 attendue : à rendement constant, déplacer une partie de la charge des impôts sur le revenu vers les
 prélèvements moins distorsifs.
 
-\amorce{Appliqué à la France, le classement dessine une structure presque à l'envers de ce qu'il
-recommande, avec une exception.} La France prélève 25,9 points de PIB sur le revenu des personnes,
+Appliqué à la France, le classement dessine une structure presque à l'envers de ce qu'il
+recommande, avec une exception. La France prélève 25,9 points de PIB sur le revenu des personnes,
 les cotisations et la masse salariale, contre 17,5 en moyenne : c'est là que se concentre l'écart, et
 c'est l'avant-dernière catégorie du classement. Elle prélève aussi davantage que la moyenne dans les
 catégories les moins nocives --- immobilier, consommation, autres impôts sur le patrimoine. L'exception
@@ -1609,9 +1983,9 @@ est la catégorie jugée la plus nocive, l'impôt sur les sociétés, où elle p
 \figbloc{r12_classement_ocde}{La structure française rangée selon le classement de
 l'OCDE}{fig:ocde}
 
-\subsection{Comment le résultat est obtenu, et ce qu'il vaut}
+\subsection{Ce que vaut ce classement}
 
-\amorce{La méthode détermine ce que le résultat peut signifier.} Les auteurs régressent le
+La méthode détermine ce que le résultat peut signifier. Les auteurs régressent le
 logarithme du PIB par habitant de vingt-et-un pays, entre 1970 et 2005, sur les déterminants
 habituels --- capital physique, capital humain, croissance démographique --- en ajoutant le niveau
 global des prélèvements, puis la part de chaque catégorie d'impôt dans les recettes. Le niveau étant
@@ -1621,8 +1995,7 @@ les parts et le niveau sont indépendants dans les données, ce que les auteurs 
 improbable ; et la comparaison entre pays sur longue période mesure une association entre structures
 et niveaux de revenu durablement différents, non l'effet d'une réforme.
 
-\amorce{L'ampleur des effets estimés est la partie que les citations omettent, et ce sont les
-auteurs qui la désavouent.} L'estimation centrale est qu'un déplacement de 1~\% des recettes des
+Les citations omettent en général l'ampleur des effets estimés, que les auteurs eux-mêmes désavouent. L'estimation centrale est qu'un déplacement de 1~\% des recettes des
 impôts sur le revenu vers la consommation et le patrimoine augmenterait le PIB par habitant d'un quart
 de point à un point à long terme. Les auteurs écrivent aussitôt : «~L'ordre de grandeur de l'effet
 estimé est plus élevé que ce à quoi on pourrait raisonnablement s'attendre~», puis : «~il est clair
@@ -1641,7 +2014,7 @@ nombres, et chiffrer une réforme française à partir de ces coefficients produ
 fantaisiste.
 \end{encadre}
 
-\amorce{La robustesse de l'ordre lui-même a été contestée.} Xing (2012) montre que le classement ne
+La robustesse de l'ordre lui-même a été contestée. Xing (2012) montre que le classement ne
 résiste pas à tous les changements de spécification, et que l'avantage attribué aux impôts récurrents
 sur l'immobilier --- le résultat le plus repris --- disparaît en particulier. Ce qui subsiste n'est
 pas rien : l'ordre obtenu coïncide avec ce que la théorie prédit pour des raisons entièrement
@@ -1650,7 +2023,7 @@ de production fait le plus de dégâts. Le classement est donc une confirmation 
 mécanisme établi ailleurs, non une preuve autonome, et c'est sous ce statut qu'il est cité dans ce
 cours.
 
-\amorce{Les recommandations les plus solides du document ne sont d'ailleurs pas dans le classement.}
+Les recommandations les plus solides du document ne sont d'ailleurs pas dans le classement.
 L'essentiel des gains, écrivent les auteurs, vient de la réforme de chaque impôt, pas du déplacement
 entre impôts : élargir les assiettes et baisser les taux. Ces recommandations ont été reprises dans
 les chapitres qu'elles concernent --- la TVA, l'impôt sur les sociétés, le travail.
@@ -1658,8 +2031,7 @@ les chapitres qu'elles concernent --- la TVA, l'impôt sur les sociétés, le tr
 % ===========================================================================
 \section{Ce que font les autres pays}
 
-\amorce{La \emph{Mirrlees Review} n'a pas eu de successeur au Royaume-Uni, mais quatre pays ont
-mené depuis un exercice comparable, et leurs recommandations se recoupent largement.} Aucun de ces
+Quatre pays ont mené depuis la \emph{Mirrlees Review} un exercice comparable, et leurs recommandations se recoupent largement. Aucun de ces
 rapports n'a été écrit par les mêmes personnes, aucun n'a le même mandat, et presque tous
 recommandent d'élargir les assiettes, de réduire le nombre de taux, de déplacer la charge du travail
 vers la consommation et le patrimoine, et de taxer le foncier sur sa valeur réelle
@@ -1704,14 +2076,14 @@ travail.\\
 \end{tabular}
 \end{table}
 
-\amorce{Cette convergence ne prouve pas que les recommandations soient justes} : cinq groupes
+Cette convergence ne prouve pas que les recommandations soient justes : cinq groupes
 d'économistes formés dans la même tradition peuvent se tromper ensemble. Elle établit en revanche
 qu'il ne s'agit pas de préférences nationales ni de positionnements politiques, puisque les mandats,
 les majorités commanditaires et les systèmes de départ différaient. Ce qui converge, ce sont les
 conclusions tirées d'un même corps de résultats appliqué à des situations différentes.
 
-\amorce{Deux de ces rapports posent frontalement une question que la France n'ouvre pas : la
-contribution des retraités.} Le rapport néerlandais recommande de fiscaliser les cotisations de
+Deux de ces rapports posent frontalement une question que la France n'ouvre pas : la
+contribution des retraités. Le rapport néerlandais recommande de fiscaliser les cotisations de
 retraite de base, et la commission irlandaise de rééquilibrer entre générations. En France, le
 niveau de vie médian des 65 ans et plus atteint 94~\% de celui de l'ensemble de la population,
 contre 90~\% dans l'Union, 83~\% en Allemagne et 78~\% au Danemark ; la pauvreté frappe 21,4~\% des
@@ -1721,16 +2093,16 @@ moins de 18 ans contre 12,4~\% des plus de 65 ans, soit l'inverse du profil alle
 \figbloc{p1_retraites_niveau_vie}{Niveau de vie relatif des 65 ans et plus, et taux de pauvreté par
 âge, 2024}{fig:retraites}
 
-\amorce{Ce constat ne dicte aucune conclusion.} Le niveau de vie relatif des retraités résulte de
+Ce constat ne dicte aucune conclusion. Le niveau de vie relatif des retraités résulte de
 décisions passées, prises en connaissance de cause, sur lesquelles les intéressés ont fondé des
 plans de long terme --- et le respect des attentes légitimes figure parmi les critères d'équité de la
 \emph{Mirrlees Review}. Le constat impose seulement que la question soit traitée comme une question
 de répartition entre générations, au lieu d'être évacuée.
 
-\subsection{Lire un indice, et savoir ce qu'il vaut}
+\subsection{Ce que mesure un indice}
 
-\amorce{L'indice de compétitivité fiscale de la Tax Foundation classe la France au dernier rang des
-trente-huit pays de l'OCDE en 2025, avec un score de 45,8 sur 100.} Le détail est plus instructif
+L'indice de compétitivité fiscale de la Tax Foundation classe la France au dernier rang des
+trente-huit pays de l'OCDE en 2025, avec un score de 45,8 sur 100. Le détail est plus instructif
 que le rang global : 38\textsuperscript{e} sur l'impôt des sociétés, 34\textsuperscript{e} sur les
 impôts fonciers, 31\textsuperscript{e} sur l'impôt sur le revenu et sur les taxes à la consommation,
 mais 12\textsuperscript{e} sur les règles fiscales internationales (figure~\ref{fig:indice}).
@@ -1751,19 +2123,17 @@ sur le patrimoine, il applique un jugement que la théorie ne tranche pas. Le pr
 légitime, le second doit être discuté comme ce qu'il est.
 \end{encadre}
 
-\amorce{L'apport le plus utile de cette institution n'est pas son classement, ce sont ses données
-et ses dispositifs d'exposition.} Plusieurs figures de ce cours en viennent : la cascade des cent
+L'apport le plus utile de cette institution tient à ses données et à ses façons de les montrer. Plusieurs figures de ce cours en viennent : la cascade des cent
 euros de profit, le pyramidage d'une taxe sur le chiffre d'affaires, la valeur actuelle des
 amortissements, les taux d'impôt sur les sociétés depuis 1980, l'assiette de la TVA. On peut
 emprunter l'instrument sans souscrire à l'usage qui en est fait.
 
 % ===========================================================================
-\section{Ce qu'il faudrait changer, et ce qu'il ne faut pas changer}
+\section{Ce qu'il faudrait changer}
 
-\amorce{Le tableau~\ref{tab:synthese} rassemble, impôt par impôt, ce qu'il faut pouvoir redire.}
-Il suit la logique du tableau final de la \emph{Mirrlees Review}, qui mettait en vis-à-vis un bon
-système et le système britannique ; la colonne du milieu remplace l'idéal par le chiffre qui situe
-la France.
+Le tableau~\ref{tab:synthese} reprend la forme du tableau final de la \emph{Mirrlees Review},
+qui mettait en regard un bon système et le système britannique ; la colonne du milieu y remplace
+l'idéal par le chiffre qui situe la France.
 
 \begin{table}[htbp]
 \caption{Impôt par impôt : pourquoi il coûte, où en est la France, ce qu'il faudrait faire}
@@ -1782,7 +2152,8 @@ long de la chaîne & 77~Md\euro{} sans fonction corrective ; taxes sur la masse 
 financer par des assiettes larges\\
 \midrule
 Sociétés & Il s'ajoute à l'impôt sur le dividende, taxe le rendement normal et favorise la dette &
-Taux de 36,1~\% en 2025, le plus élevé de l'OCDE ; recette de 2,35~\% du PIB, septième plus basse &
+Taux de 25,8~\% pour la plupart des entreprises, 36,1~\% pour les plus grandes en 2025 et 2026 ;
+recette de 2,35~\% du PIB, septième plus basse &
 Taux stable, sans surtaxe ; déduction d'un rendement normal sur les fonds propres\\
 \midrule
 Travail & Le taux sur l'euro suivant décide, et l'empilement des dispositifs le rend le plus lourd en
@@ -1837,8 +2208,7 @@ des sociétés.
 sur une assiette étroite.
 \end{enumerate}
 
-\amorce{Le classement par certitude définit ce que ce cours peut affirmer.} Les quatre premiers
-écarts reposent sur des mécanismes qui ne dépendent d'aucune estimation : supprimer une taxe sur un
+Les quatre premiers écarts reposent sur des mécanismes qui ne dépendent d'aucune estimation : supprimer une taxe sur un
 intrant améliore l'allocation, un prix unique du carbone atteint un objectif donné à moindre coût,
 une assiette fausse produit des écarts arbitraires, une taxe sur la transaction décourage la
 mobilité. Les suivants supposent des réactions de comportement dont l'ampleur se discute. Les deux
@@ -1846,27 +2216,27 @@ derniers engagent des arbitrages où des économistes compétents divergent.
 
 \subsection{Ce qu'il ne faut pas changer}
 
-\amorce{Le niveau global de prélèvement n'est pas le premier problème.} Le Danemark prélève
+Le niveau global de prélèvement n'est pas le premier problème. Le Danemark prélève
 davantage avec une structure presque opposée. Si le niveau était la variable décisive, les deux pays
 devraient présenter les mêmes difficultés.
 
-\amorce{Le taux normal de TVA n'a pas besoin d'être relevé.} Il est dans la moyenne de l'OCDE ; c'est
+Le taux normal de TVA n'a pas besoin d'être relevé. Il est dans la moyenne de l'OCDE ; c'est
 l'assiette qui est plus étroite que la moyenne, et c'est elle qu'il faut élargir.
 
-\amorce{Le prix du carbone sur les carburants routiers n'a pas besoin d'être relevé ; il a besoin
-d'être étendu.} C'est le seul endroit où la France applique déjà un prix élevé et cohérent avec ses
+Le prix du carbone sur les carburants routiers n'a pas besoin d'être relevé ; il a besoin
+d'être étendu. C'est le seul endroit où la France applique déjà un prix élevé et cohérent avec ses
 objectifs.
 
-\amorce{Les règles d'amortissement de l'impôt sur les sociétés ne sont pas le problème.} La valeur
+Les règles d'amortissement de l'impôt sur les sociétés ne sont pas le problème. La valeur
 actuelle des déductions est supérieure à la moyenne de l'OCDE pour les trois catégories d'actifs.
 
-\amorce{Le taux supérieur de l'impôt sur le revenu n'est pas le premier problème du travail.} Il ne
+Le taux supérieur de l'impôt sur le revenu n'est pas le premier problème du travail. Il ne
 s'applique qu'à partir de treize fois le salaire moyen ; le prélèvement qui pèse sur le plus grand
 nombre est celui du bas de l'échelle.
 
 \subsection{Quand la théorie et la pratique divergent, qui doit apprendre ?}
 
-\amorce{Mankiw, Weinzierl et Yagan concluent sur un bilan en deux colonnes.} Certaines évolutions
+Mankiw, Weinzierl et Yagan concluent sur un bilan en deux colonnes. Certaines évolutions
 ressemblent à des victoires de la théorie : la généralisation de la TVA, la baisse des taux
 statutaires sur le capital, l'aplatissement des barèmes. D'autres recommandations n'apparaissent
 nulle part et n'y apparaîtront pas : l'impôt dépendant de caractéristiques innées, l'impôt sur le
@@ -1876,13 +2246,12 @@ ou un ministre auraient l'audace d'avancer ces idées~» (figure~\ref{fig:lecons
 \figbloc{c13_lecons_mankiw}{Les huit leçons de la théorie, et ce que la pratique en a
 fait}{fig:lecons}
 
-\amorce{Deux explications sont possibles, et les auteurs jugent la seconde au moins aussi plausible
-que la première.} Soit la théorie a raison, et le public comme les gouvernements tardent à
+Deux explications sont possibles ; les auteurs jugent la seconde au moins aussi plausible que la première. Soit la théorie a raison, et le public comme les gouvernements tardent à
 comprendre des résultats contre-intuitifs. Soit la tradition des finances publiques contient des
 idées que la théorie moderne a laissées de côté : le principe du bénéfice et l'équité horizontale,
 qu'aucune fonction de bien-être standard ne contient.
 
-\amorce{Ce cours tranche, et son critère est le suivant.} Là où la théorie établit un mécanisme
+Là où la théorie établit un mécanisme
 qu'on peut refaire au crayon --- la perte sèche qui croît avec le carré du taux, la distorsion
 produite par un impôt sur un intrant, l'arithmétique qui convertit un impôt sur le stock en taux sur
 le flux, le fait qu'un taux réduit donne plus d'euros aux riches --- elle l'emporte sur l'habitude,
@@ -1891,14 +2260,6 @@ toutes les sociétés refusent, l'hypothèse de travail est qu'elle omet quelque
 sépare les résultats qui tiennent par un calcul de ceux qui tiennent par une fonction de bien-être
 qu'on a choisie : les premiers sont contraignants pour tout le monde, les seconds ne le sont que pour
 qui accepte la fonction, et c'est exactement ce dont on débat en politique.
-
-\amorce{Aucune des recommandations de ce cours ne dit combien il faut redistribuer, et c'est ce qui
-les rend utilisables.} Un gouvernement qui veut redistribuer davantage et un gouvernement qui veut
-redistribuer moins ont le même intérêt à les appliquer : le premier obtiendra plus de redistribution
-pour le même coût, le second lèvera la même somme en détruisant moins. Le désaccord politique porte
-sur le niveau des transferts et sur la pente du barème. Il ne porte pas sur le fait qu'une taxe sur
-le chiffre d'affaires pénalise la sous-traitance, ni sur le fait qu'un taux réduit de TVA donne
-68~\euro{} au ménage aisé et 40 au ménage modeste.
 
 % ===========================================================================
 \vspace{1.4em}
@@ -1918,10 +2279,68 @@ structure and growth: how robust is the empirical evidence~?~», \emph{Economics
 Mirrlees (1971) \textbullet{} Anthony Atkinson et Joseph Stiglitz (1976) \textbullet{} George Akerlof
 (1978) \textbullet{} Matti Tuomala (1990), Peter Diamond (1998) et Emmanuel Saez (2001, 2002)
 \textbullet{} Christophe Chamley (1986) et Kenneth Judd (1985), Ludwig Straub et Iván Werning (2020)
-\textbullet{} Narayana Kocherlakota (2005) \textbullet{} David Carey et Josette Rabesona (2004)
-\textbullet{} Youssef Benzarti et Dorian Carloni, «~Who Really Benefits from Consumption Tax Cuts?
-Evidence from a Large VAT Reform in France~», \emph{American Economic Journal: Economic Policy},
-2019.
+\textbullet{} Narayana Kocherlakota (2005) \textbullet{} David Carey et Josette Rabesona, «~Tax
+Ratios on Labour and Capital Income and on Consumption~», \emph{OECD Economic Studies} n°~35, 2002,
+repris dans P.~B. Sørensen (dir.), \emph{Measuring the Tax Burden on Capital and Labor}, MIT Press,
+2004 \textbullet{} Youssef Benzarti et Dorian Carloni, «~Who Really Benefits from Consumption Tax
+Cuts? Evidence from a Large VAT Reform in France~», \emph{American Economic Journal: Economic
+Policy}, 2019.
+
+\textbf{Autres travaux cités.} Jules Dupuit, «~De la mesure de l'utilité des travaux publics~»,
+\emph{Annales des ponts et chaussées}, 1844 \textbullet{} Timothy Besley, Ian Preston et Michael
+Ridge, «~Fiscal anarchy in the UK: Modelling poll tax noncompliance~», \emph{Journal of Public
+Economics}, 1997 \textbullet{} Emmanuel Saez, Joel Slemrod et Seth Giertz, «~The Elasticity of
+Taxable Income with Respect to Marginal Tax Rates: A Critical Review~», \emph{Journal of Economic
+Literature}, 2012 \textbullet{} Joel Slemrod et Wojciech Kopczuk, «~The optimal elasticity of
+taxable income~», \emph{Journal of Public Economics}, 2002 \textbullet{} Pierre-Yves Cabannes,
+Cédric Houdré et Camille Landais, «~Comment le revenu imposable des ménages réagit-il à sa
+taxation ?~», \emph{Économie et Statistique} n°~467-468, 2014 \textbullet{} Étienne Lehmann,
+François Marical et Laurence Rioux, «~Labor income responds differently to income-tax and
+payroll-tax reforms~», \emph{Journal of Public Economics}, 2013 \textbullet{} Thomas Loisel et
+Michaël Sicsic, «~Peu de mobilité dans l'échelle des revenus entre 2003 et 2019~», \emph{Insee
+Analyses} n°~82, 2023, et «~La mobilité des individus le long de l'échelle des revenus en France
+sur la période 2003-2021~», \emph{Économie et Statistique} n°~545, 2024 \textbullet{} Camille
+Landais, «~Le quotient familial a-t-il stimulé la natalité française ?~», \emph{Économie publique}
+n°~13, 2003 \textbullet{} Mathias André, «~L'imposition conjointe des couples mariés et pacsés
+organise une redistribution en direction des couples les plus aisés~», \emph{France, portrait
+social}, Insee, 2019 \textbullet{} Conseil des prélèvements obligatoires, «~Conforter l'égalité des
+citoyens devant l'imposition des revenus~», octobre 2024 \textbullet{} Clemens Fuest, Andreas Peichl et Sebastian Siegloch, «~Do Higher
+Corporate Taxes Reduce Wages? Micro Evidence from Germany~», \emph{American Economic Review}, 2018
+\textbullet{} Juan Carlos Suárez Serrato et Owen Zidar, «~Who Benefits from State Corporate Tax
+Cuts?~», \emph{American Economic Review}, 2016 \textbullet{} Sebastian Beer, Ruud de Mooij et Li Liu,
+«~International Corporate Tax Avoidance: A Review of the Channels, Magnitudes, and Blind Spots~»,
+\emph{Journal of Economic Surveys}, 2020 \textbullet{} John Coles, Elena Patel, Nathan Seegert et
+Matthew Smith, «~How Do Firms Respond to Corporate Taxes?~», \emph{Journal of Accounting Research},
+2022 \textbullet{} Thomas Tørsløv, Ludvig Wier et Gabriel Zucman, «~The Missing Profits of
+Nations~», \emph{Review of Economic Studies}, 2023 \textbullet{} Kimberly Clausing, «~Corporate tax
+revenues in OECD countries~», \emph{International Tax and Public Finance}, 2007 \textbullet{} Laura
+Kawano et Joel Slemrod, «~How do corporate tax bases change when corporate tax rates change?~»,
+\emph{International Tax and Public Finance}, 2016 \textbullet{} Michael Devereux, Rachel Griffith
+et Alexander Klemm, «~Corporate income tax reforms and international tax competition~»,
+\emph{Economic Policy}, 2002 \textbullet{} Ruud de Mooij et Gaëtan Nicodème, «~Corporate tax policy
+and incorporation in the EU~», \emph{International Tax and Public Finance}, 2008 \textbullet{} Ruud
+de Mooij et Michael Devereux, «~An applied analysis of ACE and CBIT reforms in the EU~»,
+\emph{International Tax and Public Finance}, 2011 \textbullet{} Ruud de Mooij, «~Tax Biases to Debt
+Finance~», FMI, \emph{Staff Discussion Note} 11/11, 2011 \textbullet{} Muhammad Meki, «~Levelling
+the debt-equity playing field: Evidence from Belgium~», \emph{European Economic Review}, 2023
+\textbullet{} Shafik Hebous et Martin Ruf, «~Evaluating the effects of ACE systems on multinational
+debt financing and investment~», \emph{Journal of Public Economics}, 2017 \textbullet{} Nicola
+Branzoli et Antonella Caiumi, «~How effective is an incremental ACE in addressing the debt bias?~»,
+\emph{International Tax and Public Finance}, 2020 \textbullet{} Benjamin Hansen, Keaton Miller et
+Caroline Weber, «~Vertical integration and production inefficiency in the presence of a gross
+receipts tax~», \emph{Journal of Public Economics}, 2022 \textbullet{} Fatih Guvenen \emph{et al.},
+«~Use It or Lose It: Efficiency and Redistributional Effects of Wealth Taxation~», \emph{Quarterly
+Journal of Economics}, 2023 \textbullet{} Fonds monétaire international, «~A Fair and Substantial
+Contribution by the Financial Sector~», rapport au G20, 2010 \textbullet{} Martin Gervais, «~Housing
+taxation and capital accumulation~», \emph{Journal of Monetary Economics}, 2002 \textbullet{}
+Jukka-Pekka Laamanen, «~Home-ownership and the labour market: Evidence from rental housing market
+deregulation~», \emph{Labour Economics}, 2017 \textbullet{} David Blanchflower et Andrew Oswald,
+«~Does High Home-Ownership Impair the Labor Market?~», NBER, 2013 \textbullet{} Christian Hilber et
+Teemu Lyytikäinen, «~Transfer taxes and household mobility~», \emph{Journal of Urban Economics},
+2017 \textbullet{} Michael Best et Henrik Kleven, «~Housing Market Responses to Transaction Taxes~»,
+\emph{Review of Economic Studies}, 2018 \textbullet{} Guillaume Bérard et Alain Trannoy, «~The
+impact of the 2014 increase in the real estate transfer taxes on the French housing market~»,
+\emph{Économie et Statistique}, 2018.
 
 \textbf{Rapports publics français.} \emph{Conseil d'analyse économique} : Yannick L'Horty, Philippe
 Martin et Thierry Mayer, «~Baisses de charges : stop ou encore ?~», note n°~49, janvier 2019

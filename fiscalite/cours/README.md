@@ -1,7 +1,7 @@
 # Le cours
 
-`refaire-l-impot.tex` est la version de référence : 62 pages, treize chapitres en trois parties,
-quarante et une figures, deux tableaux et dix rapports publics français cités là où ils servent.
+`refaire-l-impot.tex` est la version de référence : 74 pages, treize chapitres en trois parties,
+quarante-cinq figures, trois tableaux et dix rapports publics français cités là où ils servent.
 
 ## Organisation
 
@@ -60,7 +60,9 @@ cd cours && pdflatex refaire-l-impot.tex && pdflatex refaire-l-impot.tex
 ```
 
 Les figures incluses sont les versions « nues » de `figures/nu/*.pdf` : le titre principal devient
-la légende LaTeX, le sous-titre, les sources et la note de lecture restent dans l'image.
+la légende LaTeX, et les sources et la note de lecture sont écrites dans `figures/nu/<figure>_note.tex`,
+que la macro `\figbloc` compose en texte sous l'image. La largeur des figures est plafonnée à celle
+de la ligne (`LARG_MAX` dans `graphiques.py`) et leur hauteur à 42 % de la page.
 
 `refaire-l-impot.html` est une ancienne version, conservée pour la lecture en ligne ; elle n'est
 plus tenue à jour.
@@ -109,3 +111,49 @@ plus tenue à jour.
   imputées) et OCDE (43,9 % en 2023). Le texte dit laquelle il utilise.
 - La valeur actuelle des amortissements (r4) suit l'hypothèse d'actualisation de la Tax
   Foundation, 7,5 % par an ; l'illustration c8 utilise 5 %.
+
+## Ce que la relecture d'octobre 2026 a changé
+
+Les commentaires portaient sur le style (structures « A, et A' » répétées, phrases d'annonce,
+paragraphes de méthode), sur la lisibilité des figures et sur une vingtaine de points de fond.
+Chaque réponse de fond a été vérifiée dans les textes eux-mêmes (droit en vigueur, articles,
+rapports), avec quatre recherches documentaires menées en parallèle.
+
+- **Mobilité des revenus.** Le tableau britannique de *Tax by Design* (BHPS 1991-2008, revenu
+  hebdomadaire des ménages, tous âges) est remplacé par les données françaises de l'Insee (POTE
+  2003-2019, 25-49 ans) : 63 % des 20 % les plus aisés le sont encore seize ans plus tard, 3,5 %
+  sont tombés parmi les 20 % les plus modestes. Les deux séries ne se comparent pas ; les passages
+  du haut vers le bas du tableau britannique tiennent probablement à la retraite, ce que ni
+  l'IFS ni le DWP ne documentent.
+- **Impôt sur les sociétés.** Le taux de 36,1 % ne vaut que pour les groupes dont le chiffre
+  d'affaires réalisé en France dépasse 3 Md€ (contribution exceptionnelle 2025, reconduite en 2026
+  avec un seuil relevé à 1,5 Md€ ; environ 450 redevables prévus en 2025). Le cas courant est
+  25 % puis 30 % de prélèvement forfaitaire, 47,5 % au total (48,6 % en 2026 avec le PFU à 31,4 %).
+  La CEHR s'applique bien aux dividendes, puisque son assiette est le revenu fiscal de référence ;
+  la CDHR porte le prélèvement sur le dividende à 37,2 % pour les foyers qui en vivent.
+- **Carey et Rabesona.** La hausse moyenne du taux implicite sur le capital (+6,4 points, 16 pays)
+  est reprise ; pour la France (+14 points), elle tombe à moins de 2 points si l'on attribue au
+  travail une partie du revenu des indépendants (tableau 5 de l'article) : le texte le dit.
+- **Poll tax.** Elle n'était forfaitaire que dans son principe : montants fixés localement,
+  réductions jusqu'à 80 % dégressives avec le revenu, registre auquel on pouvait se soustraire,
+  non-paiement massif.
+- **Règle du carré.** Origine (Dupuit, 1844), statut d'approximation, et ce qui s'estime
+  réellement (l'élasticité) sont désormais dits.
+- **Douze dépenses fiscales à moins de 100 € par bénéficiaire.** La Cour ne publie pas la liste
+  dans son rapport ; celle du cours est reconstituée en appliquant son critère au PLF 2025
+  (12 dépenses, 2,2 Md€), ce que le texte précise.
+- **C3S.** L'abattement de 19 M€ s'applique société par société, sans consolidation ; la
+  contribution est plafonnée à 3,08 % de la marge brute pour quelques activités de négoce à faible
+  marge, pas pour les autres. Aucun pays européen n'a d'équivalent (CAE) ; l'Allemagne a remplacé
+  en 1968 une taxe en cascade dont elle reconnaissait qu'elle favorisait l'intégration verticale.
+- **Déduction pour fonds propres.** Effet robuste sur l'endettement (2 à 5 points, 9 chez les
+  bénéficiaires italiens), effet faible et contradictoire sur l'investissement ; coût belge
+  multiplié par plus de dix par rapport à la prévision, sur une base de stock et avec des montages
+  intragroupe ; suppressions belge (2023) et italienne (2024). Le chapitre 5 le dit dans
+  l'objection.
+- **Droits de mutation et mobilité.** L'effet sur les déménagements est établi (Hilber et
+  Lyytikäinen ; Best et Kleven), l'effet sur la mobilité professionnelle ne l'est pas : la chaîne
+  « mutation → mobilité professionnelle → appariement » du chapitre 9 a été corrigée.
+- **Graphiques nouveaux.** c23 (taux et recettes de l'IS, 18 pays, 1981-2023), c24 (taux implicite
+  de Carey et Rabesona) ; c6 refait sur le cas courant, c14 sur données françaises, s1 lisible à
+  la taille d'impression.

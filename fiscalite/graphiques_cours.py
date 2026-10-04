@@ -20,7 +20,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-from graphiques import (NU, BLEU, GRIS, HALO, INK, INK2, OCRE, PAL, PCT, SURFACE, VERT,
+from graphiques import (NU, BLEU, GRIS, HALO, INK, INK2, MUTED, OCRE, PAL, PCT, SURFACE, VERT,
                         fin, grille, panneau, titre)
 
 HERE = Path(__file__).resolve().parent
@@ -38,56 +38,52 @@ def fr(v, d=0):
 
 # ------------------------------------------- c1 : la perte croît au carré du taux
 def c1():
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.4, 4.9),
-                                 gridspec_kw={"width_ratios": [1.5, 1]})
-    taux = [t / 2 for t in range(0, 121)]
-    perte = [100 * (t / 20) ** 2 for t in taux]
-    a1.plot(taux, perte, color=BLEU, lw=2.3, zorder=3)
-    for t in (20, 40, 60):
-        v = 100 * (t / 20) ** 2
-        a1.plot([t], [v], "o", ms=6, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.5,
-                zorder=4)
-        a1.annotate(f"{t} % → {fr(v)}", (t, v), xytext=(8, -4), textcoords="offset points",
-                    fontsize=9.5, color=BLEU, fontweight="bold", path_effects=HALO)
-    a1.set_xlim(0, 68)
-    a1.set_ylim(0, 1000)
-    a1.set_xlabel("taux de l'impôt")
-    a1.xaxis.set_major_formatter(PCT)
+    """Mille échanges possibles, dont le gain va de 100 € à 0 €. Une taxe de t € supprime ceux
+    qui rapportent moins de t € : 10 t échanges disparaissent, chacun perdant en moyenne t/2 €.
+    La perte vaut donc 5 t² : doubler la taxe quadruple la perte."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.4, 5.0),
+                                 gridspec_kw={"width_ratios": [1.7, 1]})
+    a1.plot([0, 1000], [100, 0], color=INK, lw=1.6, zorder=3)
+    for t, alpha in ((20, 0.28), (10, 0.85)):
+        x0 = 1000 - 10 * t
+        a1.fill_between([x0, 1000], [t, 0], 0, color=BRIQUE, alpha=alpha, lw=0, zorder=2)
+        a1.plot([620, 1000], [t, t], color=BRIQUE, lw=0.8, ls="--", zorder=2)
+        a1.text(612, t, f"taxe {t} €", ha="right", va="center", fontsize=9, color=BRIQUE)
+    a1.annotate("taxe de 10 € : perte de 500 €", (960, 3), xytext=(540, 74), fontsize=9.5,
+                color=BRIQUE, fontweight="bold",
+                arrowprops=dict(arrowstyle="->", color=BRIQUE, lw=1.0), path_effects=HALO)
+    a1.annotate("taxe de 20 € : perte de 2 000 €", (870, 7), xytext=(540, 60), fontsize=9.5,
+                color=BRIQUE, arrowprops=dict(arrowstyle="->", color=BRIQUE, lw=1.0),
+                path_effects=HALO)
+    a1.text(420, 97, "chaque point de la droite est un échange possible,\nà la hauteur de ce "
+            "qu'il rapporte", fontsize=9, color=INK2, va="top", linespacing=1.35)
+    a1.set_xlim(0, 1000)
+    a1.set_ylim(0, 100)
+    a1.set_xlabel("mille échanges possibles, du plus au moins avantageux")
+    a1.set_ylabel("gain de l'échange, en euros")
     grille(a1)
-    panneau(a1, "Perte sèche, indice 100 à un taux de 20 %")
+    panneau(a1, "Les échanges que la taxe fait disparaître")
 
-    cas = [("Deux taux\n10 % et 30 %", 100 + 900, [100, 900], [BLEU, "#4a7fd4"]),
-           ("Un taux unique\n20 % et 20 %", 400 + 400, [400, 400], [VERT, "#4f9e73"])]
-    for i, (lab, tot, parts, cou) in enumerate(cas):
-        bas = 0
-        for p, c in zip(parts, cou):
-            a2.bar([i], [p], bottom=[bas], width=0.56, color=c, zorder=2)
-            a2.text(i, bas + p / 2, fr(p), ha="center", va="center", fontsize=10,
-                    color="white", fontweight="bold")
-            bas += p
-        a2.text(i, tot + 35, fr(tot), ha="center", fontsize=11.5, fontweight="bold",
-                color=BLEU if i == 0 else VERT)
-    a2.set_xticks([0, 1], [c[0] for c in cas], fontsize=9.5)
-    a2.set_ylim(0, 1180)
-    a2.set_xlim(-0.6, 1.6)
+    ts = [10, 20, 30]
+    pertes = [5 * t * t / (t * (1000 - 10 * t)) * 100 for t in ts]
+    a2.bar(range(3), pertes, width=0.56, color=BRIQUE, zorder=2)
+    for i, v in enumerate(pertes):
+        a2.text(i, v + 0.6, f"{fr(v, 1)} €", ha="center", fontsize=10, fontweight="bold",
+                color=BRIQUE)
+    a2.set_xticks(range(3), [f"{t} €" for t in ts])
+    a2.set_xlabel("montant de la taxe par échange")
+    a2.set_ylim(0, 25)
+    a2.set_ylabel("perte pour 100 € prélevés")
     grille(a2)
-    a2.annotate("", xy=(1, 870), xytext=(0, 1060),
-                arrowprops=dict(arrowstyle="->", color=BRIQUE, lw=1.3,
-                                connectionstyle="arc3,rad=-0.25"))
-    a2.text(0.5, 1120, "20 % de perte en moins,\nà rendement identique", ha="center",
-            fontsize=9.5, color=BRIQUE, fontweight="bold", linespacing=1.4)
-    panneau(a2, "Deux assiettes voisines, même rendement")
-
-    fig.subplots_adjust(wspace=0.22)
-    if not NU:
-        fig.text(0.0, 1.10, "Pourquoi le coût d'un impôt croît avec le carré du taux",
-             fontsize=11.5, fontweight="bold", color=INK, transform=a1.transAxes)
+    panneau(a2, "Ce que coûte l'euro prélevé")
+    fig.subplots_adjust(wspace=0.32)
     fin(fig, "c1_perte_au_carre.png",
-        "Calcul arithmétique. La perte sèche est proportionnelle à l'élasticité de l'assiette et "
-        "au carré du taux ; seule la forme est représentée, pas l'unité.",
-        "Note : à droite, deux assiettes de même taille rapportant ensemble la même somme. "
-        "Taxées à 10 % et 30 %, elles détruisent 10² + 30² = 1 000 ; taxées toutes deux à 20 %, "
-        "20² + 20² = 800. L'écart de 20 % est perdu sans contrepartie pour personne.")
+        "Calcul arithmétique sur un exemple : mille échanges possibles dont le gain s'étage "
+        "régulièrement de 100 € à 0 €.",
+        "Note : une taxe de t € fait disparaître les échanges qui rapportent moins de t €, soit "
+        "10 t échanges qui rapportaient en moyenne t/2 € ; la perte vaut 5 t². Les recettes valent "
+        "t × (1 000 − 10 t) : 9 000 € pour une taxe de 10 €, 16 000 € pour 20 €, 21 000 € pour "
+        "30 €. La perte, elle, passe de 500 à 2 000 puis 4 500 €.")
 
 
 # --------------------------------- c2 : le taux supérieur selon l'élasticité
@@ -181,21 +177,15 @@ def c4():
     ax.plot([i + 0.5 * larg for i in x], [n[2] for n in niveaux], color=OCRE, lw=1.2,
             ls=(0, (4, 2)), zorder=3)
     ax.set_xticks(list(x), [n[0] for n in niveaux], fontsize=10)
-    ax.set_ylim(0, 74)
+    ax.set_ylim(0, 80)
     ax.yaxis.set_major_formatter(PCT)
     grille(ax)
-    leg = ax.legend(loc="upper left", fontsize=9.5, handlelength=1.1)
+    leg = ax.legend(loc="upper right", fontsize=9.5, handlelength=1.1, ncol=2)
     for t, c in zip(leg.get_texts(), (BLEU, OCRE)):
         t.set_color(c)
-    ax.annotate("Le coin marginal est le plus élevé\nà 67 % du salaire moyen,\npas au sommet",
-                xy=(0.17, 64.59), xytext=(0.72, 69), fontsize=9.5, color=BRIQUE,
-                fontweight="bold", linespacing=1.45, path_effects=HALO,
-                arrowprops=dict(arrowstyle="->", color=BRIQUE, lw=1.1,
-                                connectionstyle="arc3,rad=0.2"))
     titre(ax, "Le profil français des prélèvements sur le travail n'est pas monotone",
-          "Célibataire sans enfant, en % du coût total du travail, 2025. Le coin moyen est ce qui "
-          "est prélevé sur l'ensemble\ndu salaire ; le coin marginal est ce qui est prélevé sur "
-          "l'euro suivant.")
+          "Célibataire sans enfant, 2025, en % du coût du travail : prélevé sur tout le salaire "
+          "(moyen) et sur l'euro suivant (marginal).")
     fin(fig, "c4_coin_par_niveau.png",
         "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.",
         "Note : personne n'a décidé que l'euro supplémentaire serait plus taxé à 67 % du salaire "
@@ -216,16 +206,16 @@ def c5():
         ax.text(6.08, ys[-1], lab, va="center", fontsize=9.5, color=c,
                 fontweight="bold" if r == 3 else "normal")
     ax.axhline(30, color=GRIS, lw=1.1, ls=(0, (4, 3)), zorder=2)
-    ax.text(0.1, 32, "taux affiché : 30 %", fontsize=9.5, color=GRIS)
+    ax.text(5.9, 25, "taux affiché : 30 %", fontsize=9.5, color=GRIS, ha="right")
     ax.plot([2], [50], "o", ms=7, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.6,
             zorder=4)
     ax.annotate("À 2 % d'inflation et 3 % de rendement réel,\nle taux effectif est de 50 %",
-                xy=(2, 50), xytext=(2.5, 72), fontsize=9.5, color=BLEU, fontweight="bold",
+                xy=(2, 50), xytext=(0.25, 100), fontsize=9.5, color=BLEU, fontweight="bold",
                 linespacing=1.45, path_effects=HALO,
                 arrowprops=dict(arrowstyle="-", color=BLEU, lw=0.9,
                                 connectionstyle="arc3,rad=-0.2"))
     ax.set_xlim(0, 8.6)
-    ax.set_ylim(0, 115)
+    ax.set_ylim(0, 130)
     ax.set_xticks(range(0, 7), [f"{i} %" for i in range(0, 7)])
     ax.set_xlabel("inflation annuelle")
     ax.yaxis.set_major_formatter(PCT)
@@ -243,146 +233,175 @@ def c5():
 
 # ------------------------- c6 : les cent euros de profit, cascade et comparaison
 def c6():
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.6, 5.4),
-                                 gridspec_kw={"width_ratios": [1, 1.25]})
-    etapes = [("Profit\navant impôt", 100.0, 100.0, GRIS),
-              ("Impôt sur\nles sociétés", 63.87, 36.13, BLEU),
-              ("Impôt sur\nle dividende", 42.15, 21.72, OCRE),
-              ("Net pour\nl'actionnaire", 42.15, 42.15, VERT)]
-    for i, (lab, reste, bloc, c) in enumerate(etapes):
-        if i == 0 or i == 3:
-            a1.bar([i], [reste], width=0.62, color=c, zorder=2)
-            a1.text(i, reste + 2.2, fr(reste, 1) + " €", ha="center", fontsize=11,
-                    fontweight="bold", color=c)
-        else:
-            bas = reste
-            a1.bar([i], [bloc], bottom=[bas], width=0.62, color=c, zorder=2)
-            a1.text(i, bas + bloc / 2, fr(bloc, 1) + " €", ha="center", va="center",
-                    fontsize=10.5, fontweight="bold", color="white")
-            a1.plot([i - 0.31, i + 0.31], [bas, bas], color=INK2, lw=0.8, zorder=3)
-    a1.set_xticks(range(4), [e[0] for e in etapes], fontsize=9)
-    a1.set_ylim(0, 118)
-    a1.set_xlim(-0.6, 3.6)
-    grille(a1)
-    a1.text(1.5, 108, "57,9 € prélevés sur 100 € de profit", ha="center", fontsize=10.5,
-            fontweight="bold", color=BRIQUE, path_effects=HALO)
-    panneau(a1, "Cent euros de profit distribué, en France")
+    """Cent euros de bénéfice distribué en dividende à un actionnaire résident, dans trois
+    situations françaises de 2025, puis la comparaison internationale de l'OCDE, où la France
+    figure au taux normal et avec la contribution exceptionnelle de 2025."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.6, 5.0),
+                                 gridspec_kw={"width_ratios": [1.25, 1]})
+    cas = [("Taux normal,\nactionnaire ordinaire", 25.0, 0.30),
+           ("Grande entreprise,\nactionnaire au sommet", 25.825, 0.34),
+           ("Chiffre d'affaires\nsupérieur à 3 Md€, 2025", 36.13, 0.34)]
+    couleurs = [(BLEU, "impôt sur les sociétés"), (OCRE, "impôt sur le dividende"),
+                (VERT, "reste à l'actionnaire")]
+    for i, (lab, t_is, t_div) in enumerate(cas):
+        y = len(cas) - 1 - i
+        div = (100 - t_is) * t_div
+        net = 100 - t_is - div
+        g = 0
+        for v, (c, _) in zip((t_is, div, net), couleurs):
+            a1.barh(y, v, left=g, height=0.58, color=c, edgecolor=SURFACE, lw=1.2, zorder=2)
+            a1.text(g + v / 2, y, fr(v, 1), ha="center", va="center", fontsize=10.5,
+                    fontweight="bold", color="white", zorder=3)
+            g += v
+        a1.text(103, y, f"{fr(100 - net, 1)} %", va="center", fontsize=10, color=INK,
+                fontweight="bold")
+    a1.text(103, len(cas) - 0.62, "prélevé", va="center", fontsize=8.5, color=INK2)
+    a1.legend(handles=[Rectangle((0, 0), 1, 1, color=c) for c, _ in couleurs],
+              labels=[nom for _, nom in couleurs], loc="upper left", bbox_to_anchor=(0, 1.02),
+              ncol=2, fontsize=8.5, frameon=False, handlelength=0.9, columnspacing=1.0,
+              handletextpad=0.4, labelcolor=INK2)
+    a1.set_yticks(range(len(cas)), [c[0] for c in reversed(cas)], fontsize=9)
+    a1.set_xlim(0, 116)
+    a1.set_ylim(-0.45, len(cas) + 0.35)
+    a1.set_xticks([0, 25, 50, 75, 100], ["0", "25", "50", "75", "100 €"])
+    for s_ in ("left", "top", "right"):
+        a1.spines[s_].set_visible(False)
+    a1.tick_params(left=False)
+    panneau(a1, "Ce que deviennent 100 € de bénéfice distribué")
 
     d = lire("dividendes_taux_combine.csv")
-    d.sort(key=lambda x: float(x["taux_combine"]))
-    y = list(range(len(d)))
-    cou = [BLEU if x["code"] == "FRA" else "#C9CDD2" for x in d]
-    a2.barh(y, [float(x["taux_combine"]) for x in d], color=cou, height=0.72, zorder=2)
-    for i, x in enumerate(d):
-        v = float(x["taux_combine"])
+    lignes = [(x["pays"], float(x["taux_combine"]), "autre") for x in d if x["code"] != "FRA"]
+    lignes.append(("France, taux normal", 100 - (100 - 25.825) * 0.66, "fra"))
+    lignes.append(("France, surtaxe 2025", 100 - (100 - 36.13) * 0.66, "fra25"))
+    lignes.sort(key=lambda x: x[1])
+    y = list(range(len(lignes)))
+    for i, (nom, v, k) in enumerate(lignes):
+        if k == "fra":
+            a2.barh(i, v, color=BLEU, height=0.72, zorder=2)
+        elif k == "fra25":
+            a2.barh(i, v, color="white", edgecolor=BLEU, hatch="////", lw=0.9, height=0.72,
+                    zorder=2)
+        else:
+            a2.barh(i, v, color="#C9CDD2", height=0.72, zorder=2)
         a2.text(v + 0.8, i, fr(v, 1), va="center", fontsize=9,
-                color=BLEU if x["code"] == "FRA" else INK2,
-                fontweight="bold" if x["code"] == "FRA" else "normal")
-    a2.set_yticks(y, [x["pays"] for x in d], fontsize=9)
-    for t, x in zip(a2.get_yticklabels(), d):
-        if x["code"] == "FRA":
+                color=BLEU if k != "autre" else INK2,
+                fontweight="bold" if k != "autre" else "normal")
+    a2.set_yticks(y, [x[0] for x in lignes], fontsize=9)
+    for t, x in zip(a2.get_yticklabels(), lignes):
+        if x[2] != "autre":
             t.set_color(BLEU)
-            t.set_fontweight("bold")
     a2.set_xlim(0, 68)
     a2.xaxis.set_major_formatter(PCT)
     grille(a2, "x")
     a2.spines["left"].set_visible(False)
     a2.tick_params(left=False)
-    panneau(a2, "Taux combiné sur les profits distribués, 2025")
+    panneau(a2, "Taux combiné au sommet du barème, 2025")
 
-    fig.subplots_adjust(wspace=0.3)
+    fig.subplots_adjust(wspace=0.78)
     if not NU:
-        fig.text(0.0, 1.10, "Ce que deux impôts successifs font à cent euros de profit",
-             fontsize=11.5, fontweight="bold", color=INK, transform=a1.transAxes)
+        fig.text(0.0, 1.10, "Ce que deux impôts successifs font à cent euros de bénéfice",
+                 fontsize=11.5, fontweight="bold", color=INK, transform=a1.transAxes)
     fin(fig, "c6_cascade_profit.png",
-        "Source : OCDE, taux combinés d'imposition des dividendes, données 2025. Dispositif "
-        "emprunté aux publications de la Tax Foundation.",
-        "Note : taux statutaires au sommet du barème. Le taux français sur les sociétés inclut "
-        "les surtaxes applicables en 2025, dont une partie est présentée comme temporaire ; "
-        "l'imposition du dividende retient le prélèvement forfaitaire de 30 % majoré de la "
-        "contribution sur les hauts revenus. Un actionnaire moyen supporte moins.")
+        "Sources : OCDE, taux combinés d'imposition des dividendes, données 2025 ; pour la "
+        "France au taux normal et pour le graphique de gauche, calcul sur les taux légaux de 2025.",
+        "Lecture : au taux normal de 25 %, 100 € de bénéfice deviennent 75 € après impôt sur les "
+        "sociétés ; distribués, ils supportent 30 % de prélèvement forfaitaire (22,5 €), et "
+        "l'actionnaire garde 52,5 €. La grande entreprise paie en plus la contribution sociale de "
+        "3,3 % de l'impôt ; l'actionnaire au sommet paie en plus la contribution sur les hauts "
+        "revenus de 4 %. La contribution exceptionnelle de 2025 ne concerne que les groupes dont "
+        "le chiffre d'affaires dépasse 1 Md€ (taux porté à 31,0 %) ou 3 Md€ (36,1 %). Les "
+        "taux des autres pays sont ceux de l'OCDE, au sommet du barème.")
 
 
 # ----------------------------- c7 : le pyramidage d'une taxe sur le chiffre d'affaires
 def c7():
-    taux = 0.16
-    etapes = list(range(1, 7))
-    cumule = [taux * (n + 1) / 2 for n in etapes]
-    fig, ax = plt.subplots(figsize=(10.6, 5.2))
-    cou = [BLEU if n != 1 else VERT for n in etapes]
-    ax.bar(etapes, cumule, width=0.58, color=cou, zorder=2)
-    for n, v in zip(etapes, cumule):
-        ax.text(n, v + 0.012, fr(v, 2) + " %", ha="center", fontsize=10.5, fontweight="bold",
-                color=VERT if n == 1 else BLEU)
-    ax.axhline(taux, color=GRIS, lw=1.1, ls=(0, (4, 3)), zorder=3)
-    ax.text(6.35, taux, "taux affiché\n0,16 %", va="center", fontsize=9.5, color=GRIS,
-            linespacing=1.4)
-    ax.annotate("Une chaîne de quatre entreprises\nsupporte 2,5 fois le taux affiché",
-                xy=(4, 0.385), xytext=(2.35, 0.085), fontsize=9.5, color=BRIQUE,
-                fontweight="bold", linespacing=1.45, va="center",
-                arrowprops=dict(arrowstyle="->", color=BRIQUE, lw=1.1,
-                                connectionstyle="arc3,rad=-0.3"))
-    ax.set_xlim(0.4, 7.9)
-    ax.set_ylim(0, 0.64)
-    ax.set_xticks(etapes, ["1", "2", "3", "4", "5", "6"], fontsize=10)
-    ax.set_xlabel("nombre d'entreprises successives dans la chaîne de production")
-    ax.text(1, 0.135, "entreprise intégrée", ha="center", va="top", fontsize=9,
-            color=VERT, style="italic")
-    ax.set_yticks([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
-                  ["0", "0,1 %", "0,2 %", "0,3 %", "0,4 %", "0,5 %", "0,6 %"])
-    grille(ax)
-    titre(ax, "Une taxe sur le chiffre d'affaires frappe plusieurs fois le même produit",
-          "Charge totale incorporée dans le prix final, en % de ce prix, pour une taxe de 0,16 % "
-          "appliquée aux ventes de chaque entreprise.")
+    """Un produit vendu 100 € au consommateur, fabriqué en quatre étapes qui ajoutent chacune
+    25 € de valeur. Chaque entreprise paie la taxe sur tout son chiffre d'affaires, qui contient
+    la valeur produite en amont : la taxe porte au total sur 250 €, pas sur 100 €."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.4, 5.0),
+                                 gridspec_kw={"width_ratios": [1.75, 1]})
+    teintes = ["#0b2a61", "#1d4ba6", "#7691c8", "#c4d0ea"]
+    noms = ["matière", "pièce", "module", "produit fini"]
+    for i in range(4):
+        bas = 0
+        for j in range(i + 1):
+            a1.bar(i, 25, bottom=bas, width=0.62, color=teintes[j], edgecolor=SURFACE, lw=1.2,
+                   zorder=2)
+            bas += 25
+        a1.text(i, bas + 3, f"vend {bas} €", ha="center", fontsize=9.5, fontweight="bold",
+                color=INK)
+    for j, nom in enumerate(noms):
+        a1.text(3.42, 12.5 + 25 * j, f"valeur ajoutée\nà l'étape {j + 1}", va="center",
+                fontsize=8.5, color=teintes[j] if j < 2 else "#3a5a9e", linespacing=1.2)
+    a1.set_xticks(range(4), noms, fontsize=9)
+    a1.set_xlabel("ce que vend chaque entreprise de la chaîne")
+    a1.set_xlim(-0.5, 4.3)
+    a1.set_ylim(0, 112)
+    a1.set_ylabel("chiffre d'affaires taxé, en euros")
+    a1.text(-0.38, 104, "au total, 25 + 50 + 75 + 100 = 250 € taxés\npour un produit vendu 100 €",
+            fontsize=9.5, color=BRIQUE, fontweight="bold", va="top", linespacing=1.35)
+    grille(a1)
+    panneau(a1, "La même valeur est taxée à chaque vente")
+
+    vals = [0.16, 0.40]
+    a2.bar([0, 1], vals, width=0.56, color=[VERT, BRIQUE], zorder=2)
+    for i, v in enumerate(vals):
+        a2.text(i, v + 0.012, f"{fr(v, 2)} €", ha="center", fontsize=10.5, fontweight="bold",
+                color=VERT if i == 0 else BRIQUE)
+    a2.set_xticks([0, 1], ["une entreprise\nqui fait tout", "quatre entreprises\nsuccessives"],
+                  fontsize=9)
+    a2.set_ylim(0, 0.5)
+    a2.set_yticks([0, 0.1, 0.2, 0.3, 0.4, 0.5], ["0", "0,10", "0,20", "0,30", "0,40", "0,50"])
+    a2.set_ylabel("taxe payée pour 100 € de prix final")
+    grille(a2)
+    panneau(a2, "Taxe contenue dans le prix final")
+    fig.subplots_adjust(wspace=0.34)
     fin(fig, "c7_pyramidage.png",
-        "Calcul arithmétique. Taux de la contribution sociale de solidarité des sociétés, 0,16 % "
-        "du chiffre d'affaires au-dessus d'un abattement. Dispositif emprunté aux publications "
-        "de la Tax Foundation.",
-        "Note : la valeur ajoutée est supposée répartie également entre les entreprises de la "
-        "chaîne. Un produit fabriqué par une entreprise intégrée supporte le taux affiché ; le "
-        "même produit fabriqué par quatre entreprises successives en supporte deux fois et demie "
-        "autant. La taxe subventionne donc la concentration verticale sans que personne l'ait "
-        "décidé. La TVA, qui ouvre droit à déduction à chaque étape, ne produit pas cet effet.")
+        "Calcul arithmétique, au taux de la contribution sociale de solidarité des sociétés "
+        "(0,16 % du chiffre d'affaires), en supposant que chaque étape ajoute le même montant "
+        "et que la taxe est entièrement répercutée dans les prix.",
+        "Note : la TVA, elle, n'est payée à chaque étape que sur la valeur ajoutée, puisque "
+        "chaque entreprise déduit la taxe payée par son fournisseur ; elle porte au total sur "
+        "100 €. Avec la contribution, faire fabriquer une pièce par un sous-traitant coûte plus "
+        "cher que la fabriquer soi-même.")
 
 
 # ------------------------------- c8 : la valeur actuelle d'un amortissement
 def c8():
-    def va(n, r):
-        return sum((100 / n) / (1 + r) ** t for t in range(1, n + 1))
-
-    fig, ax = plt.subplots(figsize=(10.6, 5.2))
-    ns = list(range(1, 41))
-    for r, c, lab in ((0.03, "#7fa4e0", "taux d'actualisation 3 %"),
-                      (0.05, BLEU, "taux d'actualisation 5 %"),
-                      (0.08, "#001f5c", "taux d'actualisation 8 %")):
-        ys = [va(n, r) for n in ns]
-        ax.plot(ns, ys, color=c, lw=2.5 if r == 0.05 else 1.6, zorder=3)
-        ax.text(40.8, ys[-1], lab, va="center", fontsize=9.5, color=c,
-                fontweight="bold" if r == 0.05 else "normal")
-    for n in (1, 5, 20, 40):
-        v = va(n, 0.05)
-        ax.plot([n], [v], "o", ms=6, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.5,
-                zorder=4)
-        ax.annotate(f"{n} an{'s' if n > 1 else ''} : {fr(v)} €", (n, v), xytext=(7, 7),
-                    textcoords="offset points", fontsize=9.5, color=BLEU, fontweight="bold",
-                    path_effects=HALO)
-    ax.set_xlim(0, 54)
-    ax.set_ylim(0, 108)
-    ax.set_xticks([1, 10, 20, 30, 40], ["1", "10", "20", "30", "40"])
-    ax.set_xlabel("durée d'amortissement, en années")
-    ax.set_yticks([0, 25, 50, 75, 100], ["0 €", "25 €", "50 €", "75 €", "100 €"])
+    """Une machine de 100 € amortie en vingt ans : vingt déductions de 5 €, dont chacune vaut
+    moins aujourd'hui qu'elle est lointaine. Leur valeur actuelle totale, à 5 %, est de 62 €."""
+    r, n = 0.05, 20
+    ans = list(range(1, n + 1))
+    nominal = [100 / n] * n
+    actuel = [100 / n / (1 + r) ** t for t in ans]
+    fig, ax = plt.subplots(figsize=(10.6, 5.0))
+    ax.bar(ans, nominal, width=0.72, color="#D5DCEA", zorder=2, label="déduction de l'année : 5 €")
+    ax.bar(ans, actuel, width=0.72, color=BLEU, zorder=3,
+           label="ce qu'elle vaut aujourd'hui, à 5 % d'intérêt")
+    for t in (1, 10, 20):
+        ax.text(t, actuel[t - 1] / 2, fr(actuel[t - 1], 2).replace(",00", ""), ha="center",
+                va="center", fontsize=8.5, color="white", fontweight="bold", zorder=4)
+    ax.text(10.5, 6.6, f"somme des 20 déductions : 100 € ; ce qu'elles valent aujourd'hui : "
+            f"{fr(sum(actuel))} €", ha="center", fontsize=10, color=BLEU, fontweight="bold")
+    ax.set_xlim(0.3, n + 0.7)
+    ax.set_ylim(0, 7.4)
+    ax.set_xticks([1, 5, 10, 15, 20])
+    ax.set_xlabel("année")
+    ax.set_yticks([0, 1, 2, 3, 4, 5], ["0 €", "1 €", "2 €", "3 €", "4 €", "5 €"])
+    ax.legend(loc="upper right", bbox_to_anchor=(1.0, 0.86), fontsize=9, frameon=False,
+              handlelength=1.0)
     grille(ax)
-    titre(ax, "Cent euros déduits sur vingt ans n'en valent plus que soixante-deux aujourd'hui",
-          "Valeur actuelle des déductions fiscales obtenues pour un investissement de 100 €, "
-          "selon la durée d'amortissement.")
+    titre(ax, "Cent euros déduits sur vingt ans n'en valent que soixante-deux aujourd'hui",
+          "Machine de 100 € amortie sur vingt ans : la déduction fiscale de chaque année et sa "
+          "valeur actuelle.")
     fin(fig, "c8_amortissement.png",
-        "Calcul arithmétique. Dispositif emprunté aux publications de la Tax Foundation sur la "
-        "récupération des coûts.",
-        "Note : une entreprise qui investit 100 € ne récupère fiscalement ces 100 € que si elle "
-        "les déduit immédiatement. Étalée, la déduction perd de la valeur, et la différence est "
-        "un impôt qui pèse sur le rendement normal de l'investissement — exactement ce que la "
-        "théorie recommande de ne pas taxer. Plus l'inflation et les taux d'intérêt sont élevés, "
-        "plus l'écart se creuse.")
+        "Calcul arithmétique, au taux d'actualisation de 5 %. Dispositif emprunté aux "
+        "publications de la Tax Foundation sur la récupération des coûts.",
+        "Note : un euro déduit dans dix ans vaut 61 centimes aujourd'hui, parce qu'un euro placé "
+        "à 5 % aujourd'hui en vaudrait 1,63 dans dix ans. Amortie sur vingt ans, la machine n'est "
+        "donc déduite qu'à hauteur de 62 € en valeur d'aujourd'hui : l'entreprise est imposée "
+        "comme si la machine n'avait coûté que 62 €. Sur 40 ans, la valeur tombe à 43 € ; "
+        "déduite immédiatement, elle reste à 100 €.")
 
 
 # ------------------- c9 : la matrice des rangs de l'indice de compétitivité fiscale
@@ -521,10 +540,11 @@ def c12():
     fin(fig, "c12_sommet_recettes.png",
         "Calcul arithmétique. L'assiette vaut (1 − t) puissance e ; les recettes valent donc "
         "t (1 − t) puissance e, maximales en t = 1 / (1 + e).",
-        "Note : ce n'est pas une courbe de Laffer au sens où on l'invoque d'ordinaire, puisqu'elle "
-        "ne dit rien du niveau réel des recettes. Elle dit seulement où se trouve le sommet, et "
-        "que ce point ne dépend que d'un paramètre. Pour une élasticité de 0,5, le sommet est à "
-        "67 % : au-dessous, monter le taux rapporte toujours quelque chose, et de moins en moins.")
+        "Lecture : ce sont des courbes de Laffer. Avec une élasticité de 0,5, les recettes sont "
+        "maximales à un taux de 67 % ; en dessous, monter le taux rapporte toujours quelque chose, "
+        "de moins en moins ; au-dessus, il fait baisser les recettes. L'indice 100 marque le "
+        "maximum de chaque courbe : la figure situe le sommet, elle ne dit rien du montant des "
+        "recettes.")
 
 
 # -------------- c13 : les huit leçons de Mankiw, théorie et pratique
@@ -570,43 +590,55 @@ def c13():
 
 
 # ------------------- c14 : la mobilité dans la distribution des revenus
-MOBILITE = [[34, 23, 18, 15, 10], [25, 26, 21, 18, 11], [18, 22, 21, 20, 18],
-            [16, 17, 21, 23, 23], [8, 12, 18, 25, 38]]
-QUINT = ["le plus pauvre", "deuxième", "troisième", "quatrième", "le plus riche"]
+# Insee Analyses n° 82 (2023), figure 2a : M[d][o] = % des personnes du cinquième o en 2003
+# qui se trouvent dans le cinquième d en 2019 (chaque colonne o totalise 100).
+MOBILITE = [[62.2, 22.7, 7.7, 4.0, 3.5], [21.9, 37.5, 25.0, 11.8, 3.9],
+            [9.4, 25.0, 35.0, 21.8, 8.8], [4.3, 11.0, 25.0, 39.2, 20.5],
+            [2.3, 3.8, 7.4, 23.2, 63.4]]
+QUINT = ["20 % les plus modestes", "2e cinquième", "3e cinquième", "4e cinquième",
+         "20 % les plus aisés"]
+COUL_Q = ["#7a1f1f", "#c97a6b", "#d9d9d9", "#7f9fd1", "#0b2a61"]
 
 
 def c14():
-    fig, ax = plt.subplots(figsize=(8.6, 6.4))
-    for i, ligne in enumerate(MOBILITE):
-        y = len(MOBILITE) - 1 - i
-        for j, v in enumerate(ligne):
-            t = 0.12 + 0.88 * (v - 8) / 30
-            c = f"#{int(255 - 200 * t):02x}{int(255 - 160 * t):02x}{int(255 - 70 * t):02x}"
-            ax.add_patch(Rectangle((j, y), 0.94, 0.9, facecolor=c, edgecolor=SURFACE, lw=1.4))
-            ax.text(j + 0.47, y + 0.45, str(v), ha="center", va="center", fontsize=11,
-                    color="white" if v > 24 else INK, fontweight="bold" if i == j else "normal")
-        ax.text(-0.2, y + 0.45, QUINT[i], ha="right", va="center", fontsize=9.5, color=INK)
-    for j, q in enumerate(QUINT):
-        ax.text(j + 0.47, len(MOBILITE) + 0.12, q, ha="center", va="bottom", fontsize=9.5,
-                color=INK2)
-    ax.text(2.35, len(MOBILITE) + 0.72, "position en 1991", ha="center", fontsize=10,
-            color=INK, style="italic")
-    ax.text(-1.85, 2.45, "position en 2008", va="center", rotation=90, fontsize=10, color=INK,
-            style="italic")
-    ax.set_xlim(-2.1, 5.1)
-    ax.set_ylim(-0.3, len(MOBILITE) + 1.2)
-    ax.axis("off")
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.88, bottom=0.04)
-    titre(ax, "Les riches d'une année ne sont pas les riches de la décennie",
-          "Où se trouvaient en 2008 les personnes classées dans chaque cinquième de la "
-          "distribution des revenus en 1991, en %.")
+    """Ce que sont devenus en 2019 les membres de chaque cinquième de revenu de 2003 : une barre
+    par cinquième de départ, découpée selon le cinquième d'arrivée."""
+    fig, ax = plt.subplots(figsize=(10.2, 4.9))
+    for o in range(5):
+        g = 0
+        for d in range(5):
+            v = MOBILITE[d][o]
+            ax.barh(o, v, left=g, color=COUL_Q[d], height=0.64, edgecolor=SURFACE, lw=1.0,
+                    zorder=2)
+            if v >= 7:
+                ax.text(g + v / 2, o, fr(v), ha="center", va="center", fontsize=9.5,
+                        color="white" if d in (0, 4) else INK,
+                        fontweight="bold" if d == o else "normal", zorder=3)
+            g += v
+    ax.set_yticks(range(5), [f"{q}\nen 2003" for q in QUINT], fontsize=9)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 100.5)
+    ax.xaxis.set_major_formatter(PCT)
+    ax.set_xlabel("position des mêmes personnes en 2019")
+    for s_ in ("left", "top", "right"):
+        ax.spines[s_].set_visible(False)
+    ax.tick_params(left=False)
+    ax.legend(handles=[Rectangle((0, 0), 1, 1, color=c) for c in COUL_Q],
+              labels=["20 % les plus modestes", "2e", "3e", "4e", "20 % les plus aisés"],
+              title="cinquième en 2019", ncol=5, loc="upper center", bbox_to_anchor=(0.45, -0.2),
+              frameon=False, fontsize=8.5, title_fontsize=8.5, handlelength=1.0,
+              columnspacing=1.0)
+    titre(ax, "Seize ans plus tard, deux tiers des plus aisés le sont encore",
+          "Position en 2019 des personnes classées dans chaque cinquième de revenu en 2003, en %.")
     fin(fig, "c14_mobilite.png",
-        "Source : Tax by Design, tableau 2.1, d'après le Department for Work and Pensions "
-        "britannique. Données du Royaume-Uni, 1991-2008.",
-        "Note : 8 % des personnes situées dans le cinquième le plus pauvre en 1991 se trouvaient "
-        "dans le plus riche dix-sept ans plus tard, et 10 % du trajet inverse. Juger la "
-        "progressivité sur le revenu d'une seule année revient donc à juger une photographie "
-        "pour un film. Aucune donnée française équivalente n'est publiée sous cette forme.")
+        "Source : Insee-DGFiP, POTE panélisé 2003-2020 ; T. Loisel et M. Sicsic, « Peu de "
+        "mobilité dans l'échelle des revenus entre 2003 et 2019 », Insee Analyses n° 82, 2023, "
+        "figure 2a.",
+        "Champ : personnes âgées de 25 à 49 ans en 2003, présentes chaque année de 2003 à 2020. "
+        "Revenu individuel avant impôt et prestations : revenus d'activité, allocations chômage "
+        "et pensions de retraite, nets de cotisations, moyennés sur deux ans. Lecture : parmi "
+        "les 20 % les plus aisés de 2003, 63,4 % le sont encore en 2019 et 3,5 % sont parmi les "
+        "20 % les plus modestes.")
 
 
 # ----------------------- c15 : ce que la TVA taxe réellement
@@ -672,15 +704,15 @@ def c16():
                             path_effects=HALO)
     bouts.sort(key=lambda b: b[0])
     for i in range(1, len(bouts)):
-        if bouts[i][0] - bouts[i - 1][0] < 1.45:
-            bouts[i][0] = bouts[i - 1][0] + 1.45
+        if bouts[i][0] - bouts[i - 1][0] < 1.9:
+            bouts[i][0] = bouts[i - 1][0] + 1.9
     for yy, nom, c, gras in bouts:
-        ax.text(2.06, yy, nom, va="center", fontsize=9 if gras else 8.4, color=c,
-                fontweight="bold" if gras else "normal")
+        ax.text(2.06, yy, nom, va="center", fontsize=9 if gras else 8.4,
+                color=c if gras else MUTED, fontweight="bold" if gras else "normal")
     ax.set_xticks(xs, ["67 % du salaire moyen", "salaire moyen", "167 % du salaire moyen"],
                   fontsize=9.5)
     ax.set_xlim(-0.12, 2.75)
-    ax.set_ylim(20, 62)
+    ax.set_ylim(20, 64)
     ax.yaxis.set_major_formatter(PCT)
     grille(ax)
     titre(ax, "Le coin fiscal français est élevé dès le bas de l'échelle, et le reste",
@@ -689,8 +721,7 @@ def c16():
         "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.",
         "Note : la pente de chaque ligne mesure la progressivité du prélèvement sur le travail. "
         "Celle de la France est modérée, mais elle part d'un niveau que peu de pays atteignent au "
-        "salaire moyen. Ce n'est donc pas un problème de progressivité, c'est un problème de "
-        "niveau au point de départ.")
+        "salaire moyen : l'écart français tient au niveau de départ plus qu'à la progressivité.")
 
 
 # ------------- c17 : les impôts sur la production en France depuis 1995
@@ -721,9 +752,8 @@ def c17():
         "Note : la catégorie D29 rassemble les prélèvements que l'entreprise acquitte "
         "indépendamment de son résultat. Elle valait 4,1 points de PIB en 1995 et en vaut 4,4 "
         "en 2024, malgré la suppression progressive de la cotisation sur la valeur ajoutée des "
-        "entreprises engagée en 2021. Son contenu diffère d'un pays à l'autre : la Suède y "
-        "classe une large part de ses cotisations employeur, ce qui porte sa D29 à 10,2 points "
-        "sans que cela désigne les mêmes prélèvements.")
+        "entreprises engagée en 2021. Son contenu diffère d'un pays à l'autre, ce qui rend les "
+        "comparaisons internationales de cet agrégat fragiles.")
 
 
 # ------------- c18 : le taux effectif sur l'épargne selon le support
@@ -908,7 +938,155 @@ def c21():
         "élasticités très différentes selon la porosité de leur assiette.")
 
 
+# ----------------------------- c22 : la TVA sur une vie entière, une personne
+VIE = [("jeune actif", 20, 24), ("milieu de carrière", 50, 40), ("retraité", 18, 24)]
+TVA_EFF = 0.15   # TVA rapportée à la dépense, compte tenu des taux réduits
+
+
+def c22():
+    """Une même personne à trois âges : elle emprunte jeune, épargne au milieu de sa carrière,
+    puise dans son épargne à la retraite. Sur la vie entière, elle consomme ce qu'elle gagne."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.4, 5.0), gridspec_kw={"width_ratios": [1.25, 1]})
+    x = range(3)
+    w = 0.36
+    a1.bar([i - w / 2 for i in x], [v[1] for v in VIE], width=w * 0.94, color=GRIS, zorder=2,
+           label="revenu")
+    a1.bar([i + w / 2 for i in x], [v[2] for v in VIE], width=w * 0.94, color=OCRE, zorder=2,
+           label="dépense de consommation")
+    for i, (_, r, c) in enumerate(VIE):
+        a1.text(i - w / 2, r + 1, f"{r}", ha="center", fontsize=9.5, color=INK2)
+        a1.text(i + w / 2, c + 1, f"{c}", ha="center", fontsize=9.5, color=OCRE, fontweight="bold")
+    for i, txt in enumerate(["emprunte 4", "épargne 10", "puise 6"]):
+        a1.text(i, 63, txt, ha="center", va="center", fontsize=8.8, color=INK2)
+    a1.set_xticks(list(x), ["jeune actif", "milieu de\ncarrière", "retraité"], fontsize=9.5)
+    a1.set_ylim(0, 80)
+    a1.set_ylabel("milliers d'euros par an")
+    a1.legend(loc="upper center", ncol=2, fontsize=9, frameon=False, handlelength=1.0)
+    grille(a1)
+    panneau(a1, "Une même personne à trois âges de sa vie")
+
+    taux = [TVA_EFF * c / r * 100 for _, r, c in VIE]
+    a2.bar(list(x), taux, width=0.56, color=[BRIQUE, BLEU, BRIQUE], zorder=2)
+    for i, t in enumerate(taux):
+        a2.text(i, t + 0.5, f"{fr(t)} %", ha="center", fontsize=10.5, fontweight="bold",
+                color=BRIQUE if i != 1 else BLEU)
+    vie = TVA_EFF * sum(c for *_, c in VIE) / sum(r for _, r, _ in VIE) * 100
+    a2.axhline(vie, color=INK, lw=1.0, ls=(0, (4, 3)), zorder=3)
+    a2.text(2.36, vie + 0.7, f"sur toute la\nvie : {fr(vie)} %", ha="left", va="bottom",
+            fontsize=9, color=INK, linespacing=1.2)
+    a2.set_xlim(-0.55, 3.25)
+    a2.set_xticks(list(x), ["jeune actif", "milieu de\ncarrière", "retraité"], fontsize=9)
+    a2.set_ylim(0, 24)
+    a2.yaxis.set_major_formatter(PCT)
+    a2.set_ylabel("TVA payée, en % du revenu de l'année")
+    grille(a2)
+    panneau(a2, "La TVA rapportée au revenu de l'année")
+    fig.subplots_adjust(wspace=0.32)
+    fin(fig, "c22_tva_cycle_de_vie.png",
+        "Exemple numérique : trois périodes de même durée ; la TVA représente 15 % de la dépense "
+        "de consommation, compte tenu des taux réduits.",
+        "Note : la personne gagne 88 000 € et dépense 88 000 € sur ses trois périodes. Une "
+        "photographie prise à une date donnée mêle des jeunes, des actifs et des retraités : les "
+        "revenus les plus bas y paient la plus forte part de TVA, et l'impôt paraît régressif. "
+        "Sur la vie entière, la même personne paie 15 % de ce qu'elle gagne.")
+
+
+# ---------------- c23 : les taux d'impôt sur les sociétés ont baissé, les recettes ont monté
+def c23():
+    """Moyenne simple de dix-huit pays de l'OCDE observés sans interruption de 1981 à 2023
+    (la Norvège est exclue : ses recettes contiennent l'imposition du pétrole). À gauche le taux
+    légal, à droite la recette en % du PIB, avec la France."""
+    taux = {x["code"]: {int(k): float(v) for k, v in x.items() if k.isdigit() and v}
+            for x in lire("is_taux_1980_2025.csv", ",")}
+    rec = {x["code"]: {int(k): float(v) for k, v in x.items() if k.isdigit() and v}
+           for x in lire("is_recettes_1965_2024.csv")}
+    ans = list(range(1981, 2024))
+    pan = sorted(c for c in rec if c in taux and c not in ("NOR", "OECD_REP")
+                 and all(a in rec[c] and a in taux[c] for a in ans))
+    moy_t = [sum(taux[c][a] for c in pan) / len(pan) for a in ans]
+    moy_r = [sum(rec[c][a] for c in pan) / len(pan) for a in ans]
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.4, 4.8))
+    for ax, moy, fra, lim in ((a1, moy_t, [taux["FRA"][a] for a in ans], 60),
+                              (a2, moy_r, [rec["FRA"][a] for a in ans], 4.8)):
+        ax.plot(ans, moy, color=BLEU, lw=2.4, zorder=3)
+        ax.plot(ans, fra, color=GRIS, lw=1.4, zorder=2)
+        ax.set_xlim(1980, 2024)
+        ax.set_ylim(0, lim)
+        grille(ax)
+    a1.yaxis.set_major_formatter(PCT)
+    a1.text(1981, moy_t[0] + 5, f"{fr(moy_t[0])} %", fontsize=10, color=BLEU,
+            fontweight="bold")
+    a1.text(2023, moy_t[-1] - 4.5, f"{fr(moy_t[-1])} %", fontsize=10, color=BLEU,
+            fontweight="bold", ha="right")
+    a1.text(2002, 20.5, "moyenne de 18 pays", fontsize=9, color=BLEU)
+    a1.text(2005, 39.5, "France", fontsize=9, color=INK2)
+    panneau(a1, "Taux légal de l'impôt sur les sociétés")
+    a2.set_yticks([0, 1, 2, 3, 4], ["0 %", "1 %", "2 %", "3 %", "4 %"])
+    a2.text(1982, moy_r[0] - 0.42, f"{fr(moy_r[0], 1)} %", fontsize=10, color=BLEU,
+            fontweight="bold")
+    a2.text(2023, moy_r[-1] + 0.2, f"{fr(moy_r[-1], 1)} %", fontsize=10, color=BLEU,
+            fontweight="bold", ha="right")
+    a2.text(1984, 3.3, "moyenne de 18 pays", fontsize=9, color=BLEU)
+    a2.text(2011.5, 1.55, "France", fontsize=9, color=INK2)
+    panneau(a2, "Recettes de l'impôt sur les sociétés, en % du PIB")
+    fig.subplots_adjust(wspace=0.25)
+    fin(fig, "c23_taux_et_recettes_is.png",
+        "Sources : Tax Foundation, taux d'impôt sur les sociétés 1980-2025 ; OCDE, Revenue "
+        "Statistics, catégorie 1200, en % du PIB.",
+        "Note : moyenne simple des dix-huit pays de l'OCDE pour lesquels les deux séries sont "
+        "complètes de 1981 à 2023 : " + ", ".join(pan) + ". La Norvège est exclue, ses recettes "
+        "comprenant l'imposition des bénéfices pétroliers. La hausse des recettes ne mesure pas "
+        "le seul effet de l'élargissement des assiettes : elle reflète aussi la part croissante "
+        "des bénéfices dans l'économie et des activités exercées en société.")
+
+
+# ------------- c24 : Carey et Rabesona, le taux implicite d'imposition du capital, 1975-2000
+def c24():
+    """Impôts sur les revenus du capital rapportés à l'excédent net d'exploitation, seize pays de
+    l'OCDE aux données complètes (Carey et Rabesona, 2002, tableau A2)."""
+    d = lire("carey_rabesona_2002_capital.csv")
+    per = ["net_1975_1980", "net_1980_1990", "net_1990_2000"]
+    x = [0, 1, 2]
+    fig, ax = plt.subplots(figsize=(8.2, 5.2))
+    for r in d:
+        v = [float(r[k]) for k in per]
+        if r["code"] == "FRA":
+            continue
+        ax.plot(x, v, color="#C9CDD2", lw=1.1, zorder=1)
+        if r["code"] in ("SWE", "KOR", "DEU"):
+            ax.text(2.06, v[2], r["pays"], va="center", fontsize=8.5, color=INK2)
+    moy = [sum(float(r[k]) for r in d) / len(d) for k in per]
+    fra = [float(next(r for r in d if r["code"] == "FRA")[k]) for k in per]
+    ax.plot(x, moy, color=INK, lw=2.4, ls=(0, (5, 3)), zorder=3, marker="o", ms=5)
+    ax.plot(x, fra, color=BLEU, lw=2.8, zorder=4, marker="o", ms=6)
+    for i in (0, 1):
+        ax.text(i, moy[i] - 4.2, fr(moy[i], 1), ha="center", fontsize=9.5, color=INK,
+                fontweight="bold")
+        ax.text(i, fra[i] + 2.4, fr(fra[i], 1), ha="center", fontsize=9.5, color=BLEU,
+                fontweight="bold")
+    ax.text(2.07, fra[2], f"France {fr(fra[2], 1)}", va="center", fontsize=9.5, color=BLEU,
+            fontweight="bold")
+    ax.text(2.07, moy[2], f"moyenne {fr(moy[2], 1)}", va="center", fontsize=9.5, color=INK,
+            fontweight="bold")
+    ax.set_xticks(x, ["1975-1980", "1980-1990", "1990-2000"])
+    ax.set_xlim(-0.15, 2.62)
+    ax.set_ylim(0, 80)
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "La charge effective sur le capital a augmenté pendant que les taux baissaient",
+          "Impôts sur les revenus du capital, en % de l'excédent net d'exploitation, seize pays "
+          "de l'OCDE.")
+    fin(fig, "c24_carey_rabesona.png",
+        "Source : D. Carey et J. Rabesona, « Tax Ratios on Labour and Capital Income and on "
+        "Consumption », OECD Economic Studies n° 35, 2002, tableau A2 (méthode révisée).",
+        "Note : moyennes par période des pays dont les données sont complètes depuis 1975. Le "
+        "ratio rapporte tous les impôts sur les revenus du capital, y compris ceux des ménages, "
+        "au revenu du capital mesuré par la comptabilité nationale. Il dépend de conventions : "
+        "si l'on attribue au travail une partie du revenu des indépendants, la hausse moyenne "
+        "est réduite d'environ deux points, et celle de la France presque entièrement.")
+
+
 if __name__ == "__main__":
     for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c11,
-              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21):
+              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24):
         f()

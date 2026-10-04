@@ -109,42 +109,53 @@ def s1():
              for code, lab, c1, _ in ASSIETTES if par.get(code)]
     blocs.sort(key=lambda b: -sum(m for _, m in b[3]))
 
-    fig, ax = plt.subplots(figsize=(13.6, 7.8))
+    # en mode nu, la figure est composée directement à la largeur de la ligne, et les seuils
+    # d'affichage des étiquettes sont relevés pour que le texte tienne dans les rectangles
+    fig, ax = plt.subplots(figsize=(9.27, 6.3) if NU else (13.6, 7.8))
     W, H = 100.0, 100.0
+    kk = 1.35 if NU else 1.0
     rects = pavage([sum(m for _, m in b[3]) for b in blocs], 0, 0, W, H)
     muets = []
 
     for (code, lab, c1, items), (x, y, dx, dy) in zip(blocs, rects):
         somme = sum(m for _, m in items)
-        entete = dx >= 13.5 and dy >= 8
+        entete = dx >= 13.5 * kk and dy >= 8 * kk
         detail = entete and somme >= 40
         inner = pavage([m for _, m in items], x, y, dx, dy)
         n = max(len(items) - 1, 1)
         for k, ((nom, mnt), (ix, iy, idx, idy)) in enumerate(zip(items, inner)):
             ax.add_patch(Rectangle((ix, iy), idx, idy, zorder=2, lw=0.8, edgecolor=SURFACE,
                                    facecolor=_eclaircir(c1, 0.42 * k / n)))
-            if not detail or idx < 9.5 or idy < 6.5:
+            if not detail or idx < 9.5 * kk or idy < 6.5 * kk:
                 continue
             # décaler l'étiquette si elle tomberait sous l'en-tête du bloc
             ly, dec = iy + idy / 2, 0.0
-            if ly > y + dy - 8.5 and ix < x + 0.66 * dx:
-                if idy < 17:
+            if ly > y + dy - 8.5 * kk and ix < x + 0.66 * dx:
+                if idy < 13 * kk:
                     continue
-                dec = -5.5
+                dec = -5.0 * kk
             court = nom.split(" (")[0].split(" y compris")[0]
-            lim = max(int(idx * 1.85), 6)
+            lim = max(int(idx * 1.85 / kk), 6)
             if len(court) > lim:
                 court = court[:lim - 1].rstrip() + "…"
-            ax.text(ix + idx / 2, ly + 1.9 + dec, f"{mnt:.0f}", ha="center", va="center",
+            ax.text(ix + idx / 2, ly + 1.9 * kk + dec, f"{mnt:.0f}", ha="center", va="center",
                     fontsize=10.5, color="white", fontweight="bold", zorder=4)
-            ax.text(ix + idx / 2, ly - 1.3 + dec, court, ha="center", va="center",
+            ax.text(ix + idx / 2, ly - 1.3 * kk + dec, court, ha="center", va="center",
                     fontsize=7.4, color="white", zorder=4)
         ax.add_patch(Rectangle((x, y), dx, dy, facecolor="none", edgecolor=SURFACE, lw=2.8,
                                zorder=5))
         if entete:
-            tete = "\n".join(wrap(lab, max(int(dx / 0.74), 9))) + f"\n{somme:.0f} Md€"
+            tete = "\n".join(wrap(lab, max(int(dx / (0.74 * kk)), 9))) + f"\n{somme:.0f} Md€"
             ax.text(x + 1.1, y + dy - 1.2, tete, ha="left", va="top",
                     fontsize=9.5, color="white", fontweight="bold", zorder=6, linespacing=1.35)
+        elif dx >= 9 and dy >= 9 * kk:
+            # bloc moyen : nom abrégé et montant, en petit, sur un fond sombre lisible
+            nom_c = lab.split(" ", 1)[1] if lab.startswith(("Le ", "La ", "Les ")) else lab
+            nom_c = nom_c.replace("L'", "").capitalize()
+            tete = "\n".join(wrap(nom_c, max(int(dx / (0.62 * kk)), 7))) + f"\n{somme:.0f} Md€"
+            ax.text(x + 0.8, y + dy - 0.9, tete, ha="left", va="top", fontsize=7.6,
+                    color="white", fontweight="bold", zorder=6, linespacing=1.2,
+                    bbox=dict(boxstyle="square,pad=0.15", fc=c1, ec="none"))
         else:
             muets.append(f"{lab.lower()} {somme:.0f}")
 
@@ -152,8 +163,10 @@ def s1():
     ax.set_ylim(0, H)
     ax.axis("off")
     fig.subplots_adjust(left=0.02, right=0.98, top=0.90, bottom=0.02)
-    reste = (" Faute de place, quatre blocs ne portent pas leur nom : "
-             + ", ".join(muets) + " Md€.") if muets else ""
+    nb = {1: "un bloc ne porte", 2: "deux blocs ne portent", 3: "trois blocs ne portent",
+          4: "quatre blocs ne portent", 5: "cinq blocs ne portent", 6: "six blocs ne portent"}
+    reste = (f" Faute de place, {nb.get(len(muets), f'{len(muets)} blocs ne portent')} pas leur "
+             "nom : " + ", ".join(muets) + " Md€.") if muets else ""
     titre(ax, "Les prélèvements obligatoires français de 2024, un rectangle par prélèvement",
           "Surface proportionnelle au rendement ; montants en milliards d'euros.")
     fin(fig, "s1_carte_des_prelevements.png",
@@ -207,19 +220,16 @@ def s2():
     for t, (_, _, c) in zip(leg.get_texts(), seg):
         t.set_color(c)
 
-    ax.text(42.5, 7.0, "La France prélève 47 % du coût du travail,\n"
-                       "le Danemark 36 %. Mais le Danemark le fait\n"
-                       "presque entièrement par l'impôt sur le revenu,\n"
-                       "la France surtout par les cotisations employeur.",
-            fontsize=9, color=INK2, linespacing=1.6, va="center", path_effects=HALO)
     titre(ax, "Coin fiscal sur le travail et sa composition, 2025",
           "Célibataire sans enfant au salaire moyen, en % du coût total du travail.")
     fin(fig, "s2_coin_fiscal.png",
         "Source : OCDE, Taxing Wages, indicateurs comparatifs, données 2025.",
-        "Note : le coin fiscal mesure l'écart entre ce que paie l'employeur et ce que touche le "
-        "salarié. L'OCDE publie l'impôt sur le revenu et les cotisations en pourcentage du "
-        "salaire brut ; ils sont ici rapportés au coût du travail, afin que les trois "
-        "composantes s'additionnent au coin.")
+        "Lecture : pour 100 € que coûte à son employeur un salarié célibataire sans enfant payé au "
+        "salaire moyen, 47 € vont en France aux cotisations et à l'impôt sur le revenu, dont 27 € "
+        "de cotisations employeur ; le salarié en garde 53. C'est un taux moyen, au salaire "
+        "moyen : il est plus élevé pour un salaire plus élevé. L'OCDE publie l'impôt et les "
+        "cotisations en pourcentage du salaire brut ; ils sont ici rapportés au coût du travail, "
+        "pour que les trois composantes s'additionnent.")
 
 
 # ------------------------------------- s3 : l'entreprise, le bénéfice et ce qui vient avant
@@ -229,16 +239,18 @@ CORR = {"FRA": "FR", "DEU": "DE", "ITA": "IT", "ESP": "ES", "BEL": "BE", "AUT": 
 
 
 def s3():
-    e = [x for x in lire("eatr_societes.csv") if x["code"] in CORR]
+    # La Suède est écartée : elle classe en impôts sur la production une large part de ses
+    # prélèvements patronaux, ce qui rend son niveau incomparable à celui des autres pays.
+    e = [x for x in lire("eatr_societes.csv") if x["code"] in CORR and x["code"] != "SWE"]
     d29 = {x["code"]: pc(CORR[x["code"]], "D29", 2024) for x in e}
     e = [x for x in e if d29.get(x["code"]) is not None]
 
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.8, 5.8))
-    for ax, cle, src, tit, sous in (
-        (a1, lambda x: float(x["eatr_pct"]), None,
-         "Taux effectif moyen sur un investissement, 2025", None),
-        (a2, lambda x: d29[x["code"]], None,
-         "Autres impôts sur la production, en % du PIB, 2024", None),
+    for ax, cle, tit in (
+        (a1, lambda x: float(x["eatr_pct"]),
+         "Impôt sur les sociétés :\ntaux effectif moyen sur un investissement"),
+        (a2, lambda x: d29[x["code"]],
+         "Impôts payés avant tout bénéfice :\nautres impôts sur la production, en % du PIB"),
     ):
         s = sorted(e, key=cle)
         y = list(range(len(s)))
@@ -260,20 +272,17 @@ def s3():
         grille(ax, "x")
         ax.spines["left"].set_visible(False)
         ax.tick_params(left=False)
-        titre(ax, tit, sous)
-    a2.text(0.98, 0.955, "La Suède classe ses cotisations patronales\nen impôts sur la "
-            "production : son niveau n'est pas\ncomparable à celui des autres.",
-            transform=a2.transAxes, ha="right", va="top", fontsize=8.5, color=MUTED,
-            linespacing=1.5)
-    fig.subplots_adjust(wspace=0.34)
+        panneau(ax, tit)
+    fig.subplots_adjust(wspace=0.40)
     fin(fig, "s3_entreprises.png",
-        "Sources : OCDE, Corporate Tax Statistics, taux effectifs d'imposition, scénario aux "
+        "Sources : OCDE, Corporate Tax Statistics, taux effectifs d'imposition 2025, scénario aux "
         "taux d'intérêt et d'inflation propres à chaque pays ; Eurostat gov_10a_taxag, "
-        "catégorie D29.",
+        "catégorie D29, 2024.",
         "Note : à gauche, taux effectif moyen calculé selon la méthode Devereux-Griffith sur un "
-        "investissement composite. À droite, impôts sur la production hors TVA et hors droits "
-        "sur les importations. La Suède classe ses cotisations patronales dans cette catégorie, "
-        "ce qui explique son niveau.")
+        "investissement composite : il tient compte du taux, de l'assiette et des amortissements. "
+        "À droite, impôts sur la production hors TVA et hors droits sur les importations, dus que "
+        "l'entreprise fasse des bénéfices ou non. La Suède, qui classe dans cette catégorie une "
+        "large part de ses prélèvements patronaux, n'est pas représentée.")
 
 
 # ------------------------------------------------- s4 : le taux global de prélèvement

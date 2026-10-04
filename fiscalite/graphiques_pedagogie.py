@@ -10,7 +10,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from graphiques import BLEU, GRID, HALO, INK, INK2, MUTED, PAL, PCT, fin, grille, titre
+from graphiques import panneau, BLEU, GRID, HALO, INK, INK2, MUTED, PAL, PCT, fin, grille, titre
 
 HERE = Path(__file__).resolve().parent
 DON = HERE / "donnees"
@@ -48,18 +48,14 @@ def p1():
                 color=BLEU if r["code"] == "FR" else INK2,
                 fontweight="bold" if gras else "normal")
     a1.axvline(100, color=INK, lw=0.9, ls=(0, (4, 3)), zorder=3)
-    a1.text(101, 0, "parité avec l'ensemble\nde la population", fontsize=8.5,
-            color=INK2, va="center")
-    a1.set_xlim(0, 118)
+    a1.set_xlim(0, 112)
     a1.set_xticks([0, 25, 50, 75, 100])
     grille(a1, "x")
     a1.spines["left"].set_visible(False)
     a1.tick_params(left=False)
-    titre(a1, "Le niveau de vie des retraités français est proche\nde celui du reste du pays",
-          "Revenu médian équivalent des 65 ans et plus, en % de celui\nde l'ensemble de la "
-          "population, 2024")
+    panneau(a1, "Niveau de vie médian des 65 ans et plus,\nen % de celui de toute la population")
 
-    ages = [("moins_18", "Moins de 18 ans"), ("18_64", "18 à 64 ans"), ("65_plus", "65 ans et plus")]
+    ages = [("moins_18", "moins\nde 18 ans"), ("18_64", "18 à\n64 ans"), ("65_plus", "65 ans\net plus")]
     pays = [("FR", "France", BLEU), ("EU27_2020", "Union européenne", MUTED),
             ("DE", "Allemagne", PAL[1])]
     larg = 0.26
@@ -71,21 +67,23 @@ def p1():
             a2.text(x, v + 0.5, f"{v:.1f}".replace(".", ","), ha="center", fontsize=8.5,
                     color=c, fontweight="bold" if code == "FR" else "normal")
         a2.bar([0], [0], color=c, label=nom)
-    a2.set_xticks(range(3), [n for _, n in ages], fontsize=9.5)
-    a2.set_ylim(0, 28)
-    leg = a2.legend(loc="upper center", ncol=3, frameon=False, fontsize=9.5,
-                    handlelength=1.1, columnspacing=1.4, borderpad=0.1)
+    a2.set_xticks(range(3), [n for _, n in ages], fontsize=9)
+    a2.set_ylim(0, 30)
+    leg = a2.legend(loc="upper center", ncol=3, frameon=False, fontsize=8.6,
+                    handlelength=0.9, columnspacing=0.8, borderpad=0.1)
     for t, (_, _, c) in zip(leg.get_texts(), pays):
         t.set_color(c)
         t.set_fontweight("bold")
     a2.yaxis.set_major_formatter(PCT)
     grille(a2)
-    titre(a2, "La pauvreté française a changé d'âge",
-          "Taux de pauvreté au seuil de 60 % du revenu médian, 2024")
+    panneau(a2, "Taux de pauvreté selon l'âge\n(seuil de 60 % du revenu médian)")
 
-    fig.subplots_adjust(wspace=0.28)
+    fig.subplots_adjust(wspace=0.36)
     fin(fig, "p1_retraites_niveau_vie.png",
-        "Source : Eurostat, ilc_pnp2 et ilc_li02, données 2024. Calculs de l'auteur.")
+        "Source : Eurostat, ilc_pnp2 et ilc_li02, données 2024. Calculs de l'auteur.",
+        "Lecture : à gauche, le niveau de vie médian des 65 ans et plus atteint en France 94 % de "
+        "celui de l'ensemble de la population ; la ligne pointillée marque la parité. À droite, "
+        "la part des personnes vivant sous le seuil de pauvreté, par âge.")
 
 
 # ------------------------------- p2 : prélèvements sociaux, salaires contre pensions
@@ -155,10 +153,15 @@ def p3():
     cou = [MUTED, "#9ec5f4", "#3987e5", PAL[1]]
 
     fig, ax = plt.subplots(figsize=(11.2, 6.0))
+    pos = []
     for (t, lab), c in zip(taux, cou):
         y = [(t + pfu * (x + inflation)) / x * 100 for x in r]
         ax.plot(r, y, color=c, lw=2.4 if t == 2 else 1.7, zorder=3)
-        yb = (t + pfu * (8 + inflation)) / 8 * 100
+        pos.append((t + pfu * (8 + inflation)) / 8 * 100)
+    # écarter les étiquettes de fin de courbe d'au moins 9 points pour qu'elles ne se chevauchent pas
+    for i in range(1, len(pos)):
+        pos[i] = max(pos[i], pos[i - 1] + 9)
+    for (t, lab), c, yb in zip(taux, cou, pos):
         ax.text(8.12, yb, lab, va="center", fontsize=9.5, color=c,
                 fontweight="bold" if t == 2 else "normal")
 

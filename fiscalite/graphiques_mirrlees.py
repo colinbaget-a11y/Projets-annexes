@@ -10,7 +10,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from graphiques import GRID, HALO, INK, INK2, MUTED, PAL, PCT, SEQ, SURFACE, etiquette, fin, grille, titre
+from graphiques import NU, panneau, GRID, HALO, INK, INK2, MUTED, PAL, PCT, SEQ, SURFACE, etiquette, fin, grille, titre
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "figures"
@@ -123,39 +123,45 @@ def m3():
         if x["HOUSEHOLD_TYPE"] == "S_C0":
             pays.setdefault(x["REF_AREA"], {})[x["INCOME_CURR"]] = float(x["OBS_VALUE"])
 
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.6, 5.4), gridspec_kw={"width_ratios": [1, 1.15], "wspace": 0.3})
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.6, 6.0),
+                                 gridspec_kw={"width_ratios": [1.25, 1], "wspace": 0.42})
     men = ["S_C0", "S_C2", "C_C0", "C_C2"]
-    larg = 0.26
+    larg = 0.27
     for k, sal in enumerate(ORD_SAL):
         v = [fr.get((m, sal), float("nan")) for m in men]
         a1.bar([i + (k - 1) * larg for i in range(len(men))], v, width=larg * 0.92,
                color=[SEQ[2], SEQ[4], SEQ[6]][k], label=SAL[sal], zorder=3)
         for i, x in enumerate(v):
             a1.text(i + (k - 1) * larg, x + 1.2, f"{x:.0f}", ha="center", fontsize=8.5, color=INK2)
-    a1.set_xticks(range(len(men)))
-    court = {"S_C0": "Célibataire", "S_C2": "Célibataire\n2 enfants",
-             "C_C0": "Couple", "C_C2": "Couple\n2 enfants"}
-    a1.set_xticklabels([court[m] for m in men], fontsize=9)
-    a1.legend(frameon=False, fontsize=9, loc="upper left", ncol=1)
-    grille(a1); a1.set_ylim(0, 72); a1.yaxis.set_major_formatter(PCT)
-    a1.set_title("France, par type de ménage (sans enfant sauf mention)", loc="left", fontsize=10.5, color=INK2)
+    court = {"S_C0": "seul", "S_C2": "seul,\n2 enfants", "C_C0": "couple", "C_C2": "couple,\n2 enfants"}
+    a1.set_xticks(range(len(men)), [court[m] for m in men], fontsize=9)
+    a1.legend(frameon=False, fontsize=8.8, loc="upper center", ncol=3, handlelength=1.0,
+              columnspacing=0.8, bbox_to_anchor=(0.5, 1.0))
+    grille(a1); a1.set_ylim(0, 80); a1.yaxis.set_major_formatter(PCT)
+    panneau(a1, "France, selon le ménage et le salaire")
 
-    d = sorted(((p, v.get("AW67", float("nan"))) for p, v in pays.items() if "AW67" in v), key=lambda t: -t[1])
-    a2.bar(range(len(d)), [v for _, v in d], width=0.72,
-           color=[PAL[0] if p == "FRA" else SEQ[2] for p, _ in d], zorder=3)
-    a2.set_xticks(range(len(d)))
-    a2.set_xticklabels([NOMS.get(p, p) for p, _ in d], rotation=45, ha="right", fontsize=9.5)
-    for t in a2.get_xticklabels():
+    d = sorted(((p, v.get("AW67", float("nan"))) for p, v in pays.items() if "AW67" in v),
+               key=lambda t: t[1])
+    y = range(len(d))
+    a2.barh(list(y), [v for _, v in d], height=0.7,
+            color=[PAL[0] if p == "FRA" else "#C9CDD2" for p, _ in d], zorder=3)
+    for i, (p, v) in enumerate(d):
+        a2.text(v + 1, i, f"{v:.0f}", va="center", fontsize=8.5,
+                color=PAL[0] if p == "FRA" else INK2, fontweight="bold" if p == "FRA" else "normal")
+    a2.set_yticks(list(y), [NOMS.get(p, p) for p, _ in d], fontsize=9)
+    for t in a2.get_yticklabels():
         if t.get_text() == "France":
-            t.set_fontweight("bold"); t.set_color(INK)
-    grille(a2); a2.set_ylim(0, 85); a2.yaxis.set_major_formatter(PCT)
-    a2.set_title("Célibataire sans enfant à 67 % du salaire moyen, comparaison", loc="left", fontsize=10.5, color=INK2)
-
-    fig.suptitle("Ce qu'il reste quand on double son temps de travail", x=0.005, ha="left", fontsize=12.5, y=1.14)
-    fig.text(0.005, 1.085, "Taux effectif de prélèvement sur le passage d'un mi-temps à un temps plein : part du salaire "
-                           "supplémentaire absorbée par\nles cotisations, l'impôt et le retrait des prestations.",
-             fontsize=9.5, color=INK2, ha="left", va="top")
-    fin(fig, "m3_taux_marginaux_effectifs.png", SRC_T)
+            t.set_fontweight("bold"); t.set_color(PAL[0])
+    grille(a2, "x"); a2.set_xlim(0, 75); a2.xaxis.set_major_formatter(PCT)
+    a2.spines["left"].set_visible(False); a2.tick_params(left=False)
+    panneau(a2, "Personne seule à 67 % du salaire moyen")
+    if not NU:
+        fig.suptitle("Ce qu'il reste quand on double son temps de travail", x=0.005, ha="left",
+                     fontsize=12.5, y=1.08)
+    fin(fig, "m3_taux_marginaux_effectifs.png", SRC_T,
+        "Lecture : part du salaire supplémentaire absorbée par les cotisations, l'impôt et le "
+        "retrait des prestations quand on passe d'un mi-temps à un temps plein. Une personne seule "
+        "payée à 67 % du salaire moyen en France perd 51 % de ce que lui rapporte ce passage.")
 
 
 # ================================================================ M4 : taux de participation

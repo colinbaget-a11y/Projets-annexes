@@ -21,8 +21,8 @@ from matplotlib.ticker import FuncFormatter
 
 HERE = Path(__file__).resolve().parent
 # FIG_NU=1 produit des figures « nues » pour le document LaTeX : le titre principal devient la
-# légende LaTeX et n'est donc pas dessiné dans l'image ; le sous-titre, les sources et la note
-# restent dans la figure.
+# légende LaTeX et n'est donc pas dessiné dans l'image ; le sous-titre reste dans la figure, les
+# sources et la note passent dans le texte du document (fichier <figure>_note.tex).
 NU = bool(os.environ.get("FIG_NU"))
 OUT = HERE / ("figures/nu" if NU else "figures")
 OUT.mkdir(parents=True, exist_ok=True)
@@ -56,6 +56,7 @@ plt.rcParams.update({
 # LaTeX : on réduit le format et, proportionnellement, toutes les tailles de texte, de sorte que
 # l'image ne soit plus redimensionnée à l'inclusion et que les étiquettes restent lisibles.
 ECH_FIG, ECH_TXT = (0.62, 0.78) if NU else (1.0, 1.0)
+LARG_MAX = 5.75   # largeur maximale du tracé en mode nu, en pouces (≈ 14,6 cm, la ligne du cours)
 if NU:
     import matplotlib.axes as _ax
 
@@ -77,6 +78,7 @@ if NU:
         return _subplots(*a, **k)
 
     plt.subplots = subplots_nu
+    plt.rcParams["savefig.pad_inches"] = 0.04
     plt.rcParams.update({k: v * ECH_TXT for k, v in {
         "font.size": 10, "axes.labelsize": 9.5, "xtick.labelsize": 9,
         "ytick.labelsize": 9, "legend.fontsize": 9}.items()})
@@ -113,15 +115,43 @@ def _plier(t, large=150):
     return "\n".join(textwrap.wrap(t, large)) if t else t
 
 
+_TEX = {"\\": r"\textbackslash{}", "&": r"\&", "%": r"\%", "$": r"\$", "#": r"\#", "_": r"\_",
+        "{": r"\{", "}": r"\}", "~": r"\textasciitilde{}", "^": r"\textasciicircum{}",
+        "€": r"\euro{}", "₂": r"$_2$", "≈": r"$\approx$", "×": r"$\times$", "→": r"$\rightarrow$",
+        "≥": r"$\geq$", "≤": r"$\leq$", "−": r"$-$", "…": r"\dots{}", "·": r"$\cdot$",
+        " ": r"\,", " ": "~"}
+
+
+def _tex(t):
+    """Échappe un texte destiné au document LaTeX."""
+    return "".join(_TEX.get(c, c) for c in t)
+
+
 def fin(fig, nom, src, note=None):
-    """Bloc de bas de figure : sources, puis note de lecture facultative."""
-    bloc = _plier(src, 120 if NU else 150) + ("\n\n" + _plier(note, 120 if NU else 150)
-                                               if note else "")
-    fig.text(0.005, -0.015, bloc, fontsize=7.6 * ECH_TXT, color=INK2, ha="left", va="top",
-             linespacing=1.5)
-    if not NU:
+    """Bloc de bas de figure : sources, puis note de lecture facultative.
+
+    En mode nu, le bloc n'est pas dessiné : il est écrit dans <nom>_note.tex, que le document
+    LaTeX compose en texte sous la figure. L'image ne contient alors que le graphique."""
+    stem = Path(nom).stem
+    if NU:
+        lignes = [_tex(src)] + ([_tex(note)] if note else [])
+        (OUT / f"{stem}_note.tex").write_text("\\par ".join(lignes) + "\n", encoding="utf-8")
+        # La figure est imprimée à la largeur de la ligne : si les étiquettes la font déborder,
+        # on rétrécit la zone de tracé plutôt que de laisser LaTeX réduire tout le texte.
+        fig.canvas.draw()
+        for _ in range(4):
+            exces = fig.get_tightbbox(fig.canvas.get_renderer()).width - LARG_MAX
+            if exces <= 0.02:
+                break
+            w, h = fig.get_size_inches()
+            fig.set_size_inches(max(w - exces, 2.5), h)
+            fig.canvas.draw()
+    else:
+        bloc = _plier(src, 150) + ("\n\n" + _plier(note, 150) if note else "")
+        fig.text(0.005, -0.015, bloc, fontsize=7.6, color=INK2, ha="left", va="top",
+                 linespacing=1.5)
         fig.savefig(OUT / nom)
-    fig.savefig(OUT / (Path(nom).stem + ".pdf"))   # version vectorielle pour le document LaTeX
+    fig.savefig(OUT / (stem + ".pdf"))   # version vectorielle pour le document LaTeX
     plt.close(fig)
     print("  ", nom)
 
