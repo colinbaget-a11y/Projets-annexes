@@ -1093,10 +1093,14 @@ def c25():
     spécifications que les auteurs publient. Les valeurs hors de l'échelle sont signalées par une
     flèche ; la colonne de droite donne toujours le chiffre. Mise en page en pouces, fixe, pour que
     les trois colonnes de texte ne se chevauchent jamais."""
-    lignes = lire("elasticites_france.csv")
-    TITRES = {"revenu": "Revenu imposable et revenus d'activité",
+    # Seules les estimations qui mesurent la même chose : la réaction d'un revenu déclaré au taux
+    # net marginal qui le frappe. Les autres élasticités du fichier (patrimoine, résidence, fraude,
+    # dons, participation, élasticité croisée, élasticité structurelle) ne vont pas sur cette échelle.
+    lignes = [x for x in lire("elasticites_france.csv") if x["figure"] == "1"]
+    TITRES = {"imposable": "Revenu imposable, tous revenus confondus",
+              "activite": "Revenus d'activité",
               "capital": "Revenus du capital",
-              "autres": "Autres assiettes, autres marges"}
+              "dividendes": "Dividendes des assujettis à l'ISF"}
     XMIN, XMAX = -0.2, 1.35
     PAS, ENTETE, HAUT, BAS = 0.168, 0.30, 0.08, 0.78
     W, X_ETUDE, X_PREC, X0, X1, X_VAL = 5.7, 0.0, 1.30, 2.95, 5.02, 5.14
@@ -1110,6 +1114,7 @@ def c25():
         y += PAS
         rangs.append((y, x, x["etude"] != etude_prec))
         etude_prec = x["etude"]
+    y += 0.16                           # marge sous la dernière ligne, au-dessus de l'axe
     H = y + BAS
     fig = plt.figure(figsize=(W, H))
     ax = fig.add_axes([X0 / W, BAS / H, (X1 - X0) / W, (H - BAS - HAUT) / H])
@@ -1180,15 +1185,15 @@ def c25():
         "Sources : études citées, présentées dans le complément « Les élasticités estimées sur "
         "données françaises » ; chaque chiffre, avec sa page et son tableau, figure dans "
         "donnees/elasticites_france.csv.",
-        "Lecture : une élasticité de 0,2 signifie que le revenu déclaré augmente de 2 % quand la "
-        "part que le contribuable garde de l'euro marginal augmente de 10 %. Les deux premiers blocs "
-        "mesurent cette réaction ; le troisième rassemble des élasticités définies autrement, à lire "
-        "ligne par ligne : croissance annuelle du patrimoine déclaré au taux net de l'ISF, nombre de "
-        "résidents parmi les 1 % les plus aisés au revenu net d'impôt, montant dissimulé par les "
-        "micro-entrepreneurs au taux d'imposition, dons déclarés à leur prix net (en valeur absolue, "
-        "réforme de 1983), participation des femmes mariées au taux de rétention. La bande grise "
-        "marque la fourchette de 0,12 à 0,40 que Saez, Slemrod et Giertz (2012) retiennent pour les "
-        "États-Unis ; les flèches, des valeurs hors de l'échelle.")
+        "Lecture : chaque ligne mesure la même chose, de combien un revenu déclaré augmente quand "
+        "la part que le contribuable garde de l'euro marginal de ce revenu augmente ; 0,2 signifie "
+        "+2 % de revenu pour +10 % de part gardée. Les estimations diffèrent encore par la population "
+        "et l'horizon : variations d'une année sur l'autre, sauf pour Bach et al., qui comparent "
+        "plusieurs années avant et après chaque réforme parmi les seuls assujettis à l'ISF. Les "
+        "élasticités d'autres grandeurs (patrimoine déclaré, résidence, fraude, dons, participation) "
+        "ne se placent pas sur cette échelle. La bande grise marque la fourchette de 0,12 à 0,40 que "
+        "Saez, Slemrod et Giertz (2012) retiennent pour le revenu imposable aux États-Unis ; les "
+        "flèches, des valeurs hors de l'échelle.")
 
 
 if __name__ == "__main__":

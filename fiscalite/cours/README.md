@@ -5,7 +5,9 @@ quarante-deux figures, deux tableaux et dix rapports publics français cités l�
 
 `elasticites-france.tex` est un complément au chapitre 1 (9 pages) : une revue des études publiées
 depuis 2010 qui estiment, sur données françaises, la réaction des revenus et des assiettes à
-l'impôt, avec le graphique c25 qui les rassemble.
+l'impôt. Le graphique c25 ne rassemble que les estimations qui mesurent la même chose (la réaction
+d'un revenu déclaré au taux net marginal qui le frappe) ; les autres sont dans un tableau qui dit ce
+que chacune mesure.
 
 ## Organisation
 

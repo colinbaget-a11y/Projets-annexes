@@ -71,11 +71,15 @@
 
 Le chapitre~1 retient que le coût d'un impôt dépend de la sensibilité de son assiette au taux, et
 que cette sensibilité tient en partie à ce que la loi permet. Douze travaux publiés depuis 2010 la
-mesurent sur données françaises ; la figure~\ref{fig:elasticites} les rassemble. Elles dessinent
-une hiérarchie nette. Le revenu d'activité réagit peu, les revenus du capital beaucoup plus, les
-dividendes des dirigeants qui contrôlent leur société davantage encore. Les réactions les plus
-fortes passent par la déclaration plutôt que par l'activité, et elles dépendent de l'information
-dont dispose l'administration.
+mesurent sur données françaises, mais ils ne mesurent pas tous la même chose. Six estiment de
+combien un revenu déclaré réagit au taux net marginal qui le frappe ; la
+figure~\ref{fig:elasticites} les rassemble, et ils dessinent une hiérarchie nette : le revenu
+d'activité réagit peu, les revenus du capital davantage, les dividendes des dirigeants qui
+contrôlent leur société bien plus encore. Les six autres mesurent la réaction d'autres grandeurs ---
+patrimoine déclaré, lieu de résidence, montant dissimulé, dons, décision de travailler --- à
+d'autres taux. Leurs chiffres ne se rangent pas sur la même échelle ; le tableau~\ref{tab:autres}
+dit ce que chacun mesure. Pris un à un, ils montrent que les règles de déclaration et de contrôle
+pèsent autant que le taux.
 
 \section{Ce que l'on mesure}
 
@@ -104,8 +108,8 @@ groupe épargné, puis divise l'écart d'évolution du revenu par l'écart d'év
 Presque toutes les estimations françaises sont de court terme : elles portent sur des variations
 d'une année sur l'autre, et ne disent rien de ce qui se passe en cinq ou dix ans.
 
-\figblocgrand{c25_elasticites_france}{Les élasticités estimées sur données françaises depuis
-2010}{fig:elasticites}
+\figblocgrand{c25_elasticites_france}{La réaction des revenus déclarés au taux net marginal qui les
+frappe, études françaises depuis 2010}{fig:elasticites}
 
 \section{Revenu imposable et revenus d'activité}
 
@@ -183,7 +187,10 @@ accumulations dans un modèle de perception erronée, il estime une élasticité
 marginal perçu et une attention d'environ 75~\% au vrai barème ; environ 80~\% des déclarants
 concernés n'ajustent pas leur déclaration. La réponse est purement déclarative et ne concerne qu'une
 petite population ; elle montre surtout qu'une partie des contribuables optimise sur un barème
-qu'elle comprend mal.
+qu'elle comprend mal. Ce 0,7 ne se compare pas aux chiffres de la figure~\ref{fig:elasticites} :
+c'est l'élasticité des seuls déclarants qui ajustent, corrigée des frictions, au taux qu'ils croient
+payer, alors que les autres études mesurent une réaction moyenne sur tous les contribuables, y
+compris ceux qui ne bougent pas.
 
 \section{Revenus du capital}
 
@@ -260,6 +267,41 @@ les salaires.
 
 \section{Autres assiettes et autres marges}
 
+Les études de cette partie ne mesurent pas la réaction d'un revenu déclaré au taux net qui le
+frappe. Elles mesurent celle d'autres grandeurs, à d'autres taux, et leurs chiffres ne se comparent
+ni entre eux ni avec ceux de la figure~\ref{fig:elasticites} ; le tableau~\ref{tab:autres} dit ce
+que chacun mesure. Ce qui les rapproche est une leçon que chacune établit à l'intérieur de son propre
+cadre : changer les règles de déclaration ou de contrôle déplace autant, ou plus, que changer le
+taux.
+
+\begin{table}[htbp]
+\caption{Les élasticités qui ne se placent pas sur la figure~\ref{fig:elasticites}}
+\label{tab:autres}
+\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.1cm}
+  >{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{1.9cm}@{}}
+\toprule
+\textbf{Étude} & \textbf{Ce qui réagit} & \textbf{À quoi} & \textbf{Estimation}\\
+\midrule
+Lardeux (2018) & revenu déclaré des seuls contribuables qui ajustent & taux marginal qu'ils croient
+payer & 0,7\\
+Lefebvre, Lehmann et Sicsic (2025) & revenus du travail & taux net sur les revenus du capital
+(élasticité croisée) & 0,04 à 0,08\\
+Garbinti \emph{et al.} (2026) & croissance annuelle du patrimoine déclaré & taux net de l'ISF, un
+moins le taux annuel & 0,13\\
+Focus du CAE (2025) & nombre de résidents parmi les 1~\% les plus aisés & revenu net d'impôt & 0,02
+à 0,18\\
+Aghion \emph{et al.} (2023) & montant dissimulé par les indépendants & taux d'imposition lui-même &
+1,1 à 1,2\\
+Fack et Landais (2016) & dons déclarés & prix du don, un moins le taux marginal d'imposition & $-1{,}86$
+puis $-0{,}36$\\
+Carbonnier (2021) & décision de travailler des femmes mariées & part gardée du revenu de la reprise
+d'emploi & 1 à 2\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \subsection{Garbinti et al. (2026) : l'ISF réagit à l'information plus qu'au taux}
 
 Garbinti, Goupille-Lebret, Muñoz, Stantcheva et Zucman étudient l'impôt sur la fortune avec
@@ -323,16 +365,19 @@ travaux sur le RSA recensés par Sicsic (2023) trouvent des effets faibles ou nu
 
 \section{Ce qu'on peut en conclure}
 
-Les revenus du capital réagissent environ trois fois plus que le revenu d'activité, les dividendes
-de ceux qui contrôlent leur société dix fois plus. Cette hiérarchie suit la facilité de changer la
+Parmi les estimations comparables, les revenus du capital réagissent environ trois fois plus que le
+revenu d'activité, et les dividendes de ceux qui contrôlent leur société dix fois plus ; ces
+rapports sont approximatifs, puisque les populations et les horizons diffèrent. Cette hiérarchie
+suit la facilité de changer la
 forme, la date ou le lieu d'un revenu sans changer d'activité. Un salaire déclaré par
 l'employeur ne se déplace pas ; un dividende que le dirigeant peut laisser dans sa société se
 déplace d'une année à l'autre ; un patrimoine déclaré en un seul chiffre, ou un don qu'on n'a pas à
 justifier, se déplace dans la déclaration elle-même.
 
 Les études françaises donnent ainsi à la phrase de Slemrod et Kopczuk (2002) --- l'élasticité est en
-partie un choix de politique publique --- des preuves directes. Supprimer le détail de la déclaration
-d'ISF a produit dix fois l'effet des seuils de tranche ; exiger les reçus des dons a divisé
+partie un choix de politique publique --- des preuves directes, chacune obtenue en comparant deux
+situations dans une même étude. Supprimer le détail de la déclaration d'ISF a produit dix fois
+l'effet des seuils de tranche ; exiger les reçus des dons a divisé
 l'élasticité par cinq ; les régimes simplifiés des indépendants s'accompagnent de fraude. La
 saillance compte aussi : un même taux marginal produit plus de réaction quand il vient de l'impôt sur
 le revenu que des cotisations ou des prestations.
