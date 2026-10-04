@@ -175,7 +175,8 @@ def s1():
         "donnees/classification_prelevements.csv.",
         "Note : chaque prélèvement est rangé selon ce qu'il atteint en dernier ressort et non "
         "selon son étiquette comptable. Les 123 lignes totalisent 1 274,9 Md€ et se "
-        "réconcilient exactement avec le total de comptabilité nationale." + reste)
+        "réconcilient exactement avec le total de comptabilité nationale, avant déduction des "
+        "montants dus mais non recouvrables (1 270,2 Md€ après déduction)." + reste)
 
 
 # ---------------------------------------------------- s2 : le coin fiscal sur le travail

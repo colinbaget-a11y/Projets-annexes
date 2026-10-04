@@ -146,7 +146,7 @@ def p2():
 
 # --------------------------------------- p3 : un impôt sur le stock, en taux sur le flux
 def p3():
-    inflation, pfu = 2.0, 0.30
+    inflation, pfu = 2.0, 0.314
     r = [x / 10 for x in range(10, 81)]
     taux = [(0.0, "Aucun impôt sur le stock"), (0.5, "0,5 % du stock"),
             (1.0, "1 % du stock"), (2.0, "2 % du stock")]
@@ -171,8 +171,8 @@ def p3():
     ax.plot([3], [(2 + pfu * 5) / 3 * 100], "o", ms=7, color=PAL[1], zorder=5,
             markeredgecolor="white", markeredgewidth=1.2)
     ax.annotate("Un rendement réel de 3 % et un impôt de 2 % sur le stock :\n"
-                "117 % du rendement réel est prélevé",
-                xy=(3, 116.7), xytext=(3.45, 158), fontsize=9.5, color=PAL[1],
+                "119 % du rendement réel est prélevé",
+                xy=(3, (2 + pfu * 5) / 3 * 100), xytext=(3.45, 158), fontsize=9.5, color=PAL[1],
                 fontweight="bold", path_effects=HALO,
                 arrowprops=dict(arrowstyle="-", color=PAL[1], lw=0.9,
                                 connectionstyle="arc3,rad=-0.2"))
@@ -186,19 +186,19 @@ def p3():
     grille(ax)
     titre(ax, "Deux pour cent du stock, c'est davantage que la totalité d'un rendement réel de 3 %",
           "Part du rendement réel absorbée par l'impôt. Le prélèvement forfaitaire unique de "
-          "30 % sur le rendement nominal est inclus\ndans tous les cas ; l'inflation est "
+          "31,4 % sur le rendement nominal est inclus\ndans tous les cas ; l'inflation est "
           "supposée de 2 % par an.")
     fin(fig, "p3_stock_contre_flux.png",
-        "Calcul arithmétique. Taux statutaires français : prélèvement forfaitaire unique de "
-        "30 %, soit 12,8 % d'impôt sur le revenu et 17,2 % de prélèvements sociaux, assis sur "
-        "le rendement nominal.")
+        "Calcul arithmétique. Taux statutaires français de 2026 : prélèvement forfaitaire "
+        "unique de 31,4 %, soit 12,8 % d'impôt sur le revenu et 18,6 % de prélèvements sociaux, "
+        "assis sur le rendement nominal.")
 
 
 # ------------------------------- p4 : l'impôt sur le rendement est un impôt sur l'attente
 def p4():
     r = 0.03
-    cas = [(0.172, "17,2 %\nprélèvements sociaux seuls", "#9ec5f4"),
-           (0.300, "30 %\nprélèvement forfaitaire unique", PAL[0]),
+    cas = [(0.172, "17,2 %\nassurance vie dans l'abattement", "#9ec5f4"),
+           (0.314, "31,4 %\nprélèvement forfaitaire unique", PAL[0]),
            (0.472, "47,2 %\nrevenu foncier au taux marginal de 30 %", PAL[1])]
     ans = list(range(0, 41))
 
@@ -225,12 +225,13 @@ def p4():
     titre(ax, "Un impôt sur le rendement est un impôt sur la durée de l'attente",
           "Taux d'imposition implicite de la consommation différée, pour un rendement réel de "
           "3 % par an. Lire : trente ans d'épargne\ntaxée au prélèvement forfaitaire unique "
-          "reviennent à taxer la consommation à 23 %, contre zéro pour la consommation "
+          "reviennent à taxer la consommation à 24 %, contre zéro pour la consommation "
           "immédiate.")
     fin(fig, "p4_impot_sur_l_attente.png",
-        "Calcul arithmétique. Trois régimes français : 17,2 % de prélèvements sociaux seuls, "
-        "30 % pour le prélèvement forfaitaire unique, 47,2 % pour un revenu foncier taxé au "
-        "taux marginal de 30 %.")
+        "Calcul arithmétique. Trois régimes français de 2026 : 17,2 % de prélèvements sociaux "
+        "pour l'assurance vie dans l'abattement, 31,4 % pour le prélèvement forfaitaire unique, "
+        "47,2 % pour un revenu foncier taxé au taux marginal de 30 %. Le rendement est supposé "
+        "réel, sans inflation.")
 
 
 if __name__ == "__main__":

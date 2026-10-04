@@ -448,7 +448,7 @@ def g10():
     ax.set_xlim(1995, 2024 + 12); ax.set_ylim(0, 1.7)
     ax.set_xticks([1995, 2000, 2005, 2010, 2015, 2020, 2024]); ax.yaxis.set_major_formatter(PCT)
     titre(ax, "Taxer la détention, la transmission ou la transaction",
-          "En % du PIB. Les droits de mutation à titre onéreux suivent le marché immobilier : ils s'effondrent\nde 0,74 % à 0,50 % du PIB entre 2022 et 2024, alors que la taxe foncière ne bouge pas.")
+          "En % du PIB. Les droits de mutation à titre onéreux suivent le marché immobilier : ils s'effondrent\nde 0,81 % à 0,50 % du PIB entre 2022 et 2024, alors que la taxe foncière ne bouge pas.")
     fin(fig, "g10_detention_transaction.png", SRC_FR)
 
 

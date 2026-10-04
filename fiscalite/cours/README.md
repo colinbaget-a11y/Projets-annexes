@@ -165,3 +165,18 @@ rapports), avec quatre recherches documentaires menées en parallèle.
   propositions » : séparer le démontré du supposé, juger sur le cas courant et l'ordre de
   grandeur, vérifier les hypothèses d'un résultat avant de l'appliquer, regarder comment on échappe
   à l'impôt, chiffrer coût et financement, juger la progressivité sur l'ensemble du système.
+
+## Vérification en fiscaliste (octobre 2026)
+
+Chaque explication du fonctionnement d'un impôt a été relue sur les textes (CGI, code de la
+sécurité sociale, BOFiP, brochure IR 2026, lois de finances 2025 et 2026). Principales corrections :
+retenue à la source sur les dividendes versés aux non-résidents (12,8 % ou 25 %, réduite par les
+conventions, nulle pour une mère européenne) ; plafonnement des charges financières (3 M€ ou 30 %
+de l'EBITDA) ; régime mère-fille et option pour le barème ; taux de 2026 (PFU 31,4 %, PEA 18,6 %,
+barème IR, plafond du quotient familial) ; revenu foncier recalculé (l'inflation ne frappe pas le
+loyer : 55 % et non 97 %) ; biscuits à 5,5 % ; lissage des revenus irréguliers (quotient, moyenne
+triennale agricole, artistes) ; universalité budgétaire et affectations autorisées par la LOLF ;
+CVAE déjà perçue par l'État ; réduction générale unique de 2026 ; prestations sous condition de
+ressources ; valeurs locatives (révision des logements repoussée à 2031) ; Dutreil (seuils de
+l'engagement) ; droits de mutation (option à 5 % depuis 2025) ; carbone (composante figée à
+44,6 €/t, biomasse, enchères, ETS2 en 2028, MACF depuis 2026).

@@ -151,9 +151,9 @@ def r2():
         "Sources : Tax Foundation, Corporate Tax Rates around the World (1985-2023) et "
         "International Tax Competitiveness Index (2024-2025).",
         f"Note : moyenne simple des pays de l'OCDE disponibles ({moy[0][2]} en 1985, 38 depuis "
-        "2000). Le point de 2025 inclut la contribution exceptionnelle sur les bénéfices des "
-        "entreprises dont le chiffre d'affaires dépasse un milliard d'euros ; le taux applicable "
-        "aux autres est resté à 25,8 %.")
+        "2000). Le point de 2025, 36,1 %, inclut la contribution exceptionnelle sur les bénéfices "
+        "des entreprises dont le chiffre d'affaires dépasse trois milliards d'euros ; le taux "
+        "normal est resté à 25 %, 25,8 % avec la contribution sociale.")
 
 
 # ------------------------------------------- r3 : taux d'IS et recettes d'IS
@@ -520,7 +520,7 @@ def r11():
             "Contribution au Fonds national d'aide au logement",
         "Part sur les salaires": "Ligne sans libellé, assise sur les salaires",
         "Impositions forfaitaires sur les entreprises de réseaux":
-            "Impositions forfaitaires sur les réseaux (IFER)",
+            "Imposition forfaitaire sur les entreprises de réseaux (IFER)",
     }
     lab = [court.get(n, n if len(n) < 52 else n[:50] + "…") for _, n in top] + \
           [f"{len(rows) - 9} autres prélèvements"]

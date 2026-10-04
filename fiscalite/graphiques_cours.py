@@ -201,16 +201,16 @@ def c5():
     for r, c, lab in ((2.0, "#7fa4e0", "rendement réel de 2 %"),
                       (3.0, BLEU, "rendement réel de 3 %"),
                       (5.0, "#001f5c", "rendement réel de 5 %")):
-        ys = [30 * (r + p) / r for p in infl]
+        ys = [31.4 * (r + p) / r for p in infl]
         ax.plot(infl, ys, color=c, lw=2.5 if r == 3 else 1.6, zorder=3)
         ax.text(6.08, ys[-1], lab, va="center", fontsize=9.5, color=c,
                 fontweight="bold" if r == 3 else "normal")
-    ax.axhline(30, color=GRIS, lw=1.1, ls=(0, (4, 3)), zorder=2)
-    ax.text(5.9, 25, "taux affiché : 30 %", fontsize=9.5, color=GRIS, ha="right")
-    ax.plot([2], [50], "o", ms=7, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.6,
+    ax.axhline(31.4, color=GRIS, lw=1.1, ls=(0, (4, 3)), zorder=2)
+    ax.text(5.9, 25, "taux affiché : 31,4 %", fontsize=9.5, color=GRIS, ha="right")
+    ax.plot([2], [31.4 * 5 / 3], "o", ms=7, color=BLEU, markeredgecolor=SURFACE, markeredgewidth=1.6,
             zorder=4)
-    ax.annotate("À 2 % d'inflation et 3 % de rendement réel,\nle taux effectif est de 50 %",
-                xy=(2, 50), xytext=(0.25, 100), fontsize=9.5, color=BLEU, fontweight="bold",
+    ax.annotate("À 2 % d'inflation et 3 % de rendement réel,\nle taux effectif est de 52 %",
+                xy=(2, 31.4 * 5 / 3), xytext=(0.25, 100), fontsize=9.5, color=BLEU, fontweight="bold",
                 linespacing=1.45, path_effects=HALO,
                 arrowprops=dict(arrowstyle="-", color=BLEU, lw=0.9,
                                 connectionstyle="arc3,rad=-0.2"))
@@ -221,11 +221,12 @@ def c5():
     ax.yaxis.set_major_formatter(PCT)
     grille(ax)
     titre(ax, "Un impôt assis sur le rendement nominal taxe l'inflation",
-          "Taux effectif sur le rendement réel d'un prélèvement forfaitaire de 30 % appliqué au "
+          "Taux effectif sur le rendement réel d'un prélèvement forfaitaire de 31,4 % appliqué au "
           "rendement nominal.")
     fin(fig, "c5_inflation.png",
-        "Calcul arithmétique. Taux statutaire français : prélèvement forfaitaire unique de 30 %, "
-        "assis sur le rendement nominal et non indexé.",
+        "Calcul arithmétique. Taux statutaire français de 2026 : prélèvement forfaitaire unique "
+        "de 31,4 % sur les produits de placement (30 % en 2025), assis sur le rendement nominal "
+        "et non indexé.",
         "Note : un épargnant dont le placement rapporte exactement l'inflation paie un impôt sur "
         "un gain qui n'existe pas. Le taux effectif monte avec l'inflation sans qu'aucune loi "
         "ait été votée, et d'autant plus vite que le rendement réel est faible.")
@@ -308,7 +309,7 @@ def c6():
         "sociétés ; distribués, ils supportent 30 % de prélèvement forfaitaire (22,5 €), et "
         "l'actionnaire garde 52,5 €. La grande entreprise paie en plus la contribution sociale de "
         "3,3 % de l'impôt ; l'actionnaire au sommet paie en plus la contribution sur les hauts "
-        "revenus de 4 %. La contribution exceptionnelle de 2025 ne concerne que les groupes dont "
+        "revenus de 4 %. La contribution exceptionnelle de 2025 ne concerne que les entreprises, ou groupes intégrés, dont "
         "le chiffre d'affaires dépasse 1 Md€ (taux porté à 31,0 %) ou 3 Md€ (36,1 %). Les "
         "taux des autres pays sont ceux de l'OCDE, au sommet du barème.")
 
@@ -751,49 +752,57 @@ def c17():
         "Eurostat nama_10_gdp.",
         "Note : la catégorie D29 rassemble les prélèvements que l'entreprise acquitte "
         "indépendamment de son résultat. Elle valait 4,1 points de PIB en 1995 et en vaut 4,4 "
-        "en 2024, malgré la suppression progressive de la cotisation sur la valeur ajoutée des "
-        "entreprises engagée en 2021. Son contenu diffère d'un pays à l'autre, ce qui rend les "
+        "en 2024, malgré la baisse de moitié de la cotisation sur la valeur ajoutée des "
+        "entreprises en 2021, puis sa suppression progressive, repoussée à 2030. Son contenu diffère d'un pays à l'autre, ce qui rend les "
         "comparaisons internationales de cet agrégat fragiles.")
 
 
 # ------------- c18 : le taux effectif sur l'épargne selon le support
-SUPPORTS = [("Livret A, LDDS", 0.0), ("PEA après cinq ans", 17.2),
-            ("Assurance vie, dans l'abattement", 17.2), ("Prélèvement forfaitaire unique", 30.0),
-            ("Revenu foncier, taux marginal 30 %", 47.2),
-            ("Revenu foncier, taux marginal 41 %", 58.2)]
+# (support, taux affiché, taux effectif sur le rendement réel). Pour les placements financiers,
+# l'impôt frappe le rendement nominal : le taux effectif vaut le taux affiché multiplié par 5/3.
+# Pour l'immobilier loué, l'inflation se retrouve dans la valeur du bien, imposée seulement à la
+# revente avec un abattement pour durée de détention : le taux affiché frappe le loyer, déjà réel,
+# et la CSG déductible (6,8 points) réduit l'assiette de l'impôt sur le revenu.
+SUPPORTS = [("Livret A, LDDS", 0.0, 0.0),
+            ("PEA après cinq ans", 18.6, 18.6 * 5 / 3),
+            ("Assurance vie après huit ans,\ndans l'abattement", 17.2, 17.2 * 5 / 3),
+            ("Prélèvement forfaitaire unique", 31.4, 31.4 * 5 / 3),
+            ("Revenu foncier, taux marginal 30 %", 47.2, 30 * (1 - 0.068) + 17.2),
+            ("Revenu foncier, taux marginal 41 %", 58.2, 41 * (1 - 0.068) + 17.2)]
 
 
 def c18():
-    r, infl = 3.0, 2.0
-    k = (r + infl) / r
     fig, ax = plt.subplots(figsize=(11.0, 5.6))
     y = list(range(len(SUPPORTS)))[::-1]
     nom = [s[1] for s in SUPPORTS]
-    eff = [min(s[1] * k, 115) for s in SUPPORTS]
+    eff = [s[2] for s in SUPPORTS]
     ax.barh(y, eff, color=[BRIQUE if e > 60 else (OCRE if e > 30 else VERT) for e in eff],
             height=0.6, zorder=2)
     ax.barh(y, nom, color="#8C8C8C", height=0.24, zorder=3)
     for yy, n, e in zip(y, nom, eff):
-        ax.text(e + 1.4, yy, fr(e, 1) + " %", va="center", fontsize=10.5, fontweight="bold",
+        ax.text(max(e, n) + 1.4, yy, fr(e, 1) + " %", va="center", fontsize=10.5, fontweight="bold",
                 color=BRIQUE if e > 60 else (OCRE if e > 30 else VERT))
         if n > 0:
             ax.text(n - 1.4, yy, fr(n, 1) + " %", va="center", ha="right", fontsize=8.6,
                     color="white" if n > 20 else INK2)
     ax.set_yticks(y, [s[0] for s in SUPPORTS], fontsize=9.5)
-    ax.set_xlim(0, 112)
+    ax.set_xlim(0, 75)
     ax.xaxis.set_major_formatter(PCT)
     grille(ax, "x")
     ax.spines["left"].set_visible(False)
     ax.tick_params(left=False)
-    ax.text(70, 4.6, "barre fine : taux affiché\nbarre large : taux effectif\nsur le rendement réel",
+    ax.text(46, 4.6, "barre fine : taux affiché\nbarre large : taux effectif\nsur le rendement réel",
             fontsize=9, color=INK2, linespacing=1.5)
-    titre(ax, "Le même rendement réel de 3 % supporte de 0 à 97 % d'impôt selon le support",
+    titre(ax, "Le même rendement réel de 3 % supporte de 0 à 55 % d'impôt selon le support",
           "Taux effectif sur le rendement réel, pour un rendement réel de 3 % et une inflation de "
-          "2 % par an.")
+          "2 % par an, droit de 2026.")
     fin(fig, "c18_supports_epargne.png",
-        "Calcul arithmétique à partir des taux statutaires français. Le taux effectif vaut le "
-        "taux affiché multiplié par le rapport du rendement nominal au rendement réel, soit "
-        "cinq tiers dans cet exemple.",
+        "Calcul arithmétique à partir des taux statutaires français de 2026. Pour les placements "
+        "financiers, le taux effectif vaut le taux affiché multiplié par le rapport du rendement "
+        "nominal au rendement réel, soit cinq tiers. Pour un bien loué, l'inflation se retrouve "
+        "dans la valeur du bien, imposée seulement à la revente, avec une exonération d'impôt sur "
+        "le revenu après 22 ans et de prélèvements sociaux après 30 ans : le taux affiché frappe le "
+        "loyer, et la CSG déductible le réduit d'environ trois points.",
         "Note : aucune de ces différences ne correspond à une différence économique entre les "
         "placements. Elles tiennent à l'enveloppe qui les porte. C'est la définition même d'un "
         "système non neutre, et c'est ce que l'exonération du rendement normal supprimerait "
@@ -929,7 +938,7 @@ def c21():
     fin(fig, "c21_taux_superieurs.png",
         "Source : OCDE, base de données fiscale, taux statutaire supérieur de l'impôt sur le "
         "revenu des personnes physiques.",
-        "Note : le taux français passe de 58,3 % en 2000 à 46,7 % en 2010, puis remonte à 55,4 % "
+        "Note : le taux français passe de 58,3 % en 2000 à 45,8 % de 2006 à 2009, puis remonte à 55,4 % "
         "où il se maintient depuis. La valeur publiée pour la France en 2013, 122,8 %, est "
         "écartée du tracé : c'est un point isolé dans une série qui tient sinon entre 45 et 59 "
         "pour ce pays, et la source ne documente pas ce qui le produit. L'Estonie applique un taux unique depuis sa réforme des "
