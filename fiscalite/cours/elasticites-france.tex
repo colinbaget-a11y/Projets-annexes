@@ -1,6 +1,6 @@
 % Complément au chapitre 1 de « Refaire l'impôt » : les élasticités estimées sur données françaises
 % Compilation : pdflatex elasticites-france.tex (deux passes pour les renvois)
-% Données des figures : ../donnees/elasticites_france.csv ; figures : graphiques_cours.py, fonctions c26 à c28
+% Données des figures : ../donnees/elasticites_france.csv ; figures : graphiques_cours.py, fonctions c26 à c29
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
@@ -77,10 +77,10 @@ que cette sensibilité tient en partie à ce que la loi permet. Douze travaux pu
 mesurent sur données françaises. Six estiment de combien un revenu déclaré réagit au taux net
 marginal qui le frappe ; les six autres mesurent la réaction d'autres grandeurs --- patrimoine
 déclaré, lieu de résidence, montant dissimulé, dons, décision de travailler --- à d'autres taux, et
-le tableau~\ref{tab:autres} dit ce que chacun mesure. Même entre les six premiers, les chiffres se
-comparent mal, parce que les revenus, les populations, les années et les méthodes diffèrent. Chaque
-étude compare en revanche deux ou trois situations sur les mêmes données et avec la même méthode ;
-ce sont ces comparaisons internes que montrent les figures. Elles disent qui réagit, et à quoi : le
+le tableau~\ref{tab:autres} dit ce que chacun mesure. Parmi les six premiers, deux paires seulement
+mesurent la même chose de la même façon et se comparent directement ; elles concordent. Les autres
+diffèrent par le revenu, la population ou la méthode, mais chaque étude compare deux ou trois
+situations sur ses propres données. Ces comparaisons internes disent qui réagit, et à quoi : le
 haut de la distribution plus que le reste, l'impôt sur le revenu plus que les prestations, le revenu
 du capital bien plus que celui du travail, les dividendes de ceux qui contrôlent une société plus
 que ceux des autres foyers. Elles montrent aussi que les règles de déclaration et de contrôle pèsent
@@ -112,6 +112,25 @@ la tirent vers le bas. La troisième compare, avant et après une réforme, un g
 groupe épargné, puis divise l'écart d'évolution du revenu par l'écart d'évolution du taux net.
 Presque toutes les estimations françaises sont de court terme : elles portent sur des variations
 d'une année sur l'autre, et ne disent rien de ce qui se passe en cinq ou dix ans.
+
+Deux paires d'études seulement mesurent le même revenu, au même taux, par la même méthode
+(figure~\ref{fig:comparables}). Lehmann, Marical et Rioux (2013) et Sicsic (2022) estiment la
+réaction du revenu d'activité au taux net de l'impôt sur le revenu sur les enquêtes Revenus fiscaux
+de l'Insee ; Sicsic tient lui-même leur étude pour la plus proche de la sienne. Ils trouvent 0,23 et
+0,26, et 0,30 si l'on ne garde chez Sicsic que les salariés, comme chez Lehmann et al. Les périodes
+(2003-2006 et 2006-2015) et les réformes qui identifient l'effet diffèrent, et l'écart reste bien
+inférieur à l'imprécision de la première estimation. Le rapport remis à France Stratégie en 2020 et
+l'article publié en 2025 estiment la réaction des revenus du capital sur les déclarations des mêmes
+foyers : 0,67 et 0,77. Ils viennent de la même équipe, si bien que leur accord ne vaut pas
+confirmation indépendante, et l'un comme l'autre publie des variantes qui vont de 0,2 ou 0,3 à 1,2.
+Les autres études n'ont pas d'équivalent. Cabannes et al. et Sicsic trouvent tous deux une réaction
+plus forte dans le décile supérieur, 0,31 et 0,51, mais le premier mesure le revenu imposable, le
+second le revenu d'activité ; Bach et al. sont seuls à mesurer les dividendes, et chacune des études
+de la partie~4 est seule à mesurer ce qu'elle mesure. Pour elles, seules valent les comparaisons
+que chaque étude fait sur ses propres données.
+
+\figbloc{c29_etudes_comparables}{Les deux paires d'études qui mesurent la même chose de la même
+façon}{fig:comparables}
 
 \section{Revenu imposable et revenus d'activité}
 
@@ -390,13 +409,15 @@ travaux sur le RSA recensés par Sicsic (2023) trouvent des effets faibles ou nu
 
 \section{Ce qu'on peut en conclure}
 
-Sur les mêmes foyers et avec la même méthode, les revenus du capital réagissent bien plus que les
-revenus d'activité, 0,67 contre 0,05 ; parmi les assujettis à l'ISF, les dividendes de ceux qui
-contrôlent une société réagissent à la baisse de 2018, ceux des autres foyers non. Ces écarts
-suivent la facilité de changer la forme, la date ou le lieu d'un revenu sans changer d'activité. Un salaire déclaré par
-l'employeur ne se déplace pas ; un dividende que le dirigeant peut laisser dans sa société se
-déplace d'une année à l'autre ; un patrimoine déclaré en un seul chiffre, ou un don qu'on n'a pas à
-justifier, se déplace dans la déclaration elle-même.
+Là où deux études mesurent la même chose, elles concordent : 0,23 à 0,30 pour le revenu d'activité
+au taux de l'impôt sur le revenu, 0,67 à 0,77 pour les revenus du capital dans deux versions d'un
+même travail. Sur les mêmes foyers et avec la même méthode, les revenus du capital réagissent bien
+plus que les revenus d'activité, 0,67 contre 0,05 ; parmi les assujettis à l'ISF, les dividendes de
+ceux qui contrôlent une société réagissent à la baisse de 2018, ceux des autres foyers non. Ces
+écarts suivent la facilité de changer la forme, la date ou le lieu d'un revenu sans changer
+d'activité. Un salaire déclaré par l'employeur ne se déplace pas ; un dividende que le dirigeant peut
+laisser dans sa société se déplace d'une année à l'autre ; un patrimoine déclaré en un seul chiffre,
+ou un don qu'on n'a pas à justifier, se déplace dans la déclaration elle-même.
 
 Les études françaises donnent ainsi à la phrase de Slemrod et Kopczuk (2002) --- l'élasticité est en
 partie un choix de politique publique --- des preuves directes, chacune obtenue en comparant deux

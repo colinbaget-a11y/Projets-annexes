@@ -1111,6 +1111,12 @@ PANNEAUX = {
     "fack_controle": ("Fack et Landais (2016) : avant et après le contrôle",
                       "élasticité-prix des dons déclarés, en valeur absolue",
                       (0, 2.5), (0, 1, 2)),
+    # entre études : seulement celles qui mesurent le même revenu, au même taux, par la même méthode
+    "comp_activite": ("Revenu d'activité : deux études, mêmes enquêtes",
+                      "élasticité au taux net de l'impôt sur le revenu", *ECH_ACTIVITE),
+    "comp_capital": ("Revenus du capital : Lefebvre et al., 2020 et 2025",
+                     "élasticité à leur propre taux net, déclarations de 2008 à 2017",
+                     (-0.35, 1.25), (0, 0.5, 1)),
 }
 SRC_ELAST = ("Sources : études citées, présentées dans le complément « Les élasticités estimées sur "
              "données françaises » ; chaque chiffre, avec sa page et son tableau, figure dans "
@@ -1166,6 +1172,9 @@ def _planche(noms, nom_fichier, note, ncol=2):
     W, GOUT, MARGE = 5.7, 0.42, 0.34      # largeur, gouttière entre colonnes, place des graduations
     ENT, AXE, LIB, SEP, LEG = 0.36, 1.05, 0.32, 0.24, 0.24
     nlig = -(-len(noms) // ncol)
+    lignes_lib = max(x["libelle"].count("|") + 1 for x in donnees if x["panneau"] in noms)
+    if lignes_lib > 2:
+        LIB = 0.12 + 0.105 * lignes_lib
     CW = (W - (ncol - 1) * GOUT) / ncol
     H = nlig * (ENT + AXE + LIB) + (nlig - 1) * SEP + LEG
     fig = plt.figure(figsize=(W, H))
@@ -1251,8 +1260,18 @@ def c28():
              "cinq spécifications de leur tableau 2.")
 
 
+def c29():
+    _planche(["comp_activite", "comp_capital"], "c29_etudes_comparables.png",
+             "Lecture : chaque panneau ne rapproche que des études qui mesurent le même revenu, au "
+             "même taux net, par la même méthode : variation d'une année sur l'autre, instrumentée "
+             "par l'effet mécanique des réformes. Lehmann et al. et Sicsic exploitent les enquêtes "
+             "Revenus fiscaux de l'Insee. Le rapport et l'article portent sur les foyers dont le "
+             "revenu fiscal de référence dépasse 30 000 € ; l'article écarte en plus les variations "
+             "extrêmes du revenu du capital.")
+
+
 if __name__ == "__main__":
     for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c11,
               c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26,
-              c27, c28):
+              c27, c28, c29):
         f()

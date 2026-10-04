@@ -1,14 +1,15 @@
 # Le cours
 
-`refaire-l-impot.tex` est la version de référence : 65 pages, treize chapitres en trois parties,
-quarante-deux figures, deux tableaux et dix rapports publics français cités là où ils servent.
+`refaire-l-impot.tex` est la version de référence : 66 pages, treize chapitres en trois parties,
+quarante-trois figures, deux tableaux et dix rapports publics français cités là où ils servent.
 
-`elasticites-france.tex` est un complément au chapitre 1 (10 pages) : une revue des études
+`elasticites-france.tex` est un complément au chapitre 1 (11 pages) : une revue des études
 publiées depuis 2010 qui estiment, sur données françaises, la réaction des revenus et des assiettes
-à l'impôt. Les chiffres de ces études ne se comparent pas d'une étude à l'autre ; les graphiques
-(c25 dans le cours, c26 à c28 dans le complément) sont donc faits de petits panneaux qui comparent
-chacun deux ou trois estimations d'une seule étude, obtenues sur les mêmes données avec la même
-méthode. Un tableau dit ce que mesurent les autres élasticités.
+à l'impôt. Les graphiques sont faits de petits panneaux qui ne rapprochent que des chiffres
+comparables : c29 (dans le cours et le complément) met côte à côte les deux paires d'études qui
+mesurent le même revenu, au même taux, par la même méthode ; c25 (cours) et c26 à c28 (complément)
+comparent deux ou trois estimations d'une seule étude, obtenues sur les mêmes données. Un tableau dit
+ce que mesurent les autres élasticités.
 
 ## Organisation
 
@@ -226,8 +227,12 @@ relecture d'octobre sont conservées.
 
 Douze travaux publiés depuis 2010, lus dans le texte, dont chaque chiffre est repris avec sa page et
 son tableau dans `donnees/elasticites_france.csv` ; la colonne `panneau` y dit dans quel petit
-graphique figure l'estimation. Chaque panneau (`graphiques_cours.py`, fonctions c25 à c28) ne compare
-que des estimations d'une même étude : selon le niveau de revenu (Cabannes et al., Sicsic), selon le
+graphique figure l'estimation. Deux paires d'études seulement mesurent la même chose et sont
+rapprochées dans c29 : Lehmann, Marical et Rioux (2013) et Sicsic (2022) pour le revenu d'activité
+au taux de l'impôt sur le revenu (0,23, et 0,26 ou 0,30 pour les seuls salariés), le rapport de 2020
+et l'article de 2025 de Lefebvre et al. pour les revenus du capital (0,67 et 0,77, même équipe). Les
+autres panneaux (`graphiques_cours.py`, fonctions c25 à c28) ne comparent que des estimations d'une
+même étude : selon le niveau de revenu (Cabannes et al., Sicsic), selon le
 prélèvement ou le dispositif (Lehmann et al., Sicsic), travail contre capital sur les mêmes foyers
 (Lefebvre et al., 2020), dirigeants contre autres foyers (Bach et al.), seuil de taux contre seuil
 d'information (Garbinti et al.), avant et après le contrôle des reçus (Fack et Landais). Le point
