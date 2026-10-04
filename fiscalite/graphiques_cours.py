@@ -396,10 +396,9 @@ def c8():
         "Calcul arithmétique, au taux d'actualisation de 5 %. Dispositif emprunté aux "
         "publications de la Tax Foundation sur la récupération des coûts.",
         "Note : un euro déduit dans dix ans vaut 61 centimes aujourd'hui, parce qu'un euro placé "
-        "à 5 % aujourd'hui en vaudrait 1,63 dans dix ans. Amortie sur vingt ans, la machine n'est "
-        "donc déduite qu'à hauteur de 62 € en valeur d'aujourd'hui : l'entreprise est imposée "
-        "comme si la machine n'avait coûté que 62 €. Sur 40 ans, la valeur tombe à 43 € ; "
-        "déduite immédiatement, elle reste à 100 €.")
+        "à 5 % aujourd'hui en vaudrait 1,63 dans dix ans. Étalée sur 40 ans, la même machine ne serait "
+        "déduite qu'à hauteur de 43 € en valeur d'aujourd'hui ; déduite immédiatement, elle l'est "
+        "pour 100 €.")
 
 
 # ------------------- c9 : la matrice des rangs de l'indice de compétitivité fiscale
