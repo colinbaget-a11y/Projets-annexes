@@ -18,6 +18,7 @@ import csv
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from matplotlib.patches import Rectangle
 
 from graphiques import (NU, BLEU, GRIS, HALO, INK, INK2, MUTED, OCRE, PAL, PCT, SURFACE, VERT,
@@ -1082,7 +1083,116 @@ def c24():
         "est réduite d'environ deux points, et celle de la France presque entièrement.")
 
 
+# ------------------- c25 : les élasticités estimées sur données françaises depuis 2010
+BLEU_PALE = "#C9D3EA"
+
+
+def c25():
+    """Une ligne par estimation publiée depuis 2010 sur données françaises : le point (plein pour
+    l'estimation principale d'une étude, creux pour un sous-groupe ou une variante), l'intervalle
+    de confiance à 95 % quand l'étude donne un écart-type, et en barre claire l'éventail des
+    spécifications que les auteurs publient. Les valeurs hors de l'échelle sont signalées par une
+    flèche ; la colonne de droite donne toujours le chiffre. Mise en page en pouces, fixe, pour que
+    les trois colonnes de texte ne se chevauchent jamais."""
+    lignes = lire("elasticites_france.csv")
+    TITRES = {"revenu": "Revenu imposable et revenus d'activité",
+              "capital": "Revenus du capital",
+              "autres": "Autres assiettes, autres marges"}
+    XMIN, XMAX = -0.2, 1.35
+    PAS, ENTETE, HAUT, BAS = 0.168, 0.30, 0.08, 0.78
+    W, X_ETUDE, X_PREC, X0, X1, X_VAL = 5.7, 0.0, 1.30, 2.95, 5.02, 5.14
+    # ordonnées en pouces depuis le haut
+    y, rangs, titres, precedent = HAUT, [], [], None
+    for x in lignes:
+        if x["groupe"] != precedent:
+            y += ENTETE if precedent else ENTETE * 0.75
+            titres.append((y - 0.06, TITRES.get(x["groupe"], x["groupe"])))
+            precedent, etude_prec = x["groupe"], None
+        y += PAS
+        rangs.append((y, x, x["etude"] != etude_prec))
+        etude_prec = x["etude"]
+    H = y + BAS
+    fig = plt.figure(figsize=(W, H))
+    ax = fig.add_axes([X0 / W, BAS / H, (X1 - X0) / W, (H - BAS - HAUT) / H])
+    ax.set_xlim(XMIN, XMAX)
+    ax.set_ylim(H - BAS, HAUT)          # axe des y en pouces depuis le haut, inversé
+
+    def fy(yy):                          # ordonnée en fraction de figure
+        return 1 - yy / H
+
+    ax.axvspan(0.12, 0.40, color="#EEF0F3", zorder=0, lw=0)
+    ax.axvline(0, color="#BFBFBF", lw=0.8, zorder=1)
+
+    def num(v):
+        return float(v) if v not in ("", None) else None
+
+    def segment(a_, b_, yy, **kw):
+        a2, b2 = max(a_, XMIN), min(b_, XMAX)
+        ax.plot([a2, b2], [yy, yy], solid_capstyle="butt", **kw)
+        if b_ > XMAX:
+            ax.plot([XMAX - 0.008], [yy], marker=">", ms=4.2, color=kw.get("color"), zorder=4,
+                    clip_on=False)
+
+    for yy, x, premiere in rangs:
+        v, lo, hi = num(x["valeur"]), num(x["ic_bas"]), num(x["ic_haut"])
+        sb, sh = num(x["spec_bas"]), num(x["spec_haut"])
+        plein = x["prefere"] == "1"
+        if sb is not None:
+            segment(sb, sh, yy, color=BLEU_PALE, lw=5.2, zorder=2)
+        if lo is not None:
+            segment(lo, hi, yy, color=BLEU, lw=1.2, zorder=3)
+        if v is not None:
+            if v > XMAX:
+                ax.plot([XMAX - 0.01], [yy], marker=">", ms=6.2, zorder=5, clip_on=False,
+                        color=BLEU if plein else SURFACE, markeredgecolor=BLEU,
+                        markeredgewidth=1.1)
+            else:
+                ax.plot([v], [yy], "o", ms=5.2, zorder=5, color=BLEU if plein else SURFACE,
+                        markeredgecolor=BLEU, markeredgewidth=1.2)
+        if premiere:
+            fig.text(X_ETUDE / W, fy(yy), x["court"], ha="left", va="center", fontsize=7.3,
+                     color=INK)
+        fig.text(X_PREC / W, fy(yy), x["precision"], ha="left", va="center", fontsize=6.9,
+                 color=INK2)
+        fig.text(X_VAL / W, fy(yy), x["affichage"], ha="left", va="center", fontsize=7.3,
+                 color=INK, fontweight="bold" if plein else "normal")
+    for yy, t in titres:
+        fig.text(X_ETUDE / W, fy(yy), t, ha="left", va="center", fontsize=8.2, color=BLEU,
+                 fontweight="bold")
+    ax.set_yticks([])
+    ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0, 1.25], ["0", "0,25", "0,5", "0,75", "1", "1,25"],
+                  fontsize=7.2)
+    for s_ in ("left", "right", "top"):
+        ax.spines[s_].set_visible(False)
+    ax.spines["bottom"].set_color("#BFBFBF")
+    ax.tick_params(axis="x", colors=INK2, length=2.5, pad=2)
+    ax.set_xlabel("élasticité", fontsize=7.4, color=INK2, labelpad=2)
+    poignees = [Line2D([], [], marker="o", ls="", ms=5, color=BLEU, markeredgecolor=BLEU),
+                Line2D([], [], marker="o", ls="", ms=5, color=SURFACE, markeredgecolor=BLEU,
+                       markeredgewidth=1.2),
+                Line2D([], [], color=BLEU, lw=1.2),
+                Line2D([], [], color=BLEU_PALE, lw=5.2, solid_capstyle="butt")]
+    fig.legend(poignees, ["estimation principale de l'étude", "sous-groupe ou variante",
+                          "intervalle de confiance à 95 %", "éventail des spécifications publiées"],
+               loc="lower left", bbox_to_anchor=(X_ETUDE / W, 0.0), ncol=2, fontsize=6.9,
+               frameon=False, handlelength=1.6, columnspacing=1.4, labelcolor=INK2,
+               borderaxespad=0.1)
+    fin(fig, "c25_elasticites_france.png",
+        "Sources : études citées, présentées dans le complément « Les élasticités estimées sur "
+        "données françaises » ; chaque chiffre, avec sa page et son tableau, figure dans "
+        "donnees/elasticites_france.csv.",
+        "Lecture : une élasticité de 0,2 signifie que le revenu déclaré augmente de 2 % quand la "
+        "part que le contribuable garde de l'euro marginal augmente de 10 %. Les deux premiers blocs "
+        "mesurent cette réaction ; le troisième rassemble des élasticités définies autrement, à lire "
+        "ligne par ligne : croissance annuelle du patrimoine déclaré au taux net de l'ISF, nombre de "
+        "résidents parmi les 1 % les plus aisés au revenu net d'impôt, montant dissimulé par les "
+        "micro-entrepreneurs au taux d'imposition, dons déclarés à leur prix net (en valeur absolue, "
+        "réforme de 1983), participation des femmes mariées au taux de rétention. La bande grise "
+        "marque la fourchette de 0,12 à 0,40 que Saez, Slemrod et Giertz (2012) retiennent pour les "
+        "États-Unis ; les flèches, des valeurs hors de l'échelle.")
+
+
 if __name__ == "__main__":
     for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c11,
-              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24):
+              c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25):
         f()

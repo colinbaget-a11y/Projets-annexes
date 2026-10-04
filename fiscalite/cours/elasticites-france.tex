@@ -1,0 +1,399 @@
+% Complément au chapitre 1 de « Refaire l'impôt » : les élasticités estimées sur données françaises
+% Compilation : pdflatex elasticites-france.tex (deux passes pour les renvois)
+% Données de la figure : ../donnees/elasticites_france.csv ; figure : graphiques_cours.py, fonction c25
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[a4paper,left=3.1cm,right=3.1cm,top=2.9cm,bottom=3.1cm]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[labelfont=bf,labelsep=period,font=small,singlelinecheck=false,
+            justification=raggedright,skip=6pt]{caption}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{textcomp}
+\providecommand{\euro}{\texteuro}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{encre}{HTML}{1A1A19}
+\definecolor{bleu}{HTML}{003399}
+\definecolor{vert}{HTML}{1F7A4D}
+\definecolor{ocre}{HTML}{C79100}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{bleu}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\color{bleu}}{}{0em}{}
+\titlespacing*{\section}{0pt}{2.4ex plus 1ex minus .2ex}{1.4ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2.2ex plus 1ex minus .2ex}{1ex plus .2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\itshape Refaire l'impôt --- complément au chapitre 1}
+\fancyhead[R]{\small\thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.72em}
+\linespread{1.06}
+\renewcommand{\arraystretch}{1.22}
+
+% Figure haute : légende au-dessus, image, puis sources et note de lecture en texte.
+\newcommand{\figblocgrand}[3]{%
+  \begin{figure}[htbp]\centering
+  \caption{#2}\label{#3}
+  \includegraphics[max width=\linewidth,max height=0.68\textheight]{../figures/nu/#1.pdf}
+  \IfFileExists{../figures/nu/#1_note.tex}{\par\vspace{4pt}%
+    \parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}}{}%
+  \end{figure}}
+
+\begin{document}
+\addto\captionsfrench{\renewcommand{\figurename}{Figure}%
+  \renewcommand{\tablename}{Tableau}}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
+
+\thispagestyle{empty}
+{\footnotesize\color{ocre}\bfseries COMPLÉMENT AU CHAPITRE 1 DE «~REFAIRE L'IMPÔT~»\par}
+\vspace{8pt}
+{\raggedright\fontsize{21}{25}\selectfont\bfseries Les élasticités estimées\\ sur données françaises\par}
+\vspace{8pt}
+{\large Ce que disent les études publiées depuis 2010\par}
+\vspace{10pt}
+{\color{bleu}\hrule height 1.2pt}
+\vspace{10pt}
+
+Le chapitre~1 retient que le coût d'un impôt dépend de la sensibilité de son assiette au taux, et
+que cette sensibilité tient en partie à ce que la loi permet. Douze travaux publiés depuis 2010 la
+mesurent sur données françaises ; la figure~\ref{fig:elasticites} les rassemble. Elles dessinent
+une hiérarchie nette. Le revenu d'activité réagit peu, les revenus du capital beaucoup plus, les
+dividendes des dirigeants qui contrôlent leur société davantage encore. Les réactions les plus
+fortes passent par la déclaration plutôt que par l'activité, et elles dépendent de l'information
+dont dispose l'administration.
+
+\section{Ce que l'on mesure}
+
+L'élasticité rapporte la variation en pourcentage du revenu déclaré à la variation en pourcentage
+de ce qui reste au contribuable sur l'euro marginal, le taux net $1-\tau$. Elle donne directement
+le coût de l'impôt : la perte sèche par euro prélevé en relevant un taux vaut
+$e\,\tau/(1-\tau-e\,\tau)$ (Saez, Slemrod et Giertz, 2012), et le taux supérieur qui maximise les
+recettes vaut $1/(1+a\,e)$, où $a$ mesure l'épaisseur de la queue haute de la distribution.
+
+Le revenu déclaré peut bouger pour trois raisons. Le contribuable travaille, investit ou épargne
+moins : c'est la réponse réelle. Il déclare autrement le même revenu --- plus tard, sous une autre
+forme, dans une société, ou pas du tout. Il sort de l'assiette : il cesse de travailler, ou il quitte
+le pays. Les études mesurent la somme ; seules certaines parviennent à séparer les composantes. C'est
+pourtant la séparation qui compte pour la politique fiscale, puisque la deuxième réponse dépend des
+règles et non des préférences.
+
+Trois méthodes coexistent. La plus répandue régresse la variation du revenu d'une année sur l'autre
+sur la variation du taux net, en instrumentant celle-ci par la variation qu'aurait produite la
+réforme seule si le revenu n'avait pas bougé. Elle doit neutraliser le retour à la moyenne : un
+revenu exceptionnellement haut une année a tendance à baisser l'année suivante, impôt ou pas, et
+l'estimateur prend ce mouvement pour une réaction au taux si on ne le contrôle pas (Gruber et Saez,
+2002 ; Weber, 2014). La deuxième compte les contribuables qui s'accumulent juste sous un seuil où le
+taux augmente : l'identification est propre mais locale, et l'inattention ou les coûts d'ajustement
+la tirent vers le bas. La troisième compare, avant et après une réforme, un groupe touché et un
+groupe épargné, puis divise l'écart d'évolution du revenu par l'écart d'évolution du taux net.
+Presque toutes les estimations françaises sont de court terme : elles portent sur des variations
+d'une année sur l'autre, et ne disent rien de ce qui se passe en cinq ou dix ans.
+
+\figblocgrand{c25_elasticites_france}{Les élasticités estimées sur données françaises depuis
+2010}{fig:elasticites}
+
+\section{Revenu imposable et revenus d'activité}
+
+\subsection{Cabannes, Houdré et Landais (2014) : presque rien en moyenne, 0,31 en haut}
+
+La question est celle de la réaction du revenu imposable des foyers aux baisses d'impôt sur le
+revenu de la fin des années 1990 et du début des années 2000. Les données sont les échantillons
+annuels de 500\,000 déclarations de la DGFiP, qui contiennent le revenu de l'année et celui de la
+précédente, pour les revenus 1997 à 2004. Deux réformes fournissent la variation : la baisse du
+plafond du quotient familial entre 1997 et 1998, qui a changé le taux marginal de foyers de même
+revenu selon le nombre de leurs enfants, et les baisses successives des taux du barème entre 2000 et
+2003. L'instrument est la variation de taux qu'aurait produite la législation nouvelle sur le revenu
+de l'année précédente.
+
+L'élasticité compensée vaut 0,02 sur l'ensemble des foyers, premier décile exclu : à peu près rien.
+Elle n'est pas significative entre le premier et le neuvième décile, et vaut 0,31 pour le décile
+supérieur (0,50 avec une autre pondération et un effet revenu). Les auteurs, qui ne publient que
+des seuils de significativité et pas d'écart-type, encadrent cette valeur centrale par deux
+scénarios à 0,15 et 0,45 ; ils en tirent, à titre indicatif, un taux maximisant les recettes de
+61~\% sur l'assiette de 2004, entre 76 et 51~\% selon le scénario. Deux limites tiennent aux
+données : en haut de la distribution, les baisses de taux ont été presque identiques pour tous les
+foyers, ce qui fragilise l'identification ; et deux années consécutives ne disent rien des réponses
+de long terme.
+
+\subsection{Lehmann, Marical et Rioux (2013) : l'impôt sur le revenu, pas les cotisations}
+
+La question est différente : un salaire réagit-il de la même façon à l'impôt sur le revenu et aux
+cotisations sociales ? La plupart des modèles du marché du travail le prédisent, puisque seul y
+compte l'écart entre le coût du travail et ce que touche le salarié. Les enquêtes Revenus fiscaux de
+2003 à 2006, qui apparient l'enquête Emploi et les déclarations d'impôt, suivent environ
+12\,500~salariés du privé sur deux années consécutives. Deux réformes qui ne touchaient que les
+salariés gagnant moins de deux fois le salaire minimum fournissent la variation : la forte hausse de
+la prime pour l'emploi, dont le montant maximal a presque doublé entre 2003 et 2006, et la
+convergence des deux barèmes d'allègements de cotisations patronales, celui des entreprises restées
+à 39~heures et celui des entreprises passées à 35~heures.
+
+Le salaire réagit au taux marginal de l'impôt sur le revenu avec une élasticité d'environ 0,2
+(0,225 avec tous les contrôles, écart-type 0,085, dans la version de travail), et pas du tout au
+taux marginal des cotisations. La réponse vient des femmes (0,88) ; parmi les salariés modestes
+employés toute l'année les deux années, elle tombe à 0,03. Elle passe donc par le nombre de mois
+travaillés plutôt que par les heures. Les auteurs expliquent l'asymétrie par la rigidité de court
+terme du salaire horaire, négocié à intervalles espacés : la prime pour l'emploi joue sur la décision
+de travailler, alors que les cotisations pèsent sur un salaire qui ne se renégocie pas chaque année.
+Une baisse des cotisations patronales réduit ainsi, à court terme, le coût du travail sans modifier
+le salaire. L'élasticité est identifiée sur des salariés modestes ; elle ne dit rien du haut de la
+distribution.
+
+\subsection{Sicsic (2022) : trois fois plus de réaction à l'impôt qu'aux prestations}
+
+Sicsic prolonge la comparaison aux prestations. Avec les enquêtes Revenus fiscaux et sociaux de 2006
+à 2015, soit environ 90\,000~personnes suivies deux années de suite, et les nombreuses réformes de la
+période --- barème de 2007, tranche à 45~\% en 2013, gel du barème de 2011 à 2013, décote, plafond
+du quotient familial, création du RSA activité en 2009, modulation des allocations familiales ---,
+il estime l'élasticité compensée du revenu d'activité au taux net marginal de chaque dispositif. Elle
+vaut 0,26 pour l'impôt sur le revenu (écart-type 0,018), 0,09 pour le RSA activité et zéro pour les
+prestations familiales ; 0,09 pour l'ensemble des transferts. Elle est plus forte en haut de la
+distribution (0,51 pour les 10~\% de revenus d'activité les plus élevés), chez les personnes seules
+sans enfant (0,53) et chez les indépendants (0,43, très imprécise), plus faible chez les couples avec
+enfants (0,17).
+
+Un même taux marginal produit donc une réaction trois fois plus forte quand il vient de l'impôt sur
+le revenu que quand il vient du retrait d'une prestation. L'auteur y voit la saillance de l'impôt,
+mieux perçu que les règles de calcul des prestations. Les revenus d'activité, déclarés par
+l'employeur et sans déduction, se prêtent mal au déplacement d'assiette : ces élasticités sont plus
+proches d'une réponse réelle que celles du revenu imposable total. Elles sont de court terme, et
+l'auteur les juge plutôt sous-estimées, parce que les réponses prennent du temps.
+
+\subsection{Lardeux (2018) : une réaction déclarative à un barème mal compris}
+
+Lardeux observe un cas où le revenu déclaré se choisit presque librement : les célibataires qui
+reçoivent de leur famille une obligation alimentaire et en déclarent eux-mêmes le montant. Leurs
+déclarations s'accumulent au vrai point d'entrée dans l'impôt, le seuil de mise en recouvrement,
+mais aussi à un autre seuil du barème que beaucoup prennent pour lui. En combinant les deux
+accumulations dans un modèle de perception erronée, il estime une élasticité d'environ 0,7 au taux
+marginal perçu et une attention d'environ 75~\% au vrai barème ; environ 80~\% des déclarants
+concernés n'ajustent pas leur déclaration. La réponse est purement déclarative et ne concerne qu'une
+petite population ; elle montre surtout qu'une partie des contribuables optimise sur un barème
+qu'elle comprend mal.
+
+\section{Revenus du capital}
+
+\subsection{Lefebvre, Lehmann et Sicsic (2025) : 0,77, et un effet croisé qui compte plus}
+
+La question est celle du taux qui maximise les recettes sur les revenus du capital. Les auteurs
+montrent qu'il dépend de deux élasticités : celle des revenus du capital à leur propre taux net, et
+celle des revenus du travail à ce même taux. La seconde paraît secondaire ; elle ne l'est pas, parce
+que les revenus du travail sont bien plus gros que ceux du capital, si bien qu'une petite réaction
+des salaires à la fiscalité du capital pèse lourd dans la recette totale.
+
+Les données sont les déclarations exhaustives de l'impôt sur le revenu de 2008 à 2017, suivies foyer
+par foyer : 2,3~millions de foyers stables, dont le revenu fiscal de référence dépasse 30\,000~\euro{}
+et qui déclarent chaque année des revenus du travail et du capital. L'effet est identifié par les
+variations du taux du prélèvement forfaitaire libératoire, que les foyers pouvaient choisir de 2008 à
+2012 pour leurs dividendes et leurs intérêts, et par la suppression de cette option en 2013, qui a
+soumis ces revenus au barème.
+
+L'élasticité directe vaut 0,767 (écart-type 0,011) dans la spécification préférée. Les élasticités
+croisées des revenus du travail sont positives, de 0,036 à 0,083 selon la tranche : quand l'impôt sur
+le capital baisse, les foyers déclarent aussi un peu plus de revenus du travail, ce qui exclut un
+simple transfert des salaires vers les dividendes. Sans l'effet croisé, le taux de Laffer serait de
+56,6~\% ; avec lui, de 42,9~\%, avant même de compter les cotisations sociales.
+
+La précision affichée trompe sur l'incertitude réelle. Avec les instruments de Weber, qui corrigent
+mieux le retour à la moyenne, l'élasticité directe tombe à 0,51, voire 0,22 selon les contrôles de
+revenu ; d'autres variantes la portent à 1,17. Le rapport que les mêmes auteurs ont remis à France
+Stratégie en 2020, avec Zanoutene, trouvait 0,67 en spécification de base, 0,30 en différences de
+deux ans et 1,17 avec les instruments de Weber. L'ordre de grandeur, entre 0,3 et 1, est solide ; le
+chiffre exact ne l'est pas.
+
+\subsection{Bach et al. (2024) : le dirigeant laisse le bénéfice dans la société}
+
+Bach, Bozio, Guillouzouic, Leroy et Malgouyres cherchent ce que recouvrent ces réactions. Ils
+apparient les déclarations d'impôt sur le revenu et d'ISF aux liasses fiscales des sociétés dont les
+foyers détiennent au moins 10~\%, ce qui permet de suivre l'argent de l'entreprise au ménage. Deux
+réformes de sens opposé fournissent la variation : la suppression du prélèvement libératoire en 2013,
+qui a relevé le taux supérieur sur les dividendes de 36,5 à 40,2~\%, et le prélèvement forfaitaire
+unique de 2018, qui l'a ramené à 30~\%. Parmi les assujettis à l'ISF, ils comparent les foyers que
+leurs revenus réguliers placent dans les tranches supérieures, touchés par les réformes, aux autres.
+
+Les dividendes des foyers qui contrôlent une société baissent de 20~\% en 2013 et montent de 20~\% en
+2018. Rapporté à la variation du taux net, cela donne une élasticité de 2,5 pour la baisse de 2018,
+que les auteurs jugent la mieux mesurée, et de 3,2 pour la hausse de 2013. Celle des foyers sans
+société est nulle en 2018. La différence tient à la capacité d'agir plutôt qu'aux préférences : le
+dirigeant décide de la distribution. Du côté des sociétés, l'investissement ne bouge dans aucun des
+deux cas. En 2013, la baisse des dividendes est passée par une hausse de l'épargne des sociétés,
+puis par une baisse du bénéfice imposable des plus petites ; en 2018, la baisse de l'épargne des
+sociétés explique à elle seule la hausse des dividendes. Les dirigeants traitent leur société comme
+un placement peu taxé, où le bénéfice peut attendre que le dividende soit moins imposé. Ni un
+déplacement vers d'autres revenus du capital, ni une substitution entre salaire et dividende
+n'expliquent plus qu'une petite part de la réaction. Les élasticités sont publiées sans écart-type,
+et la détention de sociétés est mal mesurée pour 2013.
+
+Une élasticité de 2,5, prise telle quelle, donnerait un taux maximisant les recettes de 29~\% sur les
+dividendes. Elle mesure pourtant surtout un report : le bénéfice laissé dans la société reste
+imposable plus tard. L'élasticité de long terme est probablement plus faible, mais personne ne l'a
+mesurée.
+
+\subsection{Ce qu'il ne faut plus citer, et ce que conclut France Stratégie}
+
+Boissel et Matray (\emph{American Economic Review}, 2022) avaient conclu, à partir de la réforme de
+2013, que les entreprises dont les dividendes étaient plus taxés avaient réduit leurs distributions
+et investi davantage. Un commentaire de Bach, Bozio, Guillouzouic et Malgouyres (2023) a relevé une
+altération du code produisant le graphique d'étude d'événement et des tendances différentes, avant la
+réforme, entre entreprises traitées et témoins ; les auteurs ont retiré l'article en juillet 2023.
+Lefebvre, Lehmann et Sicsic le citent encore comme point de comparaison ; leurs propres résultats
+n'en dépendent pas.
+
+Le comité d'évaluation des réformes de la fiscalité du capital conclut en 2023 que le prélèvement
+forfaitaire unique a causé la majeure partie de la hausse des dividendes de 2018-2019, sans pouvoir
+en chiffrer l'ordre de grandeur macroéconomique, et ne détecte d'effet ni sur l'investissement ni sur
+les salaires.
+
+\section{Autres assiettes et autres marges}
+
+\subsection{Garbinti et al. (2026) : l'ISF réagit à l'information plus qu'au taux}
+
+Garbinti, Goupille-Lebret, Muñoz, Stantcheva et Zucman étudient l'impôt sur la fortune avec
+l'ensemble des déclarations de 2006 à 2017, appariées à l'impôt sur le revenu. Aux seuils de tranche,
+où seul le taux change, les contribuables bougent à peine : l'élasticité de la croissance du
+patrimoine déclaré au taux net de l'impôt vaut 0,13 (écart-type 0,04) au deuxième seuil et n'est pas
+significative au troisième. Ils réagissent en revanche à l'information demandée. Depuis 2011, les
+foyers dont le patrimoine était inférieur à un seuil --- 3~millions d'euros, puis 2,57~millions à
+partir de 2013 --- pouvaient déclarer un montant global sans détailler leurs actifs. Après
+l'abaissement du seuil, les foyers proches ont ralenti la croissance déclarée de leur patrimoine pour
+rester dessous : de 0,28~point par an en moyenne, dix fois la réaction aux seuils de tranche. Pour
+obtenir le même effet par le taux, il aurait fallu porter le taux marginal de 0,7 à 2,84~\%. Les
+foyers restés sous le seuil ont sous-déclaré 18,4~\% de l'impôt qu'ils auraient payé. Les indices
+--- montants ronds, immobilier plus touché que les actifs financiers, revenus déclarés par des tiers
+qui ne bougent pas, sur un test que les auteurs jugent peu puissant --- désignent la sous-déclaration
+plutôt qu'une épargne moindre. La version lue est la révision de mai 2026 du document de travail.
+
+\subsection{Aghion et al. (2023) : les régimes simplifiés facilitent la fraude}
+
+Aghion, Akcigit, Gravoueille, Lequien et Stantcheva observent, sur l'ensemble des déclarations de
+2006 à 2015, une forte accumulation de travailleurs indépendants juste sous les plafonds de recettes
+des régimes simplifié, créé en 1999, et super-simplifié, créé en 2009. Plusieurs indices désignent la
+fraude : déclarants qui restent anormalement dans la même tranche de recettes d'une année sur l'autre,
+montants ronds, recettes réparties dans le couple. Leur modèle, qui suppose nulle la réponse réelle
+parce que l'accumulation ne s'explique pas par elle, l'attribue au goût de la simplicité ---
+l'équivalent de 1\,100 à 1\,600~\euro{} par an pour le régime simplifié, 6\,800 à 7\,200~\euro{} pour
+le super-simplifié --- et à une élasticité du montant dissimulé au taux d'imposition d'environ 1,1.
+
+\subsection{Fack et Landais (2016) : la même déduction, cinq fois moins élastique sous contrôle}
+
+En 1983, l'administration a exigé que les reçus des dons soient joints à la déclaration, alors qu'il
+suffisait auparavant de les conserver. Les dons déclarés ont chuté, sans rupture dans les dons reçus
+par la Fondation de France : la baisse venait donc surtout de dons déclarés qui n'avaient pas été
+faits. L'élasticité-prix des dons déclarés est passée de $-1{,}86$ à $-0{,}36$. Les données ---
+échantillons de déclarations de 1975 à 1988 --- sont anciennes, mais le résultat est le plus net de
+cette revue : la même déduction, au même taux, devient cinq fois moins élastique quand
+l'administration vérifie.
+
+\subsection{Le Focus du CAE (2025) : des départs sensibles à l'impôt, mais rares}
+
+Bach, Bozio, Grimprel, Guillouzouic, Landais et Malgouyres mesurent les départs à l'étranger des
+foyers les plus aisés, avec les déclarations d'impôt sur le revenu et d'ISF ou d'IFI de 2010 à 2019.
+Chaque année, 0,2~\% des 1~\% de foyers aux revenus du capital les plus élevés quittent la France. La
+hausse d'impôt de 2012-2013 a accru les départs du groupe le plus touché de 0,04 à 0,09~point ; les
+baisses de 2017-2018 les ont réduits de 0 à 0,02~point et ont accru les retours de 0,01 à 0,04~point.
+Rapportées à la variation du revenu net d'impôt, ces réactions donnent une élasticité de long terme
+du nombre de résidents comprise entre 0,02 et 0,18. L'effet sur la valeur ajoutée des entreprises
+détenues par les partants est très faible, et les auteurs jugent que les réponses de ceux qui restent
+--- optimisation, épargne, fraude --- pèsent bien davantage. Le Focus ne publie pas d'écart-type.
+
+\subsection{La participation au marché du travail}
+
+Carbonnier (2021) exploite les discontinuités du barème que crée l'imposition commune des couples
+mariés pour estimer l'élasticité de la participation des femmes mariées à leur taux de rétention à
+la reprise d'emploi : entre 1 et 2, plus forte en bas de la distribution, en forme de U le long des
+revenus. Elle porte sur la décision de travailler et non sur le revenu déclaré ; elle n'est connue
+ici que par le résumé publié, le texte n'étant pas accessible depuis l'environnement de travail. Les
+travaux sur le RSA recensés par Sicsic (2023) trouvent des effets faibles ou nuls sur l'emploi
+(Briard et Sautory, 2012 ; Bargain et Vicard, 2014), sauf pour les mères isolées de jeunes enfants
+(Simonnet et Danzin, 2014) ; ils ne donnent pas d'élasticité.
+
+\section{Ce qu'on peut en conclure}
+
+Les revenus du capital réagissent environ trois fois plus que le revenu d'activité, les dividendes
+de ceux qui contrôlent leur société dix fois plus. Cette hiérarchie suit la facilité de changer la
+forme, la date ou le lieu d'un revenu sans changer d'activité. Un salaire déclaré par
+l'employeur ne se déplace pas ; un dividende que le dirigeant peut laisser dans sa société se
+déplace d'une année à l'autre ; un patrimoine déclaré en un seul chiffre, ou un don qu'on n'a pas à
+justifier, se déplace dans la déclaration elle-même.
+
+Les études françaises donnent ainsi à la phrase de Slemrod et Kopczuk (2002) --- l'élasticité est en
+partie un choix de politique publique --- des preuves directes. Supprimer le détail de la déclaration
+d'ISF a produit dix fois l'effet des seuils de tranche ; exiger les reçus des dons a divisé
+l'élasticité par cinq ; les régimes simplifiés des indépendants s'accompagnent de fraude. La
+saillance compte aussi : un même taux marginal produit plus de réaction quand il vient de l'impôt sur
+le revenu que des cotisations ou des prestations.
+
+Trois manques limitent ce qu'on peut en tirer. Toutes les élasticités sont de court terme, mesurées
+d'une année sur l'autre ; personne n'a estimé en France la réaction à cinq ou dix ans. Aucune étude
+récente n'estime la réaction du revenu d'activité du 1~\% le plus aisé, alors que c'est elle qui
+décide du taux supérieur. Et la part réelle des réactions n'est séparée de la part déclarative que
+dans quelques cas, toujours par des indices plutôt que par une mesure.
+
+\vspace{1.2em}
+{\color{bleu}\hrule height 0.8pt}
+\vspace{0.8em}
+
+{\small
+\textbf{Études recensées.} Laurent Bach, Antoine Bozio, Arthur Guillouzouic, Claire Leroy et Clément
+Malgouyres, «~Follow the money! Why dividends overreact to flat-tax reforms~», document de travail,
+septembre 2024 \textbullet{} Laurent Bach, Antoine Bozio, Nicolas Grimprel, Arthur Guillouzouic,
+Camille Landais et Clément Malgouyres, «~Fiscalité du capital : quels sont les effets de l'exil
+fiscal sur l'économie ?~», \emph{Focus du CAE} n°~118, juillet 2025 \textbullet{} Pierre-Yves
+Cabannes, Cédric Houdré et Camille Landais, «~Comment le revenu imposable des ménages réagit-il à sa
+taxation ? Une estimation sur la période 1997-2004~», \emph{Économie et Statistique} n°~467-468,
+2014 \textbullet{} Clément Carbonnier, «~Imposition jointe des revenus et emploi des femmes mariées :
+estimation à partir du cas français~», \emph{Revue économique} 72(2), 2021 \textbullet{} Gabrielle
+Fack et Camille Landais, «~The effect of tax enforcement on tax elasticities: Evidence from
+charitable contributions in France~», \emph{Journal of Public Economics} 133, 2016 (lu : document de
+travail, novembre 2013) \textbullet{} Bertrand Garbinti, Jonathan Goupille-Lebret, Mathilde Muñoz,
+Stefanie Stantcheva et Gabriel Zucman, «~Tax Design, Information, and Elasticities: Evidence From
+the French Wealth Tax~», NBER \emph{Working Paper} 31333, révisé en mai 2026 \textbullet{} Philippe
+Aghion, Ufuk Akcigit, Maxime Gravoueille, Matthieu Lequien et Stefanie Stantcheva, «~Tax Simplicity
+or Simplicity of Evasion? Evidence from Self-Employment Taxes in France~», document de travail, mai
+2023 \textbullet{} Raphaël Lardeux, «~Who Understands The French Income Tax? Bunching Where Tax
+Liabilities Start~», document de travail Insee G2018/04, 2018 \textbullet{} Marie-Noëlle Lefebvre,
+Etienne Lehmann et Michaël Sicsic, «~Estimating the Laffer tax rate on capital income: cross-base
+responses matter!~», \emph{Scandinavian Journal of Economics}, 2025 (lu : IZA DP 16112, 2023)
+\textbullet{} Marie-Noëlle Lefebvre, Etienne Lehmann, Michaël Sicsic et Elsa Zanoutene, «~Évaluation
+de la mise au barème des revenus du capital~», rapport pour France Stratégie, septembre 2020
+\textbullet{} Etienne Lehmann, François Marical et Laurence Rioux, «~Labor income responds
+differently to income-tax and payroll-tax reforms~», \emph{Journal of Public Economics} 99, 2013
+(lu : IZA DP 6108, 2011) \textbullet{} Michaël Sicsic, «~Does labour income react more to income tax
+or means-tested benefits reforms?~», \emph{Fiscal Studies} 43(3), 2022 (lu : TEPP WP 2020-03).
+
+\textbf{Autres travaux cités.} Laurent Bach, Antoine Bozio, Arthur Guillouzouic et Clément
+Malgouyres, «~Dividend Taxes and the Allocation of Capital: Comment~», \emph{American Economic
+Review} 113(7), 2023 \textbullet{} Charles Boissel et Adrien Matray, «~Dividend Taxes and the
+Allocation of Capital~», \emph{American Economic Review} 112(9), 2022, retiré par les auteurs,
+\emph{American Economic Review} 113(7), 2023 \textbullet{} Jonathan Gruber et Emmanuel Saez, «~The
+elasticity of taxable income: evidence and implications~», \emph{Journal of Public Economics}, 2002
+\textbullet{} Emmanuel Saez, Joel Slemrod et Seth Giertz, «~The Elasticity of Taxable Income with
+Respect to Marginal Tax Rates: A Critical Review~», \emph{Journal of Economic Literature}, 2012
+\textbullet{} Michaël Sicsic, «~L'élasticité de l'offre de travail et des revenus dans la
+littérature~», \emph{Revue de l'OFCE} n°~183, 2023 \textbullet{} Joel Slemrod et Wojciech Kopczuk,
+«~The optimal elasticity of taxable income~», \emph{Journal of Public Economics}, 2002
+\textbullet{} France Stratégie, Comité d'évaluation des réformes de la fiscalité du capital,
+quatrième rapport, avis du comité, octobre 2023 \textbullet{} Caroline Weber, «~Toward obtaining a
+consistent estimate of the elasticity of taxable income using difference-in-differences~»,
+\emph{Journal of Public Economics}, 2014.
+
+\textbf{Méthode.} Chaque chiffre a été relu dans le document cité ; le fichier
+\texttt{elasticites\_france.csv}, dans le dossier \texttt{donnees}, donne pour chacun la page et le
+tableau. Quand la version publiée n'était pas accessible, la version
+de travail lue est indiquée ; ses chiffres peuvent différer de ceux de l'article.}
+
+\end{document}

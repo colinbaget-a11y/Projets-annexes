@@ -1,7 +1,11 @@
 # Le cours
 
-`refaire-l-impot.tex` est la version de référence : 62 pages, treize chapitres en trois parties,
-quarante et une figures, deux tableaux et dix rapports publics français cités là où ils servent.
+`refaire-l-impot.tex` est la version de référence : 64 pages, treize chapitres en trois parties,
+quarante-deux figures, deux tableaux et dix rapports publics français cités là où ils servent.
+
+`elasticites-france.tex` est un complément au chapitre 1 (9 pages) : une revue des études publiées
+depuis 2010 qui estiment, sur données françaises, la réaction des revenus et des assiettes à
+l'impôt, avec le graphique c25 qui les rassemble.
 
 ## Organisation
 
@@ -214,4 +218,27 @@ ont suivi trois priorités.
 
 Les cinq hypothèses de l'auteur, la section des principes du chapitre 13 et les réponses à la
 relecture d'octobre sont conservées.
+
+## Complément : les élasticités estimées sur données françaises (octobre 2026)
+
+Douze travaux publiés depuis 2010, lus dans le texte, dont chaque chiffre est repris avec sa page et
+son tableau dans `donnees/elasticites_france.csv` ; le graphique c25 (`graphiques_cours.py`) en
+donne une ligne par estimation, avec l'intervalle de confiance quand l'étude publie un écart-type et
+l'éventail des spécifications publiées par les auteurs.
+
+- Revenu imposable et revenus d'activité : Cabannes, Houdré et Landais (2014), Lehmann, Marical et
+  Rioux (2013), Sicsic (2022), Lardeux (2018).
+- Revenus du capital : Lefebvre, Lehmann et Sicsic (2025) et leur rapport de 2020 pour France
+  Stratégie, Bach, Bozio, Guillouzouic, Leroy et Malgouyres (2024).
+- Autres assiettes et autres marges : Garbinti et al. (ISF, révision de 2026), Aghion et al.
+  (indépendants, 2023), Fack et Landais (dons, 2016), Focus du CAE n° 118 (départs, 2025), Carbonnier
+  (participation des femmes mariées, 2021, connu par son résumé).
+
+Points de méthode : Boissel et Matray (AER, 2022) est écarté, l'article ayant été retiré par ses
+auteurs en 2023 ; Aghion, Ciornohuz, Gravoueille et Stantcheva (2019) n'est pas repris, faute
+d'élasticité publiée ; HAL et le dépôt de Sciences Po renvoyant une page anti-robot, les versions
+IZA, TEPP ou des auteurs ont été lues, et le CSV dit laquelle. Le paragraphe du chapitre 1 a été
+corrigé : l'estimation de Lehmann, Marical et Rioux (environ 0,2) porte sur des salariés du privé
+de tous niveaux, identifiée par des réformes qui ne touchaient que ceux payés moins de deux fois le
+salaire minimum.
 
