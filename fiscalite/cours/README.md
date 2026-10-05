@@ -1,7 +1,7 @@
 # Le cours
 
-`refaire-l-impot.tex` est la version de référence : 66 pages, treize chapitres en trois parties,
-quarante-trois figures, deux tableaux et dix rapports publics français cités là où ils servent.
+`refaire-l-impot.tex` est la version de référence : 67 pages, treize chapitres en trois parties,
+quarante-quatre figures, deux tableaux et dix rapports publics français cités là où ils servent.
 
 `elasticites-france.tex` est un complément au chapitre 1 (11 pages) : une revue des études
 publiées depuis 2010 qui estiment, sur données françaises, la réaction des revenus et des assiettes

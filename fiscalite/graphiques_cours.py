@@ -1270,8 +1270,97 @@ def c29():
              "extrêmes du revenu du capital.")
 
 
+# ------------------- c30 : l'impôt porte sur le rendement nominal, l'inflation sur le capital
+INFL = 0.02
+REGIMES = [(0.172, "17,2 %", "#9ec5f4"),
+           (0.314, "31,4 %", BLEU),
+           (0.472, "47,2 %", VERT)]
+
+
+def c30():
+    """Deux panneaux complémentaires de c5, qui donne le taux effectif selon l'inflation. Ici
+    l'inflation est fixée à 2 % : à gauche, ce que devient un placement sûr sur un an ; à droite,
+    le rendement nominal qu'il faut atteindre pour ne pas s'appauvrir, décomposé entre ce qui
+    compense la hausse des prix et ce qui compense l'impôt. Le second morceau, inflation × taux /
+    (1 − taux), est le rendement réel minimal que le placement doit dégager."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.4, 5.2),
+                                 gridspec_kw={"width_ratios": [1, 1.05]})
+
+    # --- à gauche : 1 000 € placés un an, mouvement par mouvement
+    cap, nomi, taux = 1000.0, 0.024, 0.314
+    interets = cap * nomi
+    impot = interets * taux
+    prix = (cap + interets - impot) * INFL / (1 + INFL)
+    etapes = [("intérêts", interets, VERT), ("impôt", -impot, BRIQUE),
+              ("hausse\ndes prix", -prix, BRIQUE)]
+    base = 0.0
+    for i, (lab, v, c) in enumerate(etapes):
+        a1.bar(i, v, bottom=base, width=0.54, color=c, zorder=3)
+        a1.text(i, base + v + (1.1 if v > 0 else -1.1), f"{'+' if v > 0 else '−'}{fr(abs(v), 2)}",
+                ha="center", va="bottom" if v > 0 else "top", fontsize=9.8, fontweight="bold",
+                color=c)
+        if i:
+            a1.plot([i - 1.27, i - 0.27], [base, base], color=GRIS, lw=0.7, ls=(0, (3, 3)),
+                    zorder=2)
+        base += v
+    a1.bar(3, base, width=0.54, color=INK, zorder=3)
+    a1.text(3, base - 1.1, f"−{fr(abs(base), 2)} €", ha="center", va="top", fontsize=11,
+            fontweight="bold", color=INK)
+    a1.plot([1.73, 2.73], [base, base], color=GRIS, lw=0.7, ls=(0, (3, 3)), zorder=2)
+    a1.axhline(0, color=INK, lw=0.9, zorder=4)
+    a1.set_xticks(range(4), [e[0] for e in etapes] + ["au total"], fontsize=9.5)
+    a1.set_ylim(-13, 36)
+    a1.set_yticks([-10, 0, 10, 20], ["−10", "0", "+10", "+20 €"])
+    a1.set_xlim(-0.6, 3.6)
+    for s_ in ("top", "right"):
+        a1.spines[s_].set_visible(False)
+    a1.tick_params(axis="x", length=0)
+    grille(a1)
+    panneau(a1, "1 000 € placés un an à 2,4 %")
+    a1.text(-0.48, 34, "Sur le compte : 1 016,46 €.\nIls achètent moins que les 1 000 €\n"
+            "de l'année d'avant.", fontsize=9.2, color=INK2, va="top", linespacing=1.45)
+
+    # --- à droite : le rendement nominal qu'il faut atteindre, décomposé
+    for i, (t, lab, c) in enumerate(REGIMES):
+        sup = 100 * INFL * t / (1 - t)
+        a2.bar(i, 100 * INFL, width=0.62, color="#D6D6D6", zorder=3)
+        a2.bar(i, sup, bottom=100 * INFL, width=0.62, color=BLEU, zorder=3)
+        a2.text(i, 100 * INFL + sup / 2, fr(sup, 2), ha="center", va="center", fontsize=9,
+                fontweight="bold", color="white", zorder=4)
+        a2.text(i, 100 * INFL + sup + 0.12, fr(100 * INFL + sup, 1) + " %", ha="center",
+                va="bottom", fontsize=11, fontweight="bold", color=BLEU)
+    a2.legend(handles=[Rectangle((0, 0), 1, 1, color=BLEU),
+                       Rectangle((0, 0), 1, 1, color="#D6D6D6")],
+              labels=["pour compenser l'impôt", "pour compenser la hausse des prix"],
+              loc="upper left", bbox_to_anchor=(-0.02, 1.03), fontsize=8.6, frameon=False,
+              handlelength=0.9, handletextpad=0.45, labelspacing=0.35, labelcolor=INK2)
+    a2.set_xticks(range(3), [lab for _, lab, _ in REGIMES], fontsize=9.5)
+    a2.set_xlabel("taux d'imposition du rendement")
+    a2.set_xlim(-0.62, 2.62)
+    a2.set_ylim(0, 5.0)
+    a2.set_yticks([0, 1, 2, 3, 4], ["0", "1", "2", "3", "4 %"])
+    a2.set_ylabel("rendement annuel du placement, avant impôt")
+    for s_ in ("top", "right"):
+        a2.spines[s_].set_visible(False)
+    a2.tick_params(axis="x", length=0)
+    grille(a2)
+    panneau(a2, "Ce qu'il faut gagner pour ne rien perdre, à 2 % d'inflation")
+    fig.subplots_adjust(wspace=0.32)
+    fin(fig, "c30_inflation_seuil.png",
+        "Calcul arithmétique, pour une inflation de 2 % et les trois régimes français de 2026 : "
+        "17,2 % de prélèvements sociaux pour l'assurance vie dans l'abattement, 31,4 % pour le "
+        "prélèvement forfaitaire unique, 47,2 % pour un revenu foncier taxé au taux marginal "
+        "de 30 %.",
+        "Note : l'impôt frappe les intérêts nominaux, dont une partie ne fait que compenser la "
+        "hausse des prix ; il est donc dû même quand l'épargnant ne s'est pas enrichi. Le "
+        "rendement nominal au-dessous duquel épargner appauvrit vaut l'inflation divisée par un "
+        "moins le taux. La partie colorée de chaque barre est le rendement réel minimal que le "
+        "placement doit dégager : 0,92 % au prélèvement forfaitaire unique, contre 0 si l'impôt "
+        "portait sur le rendement réel.")
+
+
 if __name__ == "__main__":
     for f in (c1, c2, c3, c4, c5, c6, c7, c8, c9, c11,
               c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26,
-              c27, c28, c29):
+              c27, c28, c29, c30):
         f()
