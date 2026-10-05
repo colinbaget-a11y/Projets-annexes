@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.3)  5 OCT 2026 08:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.3)  5 OCT 2026 08:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -356,7 +356,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip63
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 38
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 41
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
@@ -370,32 +370,32 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./plan-rapport.aux)
 \openout1 = `plan-rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Info: Redefining \degres on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Info: Redefining \degres on input line 41.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 38.
+(french.ldf)             reported on input line 41.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 38.
-LaTeX Info: Redefining \up on input line 38.
+(french.ldf)             reported on input line 41.
+LaTeX Info: Redefining \up on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -445,19 +445,19 @@ LaTeX Info: Redefining \up on input line 38.
 \makeMPintoPDFobject=\count295
 \everyMPtoPDFconversion=\toks27
 )
-LaTeX Info: Redefining \microtypecontext on input line 38.
-Package microtype Info: Applying patch `item' on input line 38.
-Package microtype Info: Applying patch `toc' on input line 38.
-Package microtype Info: Applying patch `eqnum' on input line 38.
-Package microtype Info: Applying patch `footnote' on input line 38.
-Package microtype Info: Applying patch `verbatim' on input line 38.
+LaTeX Info: Redefining \microtypecontext on input line 41.
+Package microtype Info: Applying patch `item' on input line 41.
+Package microtype Info: Applying patch `toc' on input line 41.
+Package microtype Info: Applying patch `eqnum' on input line 41.
+Package microtype Info: Applying patch `footnote' on input line 41.
+Package microtype Info: Applying patch `verbatim' on input line 41.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 38.
+LaTeX Info: Redefining \showhyphens on input line 41.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -465,59 +465,59 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 38.
+Package hyperref Info: Link coloring OFF on input line 41.
 
 (./plan-rapport.out) (./plan-rapport.out)
 \@outlinefile=\write3
 \openout3 = `plan-rapport.out'.
 
-LaTeX Font Info:    Calculating math sizes for size <20> on input line 43.
+LaTeX Font Info:    Calculating math sizes for size <20> on input line 46.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-3.
+6.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-3.
+6.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-43.
+46.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-43.
+46.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20> on input line 43.
+(Font)              <20> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <13.99994> on input line 43.
+(Font)              <13.99994> on input line 46.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 43.
+(Font)              <10> on input line 46.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 60.
+(hyperref)                removing `\hfill' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 60.
+(hyperref)                removing `\@ifnextchar' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 66.
+(hyperref)                removing `\hfill' on input line 74.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 66.
+(hyperref)                removing `\@ifnextchar' on input line 74.
 
 [1
 
@@ -525,32 +525,32 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 dvips/lm/lm-ec.enc}]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 104.
+(hyperref)                removing `\hfill' on input line 112.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 104.
+(hyperref)                removing `\@ifnextchar' on input line 112.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 130.
+(hyperref)                removing `\hfill' on input line 140.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 130.
+(hyperref)                removing `\@ifnextchar' on input line 140.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 148.
+(Font)              <7> on input line 159.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 148.
+(Font)              <5> on input line 159.
 [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 159.
+(hyperref)                removing `\hfill' on input line 170.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 159.
+(hyperref)                removing `\@ifnextchar' on input line 170.
 
 [3] (./plan-rapport.aux)
  ***********
@@ -561,18 +561,18 @@ Package rerunfilecheck Info: File `plan-rapport.out' has not changed.
 (rerunfilecheck)             Checksum: A0B35C53867750DDD793700B0E85C4C6;1833.
  ) 
 Here is how much of TeX's memory you used:
- 13935 strings out of 476153
- 221386 string characters out of 5794326
+ 13936 strings out of 476153
+ 221390 string characters out of 5794326
  1938975 words of memory out of 5000000
- 35635 multiletter control sequences out of 15000+600000
+ 35636 multiletter control sequences out of 15000+600000
  621828 words of font info for 132 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,15n,79p,1009b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,79p,1009b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri7.pfb>
-Output written on plan-rapport.pdf (3 pages, 158276 bytes).
+Output written on plan-rapport.pdf (3 pages, 158696 bytes).
 PDF statistics:
  101 PDF objects out of 1000 (max. 8388607)
  83 compressed objects within 1 object stream
