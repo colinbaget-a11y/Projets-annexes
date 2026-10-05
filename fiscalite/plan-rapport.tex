@@ -6,7 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[french]{babel}
-\usepackage[a4paper,left=2.7cm,right=2.7cm,top=2.4cm,bottom=2.5cm]{geometry}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.3cm,bottom=2.4cm]{geometry}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
@@ -20,11 +20,10 @@
 \definecolor{bleu}{HTML}{0B4FD6}
 \definecolor{ocre}{HTML}{C79100}
 
-% Ce qui vient de notre côté, par rapport au plan du 5 octobre.
 \newcommand{\nous}[1]{\textcolor{bleu}{#1}}
 
 \titleformat{\section}{\normalfont\large\bfseries\color{encre}}{}{0em}{}
-\titlespacing*{\section}{0pt}{2.0ex plus 1ex minus .2ex}{0.9ex plus .2ex}
+\titlespacing*{\section}{0pt}{1.9ex plus 1ex minus .2ex}{0.85ex plus .2ex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -33,10 +32,11 @@
 \fancyhead[R]{\small\thepage}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.45em}
-\linespread{1.03}
+\setlength{\parskip}{0.38em}
+\linespread{1.01}
 
 \newcommand{\partie}[2]{\section{#1\hfill\normalfont\normalsize\color{encre}#2}}
+\newcommand{\partienous}[2]{\section{\color{bleu}#1\hfill\normalfont\normalsize\color{bleu}#2}}
 
 \begin{document}
 
@@ -46,22 +46,22 @@
 {\raggedright\fontsize{20}{24}\selectfont\bfseries Quel système fiscal\\ pour la France du XXI\textsuperscript{e} siècle ?\par}
 \vspace{7pt}
 {\color{encre}\hrule height 1.2pt}
-\vspace{6pt}
+\vspace{5pt}
 {\small\nous{En bleu}, ce que cette version ajoute ou modifie ; en noir, ce qui reprend le plan du
 5~octobre.\par}
 \vspace{4pt}
 {\color{encre}\hrule height 0.4pt}
-\vspace{6pt}
+\vspace{5pt}
 
 \textbf{La thèse.} Le système fiscal français n'a jamais été choisi : il s'est accumulé. Chacune de
-ses pièces répondait à un besoin du moment, aucune à un dessein d'ensemble. Il en résulte un
-système qui pèse trop sur le travail et sur la production, trop peu sur la consommation et sur ce
-qui se transmet, et qui obtient son rendement par des taux élevés sur des assiettes mitées ---
-\nous{l'inverse de ce que recommande un siècle d'économie publique}. Le rapport reconstruit ce
-système en partant d'une feuille blanche, libre des contraintes politiques mais non des contraintes
-économiques, puis dit ce qui peut réellement être fait.
+ses pièces répondait à un besoin du moment, aucune à un dessein d'ensemble. \nous{Il en résulte un
+coût qui se mesure : à recettes et à redistribution inchangées, la structure actuelle détruit chaque
+année plusieurs milliards d'euros de richesse de plus qu'une structure qui lèverait la même somme
+autrement. Ce coût est le fil du rapport, qui le chiffre assiette par assiette et en donne les
+bornes. Il ne suppose aucun jugement sur le niveau de prélèvement : c'est de l'argent perdu pour
+tout le monde, que personne ne reçoit.}
 
-Environ 90 pages, plus des annexes. Premier lecteur : les responsables politiques ; ensuite les
+Environ 105 pages, annexes comprises. Premier lecteur : les responsables politiques ; ensuite les
 économistes et les citoyens. \nous{Chaque proposition est gagée et chiffrée ; aucune n'est avancée
 sans dire qui la paie.}
 
@@ -73,130 +73,145 @@ crédible : un rapport qui ne dit pas qui perd ne sert à rien.}
 
 \partie{Première partie --- Un impôt qui a perdu le fil}{20 p.}
 
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.22em,parsep=0pt,topsep=0.3em]
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em]
 \item \textbf{À quoi sert l'impôt.} Le triangle : financer, orienter, corriger. L'article 13 de la
-Déclaration de 1789 fonde la contribution commune « en raison des facultés », l'article 14 la
-soumet au consentement et au suivi de son emploi. Trois bornes en découlent --- nécessité, facultés,
-consentement --- \nous{et trois résultats d'économie publique leur donnent leur contenu opératoire :
-la perte sèche croît avec le carré du taux, donc assiettes larges et taux bas ; l'incidence ne suit
-jamais l'étiquette, donc on ne juge pas un impôt sur son nom ;} aucun impôt n'a à tout faire, c'est
-l'ensemble qui tient le triangle.
+Déclaration de 1789 fonde la contribution commune « en raison des facultés », l'article 14 la soumet
+au consentement et au suivi de son emploi. Trois bornes en découlent : nécessité, facultés,
+consentement. Aucun impôt n'a à tout faire ; c'est l'ensemble qui tient le triangle.
 \item \textbf{Un demi-siècle d'impôts sans architecte.} La dépense a écrit l'histoire de l'impôt :
-\nous{1945, financer la protection sociale sur le salaire ; 1954, la TVA et le choix de l'assiette
-large ;} 1991, la CSG, premier élargissement au-delà du salaire, jamais mené à son terme ; 1996, la
-CRDS créée pour treize ans et toujours là. Puis trente ans de correctifs : allègements de
-cotisations empilés depuis 1993, \nous{qui ont fabriqué sans que personne le décide un profil de
-taux marginal plus lourd en bas qu'en haut} ; près de 470 dépenses fiscales ; des impôts compensés
-par des aides et des cotisations compensées par des allègements.
+\nous{1945, financer la protection sociale sur le salaire ; 1954, la TVA et l'assiette large ;}
+1991, la CSG, premier élargissement au-delà du salaire, jamais mené à son terme ; 1996, la CRDS
+créée pour treize ans et toujours là. Puis trente ans de correctifs : allègements empilés depuis
+1993, \nous{qui ont fabriqué sans que personne le décide un profil de taux marginal plus lourd en
+bas qu'en haut} ; près de 470 dépenses fiscales ; des impôts compensés par des aides.
 \item \nous{\textbf{Les réformes qu'on n'a pas faites.} Les valeurs locatives : établies en 1970,
 révision votée en 1990 et jamais appliquée, votée de nouveau en 2019 et repoussée aux impositions de
 2031. Techniquement simple, consensuelle entre économistes, bloquée depuis cinquante ans. Et le
-mécanisme général : une réforme fiscale fait des perdants identifiables et des gagnants diffus, de
-sorte qu'un gouvernement qui a besoin d'argent cherche les prélèvements dont les perdants sont
-difficiles à nommer. La complexité n'est pas un accident.}
+mécanisme général : une réforme fait des perdants identifiables et des gagnants diffus, de sorte
+qu'un gouvernement qui a besoin d'argent cherche les prélèvements dont les perdants sont difficiles
+à nommer. La complexité n'est pas un accident.}
 \item \textbf{Le triangle brisé, \nous{en sept défauts chiffrés}.} \nous{77 milliards de
 prélèvements dus même quand l'entreprise perd de l'argent ; un euro supplémentaire taxé à 64,6~\% au
-voisinage du salaire minimum contre 55,4~\% au taux supérieur du barème ; deux impôts sur le revenu
-qui ne partagent ni assiette, ni unité, ni barème ; le même rendement d'épargne imposé de 0 à 55~\%
-selon l'enveloppe ; des valeurs foncières de 1970 ; un prix du carbone qui varie du simple au
-quadruple ;} 474 dépenses fiscales pour 91,8 milliards, \nous{dont le coût n'est pas connu. Et ce
-que le système fait bien, qu'il ne faut pas défaire : le taux normal de TVA, les règles
-d'amortissement, le taux de l'impôt sur les sociétés.}
+voisinage du salaire minimum contre 55,4~\% au taux supérieur ; deux impôts sur le revenu qui ne
+partagent ni assiette, ni unité, ni barème ; le même rendement d'épargne imposé de 0 à 55~\% selon
+l'enveloppe ; des valeurs foncières de 1970 ; un prix du carbone du simple au quadruple ;} 474
+dépenses fiscales pour 91,8 milliards, \nous{au coût inconnu. Et ce que le système fait bien et
+qu'il ne faut pas défaire : le taux normal de TVA, les règles d'amortissement, le taux de l'impôt
+sur les sociétés.}
 \item \textbf{Combien faut-il prélever ?} La France est au premier rang de la zone euro pour la
 dépense publique, et l'écart s'est creusé depuis 2001 ; il finance aux deux tiers la protection
 sociale. Ce qui en est irréductible --- conventions comptables, partage public-privé, démographie,
-défense --- et ce qui ne l'est pas. \nous{Le rapport distingue ici deux questions que le débat
-confond : lever mieux, et lever moins.}
+défense --- et ce qui ne l'est pas. \nous{Deux questions que le débat confond : lever mieux, et
+lever moins.}
 \end{enumerate}
 
-\partie{Deuxième partie --- Ce qu'on bâtirait en partant de zéro}{24 p.}
+\partienous{Deuxième partie --- Ce que l'analyse économique établit}{12 p.}
 
-\nous{La partie est délibérément abstraite : c'est elle qui permet de séparer ce que l'analyse
-établit de ce qu'elle laisse au choix politique.} Une règle la traverse --- assiettes larges, taux
-bas, pas de niche, et pas d'aide là où supprimer un impôt suffit --- et quatre basculements en
-découlent.
+\nous{Le cœur démonstratif du rapport, et l'étalon auquel tout le reste se mesure. Un siècle
+d'économie publique a établi quelques résultats solides sur la façon de lever une somme donnée au
+moindre coût. Ils ne disent rien de ce qu'il faut redistribuer, et c'est ce qui les rend utilisables
+quelles que soient les préférences du lecteur.}
 
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.22em,parsep=0pt,topsep=0.3em,start=6]
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em,start=6]
+\item \nous{\textbf{Ce qu'un impôt détruit.} Le coût d'un prélèvement croît avec le carré de son
+taux : doubler un taux quadruple la perte. D'où la règle des assiettes larges et des taux bas, qui
+n'est pas un slogan mais une conséquence arithmétique. L'élasticité qui commande ce coût est en
+partie fabriquée par le législateur : fermer une possibilité de requalification réduit le coût d'un
+taux donné.}
+\item \nous{\textbf{Les quatre résultats qui commandent la structure}, et les hypothèses sous
+lesquelles chacun vaut, faute de quoi ce sont des slogans. Ne pas taxer les intrants, la même
+redistribution s'obtenant sans faire produire moins. Ne pas différencier les taux sur la
+consommation, un taux réduit donnant plus d'euros au ménage aisé. Ne pas taxer le rendement normal
+de l'épargne, qui revient à taxer l'attente, et d'autant plus qu'elle est longue. Taxer ce qui ne
+peut pas fuir : le sol, seule assiette dont la perte est nulle.}
+\item \nous{\textbf{Qui paie vraiment.} L'incidence ne suit jamais l'étiquette. Ce que supportent
+réellement le salarié, l'actionnaire, le consommateur et le vendeur d'un logement, et pourquoi un
+impôt sans victime visible est politiquement commode et économiquement coûteux.}
+\item \nous{\textbf{Ce que valent ces résultats sur données françaises.} Les réactions à l'impôt
+estimées depuis 2010 : de 0,2 à 0,3 pour le revenu d'activité, trois fois moins pour le retrait des
+prestations, environ 0,7 pour les revenus du capital, et jusqu'à 2,5 pour les dividendes de ceux qui
+contrôlent leur société. Ce que ces ordres de grandeur permettent de chiffrer, et ce qu'ils ne
+permettent pas. C'est de là que vient l'estimation du coût de la structure actuelle.}
+\end{enumerate}
+
+\partie{Troisième partie --- Ce qu'on bâtirait en partant de zéro}{22 p.}
+
+\nous{Les résultats précédents appliqués à la France, sans les contraintes politiques.} Une règle
+traverse la partie --- assiettes larges, taux bas, pas de niche, et pas d'aide là où supprimer un
+impôt suffit --- et quatre basculements en découlent.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em,start=10]
 \item \textbf{Rendre au travail sa promesse.} Un modèle social financé sur le seul salaire ; trente
 ans d'exonérations ciblées qui ont épuisé le levier et tassé l'échelle des salaires. \nous{Alléger
 ce qui pèse sur l'effort suppose de dire sur quoi la charge est reportée.}
-\item \textbf{À revenu égal, effort égal.} Qu'il vienne du travail, d'une pension ou d'un
-patrimoine, un même revenu contribue de la même façon. La consommation et le patrimoine sont les
-deux assiettes où actifs et retraités contribuent ensemble.
+\item \textbf{À revenu égal, effort égal.} Qu'il vienne du travail, d'une pension ou d'un patrimoine,
+un même revenu contribue de la même façon. La consommation et le patrimoine sont les deux assiettes
+où actifs et retraités contribuent ensemble.
 \item \textbf{Préférer le risque à la rente.} \nous{Ce qu'on ne taxerait pas : les facteurs de
-production, puisque la même somme se lève ailleurs sans faire produire moins ; le rendement normal
-de l'épargne, puisque le taxer revient à taxer l'attente, et d'autant plus qu'elle est longue ; la
-transaction immobilière, qui décourage les déménagements. Ce qu'on taxerait à la place : la rente,
-le sol --- seule assiette dont la perte sèche est nulle ---, le carbone à prix unique,} et ce qui se
-transmet.
+production, le rendement normal de l'épargne, la transaction immobilière. Ce qu'on taxerait à la
+place : la rente, le sol, le carbone à prix unique,} et ce qui se transmet.
 \item \textbf{De l'assistance à l'assurance.} Ce qui relève de la nation entière est financé par
-l'impôt ; ce qui ouvre des droits individuels est financé par la contribution. Chaque échelon ---
-État, Sécurité sociale, collectivités --- dispose de ressources propres et identifiables.
+l'impôt ; ce qui ouvre des droits individuels, par la contribution. Chaque échelon dispose de
+ressources propres et identifiables.
 \item \nous{\textbf{Le système complet, chiffré.} Ce que lève chaque assiette à structure refondue,
-face au système actuel, en deux colonnes. Et ce que l'analyse ne tranche pas : le degré de
-redistribution, le traitement de l'héritage, l'unité d'imposition.}
+face au système actuel, en deux colonnes ; et le coût de structure qui disparaît, qui est la thèse
+du rapport. Enfin, ce que l'analyse ne tranche pas : le degré de redistribution, le traitement de
+l'héritage, l'unité d'imposition.}
 \end{enumerate}
 
-\partie{Troisième partie --- Les réformes}{32 p.}
+\partie{Quatrième partie --- Les réformes}{32 p.}
 
 Chaque chapitre suit le même mode d'emploi : le principe, ce qu'on en attend, ce que font nos
-voisins, qui gagne et qui perd, comment y aller, et la réponse aux objections --- \nous{à
-l'objection la plus forte, celle qui pourrait faire changer la conclusion, et non à une liste de
-limites de politesse.}
+voisins, qui gagne et qui perd, comment y aller, et la réponse aux objections --- \nous{à l'objection
+la plus forte, celle qui pourrait faire changer la conclusion.}
 
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.22em,parsep=0pt,topsep=0.3em,start=11]
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em,start=15]
 \item \textbf{Moins sur la fiche de paie, plus sur le ticket de caisse.} Baisse des prélèvements sur
 le travail compensée par la TVA. \nous{Deux leviers à distinguer : élargir l'assiette, qui ne couvre
-que 51~\% de la consommation contre 55~\% dans l'OCDE, et relever le taux. Le premier est le mieux
-établi ; le second produit un gain de compétitivité réel mais ponctuel.} Précédents danois (1987) et
-allemand (2007), et l'échec français de 2012. \nous{La compensation des ménages modestes est
-chiffrée, faute de quoi la mesure est régressive.}
+que 51~\% de la consommation contre 55~\% dans l'OCDE, et relever le taux ; le premier est le mieux
+établi, le second donne un gain de compétitivité réel mais ponctuel.} Précédents danois (1987) et
+allemand (2007), échec français de 2012. \nous{La compensation des ménages modestes est chiffrée,
+faute de quoi la mesure est régressive.}
 \item \textbf{Taxer le profit, pas la production.} Supprimer les prélèvements dus avant le premier
 euro de bénéfice, financés par le troc « zéro aide contre zéro impôt de production ». Un impôt sur
-les sociétés \nous{à taux stable, sans surtaxe,} à assiette resserrée, \nous{et la déduction d'un
-rendement normal sur les fonds propres nouveaux pour supprimer le biais en faveur de la dette.}
-Rendre aux collectivités une ressource foncière propre et modernisée.
+les sociétés \nous{à taux stable,} à assiette resserrée, \nous{et la déduction d'un rendement normal
+sur les fonds propres nouveaux pour supprimer le biais en faveur de la dette.} Rendre aux
+collectivités une ressource foncière propre et modernisée.
 \item \textbf{Alléger le capital qui travaille, réformer celui qui se transmet.} \nous{Côté vivant :
 un régime unique, rendement normal exonéré, assiette indexée, ce qui dépasse au barème.} Côté
-transmis : une assiette sans exception --- pacte Dutreil plafonné et conditionné, \nous{assurance
-vie alignée,} plus-value constatée au décès et payée à la revente --- \nous{et des taux faciaux
-abaissés en contrepartie, à rendement inchangé.} L'imposition porte sur ce que chacun reçoit au
-cours de sa vie, avec un abattement élevé qui exonère la grande majorité.
+transmis : une assiette sans exception --- Dutreil plafonné et conditionné, \nous{assurance vie
+alignée,} plus-value constatée au décès et payée à la revente ; l'imposition porte sur ce que chacun
+reçoit au cours de sa vie, avec un abattement élevé qui exonère la grande majorité.
 \item \textbf{Retraites : ce que leur financement engage.} \nous{La frontière entre ce qui ouvre des
-droits et ce qui redistribue ; la contribution des pensions élevées ;} la place d'un étage de
-capitalisation et le coût de transition pour les générations qui paient deux fois.
+droits et ce qui redistribue ; la contribution des pensions élevées ;} l'étage de capitalisation et
+le coût de transition pour les générations qui paient deux fois.
 \end{enumerate}
 
 \partie{Conclusion --- La France fiscale de 2035}{6 p.}
 
 Le nouveau paysage, avant et après, pour le travail, la consommation, les entreprises et les
 héritages. Des comptes qui bouclent : chaque baisse adossée à une économie ou à un autre
-prélèvement. Qui gagne et qui perd, par niveau de vie et par âge, \nous{sur trois ménages types
-calculés sur le barème réel.} Un chemin en trois temps, \nous{et ce qui rend une réforme durable ---
-ce que la première partie apprend des réformes qui ont tenu et de celles qui ont été défaites.}
+prélèvement. Qui gagne et qui perd, par niveau de vie et par âge, \nous{sur trois ménages types.}
+Un chemin en trois temps, \nous{et ce qui fait qu'une réforme dure.}
 
-\textbf{Annexes} (8 à 10 p.). Méthode et périmètre ; \nous{les trois ménages types ; les réactions à
-l'impôt estimées sur données françaises depuis 2010 ; les architectures de taxation du capital
-construites ailleurs ;} comparaisons internationales ; glossaire.
+\textbf{Annexes} (9 p.). Méthode et périmètre ; \nous{le chiffrage du coût de structure, hypothèses
+et bornes ; les trois ménages types ; les réactions à l'impôt estimées sur données françaises ; les
+architectures de taxation du capital construites ailleurs ;} comparaisons et glossaire.
 
 \section{Points à arbitrer}
 
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.22em,parsep=0pt,topsep=0.3em]
-\item \nous{\textbf{Lever mieux, ou lever moins ?} Le rapport peut raisonner à rendement constant,
-et démontrer alors que la structure seule explique une large part du coût économique du système ; ou
-viser un niveau inférieur, ce qui suppose de nommer les dépenses qui diminuent. Les deux messages
-sont défendables, mais le second place le débat sur un terrain où la démonstration fiscale ne suffit
-plus.}
-\item \nous{\textbf{Les transmissions.} Réforme d'assiette à rendement inchangé, taux faciaux
-abaissés, ou hausse du poids de l'impôt sur les successions ?}
-\item \textbf{Les retraites.} Le financement seul, ou aussi les paramètres --- âge, durée, étage de
-capitalisation ? \nous{Le second ouvre un chapitre qui peut absorber le reste du rapport.}
-\item \nous{\textbf{Les taux réduits de TVA.} Les préserver au nom de la protection des ménages
-modestes, ou les rapprocher du taux normal en compensant par un transfert forfaitaire, qui donne
-davantage aux mêmes ménages pour un coût budgétaire moindre ?}
-\item \nous{\textbf{Un impôt sur les sociétés progressif} selon le niveau de bénéfice : à discuter,
-le dispositif encourageant le fractionnement des groupes et son incidence retombant en partie sur
-les salaires.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em]
+\item \nous{\textbf{Lever mieux, ou lever moins ?} Rendement constant, et la structure seule
+explique une large part du coût du système ; ou niveau inférieur, ce qui suppose de nommer les
+dépenses qui diminuent et déplace le débat hors de la démonstration fiscale.}
+\item \textbf{Les transmissions.} \nous{Réforme d'assiette à rendement inchangé, taux faciaux
+abaissés, ou} hausse du poids de l'impôt sur les successions ?
+\item \textbf{Les retraites.} Le financement seul, ou aussi les paramètres ? \nous{Le second ouvre un
+chapitre qui peut absorber le reste du rapport.}
+\item \textbf{Les taux réduits de TVA.} Les préserver, \nous{ou les rapprocher du taux normal avec un
+transfert forfaitaire, qui protège mieux les mêmes ménages pour moins cher ?}
+\item \textbf{Un impôt sur les sociétés progressif} selon le bénéfice, \nous{qui encourage le
+fractionnement des groupes et dont l'incidence retombe en partie sur les salaires.}
 \end{enumerate}
 
 \end{document}
