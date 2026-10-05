@@ -290,7 +290,7 @@ def r6():
         fr_ = x["code"] == "FRA"
         ax.plot([s], [t], "o", ms=8.5 if fr_ else 6, color=BLEU if fr_ else CLAIR,
                 markeredgecolor=SURFACE, markeredgewidth=1.2, zorder=4 if fr_ else 3)
-    dec = {"FRA": (-10, 0, "right"), "DNK": (8, 4), "BEL": (-8, 0, "right"), "AUT": (8, 3),
+    dec = {"FRA": (0, 13, "center"), "DNK": (8, 4), "BEL": (-8, 0, "right"), "AUT": (8, 3),
            "DEU": (8, -4), "GBR": (8, 0), "USA": (8, 0), "ESP": (8, 4), "PRT": (8, -6),
            "SWE": (8, 5), "JPN": (8, 0), "NLD": (8, 1), "ITA": (8, -6), "EST": (8, 0),
            "IRL": (-8, -2, "right"), "CHL": (8, 0), "CZE": (8, 0)}
@@ -306,20 +306,21 @@ def r6():
     ax.set_xlim(0.6, 40)
     ax.set_xticks([1, 2, 5, 10, 20], ["1 fois", "2 fois", "5 fois", "10 fois", "20 fois"])
     ax.minorticks_off()
-    ax.set_ylim(10, 62)
+    ax.set_ylim(18, 63)
     ax.yaxis.set_major_formatter(PCT)
-    ax.set_xlabel("revenu à partir duquel s'applique le taux supérieur, en multiple du salaire moyen "
-                  "(échelle logarithmique)")
+    ax.set_xlabel("revenu à partir duquel s'applique le taux supérieur,\nen multiple du salaire "
+                  "moyen (échelle logarithmique)")
     grille(ax)
-    titre(ax, "Le taux supérieur français est élevé, mais ne concerne presque personne",
-          "Taux marginal supérieur de l'impôt sur le revenu, prélèvements assimilés compris, et "
-          "seuil d'application, pays de l'OCDE, 2025.")
+    titre(ax, "Le taux supérieur français est élevé, et il s'applique très tard",
+          "Taux marginal supérieur de l'impôt sur le revenu, prélèvements assimilés compris,\net "
+          "revenu à partir duquel il s'applique. Pays de l'OCDE, 2025.")
     fin(fig, "r6_taux_superieur_et_seuil.png",
         "Source : OCDE, base de données fiscale, taux statutaire supérieur de l'impôt sur le revenu "
         "et seuil d'application (DSD_TAX_PIT, mesures TS_PIT et TS_PIT_TH).",
-        "Lecture : la Belgique et le Danemark appliquent un taux comparable au taux français à "
-        "partir d'un revenu proche du salaire moyen ; la France l'applique à partir de treize fois "
-        "ce salaire.")
+        "Lecture : la France applique 55,4 % à partir de treize fois le salaire moyen. La Belgique "
+        "(52,7 %) et le Danemark (55,9 %) appliquent un taux comparable dès un revenu proche du "
+        "salaire moyen, l'Allemagne 47,5 % à partir de quatre fois ce salaire. Seule l'Autriche "
+        "applique son taux supérieur plus tard que la France.")
 
 
 # ------------------------------------------------ r7 : TVA, taux et assiette
@@ -592,6 +593,98 @@ def r12():
         "Note : les catégories 1300 et 6000, non classées, sont omises.")
 
 
+# ------------------- r13 : le coin marginal selon le niveau de salaire
+def r13():
+    """Part prélevée sur un euro supplémentaire de coût du travail, aux trois niveaux de salaire
+    que publie l'OCDE. La France et la Belgique sont les deux seuls pays dont le profil décroît
+    puis remonte ; la moyenne de l'OCDE, elle, croît avec le salaire."""
+    d = {x["code"]: (x["pays"], [float(x["aw67"]), float(x["aw100"]), float(x["aw167"])])
+         for x in lire("coin_marginal_par_niveau.csv")}
+    xs = [0, 1, 2]
+    fig, ax = plt.subplots(figsize=(8.8, 5.4))
+    for code, (nom, v) in d.items():
+        if code not in ("FRA", "BEL", "OECD_REP", "DNK"):
+            ax.plot(xs, v, color=CLAIR, lw=1.0, zorder=2)
+    traces = [("DNK", "Danemark", "#8FA8C8", 1.6, "normal"),
+              ("OECD_REP", "Moyenne\nOCDE", GRIS, 1.8, "normal"),
+              ("BEL", "Belgique", OCRE, 2.0, "bold"),
+              ("FRA", "France", BLEU, 3.0, "bold")]
+    for code, nom, c, lw, poids in traces:
+        nom_, v = d[code]
+        ls = (0, (5, 2)) if code == "OECD_REP" else "-"
+        ax.plot(xs, v, color=c, lw=lw, ls=ls, zorder=4 if code == "FRA" else 3)
+        ax.plot(xs, v, "o", ms=5.6 if code == "FRA" else 4.4, color=c,
+                markeredgecolor=SURFACE, markeredgewidth=1.2, zorder=5)
+        ax.text(2.07, v[2], nom, va="center", fontsize=9.6 if code == "FRA" else 9,
+                color=c, fontweight=poids)
+    for i, v in enumerate(d["FRA"][1]):
+        ax.annotate(fr(v, 1) + " %", (i, v), xytext=(0, 12 if i == 2 else -17),
+                    textcoords="offset points", ha="center", fontsize=10.5, color=BLEU,
+                    fontweight="bold", path_effects=HALO, zorder=6)
+    ax.set_xlim(-0.14, 2.95)
+    ax.set_ylim(28, 74)
+    ax.set_xticks(xs, ["67 %", "100 %", "167 %"], fontsize=10.5)
+    ax.set_xlabel("salaire, en % du salaire moyen")
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "En France, l'euro suivant est le plus taxé en bas de l'échelle",
+          "Part prélevée sur un euro supplémentaire de coût du travail, célibataire sans enfant, "
+          "2025.\nDix-neuf pays et deux moyennes ; quatre séries sont nommées.")
+    fin(fig, "r13_coin_marginal_profil.png",
+        "Source : OCDE, Taxing Wages, indicateurs comparatifs (DSD_TAX_WAGES_COMP), mesure "
+        "« marginal tax wedge of the principal earner », données 2025.",
+        "Note : le coin marginal porte sur l'euro suivant, non sur la totalité du salaire. Sur les "
+        "dix-neuf pays renseignés, la France et la Belgique sont les deux seuls dont le profil "
+        "baisse puis remonte ; la moyenne de l'OCDE croît avec le salaire, de 41,5 à 46,4 %. Le "
+        "creux français n'a pas été décidé : il résulte de la superposition des allègements de "
+        "cotisations, de la prime d'activité et des aides sous condition de ressources.")
+
+
+# ------------------- r14 : taux moyen et taux marginal sur le travail, France
+def r14():
+    """Les deux taux que le débat confond. Le taux moyen porte sur la totalité du coût du travail,
+    le taux marginal sur l'euro suivant. En France le premier monte avec le salaire, le second est
+    le plus élevé en bas de l'échelle."""
+    moy = {x["code"]: [float(x["aw67"]), float(x["aw100"]), float(x["aw167"])]
+           for x in lire("coin_par_niveau.csv")}["FRA"]
+    mar = {x["code"]: [float(x["aw67"]), float(x["aw100"]), float(x["aw167"])]
+           for x in lire("coin_marginal_par_niveau.csv")}["FRA"]
+    xs = [0, 1, 2]
+    fig, ax = plt.subplots(figsize=(9.0, 5.4))
+    ax.fill_between(xs, moy, mar, color="#EDF0F6", zorder=1)
+    for v, c, nom, dy in ((mar, OCRE, "Taux marginal\nsur l'euro suivant", 13),
+                          (moy, BLEU, "Taux moyen\nsur tout le salaire", -20)):
+        ax.plot(xs, v, color=c, lw=2.8, zorder=3)
+        ax.plot(xs, v, "o", ms=6, color=c, markeredgecolor=SURFACE, markeredgewidth=1.4, zorder=4)
+        for i, y in enumerate(v):
+            ax.annotate(fr(y, 1) + " %", (i, y), xytext=(0, dy), textcoords="offset points",
+                        ha="center", fontsize=10.5, color=c, fontweight="bold",
+                        path_effects=HALO, zorder=5)
+        ax.text(2.08, v[2], nom, va="center", fontsize=9.6, color=c, fontweight="bold",
+                linespacing=1.35)
+    ax.annotate("", (0.0, moy[0] + 1.2), xytext=(0.0, mar[0] - 1.2),
+                arrowprops=dict(arrowstyle="<->", color=GRIS, lw=1.0), zorder=2)
+    ax.text(0.06, (moy[0] + mar[0]) / 2, "23 points d'écart :\nl'euro suivant est bien\nplus taxé "
+            "que le reste\ndu salaire", fontsize=9, color=INK2, va="center", linespacing=1.4)
+    ax.set_xlim(-0.16, 2.95)
+    ax.set_ylim(33, 72)
+    ax.set_xticks(xs, ["67 %", "100 %", "167 %"], fontsize=10.5)
+    ax.set_xlabel("salaire, en % du salaire moyen")
+    ax.yaxis.set_major_formatter(PCT)
+    grille(ax)
+    titre(ax, "Le système est progressif en moyenne, pas sur l'euro suivant",
+          "Prélèvements sur le travail en % du coût du travail, célibataire sans enfant,\n"
+          "France, 2025.")
+    fin(fig, "r14_marginal_et_moyen.png",
+        "Source : OCDE, Taxing Wages, indicateurs comparatifs (DSD_TAX_WAGES_COMP), mesures "
+        "« average tax wedge » et « marginal tax wedge of the principal earner », données 2025.",
+        "Note : le taux moyen rapporte l'ensemble des prélèvements au coût du travail ; le taux "
+        "marginal ne porte que sur un euro supplémentaire. L'OCDE ne publie ces deux taux qu'à "
+        "trois niveaux de salaire. Le creux du taux marginal au salaire moyen résulte de la "
+        "superposition des allègements de cotisations, de la prime d'activité et des aides sous "
+        "condition de ressources, dont chacun est défendable isolément.")
+
+
 if __name__ == "__main__":
-    for f in (r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12):
+    for f in (r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14):
         f()

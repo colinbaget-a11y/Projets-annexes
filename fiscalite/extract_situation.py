@@ -181,6 +181,27 @@ def coin_par_niveau(annee="2025"):
     return lignes
 
 
+def coin_marginal_par_niveau(annee="2025"):
+    """Coin fiscal marginal aux trois niveaux de salaire publiés, célibataire sans enfant.
+
+    Mesure MR_TW_PE : part prélevée sur un euro supplémentaire de coût du travail. À distinguer
+    du coin moyen AV_TW, qui porte sur la totalité du salaire."""
+    rows = [x for x in telecharge("DSD_TAX_WAGES_COMP@DF_TW_COMP", 2025)
+            if x["TIME_PERIOD"] == annee and x["HOUSEHOLD_TYPE"] == "S_C0"
+            and x["MEASURE"] == "MR_TW_PE" and x["REF_AREA"] in PAYS]
+    d = {}
+    for x in rows:
+        d.setdefault(x["REF_AREA"], {})[x["INCOME_PRINCIPAL"]] = float(x["OBS_VALUE"])
+    lignes = [[PAYS[c], c, v.get("AW67"), v.get("AW100"), v.get("AW167")]
+              for c, v in d.items() if {"AW67", "AW100", "AW167"} <= set(v)]
+    lignes.sort(key=lambda l: -(l[2] or 0))
+    with open(OUT / "coin_marginal_par_niveau.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["pays", "code", "aw67", "aw100", "aw167"])
+        w.writerows(lignes)
+    return lignes
+
+
 if __name__ == "__main__":
     c = coin_fiscal()
     print(f"coin fiscal : {len(c)} pays ; France = {[l for l in c if l[1] == 'FRA'][0]}")
@@ -192,3 +213,5 @@ if __name__ == "__main__":
     print(f"taux supérieur IR : {len(t)} pays, {ans[0]}-{ans[-1]}")
     n = coin_par_niveau()
     print(f"coin par niveau : {len(n)} pays ; France = {[l for l in n if l[1] == 'FRA']}")
+    m = coin_marginal_par_niveau()
+    print(f"coin marginal : {len(m)} pays ; France = {[l for l in m if l[1] == 'FRA']}")
