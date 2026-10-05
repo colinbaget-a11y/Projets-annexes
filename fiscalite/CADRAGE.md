@@ -36,6 +36,22 @@ Chaque question est suivie de **ce que je ferai à défaut de réponse**. Les r�
 | 22 | Format | Markdown dans le dépôt, bascule LaTeX quand une partie est stabilisée. |
 | 23 | Traçabilité | Stricte. Aucun chapitre n'est fini s'il reste une marque **[à sourcer]**. |
 
+## Décisions du 5 octobre 2026
+
+Quatre questions restées ouvertes, ou rouvertes par la rédaction du cours.
+
+| # | Question | Décision |
+|---|---|---|
+| 24 | Longueur | Environ 90 pages de corps, plus des annexes. Le corps doit se lire d'un bout à l'autre ; les développements techniques, la revue des élasticités et les maquettes de référence passent en annexe. |
+| 25 | Registre | Celui d'un rapport public. Le mécanisme et les exemples chiffrés restent ; les personnages, le « vous », les questions au lecteur et les formules d'oralité disparaissent. Le détail figure en tête de `PLAN.md`. |
+| 26 | Chiffrage | Cas types calculés sur le barème réel avec OpenFisca-France, en plus des ordres de grandeur. C'est une extension de la réponse 15 : sans cela, le rapport affirme la compensation d'une réforme sans la démontrer, et l'argument de Mirrlees sur la TVA ne tient pas. Toujours aucun accès aux microdonnées, donc aucun perdant nommé. |
+| 27 | Architecture du capital | Cadre dual complété par l'exonération du rendement normal et une règle de partage pour les dirigeants ; côté entreprises, suppression des prélèvements sur intrants d'abord, puis deux routes présentées pour le biais d'endettement. Décision provisoire, à confirmer par le chiffrage d'ensemble. |
+
+Ordre de travail retenu : la maquette d'ensemble à rendement constant avant la rédaction des
+chapitres, puisque c'est elle qui peut invalider une recommandation.
+
+---
+
 **Le but global du rapport est d'être pédagogique.** C'est la consigne qui prime sur les autres
 quand elles entrent en conflit : mieux vaut un chapitre que le lecteur comprend entièrement
 qu'un chapitre exhaustif qu'il abandonne.
