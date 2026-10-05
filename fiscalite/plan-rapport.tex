@@ -6,7 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[french]{babel}
-\usepackage[a4paper,left=2.4cm,right=2.4cm,top=2.0cm,bottom=2.0cm]{geometry}
+\usepackage[a4paper,left=2.25cm,right=2.25cm,top=2.0cm,bottom=2.0cm]{geometry}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
@@ -29,11 +29,11 @@
 \fancyhead[R]{\small\thepage}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.30em}
+\setlength{\parskip}{0.25em}
 \linespread{1.0}
 
 \newenvironment{chapitres}[1]
-{\begin{enumerate}[leftmargin=1.6em,itemsep=0.18em,parsep=0pt,topsep=0.22em,start=#1]}
+{\begin{enumerate}[leftmargin=1.6em,itemsep=0.15em,parsep=0pt,topsep=0.20em,start=#1]}
 {\end{enumerate}}
 
 \begin{document}
@@ -46,17 +46,24 @@
 {\color{encre}\hrule height 1.2pt}
 \vspace{9pt}
 
-\textbf{La thèse.} Le débat fiscal oppose souvent deux visions : pour les uns, il faudrait d'abord
-prélever davantage ; pour les autres, prélever moins. Ce rapport ne cherche pas à trancher ce débat,
-qui dépend de choix politiques et de préférences collectives. Il part du système français tel qu'il
-est : à niveau de prélèvements et de redistribution inchangés, peut-on lever les mêmes recettes et
-assurer la même redistribution avec un système qui pèse moins sur l'activité ?
+\textbf{La thèse.} À rendement constant et à redistribution constante, la France peut lever les mêmes
+recettes avec un système qui pèse moins sur la croissance. Le débat fiscal oppose d'ordinaire ceux
+qui veulent prélever davantage à ceux qui veulent prélever moins ; ce rapport déplace la question. Le
+niveau des prélèvements n'est pas une variable libre --- il est la contrepartie du niveau de dépense
+--- et c'est la structure, et non le niveau, qui est à la main du législateur fiscal.
 
-La littérature économique accumulée depuis plusieurs décennies suggère que oui. Toutes les façons de
-prélever un euro ne se valent pas : certaines assiettes et certaines structures de taux modifient
-davantage que d'autres les décisions de travailler, d'investir, d'épargner ou de produire. L'enjeu
-est de montrer comment rendre la fiscalité française plus efficace, plus simple et plus neutre, sans
-présupposer qu'elle doive être globalement plus ou moins élevée, ni plus ou moins redistributive.
+Toutes les façons de prélever un euro ne se valent pas : certaines assiettes et certaines structures
+de taux modifient davantage que d'autres les décisions de travailler, d'investir, d'épargner ou de
+produire. Le rapport montre comment rendre la fiscalité française plus efficace, plus simple et plus
+neutre, à recettes et à redistribution inchangées. Le mot « croissance » y est assumé, et le
+chapitre~6 expose à la fois ce qui le fonde et ce qui le fragilise.
+
+\section{Ouverture --- Ce sur quoi nous sommes déjà d'accord}
+
+Le rapport s'ouvre sur la Déclaration de 1789, articles 13 et 14 : la contribution commune est
+indispensable, elle doit être répartie selon les facultés, et chacun a le droit d'en suivre l'emploi
+et d'y consentir. Trois phrases que personne ne conteste, et qui suffisent déjà à juger un système
+fiscal. On part de ce sur quoi l'accord existe avant d'aller là où il cesse.
 
 \section{Première partie --- Qu'est-ce qu'un bon impôt ?}
 
@@ -66,26 +73,34 @@ les deux parties suivantes se mesurent.
 
 \begin{chapitres}{1}
 \item \textbf{Le triangle de l'impôt : financer, redistribuer, orienter.} Les trois objectifs qu'on
-assigne à l'impôt, et les trois bornes des articles 13 et 14 de la Déclaration de 1789 : nécessité,
-facultés, consentement. Aucun impôt ne tient les trois sommets à lui seul, et c'est l'ensemble qui
-doit les tenir. Le chapitre pose les critères avec lesquels tout le reste sera jugé.
+assigne à l'impôt, et les trois bornes de la Déclaration : nécessité, facultés, consentement. Aucun
+impôt ne tient les trois sommets à lui seul ; c'est l'ensemble qui doit les tenir. Le chapitre pose
+aussi la règle du jeu du rapport : tout ce qui suit est raisonné à rendement constant et à
+redistribution constante, faute de quoi on compare des systèmes qui ne financent pas la même chose.
+\item \textbf{Combien prélever n'est pas une question fiscale.} Le niveau des prélèvements est la
+contrepartie du niveau de dépense : on ne baisse durablement l'un qu'en baissant l'autre. La France
+dépense 57,0~\% du PIB contre 49,4~\% en moyenne dans la zone euro, et prélève 45,3~\% contre
+40,8~\% : 7,6 points d'écart en dépense, 4,5 en prélèvement, le solde étant emprunté
+(Eurostat, 2024). Y ramener la dépense permettrait à la fois d'alléger les prélèvements de ces
+4,5 points et de refermer l'écart de déficit. Le rapport ne traite pas de la dépense : il dit où est
+la contrainte et ce qu'on peut faire sans attendre qu'elle se lève.
 \item \textbf{Ce qu'un impôt détruit en plus de ce qu'il prend.} Un vendeur accepterait
 200\,000~\euro{}, un acheteur en offrirait 210\,000 : avec 8~\% de droits de mutation entre les deux,
 aucun prix ne convient aux deux et la vente n'a pas lieu. Personne n'a payé l'impôt, et les
-10\,000~\euro{} de gain à l'échange sont perdus pour tout le monde. C'est la perte sèche : le coût
+10\,000~\euro{} de gain sont perdus pour tout le monde. C'est la perte sèche : le coût
 que l'État ne perçoit pas. Elle croît avec le carré du taux, parce qu'on prend davantage sur chaque
-transaction et qu'on en tue davantage. Et elle conduit à la courbe de Laffer : à 0~\% comme à
-100~\%, l'État ne lève rien, donc un sommet existe entre les deux. Mais sa position dépend de chaque
-impôt et de la facilité d'y échapper ; « nous sommes au-delà du sommet » est une affirmation sur un
-prélèvement précis, jamais sur la fiscalité en général.
+transaction et qu'on en tue davantage. D'où la courbe de Laffer : à 0~\% comme à 100~\% l'État ne
+lève rien, donc un sommet existe entre les deux --- mais sa position dépend de chaque impôt et de la
+facilité d'y échapper, de sorte que « nous sommes au-delà du sommet » vaut pour un prélèvement
+précis, jamais pour la fiscalité en général.
 \item \textbf{Le taux qui décide n'est pas celui qu'on affiche.} Personne ne choisit en fonction de
 son taux moyen. La question posée est toujours la même : cette heure en plus, cette promotion, cette
 embauche, qu'est-ce qu'il en reste ? C'est le taux marginal, et un système peut être progressif en
-moyenne tout en prélevant très lourdement l'euro suivant. D'où la règle qui commande tout le
-rapport : élargir l'assiette permet de baisser le taux marginal à recettes inchangées.
+moyenne tout en prélevant très lourdement l'euro suivant. D'où la règle qui commande le rapport :
+élargir l'assiette permet de baisser le taux marginal à recettes inchangées.
 \item \textbf{Aucun impôt n'est juste à lui seul.} La TVA prend une part plus grande du revenu d'un
-ménage modeste que d'un ménage aisé : prise isolément, elle est régressive. Mais personne ne vit
-sous la TVA seule ; il vit sous l'ensemble des prélèvements et des transferts, et c'est la somme qui
+ménage modeste que d'un ménage aisé : prise isolément, elle est régressive. Mais personne ne vit sous
+la TVA seule ; il vit sous l'ensemble des prélèvements et des transferts, et c'est la somme qui
 décide de ce qui lui reste. Vouloir rendre chaque impôt juste séparément produit des dispositifs qui
 ratent leur cible : un taux réduit de TVA donne plus d'euros au ménage qui consomme le plus, donc au
 plus aisé, là où un transfert direct aurait coûté moins et visé mieux.
@@ -93,19 +108,19 @@ plus aisé, là où un transfert direct aurait coûté moins et visé mieux.
 bas ; ne pas taxer les intrants ; ne pas différencier les taux sur la consommation ; ne pas taxer le
 rendement normal de l'épargne ; taxer en priorité ce qui ne peut pas fuir, à commencer par le sol.
 Chaque règle est donnée avec son hypothèse : Atkinson-Stiglitz suppose la séparabilité entre
-consommation et travail, Diamond-Mirrlees suppose que l'État puisse taxer en aval. Et l'élasticité
-qui commande tous ces coûts est en partie fabriquée par le législateur --- fermer une possibilité de
-requalification réduit le coût d'un taux donné.
+consommation et travail, Diamond-Mirrlees suppose que l'État puisse taxer en aval. C'est ici
+qu'intervient le classement des impôts par effet sur la croissance établi à l'OCDE --- foncier
+récurrent, consommation, revenu des personnes, sociétés en dernier --- avec sa réserve, exposée plutôt
+que masquée : ses auteurs jugent eux-mêmes excessive l'ampleur des effets estimés.
 \end{chapitres}
 
 \section{Deuxième partie --- Pourquoi la France s'en est écartée}
 
 Partie narrative, écrite pour être lue d'une traite par quelqu'un qui n'a jamais ouvert un rapport
 fiscal. Chaque strate du système a répondu à un problème réel de son époque ; c'est leur accumulation
-qui échoue, pas chacune prise à part. Les chiffres du diagnostic sont intégrés au récit plutôt
-qu'alignés en série.
+qui échoue, pas chacune prise à part. Les chiffres sont intégrés au récit plutôt qu'alignés en série.
 
-\begin{chapitres}{6}
+\begin{chapitres}{7}
 \item \textbf{1945 : tout financer sur la fiche de paie.} Asseoir l'assurance sociale sur le salaire
 convenait à la France de 1945 : plein emploi, population active en croissance, salaire presque seule
 forme de revenu. Le choix lie pour un demi-siècle le financement de la protection sociale au coût du
@@ -115,10 +130,10 @@ toujours là.
 \item \textbf{Trente ans à corriger le coût du travail sans changer d'assiette.} Depuis 1993, des
 allègements de cotisations empilés, puis le CICE, puis sa bascule en allègements, chacun avec son
 seuil et son plafond. Chaque correctif crée une marche, chaque marche crée un comportement, chaque
-comportement appelle un correctif. Le résultat tient dans une courbe, à mesure constante : sur
-l'euro suivant, un célibataire sans enfant est prélevé à 64,6~\% autour de 67~\% du salaire moyen,
-à 58,2~\% au salaire moyen et à 60,0~\% à 167~\%. C'est en bas que l'euro suivant est le plus taxé.
-Et le taux supérieur du barème ne commence qu'au-delà de treize fois le salaire moyen.
+comportement appelle un correctif. Le résultat tient dans une courbe, à mesure constante : sur l'euro
+suivant, un célibataire sans enfant est prélevé à 64,6~\% autour de 67~\% du salaire moyen, à
+58,2~\% au salaire moyen et à 60,0~\% à 167~\%. C'est en bas que l'euro suivant est le plus taxé. Et
+le taux supérieur du barème ne commence qu'au-delà de treize fois le salaire moyen.
 \item \textbf{Les impôts qu'on paie avant d'avoir gagné.} 77~milliards de prélèvements sont dus même
 quand l'entreprise perd de l'argent : ils frappent l'outil, pas le résultat. Et leur assiette locale
 repose sur des valeurs locatives établies en 1970, dont la révision votée en 1990 n'a jamais été
@@ -136,57 +151,65 @@ prélèvement français inférieur à la moyenne portant sur la catégorie jugé
 
 \section{Troisième partie --- Ce que nous proposons}
 
-Une règle traverse la partie : assiette large, taux bas, pas d'exception, et pas d'aide là où
-supprimer un impôt suffit. Chaque chapitre suit le même mode d'emploi --- le principe, ce qu'on en
-attend, ce que font nos voisins, qui gagne et qui perd, comment y aller --- et se termine par
-l'objection la plus forte, celle qui pourrait faire changer la conclusion. Un encadré contradictoire
-là où les auteurs ne sont pas d'accord entre eux.
+La partie s'ouvre sur le compte d'ensemble : chaque proposition se lit ensuite comme une pièce d'un
+système qui boucle. Une règle la traverse --- assiette large, taux bas, pas d'exception, pas d'aide
+là où supprimer un impôt suffit --- et chaque chapitre suit le même mode d'emploi : le principe, ce
+qu'on en attend, ce que font nos voisins, qui gagne et qui perd, comment y aller, et l'objection la
+plus forte.
 
-\begin{chapitres}{11}
+\begin{chapitres}{12}
+\item \textbf{Ce que l'ensemble doit lever, et ce qu'il lèverait.} Le tableau en deux colonnes : ce
+que rapporte chaque assiette aujourd'hui, ce qu'elle rapporterait après réforme, à rendement
+constant. Et l'effet sur trois cas types et sur les déciles publiés, pour établir que la
+redistribution ne bouge pas. C'est la preuve de la thèse, et elle est posée avant les propositions
+plutôt qu'après.
 \item \textbf{La fin des niches, qui gage tout le reste.} 474 dispositifs, 91,8~milliards, un coût
-que l'administration ne connaît pas pour une partie d'entre eux. Méthode : revue générale, clause
-d'extinction, survie seulement pour les dispositifs réévalués. Ce que la suppression rapporte
-finance la baisse des taux ; sans elle, aucune des propositions suivantes n'est gagée.
+que l'administration ne connaît pas pour une partie d'entre eux. Revue générale, clause d'extinction,
+survie des seuls dispositifs réévalués. Ce que la suppression rapporte finance la baisse des taux ;
+sans elle, aucune des propositions suivantes n'est gagée.
 \item \textbf{La TVA sociale : alléger le travail en disant sur quoi on reporte.} Basculer une part
 du financement de la protection sociale du salaire vers une assiette large. Les précédents allemand
-de 2007 et danois, l'échec français de 2012. L'objection la plus forte y est traitée de front : la
-hausse des prix est immédiate et visible, le gain d'emploi différé et diffus --- et ce que les
-évaluations du précédent allemand établissent réellement.
+de 2007 et danois, l'échec français de 2012. L'objection est traitée de front : la hausse des prix
+est immédiate et visible, le gain d'emploi différé et diffus --- et ce que les évaluations du
+précédent allemand établissent réellement.
 \item \textbf{Zéro aide contre zéro impôt de production.} Supprimer les prélèvements dus avant le
-premier euro de bénéfice, et financer la suppression par celle des aides aux entreprises. Le troc
-est explicite, chiffré, et voté dans le même texte : c'est ce qui le distingue d'une baisse d'impôt
-pour les entreprises.
+premier euro de bénéfice, et financer la suppression par celle des aides aux entreprises. Le troc est
+explicite, chiffré et voté dans le même texte : c'est ce qui le distingue d'une baisse d'impôt pour
+les entreprises.
 \item \textbf{Un régime unique pour l'épargne.} Un seul traitement quel que soit le support,
 exonération du rendement normal, assiette indexée pour cesser de taxer l'inflation. Ce que cela
 change concrètement pour le livret, l'assurance-vie, le PEA et l'immobilier locatif.
-\item \textbf{La transmission : un encadré contradictoire.} C'est le point sur lequel les auteurs ne
-s'accordent pas, et le rapport l'expose comme tel. Pour : l'héritage est le revenu le moins lié à
-l'effort, le plus concentré, et sa part dans le patrimoine total remonte depuis les années 1970.
-Contre : c'est l'impôt le plus rejeté, il frappe une épargne déjà imposée en flux, et son rendement
-dépend de la capacité à retenir des assiettes mobiles. Les deux positions s'accordent sur un point :
-l'assiette actuelle, percée d'exceptions, est indéfendable dans les deux cas.
-\item \textbf{Ce que ça change pour qui, et comment y aller.} Le compte d'ensemble : ce que lève
-chaque assiette après réforme face au système actuel, à rendement constant. L'effet sur trois cas
-types et sur les déciles publiés, pour établir la neutralité redistributive. Et la règle de méthode :
-aucune suppression sans sa compensation votée dans le même texte, un calendrier assez long pour
-vérifier que les compensations atteignent bien les perdants.
+\item \textbf{Les retraites : à revenu égal, effort égal.} Abattement de 10~\%, CSG réduite : un même
+revenu doit contribuer de la même façon, quelle que soit son origine. C'est l'application la plus
+directe de la règle « assiette large, pas d'exception », et le chapitre dit qui y perd et comment la
+transition s'étale.
+\item \textbf{La transmission : un encadré contradictoire.} Les auteurs ne s'accordent pas sur le
+niveau souhaitable d'imposition des héritages, et le rapport l'expose au lieu de le masquer. Pour :
+c'est le revenu le moins lié à l'effort, le plus concentré, et sa part dans le patrimoine total
+remonte depuis les années 1970. Contre : c'est l'impôt le plus rejeté, il frappe une épargne déjà
+imposée en flux, et son rendement dépend de la capacité à retenir des assiettes mobiles. Le rapport
+ne tranche pas le niveau ; les deux positions s'accordent en revanche sur le caractère indéfendable
+de l'assiette actuelle.
+\item \textbf{L'économie politique de la transition.} Pourquoi un système plus cohérent est difficile
+à construire : chaque niche crée des bénéficiaires identifiables quand les gains d'une assiette large
+restent diffus ; les pertes sont immédiates et les gains progressifs ; une baisse d'impôt sur les
+entreprises se voit sans que sa contrepartie se comprenne. D'où la méthode : réformes par paquets,
+aucune suppression sans sa compensation votée dans le même texte, calendrier assez long pour vérifier
+que les compensations atteignent les perdants. Le rapport s'achève là.
 \end{chapitres}
 
 \section{Ce qui reste à trancher}
 
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.18em,parsep=0pt,topsep=0.22em]
-\item \textbf{Le niveau global de prélèvements.} Hors champ, comme le suppose la thèse, ou dans le
-champ ? L'y faire entrer change l'ambition du rapport et la façon dont il sera lu.
-\item \textbf{Les retraites.} Le sujet n'a plus de chapitre : fiscalité des pensions, financement du
-système, ou rien du tout ?
-\item \textbf{Jusqu'où dire « croissance ».} Le classement de l'OCDE est l'appui le plus direct de la
-thèse et son maillon le plus contesté : ses auteurs jugent eux-mêmes les effets surestimés. Soit on
-assume le mot en exposant la réserve, soit on s'en tient à « pèse moins sur l'activité ».
-\item \textbf{Le compte à rendement constant du chapitre 16.} C'est lui qui contraint tous les
-autres : si les comptes ne tombent pas, certaines propositions devront changer. Il faut décider qui
-le construit et sur quelles sources.
-\item \textbf{L'encadré sur la transmission.} Expose-t-il le désaccord sans trancher, ou le rapport
-prend-il finalement position ?
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.15em,parsep=0pt,topsep=0.20em]
+\item \textbf{La cible de dépense.} La moyenne de la zone euro est à 49,4~\% du PIB, 7,6 points sous la
+France ; 52~\% est à mi-chemin, environ 147~milliards. Les deux se défendent, mais il faut choisir :
+52~\% n'est pas « la moyenne de la zone euro ».
+\item \textbf{Le compte du chapitre~12.} C'est lui qui contraint tous les autres chapitres : si les
+comptes ne tombent pas, certaines propositions changeront. Reste à décider qui le construit et sur
+quelles sources publiques.
+\item \textbf{L'assiette des transmissions.} Le niveau n'est pas tranché, mais les deux positions
+s'accordent sur le caractère indéfendable des exceptions actuelles. Le recommande-t-on, ou l'encadré
+se clôt-il sans recommandation ?
 \end{enumerate}
 
 \end{document}
