@@ -1,4 +1,5 @@
-% Plan détaillé — version de synthèse. En bleu : les apports par rapport au plan du coauteur.
+% Plan détaillé — version révisée après relecture.
+% En bleu : ce que cette version ajoute aux commentaires reçus.
 % Compilation : pdflatex plan-rapport.tex
 \documentclass[11pt,a4paper]{article}
 
@@ -6,7 +7,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[french]{babel}
-\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.3cm,bottom=2.4cm]{geometry}
+\usepackage[a4paper,left=2.4cm,right=2.4cm,top=2.0cm,bottom=2.0cm]{geometry}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
@@ -23,7 +24,7 @@
 \newcommand{\nous}[1]{\textcolor{bleu}{#1}}
 
 \titleformat{\section}{\normalfont\large\bfseries\color{encre}}{}{0em}{}
-\titlespacing*{\section}{0pt}{1.8ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{0.6ex plus .2ex}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -32,173 +33,187 @@
 \fancyhead[R]{\small\thepage}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.38em}
-\linespread{1.01}
+\setlength{\parskip}{0.30em}
+\linespread{1.0}
 
-\newcommand{\partie}[2]{\section{#1\hfill\normalfont\normalsize\color{encre}#2}}
-\newcommand{\partienous}[2]{\section{\color{bleu}#1\hfill\normalfont\normalsize\color{bleu}#2}}
+\newenvironment{chapitres}[1]
+{\begin{enumerate}[leftmargin=1.6em,itemsep=0.18em,parsep=0pt,topsep=0.22em,start=#1]}
+{\end{enumerate}}
 
 \begin{document}
 
 \thispagestyle{empty}
-{\footnotesize\color{ocre}\bfseries PLAN DÉTAILLÉ --- VERSION DE SYNTHÈSE\par}
+{\footnotesize\color{ocre}\bfseries PLAN DÉTAILLÉ --- VERSION RÉVISÉE\par}
 \vspace{5pt}
 {\raggedright\fontsize{20}{24}\selectfont\bfseries Un système fiscal\\ pour le XXI\textsuperscript{e} siècle\par}
 \vspace{6pt}
 {\color{encre}\hrule height 1.2pt}
 \vspace{5pt}
-{\small\nous{En bleu}, ce que cette version ajoute ou modifie ; en noir, ce qui reprend le plan du
-5~octobre.\par}
+{\small Architecture et chapitres repris des commentaires de relecture. \nous{En bleu}, ce que cette
+version y ajoute.\par}
 \vspace{3pt}
 {\color{encre}\hrule height 0.4pt}
 \vspace{5pt}
 
-\textbf{La thèse.} \nous{À rendement constant et à redistribution constante, la France peut avoir un
-système fiscal qui pèse moins sur la croissance. Le débat confond deux questions : combien
-redistribuer, qui est un choix politique que l'analyse ne tranchera jamais, et comment lever une
-somme donnée, qui est largement tranché depuis cinquante ans. Aucun impôt n'a à être juste tout
-seul --- c'est l'ensemble qui doit l'être --- et chaque fois qu'on a voulu rendre un prélèvement
-juste à lui seul, on l'a raté. La France discute sans fin de la première question et subit la
-seconde.}
+\textbf{La thèse.} Le débat fiscal oppose souvent deux visions : pour les uns, il faudrait d'abord
+prélever davantage ; pour les autres, prélever moins. Ce rapport ne cherche pas à trancher ce débat,
+qui dépend de choix politiques et de préférences collectives.
 
-\nous{\textbf{Ce que le rapport n'apporte pas.} Aucune donnée nouvelle, aucun modèle, aucune
-estimation propre. Tout vient de sources publiques --- Insee, Eurostat, OCDE, Conseil d'analyse
-économique, Conseil des prélèvements obligatoires, Cour des comptes, travaux publiés sur données
-françaises --- et chaque chiffre est cité. Ce qui est neuf est le rapprochement, pas la mesure. Le
-rapport ne descend pas dans l'exécution : dire ce qu'il faut faire, pas rédiger l'article de loi.}
+Il part du système français tel qu'il est : à niveau de prélèvements et de redistribution inchangés,
+peut-on lever les mêmes recettes et assurer la même redistribution avec un système fiscal qui pèse
+moins sur la croissance ?
 
-Une soixantaine de pages, annexes comprises. \nous{Publication visée en mars, avant l'élection
-présidentielle.} Premier lecteur : les responsables politiques ; ensuite les journalistes
-économiques, les conseillers, les économistes.
+La littérature économique accumulée depuis plusieurs décennies suggère que oui. Toutes les façons de
+prélever un euro ne se valent pas : certaines assiettes et certaines structures de taux modifient
+davantage que d'autres les décisions de travailler, d'investir, d'épargner ou de produire. L'enjeu
+du rapport est de montrer comment rendre la fiscalité française plus efficace, plus simple et plus
+neutre, sans présupposer qu'elle doive être globalement plus ou moins élevée, ni plus ou moins
+redistributive.
 
-\partie{Première partie --- Ce qu'on attend de l'impôt}{7 p.}
+\section{Première partie --- À quoi sert un bon impôt ?}
 
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em]
-\item \textbf{Financer, orienter, corriger.} Le triangle de l'impôt et les trois bornes des articles
-13 et 14 de la Déclaration de 1789 : nécessité, facultés, consentement. Aucun impôt n'a à tout
-faire ; c'est l'ensemble qui tient le triangle.
-\item \nous{\textbf{Deux questions qu'on confond.} Combien redistribuer relève du choix politique ;
-comment lever une somme donnée relève de l'analyse. Dans le débat français, la fiscalité est traitée
-comme un pur instrument de justice, et chaque impôt est sommé d'être juste à lui seul. C'est une
-erreur de niveau, et elle coûte cher.}
-\item \nous{\textbf{Ce que l'analyse ne tranchera jamais, et le critère qu'elle ajoute.} Le degré de
-redistribution, le traitement de l'héritage, l'unité d'imposition restent des choix. Ce qui se
-démontre : à recettes et à redistribution données, certaines structures pèsent moins que d'autres
-sur l'activité. C'est le seul terrain où ce rapport prétend trancher.}
+\begin{chapitres}{1}
+\item \textbf{Le pacte fiscal : nécessité, équité, consentement.} Partir de la Déclaration de 1789,
+articles 13 et 14, et du pacte social : l'impôt est une contribution commune nécessaire, répartie
+selon les facultés de chacun et librement consentie. On pose ici les valeurs qui guident le
+rapport : justice, liberté, proportionnalité, responsabilité collective.
+\item \textbf{La justice fiscale se juge dans son ensemble.} Des principes à leur application. Aucun
+impôt n'a à être, isolément, parfaitement redistributif, parfaitement neutre et parfaitement
+incitatif. C'est l'ensemble des prélèvements et des transferts qui doit assurer la contribution selon
+les facultés, le degré de redistribution choisi, la liberté des choix et l'égalité de traitement.
+\nous{Dans le débat français, chaque impôt est pourtant sommé d'être juste à lui seul : une erreur de
+niveau, et elle coûte cher.}
+\item \textbf{À objectifs donnés, le meilleur impôt est celui qui coûte le moins.} Une fois fixés
+politiquement le niveau de prélèvements et de redistribution, apparaît la question économique propre
+au rapport : comment atteindre ces objectifs avec le moins de distorsions, de complexité et de pertes
+d'activité ? Efficacité, simplicité et neutralité sont introduites ici comme critères de comparaison.
+\end{chapitres}
+
+\section{Deuxième partie --- Financer l'État sans détruire inutilement}
+
+\begin{chapitres}{4}
+\item \textbf{Tout impôt scie en partie la branche sur laquelle il est assis.} La perte sèche, les
+réactions comportementales, l'importance des élasticités, l'incidence réelle, et le fait que des taux
+élevés sur des assiettes étroites peuvent coûter très cher. \nous{Le coût croît avec le carré du
+taux : doubler un taux quadruple la perte. Et l'élasticité qui commande ce coût est en partie
+fabriquée par le législateur --- fermer une possibilité de requalification réduit le coût d'un taux
+donné.}
+\item \textbf{Les principes fiscaux issus de la littérature économique.} Assiettes larges, taux bas,
+neutralité, non-taxation des intrants, traitement du rendement normal de l'épargne, préférence pour
+les bases peu mobiles, limites des taux différenciés. Avec à chaque fois les hypothèses et les
+exceptions. \nous{Les résultats sont nommés avec leurs conditions : Atkinson-Stiglitz, qui suppose la
+séparabilité entre consommation et travail ; Diamond-Mirrlees, qui suppose que l'État puisse taxer en
+aval ; la distinction entre rendement normal, prime de risque et rente ; la rente foncière, seule
+assiette dont la perte est nulle.}
+\item \textbf{Ce que les expériences étrangères nous apprennent.} Réformes nordiques, ACE, Estonie,
+Pays-Bas, réformes de TVA ou de financement de la protection sociale : quels principes ont été
+appliqués, avec quels résultats et quelles limites. \nous{Et le classement des impôts par effet sur
+la croissance établi à l'OCDE --- foncier récurrent, consommation, revenu des personnes, sociétés en
+dernier --- qui donne son contenu au mot « croissance » de la thèse. Avec sa réserve : ses auteurs
+jugent eux-mêmes excessive l'ampleur des effets estimés.}
+\end{chapitres}
+
+\section{Troisième partie --- Comment la France s'est éloignée de ces principes}
+
+\begin{chapitres}{7}
+\item \textbf{Un système construit par strates successives.} Impôts ajoutés les uns aux autres,
+niches, exonérations, allègements, crédits d'impôt, dispositifs compensatoires : le système français
+s'est moins construit par architecture d'ensemble que par accumulation de corrections successives.
+Résultat : une complexité très élevée, des assiettes trouées, et des taux qui ne disent plus toujours
+grand-chose du prélèvement réel. \nous{Les dates qui portent l'histoire : 1945, la protection
+sociale financée sur le salaire ; 1954, la TVA ; 1991, la CSG, élargissement au-delà du salaire
+jamais mené à son terme ; 1996, la CRDS créée pour treize ans. Et les valeurs locatives de 1970, dont la révision votée
+en 1990 n'a jamais été appliquée et celle de 2019 repoussée à 2031.}
+\item \textbf{Beaucoup d'impôts, mais surtout pas aux mêmes endroits que nos voisins.} Partir du
+niveau agrégé : des prélèvements obligatoires élevés en comparaison internationale. Puis décomposer,
+sur quels grands impôts la France prélève davantage ou moins que les autres pays : travail,
+consommation, capital, sociétés, production, foncier. L'intérêt du chapitre est de montrer où la
+France prélève, autant que combien. \nous{Le chiffre qui le résume : 25,9 points de PIB dans
+l'avant-dernière catégorie du classement de l'OCDE, contre 17,5 en moyenne, et le seul prélèvement
+français inférieur à la moyenne porte sur la catégorie jugée la plus nocive.}
+\item \textbf{Les principales entorses aux principes de la taxation optimale.} Reprendre l'étalon de
+la deuxième partie et passer le système français au crible : taxation des intrants et de la
+production, concentration des prélèvements sur le travail, hétérogénéité de la taxation de l'épargne,
+niches et taux réduits, assiettes étroites, faible exploitation des bases immobiles, possibilités de
+requalification. \nous{Chaque entorse chiffrée sur source publique : l'euro suivant prélevé à
+64,6~\% au voisinage de 67~\% du salaire moyen, contre 55,4~\% au taux supérieur du barème, qui ne
+s'applique qu'au-delà de treize fois le salaire moyen ; 77~milliards dus même quand l'entreprise perd
+de l'argent ; le même rendement d'épargne imposé de 0 à 55~\% selon l'enveloppe ; 474 dépenses
+fiscales pour 91,8~milliards, dont la Cour des comptes écrit que le coût n'est pas connu.}
+\end{chapitres}
+
+\section{Quatrième partie --- Quel système fiscal pour la France du XXI\textsuperscript{e} siècle ?}
+
+\begin{chapitres}{10}
+\item \textbf{L'efficacité par la simplicité et la neutralité.} Élargir les assiettes pour pouvoir
+réduire les taux ; supprimer une partie des niches, abattements et taux réduits ; rapprocher le
+traitement fiscal de situations économiques comparables ; alléger les prélèvements les plus
+distorsifs, notamment sur le travail et la production ; mieux distinguer taxation du profit, taxation
+de la production et taxation du rendement normal du capital. L'objectif est un système plus lisible,
+plus prévisible, et qui modifie moins artificiellement les choix de travailler, produire, investir,
+épargner ou consommer. \nous{Les points d'application où le rapport dit précisément quoi : basculer
+une partie du financement social vers une assiette plus large ; troquer « zéro aide contre zéro impôt
+de production » ; un régime unique pour l'épargne, rendement normal exonéré et assiette indexée ;
+déduire un rendement normal sur les fonds propres nouveaux.}
+\item \textbf{La justice par l'ensemble du système fiscal et social.} Maintenir le niveau global de
+redistribution tout en cessant de demander à chaque impôt d'être redistributif à lui seul.
+Réexaminer les avantages liés à certains statuts ou certaines assiettes --- taux réduits de TVA,
+abattements à l'impôt sur le revenu, régime des retraités, fiscalité de l'épargne --- en utilisant
+davantage les transferts sociaux pour compenser directement les pertes de revenu lorsqu'elles sont
+effectivement concentrées sur les ménages modestes. Montrer, par cas types et par déciles lorsque les
+données le permettent, que la réforme peut rester globalement neutre sur la redistribution.
+\item \textbf{L'économie politique de la réforme fiscale.} Pourquoi un système plus cohérent est
+politiquement difficile à construire : chaque niche ou taux réduit crée des bénéficiaires
+identifiables, tandis que les gains d'une assiette plus large et de taux plus faibles sont diffus et
+peu visibles ; certaines baisses d'impôt, notamment pour les entreprises, peuvent être perçues
+isolément sans que leur contrepartie soit comprise ; les pertes sont immédiates alors que les gains
+d'efficacité sont progressifs. D'où la nécessité de réformes par paquets, de compensations votées en
+même temps que les suppressions d'avantages, d'une transition graduelle et d'un calendrier
+suffisamment long pour limiter les ruptures et vérifier que les compensations atteignent effectivement
+les perdants.
+\end{chapitres}
+
+\section{Points à discuter}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.18em,parsep=0pt,topsep=0.22em]
+\item \textbf{Quelle tonalité générale pour le rapport ?} Un programme de réforme fiscale assez
+directement assumé, ou un rapport plus analytique qui part de la littérature économique pour
+construire progressivement un système fiscal cible ? Jusqu'où afficher dès le départ des choix
+politiques, et jusqu'où vouloir que les recommandations apparaissent comme la conséquence du
+raisonnement ?
+\item \textbf{Quel niveau de détail sur les différents impôts ?} Définir surtout une architecture
+d'ensemble --- assiettes larges, taux plus faibles, neutralité, simplicité, moins de niches --- ou
+faire des \emph{deep dives} sur quelques grands impôts avec des propositions très précises ? Dans ce
+cas, lesquels méritent un chapitre propre et lesquels peuvent rester des exemples d'application des
+principes généraux ?
+\item \textbf{Comment traiter les sujets politiquement les plus sensibles, transmissions et retraites
+au premier chef ?} Deux sujets importants économiquement, mais qui peuvent polariser la réception du
+rapport et occulter le reste. En faire des axes majeurs de réforme, ou les traiter comme des cas
+particuliers d'un problème plus général : différences de traitement fiscal, exemptions au droit
+commun, choix entre taxation du travail, du capital, de la consommation et des transmissions ?
+\item \textbf{Le niveau global de prélèvements entre-t-il dans le champ du rapport ?} Soit on prend
+le niveau actuel comme donné et on demande uniquement comment lever cette somme plus efficacement.
+Soit on considère aussi que la pression fiscale peut avoir dépassé, sur certaines assiettes, le
+niveau qui maximise les recettes, ou qu'elle engendre des coûts assez élevés pour justifier une
+baisse. Le rapport porte alors sur le niveau et sur la structure, ce qui change son ambition.
+\item \textbf{Quel est exactement le produit final ?} Une possibilité serait de raisonner à partir
+d'un système fiscal « idéal », ou au moins beaucoup plus cohérent : voilà à quoi ressemblerait
+normalement un bon système fiscal d'après la littérature ; voilà comment la France s'en écarte ;
+voilà enfin pourquoi il est difficile de passer de l'un à l'autre. Le cœur du rapport serait alors
+moins une succession de grandes réformes de rupture qu'une architecture cible, accompagnée de
+nombreux problèmes concrets de transition.
+\item \textbf{Quelle place donner aux difficultés de passage au système cible ?} Même si le système
+théorique est relativement simple, la transition ne l'est pas : niches avec bénéficiaires identifiés,
+pertes concentrées et gains diffus, compensations difficiles à calibrer, nécessité de maintenir la
+redistribution, contraintes politiques, administratives et temporelles. Faire de cette économie
+politique de la réforme un thème central plutôt qu'un chapitre de conclusion ?
 \end{enumerate}
 
-\partienous{Deuxième partie --- Le système idéal d'après les économistes}{14 p.}
-
-\nous{Le cœur démonstratif, et l'étalon auquel la suite se mesure. Un siècle d'économie publique a
-établi quelques résultats solides sur la façon de lever une somme donnée au moindre coût ; ils ne
-disent rien de ce qu'il faut redistribuer, et c'est ce qui les rend utilisables quelles que soient
-les préférences du lecteur.}
-
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em,start=4]
-\item \nous{\textbf{Ce qu'un impôt détruit.} Le coût croît avec le carré du taux : doubler un taux
-quadruple la perte. D'où les assiettes larges et les taux bas, qui sont une conséquence
-arithmétique et non un slogan. Et l'élasticité qui commande ce coût est en partie fabriquée par le
-législateur : fermer une possibilité de requalification réduit le coût d'un taux donné.}
-\item \nous{\textbf{Qui paie vraiment.} L'incidence ne suit jamais l'étiquette. Ce que supportent
-réellement le salarié, l'actionnaire, le consommateur et le vendeur d'un logement --- et pourquoi un
-impôt sans victime visible est politiquement commode et économiquement coûteux.}
-\item \nous{\textbf{Quatre règles, et les conditions sous lesquelles elles valent.} Ne pas taxer les
-intrants, la même redistribution s'obtenant sans faire produire moins. Ne pas différencier les taux
-sur la consommation, un taux réduit donnant plus d'euros au ménage aisé. Ne pas taxer le rendement
-normal de l'épargne, qui revient à taxer l'attente et d'autant plus qu'elle est longue. Taxer ce qui
-ne peut pas fuir, à commencer par le sol, seule assiette dont la perte est nulle. Chaque règle avec
-ses hypothèses, faute de quoi ce sont des slogans.}
-\item \nous{\textbf{Ce que les comparaisons internationales ajoutent.} Le classement de l'OCDE range
-les impôts selon leur effet sur la croissance : foncier récurrent d'abord, puis consommation, puis
-revenu des personnes, les sociétés en dernier. Ce qu'il établit, et ce qu'il ne prouve pas --- ses
-auteurs jugent eux-mêmes excessive l'ampleur des effets estimés. C'est ce chapitre qui donne son
-contenu au mot « croissance » de la thèse, et ses limites.}
-\item \nous{\textbf{Les systèmes déjà construits ailleurs.} Impôt dual nordique, exonération du
-rendement normal, boîtes néerlandaises, imposition des seuls bénéfices distribués : ce que chacun
-résout, et où chacun casse.}
-\end{enumerate}
-
-\partie{Troisième partie --- Comment la France s'en est éloignée}{16 p.}
-
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em,start=9]
-\item \nous{\textbf{Quatre écarts, chiffrés.} L'euro suivant est prélevé à 64,6~\% au voisinage de
-67~\% du salaire moyen, contre 55,4~\% au taux supérieur du barème --- lequel ne s'applique qu'à
-partir de treize fois le salaire moyen. 77~milliards de prélèvements sont dus même quand
-l'entreprise perd de l'argent. Le même rendement d'épargne est imposé de 0 à 55~\% selon
-l'enveloppe. Et 474 dépenses fiscales coûtent 91,8~milliards, dont la Cour des comptes écrit que le
-coût n'est pas connu.}
-\item \nous{\textbf{Une structure presque à l'envers du classement.} La France prélève 25,9 points
-de PIB dans l'avant-dernière catégorie du classement de l'OCDE, contre 17,5 en moyenne, et davantage
-que la moyenne dans les catégories les moins nocives. Son seul prélèvement inférieur à la moyenne
-porte sur la catégorie jugée la plus nocive.}
-\item \textbf{Comment on y est arrivé.} \nous{1945, financer la protection sociale sur le salaire ;
-1954, la TVA et l'assiette large ;} 1991, la CSG, premier élargissement au-delà du salaire, jamais
-mené à son terme ; 1996, la CRDS créée pour treize ans. Puis trente ans de correctifs : allègements
-empilés depuis 1993, niches, impôts compensés par des aides.
-\item \nous{\textbf{Et pourquoi on n'en sort pas.} Les valeurs locatives : établies en 1970,
-révision votée en 1990 et jamais appliquée, votée de nouveau en 2019 et repoussée à 2031. Une
-réforme fait des perdants identifiables et des gagnants diffus ; la complexité n'est pas un
-accident.}
-\item \nous{\textbf{Ce que l'État sait pèse autant que ce qu'il prend.} Supprimer le détail de la
-déclaration d'ISF a eu dix fois l'effet d'un changement de taux ; exiger les reçus des dons a divisé
-l'élasticité par cinq. Une partie de ce qu'on croit être une fatalité est un choix de législateur.}
-\item \nous{\textbf{Ce que la France fait bien}, et qu'il ne faut pas défaire : le taux normal de
-TVA, les règles d'amortissement, le taux de l'impôt sur les sociétés.}
-\end{enumerate}
-
-\partie{Quatrième partie --- Quel système pour la France du XXI\textsuperscript{e} siècle}{17 p.}
-
-Une règle traverse la partie : assiettes larges, taux bas, pas de niche, et pas d'aide là où
-supprimer un impôt suffit. Chaque chapitre suit le même mode d'emploi : le principe, ce qu'on en
-attend, ce que font nos voisins, qui gagne et qui perd, comment y aller, \nous{et la réponse à
-l'objection la plus forte --- celle qui pourrait faire changer la conclusion.}
-
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em,start=15]
-\item \textbf{Alléger le travail suppose de dire sur quoi on reporte.} Un modèle social financé sur
-le seul salaire ; trente ans d'exonérations qui ont épuisé le levier. Le basculement vers la
-consommation, ses précédents danois et allemand, l'échec français de 2012.
-\item \textbf{Taxer le profit, pas la production.} Supprimer les prélèvements dus avant le premier
-euro de bénéfice, par le troc « zéro aide contre zéro impôt de production ». \nous{Un impôt sur les
-sociétés à taux stable, et la déduction d'un rendement normal sur les fonds propres nouveaux.}
-\item \textbf{Le capital qui travaille, le capital qui se transmet.} \nous{Un régime unique pour
-l'épargne, rendement normal exonéré, assiette indexée.} Côté transmission, une assiette sans
-exception et une imposition de ce que chacun reçoit au cours de sa vie, avec un abattement élevé.
-\item \textbf{À revenu égal, effort égal.} Travail, pension, patrimoine : un même revenu contribue
-de la même façon. \nous{La frontière entre ce qui ouvre des droits et ce qui redistribue.}
-\item \nous{\textbf{Le système d'ensemble.} Ce que lève chaque assiette après réforme, face au
-système actuel, en deux colonnes --- à rendement et à redistribution constants, ce qui est la thèse
-du rapport.}
-\item \nous{\textbf{La compensation, ou rien.} L'objection la plus forte contre tout ce qui
-précède : la suppression est votée, la compensation ne l'est jamais. Chaque mesure est donc
-présentée avec la sienne, chiffrée et dans le même texte.}
-\end{enumerate}
-
-\partienous{Conclusion --- Cinq questions à poser à n'importe quelle proposition}{4 p.}
-
-\nous{L'outil que la date appelle : non pas un programme de plus, mais la grille pour juger ceux des
-autres. Qui la paie vraiment, et non qui la verse ? Sur quelle assiette, et qui en sort ? Qu'est-ce
-qu'elle subventionne sans le dire ? Est-elle gagée, et par quoi ? Si elle n'existait pas,
-l'instaurerait-on aujourd'hui ? Appliquée à quatre propositions réelles de la campagne.}
-
-\textbf{Annexes} (8 p.). Sources et périmètre ; \nous{les réactions à l'impôt estimées sur données
-françaises depuis 2010 ;} comparaisons internationales ; glossaire.
-
-\section{Points à arbitrer}
-
-\begin{enumerate}[leftmargin=1.6em,itemsep=0.2em,parsep=0pt,topsep=0.28em]
-\item \nous{\textbf{Le niveau de prélèvement, mis hors champ.} La thèse suppose des recettes
-inchangées : c'est ce qui rend le rapport inattaquable comme plaidoyer pour moins d'impôt. Y
-réintroduire une cible de dépense le ferait lire autrement.}
-\item \nous{\textbf{Jusqu'où dire « croissance ».} Le classement de l'OCDE est l'appui le plus
-direct de la thèse et le maillon le plus contesté : ses auteurs jugent eux-mêmes les effets
-surestimés. Soit on assume le mot en exposant la réserve, soit on dit « pèse moins sur l'activité »,
-plus solide et presque aussi fort.}
-\item \nous{\textbf{« À redistribution constante » se vérifie mal.} Sans accès aux données
-individuelles, on l'établit sur trois cas types et sur les distributions par décile déjà publiées.
-C'est la limite que les contradicteurs viseront.}
-\item \textbf{Les transmissions.} \nous{Assiette élargie et taux faciaux abaissés à rendement
-inchangé, ou} hausse du poids de l'impôt sur les successions ?
-\item \textbf{Les retraites.} Le financement seul, ou aussi les paramètres ?
-\end{enumerate}
+\nous{\textbf{Restés sans chapitre.} La thèse suppose un rendement inchangé, mais rien ne porte le
+compte : ce que lève chaque assiette après réforme, face au système actuel. Le chapitre 11 établit la
+neutralité redistributive sur cas types et par déciles ; son pendant en recettes n'a pas d'endroit,
+et à défaut il faudra retirer « à rendement constant » de la thèse. La grille de questions à
+appliquer aux propositions de campagne, supprimée, relève de la question 5 ; les sources et le
+tableau des élasticités, de l'annexe.}
 
 \end{document}
