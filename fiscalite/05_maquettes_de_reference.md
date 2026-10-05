@@ -13,17 +13,25 @@ La question n'est pas de savoir s'il faut taxer les riches. Elle est de savoir c
 quand on taxe le **rendement** de l'épargne, plutôt que le patrimoine lui-même ou ce qu'on en
 consomme.
 
-Prenons deux personnes qui gagnent le même salaire et paient le même impôt dessus. La première
-dépense tout immédiatement. La seconde met son argent de côté et le dépense trente ans plus tard.
-Si le rendement de l'épargne est taxé, la seconde paie un deuxième impôt que la première ne paie
-pas. Le système traite donc différemment deux personnes qui ont gagné exactement la même chose, et
-la seule différence entre elles est le moment où elles consomment.
+Prenons deux personnes qui gagnent le même salaire et paient le même impôt sur le revenu dessus.
+La première dépense tout immédiatement. La seconde met son argent de côté et le dépense trente ans
+plus tard. Si le rendement de l'épargne est taxé, la seconde paie un deuxième impôt que la
+première ne paie pas. Le système traite donc différemment deux personnes qui ont gagné exactement
+la même chose, et la seule différence entre elles est le moment où elles consomment.
 
 L'ampleur de cet écart n'est pas une question d'opinion, c'est de l'arithmétique. Avec un
 rendement réel de 3 % par an et le prélèvement forfaitaire unique de 30 %, le rendement net tombe
 à 2,1 %. Sur trente ans, le capital accumulé est inférieur de 23 % à ce qu'il aurait été sans
-impôt. Autrement dit, l'épargnant subit un impôt de 23 % sur sa consommation, là où celui qui a
-dépensé tout de suite n'en a subi aucun. Sur quarante ans, l'écart monte à 30 %.
+impôt ; sur quarante ans, de 30 %.
+
+Deux précisions, faute de quoi l'exemple se retourne. L'épargnante n'est pas appauvrie : 700 €
+placés trente ans à 2,1 % en font 1 306, quand l'autre n'a jamais eu que 700 € à dépenser.
+Épargner reste avantageux, et la comparaison porte sur ce que l'impôt lui coûte, pas sur un
+appauvrissement. Et la première n'a pas échappé à l'impôt : elle a payé le même impôt sur le
+revenu, simplement aucun impôt supplémentaire. La bonne façon de comparer est donc de tout ramener
+en euros d'aujourd'hui : pour 1 000 € gagnés, celle qui consomme aussitôt dispose de 700 €, celle
+qui attend trente ans de l'équivalent de 538 €. L'État a prélevé 30 % à l'une et 46 % à l'autre,
+pour la seule raison qu'elle a attendu.
 
 → figure `p4_impot_sur_l_attente.png`.
 

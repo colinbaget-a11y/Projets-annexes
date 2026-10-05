@@ -356,12 +356,15 @@ l'effort doit porter sur la zone intermédiaire du barème, pas sur le seuil d'e
 
 ### Leçon 7. Taxer le rendement de l'épargne, c'est taxer la patience
 
-**Deux personnes gagnent le même salaire et paient le même impôt dessus ; si le rendement de
-l'épargne est taxé, celle qui attend paie un second impôt que celle qui dépense ne paie pas.** À
-3 % de rendement réel et 30 % de prélèvement, celle qui attend trente ans subit l'équivalent d'un
-impôt de 23 % sur sa consommation, contre zéro pour l'autre. À quarante ans, 30 %. Personne n'a
-voulu ce barème ; il tombe de l'arithmétique de la capitalisation. Et comme il croît avec la durée,
-il frappe le plus durement l'épargne longue, celle qui finance l'investissement et la retraite.
+**Deux personnes gagnent le même salaire et paient le même impôt sur le revenu dessus ; si le
+rendement de l'épargne est taxé, celle qui attend paie un second impôt que celle qui dépense ne
+paie pas.** Elle reste plus riche à l'arrivée — épargner demeure avantageux tant que le rendement
+après impôt est positif —, mais elle consomme moins qu'elle ne l'aurait fait sans cet impôt : à
+3 % de rendement réel et 30 % de prélèvement, 23 % de moins après trente ans, 30 % après quarante.
+Rapporté au salaire gagné et ramené en euros d'aujourd'hui, l'État lui aura pris 46 % contre 30 %
+à l'autre. Personne n'a voulu ce barème ; il tombe de l'arithmétique de la capitalisation. Et
+comme il croît avec la durée, il frappe le plus durement l'épargne longue, celle qui finance
+l'investissement et la retraite.
 
 **La réponse de la théorie n'est pas de ne pas taxer le capital, qui est un slogan, mais de séparer
 le rendement normal de la rente.** Le rendement normal rémunère le seul fait d'attendre : le taxer

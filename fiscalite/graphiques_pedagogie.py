@@ -223,15 +223,20 @@ def p4():
     ax.set_xlabel("durée pendant laquelle l'épargne est conservée")
     grille(ax)
     titre(ax, "Un impôt sur le rendement est un impôt sur la durée de l'attente",
-          "Taux d'imposition implicite de la consommation différée, pour un rendement réel de "
-          "3 % par an. Lire : trente ans d'épargne\ntaxée au prélèvement forfaitaire unique "
-          "reviennent à taxer la consommation à 24 %, contre zéro pour la consommation "
-          "immédiate.")
+          "Part de sa consommation future que l'épargnant perd du fait de l'impôt sur le "
+          "rendement, pour un rendement réel de 3 % par an.\nLire : après trente ans au "
+          "prélèvement forfaitaire unique, il peut consommer 24 % de moins que si ce rendement "
+          "n'était pas taxé.")
     fin(fig, "p4_impot_sur_l_attente.png",
         "Calcul arithmétique. Trois régimes français de 2026 : 17,2 % de prélèvements sociaux "
         "pour l'assurance vie dans l'abattement, 31,4 % pour le prélèvement forfaitaire unique, "
         "47,2 % pour un revenu foncier taxé au taux marginal de 30 %. Le rendement est supposé "
-        "réel, sans inflation.")
+        "réel, sans inflation.",
+        "Note : la comparaison oppose l'épargnant au même épargnant dont le rendement ne serait "
+        "pas taxé, et non à celui qui consomme aussitôt. Épargner reste avantageux tant que le "
+        "rendement après impôt est positif : 700 € placés trente ans au prélèvement forfaitaire "
+        "unique en font 1 290. L'impôt ne décourage donc pas d'épargner, il fait payer d'autant "
+        "plus cher que l'on attend longtemps.")
 
 
 if __name__ == "__main__":
