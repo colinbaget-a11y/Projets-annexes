@@ -1,273 +1,331 @@
-// Plan détaillé au format Word.
+// Proposition de plan au format Word.
 // Régénération : npm install docx, puis node plan-rapport-docx.js (écrit plan-rapport.docx).
 const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, Header, Footer, AlignmentType,
-  HeadingLevel, LevelFormat, BorderStyle, PageNumber,
+  HeadingLevel, LevelFormat, BorderStyle, PageNumber, ShadingType, LineRuleType,
 } = require("docx");
 
 const POLICE = "Cambria";
-const ENCRE = "1A1A19";
-const OCRE = "C79100";
+const BLEU = "003399";        // titres
+const OCRE = "C79100";        // repères (numéros, étiquettes de partie)
+const ENCRE = "1A1A19";       // texte courant
+const GRIS = "5F6368";        // textes de cadrage
+const BLEU_PALE = "C9D3EA";   // filets
+const FOND = "EEF2FA";        // encadré de la thèse
 const FR = { value: "fr-FR" };
 
-// Typographie française : espaces insécables avant la ponctuation haute et dans les guillemets.
+// Typographie française : espaces insécables avant la ponctuation haute, dans les guillemets,
+// entre un nombre et son unité.
+const NBSP = String.fromCharCode(0xA0);    // espace insécable
+const NNBSP = String.fromCharCode(0x202F);  // espace fine insécable
 const fr = (s) => s
-  .replace(/'/g, "’")
-  .replace(/ :/g, " :")
-  .replace(/ ([;?!])/g, " $1")
-  .replace(/« /g, "« ").replace(/ »/g, " »")
-  .replace(/(\d) %/g, "$1 %")
-  .replace(/(\d) (\d{3})(?!\d)/g, "$1 $2")
-  .replace(/ €/g, " €")
-  .replace(/(\d) (milliards|points|ans)/g, "$1 $2");
+  .replace(/'/g, String.fromCharCode(0x2019))
+  .replace(/ :/g, NBSP + ":")
+  .replace(/ ([;?!])/g, NNBSP + "$1")
+  .replace(/\u00AB /g, "\u00AB" + NBSP).replace(/ \u00BB/g, NBSP + "\u00BB")
+  .replace(/(\d) %/g, "$1" + NBSP + "%")
+  .replace(/(\d) (\d{3})(?!\d)/g, "$1" + NNBSP + "$2")
+  .replace(/ \u20AC/g, NBSP + "\u20AC")
+  .replace(/(\d) (milliards|points|ans)/g, "$1" + NBSP + "$2");
 
 const run = (texte, opts = {}) => new TextRun({ text: fr(texte), language: FR, ...opts });
 
-const para = (texte, opts = {}) => new Paragraph({ children: [run(texte)], ...opts });
-
-// Un argument : affirmation en italique, puis son développement.
-const arg = (affirmation, suite = "") => new Paragraph({
-  numbering: { reference: "puces", level: 0 },
-  children: suite ? [run(affirmation, { italics: true }), run(" " + suite)]
-                  : [run(affirmation, { italics: true })],
+// Titre de partie : étiquette en ocre, puis le titre en bleu à la ligne.
+const partie = (etiquette, titre) => new Paragraph({
+  heading: HeadingLevel.HEADING_1,
+  children: [
+    run(etiquette.toUpperCase(), { color: OCRE, size: 17, characterSpacing: 30 }),
+    run(titre, { break: 1 }),
+  ],
 });
 
-const partie = (titre) => new Paragraph({ heading: HeadingLevel.HEADING_1, children: [run(titre)] });
-const chapitre = (titre) => new Paragraph({ heading: HeadingLevel.HEADING_2, children: [run(titre)] });
-const cadre = (texte) => new Paragraph({ children: [run(texte)], spacing: { after: 60 } });
+// Titre de chapitre : numéro en ocre, titre en bleu.
+const chapitre = (num, titre) => new Paragraph({
+  heading: HeadingLevel.HEADING_2,
+  children: [run(num + ".", { color: OCRE }), run("  " + titre)],
+});
 
-const siecle = (opts = {}) => [
-  run("XXI", opts), run("e", { ...opts, superScript: true }), run(" siècle", opts),
-];
+// Ce que le chapitre établit.
+const cadre = (texte) => new Paragraph({
+  keepNext: true,
+  spacing: { after: 100 },
+  children: [run(texte, { italics: true, color: GRIS })],
+});
+
+// Un argument : l'affirmation en gras, puis son développement.
+const arg = (affirmation, suite) => new Paragraph({
+  numbering: { reference: "puces", level: 0 },
+  children: [run(affirmation, { bold: true }), run(" " + suite)],
+});
+
+// Transition entre deux parties.
+const transition = (texte) => new Paragraph({
+  spacing: { before: 200, after: 80 },
+  indent: { left: 120 },
+  border: { left: { style: BorderStyle.SINGLE, size: 18, color: OCRE, space: 10 } },
+  children: [run("Transition : ", { bold: true, color: OCRE }), run(texte, { italics: true, color: BLEU })],
+});
+
+const siecle = (opts = {}) => [run("XXI", opts), run("e", { ...opts, superScript: true }), run(" siècle", opts)];
 
 const contenu = [
   new Paragraph({
-    spacing: { after: 80 },
-    children: [run("PLAN DÉTAILLÉ", { bold: true, size: 16, color: OCRE, characterSpacing: 20 })],
+    spacing: { after: 60 },
+    children: [run("PROPOSITION DE PLAN", { bold: true, size: 17, color: OCRE, characterSpacing: 40 })],
   }),
   new Paragraph({
-    spacing: { after: 160 },
-    border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: ENCRE, space: 6 } },
-    children: [run("Un système fiscal pour le ", { bold: true, size: 36 }), ...siecle({ bold: true, size: 36 })],
+    spacing: { after: 240, line: 252, lineRule: LineRuleType.AUTO },
+    border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: OCRE, space: 8 } },
+    children: [run("Un système fiscal pour la France", { bold: true, size: 40, color: BLEU }),
+               run("au ", { bold: true, size: 40, color: BLEU, break: 1 }),
+               ...siecle({ bold: true, size: 40, color: BLEU })],
   }),
   new Paragraph({
-    spacing: { before: 120, after: 120 },
+    spacing: { before: 120, after: 200, line: 288, lineRule: LineRuleType.AUTO },
+    indent: { left: 120, right: 120 },
+    shading: { type: ShadingType.CLEAR, color: "auto", fill: FOND },
+    border: { left: { style: BorderStyle.SINGLE, size: 24, color: BLEU, space: 10 } },
     children: [
-      run("La thèse.", { bold: true }),
-      run(" À niveau de recettes et de redistribution donnés, toutes les architectures fiscales ne se "
+      run("La thèse. ", { bold: true, color: BLEU }),
+      run("À niveau de recettes et de redistribution donnés, toutes les architectures fiscales ne se "
         + "valent pas. Il est possible de concevoir un système plus simple, plus neutre et moins "
         + "destructeur d'activité sans renoncer à ses objectifs de justice ou de financement."),
     ],
   }),
 
-  partie("Première partie — Qu'est-ce qu'un bon impôt ?"),
+  // ---------------------------------------------------------------- Première partie
+  partie("Première partie", "Qu'est-ce qu'un bon impôt ?"),
 
-  chapitre("1. Le pacte fiscal : les principes qui fondent l'impôt"),
-  cadre("Partir de la Déclaration de 1789 comme socle commun, et en tirer la grille qui servira à juger "
-    + "tout le reste."),
-  arg("La Déclaration pose quatre conditions.", "La contribution est nécessaire, répartie selon les "
-    + "facultés de chacun, consentie, et son emploi est contrôlé."),
-  arg("Elles se traduisent en exigences simples.", "L'impôt doit être légitime, proportionné, "
-    + "compréhensible, et ne pas imposer de prélèvement ou de coût qui ne soit justifié par un objectif "
-    + "collectif — frais de gestion et coût de conformité compris."),
-  arg("Un impôt juste ne se réduit donc pas à son barème.", "Il doit aussi respecter les libertés, la "
-    + "capacité contributive et le consentement."),
+  chapitre("1", "Le pacte fiscal : les principes qui fondent l'impôt"),
+  arg("Un socle commun : la Déclaration de 1789.", "La contribution commune est « indispensable », "
+    + "répartie entre les citoyens « en raison de leurs facultés » ; les citoyens doivent pouvoir en "
+    + "« constater la nécessité », la « consentir librement » et en « suivre l'emploi ». Ces principes "
+    + "peuvent servir de point de départ théoriquement accepté par tous avant tout débat sur le niveau "
+    + "ou la structure de l'impôt."),
+  arg("Nécessité : lever ce dont la collectivité a besoin, sans coût inutile.", "En langage "
+    + "économique, l'impôt doit financer les dépenses jugées nécessaires, mais une recette donnée doit "
+    + "être levée en détruisant le moins possible d'activité et de valeur."),
+  arg("Facultés : répartir l'effort selon la capacité contributive.", "Le système fiscal doit tenir "
+    + "compte des différences de revenus et de ressources. Le degré exact de redistribution relève du "
+    + "choix collectif ; l'économie peut ensuite chercher la manière la moins coûteuse de l'obtenir."),
+  arg("Consentement : un prélèvement lisible, prévisible et proportionné.", "Le contribuable doit "
+    + "pouvoir comprendre ce qu'il paie et selon quelles règles. Cela conduit à rechercher des barèmes "
+    + "lisibles, à limiter les taux marginaux excessifs et à éviter qu'un prélèvement devienne "
+    + "disproportionné par rapport à son assiette."),
+  arg("Contrôle de l'emploi : savoir ce que l'impôt finance.", "Le consentement suppose aussi de pouvoir "
+    + "relier prélèvements et dépenses publiques. Transparence des recettes, affectations "
+    + "compréhensibles et responsabilité dans l'usage de l'argent public participent donc à la qualité "
+    + "du système fiscal."),
 
-  chapitre("2. Financer, orienter, corriger : le triangle de l'impôt"),
+  chapitre("2", "Financer, orienter, corriger : le triangle de l'impôt"),
   cadre("Présenter les trois grandes fonctions du système fiscal à partir d'exemples concrets, puis "
-    + "montrer pourquoi aucun impôt ne peut les remplir toutes."),
+    + "montrer pourquoi chaque impôt peut difficilement valider les trois côtés du triangle, d'où la "
+    + "nécessité d'évaluer le système dans son entièreté."),
   arg("Financer l'action publique :", "lever les recettes nécessaires aux dépenses collectives, en "
     + "limitant autant que possible le coût économique du prélèvement."),
   arg("Orienter les comportements :", "encourager ou décourager certains comportements, notamment "
-    + "lorsqu'ils produisent des externalités — pollution, tabac."),
+    + "lorsqu'ils produisent des externalités — pollution, tabac. On prépare le terrain pour la taxe "
+    + "carbone."),
   arg("Corriger les inégalités :", "répartir l'effort selon les facultés contributives et assurer le "
     + "degré de redistribution souhaité collectivement, ce qui pose la question du meilleur instrument : "
-    + "la progressivité et les dispositifs fiscaux, ou les dépenses publiques et les transferts sociaux ?"),
-  arg("Ces objectifs entrent en tension, et l'intuition de Tinbergen dit pourquoi :", "plusieurs "
-    + "objectifs nécessitent généralement plusieurs instruments."),
+    + "la progressivité et les dispositifs fiscaux, ou les dépenses publiques et les transferts sociaux ? "
+    + "Ici, encadré possible pour expliciter ce point souvent oublié."),
+  arg("Ces objectifs entrent en tension (Tinbergen) :", "plusieurs objectifs nécessitent généralement "
+    + "plusieurs instruments."),
   arg("On ne doit donc pas demander à chaque impôt d'être à la fois efficace, redistributif et "
     + "incitatif.", "C'est l'ensemble du système fiscal et social qui doit tenir les trois sommets du "
     + "triangle."),
 
-  chapitre("3. Prélever mieux : ce que nous apprend l'économie de l'impôt"),
+  chapitre("3", "Prélever mieux : ce que nous apprend l'économie de l'impôt"),
   cadre("Présenter de manière pédagogique, à partir d'exemples concrets, quatre grands enseignements de "
     + "la littérature sur la taxation optimale."),
   arg("Tout impôt a un coût économique.", "Expliquer la perte sèche à partir d'un échange rendu "
-    + "impossible par l'impôt — un vendeur prêt à céder à 200 000 €, un acheteur prêt à payer 210 000, "
-    + "et 8 % de droits de mutation entre les deux : la vente n'a pas lieu, personne ne paie l'impôt et "
-    + "le gain de l'échange est perdu pour tous. Puis introduire les taux marginaux, les réactions "
-    + "comportementales, les élasticités et l'intuition de la courbe de Laffer : taxer davantage une "
-    + "activité peut réduire l'assiette au point de faire baisser la recette."),
+    + "impossible par l'impôt (exemple : un propriétaire d'appartement prêt à vendre à 200 000 €, un "
+    + "acheteur prêt à payer 210 000 ; l'État arrive et impose 8 % de droits de mutation entre les deux : "
+    + "la vente n'a pas lieu, personne ne paie l'impôt et le gain de l'échange est perdu pour tous). Puis "
+    + "introduire les taux marginaux, les réactions comportementales, les élasticités et l'intuition de "
+    + "la courbe de Laffer : taxer davantage une activité peut réduire l'assiette au point de faire "
+    + "baisser la recette."),
   arg("Tous les impôts ne sont pas également efficaces.", "Pourquoi privilégier des assiettes larges et "
-    + "des taux bas ? Pourquoi rechercher la neutralité fiscale, éviter de taxer les intrants et "
-    + "privilégier les assiettes peu élastiques ? Introduire la fiscalité pigouvienne, et le classement "
-    + "des impôts selon leurs effets sur la croissance établi par l'OCDE, avec ses limites — à commencer "
-    + "par celle que reconnaissent ses auteurs, qui jugent eux-mêmes excessive l'ampleur des effets "
-    + "estimés."),
+    + "des taux bas ? Intuition du coût quadratique (sans le mentionner, bien sûr). Pourquoi rechercher la neutralité "
+    + "fiscale, éviter de taxer les intrants et privilégier les assiettes peu élastiques ? Introduire la "
+    + "fiscalité pigouvienne, et le classement des impôts selon leurs effets sur la croissance établi "
+    + "par l'OCDE."),
   arg("Celui qui paie l'impôt n'est pas toujours celui qu'on croit.", "Introduire l'incidence fiscale : "
     + "une taxe sur les entreprises peut être supportée par les salariés, les consommateurs ou les "
-    + "actionnaires, la charge retombant sur celui qui peut le moins s'y soustraire. La répartition "
-    + "réelle de l'impôt ne correspond pas nécessairement à sa répartition juridique."),
+    + "actionnaires, la charge retombant sur celui qui peut le moins s'y soustraire. Ici, on explique "
+    + "pourquoi monter des impôts en apparence « sur les riches » ou « sur les entreprises » touche en "
+    + "réalité Monsieur et Madame Tout-le-Monde."),
   arg("La justice fiscale se juge à l'échelle du système.", "Un impôt isolément régressif peut "
     + "s'inscrire dans un système globalement redistributif. Expliquer pourquoi une TVA uniforme "
     + "accompagnée de transferts ciblés peut être plus efficace et tout aussi redistributive qu'une TVA "
-    + "à taux réduits — c'est le sens du résultat d'Atkinson et Stiglitz : un taux réduit profite "
-    + "davantage, en euros, aux ménages qui consomment le plus."),
-  para("La partie se referme sur la thèse, qui en découle. Si ces principes sont relativement simples, "
-    + "comment la France s'en est-elle à ce point éloignée ?", { spacing: { before: 120 } }),
+    + "à taux réduits."),
+  transition("si ces principes sont relativement simples, comment la France s'en est-elle à ce point "
+    + "éloignée ?"),
 
-  partie("Deuxième partie — Comment la France a perdu le fil"),
-  para("Partie narrative, lisible d'une traite. La comparaison internationale n'a pas de chapitre "
-    + "autonome : elle sert de test à chaque anomalie — est-elle réellement française, et d'autres pays "
-    + "atteignent-ils le même degré de redistribution avec une architecture différente ?"),
+  // ---------------------------------------------------------------- Deuxième partie
+  partie("Deuxième partie", "La France a progressivement perdu le fil de sa fiscalité"),
 
-  chapitre("4. Un système que personne n'a vraiment dessiné"),
-  cadre("Raconter comment le système s'est construit par strates, chaque époque répondant à son "
-    + "problème sans que personne ne refasse l'ensemble."),
-  arg("Un impôt se choisit d'abord parce qu'il est facile à lever.", "La contribution des portes et "
-    + "fenêtres, créée en 1798 et supprimée en 1926, était facile à constater ; elle a muré les façades "
-    + "pendant un siècle."),
-  arg("1945 : la protection sociale est assise sur le salaire.", "Le choix convenait au plein emploi "
-    + "et à une population active en croissance ; il lie pour un demi-siècle le financement social au "
-    + "coût du travail."),
-  arg("1991 : la CSG tente d'en sortir, et s'arrête à mi-chemin.", "Premier prélèvement assis sur tous "
-    + "les revenus ; la CRDS, créée en 1996 pour treize ans, est toujours là."),
-  arg("Depuis 1993, on corrige le coût du travail au lieu de changer d'assiette.", "Allègements "
-    + "empilés, CICE, puis sa bascule en allègements, chacun avec son seuil et son plafond."),
+  chapitre("4", "Un système sans grand dessein, construit par accumulation"),
+  arg("À chaque besoin nouveau, la solution la plus simple est d'ajouter un prélèvement.", "L'État "
+    + "social grandit, de nouvelles dépenses apparaissent, et le système fiscal s'adapte par couches "
+    + "plutôt que par refonte : cotisations pour financer la protection sociale, puis CSG pour élargir "
+    + "son financement, puis CRDS pour financer la dette sociale."),
+  arg("On taxe d'abord les assiettes les plus faciles à saisir.", "Les choix fiscaux sont aussi dictés "
+    + "par les possibilités administratives : portes et fenêtres autrefois, salaires prélevés à la "
+    + "source ou consommation aujourd'hui. La facilité de collecte peut donc peser autant que "
+    + "l'efficacité économique dans la naissance d'un impôt."),
+  arg("Les défauts d'un impôt appellent ensuite des correctifs plutôt que sa suppression.", "Le coût "
+    + "élevé du travail conduit aux allègements de cotisations puis au CICE ; les taux élevés ou mal "
+    + "ciblés conduisent aux niches, exonérations et taux réduits. À force de corriger les conséquences "
+    + "des prélèvements existants, on complexifie encore leur architecture."),
+  arg("L'économie politique favorise cette accumulation.", "Il est souvent plus facile de créer une "
+    + "taxe sur une base peu visible ou sur un payeur politiquement commode que de remettre à plat "
+    + "l'ensemble. Les cotisations dites « patronales » illustrent l'écart possible entre celui que la "
+    + "loi désigne comme payeur et celui qui supporte économiquement le prélèvement."),
 
-  chapitre("5. Beaucoup prélever, mais surtout mal prélever"),
-  cadre("Une photographie du système actuel : où la France viole-t-elle le plus clairement les principes "
-    + "de la première partie ?"),
-  arg("La France prélève beaucoup parce qu'elle dépense beaucoup.", "Dépense publique de 57,0 % du PIB "
-    + "contre 49,4 % en zone euro, prélèvements de 45,3 % contre 40,8 %, le solde étant emprunté "
-    + "(Eurostat, 2024)."),
-  arg("La structure est un problème indépendant du niveau.", "On peut prélever 40 % du PIB aussi mal "
-    + "que 45."),
-  arg("L'euro suivant est le plus taxé au bas de l'échelle des salaires.", "Un célibataire sans enfant "
-    + "est prélevé à 64,6 % autour de 67 % du salaire moyen, contre 58,2 % au salaire moyen."),
-  arg("La production est taxée avant le profit.", "77 milliards sont dus même quand l'entreprise perd "
-    + "de l'argent, à rebours de la règle qui commande de ne pas taxer les intrants."),
-  arg("L'épargne est taxée selon son enveloppe, et le sol sur une photographie de 1970.", "Le même "
-    + "rendement est imposé de 0 à 55 % selon le support ; la taxe foncière des logements repose "
-    + "toujours sur les valeurs locatives de 1970."),
-  arg("Au total, la structure est presque à l'envers du classement de l'OCDE.", "25,9 points de PIB "
-    + "dans l'avant-dernière catégorie contre 17,5 en moyenne, et le seul prélèvement inférieur à la "
-    + "moyenne porte sur la catégorie jugée la plus nocive."),
+  chapitre("5", "Beaucoup prélever, mais surtout mal prélever"),
+  cadre("Montrer, à partir de quelques prélèvements emblématiques, où la fiscalité française s'écarte "
+    + "le plus clairement des principes de la première partie."),
+  arg("Cotisations et allègements : des taux marginaux très élevés sur les bas salaires.", "La sortie "
+    + "progressive des allègements de cotisations fait fortement augmenter le prélèvement sur l'euro "
+    + "supplémentaire gagné : autour de certains niveaux de salaire, progresser salarialement est "
+    + "davantage taxé qu'au salaire moyen."),
+  arg("C3S : taxer le chiffre d'affaires plutôt que le bénéfice.", "La contribution sociale de "
+    + "solidarité des sociétés est due sur les ventes indépendamment de la rentabilité et peut se "
+    + "cumuler le long des chaînes de production : l'exemple le plus clair d'un impôt qui frappe avant "
+    + "même que le profit existe."),
+  arg("Droits de mutation : taxer le fait de déménager plutôt que le foncier.", "Les droits de "
+    + "mutation à titre onéreux renchérissent directement les transactions immobilières et donc la "
+    + "mobilité, alors que le sol constitue une assiette immobile beaucoup moins sensible aux "
+    + "comportements."),
+  arg("Fiscalité de l'épargne : taxer différemment un même rendement selon son enveloppe.", "PEA, "
+    + "assurance-vie, compte-titres, livrets ou immobilier supportent des fiscalités très différentes : "
+    + "le choix du placement dépend alors en partie de son statut fiscal plutôt que de son rendement "
+    + "économique."),
 
-  chapitre("6. Quand la complexité finit par miner l'efficacité et la justice"),
-  cadre("Montrer que la complexité coûte, en efficacité comme en justice, et expliquer pourquoi elle se "
-    + "maintient."),
-  arg("L'État taxe, puis corrige sa propre taxe.", "Le cas du travail n'est pas isolé : on taxe la "
-    + "production puis on verse des aides, on institue un impôt général puis un taux réduit, on crée une "
-    + "niche puis un plafonnement de niches. Le système produit ses propres antidotes."),
-  arg("Chaque correctif crée de nouveaux arbitrages.", "Optimisation, requalification, et des taux "
-    + "affichés qui ne disent plus les taux payés : 474 dépenses fiscales pour 91,8 milliards, dont la "
-    + "Cour des comptes écrit que le coût n'est pas connu."),
-  arg("La redistribution devient illisible.", "Impôts progressifs, taxes proportionnelles, cotisations, "
-    + "exonérations, prestations, avantages liés à l'âge ou au statut : plus personne ne sait dire qui "
-    + "paie quoi, d'où des controverses qu'aucun chiffre ne tranche."),
-  arg("Le consentement s'use.", "L'article 14 donne à chacun le droit de constater la nécessité de la "
-    + "contribution et d'en suivre l'emploi ; un système illisible vide ce droit de sa substance."),
-  arg("Et le système survit parce que ses pertes sont concentrées et ses gains diffus.", "Une niche a "
-    + "des bénéficiaires qui savent exactement ce qu'ils perdent, quand celui qui gagne cent euros à une "
-    + "baisse générale de taux ignore d'où ils viennent ; certains impôts durent parce qu'ils sont peu "
-    + "visibles ou faciles à collecter."),
-  para("Le problème français n'est donc pas seulement que nous prélevons beaucoup, ni que notre système "
-    + "est compliqué : nous avons progressivement substitué l'accumulation de prélèvements, d'exceptions "
-    + "et de compensations à une architecture fiscale cohérente. Si l'on cessait de corriger à la marge "
-    + "et qu'on essayait enfin de redessiner, que ferait-on ?", { spacing: { before: 120 } }),
+  chapitre("6", "Quand la complexité finit par miner l'efficacité et la justice"),
+  cadre("Montrer qu'à force de corriger des taux élevés par des exceptions, le système devient plus "
+    + "coûteux économiquement, moins neutre et moins lisible."),
+  arg("Des taux élevés, puis des exceptions pour en atténuer les effets.", "IR et niches fiscales ; "
+    + "cotisations élevées et allègements de charges ; TVA et taux réduits. Une autre logique serait "
+    + "celle d'assiettes beaucoup plus larges avec des taux plus faibles."),
+  arg("Chaque exception détruit un peu la neutralité de l'impôt.", "Deux revenus, deux entreprises ou "
+    + "deux consommations comparables ne sont plus taxés de la même manière. Les décisions sont alors "
+    + "orientées par la fiscalité : choix d'un statut, d'un placement, d'un niveau de salaire ou d'un "
+    + "secteur favorisé plutôt que par leur intérêt économique propre."),
+  arg("L'exonération des uns est payée par les autres.", "À recettes données, toute niche ou allègement "
+    + "oblige à taxer davantage le reste de l'assiette. Le débat fiscal devient alors une lutte "
+    + "permanente pour obtenir ou conserver son régime particulier plutôt qu'une discussion sur le bon "
+    + "niveau du taux commun."),
+  arg("Le système devient illisible politiquement.", "Les allègements de cotisations sont qualifiés "
+    + "d'« aides aux entreprises », les niches tantôt de privilèges, tantôt de politiques publiques : à "
+    + "force de taxer puis de rendre, il devient difficile de savoir qui paie réellement quoi."),
 
-  partie("Troisième partie — Quel système fiscal pour la France ?"),
-  para("Le mouvement est le suivant : voilà le système qu'on peut construire, voilà les choix qui restent "
-    + "ouverts à l'intérieur de ce système, voilà pourquoi il est difficile d'y arriver."),
+  // ---------------------------------------------------------------- Troisième partie
+  partie("Troisième partie", "Quel système fiscal pour la France ?"),
+  cadre("Le mouvement est le suivant : voilà le système qu'on peut construire, voilà les choix qui "
+    + "restent ouverts à l'intérieur de ce système, voilà pourquoi il est difficile d'y arriver."),
 
-  chapitre("7. À quoi ressemblerait concrètement un système fiscal plus simple et plus efficace ?"),
-  cadre("Passer des principes aux instruments, assiette par assiette, et montrer qu'on peut réellement "
-    + "lever les recettes autrement."),
-  arg("Beaucoup moins de niches et d'abattements,", "y compris ceux qui tiennent au statut comme "
-    + "l'abattement de 10 % sur les pensions : c'est ce qui finance la baisse des taux partout ailleurs."),
-  arg("Un impôt sur le revenu à assiette plus large et à taux plus faibles."),
-  arg("Une TVA avec beaucoup moins de taux réduits."),
-  arg("Une fiscalité de l'épargne plus homogène."),
-  arg("Moins de taxation des intrants et de la production,", "selon le principe « zéro aide contre zéro "
-    + "impôt de production »."),
-  arg("Une fiscalité pigouvienne assumée", "lorsqu'il s'agit de corriger une externalité, à commencer "
-    + "par la taxe carbone."),
-  arg("Et la preuve que les comptes tombent :", "un tableau en deux colonnes — ce que rapporte chaque "
-    + "assiette aujourd'hui, ce qu'elle rapporterait après réforme — et l'effet sur quelques cas types "
-    + "et sur les déciles publiés."),
+  chapitre("7", "À quoi ressemblerait concrètement un système fiscal plus simple et plus efficace ?"),
+  cadre("Passer des principes aux instruments et montrer qu'une autre architecture est possible."),
+  arg("Travail et consommation : des cotisations plus faibles, une TVA plus large.", "Réduire fortement "
+    + "les taux réduits de TVA ; lorsque leur suppression pénalise les ménages modestes, restituer "
+    + "directement le gain du côté des prestations sociales plutôt que par un taux réduit bénéficiant à "
+    + "tous. Utiliser ensuite une hausse de la TVA — la TVA dite « sociale » — pour financer une baisse "
+    + "des cotisations et réduire la taxation du travail."),
+  arg("Revenus : des assiettes larges et des taux plus faibles.", "Une CSG beaucoup plus uniforme entre "
+    + "revenus et statuts ; un IR débarrassé de l'essentiel de ses niches et abattements, permettant en "
+    + "contrepartie d'abaisser les taux."),
+  arg("Entreprises : cesser de taxer avant le bénéfice.", "Supprimer la C3S ; refondre la CVAE pour "
+    + "qu'elle ne dépende plus du chiffre d'affaires, voire la rapprocher de l'IS ; réduire parallèlement "
+    + "les aides qui compensent ces prélèvements."),
+  arg("Capital : rechercher la neutralité.", "Rapprocher le traitement fiscal de placements comparables "
+    + "et limiter les avantages liés au choix d'une enveloppe plutôt qu'à la nature économique du "
+    + "revenu."),
+  arg("Externalités : assumer les taxes qui corrigent réellement un coût collectif.", "À commencer par "
+    + "la fiscalité carbone."),
+  arg("Boucler les comptes.", "Présenter pour chaque réforme ce qui est supprimé, ce qui est abaissé ou "
+    + "augmenté, son rendement et ses effets distributifs."),
 
-  chapitre("8. Les grands arbitrages : où déplacer la charge fiscale ?"),
-  cadre("Une fois les principes posés, certains choix restent discutables et dépendent aussi de "
-    + "préférences collectives ; le chapitre les traite comme tels."),
-  arg("Faut-il déplacer une partie de la taxation du travail vers la consommation ?", "Le débat sur la "
-    + "TVA sociale, avec les précédents allemand de 2007 et danois, et l'échec français de 2012."),
-  arg("Quelle place donner à la taxation des transmissions ?", "Un encadré contradictoire. Pour : c'est "
-    + "le revenu le moins lié à l'effort et le plus concentré. Contre : c'est l'impôt le plus rejeté, il "
-    + "frappe une épargne déjà imposée, et son rendement dépend de la capacité à retenir des assiettes "
-    + "mobiles."),
-  arg("Comment traiter l'épargne ?", "Arbitrer entre rendement normal, rente et prise de risque."),
+  chapitre("8", "Les grands arbitrages : jusqu'où déplacer la charge ?"),
+  cadre("Les principes économiques donnent une direction, mais ne tranchent pas tous les choix "
+    + "collectifs."),
+  arg("Jusqu'où déplacer la taxation du travail vers la consommation ?", "Discuter l'ampleur souhaitable "
+    + "de la TVA dite sociale et de la baisse correspondante des cotisations."),
+  arg("Quelle place donner aux transmissions ?", "Mettre face à face les arguments en faveur d'une "
+    + "taxation accrue des héritages et ceux qui plaident pour la modération."),
+  arg("Comment taxer le capital sans décourager l'épargne et le risque ?", "Distinguer rendement "
+    + "normal, rente, plus-value et prise de risque ; arbitrer le degré de neutralité souhaitable entre "
+    + "supports."),
 
-  chapitre("9. Pourquoi passer au système cible est si difficile"),
-  cadre("Les pertes concentrées et les gains diffus décrits en deuxième partie, vus cette fois du côté "
-    + "de celui qui réforme, et ce qu'ils imposent comme méthode."),
-  arg("Certaines baisses d'impôt sont politiquement difficiles,", "notamment pour les entreprises."),
-  arg("Il faut préserver le rendement et la redistribution,", "et compenser les ménages réellement "
-    + "perdants."),
-  arg("Le risque principal est que les hausses soient votées avant les compensations."),
-  arg("D'où la méthode :", "réformer par paquets cohérents, chaque suppression votée dans le même texte "
-    + "que sa compensation, avec une transition progressive."),
+  chapitre("9", "Passer du système actuel au système cible"),
+  arg("Réformer par paquets cohérents.", "Une suppression de niche doit être accompagnée de la baisse de "
+    + "taux qu'elle finance ; une hausse de TVA, de la baisse de cotisations correspondante."),
+  arg("Préserver le rendement et limiter les ruptures distributives.", "Compenser directement les "
+    + "ménages réellement perdants plutôt que recréer des exceptions fiscales."),
+  arg("Décider immédiatement la cible, mais étaler certaines transitions.", "Les droits acquis et les "
+    + "situations constituées peuvent nécessiter une extinction progressive."),
+  arg("Rendre la réforme crédible.", "Hausses, baisses et compensations doivent être votées ensemble "
+    + "pour éviter que seules les premières soient effectivement mises en œuvre."),
 ];
+
+const enTete = new Header({ children: [new Paragraph({
+  border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: BLEU_PALE, space: 4 } },
+  children: [run("Un système fiscal pour la France au ", { italics: true, size: 16, color: GRIS }),
+             ...siecle({ italics: true, size: 16, color: GRIS }),
+             run(" — proposition de plan", { italics: true, size: 16, color: GRIS })],
+})] });
+
+const numeroPage = () => new Footer({ children: [new Paragraph({
+  alignment: AlignmentType.CENTER,
+  children: [new TextRun({ children: [PageNumber.CURRENT], size: 17, color: GRIS })],
+})] });
 
 const doc = new Document({
   creator: "Colin Baget",
   lastModifiedBy: "Colin Baget",
-  title: "Un système fiscal pour le XXIe siècle — plan détaillé",
+  title: "Un système fiscal pour la France au XXIe siècle — proposition de plan",
   styles: {
     default: {
       document: {
         run: { font: POLICE, size: 21, color: ENCRE, language: FR },
-        paragraph: { spacing: { after: 80, line: 264 } },
+        paragraph: { spacing: { after: 80, line: 276, lineRule: LineRuleType.AUTO } },
       },
     },
     paragraphStyles: [
       { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
-        run: { font: POLICE, size: 27, bold: true, color: ENCRE },
-        paragraph: { spacing: { before: 320, after: 120 }, keepNext: true, outlineLevel: 0 } },
+        run: { font: POLICE, size: 30, bold: true, color: BLEU },
+        paragraph: {
+          spacing: { before: 440, after: 200, line: 264, lineRule: LineRuleType.AUTO }, keepNext: true, outlineLevel: 0,
+          border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: BLEU_PALE, space: 6 } },
+        } },
       { id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true,
-        run: { font: POLICE, size: 22, bold: true, color: ENCRE },
-        paragraph: { spacing: { before: 200, after: 60 }, keepNext: true, outlineLevel: 1 } },
+        run: { font: POLICE, size: 23, bold: true, color: BLEU },
+        paragraph: { spacing: { before: 280, after: 80 }, keepNext: true, outlineLevel: 1 } },
     ],
   },
   numbering: {
     config: [{
       reference: "puces",
-      levels: [{ level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT,
-        style: { paragraph: { indent: { left: 400, hanging: 240 }, spacing: { after: 50 } } } }],
+      levels: [{
+        level: 0, format: LevelFormat.BULLET, text: "▪", alignment: AlignmentType.LEFT,
+        style: {
+          run: { color: BLEU },
+          paragraph: { indent: { left: 400, hanging: 260 }, spacing: { after: 90 } },
+        },
+      }],
     }],
   },
   sections: [{
     properties: {
       titlePage: true,
-      page: { margin: { top: 1250, bottom: 1250, left: 1300, right: 1300, header: 600, footer: 600 } },
+      page: { margin: { top: 1250, bottom: 1250, left: 1320, right: 1320, header: 620, footer: 620 } },
     },
-    headers: {
-      first: new Header({ children: [new Paragraph({ children: [] })] }),
-      default: new Header({ children: [new Paragraph({
-        border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: ENCRE, space: 4 } },
-        children: [run("Un système fiscal pour le ", { italics: true, size: 17 }),
-                   ...siecle({ italics: true, size: 17 }),
-                   run(" — plan détaillé", { italics: true, size: 17 })],
-      })] }),
-    },
-    footers: {
-      first: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER,
-        children: [new TextRun({ children: [PageNumber.CURRENT], size: 17 })] })] }),
-      default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER,
-        children: [new TextRun({ children: [PageNumber.CURRENT], size: 17 })] })] }),
-    },
+    headers: { first: new Header({ children: [new Paragraph({ children: [] })] }), default: enTete },
+    footers: { first: numeroPage(), default: numeroPage() },
     children: contenu,
   }],
 });
