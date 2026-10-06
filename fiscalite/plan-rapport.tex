@@ -35,6 +35,9 @@
 \newenvironment{chapitres}[1]
 {\begin{enumerate}[leftmargin=1.6em,itemsep=0.15em,parsep=0pt,topsep=0.20em,start=#1]}
 {\end{enumerate}}
+\newenvironment{args}
+{\begin{itemize}[leftmargin=1.1em,itemsep=0.1em,parsep=0pt,topsep=0.12em,label=\textbullet]}
+{\end{itemize}}
 
 \begin{document}
 
@@ -49,39 +52,44 @@
 \textbf{La thèse.} À niveau de recettes et de redistribution donnés, toutes les architectures
 fiscales ne se valent pas. Il est possible de concevoir un système plus simple, plus neutre et moins
 destructeur d'activité sans renoncer à ses objectifs de justice ou de financement. Cette thèse n'est
-pas posée d'entrée : elle est la conclusion de la première partie, et c'est seulement une fois établie
-que la deuxième peut mesurer l'écart français.
+pas posée d'entrée : elle est la conclusion de la première partie, et c'est seulement une fois
+établie que la deuxième peut mesurer l'écart français.
 
 \section{Première partie --- Qu'est-ce qu'un bon impôt ?}
 
 \begin{chapitres}{1}
 \item \textbf{Le pacte fiscal : les principes qui fondent l'impôt.} Partir de la Déclaration de 1789
-comme socle commun : la contribution est nécessaire, elle doit être répartie selon les facultés de
-chacun, consentie et contrôlée. De là quelques exigences simples : l'impôt doit être légitime,
-proportionné, compréhensible, et ne pas imposer de prélèvement ou de coût qui ne soit justifié par un
-objectif collectif --- ce qui inclut les frais de gestion et le coût de conformité, qui font partie
-du prix de l'impôt. C'est ici qu'on introduit l'idée qu'un impôt juste ne se réduit pas à son
-barème : il doit aussi respecter les libertés, la capacité contributive et le consentement.
+comme socle commun, et en tirer la grille qui servira à juger tout le reste.
+\begin{args}
+\item \emph{La Déclaration pose quatre conditions.} La contribution est nécessaire, répartie selon
+les facultés de chacun, consentie, et son emploi est contrôlé.
+\item \emph{Elles se traduisent en exigences simples.} L'impôt doit être légitime, proportionné,
+compréhensible, et ne pas imposer de prélèvement ou de coût qui ne soit justifié par un objectif
+collectif --- frais de gestion et coût de conformité compris.
+\item \emph{Un impôt juste ne se réduit donc pas à son barème.} Il doit aussi respecter les
+libertés, la capacité contributive et le consentement.
+\end{args}
 \item \textbf{Financer, orienter, corriger : le triangle de l'impôt.} Présenter les trois grandes
-fonctions du système fiscal, à partir d'exemples concrets.
-\begin{itemize}[leftmargin=1.1em,itemsep=0.12em,parsep=0pt,topsep=0.15em,label=\textbullet]
+fonctions du système fiscal à partir d'exemples concrets, puis montrer pourquoi aucun impôt ne peut
+les remplir toutes.
+\begin{args}
 \item \emph{Financer l'action publique :} lever les recettes nécessaires aux dépenses collectives, en
 limitant autant que possible le coût économique du prélèvement.
-\item \emph{Orienter les comportements :} utiliser l'impôt pour encourager ou décourager certains
-comportements, notamment lorsqu'ils produisent des externalités --- pollution, tabac.
+\item \emph{Orienter les comportements :} encourager ou décourager certains comportements, notamment
+lorsqu'ils produisent des externalités --- pollution, tabac.
 \item \emph{Corriger les inégalités :} répartir l'effort selon les facultés contributives et assurer
-le degré de redistribution souhaité collectivement. Poser la question du meilleur instrument pour
-redistribuer : faut-il le faire par la progressivité et les dispositifs du système fiscal, ou par
-les dépenses publiques et les transferts sociaux ?
-\end{itemize}
-Ces objectifs peuvent entrer en tension. Introduire simplement l'intuition de Tinbergen : plusieurs
-objectifs nécessitent généralement plusieurs instruments. On ne doit donc pas demander à chaque impôt
-d'être simultanément efficace, redistributif et incitatif : c'est l'ensemble du système fiscal et
-social qui doit permettre de tenir les trois objectifs du triangle.
+le degré de redistribution souhaité collectivement, ce qui pose la question du meilleur instrument :
+la progressivité et les dispositifs fiscaux, ou les dépenses publiques et les transferts sociaux ?
+\item \emph{Ces objectifs entrent en tension, et l'intuition de Tinbergen dit pourquoi :} plusieurs
+objectifs nécessitent généralement plusieurs instruments.
+\item \emph{On ne doit donc pas demander à chaque impôt d'être à la fois efficace, redistributif et
+incitatif.} C'est l'ensemble du système fiscal et social qui doit tenir les trois sommets du
+triangle.
+\end{args}
 \item \textbf{Prélever mieux : ce que nous apprend l'économie de l'impôt.} Présenter de manière
 pédagogique, à partir d'exemples concrets, quatre grands enseignements de la littérature sur la
 taxation optimale.
-\begin{itemize}[leftmargin=1.1em,itemsep=0.12em,parsep=0pt,topsep=0.15em,label=\textbullet]
+\begin{args}
 \item \emph{Tout impôt a un coût économique.} Expliquer la perte sèche à partir d'un échange rendu
 impossible par l'impôt --- un vendeur prêt à céder à 200\,000~\euro{}, un acheteur prêt à payer
 210\,000, et 8~\% de droits de mutation entre les deux : la vente n'a pas lieu, personne ne paie
@@ -99,10 +107,10 @@ les actionnaires, la charge retombant sur celui qui peut le moins s'y soustraire
 réelle de l'impôt ne correspond pas nécessairement à sa répartition juridique.
 \item \emph{La justice fiscale se juge à l'échelle du système.} Un impôt isolément régressif peut
 s'inscrire dans un système globalement redistributif. Expliquer pourquoi une TVA uniforme accompagnée
-de transferts ciblés peut être plus efficace et tout aussi redistributive qu'une TVA à taux réduits ---
-c'est le sens du résultat d'Atkinson et Stiglitz : un taux réduit profite davantage, en euros, aux
-ménages qui consomment le plus.
-\end{itemize}
+de transferts ciblés peut être plus efficace et tout aussi redistributive qu'une TVA à taux réduits
+--- c'est le sens du résultat d'Atkinson et Stiglitz : un taux réduit profite davantage, en euros,
+aux ménages qui consomment le plus.
+\end{args}
 \end{chapitres}
 
 La partie se referme sur la thèse, qui en découle : à niveau de recettes et de redistribution donnés,
@@ -116,43 +124,62 @@ elle sert de test à chaque anomalie --- est-elle réellement française, et d'a
 atteignent-ils le même degré de redistribution avec une architecture différente ?
 
 \begin{chapitres}{4}
-\item \textbf{Un système que personne n'a vraiment dessiné.} L'économie politique de l'impôt, et
-quelques exemples historiques frappants : la contribution des portes et fenêtres, créée en 1798 et
-supprimée en 1926, choisie parce qu'elle était facile à constater, a muré les façades pendant un
-siècle. Puis le récit français par strates. 1945 : asseoir l'assurance sociale sur le salaire
-convenait au plein emploi et à une population active en croissance, et lie pour un demi-siècle le
-financement de la protection sociale au coût du travail. 1991 : la CSG est la tentative d'en sortir,
-mais l'élargissement s'arrête à mi-chemin ; la CRDS créée en 1996 pour treize ans est toujours là.
-Depuis 1993 : des allègements empilés, le CICE, sa bascule en allègements, chacun avec son seuil et
-son plafond. Chaque époque répond à son problème, personne ne refond l'ensemble : à l'impôt s'ajoute
-bientôt la niche, puis la compensation, puis l'aide.
+\item \textbf{Un système que personne n'a vraiment dessiné.} Raconter comment le système s'est
+construit par strates, chaque époque répondant à son problème sans que personne ne refasse
+l'ensemble.
+\begin{args}
+\item \emph{Un impôt se choisit d'abord parce qu'il est facile à lever.} La contribution des portes
+et fenêtres, créée en 1798 et supprimée en 1926, était facile à constater ; elle a muré les façades
+pendant un siècle.
+\item \emph{1945 : la protection sociale est assise sur le salaire.} Le choix convenait au plein
+emploi et à une population active en croissance ; il lie pour un demi-siècle le financement social au
+coût du travail.
+\item \emph{1991 : la CSG tente d'en sortir, et s'arrête à mi-chemin.} Premier prélèvement assis sur
+tous les revenus ; la CRDS, créée en 1996 pour treize ans, est toujours là.
+\item \emph{Depuis 1993, on corrige le coût du travail au lieu de changer d'assiette.} Allègements
+empilés, CICE, puis sa bascule en allègements, chacun avec son seuil et son plafond.
+\item \emph{À chaque étape, on ajoute sans refondre :} à l'impôt s'ajoute la niche, puis la
+compensation, puis l'aide.
+\end{args}
 \item \textbf{Beaucoup prélever, mais surtout mal prélever.} Photographie actuelle et comparaison
-internationale. Le niveau global d'abord : la France dépense 57,0~\% du PIB contre 49,4~\% en moyenne
-dans la zone euro et prélève 45,3~\% contre 40,8~\%, le solde étant emprunté (Eurostat, 2024) --- le
-niveau de prélèvement est la contrepartie du niveau de dépense. Puis surtout la structure, qui est un
-problème indépendant : on peut prélever 40~\% du PIB aussi mal que 45. Reprendre alors la grille de
-la première partie et passer le système au crible --- assiettes étroites et taux élevés, taxation du
-travail et de la production, niches et différences de traitement, taux marginaux, fiscalité du
-capital et de la consommation, bases immobiles mal exploitées. C'est le chapitre du « où la France
-viole-t-elle le plus clairement nos principes ? », et il est chiffré : sur l'euro suivant, un
-célibataire sans enfant est prélevé à 64,6~\% autour de 67~\% du salaire moyen contre 58,2~\% au
-salaire moyen ; 77~milliards sont dus même quand l'entreprise perd de l'argent ; le même rendement
-d'épargne est imposé de 0 à 55~\% selon l'enveloppe ; et la France prélève 25,9 points de PIB dans
-l'avant-dernière catégorie du classement de l'OCDE contre 17,5 en moyenne.
-\item \textbf{Quand la complexité finit par miner l'efficacité et la justice.} On taxe puis on
-subventionne : on prélève lourdement le travail puis on crée des allègements, on taxe la production
-puis on verse des aides, on institue un impôt général puis un taux réduit, on crée une niche puis un
-plafonnement de niches. Le système produit ses propres antidotes. Il crée des arbitrages et de
-l'optimisation ; les taux affichés ne correspondent plus aux taux effectivement payés --- 474
-dépenses fiscales pour 91,8~milliards, dont la Cour des comptes écrit que le coût n'est pas connu. La
-redistribution devient illisible : impôts progressifs, taxes proportionnelles, cotisations,
-exonérations, prestations, avantages liés à l'âge ou au statut, et plus personne ne sait dire qui
-paie quoi, d'où des controverses qu'aucun chiffre ne tranche. Le consentement de l'article 14 s'use,
-faute de pouvoir constater quoi que ce soit. Et surtout : pourquoi les mécanismes politiques
-favorisent la conservation des niches. Les pertes d'une réforme sont concentrées et ses gains
-diffus ; une niche a des bénéficiaires qui savent exactement ce qu'ils perdent, quand celui qui gagne
-cent euros à une baisse générale de taux ignore d'où ils viennent ; et certains impôts survivent
-parce qu'ils sont peu visibles ou faciles à collecter.
+internationale : où la France viole-t-elle le plus clairement les principes de la première partie ?
+\begin{args}
+\item \emph{La France prélève beaucoup parce qu'elle dépense beaucoup.} Dépense publique de
+57,0~\% du PIB contre 49,4~\% en zone euro, prélèvements de 45,3~\% contre 40,8~\%, le solde étant
+emprunté (Eurostat, 2024).
+\item \emph{La structure est un problème indépendant du niveau.} On peut prélever 40~\% du PIB aussi
+mal que 45 : la question de la composition se pose à tout niveau.
+\item \emph{L'euro suivant est le plus taxé au bas de l'échelle des salaires.} Un célibataire sans
+enfant est prélevé à 64,6~\% autour de 67~\% du salaire moyen, contre 58,2~\% au salaire moyen.
+\item \emph{La production est taxée avant le profit.} 77~milliards sont dus même quand l'entreprise
+perd de l'argent, à rebours de la règle qui commande de ne pas taxer les intrants.
+\item \emph{L'épargne est taxée selon son enveloppe, et le sol sur une photographie de 1970.} Le même
+rendement est imposé de 0 à 55~\% selon le support ; la taxe foncière des logements repose toujours
+sur les valeurs locatives de 1970.
+\item \emph{Au total, la structure est presque à l'envers du classement de l'OCDE.} 25,9 points de PIB
+dans l'avant-dernière catégorie contre 17,5 en moyenne, et le seul prélèvement inférieur à la
+moyenne porte sur la catégorie jugée la plus nocive.
+\end{args}
+\item \textbf{Quand la complexité finit par miner l'efficacité et la justice.} Montrer que la
+complexité coûte, en efficacité comme en justice, et expliquer pourquoi elle se maintient.
+\begin{args}
+\item \emph{L'État taxe, puis corrige sa propre taxe.} On prélève lourdement le travail puis on crée
+des allègements ; on taxe la production puis on verse des aides ; on institue un impôt général puis
+un taux réduit ; on crée une niche puis un plafonnement de niches. Le système produit ses propres
+antidotes.
+\item \emph{Chaque correctif crée de nouveaux arbitrages.} Optimisation, requalification, et des taux
+affichés qui ne disent plus les taux payés : 474 dépenses fiscales pour 91,8~milliards, dont la Cour
+des comptes écrit que le coût n'est pas connu.
+\item \emph{La redistribution devient illisible.} Impôts progressifs, taxes proportionnelles,
+cotisations, exonérations, prestations, avantages liés à l'âge ou au statut : plus personne ne sait
+dire qui paie quoi, d'où des controverses qu'aucun chiffre ne tranche.
+\item \emph{Le consentement s'use.} L'article 14 donne à chacun le droit de constater la nécessité de
+la contribution et d'en suivre l'emploi ; un système illisible vide ce droit de sa substance.
+\item \emph{Et le système survit parce que ses pertes sont concentrées et ses gains diffus.} Une niche
+a des bénéficiaires qui savent exactement ce qu'ils perdent, quand celui qui gagne cent euros à une
+baisse générale de taux ignore d'où ils viennent ; certains impôts durent parce qu'ils sont peu
+visibles ou faciles à collecter.
+\end{args}
 \end{chapitres}
 
 Le problème français n'est donc pas seulement que nous prélevons beaucoup, ni que notre système est
@@ -167,31 +194,48 @@ ouverts à l'intérieur de ce système, voilà pourquoi il est difficile d'y arr
 
 \begin{chapitres}{7}
 \item \textbf{À quoi ressemblerait concrètement un système fiscal plus simple et plus efficace ?}
-Passer des principes aux instruments : un impôt sur le revenu à assiette plus large et à taux plus
-faibles ; beaucoup moins de niches et d'abattements, y compris ceux qui tiennent au statut, comme
-l'abattement de 10~\% sur les pensions ; une TVA avec beaucoup moins de taux réduits ; une fiscalité
-de l'épargne plus homogène ; une fiscalité pigouvienne assumée lorsqu'il s'agit de corriger une
-externalité, à commencer par la taxe carbone ; moins de taxation des intrants et de la production,
-selon le principe « zéro aide contre zéro impôt de production ». L'idée est de montrer que le système
-cible n'est pas abstrait : on peut réellement lever les recettes autrement. Le chapitre le montre par
-un tableau en deux colonnes --- ce que rapporte chaque assiette aujourd'hui, ce qu'elle rapporterait
-après réforme --- et par l'effet sur quelques cas types et sur les déciles publiés.
-\item \textbf{Les grands arbitrages : où déplacer la charge fiscale ?} Ici, on traite les vrais
-débats. Faut-il déplacer une partie de la taxation du travail vers la consommation, donc le débat sur
-la TVA sociale, avec les précédents allemand de 2007 et danois et l'échec français de 2012 ? Quelle
-place donner à la taxation des transmissions et de l'héritage --- présentée sous forme d'encadré
-contradictoire : pour, c'est le revenu le moins lié à l'effort et le plus concentré ; contre, c'est
-l'impôt le plus rejeté, qui frappe une épargne déjà imposée et dont le rendement dépend de la
-capacité à retenir des assiettes mobiles ? Comment simplifier la fiscalité de l'épargne et arbitrer
-entre rendement normal, rente et prise de risque ? Le chapitre assume qu'une fois les grands
-principes posés, certains choix restent discutables et dépendent aussi de préférences collectives.
-\item \textbf{Pourquoi passer au système cible est si difficile.} La suppression des niches fait des
-perdants très visibles, quand les baisses générales de taux font des gagnants diffus. Il faut
-préserver le rendement et la redistribution, et compenser les ménages réellement perdants. Certaines
-baisses d'impôt, notamment pour les entreprises, sont politiquement difficiles. La transition doit
-être progressive, et le risque principal est que les hausses soient votées avant les compensations
---- d'où la nécessité de réformer par paquets cohérents, chaque suppression votée dans le même texte
-que sa compensation.
+Passer des principes aux instruments, assiette par assiette, et montrer qu'on peut réellement lever
+les recettes autrement.
+\begin{args}
+\item \emph{Beaucoup moins de niches et d'abattements,} y compris ceux qui tiennent au statut comme
+l'abattement de 10~\% sur les pensions : c'est ce qui finance la baisse des taux partout ailleurs.
+\item \emph{Un impôt sur le revenu à assiette plus large et à taux plus faibles.}
+\item \emph{Une TVA avec beaucoup moins de taux réduits,} la redistribution passant par les
+transferts.
+\item \emph{Une fiscalité de l'épargne plus homogène,} le même rendement étant imposé de la même façon
+quelle que soit l'enveloppe.
+\item \emph{Moins de taxation des intrants et de la production,} selon le principe « zéro aide contre
+zéro impôt de production ».
+\item \emph{Une fiscalité pigouvienne assumée} lorsqu'il s'agit de corriger une externalité, à
+commencer par la taxe carbone.
+\item \emph{Et la preuve que les comptes tombent :} un tableau en deux colonnes --- ce que rapporte
+chaque assiette aujourd'hui, ce qu'elle rapporterait après réforme --- et l'effet sur quelques cas
+types et sur les déciles publiés.
+\end{args}
+\item \textbf{Les grands arbitrages : où déplacer la charge fiscale ?} Une fois les principes posés,
+certains choix restent discutables et dépendent aussi de préférences collectives ; le chapitre les
+traite comme tels.
+\begin{args}
+\item \emph{Faut-il déplacer une partie de la taxation du travail vers la consommation ?} Le débat sur
+la TVA sociale, avec les précédents allemand de 2007 et danois, et l'échec français de 2012.
+\item \emph{Quelle place donner à la taxation des transmissions ?} Un encadré contradictoire. Pour :
+c'est le revenu le moins lié à l'effort et le plus concentré. Contre : c'est l'impôt le plus rejeté,
+il frappe une épargne déjà imposée, et son rendement dépend de la capacité à retenir des assiettes
+mobiles.
+\item \emph{Comment traiter l'épargne ?} Arbitrer entre rendement normal, rente et prise de risque.
+\end{args}
+\item \textbf{Pourquoi passer au système cible est si difficile.} Le mécanisme décrit en deuxième
+partie, vu cette fois du côté de celui qui réforme, et ce qu'il impose comme méthode.
+\begin{args}
+\item \emph{Les perdants sont visibles, les gagnants diffus.} Supprimer une niche fait des perdants
+qui savent ce qu'ils perdent ; une baisse générale de taux fait des gagnants qui l'ignorent.
+\item \emph{Certaines baisses d'impôt sont politiquement difficiles,} notamment pour les entreprises.
+\item \emph{Il faut préserver le rendement et la redistribution,} et compenser les ménages réellement
+perdants.
+\item \emph{Le risque principal est que les hausses soient votées avant les compensations.}
+\item \emph{D'où la méthode :} réformer par paquets cohérents, chaque suppression votée dans le même
+texte que sa compensation, avec une transition progressive.
+\end{args}
 \end{chapitres}
 
 \section{Ce qui reste à trancher}
