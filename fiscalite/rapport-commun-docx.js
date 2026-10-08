@@ -135,7 +135,7 @@ const contenu = [
     + "pouvoir comprendre ce qu'il paie et selon quelles règles. Cela conduit à rechercher des barèmes "
     + "lisibles, à limiter les taux marginaux excessifs et à éviter qu'un prélèvement devienne "
     + "disproportionné par rapport à son assiette."),
-  arg("Contrôle de l'emploi : un système fiscal doit être pensé pour financer, avec le moins de "
+  arg("Contrôle de l'emploi : Un système fiscal doit être pensé pour financer, avec le moins de "
     + "distorsion possible, un ensemble de dépenses publiques répondant à des choix collectifs.", "Le "
     + "consentement suppose d'accepter les prélèvements car ils sont justifiés par des dépenses répondant "
     + "aux besoins de la société. Transparence et responsabilité dans l'usage de l'argent public "
@@ -173,7 +173,7 @@ const contenu = [
     + "baisser la recette."),
   arg("Tous les impôts ne sont pas également efficaces.", "Pourquoi privilégier des assiettes larges et "
     + "des taux bas ? Intuition du coût quadratique (sans le mentionner, bien sûr). Pourquoi rechercher la "
-    + "neutralité fiscale, éviter de taxer les intrants et privilégier les assiettes peu élastiques (règle "
+    + "neutralité fiscale, éviter de taxer les intrants et privilégier les assiettes peu élastiques (Règle "
     + "de Ramsey) ? Introduire la fiscalité pigouvienne, et le classement des impôts selon leurs effets sur "
     + "la croissance établi par l'OCDE.", [1]),
   arg("Celui qui paie l'impôt n'est pas toujours celui qu'on croit.", "Introduire l'incidence fiscale : "
@@ -271,11 +271,11 @@ const contenu = [
     + "maîtrise. Le système pèse trop sur le travail et la production, trop peu sur la consommation, et "
     + "perd le consentement de ceux qui le paient."),
   arg("Ici peut-être un bullet sur la compréhension/perception qu'en ont les Français ?", "Je mets qq "
-    + "chiffres en commentaire.", [3]),
+    + "chiffres en commentaire", [3]),
 
-  chapitre("4", "Repartir de la dépense : combien faut-il prélever ?"),
-  cadre("Avant de définir la structure, il faut se poser la question du niveau : l'impôt est le prix "
-    + "d'une dépense, et l'on ne peut pas dessiner le bon système sans savoir combien il doit financer."),
+  chapitre("4", "Repartir de la dépense : Combien faut-il prélever ?"),
+  new Paragraph({ children: [run("Avant de définir la structure, il faut se poser la question du niveau : l'impôt est le prix "
+    + "d'une dépense, et l'on ne peut pas dessiner le bon système sans savoir combien il doit financer.")] }),
   arg("Le niveau de l'impôt se déduit de celui de la dépense.", "On ne juge pas un système fiscal "
     + "indépendamment de ce qu'il finance. Ce plan ne tranche pas la taille de l'État, mais refuse de "
     + "penser la structure de l'impôt sans se donner un repère sur son niveau."),
