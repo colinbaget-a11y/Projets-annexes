@@ -72,17 +72,36 @@ const transition = (texte) => new Paragraph({
   children: [run("Transition : ", { bold: true, color: OCRE }), run(texte, { italics: true, color: BLEU })],
 });
 
+// Encadré : titre puis paragraphes sur fond teinté ; les quatre principes en puces.
+const encadre = (titre, paragraphes) => {
+  const boite = { shading: { type: ShadingType.CLEAR, color: "auto", fill: FOND },
+                  border: { left: { style: BorderStyle.SINGLE, size: 24, color: BLEU, space: 10 } },
+                  indent: { left: 520, right: 120 } };
+  const [intro, ...reste] = paragraphes;
+  const fin = reste.pop();
+  return [
+    new Paragraph({ ...boite, keepNext: true, spacing: { before: 160, after: 60 },
+                    children: [run(titre, { bold: true, color: BLEU })] }),
+    new Paragraph({ ...boite, keepNext: true, spacing: { after: 60 }, children: [run(intro)] }),
+    ...reste.map((t) => new Paragraph({ ...boite, keepNext: true, spacing: { after: 60 },
+                                         children: [run("▪ ", { color: BLEU }), run(t)] })),
+    new Paragraph({ ...boite, spacing: { after: 160 }, children: [run(fin, { italics: true })] }),
+  ];
+};
+
 const siecle = (opts = {}) => [run("XXI", opts), run("e", { ...opts, superScript: true }), run(" siècle", opts)];
 
 // Notes de bas de page : commentaires de fond des contributeurs, résumés.
 const NOTES = {
   1: "Quatre principes directeurs d'une fiscalité efficace pourraient être développés ici. La neutralité : un bon impôt rapporte sans distordre excessivement les comportements, à l'image de la TVA conçue par Maurice Lauré en 1954 pour taxer la valeur ajoutée plutôt que les facteurs de production ; plus généralement, mieux vaut taxer l'aval et les résultats que les facteurs eux-mêmes. La simplicité : peu de niches, une assiette large et un taux modéré. La prévisibilité : une fiscalité stable, ajustée au plus une fois par législature, est mieux acceptée et donc plus efficace. La coordination : un impôt conçu en cohérence avec nos partenaires européens, voire internationaux, limite l'évitement, sécurise le rendement et réduit la concurrence fiscale.",
-  2: "Ou à financer par l'endettement, ce qui revient au même aux intérêts près, mais reporte l'arbitrage dans le temps.",
-  3: "Deux tiers des Français jugent trop élevé le montant des impôts et taxes qu'ils paient, alors que moins d'un sur trois est satisfait de la qualité des services publics (Ipsos, mai 2023). 78 % jugent le niveau d'imposition trop élevé, et autant les cotisations sociales ; mais pour leur propre situation, 61 % estiment payer trop d'impôts, 36 % un bon niveau et 3 % trop peu, et 79 % voient dans le paiement des impôts et cotisations un acte citoyen (baromètre des prélèvements fiscaux et sociaux du CPO, novembre 2025). 59 % donnent la priorité à la baisse des impôts sur l'amélioration des services publics (baromètre Delouvrier, février 2026). 83 % jugent le système fiscal incompréhensible (BVA, 2016).",
-  4: "Deux basculements pourraient être affichés plus nettement dans cette partie : de l'inactivité vers l'activité, et de la rente vers le risque et le travail.",
-  5: "Le constat est celui d'un modèle essoufflé : complexe, mal compris, déséquilibré face à la croissance des dépenses, alors qu'il est issu de choix autrefois jugés modernes et performants. D'où l'idée de le repenser entièrement, en s'affranchissant des contraintes politiques et parlementaires du moment, pour partir du système idéal et simplifié le plus adapté à notre temps.",
-  6: "Question à discuter : ce basculement revient-il à faire passer la protection sociale d'un modèle bismarckien, financé par les cotisations, à un modèle beveridgien, financé par l'impôt ?",
-  7: "Faut-il aller jusqu'à une clause du grand-père, les règles nouvelles ne s'appliquant qu'aux situations nées après la réforme ? Le basculement s'étalerait alors sur une ou deux générations.",
+  2: "Le système fiscal français pourrait être décrit plus sévèrement, comme essoufflé ou en voie de délitement : faute de simplicité, il cesse d'être juste ; il est fortement distorsif et désincitatif ; son rendement est élevé, mais ne suffit pas à couvrir la dépense.",
+  3: "Ou à financer par l'endettement, ce qui revient au même aux intérêts près, mais reporte l'arbitrage dans le temps.",
+  4: "Deux tiers des Français jugent trop élevé le montant des impôts et taxes qu'ils paient, alors que moins d'un sur trois est satisfait de la qualité des services publics (Ipsos, mai 2023). 78 % jugent le niveau d'imposition trop élevé, et autant les cotisations sociales ; mais pour leur propre situation, 61 % estiment payer trop d'impôts, 36 % un bon niveau et 3 % trop peu, et 79 % voient dans le paiement des impôts et cotisations un acte citoyen (baromètre des prélèvements fiscaux et sociaux du CPO, novembre 2025). 59 % donnent la priorité à la baisse des impôts sur l'amélioration des services publics (baromètre Delouvrier, février 2026). 83 % jugent le système fiscal incompréhensible (BVA, 2016).",
+  5: "Deux basculements pourraient être affichés plus nettement dans cette partie : de l'inactivité vers l'activité, et de la rente vers le risque et le travail.",
+  6: "Le constat est celui d'un modèle essoufflé : complexe, mal compris, déséquilibré face à la croissance des dépenses, alors qu'il est issu de choix autrefois jugés modernes et performants. D'où l'idée de le repenser entièrement, en s'affranchissant des contraintes politiques et parlementaires du moment, pour partir du système idéal et simplifié le plus adapté à notre temps.",
+  7: "Question à discuter : ce basculement revient-il à faire passer la protection sociale d'un modèle bismarckien, financé par les cotisations, à un modèle beveridgien, financé par l'impôt ?",
+  8: "La liste pourrait inclure le tabac, le sucre et d'autres consommations nocives : ces taxes corrigent un coût collectif et allègent aussi, à terme, les dépenses de santé, voire améliorent la productivité.",
+  9: "Faut-il aller jusqu'à une clause du grand-père, les règles nouvelles ne s'appliquant qu'aux situations nées après la réforme ? Le basculement s'étalerait alors sur une ou deux générations.",
 };
 
 const contenu = [
@@ -108,8 +127,7 @@ const contenu = [
         + "valent pas. Il est possible de concevoir un système plus simple, plus neutre et moins "
         + "destructeur d'activité sans renoncer à ses objectifs de justice ou de financement. Aujourd'hui, "
         + "la France prélève beaucoup parce qu'elle dépense beaucoup, et elle prélève mal : trop sur le "
-        + "travail et la production, pas assez sur la consommation, et sur la transmission de façon aussi "
-        + "lourde en théorie que mitée en pratique. Nous proposons de rebâtir le système fiscal français "
+        + "travail et la production, pas assez sur la consommation et la transmission. Nous proposons de rebâtir le système fiscal français "
         + "pour l'adapter au "),
       ...siecle(), run("."),
     ],
@@ -189,12 +207,12 @@ const contenu = [
     + "éloignée ?"),
 
   // ---------------------------------------------------------------- Deuxième partie
-  partie("Deuxième partie", "Le délitement : comment la France a progressivement perdu le fil de sa fiscalité"),
+  partie("Deuxième partie", "La France a progressivement perdu le fil de sa fiscalité", [2]),
 
   chapitre("1", "Un système sans logique globale, construit par accumulation (stratification ?)"),
   arg("À chaque besoin nouveau, la solution la plus simple fut d'ajouter un prélèvement.", "L'État "
-    + "social grandit, de nouvelles dépenses apparaissent (chômage de masse et vieillissement depuis les "
-    + "années 1970), et les prélèvements suivent sans jamais rattraper la dépense : de 30 % du PIB en 1960 "
+    + "social grandit, de nouvelles dépenses apparaissent — chômage de masse et vieillissement depuis les "
+    + "années 1970 — et les prélèvements suivent sans jamais rattraper la dépense : de 30 % du PIB en 1960 "
     + "à 45 % en 2022 (Insee). Le système fiscal s'adapte par couches plutôt que par refonte : "
     + "cotisations pour financer la protection sociale, puis CSG pour élargir son financement, créée en "
     + "1991 à 1,1 %, elle est devenue un second impôt sur le revenu, puis CRDS pour financer la dette "
@@ -260,7 +278,7 @@ const contenu = [
   arg("L'exonération des uns est payée par les autres.", "À recettes données, toute niche ou allègement "
     + "oblige à taxer davantage le reste de l'assiette. Le débat fiscal devient alors une lutte "
     + "permanente pour obtenir ou conserver son régime particulier plutôt qu'une discussion sur le bon "
-    + "niveau du taux commun.", [2]),
+    + "niveau du taux commun.", [3]),
   arg("Le système devient illisible politiquement.", "Les allègements de cotisations sont qualifiés "
     + "d'« aides aux entreprises », les niches tantôt de privilèges, tantôt de politiques publiques : à "
     + "force de taxer puis de rendre, il devient difficile de savoir qui paie réellement quoi. Taxes "
@@ -271,7 +289,7 @@ const contenu = [
     + "maîtrise. Le système pèse trop sur le travail et la production, trop peu sur la consommation, et "
     + "perd le consentement de ceux qui le paient."),
   arg("Ici peut-être un bullet sur la compréhension/perception qu'en ont les Français ?", "Je mets qq "
-    + "chiffres en commentaire", [3]),
+    + "chiffres en commentaire", [4]),
 
   chapitre("4", "Repartir de la dépense : Combien faut-il prélever ?"),
   new Paragraph({ children: [run("Avant de définir la structure, il faut se poser la question du niveau : l'impôt est le prix "
@@ -293,21 +311,21 @@ const contenu = [
     + "plus simple et plus efficace ?"),
 
   // ---------------------------------------------------------------- Troisième partie
-  partie("Troisième partie", "Quel système fiscal pour la France ?", [4]),
+  partie("Troisième partie", "Quel système fiscal pour la France ?", [5]),
   cadre("Le mouvement est le suivant : voilà le système qu'on peut construire, voilà les choix qui "
     + "restent ouverts à l'intérieur de ce système, voilà pourquoi il est difficile d'y arriver. Une "
-    + "règle la traverse (assiettes larges, taux bas, le moins de niches possible, et pas d'aide là où "
-    + "baisser un impôt suffit), et chaque proposition suit le même mode d'emploi : le principe, ce qu'on "
+    + "règle la traverse — assiettes larges, taux bas, le moins de niches possible, et pas d'aide là où "
+    + "baisser un impôt suffit — et chaque proposition suit le même mode d'emploi : le principe, ce qu'on "
     + "en attend, ce que font nos voisins, qui gagne et qui perd, comment y aller, et la réponse aux "
-    + "objections.", [5]),
+    + "objections.", [6]),
 
   chapitre("1", "À quoi ressemblerait concrètement un système fiscal plus simple et plus efficace ?"),
   cadre("Passer des principes aux instruments et montrer qu'une autre architecture est possible."),
   arg("Rendre au travail sa promesse : des cotisations plus faibles, une TVA plus large.", "Réduire "
     + "fortement les taux réduits de TVA ; lorsque leur suppression pénalise les ménages modestes, "
     + "restituer directement le gain du côté des prestations sociales plutôt que par un taux réduit "
-    + "bénéficiant à tous. Utiliser ensuite une hausse de la TVA, dite « sociale », pour financer une "
-    + "baisse des cotisations et réduire la taxation du travail.", [6]),
+    + "bénéficiant à tous. Utiliser ensuite une hausse de la TVA — la TVA dite « sociale » — pour financer une "
+    + "baisse des cotisations et réduire la taxation du travail.", [7]),
   arg("Revenus : des assiettes larges et des taux plus faibles.", "À revenu égal, effort égal : qu'il "
     + "vienne du travail, d'une pension ou d'un patrimoine, un même revenu doit contribuer de la même "
     + "façon, d'où une CSG beaucoup plus uniforme entre revenus et statuts ; un IR débarrassé de "
@@ -319,20 +337,28 @@ const contenu = [
     + "production », crédits d'impôt et subventions sectorielles finançant la suppression. Sécuriser "
     + "l'assiette de l'IS pour que les grands groupes paient le taux affiché ; l'opportunité d'un IS "
     + "progressif fait débat entre les contributeurs (voir la dernière partie)."),
-  arg("Capital : rechercher la neutralité et repenser l'équilibre entre la taxation de son accumulation "
-    + "et celle de sa transmission.", "D'une part, il s'agirait de rapprocher le traitement fiscal de "
-    + "placements comparables et limiter les avantages liés au choix d'une enveloppe plutôt qu'à la "
-    + "nature économique du revenu. D'autre part, refonder la fiscalité des transmissions, aujourd'hui "
-    + "complexe et vectrice d'inégalités. Une piste serait de l'organiser autour de quatre principes. Un "
-    + "abattement unique, élevé, valable pour la vie entière, qui affranchisse l'immense majorité et le "
-    + "lui dise d'avance. Un barème unique, plus faible mais effectif, appliqué au cumul reçu par chacun "
-    + "en contrepartie de la suppression des niches, et qui rende enfin sa liberté au geste de "
-    + "transmettre à qui l'on veut. Des taux réduits pour les transmissions reçues tôt, afin d'orienter le "
-    + "capital vers l'âge où il féconde une vie. Un seul régime dérogatoire pour les transmissions "
-    + "d'entreprise mais recentré sur le seul outil productif, plafonné et conditionné, à l'allemande "
-    + "pour protéger en priorité nos TPE et PME."),
+  arg("Capital : rechercher la neutralité et moins taxer son accumulation que sa transmission.", "D'une "
+    + "part, il s'agirait de rapprocher le traitement fiscal de placements comparables et limiter les "
+    + "avantages liés au choix d'une enveloppe plutôt qu'à la nature économique du revenu. D'autre part, "
+    + "refonder la fiscalité des transmissions, aujourd'hui complexe et vectrice d'inégalités (voir "
+    + "l'encadré)."),
+  ...encadre("Encadré : refonder la fiscalité des transmissions", [
+    "La fiscalité des transmissions pourrait s'organiser autour de quatre principes :",
+    "Un abattement unique, élevé, valable pour la vie entière, qui affranchisse l'immense majorité et le "
+      + "lui dise d'avance.",
+    "Un barème unique, plus faible mais effectif, appliqué au cumul reçu par chacun en contrepartie de la "
+      + "suppression des niches, et qui rende enfin sa liberté au geste de transmettre à qui l'on veut.",
+    "Des taux réduits pour les transmissions reçues tôt, afin d'orienter le capital vers l'âge où il "
+      + "féconde une vie.",
+    "Un seul régime dérogatoire pour les transmissions d'entreprise mais recentré sur le seul outil "
+      + "productif, plafonné et conditionné, à l'allemande pour protéger en priorité nos TPE et PME.",
+    "Une telle réforme reste difficile à conduire. Politiquement, l'imposition des successions est l'un "
+      + "des prélèvements les plus rejetés par l'opinion. Économiquement, elle se heurte aux stratégies "
+      + "d'anticipation (donations, démembrements de propriété), à la mobilité des patrimoines et aux "
+      + "difficultés d'évaluation et de liquidité lors des transmissions d'entreprise.",
+  ]),
   arg("Externalités : assumer les taxes qui corrigent réellement un coût collectif.", "À commencer par "
-    + "la fiscalité carbone, puis le tabac et le sucre."),
+    + "la fiscalité carbone.", [8]),
   arg("Boucler les comptes.", "Présenter pour chaque réforme ce qui est supprimé, ce qui est abaissé ou "
     + "augmenté, son rendement et ses effets distributifs ; et pour l'ensemble, ce que paient le travail, "
     + "la consommation, les entreprises et les transmissions avant et après, avec les gagnants et les "
@@ -358,17 +384,17 @@ const contenu = [
     + "plutôt que soutenir l'investissement par le guichet (rapport Draghi)."),
 
   chapitre("3", "Passer du système actuel au système cible"),
-  arg("Réformer par paquets cohérents, votés ensemble.", "Une suppression de niche doit être "
-    + "accompagnée de la baisse de taux qu'elle finance ; une hausse de TVA, de la baisse de cotisations "
-    + "correspondante. Hausses, baisses et compensations doivent être votées ensemble pour éviter que "
-    + "seules les premières soient effectivement mises en œuvre : une réforme d'ensemble, aux éléments "
-    + "indissociables, qui appelle un mandat clair."),
+  arg("Réformer par paquets cohérents.", "Une suppression de niche doit être accompagnée de la baisse "
+    + "de taux qu'elle finance ; une hausse de TVA, de la baisse de cotisations correspondante."),
   arg("Préserver le rendement et limiter les ruptures distributives.", "Compenser directement les "
     + "ménages réellement perdants plutôt que recréer des exceptions fiscales."),
   arg("Décider immédiatement la cible, mais étaler certaines transitions.", "Les droits acquis et les "
-    + "situations constituées peuvent nécessiter une extinction progressive.", [7]),
-  arg("Un calendrier en plusieurs temps.", "Commencer par ce qui se finance de soi-même (le troc aides "
-    + "contre impôts de production, la TVA sociale) avant les réformes dont le rendement est plus long à "
+    + "situations constituées peuvent nécessiter une extinction progressive.", [9]),
+  arg("Rendre la réforme crédible.", "Hausses, baisses et compensations doivent être votées ensemble "
+    + "pour éviter que seules les premières soient effectivement mises en œuvre : une réforme d'ensemble, "
+    + "aux éléments indissociables, qui appelle un mandat clair."),
+  arg("Un calendrier en plusieurs temps.", "Commencer par ce qui se finance de soi-même — le troc aides "
+    + "contre impôts de production, la TVA sociale — avant les réformes dont le rendement est plus long à "
     + "venir."),
 
   // ---------------------------------------------------------------- Points ouverts
@@ -378,8 +404,8 @@ const contenu = [
   arg("Les taux réduits de TVA.", "Soit les réduire fortement en compensant les ménages modestes par "
     + "les prestations ; soit les préserver sur les produits de première nécessité."),
   arg("La TVA sociale : quel prélèvement baisser ?", "Soit les cotisations patronales, ce qui réduit "
-    + "directement le coût du travail ; soit les prélèvements salariés (CSG d'activité ou cotisations "
-    + "vieillesse), ce qui relève le salaire net sans baisser directement le coût du travail."),
+    + "directement le coût du travail ; soit les prélèvements salariés — CSG d'activité ou cotisations "
+    + "vieillesse —, ce qui relève le salaire net sans baisser directement le coût du travail."),
   arg("La transmission.", "Soit exposer les arguments pour et contre sans trancher ; soit en faire un "
     + "axe du rapport, avec un impôt sur l'héritier calculé sur tout ce que chacun reçoit au cours de sa "
     + "vie (abattement élevé exonérant l'immense majorité, barème unique quel que soit le lien de "
@@ -391,13 +417,13 @@ const contenu = [
     + "la CVAE et la CFE, en rendant aux collectivités une ressource propre par une fiscalité foncière "
     + "modernisée plutôt que par une dotation."),
   arg("L'impôt sur les sociétés.", "Soit s'en tenir à l'assiette, pour que le taux affiché soit le taux "
-    + "payé ; soit rendre l'IS progressif : léger pour les petites entreprises, plus lourd pour les très "
+    + "payé ; soit rendre l'IS progressif — léger pour les petites entreprises, plus lourd pour les très "
     + "grands bénéfices, apprécié au niveau du groupe pour éviter le fractionnement."),
   arg("Les plus-values.", "Soit rechercher la neutralité entre supports ; soit alléger leur imposition "
     + "pour récompenser la prise de risque, voire les exonérer après une longue détention."),
   arg("Les retraites.", "Soit s'en tenir à leur fiscalité ; soit traiter aussi le système : départ à "
     + "65 ans et 45 années de cotisation, un étage de capitalisation pour tous, et une architecture où la "
-    + "solidarité (santé de base, famille, minima, autonomie) est financée par l'impôt, la retraite et le "
+    + "solidarité — santé de base, famille, minima, autonomie — est financée par l'impôt, la retraite et le "
     + "chômage par la cotisation."),
   arg("Le titre.", "Soit « Un système fiscal pour la France au XXIe siècle » ; soit « Taxer ce qui se "
     + "transmet, libérer ce qui se crée », « Refonder l'impôt » ou « L'impôt de la puissance »."),
@@ -409,7 +435,7 @@ const enTete = new Header({ children: [new Paragraph({
   border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: BLEU_PALE, space: 4 } },
   children: [run("Un système fiscal pour la France au ", { italics: true, size: 16, color: GRIS }),
              ...siecle({ italics: true, size: 16, color: GRIS }),
-             run(", proposition de plan", { italics: true, size: 16, color: GRIS })],
+             run(" — proposition de plan", { italics: true, size: 16, color: GRIS })],
 })] });
 
 const numeroPage = () => new Footer({ children: [new Paragraph({
