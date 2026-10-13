@@ -13,7 +13,11 @@ Sorties dans dette/donnees/ :
                courants (D7) et en capital (D9) versés à chaque autre sous-secteur, revenus de la
                propriété versés aux autres sous-secteurs (D4), en millions d'euros, 1995-2025
   dette.csv    gov_10dd_edpt1 : dette de Maastricht (GD) par sous-secteur, en millions d'euros
-  cofog.csv    gov_10a_exp : dépense totale par fonction (COFOG, 1er niveau), APU et sous-secteurs
+  cofog.csv    gov_10a_exp : dépense totale par fonction (COFOG, 1er niveau, et vieillesse GF1002),
+               APU et sous-secteurs
+  impots.csv   gov_10a_taxag : impôts et cotisations reçus par sous-secteur (TVA D211, autres impôts
+               sur les produits D214, impôts sur la production D29, impôts sur le revenu D5/D51,
+               cotisations sociales D61), en millions d'euros
   pib.csv      PIB à prix courants (nama_10_gdp)
   dette_insee.csv  Insee, dette trimestrielle de Maastricht par sous-secteur (contributions
                consolidées, en milliards d'euros), valeur du 4e trimestre, 1995-2025 :
@@ -73,8 +77,12 @@ ecrire("comptes.csv", comptes, ["sector", "na_item", "time"])
 dette = jsonstat("gov_10dd_edpt1", geo="FR", unit="MIO_EUR", sector=SECTEURS, na_item="GD")
 ecrire("dette.csv", dette, ["sector", "na_item", "time"])
 cofog = jsonstat("gov_10a_exp", geo="FR", unit="MIO_EUR", sector=SECTEURS, na_item="TE",
-                 cofog99=[f"GF{n:02d}" for n in range(1, 11)] + ["TOTAL"])
+                 cofog99=[f"GF{n:02d}" for n in range(1, 11)] + ["GF1002", "TOTAL"])
 ecrire("cofog.csv", cofog, ["sector", "cofog99", "time"])
+impots = jsonstat("gov_10a_taxag", geo="FR", unit="MIO_EUR", sector=SECTEURS,
+                  na_item=["D2", "D211", "D214", "D214A", "D29", "D29C", "D5", "D51", "D51A",
+                           "D51B", "D61", "D611", "D613"])
+ecrire("impots.csv", impots, ["sector", "na_item", "time"])
 pib = jsonstat("nama_10_gdp", geo="FR", unit="CP_MEUR", na_item="B1GQ")
 ecrire("pib.csv", pib, ["time"])
 

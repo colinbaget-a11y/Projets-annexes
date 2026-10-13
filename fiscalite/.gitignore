@@ -3,3 +3,6 @@ __pycache__/
 cours/*.aux
 cours/*.log
 cours/*.out
+dette/*.aux
+dette/*.log
+dette/*.out

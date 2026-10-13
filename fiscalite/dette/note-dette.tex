@@ -1,0 +1,310 @@
+% À qui revient la dette publique ? Attribution entre État, collectivités et sécurité sociale
+% Compilation : pdflatex note-dette.tex (deux passes) depuis fiscalite/dette/
+% Chiffres : python dette/attribution.py && FIG_NU=1 python dette/graphiques_dette.py
+\documentclass[11pt,a4paper]{article}
+\input{../lvt/preambule}
+\fancyhead[L]{\small\itshape À qui revient la dette publique ?}
+
+\begin{document}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
+
+\thispagestyle{empty}
+\vspace*{0.6cm}
+{\footnotesize\color{ocre}\bfseries NOTE DE TRAVAIL\quad·\quad OCTOBRE 2026\par}
+\vspace{8pt}
+{\fontsize{24}{28}\selectfont\bfseries\color{bleu}À qui revient la dette publique ?\par}
+\vspace{6pt}
+{\large Attribuer la dette entre l'État, les collectivités et la sécurité sociale quand l'État
+finance les deux autres\par}
+\vspace{8pt}
+{\small Colin Baget. Comptes des administrations publiques d'Eurostat (1995-2025) et dette de
+Maastricht par sous-secteur de l'Insee ; les scripts sont dans \texttt{fiscalite/dette/}.\par}
+\vspace{6pt}
+{\color{bleu}\hrule height 1.2pt}
+\vspace{4pt}
+
+\section*{L'essentiel}
+
+Fin 2025, l'État et les organismes qui en dépendent portent 84~\% de la dette publique
+(3~460~Md€), les collectivités 8~\% et la sécurité sociale 9~\%. Ce partage dit qui a emprunté,
+pas pour qui. L'État verse aux collectivités et à la sécurité sociale 78~Md€ de transferts par an
+et leur a cédé, en 2024, 110~Md€ de TVA. Son déficit finance donc en partie des dépenses faites
+ailleurs. En revanche, l'État ne « reprend » pas la dette des autres : la dette sociale reprise
+depuis 1996 l'a été par la CADES, qui fait partie de la sécurité sociale et la rembourse avec la CRDS
+et une part de la CSG.
+
+Réattribuer la dette suppose une règle, et le résultat dépend presque entièrement de la règle
+choisie. Sur la dette créée depuis 1995, la part de la sécurité sociale va de presque rien si l'on
+suit l'émetteur, ou les seuls transferts explicites de l'État, à 42~\% si l'on traite la TVA affectée
+comme un transfert de l'État, 46~\% si l'on répartit le déficit au prorata de la dépense de chaque
+administration, et 59~\% si l'on répartit par fonction (santé et protection sociale, quel que soit
+le payeur). L'intuition d'une moitié de la dette « sociale » se vérifie donc avec les règles fondées
+sur la dépense, appliquées à la dette créée depuis 1995. Elle ne vaut pas pour la dette totale
+(27 à 32~\%) : plus de la moitié de la dette de 2025 est le stock de 1995 et les intérêts accumulés
+dessus, qu'on ne sait pas réattribuer faute de données antérieures dans la même base.
+
+Aucune règle n'est la vraie, parce que la question « qui a causé la dette ? » n'a de réponse qu'avec
+un contrefactuel. La plus défendable comme convention est le prorata de la dépense : tout euro
+dépensé par les administrations est emprunté dans la même proportion. Les règles qui comparent
+les dépenses de chacun à ses « ressources propres » paraissent plus fines, mais ces ressources sont
+fixées par le Parlement : en 2019, la transformation du CICE a déplacé environ 35~Md€ par an de
+l'État vers la sécurité sociale dans ces règles, sans rien changer à l'économie.
+
+\section{Ce que disent les comptes}\label{sec:comptes}
+
+Les comptes nationaux découpent les administrations publiques en trois sous-secteurs :
+l'administration centrale (l'État et les organismes divers d'administration centrale, ODAC, qu'Eurostat ne
+sépare pas), les administrations locales (APUL) et les administrations de sécurité sociale (ASSO,
+qui comprennent les régimes de base et complémentaires, l'assurance chômage, la CADES et les
+hôpitaux). La dette de Maastricht de chaque sous-secteur est publiée nette de ce qu'il doit aux
+autres : une obligation de l'État détenue par un régime de retraite n'est pas comptée.
+
+\figbloc{dette_emetteur}{Dette de Maastricht par émetteur et solde de chaque sous-secteur,
+1995-2025}{fig:emetteur}
+
+L'État porte presque tout le déficit (figure~\ref{fig:emetteur}). La sécurité sociale est
+excédentaire la plupart des années hors récession, pour une raison comptable précise : la CADES
+perçoit chaque année environ 16~Md€ de CRDS et de CSG pour rembourser le principal de la dette
+sociale, et ce remboursement n'est pas une dépense en comptabilité nationale. Hors CADES et Fonds
+de réserve des retraites, les ASSO avaient en 2025 un besoin de financement de 21~Md€
+(Fipeco, 2026). La dette des ASSO a pourtant augmenté plus que leurs déficits cumulés (259~Md€
+contre 118~Md€ depuis 1995) : les régimes complémentaires et le fonds de réserve accumulent des
+actifs financiers pendant que la CADES et l'Acoss empruntent, si bien que la dette brute du
+sous-secteur surestime sa dette nette.
+
+Le point décisif est la manière dont l'État finance les autres. Il le fait par trois canaux
+(figure~\ref{fig:financement}). Les transferts courants et en capital (dotation globale de
+fonctionnement, compensations d'exonérations ciblées, subventions d'équilibre) apparaissent comme
+des dépenses de l'État : 55~Md€ vers les collectivités et 23~Md€ vers la sécurité sociale en 2025.
+Les impôts affectés, eux, n'apparaissent pas comme des transferts : une fraction de TVA versée à la
+sécurité sociale est enregistrée comme un impôt de la sécurité sociale, exactement comme si elle
+l'avait levé elle-même. Ce canal est devenu le premier. La sécurité sociale a reçu 58~Md€ de TVA en
+2024 et 63~Md€ d'autres impôts sur la production (taxe sur les salaires, droits sur les tabacs et
+les alcools…) ; les collectivités, 52~Md€ de TVA depuis la suppression de la taxe d'habitation et
+de la CVAE. La CSG (163~Md€) est un troisième cas : un impôt créé par l'État en 1991, affecté dès
+l'origine à la sécurité sociale.
+
+\figbloc{dette_financement}{Transferts de l'État et impôts affectés aux autres administrations,
+1995-2025}{fig:financement}
+
+Les sauts de la figure~\ref{fig:financement} ont une cause commune : l'État compense des recettes
+qu'il a lui-même supprimées. La loi du 25 juillet 1994 l'oblige à compenser les exonérations de
+cotisations qu'il décide. Depuis 2006, les allègements généraux sont compensés par un panier
+d'impôts affectés, depuis 2011 « pour solde de tout compte », c'est-à-dire que le rendement des
+impôts affectés n'est plus ajusté au coût des allègements. En 2019, le CICE, qui était une dépense de
+l'État, a été remplacé par une baisse pérenne des cotisations patronales, compensée par une fraction
+de TVA. Côté collectivités, la TVA remplace depuis 2021 et 2023 la taxe d'habitation et la CVAE.
+Une partie de la TVA affectée ne finance donc pas un surcroît de dépense sociale : elle remplace des
+cotisations que l'État a choisi de supprimer pour baisser le coût du travail.
+
+\section{Attribuer un déficit suppose un contrefactuel}\label{sec:methodes}
+
+Une dette n'appartient à une administration que relativement à une question. « Qui a emprunté ? »
+a une réponse comptable, l'émetteur. « De combien la dette serait-elle plus faible si telle
+administration avait dépensé moins ? » dépend de ce qu'on suppose sur le financement de cette
+dépense : si la sécurité sociale avait dépensé 10~Md€ de moins, l'État aurait-il réduit d'autant
+la TVA qu'il lui cède, ou l'aurait-il gardée pour ses propres dépenses ? Les règles ci-dessous
+répondent à cette question de manières différentes. Toutes répartissent le même déficit primaire
+des administrations publiques, année par année de 1996 à 2025 ; les intérêts suivent ensuite la
+dette attribuée (annexe).
+
+\paragraph{Prorata de la dépense (M1).} C'est la règle simple : si les collectivités font 20~\%
+de la dépense, l'État 30~\% et la sécurité sociale 50~\%, un déficit de 5 points leur est attribué
+pour 1, 1,5 et 2,5 points. Deux précautions la rendent correcte. La dépense de chacun doit
+s'entendre hors transferts versés aux autres administrations, sinon la dotation de l'État aux
+communes serait comptée deux fois, chez l'État qui la verse et chez la commune qui la dépense.
+Elle doit aussi exclure les intérêts, qui sont la conséquence de la dette passée et non une
+dépense à financer comme les autres. En 2025, la sécurité sociale fait ainsi 47~\% de la dépense
+primaire finale des administrations, les collectivités 20~\% et l'État 33~\%. L'hypothèse implicite
+est que l'argent est fongible : aucun euro de dépense n'est plus « emprunté » qu'un autre.
+
+\paragraph{Prorata par fonction (M4).} Même logique, mais en répartissant entre fonctions
+(classification COFOG) plutôt qu'entre administrations : la santé et la protection sociale
+représentent 59~\% de la dépense primaire en 2024. C'est la règle qui correspond le mieux à l'idée
+d'une dette « sociale ». Elle compte dans le social les pensions des fonctionnaires de l'État, le
+RSA versé par les départements ou les aides au logement payées par l'État.
+
+\paragraph{Transferts suivis jusqu'au dépensier (M2).} Ici chaque administration garde son
+déficit, mais la part de ce déficit qui finance des transferts suit l'argent. Si l'État emprunte
+10 et consacre 20~\% de ses dépenses à des transferts vers la sécurité sociale, 2 des 10 sont
+attribués à la sécurité sociale. Cette règle prend au sérieux le partage des ressources décidé
+par la loi : une administration à l'équilibre avec les ressources qu'on lui a affectées n'a rien
+emprunté.
+
+\paragraph{Impôts affectés traités comme des transferts (M3 et M3+).} Variante de la précédente
+où la TVA affectée à la sécurité sociale et aux collectivités est traitée comme un transfert de
+l'État : l'État est censé la percevoir, puis la reverser. M3+ étend ce traitement à tous les
+impôts sur la production affectés à la sécurité sociale. La CSG reste une ressource propre de la
+sécurité sociale dans les deux cas ; la traiter comme un impôt d'État attribuerait à la sécurité
+sociale plus que la totalité du déficit.
+
+\begin{table}[htbp]\centering\small
+\caption{Part de chaque sous-secteur dans la dette fin 2025, selon la règle d'attribution (en \%)}
+\label{tab:attribution}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{5.6cm}rrrrrr@{}}
+\toprule
+& & \multicolumn{3}{c}{Dette totale} & \multicolumn{3}{c}{Dette créée depuis 1995} \\
+\cmidrule(lr){3-5}\cmidrule(l){6-8}
+& Règle & ASSO & APUL & État & ASSO & APUL & État \\
+\midrule
+\input{tableau_attribution.tex}
+\end{tabular}
+\par\vspace{4pt}
+\parbox{\linewidth}{\raggedright\scriptsize\color{encre} Source : Eurostat, Insee ; calculs de
+l'auteur (\texttt{dette/attribution.py}). La dette créée depuis 1995 (1~355~Md€) est la somme des
+déficits primaires de 1996 à 2025 et des intérêts qu'ils ont générés. La dette totale y ajoute le
+stock de 1995, ses intérêts et les ajustements stock-flux, laissés à l'émetteur. Pour M4, la
+première colonne est la santé et la protection sociale, la troisième les autres fonctions. Une part
+négative signale des excédents primaires cumulés ; une part supérieure à 100, qu'un autre
+sous-secteur dégage des excédents.}
+\end{table}
+
+\section{Ce que donnent les règles}\label{sec:resultats}
+
+\figbloc{dette_methodes}{Part de chaque sous-secteur dans la dette fin 2025, selon cinq règles
+d'attribution}{fig:methodes}
+
+Les règles se rangent en deux familles, qui donnent des résultats opposés
+(tableau~\ref{tab:attribution} et figure~\ref{fig:methodes}). Les règles fondées sur la dépense
+(M1, M4) attribuent à la sécurité sociale ou au social 46 à 59~\% de la dette créée depuis 1995.
+Les règles fondées sur l'équilibre de chaque administration avec ses ressources (M2) lui en
+attribuent 3~\% : la sécurité sociale a presque équilibré ses comptes sur trente ans, et les
+transferts explicites que l'État lui verse sont trop faibles (1~\% du PIB) pour que le déficit de
+l'État la suive beaucoup.
+
+Entre les deux, tout se joue sur le statut des impôts affectés. Traiter la TVA comme un transfert
+de l'État (M3) fait passer la part de la sécurité sociale de 3 à 42~\% de la dette nouvelle, et
+celle des collectivités de 6 à 19~\%. La figure~\ref{fig:asso_temps} montre d'où vient l'écart :
+avant 2019 la TVA affectée change peu le résultat ; la bascule du CICE l'accroît d'environ 35~Md€
+par an. Or cette bascule n'a modifié ni les prestations ni le coût net pour l'État de la baisse du
+coût du travail : elle a remplacé une dépense de l'État (le crédit d'impôt) par une moindre
+recette de la sécurité sociale compensée par de la TVA. Une règle qui fait passer 35~Md€ de
+déficit d'une administration à l'autre pour un changement d'instrument mesure l'organisation des
+flux, pas la responsabilité de la dépense. M3+ montre l'excès inverse : en retirant à la sécurité
+sociale tous ses impôts indirects, y compris ceux qu'elle perçoit depuis des décennies, on lui
+attribue 131~\% de la dette nouvelle et un excédent à l'État.
+
+\figbloc{dette_asso_temps}{Part de la dette totale attribuée à la sécurité sociale, selon la
+règle, 1996-2025}{fig:asso_temps}
+
+Une règle de « ressources propres » cohérente compterait la TVA affectée comme une ressource de
+l'État et, symétriquement, les cotisations exonérées comme une ressource de la sécurité sociale,
+puisque c'est l'État qui a décidé de les supprimer. Les deux corrections se compensent pour
+l'essentiel ; ce qui resterait est l'écart entre la TVA reçue et le coût des exonérations. La
+Cour des comptes estime que cet écart a joué contre la sécurité sociale : la compensation
+« pour solde de tout compte » aurait dégradé son solde de 18~Md€ entre 2019 et 2024 (cité par
+Bach et al., 2026). Une règle bien construite de cette famille donnerait donc un résultat proche
+de M2, pas de M3. Il faudrait, pour la calculer, les séries d'exonérations et de compensations des
+annexes aux lois de financement de la sécurité sociale, que ce travail n'a pas mobilisées.
+
+\section{Ce que pèse la dette ancienne}\label{sec:heritage}
+
+\figbloc{dette_decomposition}{Décomposition de la dette des administrations publiques,
+1996-2025}{fig:decomposition}
+
+Les 702~Md€ de dette de fin 1995 n'ont jamais été remboursés : les administrations n'ont presque
+jamais dégagé d'excédent primaire, si bien que les intérêts de cette dette ont été payés par de
+nouveaux emprunts. Capitalisé au taux apparent des administrations (6,5~\% en 1996, 1,3~\% en
+2020), ce stock représente 1~928~Md€ fin 2025, soit 56~\% de la dette (figure~\ref{fig:decomposition}).
+Les déficits primaires de 1996 à 2025 (1~211~Md€, dont 675 depuis 2020) et leurs intérêts en font
+1~355~Md€ ; les ajustements stock-flux le reste. C'est une décomposition comptable : elle dit
+seulement que la dette de 2025 dépend autant des choix d'avant 1995 que de ceux d'après.
+
+Faute de comptes par sous-secteur antérieurs à 1995 dans la base actuelle, ce stock est laissé à
+son émetteur (l'État et les ODAC pour 80~\%), ce qui tire toutes les règles vers l'État dans la
+dette totale. Si l'on supposait que la dette d'avant 1995 avait la même composition que celle
+créée ensuite, les parts de la dette totale seraient proches de celles de la dette nouvelle. Le
+choix de l'hypothèse fait varier la part sociale de la dette totale du simple au double ; la
+dette nouvelle est le résultat le moins fragile.
+
+\section{Ce qu'en disent les travaux existants}\label{sec:litterature}
+
+Le débat a été relancé par Jean-Pascal Beaufret (\emph{Commentaire}, 2023 et 2026), pour qui les
+retraites « contribuent à plus de la moitié des déficits publics ». Son calcul, fait sur 2021,
+compte comme déficit des retraites toute la dépense de pensions non couverte par des cotisations
+au taux de droit commun et des impôts affectés : 71~Md€, dont 45~Md€ de « surcotisations » des
+employeurs publics aux régimes de fonctionnaires, qu'il traite comme des subventions. Le calcul
+est utile pour montrer que l'équilibre affiché des régimes de fonctionnaires repose sur des taux
+de cotisation employeur de 74~\% (civils de l'État) ou 126~\% (militaires). Mais c'est une règle
+de résidu, et elle n'est pas additive : appliquée à la défense ou à l'enseignement, qui n'ont aucune
+recette affectée, elle leur attribuerait toute leur dépense, et la somme des déficits ainsi
+calculés dépasserait de loin le déficit réel. Elle donne implicitement aux recettes non affectées
+de l'État (impôt sur le revenu, impôt sur les sociétés, TVA restante) la priorité de financer
+tout le reste. Au prorata de la dépense, la vieillesse représente 24~\% des déficits primaires
+cumulés depuis 1996.
+
+L'Institut des politiques publiques (Bach, Bozio, De~Brouwer et Eryzhenskiy, 2026) arrive par une
+autre voie à la même conclusion de méthode : présenter les soldes hors transferts n'est pas plus
+pertinent que les soldes publiés, parce qu'attribuer un solde à une administration n'a de sens que
+si elle maîtrise ses dépenses et ses recettes. Ni les collectivités, dont les ressources sont
+devenues pour l'essentiel des fractions d'impôts nationaux, ni la sécurité sociale, dont l'État
+fixe les recettes et une partie des prestations, ne sont dans ce cas. Les auteurs proposent de
+distinguer, dans chaque transfert, ce qui finance une politique de l'État exécutée par délégation
+de ce qui comble un déséquilibre, sans le chiffrer, faute de documentation budgétaire suffisante.
+
+\section{Limites et prolongements}\label{sec:limites}
+
+Quatre limites comptent pour la lecture des résultats. La dette de 1995 n'est pas réattribuée ;
+les comptes de l'Insee en base 2020 remontent plus loin pour l'ensemble des administrations, mais
+pas, à notre connaissance, pour les transferts entre sous-secteurs. L'État et les ODAC sont
+agrégés, ce qui neutralise la reprise de la dette de SNCF Réseau en 2020 et 2022 mais empêche de
+distinguer les deux. Les hôpitaux sont dans la sécurité sociale, si bien que les règles par
+sous-secteur ne séparent pas l'assurance maladie de l'hôpital public. Enfin, la dette est brute :
+les réserves des régimes complémentaires (que les données utilisées ne permettent pas de chiffrer)
+réduiraient la part sociale d'une mesure nette.
+
+Deux prolongements amélioreraient la règle de ressources propres : utiliser les séries
+d'exonérations compensées des annexes aux lois de financement pour construire la variante cohérente
+décrite en section~\ref{sec:resultats}, et isoler les contributions d'équilibre aux régimes de
+fonctionnaires, qui sont enregistrées comme des cotisations.
+
+\appendix
+\section{Méthode}\label{sec:annexe}
+
+\paragraph{Données.} Eurostat, \texttt{gov\_10a\_main} (dépenses, recettes, solde, intérêts,
+transferts courants D7 et en capital D9 versés à chaque autre sous-secteur), \texttt{gov\_10a\_taxag}
+(impôts reçus par sous-secteur), \texttt{gov\_10a\_exp} (dépense par fonction COFOG des
+administrations publiques, jusqu'en 2024) ; Insee, dette trimestrielle de Maastricht par
+sous-secteur, contributions consolidées (État, ODAC, APUL, ASSO), valeurs de fin d'année.
+
+\paragraph{Dynamique.} Soit $D_t$ la dette des administrations publiques, $P_t$ leur déficit
+primaire, $F_t$ l'ajustement stock-flux et $r_t$ le taux apparent (intérêts de l'année rapportés à
+$D_{t-1}$). On a $D_t=(1+r_t)D_{t-1}+P_t+F_t$. Chaque règle répartit $P_t$ entre sous-secteurs,
+$P_t=\sum_j P_{jt}$ ; la dette attribuée suit $N_{jt}=(1+r_t)N_{j,t-1}+P_{jt}$, avec $N_{j,1995}=0$.
+Le stock de 1995 et les ajustements stock-flux sont capitalisés au même taux et laissés à
+l'émetteur. Les intérêts suivent ainsi la dette attribuée : une dette imputée à la sécurité
+sociale porte ses intérêts, même si c'est l'État qui les paie.
+
+\paragraph{Prorata (M1, M4).} $P_{jt}=P_t\,G_{jt}/\sum_k G_{kt}$, où $G_{jt}$ est la dépense hors
+intérêts et hors transferts aux autres administrations du sous-secteur $j$ (M1), ou la dépense
+hors intérêts de la fonction $j$ (M4 ; la part de 2024 sert pour 2025).
+
+\paragraph{Transferts suivis (M2, M3, M3+).} Soit $d_j$ le déficit primaire du sous-secteur $j$,
+$E_j$ ses emplois hors intérêts, $\tau_{ij}$ la part de ses emplois que $i$ transfère à $j$, et
+$s_j=1-\sum_k\tau_{jk}$ la part qu'il dépense lui-même. L'emprunt dont dispose $j$, le sien et celui
+qu'il reçoit par transferts, vérifie $e_j=d_j+\sum_i e_i\tau_{ij}$ ; on lui attribue $P_j=s_je_j$,
+la part qui finance sa propre dépense. La somme des $P_j$ est égale au déficit total. Dans M3 et
+M3+, l'impôt affecté $g$ est retiré des recettes du bénéficiaire et ajouté à celles de l'État, qui
+le reverse ($d_{\text{État}}-g$, $d_j+g$, $E_{\text{État}}+g$, $\tau_{\text{État},j}$ augmenté de
+$g/E_{\text{État}}$).
+
+\section*{Références}
+\begin{small}\setlength{\parskip}{3pt}\raggedright
+Bach, L., Bozio, A., De~Brouwer, O. et Eryzhenskiy, I. (2026), « Qui est responsable du déficit
+public ? », in \emph{Perspectives budgétaires}, Institut des politiques publiques, juin 2026, chap.~1.
+
+Beaufret, J.-P. (2023), « Retraites obligatoires et déficits publics. Pour la clarté »,
+\emph{Commentaire}, n°~182, p.~245-254.
+
+Beaufret, J.-P. (2026), « Les comptes de la Sécurité sociale et le redressement des finances
+publiques », \emph{Commentaire}, n°~193, p.~107-112 (non lu ; cité par Bach et al., 2026).
+
+Cour des comptes (2025), \emph{Rapport sur l'application des lois de financement de la sécurité
+sociale}, mai 2025 (cité par Bach et al., 2026).
+
+Fipeco (2026), « Le solde et la dette des administrations de sécurité sociale », fiche de
+l'encyclopédie, mai 2026.
+\end{small}
+
+\end{document}
