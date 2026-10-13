@@ -149,6 +149,23 @@ crise (2009-2010 et 2020-2021) font à elles seules 22 des 50,5 points ; le rest
 primaires modérés mais presque permanents, de 1 à 3 points par an. L'effet des taux n'y est pour
 presque rien.
 
+\figbloc{dette_contributions_annuelles}{Contributions annuelles à la variation du ratio de dette,
+1996-2025}{fig:contributions}
+
+Les séries longues de l'Insee, en base 2014, permettent de remonter à 1978, première année où la
+dette de Maastricht est publiée (figure~\ref{fig:longue}). La période 1978-1995 obéit à une autre
+logique. Le ratio de dette passe de 21,2~\% à 56,1~\% du PIB, mais les déficits primaires n'y
+contribuent que pour 8,8 points. Les intérêts ajoutent 41,9 points et la croissance n'en retire
+que 33,4 : après la désinflation des années 1980, les taux d'intérêt réels sont restés élevés,
+et la dette augmentait d'elle-même. Les ajustements stock-flux pèsent 17,6 points sur la période,
+surtout entre 1979 et 1984. Ces séries ne permettent pas de les expliquer : ils peuvent refléter
+des opérations financières, comme des prêts ou des dotations en capital aux entreprises publiques,
+autant que les imperfections de la rétropolation (non vérifié). Sur l'ensemble 1978-2025, le
+ratio a augmenté de 94,5 points : 59,3 de déficits primaires, 10,2 d'effet boule de neige net,
+23,6 d'ajustements stock-flux et 1,4 de changement de base.
+
+\figbloc{dette_longue_dynamique}{Décomposition de la hausse du ratio de dette, 1978-2025}{fig:longue}
+
 Cette décomposition fait consensus, mais elle s'arrête là : elle ne répartit jamais le déficit
 primaire entre les dépenses, ni chez le FMI, ni à la Commission, ni dans les travaux académiques sur
 la dynamique de la dette (section~\ref{sec:litterature}). Pour passer des 50,5 points de déficits
@@ -208,6 +225,13 @@ sociales et 488~Md€ pour la santé. Viennent ensuite les affaires économiques
 entreprises, transports, énergie : 12~\%), l'enseignement (10~\%), les services généraux (9~\%), la
 défense (4~\%) et la police et la justice (3~\%).
 
+\figbloc{dette_prorata_annuel}{Déficit primaire de chaque année réparti au prorata de la dépense,
+1996-2025}{fig:prorata}
+
+La figure~\ref{fig:prorata} montre la même répartition année par année, en points de PIB. Elle
+rend visible ce que cache le stock : la convention ne fait que découper chaque déficit annuel selon
+la structure de la dépense. Les années de crise pèsent le plus, quelle que soit la fonction.
+
 Le résultat change peu avec le traitement de la dette ancienne. Sur la seule dette créée depuis
 1995, la part sociale est de 59~\%, parce que la santé et la protection sociale faisaient déjà
 55~\% de la dépense en 1995. Il change peu aussi quand on répartit entre administrations plutôt
@@ -258,29 +282,16 @@ vient de la dépense sociale et dire qu'elle vient des baisses d'impôts sont de
 On peut traduire cette dérive en dette, avec la méthode d'Auerbach (1994). Le déficit primaire
 de chaque année s'écrit comme celui d'une année de référence, plus la hausse de chaque dépense
 depuis cette année, moins la hausse des recettes. En cumulant sur 1996-2025, on ventile exactement
-les 50,5 points de déficits primaires de la décomposition standard (tableau~\ref{tab:dynamique}).
+les 50,5 points de déficits primaires de la décomposition standard (figures~\ref{fig:derive}
+et~\ref{fig:references}).
 Comme l'effet boule de neige net est presque nul, ces points cumulés se lisent presque directement
 comme des points de dette.
 
-\begin{table}[htbp]\centering\small
-\caption{Déficits primaires cumulés 1996-2025, ventilés par poste (en points de PIB)}
-\label{tab:dynamique}
-\begin{tabular}{@{}lrrrr@{}}
-\toprule
-& Prorata & \multicolumn{3}{c}{Dérive depuis l'année de référence} \\
-\cmidrule(l){3-5}
-& & 1995 & 1997 & 2000 \\
-\midrule
-\input{tableau_dynamique.tex}
-\end{tabular}
-\par\vspace{4pt}
-\parbox{\linewidth}{\raggedright\scriptsize\color{encre} Source : Eurostat ; calculs de l'auteur
-(\texttt{dette/dynamique.py}). Colonne « Prorata » : déficit primaire de chaque année réparti selon
-la part de chaque fonction dans la dépense primaire. Colonnes « Dérive » : somme sur 1996-2025 de
-l'écart de chaque dépense (en \% du PIB) à son niveau de l'année de référence ; la ligne
-« Recettes » est l'opposé de l'écart des recettes ; la dernière ligne avant le total est le déficit
-primaire de l'année de référence, répété trente ans. Les colonnes s'additionnent au même total.}
-\end{table}
+\figbloc{dette_derive_cumul}{Dérive de chaque poste par rapport à 1997, cumulée depuis
+1996}{fig:derive}
+
+\figbloc{dette_derive_references}{Ventilation des déficits primaires cumulés 1996-2025, selon la
+convention et l'année de référence}{fig:references}
 
 Le résultat dépend de l'année de référence, et c'est la limite de cette convention. En 1995, le
 déficit primaire était de 1,6 point de PIB : si on le prend pour norme, le déficit de référence
@@ -292,6 +303,19 @@ de vieillesse et de santé représente 74 points cumulés, plus que la totalité
 (51 points), et les autres dépenses ont baissé de 23 points. Un résultat ne dépend pas de la
 référence : la vieillesse (+42 à +55 points) et la santé (+32) sont les deux seuls postes dont la
 dérive pèse lourd quelle que soit l'année choisie.
+
+Avant 1995, l'Insee ne publie pas de dépense par fonction, dans aucune de ses bases ; les séries
+longues ne distinguent que la nature des opérations. Elles permettent de suivre les prestations
+sociales des administrations : prestations en espèces (retraites, chômage, famille, minima
+sociaux) et remboursements de soins et aides au logement (figure~\ref{fig:prestations}). Celles-ci
+passent de 11,3~\% du PIB en 1960 à 17,9~\% en 1978, 22,3~\% en 1995 et 25,8~\% en 2025. Le
+déficit primaire, lui, n'a augmenté que de 2,2 points depuis 1978 : l'essentiel de la hausse des
+prestations a été couvert par des hausses de prélèvements ou par la baisse d'autres dépenses, que
+ces séries ne permettent pas de séparer. Jusqu'au milieu des années 1970, les administrations
+dégageaient même des excédents primaires presque chaque année.
+
+\figbloc{dette_longue_prestations}{Prestations sociales et déficit primaire des administrations,
+1960-2025}{fig:prestations}
 
 La comparaison avec Fipeco (Ecalle, 2023) confirme les ordres de grandeur. Sur 1995-2021, hors
 dépenses exceptionnelles liées au Covid, Fipeco trouve une hausse de la dépense primaire de 4,0
@@ -441,8 +465,9 @@ Seule compte, selon eux, la dette de l'ensemble. Cette position rejoint celle de
 \section{Limites}\label{sec:limites}
 
 \begin{itemize}
-\item \textbf{Les données de dépense par fonction.} Elles ne sont publiées que jusqu'en 2024 ; 2025
-  reprend la structure de 2024.
+\item \textbf{Les données de dépense par fonction.} Elles ne commencent qu'en 1995, dans toutes
+  les bases de l'Insee (2010, 2014, 2020) comme chez Eurostat, et s'arrêtent en 2024 ; 2025 reprend
+  la structure de 2024. Avant 1995, on n'a que des séries par nature (base 2014).
 \item \textbf{Le stock de 1995.} Il est réparti selon la dépense de 1995, faute de séries par
   fonction antérieures dans la même base. Comme la structure de la dépense bouge lentement,
   l'erreur est probablement faible.
@@ -469,7 +494,11 @@ Seule compte, selon eux, la dette de l'ensemble. Cette position rejoint celle de
 \item \texttt{nama\_10\_gdp} : PIB.
 \end{itemize}
 Insee : dette trimestrielle de Maastricht par sous-secteur, en contributions consolidées (État,
-ODAC, APUL, ASSO), valeurs de fin d'année.
+ODAC, APUL, ASSO), valeurs de fin d'année. Insee, comptes nationaux annuels en base 2014 (séries arrêtées, banque de données
+macroéconomiques) : dette de Maastricht des administrations publiques (depuis 1978), déficit
+(depuis 1949), intérêts versés, prestations sociales en espèces et en nature de produits marchands,
+PIB. Ces séries servent jusqu'en 1995 ; à partir de 1996, chaque variation est calculée en base
+2020 (\texttt{extract\_insee\_long.py}, \texttt{dynamique\_longue.py}).
 
 \paragraph{Dynamique de la dette.} Soit $D_t$ la dette des administrations publiques et $I_t$
 les intérêts versés, et $r_t=I_t/D_{t-1}$ le taux apparent. La hausse de la dette hors intérêts,

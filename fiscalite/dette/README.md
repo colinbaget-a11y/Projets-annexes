@@ -32,6 +32,20 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
     santé +32.
 - Tableau généré : `tableau_dynamique.tex`.
 
+## Séries longues Insee (`extract_insee_long.py`, `dynamique_longue.py`)
+
+- Source : Insee, base 2014 (séries arrêtées), dette depuis 1978, déficit, intérêts, prestations et
+  PIB depuis 1949. Le raccord avec la base 2020 se fait en 1995 : prestations 22,3 % du PIB contre
+  22,4 % en base 2020 ; ratio de dette 56,1 % contre 57,5 %.
+- Il n'existe aucune série par fonction (COFOG) avant 1995 à l'Insee, en base 2010, 2014 ou 2020.
+- Décomposition 1978-1995 (ratio de 21,2 % à 56,1 % du PIB) :
+  - déficits primaires : +8,8 ;
+  - intérêts : +41,9 ; croissance : −33,4 (taux réels élevés) ;
+  - ajustements stock-flux : +17,6, inexpliqués pour l'essentiel, concentrés en 1979-1984.
+- Décomposition 1978-2025 : +94,5 points, dont 59,3 de déficits primaires.
+- Prestations sociales (espèces et remboursements en nature) : 11,3 % du PIB en 1960, 17,9 % en
+  1978, 22,3 % en 1995, 25,8 % en 2025.
+
 ## Résultat principal : la méthode simple (dépenses fongibles, `fongible.py`)
 
 - Principe : chaque année, la dette hors intérêts est répartie au prorata de la dépense par fonction

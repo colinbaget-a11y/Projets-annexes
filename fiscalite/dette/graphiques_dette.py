@@ -12,7 +12,8 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from graphiques import BLEU, GRIS, INK2, NU, OCRE, VERT, fin, grille, panneau, plt, titre  # noqa: E402
+from graphiques import (BLEU, GRIS, INK2, MUTED, NU, OCRE, VERT, fin, grille,  # noqa: E402
+                        panneau, plt, titre)
 from matplotlib.ticker import FuncFormatter  # noqa: E402
 
 D = Path(__file__).resolve().parent / "donnees"
@@ -436,3 +437,73 @@ fig_contributions()
 fig_prorata_annuel()
 fig_derive_cumul()
 fig_derive_references()
+
+# ---------------------------------------------------------------- séries longues (Insee base 2014)
+SRC_LONG = ("Source : Insee, comptes nationaux annuels base 2014 (séries arrêtées) jusqu'en 1995 ; "
+            "Eurostat et Insee base 2020 ensuite. Calculs de l'auteur (dette/dynamique_longue.py).")
+
+
+def fig_longue_dynamique():
+    t = pd.read_csv(D / "dynamique_longue.csv").set_index("annee").loc[1979:]
+    cum = t[["deficit_primaire", "effet_interets", "effet_croissance", "stock_flux"]].cumsum()
+    d0 = 21.2
+    fig, ax = plt.subplots(figsize=(7.8, 4.4))
+    x = t.index.values
+    ax.plot(x, t.dette - d0, color=INK2, lw=2.4, label="Hausse du ratio de dette depuis 1978")
+    for col, lib, coul, ls in (("deficit_primaire", "Déficits primaires", BRIQUE, "-"),
+                               ("effet_interets", "Intérêts", OCRE, "--"),
+                               ("effet_croissance", "Croissance du PIB nominal", VERT, "--"),
+                               ("stock_flux", "Ajustements stock-flux", GRIS, ":")):
+        ax.plot(x, cum[col], color=coul, lw=1.8, ls=ls, label=lib)
+    ax.axvline(1995, color=MUTED, lw=0.8, ls="-.")
+    ax.text(1995.4, 100, "changement de\nbase (+1,4 point)", fontsize=8, color=MUTED, va="top")
+    ax.axhline(0, color=INK2, lw=0.7)
+    ax.set_xlim(1979, 2025)
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:+.0f}".replace("-", "−")))
+    ax.set_ylabel("Points de PIB, cumulés depuis 1978")
+    grille(ax)
+    ax.legend(loc="lower left", fontsize=8.3)
+    a = t.loc[:1995].sum()
+    titre(ax, "Avant 1995, la dette montait surtout par les taux ; depuis, par les déficits primaires",
+          "Décomposition standard de la hausse du ratio de dette publique, 1978-2025")
+    fin(fig, "dette_longue_dynamique.png", SRC_LONG,
+        f"Lecture : de 1978 à 1995, le ratio de dette passe de 21,2 % à 56,1 % du PIB. Les déficits "
+        f"primaires n'y contribuent que pour {nb(a.deficit_primaire, 1)} points ; les intérêts "
+        f"({nb(a.effet_interets, 1)}) dépassent nettement la croissance ({nb(a.effet_croissance, 1)}), "
+        f"car les taux réels étaient élevés après la désinflation ; les ajustements stock-flux font "
+        f"{nb(a.stock_flux, 1)} points. De 1995 à 2025, les intérêts et la croissance se compensent "
+        "et la hausse vient des déficits primaires.")
+
+
+def fig_longue_prestations():
+    t = pd.read_csv(D / "dynamique_longue.csv").set_index("annee").loc[1960:]
+    fig, (a, b) = plt.subplots(1, 2, figsize=(10, 4.2), gridspec_kw={"wspace": 0.28})
+    a.plot(t.index, t.prestations, color=OCRE, lw=2.2)
+    a.axvline(1995, color=MUTED, lw=0.8, ls="-.")
+    a.set_xlim(1960, 2025)
+    a.set_ylim(0, 30)
+    a.yaxis.set_major_formatter(PCT0)
+    grille(a)
+    panneau(a, "Prestations sociales des administrations, en % du PIB")
+    b.bar(t.index, t.deficit_primaire, color=[BRIQUE if v > 0 else VERT for v in t.deficit_primaire],
+          width=0.8, lw=0)
+    b.axhline(0, color=INK2, lw=0.7)
+    b.axvline(1995, color=MUTED, lw=0.8, ls="-.")
+    b.set_xlim(1959.4, 2025.6)
+    b.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:+.0f}".replace("-", "−") if v else "0"))
+    grille(b)
+    panneau(b, "Déficit primaire (+) ou excédent (−), en % du PIB")
+    sup(fig, "Les prestations sociales ont plus que doublé en part du PIB ; les déficits primaires "
+             "ne sont devenus importants et permanents qu'après 2008")
+    fin(fig, "dette_longue_prestations.png", SRC_LONG,
+        f"Lecture : les prestations sociales (en espèces, et en nature de produits marchands comme les "
+        f"remboursements de soins) passent de {nb(t.prestations[1960], 1)} % du PIB en 1960 à "
+        f"{nb(t.prestations[1978], 1)} % en 1978 et {nb(t.prestations[2025], 1)} % en 2025. Les "
+        "administrations ont dégagé des excédents primaires presque chaque année jusqu'au milieu des "
+        "années 1970, puis en 1979-1980, 1989-1991 et 1998-2001 : la hausse des prestations a "
+        "longtemps été financée par celle des prélèvements. Le trait vertical "
+        "marque le passage de la base 2014 à la base 2020.")
+
+
+fig_longue_dynamique()
+fig_longue_prestations()
