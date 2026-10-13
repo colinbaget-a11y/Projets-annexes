@@ -1,0 +1,66 @@
+% Préambule commun au brief et à la revue de littérature sur la taxe sur la valeur foncière.
+% Même composition que le cours (cours/refaire-l-impot.tex) ; figures « nues » produites par
+%   FIG_NU=1 python lvt/graphiques_lvt.py
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[a4paper,left=2.8cm,right=2.8cm,top=2.6cm,bottom=2.8cm]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[labelfont=bf,labelsep=period,font=small,singlelinecheck=false,
+            justification=raggedright,skip=6pt]{caption}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\providecommand{\euro}{\texteuro}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{encre}{HTML}{1A1A19}
+\definecolor{bleu}{HTML}{003399}
+\definecolor{vert}{HTML}{1F7A4D}
+\definecolor{ocre}{HTML}{C79100}
+\definecolor{brique}{HTML}{993333}
+\definecolor{filet}{HTML}{C8C6BE}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{bleu}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\color{bleu}}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.4ex plus 1ex minus .2ex}{1.2ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[R]{\small\thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.62em}
+\linespread{1.05}
+\renewcommand{\arraystretch}{1.2}
+\setlist{itemsep=2pt,topsep=2pt,parsep=0pt,leftmargin=1.4em}
+
+\newenvironment{encadre}[1]
+  {\par\medskip\noindent\begin{minipage}{\linewidth}%
+   \color{encre}\setlength{\parskip}{0.5em}%
+   \hrule height 0.8pt width \linewidth \vspace{6pt}%
+   {\footnotesize\bfseries\color{vert}\MakeUppercase{#1}}\par\vspace{-2pt}%
+   \small}
+  {\par\vspace{4pt}\hrule height 0.4pt width \linewidth\end{minipage}\par\medskip}
+
+\newcommand{\figbloc}[3]{%
+  \begin{figure}[htbp]\centering
+  \caption{#2}\label{#3}
+  \includegraphics[max width=\linewidth,max height=0.40\textheight]{../figures/nu/#1.pdf}
+  \IfFileExists{../figures/nu/#1_note.tex}{\par\vspace{4pt}%
+    \parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}}{}%
+  \end{figure}}
+
+\newcommand{\pc}{\,\%}
