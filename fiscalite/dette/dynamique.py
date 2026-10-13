@@ -20,6 +20,7 @@ puis ventilation par fonction de la contribution des déficits primaires.
 Sorties dans dette/donnees/ :
   dynamique.csv          contributions annuelles (points de PIB) et ratio de dette, 1995-2025
   dynamique_fonctions.csv  ventilation des déficits primaires cumulés 1996-2025 par fonction
+  dynamique_annuel.csv   ventilation annuelle (prorata, dérive depuis 1997), points de PIB
   ../tableau_dynamique.tex tableau de la note
 """
 from pathlib import Path
@@ -73,6 +74,15 @@ for ref in REFERENCES:
     derive["deficit_de_reference"] = len(ANS) * pd_[ref]
     lignes[f"derive_{ref}"] = derive
 vent = pd.DataFrame(lignes)
+
+# Séries annuelles pour les figures : prorata et dérive par rapport à 1997 (référence la plus neutre)
+annuel = part.loc[ANS].mul(pd_.loc[ANS], axis=0).add_prefix("prorata_")
+derive = (X.loc[ANS] - X.loc[1997]).add_prefix("derive1997_")
+derive["derive1997_recettes"] = -(tau.loc[ANS] - tau[1997])
+derive["derive1997_reference"] = pd_[1997]
+annuel = annuel.join(derive)
+annuel["deficit_primaire"] = pd_.loc[ANS]
+annuel.to_csv(D / "dynamique_annuel.csv", index_label="annee")
 vent.to_csv(D / "dynamique_fonctions.csv", index_label="poste")
 
 # Tableau LaTeX de la note : déficits primaires cumulés 1996-2025, en points de PIB

@@ -298,3 +298,141 @@ fig_financement()
 fig_methodes()
 fig_asso_temps()
 fig_decomposition()
+
+# ---------------------------------------------------------------- dynamique : figures annuelles
+POSTES = [("vieillesse", "Vieillesse", ["GF1002"], OCRE),
+          ("sante", "Santé", ["GF07"], "#a85b00"),
+          ("autre_soc", "Autre protection sociale", ["GF10X"], "#e3c27a"),
+          ("autres", "Autres fonctions", ["GF01", "GF02", "GF03", "GF04", "GF05", "GF06", "GF08",
+                                          "GF09"], BLEU)]
+SRC_DYN = SRC_EUROSTAT + " Calculs de l'auteur (dette/dynamique.py)."
+PTS = FuncFormatter(lambda v, _: f"{v:+.0f}".replace("-", "−") if v else "0")
+
+
+def barres_empilees(ax, x, series, couleurs, labels, largeur=0.75):
+    """Barres empilées où les valeurs positives et négatives s'empilent séparément."""
+    haut, bas = np.zeros(len(x)), np.zeros(len(x))
+    for y, c, l in zip(series, couleurs, labels):
+        y = np.asarray(y, dtype=float)
+        pos, neg = np.where(y > 0, y, 0), np.where(y < 0, y, 0)
+        ax.bar(x, pos, bottom=haut, color=c, width=largeur, label=l, lw=0)
+        ax.bar(x, neg, bottom=bas, color=c, width=largeur, lw=0)
+        haut += pos
+        bas += neg
+
+
+def fig_contributions():
+    t = pd.read_csv(D / "dynamique.csv").set_index("annee").loc[1996:]
+    fig, ax = plt.subplots(figsize=(7.8, 4.4))
+    x = t.index.values
+    barres_empilees(ax, x, [t.deficit_primaire, t.effet_interets, t.effet_croissance, t.stock_flux],
+                    [BRIQUE, OCRE, VERT, GRIS],
+                    ["Déficit primaire", "Intérêts", "Croissance du PIB nominal",
+                     "Ajustements stock-flux"])
+    ax.plot(x, t.dette.diff().loc[1996:], color=INK2, lw=0, marker="o", ms=4.5,
+            label="Variation du ratio de dette")
+    ax.axhline(0, color=INK2, lw=0.7)
+    ax.set_xlim(1995.4, 2025.6)
+    ax.yaxis.set_major_formatter(PTS)
+    ax.set_ylabel("Points de PIB")
+    grille(ax)
+    ax.set_ylim(-10, 22)
+    ax.legend(loc="upper left", fontsize=8.3, ncol=3)
+    titre(ax, "Chaque année, la dette varie du déficit primaire et de l'écart entre taux et croissance",
+          "Contributions annuelles à la variation du ratio de dette publique")
+    fin(fig, "dette_contributions_annuelles.png", SRC_DYN,
+        f"Lecture : en 2020, le ratio de dette a augmenté de {nb(t.dette.diff()[2020], 1)} points de "
+        f"PIB : {nb(t.deficit_primaire[2020], 1)} de déficit primaire, {nb(t.effet_croissance[2020], 1)} "
+        f"dus à la baisse du PIB nominal (l'effet de la croissance devient positif quand le PIB "
+        f"recule), {nb(t.effet_interets[2020], 1)} d'intérêts et {nb(t.stock_flux[2020], 1)} "
+        "d'ajustements stock-flux (trésorerie constituée par l'État). Les intérêts ajoutent chaque année "
+        "de 1 à 4 points ; la croissance en retire en général autant.")
+
+
+def fig_prorata_annuel():
+    a = pd.read_csv(D / "dynamique_annuel.csv").set_index("annee")
+    fig, ax = plt.subplots(figsize=(7.8, 4.4))
+    x = a.index.values
+    series = [a[[f"prorata_{k}" for k in cles]].sum(axis=1) for _, _, cles, _ in POSTES]
+    barres_empilees(ax, x, series, [c for *_, c in POSTES], [l for _, l, _, _ in POSTES])
+    ax.axhline(0, color=INK2, lw=0.7)
+    ax.set_xlim(1995.4, 2025.6)
+    ax.yaxis.set_major_formatter(PTS)
+    ax.set_ylabel("Points de PIB")
+    grille(ax)
+    ax.legend(loc="upper left", fontsize=8.5)
+    soc = sum(series[:3]).sum()
+    titre(ax, "Le déficit primaire de chaque année, réparti au prorata de la dépense",
+          "Première convention : dépenses fongibles ; déficit primaire en % du PIB, par fonction")
+    fin(fig, "dette_prorata_annuel.png", SRC_DYN,
+        f"Lecture : chaque barre est le déficit primaire de l'année (un excédent de 1998 à 2001), "
+        f"réparti selon la part de chaque fonction dans la dépense hors intérêts. Cumulés sur "
+        f"1996-2025, ces déficits font {nb(a.deficit_primaire.sum(), 1)} points de PIB, dont "
+        f"{nb(soc, 1)} pour la santé et la protection sociale. Par construction, la répartition de "
+        "chaque barre suit la structure de la dépense de l'année.")
+
+
+def fig_derive_cumul():
+    a = pd.read_csv(D / "dynamique_annuel.csv").set_index("annee")
+    fig, ax = plt.subplots(figsize=(7.8, 4.4))
+    x = a.index.values
+    for _, lib, cles, coul in POSTES:
+        ax.plot(x, a[[f"derive1997_{k}" for k in cles]].sum(axis=1).cumsum(), color=coul, lw=2,
+                label=lib)
+    ax.plot(x, a.derive1997_recettes.cumsum(), color=VERT, lw=2, ls="--",
+            label="Recettes (une hausse réduit le déficit)")
+    ax.plot(x, a.derive1997_reference.cumsum(), color=GRIS, lw=1.5, ls=":",
+            label="Déficit primaire de 1997 répété")
+    ax.plot(x, a.deficit_primaire.cumsum(), color=INK2, lw=2.6,
+            label="Total : déficits primaires cumulés")
+    ax.axhline(0, color=INK2, lw=0.7)
+    ax.set_xlim(1996, 2025)
+    ax.yaxis.set_major_formatter(PTS)
+    ax.set_ylabel("Points de PIB, cumulés depuis 1996")
+    grille(ax)
+    ax.legend(loc="upper left", fontsize=8.3)
+    cum = {lib: a[[f"derive1997_{k}" for k in cles]].sum(axis=1).sum() for _, lib, cles, _ in POSTES}
+    titre(ax, "Ce que chaque poste a ajouté au déficit depuis 1997",
+          "Seconde convention : dérive de chaque poste par rapport à 1997, cumulée")
+    fin(fig, "dette_derive_cumul.png", SRC_DYN,
+        f"Lecture : chaque courbe cumule l'écart annuel d'un poste à son niveau de 1997, en points de "
+        f"PIB. La hausse de la vieillesse a ajouté {nb(cum['Vieillesse'])} points de déficit cumulé et "
+        f"celle de la santé {nb(cum['Santé'])} ; les autres fonctions en ont retiré "
+        f"{nb(-cum['Autres fonctions'])}. Les courbes s'additionnent au total. 1997 est retenue parce "
+        "que le déficit primaire y était presque nul (0,2 point de PIB).")
+
+
+def fig_derive_references():
+    v = pd.read_csv(D / "dynamique_fonctions.csv").set_index("poste")
+    lignes = [(lib, cles) for _, lib, cles, _ in POSTES] + [
+        ("Recettes", ["recettes"]), ("Déficit de l'année de référence", ["deficit_de_reference"])]
+    cols = [("prorata", "Prorata", GRIS), ("derive_1995", "Dérive depuis 1995", "#aabbdd"),
+            ("derive_1997", "Dérive depuis 1997", BLEU), ("derive_2000", "Dérive depuis 2000", "#0b2a61")]
+    fig, ax = plt.subplots(figsize=(7.8, 4.8))
+    y = np.arange(len(lignes))
+    h = 0.2
+    for k, (col, lib, coul) in enumerate(cols):
+        vals = [v.loc[v.index.intersection(cles), col].sum(min_count=1) for _, cles in lignes]
+        vals = [0 if pd.isna(z) else z for z in vals]
+        ax.barh(y + (k - 1.5) * h, vals, height=h, color=coul, label=lib)
+    ax.axvline(0, color=INK2, lw=0.7)
+    ax.set_yticks(y)
+    ax.set_yticklabels([l for l, _ in lignes])
+    ax.invert_yaxis()
+    ax.xaxis.set_major_formatter(PTS)
+    ax.set_xlabel("Points de PIB de déficit primaire cumulé, 1996-2025")
+    grille(ax, "x")
+    ax.legend(loc="center right", fontsize=8.3)
+    titre(ax, "Seules la vieillesse et la santé pèsent lourd quelle que soit la convention",
+          "Ventilation des 50,5 points de déficits primaires cumulés, selon la convention")
+    fin(fig, "dette_derive_references.png", SRC_DYN,
+        "Lecture : chaque groupe de barres totalise 50,5 points de PIB. Avec la dérive, la ventilation "
+        "dépend de l'année de référence : prendre 1995 (déficit primaire de 1,6 point) ou 2000 (excédent "
+        "de 1,6 point) comme norme change le signe des autres fonctions et du déficit de référence. La "
+        "vieillesse (+42 à +55) et la santé (+32) restent les deux principaux postes.")
+
+
+fig_contributions()
+fig_prorata_annuel()
+fig_derive_cumul()
+fig_derive_references()
