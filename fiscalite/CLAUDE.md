@@ -33,3 +33,19 @@ les chapitres suivants y renvoient ; la mécanique détaillée d'un impôt n'a s
 illustre un point général ; une figure ne redit ni le texte ni une autre figure, et sa note ne
 recopie pas le texte. Les sources et notes de lecture des figures sont écrites dans
 `figures/nu/<figure>_note.tex` et composées en texte par `\figbloc`, jamais dans l'image.
+
+## Carte des travaux du dossier
+
+Lire le README du sous-dossier avant de reprendre un sujet : il donne le livrable, les chiffres
+clés, les scripts et les notes de lecture.
+
+- `cours/` : cours « Refaire l'impôt » (LaTeX) et note sur les élasticités françaises.
+- `plan-rapport*`, `rapport-commun-docx.js`, `rapport_commun.docx` : plan du rapport pour le think
+  tank Robert de Sorbon (coauteurs Corentin Deredec et Léo Amsellem ; commanditaires Jean-François
+  et Simon). Les versions de travail des coauteurs ne sont pas versionnées.
+- `lvt/` : note « Taxer le terrain » sur la taxe sur la valeur foncière, données françaises,
+  figures `lvt_*`, notes de lecture vérifiées (`lvt/README.md`).
+- `dette/` : attribution de la dette publique entre État, collectivités et sécurité sociale,
+  corrigée des transferts entre administrations (`dette/README.md`).
+- Scripts `graphiques*.py` et `extract_*.py` à la racine : figures et données du cours ;
+  `graphiques.py` porte la charte commune (couleurs, `titre`, `panneau`, `fin`, mode `FIG_NU`).
