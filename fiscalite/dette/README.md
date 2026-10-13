@@ -17,6 +17,21 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
     `../lvt/preambule.tex`.
 - `tableau_attribution.tex` : tableau 1, généré par `attribution.py`.
 
+## Méthode de référence : dynamique de la dette (`dynamique.py`)
+
+- Décomposition FMI et Commission européenne, 1995-2025. Le ratio de dette passe de 57,5 % à
+  115,7 % du PIB, soit +58,2 points :
+  - déficits primaires cumulés : +50,5, dont 22 sur les années de crise 2009-2010 et 2020-2021 ;
+  - intérêts : +73,9 ;
+  - croissance du PIB : −72,3 ;
+  - ajustements stock-flux : +6,0.
+- La décomposition standard ne ventile pas par fonction. Ventilation des 50,5 points :
+  - au prorata de la dépense : 29,7 points pour le social (59 %) ;
+  - par dérive (méthode d'Auerbach), qui dépend de l'année de référence : avec 1997, vieillesse +42
+    et santé +32, autres dépenses −23 ; quelle que soit la référence, vieillesse +42 à +55 et
+    santé +32.
+- Tableau généré : `tableau_dynamique.tex`.
+
 ## Résultat principal : la méthode simple (dépenses fongibles, `fongible.py`)
 
 - Principe : chaque année, la dette hors intérêts est répartie au prorata de la dépense par fonction

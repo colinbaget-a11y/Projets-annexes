@@ -35,7 +35,16 @@ une clé de répartition conventionnelle, pas une mesure causale : le rapport P�
 déjà en 2005 qu'« il n'existe qu'un seul déficit » et qu'on ne sait pas quelles dépenses ont été
 financées par la dette.
 
-Appliquée année par année depuis 1995, cette méthode attribue à la santé et à la protection sociale
+La méthode de référence, celle du FMI et de la Commission européenne, décompose la hausse du
+ratio de dette en déficits primaires, effet des intérêts, effet de la croissance du PIB et
+ajustements comptables. Depuis 1995, le ratio est passé de 57,5~\% à 115,7~\% du PIB.
+Sur ces 58 points de hausse, les déficits primaires cumulés en font 50,5. Les intérêts (+74 points)
+ont été presque exactement compensés par la croissance du PIB nominal ($-72$). La dette a donc monté
+parce que les administrations ont dépensé plus qu'elles ne prélevaient, hors intérêts, presque
+chaque année. Cette méthode ne dit pas quelles dépenses ont fait ces déficits ; pour le dire, il
+faut une convention.
+
+Appliquée année par année depuis 1995, la convention des dépenses fongibles attribue à la santé et à la protection sociale
 1~960~Md€, soit 57~\% de la dette publique de fin 2025 (3~460~Md€). Les retraites en portent 22~\%,
 les autres prestations sociales (chômage, famille, RSA, logement, invalidité) 20~\% et la santé
 14~\%. La police et la justice en portent 3~\%, la défense 4~\% et l'enseignement 10~\%. Réparti
@@ -114,7 +123,41 @@ an, ce qui n'est pas une dépense en comptabilité nationale. La seule grosse re
 (16,8~Md€ en 1993) lui a été remboursée par la CADES entre 1996 et 2005. Le poids de l'État dans
 la dette vient de ce qu'il finance chaque année, pas de dettes reprises.
 
-\section{La méthode : des dépenses fongibles}\label{sec:methode}
+\section{La méthode de référence : la dynamique de la dette}\label{sec:dynamique}
+
+La décomposition utilisée par le FMI, la Commission européenne et la Cour des comptes suit le
+ratio de dette $d$ (en \% du PIB) d'une année sur l'autre :
+\[ d_t-d_{t-1} \;=\; \underbrace{pd_t}_{\text{déficit primaire}} \;+\;
+\underbrace{\frac{i_t-g_t}{1+g_t}\,d_{t-1}}_{\text{effet « boule de neige »}} \;+\;
+\underbrace{sf_t}_{\text{ajustements stock-flux}} \]
+où $i_t$ est le taux d'intérêt apparent et $g_t$ la croissance du PIB nominal. L'intuition est
+simple. La dette augmente quand on emprunte pour financer un déficit hors intérêts. Elle augmente
+aussi parce qu'on emprunte pour payer les intérêts, mais le PIB croît en même temps, ce qui réduit
+le poids de la dette. Le troisième terme regroupe ce qui modifie la dette sans passer par le
+déficit : achats d'actifs financiers, variations de trésorerie, primes d'émission.
+
+\figbloc{dette_dynamique}{Décomposition de la hausse du ratio de dette depuis 1995}{fig:dynamique}
+
+De 1995 à 2025, le ratio de dette a augmenté de 58,2 points de PIB (figure~\ref{fig:dynamique}).
+Les déficits primaires cumulés en expliquent 50,5 points et les ajustements stock-flux 6,0. Les
+intérêts ont ajouté 73,9 points, mais la croissance du PIB nominal en a retiré 72,3 : sur trente
+ans, le taux d'intérêt moyen a presque égalé la croissance nominale, et l'effet boule de neige net
+n'est que de 1,6 point. La dette a donc monté parce que les administrations ont presque chaque année
+dépensé plus qu'elles ne prélevaient, hors intérêts. Les seules années d'excédent primaire sont
+1998 à 2001, et le solde primaire était presque à l'équilibre en 2006-2007. Les quatre années de
+crise (2009-2010 et 2020-2021) font à elles seules 22 des 50,5 points ; le reste vient de déficits
+primaires modérés mais presque permanents, de 1 à 3 points par an. L'effet des taux n'y est pour
+presque rien.
+
+Cette décomposition fait consensus, mais elle s'arrête là : elle ne répartit jamais le déficit
+primaire entre les dépenses, ni chez le FMI, ni à la Commission, ni dans les travaux académiques sur
+la dynamique de la dette (section~\ref{sec:litterature}). Pour passer des 50,5 points de déficits
+primaires aux dépenses qu'ils ont financées, il faut une convention. Il en existe deux usuelles. La
+première répartit le déficit au prorata de la dépense (sections~\ref{sec:methode}
+et~\ref{sec:resultat}). La seconde mesure la dérive de chaque dépense par rapport à une année de
+référence (section~\ref{sec:derive}).
+
+\section{Première convention : des dépenses fongibles}\label{sec:methode}
 
 \paragraph{Le principe.} Dire que les dépenses sont fongibles, c'est dire qu'aucune recette n'est
 attachée à une dépense particulière. TVA, impôt sur le revenu, CSG et cotisations alimentent une
@@ -144,9 +187,12 @@ les administrations n'ont presque jamais dégagé d'excédent primaire, si bien 
 ont été payés par de nouveaux emprunts. Capitalisés au taux moyen des administrations (6,5~\% en
 1996, 1,3~\% en 2020), ils représentent 1~928~Md€ fin 2025, soit 56~\% de la dette. Les déficits
 primaires de 1996 à 2025 et leurs intérêts en font 1~355~Md€, et les ajustements stock-flux
-(achats d'actifs financiers, écarts d'émission) le reste. On répartit le stock de 1995 selon la
-dépense de 1995, ce qui revient à supposer que la fongibilité valait déjà avant, et les
-ajustements selon la dépense de l'année.
+(achats d'actifs financiers, écarts d'émission) le reste. En proportion du PIB, le constat est le même : le ratio de 1995 (57,5~\%) fait
+à peu près la moitié du ratio de 2025, puisque les intérêts sur cette dette ont été compensés par
+la croissance. On répartit le stock de 1995 selon la dépense de 1995, ce qui revient à supposer que
+la fongibilité valait déjà avant, et les ajustements selon la dépense de l'année. Appliquée aux
+seuls 50,5 points de déficits primaires cumulés de la décomposition standard, la même règle en
+attribue 29,7 à la santé et à la protection sociale (59~\%).
 
 \figbloc{dette_decomposition}{Décomposition de la dette des administrations publiques,
 1996-2025}{fig:decomposition}
@@ -176,7 +222,7 @@ fait 24~\% de la dépense de 2024 mais 22~\% de la dette, parce qu'elle pesait m
 1990. Le chiffre de 57~\% est donc solide, mais il apprend surtout que la dépense publique est
 sociale aux trois cinquièmes. Il ne dit pas quelles dépenses ont creusé la dette.
 
-\section{Ce qui a fait monter la dépense}\label{sec:derive}
+\section{Seconde convention : ce qui a fait monter la dépense}\label{sec:derive}
 
 \figbloc{dette_fonctions_evolution}{Variation de la dépense publique par fonction entre 1995 et
 2024}{fig:evolution}
@@ -208,6 +254,44 @@ PIB en 2019 à 51,2~\% en 2024 (suppression de la taxe d'habitation, baisses d'i
 et d'impôt sur les sociétés), quand la dépense de santé augmentait de 0,8 point. Dire que la dérive
 vient de la dépense sociale et dire qu'elle vient des baisses d'impôts sont deux lectures
 également comptables du même déficit ; elles diffèrent par la référence choisie.
+
+On peut traduire cette dérive en dette, avec la méthode d'Auerbach (1994). Le déficit primaire
+de chaque année s'écrit comme celui d'une année de référence, plus la hausse de chaque dépense
+depuis cette année, moins la hausse des recettes. En cumulant sur 1996-2025, on ventile exactement
+les 50,5 points de déficits primaires de la décomposition standard (tableau~\ref{tab:dynamique}).
+Comme l'effet boule de neige net est presque nul, ces points cumulés se lisent presque directement
+comme des points de dette.
+
+\begin{table}[htbp]\centering\small
+\caption{Déficits primaires cumulés 1996-2025, ventilés par poste (en points de PIB)}
+\label{tab:dynamique}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& Prorata & \multicolumn{3}{c}{Dérive depuis l'année de référence} \\
+\cmidrule(l){3-5}
+& & 1995 & 1997 & 2000 \\
+\midrule
+\input{tableau_dynamique.tex}
+\end{tabular}
+\par\vspace{4pt}
+\parbox{\linewidth}{\raggedright\scriptsize\color{encre} Source : Eurostat ; calculs de l'auteur
+(\texttt{dette/dynamique.py}). Colonne « Prorata » : déficit primaire de chaque année réparti selon
+la part de chaque fonction dans la dépense primaire. Colonnes « Dérive » : somme sur 1996-2025 de
+l'écart de chaque dépense (en \% du PIB) à son niveau de l'année de référence ; la ligne
+« Recettes » est l'opposé de l'écart des recettes ; la dernière ligne avant le total est le déficit
+primaire de l'année de référence, répété trente ans. Les colonnes s'additionnent au même total.}
+\end{table}
+
+Le résultat dépend de l'année de référence, et c'est la limite de cette convention. En 1995, le
+déficit primaire était de 1,6 point de PIB : si on le prend pour norme, le déficit de référence
+explique à lui seul toute la hausse de la dette, et les dérives de dépense et de recettes se
+compensent. En 2000, au contraire, les administrations dégageaient un excédent primaire de
+1,6 point : toutes les dépenses semblent alors avoir dérivé. L'année 1997, où le déficit primaire
+était presque nul (0,2 point), est la référence la plus neutre. Avec elle, la hausse de la dépense
+de vieillesse et de santé représente 74 points cumulés, plus que la totalité des déficits primaires
+(51 points), et les autres dépenses ont baissé de 23 points. Un résultat ne dépend pas de la
+référence : la vieillesse (+42 à +55 points) et la santé (+32) sont les deux seuls postes dont la
+dérive pèse lourd quelle que soit l'année choisie.
 
 La comparaison avec Fipeco (Ecalle, 2023) confirme les ordres de grandeur. Sur 1995-2021, hors
 dépenses exceptionnelles liées au Covid, Fipeco trouve une hausse de la dépense primaire de 4,0
@@ -390,6 +474,12 @@ ODAC, APUL, ASSO), valeurs de fin d'année.
 \paragraph{Dynamique de la dette.} Soit $D_t$ la dette des administrations publiques et $I_t$
 les intérêts versés, et $r_t=I_t/D_{t-1}$ le taux apparent. La hausse de la dette hors intérêts,
 $\Delta D_t-I_t$, est la somme du déficit primaire et des ajustements stock-flux.
+
+\paragraph{Décomposition standard et dérive (\texttt{dynamique.py}).} Formule de la
+section~\ref{sec:dynamique}, avec $i_t$ égal aux intérêts versés rapportés à la dette de fin
+d'année précédente, et les ajustements stock-flux calculés en résidu. Dérive : en notant $x_{jt}$ la
+dépense primaire de la fonction $j$ et $\tau_t$ les recettes, en \% du PIB, et $R$ l'année de
+référence, $pd_t=pd_R+\sum_j(x_{jt}-x_{jR})-(\tau_t-\tau_R)$, cumulé sur 1996-2025.
 
 \paragraph{Méthode fongible (M4, \texttt{fongible.py}).} Soit $s_{jt}$ la part de la fonction $j$
 dans la dépense hors intérêts de l'année $t$. La dette attribuée suit

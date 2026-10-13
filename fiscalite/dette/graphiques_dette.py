@@ -262,6 +262,35 @@ def fig_evolution():
         f"{nb(-(d.drop(['interets', 'GF07', 'GF1002']).sum()), 1)} points.")
 
 
+def fig_dynamique():
+    t = pd.read_csv(D / "dynamique.csv").set_index("annee").loc[1996:]
+    cum = t.drop(columns="dette").cumsum()
+    fig, ax = plt.subplots(figsize=(7.5, 4.4))
+    x = cum.index.values
+    ax.plot(x, t.dette - 57.5, color=INK2, lw=2.4, label="Hausse du ratio de dette depuis 1995")
+    for col, lib, coul, ls in (("deficit_primaire", "Déficits primaires", BRIQUE, "-"),
+                               ("effet_interets", "Intérêts", OCRE, "--"),
+                               ("effet_croissance", "Croissance du PIB nominal", VERT, "--"),
+                               ("stock_flux", "Ajustements stock-flux", GRIS, ":")):
+        ax.plot(x, cum[col], color=coul, lw=1.8, ls=ls, label=lib)
+    ax.axhline(0, color=INK2, lw=0.7)
+    ax.set_xlim(1996, 2025)
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:+.0f}".replace("-", "−")))
+    ax.set_ylabel("Points de PIB, cumulés depuis 1995")
+    grille(ax)
+    ax.legend(loc="lower left", fontsize=8.5)
+    s = t.sum()
+    titre(ax, "La hausse de la dette depuis 1995 vient des déficits primaires",
+          "Décomposition standard de la dynamique du ratio de dette (FMI, Commission européenne)")
+    fin(fig, "dette_dynamique.png", SRC_EUROSTAT + " Calculs de l'auteur (dette/dynamique.py).",
+        f"Lecture : le ratio de dette est passé de 57,5 % du PIB en 1995 à {nb(t.dette.iloc[-1], 1)} % "
+        f"en 2025. Les déficits primaires cumulés y contribuent pour {nb(s.deficit_primaire, 1)} "
+        f"points ; les intérêts ({nb(s.effet_interets, 1)} points) ont été presque entièrement "
+        f"compensés par la croissance du PIB nominal ({nb(s.effet_croissance, 1)}) ; les ajustements "
+        f"stock-flux font {nb(s.stock_flux, 1)} points.")
+
+
+fig_dynamique()
 fig_fonctions()
 fig_evolution()
 fig_emetteur()
