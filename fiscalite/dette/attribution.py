@@ -10,12 +10,13 @@ diffèrent que par la règle qui répartit le déficit primaire ; le reste est t
   - les intérêts suivent la dette : chaque bloc de dette attribué est capitalisé au taux apparent
     des APU (une dette attribuée à la sécurité sociale porte ses intérêts, même si c'est l'État
     qui les paie) ;
-  - les ajustements stock-flux restent à l'émetteur (ils traduisent sa gestion financière : les
-    réserves des régimes de retraite complémentaire gonflent la dette brute des ASSO) ;
-  - le stock de fin 1995 (702 Md€) et ses intérêts sont répartis selon l'émetteur de 1995, faute
-    de données antérieures dans la même base. Capitalisé, ce bloc pèse plus de la moitié de la
-    dette de 2025 : les résultats sont donnés pour la dette totale et pour la seule dette créée
-    depuis 1995.
+  - les ajustements stock-flux (achats d'actifs, primes d'émission…) sont répartis comme la dépense
+    de l'année dans les règles fongibles et restent à l'émetteur dans les autres (les réserves des
+    régimes complémentaires gonflent la dette brute des ASSO) ;
+  - le stock de fin 1995 (702 Md€) et ses intérêts suivent la logique de chaque règle : répartis
+    comme la dépense de 1995 pour les règles fongibles (M1, M4), laissés à l'émetteur pour les
+    autres. Capitalisé, ce bloc pèse plus de la moitié de la dette de 2025 : les résultats sont
+    donnés pour la dette totale et pour la seule dette créée depuis 1995.
 
 Sous-secteurs : ETAT = administration centrale (État et ODAC, S1311) ; APUL (S1313) ; ASSO (S1314).
 
@@ -98,20 +99,28 @@ def affectes(an, methode):
     return []
 
 
+FONGIBLES = ("M1", "M4")
+
+
+def parts_fongibles(an, methode):
+    """Parts de la dépense primaire de l'année : finale par sous-secteur (M1) ou par fonction (M4)."""
+    if methode == "M1":
+        T = transferts(an)
+        fe = pd.Series({s: v("TE", an, s) - v("D41PAY", an, s) for s in SS}) - T.sum(axis=1)
+        return (fe / fe.sum()).rename(NOM)
+    a = min(an, cof.index.max())
+    f = cof.loc[a]
+    sh = (f["GF07"] + f["GF10"]) / (f["TOTAL"] - v("D41PAY", a, "S13"))
+    return pd.Series({"SOCIAL": sh, "AUTRES": 1 - sh})
+
+
 def repartit(an, methode):
     """Déficit primaire de l'année réparti selon la méthode, en M€."""
     dp = deficit_primaire(an)
     if methode == "M0":
         return dp.rename(NOM)
-    if methode == "M1":
-        T = transferts(an)
-        fe = pd.Series({s: v("TE", an, s) - v("D41PAY", an, s) for s in SS}) - T.sum(axis=1)
-        return (dp.sum() * fe / fe.sum()).rename(NOM)
-    if methode == "M4":
-        f = cof.loc[min(an, cof.index.max())]
-        prim = f["TOTAL"] - v("D41PAY", min(an, cof.index.max()), "S13")
-        sh = (f["GF07"] + f["GF10"]) / prim
-        return pd.Series({"SOCIAL": dp.sum() * sh, "AUTRES": dp.sum() * (1 - sh)})
+    if methode in FONGIBLES:
+        return dp.sum() * parts_fongibles(an, methode)
     # M2, M3, M3+ : l'emprunt suit les transferts
     aff = affectes(an, methode)
     T = transferts(an, aff)
@@ -145,29 +154,38 @@ def taux(an):
 
 
 # Trois blocs de dette, capitalisés chaque année au taux apparent des APU :
-#   HERITE  stock de fin 1995 et intérêts sur ce stock, réparti selon l'émetteur de 1995 ;
-#   SFA     ajustements stock-flux et leurs intérêts, réparti selon l'émetteur ;
+#   HERITE  stock de fin 1995 et intérêts sur ce stock ;
+#   SFA     ajustements stock-flux et leurs intérêts ;
 #   NOUVEAU déficits primaires 1996-2025 et leurs intérêts, réparti selon la méthode.
+# Chaque règle traite l'héritage et les ajustements selon sa propre logique : les règles fongibles
+# (M1, M4) les répartissent comme la dépense (celle de 1995 pour le stock, celle de l'année pour les
+# ajustements) ; les autres, qui suivent le solde de chacun, les laissent à l'émetteur.
 herite0 = dette.loc[AN0, ["ETAT", "APUL", "ASSO"]]
+
+
+def sfa_total(an):
+    return dette.loc[an, "APU"] - dette.loc[an - 1, "APU"] + v("B9", an, "S13")
+
+
 res, defs = [], []
 for m in METHODES:
-    h, f, n = herite0.copy(), pd.Series(0.0, index=herite0.index), None
+    if m in FONGIBLES:
+        h = dette.loc[AN0, "APU"] * parts_fongibles(AN0, m)
+    else:
+        h = herite0.copy()
+    f, n = pd.Series(0.0, index=h.index), None
     for an in range(AN0 + 1, AN1 + 1):
         r = taux(an)
         dp = repartit(an, m)
         n = dp if n is None else n * (1 + r) + dp
         h = h * (1 + r)
-        f = f * (1 + r) + sfa_emetteur(an)
+        sfa = sfa_total(an) * parts_fongibles(an, m) if m in FONGIBLES else sfa_emetteur(an)
+        f = f * (1 + r) + sfa
         for k in dp.index:
             defs.append({"annee": an, "methode": m, "sous_secteur": k, "deficit_primaire": dp[k]})
-        if m == "M4":   # fonctions : héritage et ajustements des ASSO au social, le reste aux autres
-            hh = pd.Series({"SOCIAL": h["ASSO"], "AUTRES": h["ETAT"] + h["APUL"]})
-            ff = pd.Series({"SOCIAL": f["ASSO"], "AUTRES": f["ETAT"] + f["APUL"]})
-        else:
-            hh, ff = h, f
         for k in n.index:
-            res.append({"annee": an, "methode": m, "sous_secteur": k, "herite": hh[k], "sfa": ff[k],
-                        "nouveau": n[k], "dette": hh[k] + ff[k] + n[k]})
+            res.append({"annee": an, "methode": m, "sous_secteur": k, "herite": h[k], "sfa": f[k],
+                        "nouveau": n[k], "dette": h[k] + f[k] + n[k]})
 R = pd.DataFrame(res)
 R["part"] = R.dette / R.annee.map(dette.APU)
 R["part_nouveau"] = R.nouveau / R.groupby(["annee", "methode"]).nouveau.transform("sum")

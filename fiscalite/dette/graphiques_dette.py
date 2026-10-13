@@ -144,8 +144,9 @@ def fig_methodes():
     nouveau = R[(R.annee == 2025) & (R.methode == "M0")].nouveau.sum()
     fin(fig, "dette_methodes.png", SRC_EUROSTAT + " Calculs de l'auteur (dette/attribution.py).",
         f"Lecture : la dette créée depuis 1995 ({nb(nouveau / 1000)} Md€ fin 2025) est la somme des "
-        "déficits primaires de 1996 à 2025 et des intérêts qu'ils ont générés ; le reste de la dette "
-        "est le stock de 1995, ses intérêts et les ajustements stock-flux, laissés à l'émetteur. "
+        "déficits primaires de 1996 à 2025 et des intérêts qu'ils ont générés. Dans la dette totale, "
+        "le stock de 1995 et les ajustements stock-flux sont répartis comme la dépense pour les "
+        "règles au prorata (M1, M4) et laissés à l'émetteur pour les autres. "
         "Une barre qui dépasse à gauche de zéro signale une contribution négative (excédents "
         "primaires cumulés). La méthode par fonction répartit la dette entre fonctions et non entre administrations : "
         "elle compte en santé et protection sociale le RSA versé par les départements ou les aides "
@@ -168,7 +169,7 @@ def fig_asso_temps():
     grille(ax)
     ax.legend(loc="upper left", fontsize=8.5)
     titre(ax, "Part de la dette totale attribuée à la sécurité sociale",
-          "Stock de 1995 et ses intérêts laissés à l'émetteur")
+          "Stock de 1995 réparti selon la logique de chaque règle")
     fin(fig, "dette_asso_temps.png", SRC_EUROSTAT + " Calculs de l'auteur (dette/attribution.py).",
         "Lecture : la TVA affectée change peu le résultat avant 2019 ; à partir de 2019, la "
         "compensation des allègements de cotisations par une fraction de TVA fait basculer environ "
