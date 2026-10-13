@@ -67,6 +67,9 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
 
 - `notes/lectures.md` : IPP 2026 (lu), Beaufret 2023 (lu), Beaufret 2026 (non lu), Fipeco, points
   vérifiés et non vérifiés.
+- `notes/revue_litterature_agent.md` : revue détaillée (Catherine, Dufourcq, Ecalle, reprises de dette
+  1993-2026, SEC 2010 §1.78 et pratiques européennes, impôts affectés CPO 2024), avec statut de
+  vérification de chaque fait.
 
 ## Points en suspens
 
@@ -75,5 +78,7 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
 - Construire la variante cohérente de M3 : il faut les exonérations compensées, que donnent les
   annexes aux PLFSS.
 - Isoler les contributions d'équilibre aux régimes de fonctionnaires (CAS pensions, CNRACL).
-- Sylvain Catherine, cité par l'utilisateur : la recherche bibliographique était encore en cours
-  quand la note a été écrite.
+- Sylvain Catherine : ses textes originaux (fils sur X) n'ont pas été lus ; seule une reprise de presse
+  l'a été.
+- Texte Insee justifiant l'enregistrement des fractions de TVA comme impôts de l'affectataire : non
+  trouvé.

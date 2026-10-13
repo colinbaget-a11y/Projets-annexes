@@ -70,6 +70,11 @@ D'après l'IPP, il formule trois critiques :
 - CICE remplacé au 1er janvier 2019 par un allègement pérenne de cotisations patronales (BOFiP ;
   Fipeco). La compensation par TVA ressort dans les données (TVA perçue par les ASSO : 11,7 Md€ en
   2018, 46,5 Md€ en 2019), mais le montant de la fraction n'a pas été vérifié dans la LFSS 2019.
-- NON VÉRIFIÉ : reprise par l'État en 1993 de 110 milliards de francs de dette de l'Acoss
-  (souvenir, aucune source trouvée). Ce point n'est pas utilisé dans la note.
-- Sylvain Catherine (cité par l'utilisateur) : en attente de l'agent de recherche.
+- Reprise par l'État fin 1993 de 110 MdF (16,77 Md€) de dette du régime général, remboursée par
+  la CADES (23,4 Md€ versés de 1996 à 2005). Vérifié par l'agent de recherche (Sénat r02-248).
+- Sylvain Catherine : voir `revue_litterature_agent.md` §1.1. Le contrefactuel « retraites
+  allemandes » (dette de 57,5 % du PIB au lieu de 115,7 %) n'est connu que par la presse (JeChange,
+  18/08/2026), car X n'est pas lisible depuis l'environnement.
+- `revue_litterature_agent.md` : revue complète de l'agent de recherche. Chaque fait y est marqué
+  [V] (vérifié), [S] (secondaire) ou NON VÉRIFIÉ. Elle couvre la chronologie des reprises de dette
+  (CADES, SNCF Réseau, FFIPSA), le SEC 2010 §1.78, le GFSM 2014, la note CPO n° 8 et Fipeco.
