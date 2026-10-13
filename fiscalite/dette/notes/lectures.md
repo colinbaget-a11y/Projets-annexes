@@ -78,3 +78,19 @@ D'après l'IPP, il formule trois critiques :
 - `revue_litterature_agent.md` : revue complète de l'agent de recherche. Chaque fait y est marqué
   [V] (vérifié), [S] (secondaire) ou NON VÉRIFIÉ. Elle couvre la chronologie des reprises de dette
   (CADES, SNCF Réseau, FFIPSA), le SEC 2010 §1.78, le GFSM 2014, la note CPO n° 8 et Fipeco.
+
+## Sylvain Catherine : tweets retrouvés par recherche (X non lisible, HTTP 402) — extraits [S]
+
+- x.com/sc_cath/status/2047314625541083539 (avril 2026) : les générations à la retraite bénéficient
+  d'un rendement supérieur à la croissance, « c'est la cause de la hausse des taux de cotisation et
+  de la moitié de l'endettement public ». Sterdyniak et le compte Numerus Veritas contestent.
+- 1939794029518233759 : le déficit d'un système par répartition est l'écart entre pensions et
+  cotisations ; le mesurer après les transferts de l'État est circulaire.
+- 1893799307045720390 et 1896423037278314539 : le déficit des retraites des fonctionnaires serait
+  compté deux fois en comptabilité nationale. Le taux employeur de l'État s'ajuste pour garantir
+  l'équilibre.
+- 1805162350955413818 : la dette implicite des retraites serait 2 à 3 fois la dette publique ;
+  1960811716863832153 : les promesses de pension valent 400 % du PIB.
+- 2089127055153672583 : contrefactuel des retraites allemandes (dette de 57,5 % du PIB au lieu de
+  115,7 %), repris par JeChange le 18/08/2026.
+- Aucune répartition de la dette au prorata des dépenses n'a été trouvée chez lui.

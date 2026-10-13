@@ -6,7 +6,8 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
 
 ## Livrable
 
-- `note-dette.pdf` / `note-dette.tex` : note de 9 pages avec 5 figures et un tableau.
+- `note-dette.pdf` / `note-dette.tex` : note de 11 pages avec 7 figures et un tableau. Elle est
+  centrée sur la méthode simple.
   - Plan : l'essentiel ; ce que disent les comptes ; attribuer suppose un contrefactuel (les règles
     M1 à M4) ; résultats ; poids de la dette de 1995 ; travaux existants (IPP 2026, Beaufret) ;
     limites ; annexe de méthode.
@@ -14,7 +15,38 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
     `../lvt/preambule.tex`.
 - `tableau_attribution.tex` : tableau 1, généré par `attribution.py`.
 
-## Résultats clés (fin 2025)
+## Résultat principal : la méthode simple (dépenses fongibles, `fongible.py`)
+
+- Principe : chaque année, la dette hors intérêts est répartie au prorata de la dépense par fonction
+  (COFOG, hors intérêts). Chaque fonction porte les intérêts de sa dette. Le stock de 1995 est
+  réparti selon la dépense de 1995.
+- Dette attribuée fin 2025, sur 3 460 Md€ :
+
+  | Fonction | Part de la dette | Montant |
+  |---|---|---|
+  | Santé et protection sociale | 57 % | 1 959 Md€ |
+  | dont vieillesse | 22 % | 766 Md€ |
+  | dont autre protection sociale | 20 % | 705 Md€ |
+  | dont santé | 14 % | 488 Md€ |
+  | Affaires économiques | 12 % | |
+  | Enseignement | 10 % | |
+  | Défense | 4 % | |
+  | Police et justice | 3 % | |
+
+  Sur la seule dette créée depuis 1995, la part sociale est de 59 %.
+- Variation 1995-2024, en points de PIB :
+  - dépense hors intérêts : +2,3 ;
+  - recettes : +0,3 ;
+  - vieillesse : +2,4 ; santé : +2,0 ; toutes les autres fonctions : −2,1 ;
+  - intérêts : −1,4.
+- Sylvain Catherine :
+  - il ne fait pas de prorata ; il compare à l'Allemagne (dette de 58 % du PIB avec les retraites
+    allemandes) ;
+  - il affirme que les retraites sont « la cause de la moitié de l'endettement public » (X, avril
+    2026, contesté par Sterdyniak) ;
+  - ses tweets ne sont pas lisibles directement (HTTP 402) et ne sont connus que par des extraits.
+
+## Comparaison des règles par administration (`attribution.py`, résultats fin 2025)
 
 - Dette par émetteur (Insee) : État et ODAC 83,6 %, APUL 8,0 %, ASSO 8,5 %, sur 3 460 Md€.
 - Décomposition de la dette au taux apparent des APU :
@@ -49,6 +81,8 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
 
 ## Scripts et données (`donnees/`)
 
+- `fongible.py` : méthode simple par fonction ; écrit `fonctions_2025.csv` et
+  `fonctions_evolution.csv`.
 - `extract_dette.py` télécharge les données Eurostat et Insee et écrit dans `donnees/` :
   - `comptes.csv` : `gov_10a_main`, dont les transferts par sous-secteur destinataire ;
   - `impots.csv` : `gov_10a_taxag` ;
@@ -60,7 +94,7 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
   `attribution_deficits.csv`, `attribution_2025.csv` et `tableau_attribution.tex`.
 - `graphiques_dette.py` produit les figures `dette_*`. Avec `FIG_NU=1`, il produit les versions de la
   note dans `../figures/nu/`.
-- Ordre d'exécution : `python dette/extract_dette.py && python dette/attribution.py &&
+- Ordre d'exécution : `python dette/extract_dette.py && python dette/fongible.py && python dette/attribution.py &&
   FIG_NU=1 python dette/graphiques_dette.py`, depuis `fiscalite/`.
 
 ## Notes de lecture

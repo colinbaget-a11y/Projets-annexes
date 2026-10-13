@@ -198,6 +198,71 @@ def fig_decomposition():
         "héritée sont payés par de nouveaux emprunts.")
 
 
+SOC = {"GF07", "GF1002", "GF10X"}
+
+
+def fig_fonctions():
+    t = pd.read_csv(D / "fonctions_2025.csv").set_index("cofog").sort_values("dette_Mde")
+    fig, ax = plt.subplots(figsize=(7.5, 4.6))
+    y = np.arange(len(t))
+    coul = [OCRE if k in SOC else BLEU for k in t.index]
+    ax.barh(y, t.dette_Mde / 1000, color=coul, height=0.66)
+    for i, (k, r) in enumerate(t.iterrows()):
+        ax.text(r.dette_Mde / 1000 + 12, i, f"{nb(r.dette_Mde / 1000)} Md€  ({100 * r.part_dette:.0f} %)",
+                va="center", fontsize=8.5, color=INK2)
+    ax.set_yticks(y)
+    ax.set_yticklabels(t.fonction)
+    ax.set_xlim(0, 1000)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: nb(v)))
+    ax.set_xlabel("Milliards d'euros")
+    grille(ax, "x")
+    soc = t.loc[list(SOC)]
+    titre(ax, "Dette attribuée à chaque fonction si toutes les dépenses sont fongibles",
+          f"Fin 2025 ; santé et protection sociale (en ocre) : {nb(soc.dette_Mde.sum() / 1000)} Md€, "
+          f"{100 * soc.part_dette.sum():.0f} % de la dette")
+    fin(fig, "dette_fonctions.png", SRC_EUROSTAT + " Calculs de l'auteur (dette/fongible.py).",
+        "Lecture : chaque année depuis 1996, la hausse de la dette hors intérêts est répartie au "
+        "prorata de la dépense de chaque fonction (COFOG), et chaque fonction porte les intérêts de "
+        "la dette qui lui est attribuée ; le stock de 1995 est réparti selon la dépense de 1995. "
+        "Les intérêts sont retirés des services généraux. Les pensions des fonctionnaires sont dans "
+        "la vieillesse, le RSA et les aides au logement dans l'autre protection sociale.")
+
+
+def fig_evolution():
+    ev = pd.read_csv(D / "fonctions_evolution.csv").set_index("annee")
+    t = pd.read_csv(D / "fonctions_2025.csv").set_index("cofog")
+    d = (ev.loc[2024] - ev.loc[1995])
+    lib = dict(t.fonction)
+    lib.update({"interets": "Intérêts de la dette", "recettes": "Recettes publiques"})
+    d = d.drop(["recettes"]).sort_values()
+    fig, ax = plt.subplots(figsize=(7.5, 4.6))
+    y = np.arange(len(d))
+    coul = [OCRE if k in SOC else (GRIS if k == "interets" else BLEU) for k in d.index]
+    ax.barh(y, d.values, color=coul, height=0.66)
+    for i, v in enumerate(d.values):
+        ax.text(v + (0.05 if v >= 0 else -0.05), i, f"{v:+.1f}".replace(".", ",").replace("-", "−"),
+                va="center", ha="left" if v >= 0 else "right", fontsize=8.5, color=INK2)
+    ax.axvline(0, color=INK2, lw=0.7)
+    ax.set_yticks(y)
+    ax.set_yticklabels([lib[k] for k in d.index])
+    ax.set_xlim(-2.2, 3.2)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:+g}".replace(".", ",").replace("-", "−")))
+    ax.set_xlabel("Variation de la dépense entre 1995 et 2024, en points de PIB")
+    grille(ax, "x")
+    rec = ev.loc[2024, "recettes"] - ev.loc[1995, "recettes"]
+    titre(ax, "Depuis 1995, seules la santé et les retraites ont nettement augmenté",
+          f"Dépense publique par fonction, variation 1995-2024 ; recettes : {rec:+.1f} point".replace(".", ",")
+          .replace("+", "+"))
+    fin(fig, "dette_fonctions_evolution.png", SRC_EUROSTAT + " Calculs de l'auteur (dette/fongible.py).",
+        f"Lecture : la dépense de vieillesse est passée de {nb(ev.loc[1995, 'GF1002'], 1)} % à "
+        f"{nb(ev.loc[2024, 'GF1002'], 1)} % du PIB. Hors intérêts, la dépense publique a augmenté de "
+        f"{nb(d.drop('interets').sum(), 1)} points ; la santé et la vieillesse en expliquent "
+        f"{nb(d['GF07'] + d['GF1002'], 1)}, les autres fonctions ont baissé ensemble de "
+        f"{nb(-(d.drop(['interets', 'GF07', 'GF1002']).sum()), 1)} points.")
+
+
+fig_fonctions()
+fig_evolution()
 fig_emetteur()
 fig_financement()
 fig_methodes()
