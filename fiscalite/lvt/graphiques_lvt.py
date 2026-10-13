@@ -457,7 +457,7 @@ def regles_prix():
         "centrale est nulle). Loyers : part de la variation de taxe répercutée sur le loyer.",
         "Lecture : si l'élasticité de Høj et al. valait en France, l'appartement parisien perdrait "
         f"{nb(SEMI_HOJ * 1000 * b[3][2] / b[3][1])} % de sa valeur ; avec celle de Nielsson et al., "
-        "au plus " + nb(SEMI_NWY * 1000 * b[3][2] / b[3][1]) + " %. Les effets danois et anglais "
+        "au plus " + nb(SEMI_NWY * 1000 * b[3][2] / b[3][1], 1) + " %. Les effets danois et anglais "
         "portent sur des variations de taxe de quelques points pour mille ; la baisse de taxe de la "
         "maison corrézienne (8 ‰ de sa valeur) sort de ce domaine.")
 
