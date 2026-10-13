@@ -6,8 +6,10 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
 
 ## Livrable
 
-- `note-dette.pdf` / `note-dette.tex` : note de 11 pages avec 7 figures et un tableau. Elle est
-  centrée sur la méthode simple.
+- `note-dette.pdf` / `note-dette.tex` : « À quoi a servi la dette publique ? », 12 pages avec 7
+  figures et un tableau.
+  - Plan : chiffre officiel ; méthode fongible ; résultat par fonction ; dérive de la dépense ;
+    règles non fongibles ; travaux existants ; limites ; annexe.
   - Plan : l'essentiel ; ce que disent les comptes ; attribuer suppose un contrefactuel (les règles
     M1 à M4) ; résultats ; poids de la dette de 1995 ; travaux existants (IPP 2026, Beaufret) ;
     limites ; annexe de méthode.
@@ -101,6 +103,15 @@ réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'enviro
 
 - `notes/lectures.md` : IPP 2026 (lu), Beaufret 2023 (lu), Beaufret 2026 (non lu), Fipeco, points
   vérifiés et non vérifiés.
+- `notes/revue_attribution_par_fonction.md` : qui a déjà attribué la dette par fonction.
+  - Pébereau 2005 juge cette attribution « impossible » : « un seul déficit ».
+  - Champsaur-Cotis 2010 : contrefactuel côté recettes, environ −20 points de PIB de dette.
+  - Fipeco 2023 : variations de dépense par fonction, 1995-2021.
+  - Auerbach 1994, OBR 2024 : cadre des décompositions de variations.
+  - États-Unis : lectures opposées de Riedl et de Kogan.
+  - Beaufret, HCP, COR ; Dufourcq (méthode non publiée) ; CAE Focus 121 (cotisations fictives de
+    l'État).
+  - Conclusion : aucune attribution documentée du stock par fonction.
 - `notes/revue_litterature_agent.md` : revue détaillée (Catherine, Dufourcq, Ecalle, reprises de dette
   1993-2026, SEC 2010 §1.78 et pratiques européennes, impôts affectés CPO 2024), avec statut de
   vérification de chaque fait.
