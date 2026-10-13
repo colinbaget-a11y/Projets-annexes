@@ -93,14 +93,17 @@ constructibles laissés vides (\emph{Grundsteuer~C}).
 
 \subsection{Un impôt que personne ne peut éviter}
 
-Le coût d'un impôt vient des décisions qu'il fait changer. Le terrain est le cas limite d'une assiette qui ne réagit pas : taxé, il ne peut ni être
+Le coût d'un impôt vient des décisions qu'il fait changer. Un impôt sur les bâtiments fait
+construire moins : les immeubles qui ne sont pas construits ne rapportent ni loyer à un propriétaire
+ni recette à l'État, et cette perte n'est compensée par rien. Le terrain est le cas limite d'une assiette qui ne réagit pas : taxé, il ne peut ni être
 produit en moindre quantité, ni partir, ni être caché. Son propriétaire ne peut pas non plus
 reporter l'impôt sur ses locataires, car le loyer d'un emplacement est fixé par ce que les
 candidats sont prêts à payer pour être là plutôt qu'ailleurs ; l'impôt ne change ni le nombre
 d'emplacements, ni leur attrait, ni le nombre de candidats.
 
 Ce que perd le propriétaire se lit dans le prix. Un terrain qui rapporte un loyer net de 3~000~€
-par an vaut 100~000~€ si l'on actualise à 3~\%. Une taxe annuelle de 1~\% de sa valeur est annoncée :
+par an vaut 100~000~€ si les acheteurs en attendent le rendement de 3~\% qu'ils obtiendraient
+ailleurs (c'est le taux d'actualisation). Une taxe annuelle de 1~\% de sa valeur est annoncée :
 l'acheteur ne paiera plus que le prix $P$ tel que $3\,000 - 0{,}01\,P = 0{,}03\,P$, soit 75~000~€.
 Le propriétaire perd 25~000~€ le jour de l'annonce, la valeur actualisée de tous les impôts futurs ;
 l'acheteur suivant paie 750~€ d'impôt par an mais a payé 25~000~€ de moins. C'est la
@@ -113,8 +116,9 @@ indéniable ».
 d'actualisation}{fig:capitalisation}
 
 Deux résultats théoriques nuancent ce schéma. Si les ménages épargnent pour leur retraite en
-détenant terre ou capital, la taxe réoriente l'épargne vers le capital, fait baisser le taux
-d'intérêt et monter les salaires : le prix du sol baisse alors moins que prévu (Feldstein, 1977),
+détenant terre ou capital, une terre qui rapporte moins les pousse à acheter davantage d'autres
+actifs : le capital s'accumule, le taux d'intérêt baisse, les salaires montent, et le prix du sol
+baisse moins que prévu (Feldstein, 1977),
 sauf si les ménages lèguent par altruisme (Calvo, Kotlikoff et Rodriguez, 1979). Et la neutralité dépend de
 l'évaluation. Taxé à son usage courant, un terrain qui ne rapportera qu'après aménagement paie dès
 aujourd'hui sur des revenus futurs, ce qui pousse vers les usages qui rapportent tout de suite
@@ -139,7 +143,10 @@ Une ligne de métro ou un lycée enrichissent les propriétaires des terrains al
 Stiglitz (1979) donnent à l'intuition d'Henry George une forme précise : dans une ville de taille optimale, la somme des rentes foncières dues à la
 localisation égale la dépense en biens publics locaux, si bien qu'un impôt unique sur ces rentes
 suffit à la financer. Les auteurs doutent que ce théorème décrive les villes réelles ; il fonde
-néanmoins l'idée qu'une LVT locale fait payer un équipement par ceux qu'il enrichit.
+néanmoins l'idée qu'une LVT locale fait payer un équipement par ceux qu'il enrichit. La
+capitalisation des biens publics est bien mesurée en France : à Paris, de part et d'autre des
+limites de la carte scolaire, un collège meilleur d'un écart-type au brevet augmente le prix des
+logements de 1,4 à 2,4~\% (Fack et Grenet, 2010).
 
 Le second argument porte sur le patrimoine. La hausse des patrimoines rapportés au revenu est pour
 l'essentiel une hausse du prix du sol : Knoll, Schularick et Steger (2017) attribuent au terrain
@@ -269,8 +276,8 @@ terrain ; en remplaçant aussi les droits de mutation de 2023, le taux serait pr
 charge se déplacerait fortement entre biens. La maison médiane vendue en 2024 en Corrèze
 (118~000~€, terrain d'environ 10~\% de la valeur) et celle de Haute-Savoie (461~000~€, terrain
 d'environ 65~\%) paient aujourd'hui à peu près la même taxe, 1~040 et 930~€. Avec une taxe de
-0,57~\% du terrain, le taux qui aurait rapporté en 2017 autant que la taxe foncière des ménages sur
-leurs logements, la première paierait environ 70~€ et la seconde 1~700~€. Les montants sont
+0,57~\% du terrain (le taux neutre calculé sur le seul périmètre des ménages, en 2017 : leur taxe
+foncière sur les logements rapportée à la valeur de leurs terrains), la première paierait environ 70~€ et la seconde 1~700~€. Les montants sont
 approximatifs ; le passage d'un rapport de 1 à 1 à un rapport de 1 à 25 ne l'est pas. Un
 appartement parisien de 500~000~€, dont le terrain représenterait 75~\% de la valeur (hypothèse
 qu'aucune donnée publique ne permet de vérifier), paie aujourd'hui environ 730~€, 0,15~\% de sa
@@ -377,6 +384,46 @@ les choix des ménages.
 \figbloc{lvt_regles_dmto}{Effet d'une baisse des droits de mutation sur les ventes de logements,
 selon les élasticités publiées}{fig:reglesdmto}
 
+\section{Les difficultés pratiques}\label{sec:difficultes}
+
+\subsection{Estimer la valeur de chaque terrain}
+
+Il faut une valeur par parcelle, contestable par le contribuable. Trois méthodes existent : les ventes de terrains nus, rares là où le sol est cher (27~000 ventes de
+terrains à bâtir dans DVF en 2024, presque aucune à Paris) ; le résidu, qui reporte sur le sol
+toutes les erreurs faites sur le bâti ; des valeurs de zone estimées sur l'ensemble des ventes et
+appliquées à chaque parcelle, la solution allemande et danoise. Ces valeurs de zone sont
+cohérentes avec les ventes : à Berlin, un lissage statistique des ventes de terrains nus reproduit
+les valeurs des experts avec un $R^2$ de 0,78, avec des écarts locaux (Kolbe, Schulz, Wersing et
+Werwatz, 2015). La France a la matière première
+(DVF, cadastre, loyers déclarés depuis 2023) mais pas l'institution : personne n'y estime de
+valeurs foncières de zone, et la DGFiP objecte qu'un bien ne se vend en moyenne que tous les
+dix-neuf ans (Conseil des prélèvements obligatoires, 2023). Une valeur imparfaite suffit à l'efficacité, puisque le propriétaire ne
+peut pas modifier son impôt par ses décisions (\emph{Mirrlees Review}, 2011) ; elle ne suffit pas à
+l'acceptation. Pittsburgh a abandonné en 2001 son double taux, appliqué depuis 1913, après une
+réévaluation brutale : le comté avait gelé les valeurs de 1996 à 2001, et le rattrapage imposé par
+un juge a fait bondir de 81~\% la valeur foncière imposable en une année (Hughes, 2006). La leçon
+est de tenir les valeurs à jour chaque année plutôt que de les corriger d'un coup.
+
+\subsection{Les revenus, les communes, le zonage}
+
+Le transfert vers les zones chères est progressif au regard du patrimoine (les 10~\% de ménages les
+mieux dotés détiennent environ 44~\% du patrimoine immobilier) mais pas toujours au regard du
+revenu : un retraité modeste propriétaire d'une maison achetée il y a quarante ans dans une zone
+devenue chère verrait sa taxe multipliée sans que son revenu change. Un report de paiement automatique règle ce problème
+(section~\ref{sec:transition}).
+
+La taxe foncière est la principale ressource fiscale des communes depuis la suppression de la
+taxe d'habitation sur les résidences principales, et ce sont elles qui en votent le taux. Changer
+l'assiette redistribue les bases entre communes autant qu'entre contribuables. La révision des
+valeurs des locaux professionnels, appliquée en 2017, a montré la méthode : coefficient de
+neutralisation qui gèle la part de chaque commune, lissage sur dix ans, plafonnement des écarts.
+
+Enfin, la valeur taxée dépend du plan local d'urbanisme : rendre un terrain constructible
+multiplie sa valeur et sa taxe. La LVT ne crée pas d'offre là où les règles interdisent de
+construire, et elle donne aux propriétaires une raison de plus de s'opposer à l'extension des
+droits à construire, qui alourdirait leur impôt avant d'enrichir leur patrimoine.
+
+
 \section{Ce que donne une mise en place progressive}\label{sec:transition}
 
 \subsection{Le mécanisme : étaler la taxe n'étale pas la perte}
@@ -430,9 +477,8 @@ moment aux dépens de ceux qui achètent pendant la transition. D'où une règle
 chaque vente, la taxe que le bien paiera à terme.
 
 Les expériences étrangères montrent aussi ce qui fait échouer une transition. Pittsburgh n'a pas
-renoncé à son double taux par rejet du principe, mais après une réévaluation brutale : le comté
-avait gelé les valeurs de 1996 à 2001, et le rattrapage imposé par un juge a fait bondir de 81~\%
-la valeur foncière imposable en une année (Hughes, 2006). En Nouvelle-Zélande, la part des communes qui
+renoncé à son double taux par rejet du principe, mais après une réévaluation brutale
+(section~\ref{sec:difficultes}). En Nouvelle-Zélande, la part des communes qui
 taxent la valeur du sol est tombée de 47~\% en 2007 à 29~\% en 2019, au profit de la valeur
 bâtie.
 
@@ -450,39 +496,6 @@ utilisé que s'il est automatique : aux États-Unis, au milieu des années 1990,
 charge inscrite dans la loi, un plafond annuel par bien et un report automatique pour les
 propriétaires à faibles revenus.
 
-
-\section{Les autres difficultés}
-
-\subsection{Estimer la valeur de chaque terrain}
-
-Il faut une valeur par parcelle, contestable par le contribuable. Trois méthodes existent : les ventes de terrains nus, rares là où le sol est cher (27~000 ventes de
-terrains à bâtir dans DVF en 2024, presque aucune à Paris) ; le résidu, qui reporte sur le sol
-toutes les erreurs faites sur le bâti ; des valeurs de zone estimées sur l'ensemble des ventes et
-appliquées à chaque parcelle, la solution allemande et danoise. La France a la matière première
-(DVF, cadastre, loyers déclarés depuis 2023) mais pas l'institution : personne n'y estime de
-valeurs foncières de zone, et la DGFiP objecte qu'un bien ne se vend en moyenne que tous les
-dix-neuf ans (Conseil des prélèvements obligatoires, 2023). Une valeur imparfaite suffit à l'efficacité, puisque le propriétaire ne
-peut pas modifier son impôt par ses décisions (\emph{Mirrlees Review}, 2011) ; elle ne suffit pas à
-l'acceptation, comme l'a montré Pittsburgh.
-
-\subsection{Les revenus, les communes, le zonage}
-
-Le transfert vers les zones chères est progressif au regard du patrimoine (les 10~\% de ménages les
-mieux dotés détiennent environ 44~\% du patrimoine immobilier) mais pas toujours au regard du
-revenu : un retraité modeste propriétaire d'une maison achetée il y a quarante ans dans une zone
-devenue chère verrait sa taxe multipliée sans que son revenu change. Le report de paiement, s'il est
-automatique, règle ce problème (section~\ref{sec:transition}).
-
-La taxe foncière est la principale ressource fiscale des communes depuis la suppression de la
-taxe d'habitation sur les résidences principales, et ce sont elles qui en votent le taux. Changer
-l'assiette redistribue les bases entre communes autant qu'entre contribuables. La révision des
-valeurs des locaux professionnels, appliquée en 2017, a montré la méthode : coefficient de
-neutralisation qui gèle la part de chaque commune, lissage sur dix ans, plafonnement des écarts.
-
-Enfin, la valeur taxée dépend du plan local d'urbanisme : rendre un terrain constructible
-multiplie sa valeur et sa taxe. La LVT ne crée pas d'offre là où les règles interdisent de
-construire, et elle donne aux propriétaires une raison de plus de s'opposer à l'extension des
-droits à construire, qui alourdirait leur impôt avant d'enrichir leur patrimoine.
 
 \clearpage
 \section{Options pour la France}
@@ -624,6 +637,8 @@ Lincoln Institute of Land Policy.
 \item Elinder, M. et L. Persson (2017), « House price responses to a national property tax
 reform », \emph{Journal of Economic Behavior and Organization} 144, 18-39.
 \item Eurostat et OCDE (2015), \emph{Eurostat-OECD compilation guide on land estimation}.
+\item Fack, G. et J. Grenet (2010), « When do better schools raise housing prices? Evidence from
+Paris public and private schools », \emph{Journal of Public Economics} 94(1-2), 59-77.
 \item Feldstein, M. (1977), « The Surprising Incidence of a Tax on Pure Rent: A New Answer to an Old
 Question », \emph{Journal of Political Economy} 85(2), 349-360.
 \item Ferreira, F. (2010), « You can take it with you: Proposition 13 tax benefits, residential
@@ -643,6 +658,8 @@ Policy, WP06ZK1.
 méthodologique n°~24.
 \item Knoll, K., M. Schularick et T. Steger (2017), « No Price Like Home: Global House Prices,
 1870-2012 », \emph{American Economic Review} 107(2), 331-353.
+\item Kolbe, J., R. Schulz, M. Wersing et A. Werwatz (2015), « Identifying Berlin's land value
+map using adaptive weights smoothing », \emph{Computational Statistics} 30, 767-790.
 \item Koster, H. et E. Pinchbeck (2022), « How Do Households Value the Future? Evidence from
 Property Taxes », \emph{American Economic Journal: Economic Policy} 14(1), 207-239.
 \item Kumhof, M., N. Tideman, M. Hudson et C. Goodhart (2021), « Post-Corona Balanced-Budget
