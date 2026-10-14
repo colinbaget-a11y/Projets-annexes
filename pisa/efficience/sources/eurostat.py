@@ -147,6 +147,7 @@ def jsonstat(jeu, **filtres):
     dims, tailles = d["id"], d["size"]
     codes = [sorted(d["dimension"][x]["category"]["index"], key=d["dimension"][x]["category"]["index"].get)
              for x in dims]
+    statuts = d.get("status") or {}
     lignes = []
     for cle, val in d["value"].items():
         k, pos = int(cle), []
@@ -154,7 +155,8 @@ def jsonstat(jeu, **filtres):
             pos.append(k % t)
             k //= t
         pos.reverse()
-        lignes.append({**{x: codes[i][p] for i, (x, p) in enumerate(zip(dims, pos))}, "valeur": val})
+        lignes.append({**{x: codes[i][p] for i, (x, p) in enumerate(zip(dims, pos))}, "valeur": val,
+                       "statut": statuts.get(cle, "")})
     return pd.DataFrame(lignes)
 
 
@@ -165,11 +167,12 @@ def extraire():
         if t.empty:
             print(f"  {ind:34s} AUCUNE DONNÉE ({jeu} {filtres})")
             continue
-        autres = [c for c in t.columns if c not in ("geo", "time", "valeur", "freq", *filtres)]
+        autres = [c for c in t.columns if c not in ("geo", "time", "valeur", "statut", "freq", *filtres)]
         if any(t[c].nunique() > 1 for c in autres):
             raise ValueError(f"{ind} : dimensions non fixées {autres}")
         sorties.append(pd.DataFrame({"pays": t.geo, "indicateur": ind, "annee": t.time.astype(int),
-                                     "valeur": t.valeur, "source": f"Eurostat {jeu}", "note": note}))
+                                     "valeur": t.valeur, "source": f"Eurostat {jeu}", "note": note,
+                                     "statut": t.statut}))   # b = rupture de série, e, p, u...
         print(f"  {ind:34s} {len(t):5d} valeurs, {t.time.min()}-{t.time.max()}")
     # COFOG : dépense d'éducation par sous-fonction (total et rémunérations)
     for na, suffixe, lib in (("TE", "", "dépense totale"), ("D1", "_d1", "rémunération des salariés")):

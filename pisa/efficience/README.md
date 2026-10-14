@@ -143,3 +143,39 @@ la France est à 83 %, la Pologne à 73 %, la Roumanie à 63 %. Les biens médic
   = 71,8 Md€. Le chiffre de la note correspond donc probablement à la dépense totale, et non à la
   distance horizontale à la frontière. Aucun autre périmètre d'effectifs ne retombe sur 71 : CITE
   0-2 donne 63 Md€, CITE 1-3 66 Md€, CITE 0-3 81 Md€.
+
+## Indice d'évolution (`evolution.py`)
+
+Le score du bulletin est relatif : ses bornes min-max sont celles de l'année étudiée. L'indice
+d'évolution fixe les bornes de chaque indicateur une fois pour toutes, sur l'ensemble des couples
+pays-année de la période. Le score d'un pays ne bouge alors que si ses propres indicateurs bougent.
+Chaque variation est exprimée en part de l'écart européen observé sur la période.
+
+Règles :
+
+- **Années.** Éducation : années PISA (2015, 2018, 2022, 2025). Santé : 2013-2023.
+- **Interpolation.** Linéaire entre deux valeurs observées ; prolongation de 3 ans au plus.
+- **Panier.** Constant par pays. Indicateurs couvrant moins de 80 % des couples pays-année exclus.
+- **Ruptures de série.** Elles sont signalées par la source (statut Eurostat « b », désormais conservé
+  dans la colonne `statut` de la base) ou connues. Quand le saut est anormal (plus de 3 écarts-types
+  robustes), la série est raccordée : le saut de l'année de rupture est remplacé par la tendance
+  locale. Liste des raccords dans `evolution_ruptures.csv`.
+- **Indicateurs relatifs exclus.** Les indices PISA d'appartenance, de sécurité et de harcèlement
+  sont recentrés sur la moyenne OCDE à chaque cycle : leur niveau ne se compare pas d'un cycle à
+  l'autre.
+
+Sorties : `evolution_scores.csv` (score et objectifs par pays et par année),
+`figures/evolution_education.png`, `figures/evolution_sante.png`.
+
+En 2022, l'indice est très proche du score du bulletin : corrélation 0,97 en éducation et en santé.
+
+Points à vérifier :
+
+- **Hausse de l'objectif équité en 2025.** L'écart de score entre élèves favorisés et défavorisés
+  baisse dans presque tous les pays en 2025 (médiane de l'échantillon : de 98 à 81 points). Il faut
+  vérifier que l'indice socio-économique ESCS de 2025 est comparable avant d'interpréter cette
+  hausse.
+- **Hausse de l'objectif équité en 2018.** Elle vient en partie de la dispersion D9-D1 en lecture,
+  qui baisse en 2018, année du nouveau cadre et du test adaptatif.
+- **Tendance santé.** Elle intègre la hausse générale des équipements d'imagerie, que le bulletin
+  compte comme une amélioration.
