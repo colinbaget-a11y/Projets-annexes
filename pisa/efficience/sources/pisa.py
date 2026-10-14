@@ -375,6 +375,16 @@ def _indicateurs(df: pd.DataFrame, annee: int, npv: int, source: str,
                 se = _stats_escs(pv, gd["ESCS"].to_numpy(float), wd)
                 lignes.append(_ligne(pays, "pisa_ecart_escs_maths", annee, se["ecart_escs"], source))
                 lignes.append(_ligne(pays, "pisa_resilients", annee, se["resilients"], source))
+        # élèves faibles (sous le niveau 2) dans les trois domaines à la fois : la i-ème valeur
+        # plausible de chaque domaine est appariée, puis on fait la moyenne sur les valeurs plausibles
+        if domaines_df is None and annee >= 2006:
+            pvs = {dom: _pvs(g, code, npv) for dom, code in DOMAINES.items()}
+            if all(v is not None for v in pvs.values()):
+                bas = np.ones_like(pvs["maths"], dtype=bool)
+                for dom, v in pvs.items():
+                    bas &= v < SEUILS[dom][0]
+                part = [100 * w[bas[:, i]].sum() / w.sum() for i in range(bas.shape[1])]
+                lignes.append(_ligne(pays, "pisa_faibles_3domaines", annee, float(np.mean(part)), source))
         for ind, var in INDICES.get(annee, {}).items():
             if var in g.columns and g[var].notna().sum() > 0:
                 lignes.append(_ligne(pays, f"pisa_{ind}", annee, _moy(g[var].to_numpy(float), w), source))

@@ -19,8 +19,9 @@ Chaîne de calcul (annexe méthodologique du bulletin)
   7. Sensibilité : 20 000 tirages de poids Dirichlet(1,1,1,1), sans poids supérieur à 50 %.
 
 Dépenses : éducation, dépense publique par élève CITE 1-2 (UOE), moyenne 2022-2024 (2022-2023
-publiées ; à défaut, dernière valeur disponible, comme la Croatie en 2021) ; santé, dépense courante par habitant en euros, 2022 (Eurostat). La note utilise pour la
-santé une série qui n'a pas été identifiée (voir README) : les ratios d'efficience en santé diffèrent.
+publiées ; à défaut, dernière valeur disponible, comme la Croatie en 2021) ; santé, dépense courante par habitant en euros à parité de pouvoir d'achat, 2022 (OCDE, Health
+Statistics, source indiquée par l'auteur). Sur la figure 3 de la note, quelques pays (Luxembourg,
+Irlande) ne correspondent pas à cette série (voir README).
 """
 import sys
 from pathlib import Path
@@ -133,7 +134,7 @@ eleves = (W.loc[("edu_eleves_cite1", 2022)] + W.loc[("edu_eleves_cite2", 2022)])
 pop = W.loc[("pop_totale", 2022)]
 _d = serie("edu_dep_eleve_cite1_2_pub_eur")
 dep_edu = _d.loc[2022:2024].mean().fillna(_d.ffill().iloc[-1]).reindex(PE)   # à défaut : dernière valeur
-dep_san = serie("sante_dep_hab_eur").loc[2022].reindex(PS)
+dep_san = serie("sante_dep_hab_ocde_ppa").loc[2022].reindex(PS)
 
 res = {}
 for dom, pays, poids, dep in (("education", PE, eleves.reindex(PE), dep_edu),
@@ -182,7 +183,11 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.spines
                      "figure.dpi": 150, "savefig.dpi": 150, "savefig.bbox": "tight"})
 
 
-def nuage(ax, r, xlabel, taille, titre_ax=None, halo=False):
+# position des étiquettes qui se chevauchent (décalage en points, par domaine)
+DECALAGES = {"sante": {"HU": (-9, -3), "EE": (7, 0), "LU": (6, -5), "ES": (-24, 0), "AT": (9, 6)}}
+
+
+def nuage(ax, r, xlabel, taille, titre_ax=None, halo=False, decalages=None):
     g, dep = r["g"], r["dep"]
     t = taille.reindex(g.index)
     s = 1400 * t / t.max()
@@ -201,8 +206,9 @@ def nuage(ax, r, xlabel, taille, titre_ax=None, halo=False):
                    color=VEDETTES.get(p, "#b8bec4"), edgecolor="#222222" if vedette else "#8a9096",
                    lw=1 if vedette else 0.6, alpha=0.95 if vedette else 0.9, zorder=3)
         taille_pt = (s[p] if not halo else (90 if vedette else 30)) ** 0.5 / 2
-        ax.annotate(NOMS[p], (dep[p], g[p]), xytext=(0, taille_pt + 3), textcoords="offset points",
-                    ha="center", fontsize=10 if vedette else 8, color=VEDETTES.get(p, "#555555"),
+        dx, dy = (decalages or {}).get(p, (0, taille_pt + 3))
+        ax.annotate(NOMS[p], (dep[p], g[p]), xytext=(dx, dy), textcoords="offset points",
+                    ha="center" if dx == 0 else ("left" if dx > 0 else "right"), va="center" if dx else "baseline", fontsize=10 if vedette else 8, color=VEDETTES.get(p, "#555555"),
                     fontweight="bold" if vedette else "normal", zorder=4)
     xs0 = xx[xx >= dep[g.idxmin()] * 0 + xx.min()]
     ax.plot(xs0, r["front"](xs0), ls="--", color="#1f4e79" if not halo else "#888888", lw=1.8,
@@ -246,9 +252,9 @@ def decomposition(r, nom, libelles, legende_ref):
 # figure 1 et figure 3 : nuages
 for dom, nom, xl in (("education", "figure1_education.png",
                       "Dépense publique par élève, primaire + 1er cycle secondaire (€, moy. 2022-2024)"),
-                     ("sante", "figure3_sante.png", "Dépense de santé par habitant (€, 2022, Eurostat)")):
+                     ("sante", "figure3_sante.png", "Dépense de santé par habitant (€ à PPA, 2022, OCDE)")):
     fig, ax = plt.subplots(figsize=(10, 6))
-    nuage(ax, res[dom], xl, res[dom]["poids"])
+    nuage(ax, res[dom], xl, res[dom]["poids"], decalages=DECALAGES.get(dom))
     ax.legend(loc="lower right", frameon=False)
     fig.savefig(FIG / nom)
     plt.close(fig)

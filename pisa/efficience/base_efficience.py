@@ -16,6 +16,7 @@ Sources (un module par source dans sources/, chacun avec extraire() et un fichie
   timss      TIMSS 4e année (CM1) : scores et niveau avancé
   sante_ext  indicateurs de santé hors Eurostat (OCDE, ECDC, OMS) et calculs (surmortalité, inégalité
              territoriale des médecins, R&D pharmaceutique)
+  ocde_sha   dépense de santé par habitant et reste à charge, OCDE Health Statistics
 
 Sorties :
   base_efficience.csv     format long : pays, indicateur, annee, valeur, source, note
@@ -33,7 +34,7 @@ import pandas as pd
 ICI = Path(__file__).resolve().parent
 SOURCES = ICI / "sources"
 BRUT = Path("/tmp") / "efficience_brut"          # téléchargements volumineux, hors dépôt
-MODULES = ["eurostat", "pisa", "timss", "sante_ext"]
+MODULES = ["eurostat", "pisa", "timss", "sante_ext", "ocde_sha"]
 UE27 = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "EL", "HU", "IE", "IT",
         "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"]
 ECHANTILLON_EDU = [p for p in UE27 if p not in ("MT", "LU", "CY")]          # 24 pays du bulletin
@@ -56,8 +57,9 @@ DICO = [
     ("pisa_sciences", E, "E1", "PISA sciences", "+", "2022", ""),
     ("timss4_maths", E, "E1", "TIMSS mathématiques (CM1)", "+", "2019 et 2023", ""),
     ("timss4_sciences", E, "E1", "TIMSS sciences (CM1)", "+", "2019 et 2023", ""),
-    ("pisa_faibles_maths", E, "E1", "Part d'élèves peu performants", "-", "2022",
-     "La note ne précise pas le domaine : la base donne maths, lecture et sciences (pisa_faibles_*)"),
+    ("pisa_faibles_3domaines", E, "E1", "Part d'élèves peu performants", "-", "2022",
+     "Élèves sous le niveau 2 dans les trois domaines à la fois (choix confirmé par l'auteur) ; "
+     "microdonnées 2015-2025 ; par domaine : pisa_faibles_*"),
     # éducation, O2
     ("pisa_forts_maths", E, "E2", "Top performers en mathématiques", "+", "2022", ""),
     ("pisa_forts_lecture", E, "E2", "Top performers en lecture", "+", "2022", ""),
@@ -120,8 +122,9 @@ DICO = [
     ("sante_depenses_catastrophiques", S, "S3", "Ménages à dépenses de santé catastrophiques", "-",
      "2019-2024", "OMS Europe (UHCFP_4) : reste à charge > 40 % de la capacité à payer ; années rares"),
     ("sante_reste_a_charge", S, "S3", "Part du reste à charge", "-", "2019-2024",
-     "La note donne 9,3 % pour la France et 14,9 % en moyenne UE ; Eurostat (HF3) donne 10,2-10,4 % : "
-     "source ou définition différente (OCDE ou OMS)"),
+     "La note donne 9,3 % pour la France et 14,9 % en moyenne UE (source : OCDE, Health at a Glance) ; "
+     "Eurostat et l'OCDE (HF3, sante_reste_a_charge_ocde) donnent 10,2-10,4 % pour 2021-2024 : "
+     "chiffre de la note non retrouvé"),
     ("sante_attente", S, "S3", "Temps d'attente moyen", "-", "2019-2024",
      "Définition non précisée dans la note ; base : délai moyen OCDE pour une prothèse de hanche "
      "(11 pays, pas la France) ; compléments sante_attente_mediane et sante_attente_silc"),
@@ -142,9 +145,12 @@ AUTRES = [
     ("edu_dep_eleve_cite1_2_pub_eur", E, "dépense", "Dépense publique par élève, primaire et premier cycle "
      "du secondaire (EUR)", "", "moyenne 2022-2024",
      "Retrouvée : moyenne 2022-2023 pour la France = 9 362 EUR (la note : 9 360) ; 2024 pas encore publié"),
-    ("sante_dep_hab_spa", S, "dépense", "Dépense courante de santé par habitant, publique et privée", "",
-     "2022", "La note donne 4 250 EUR pour la France : la série en SPA vaut 4 164 (2022) et 4 319 (2023), "
-     "la série en EUR 4 548 ; correspondance probable : SPA, moyenne 2022-2023"),
+    ("sante_dep_hab_ocde_ppa", S, "dépense", "Dépense courante de santé par habitant, publique et privée, "
+     "EUR à PPA (OCDE)", "", "2022", "Source indiquée par l'auteur : OCDE Health Statistics. France 4 164 "
+     "(2022), 4 319 (2023) ; la note donne 4 250. Les autres pays de la figure 3 de la note (LU 8 900, "
+     "IE sous la France) ne correspondent à aucune série OCDE ou Eurostat"),
+    ("sante_dep_hab_spa", S, "dépense", "Dépense courante de santé par habitant, SPA (Eurostat)", "",
+     "", "Identique à la série OCDE en PPA pour la France (4 164 en 2022)"),
     ("edu_cofog_hors_superieur_pib", E, "encadré", "Dépense publique d'éducation primaire et secondaire, "
      "% du PIB", "", "2022", "Retrouvée : FR 4,5 ; BE 5,3 ; EE 4,8 ; SI 4,6 (COFOG GF09 moins GF0904)"),
     ("edu_part_annexes", E, "encadré", "Services annexes, % de la dépense d'éducation", "", "2024",
