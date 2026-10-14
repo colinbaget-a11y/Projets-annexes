@@ -148,33 +148,44 @@ la France est à 83 %, la Pologne à 73 %, la Roumanie à 63 %. Les biens médic
 
 Le score du bulletin est relatif : ses bornes min-max sont celles de l'année étudiée. L'indice
 d'évolution fixe les bornes de chaque indicateur une fois pour toutes, sur l'ensemble des couples
-pays-année de la période. Le score d'un pays ne bouge alors que si ses propres indicateurs bougent.
-Chaque variation est exprimée en part de l'écart européen observé sur la période.
+pays-année de la période. Chaque variation est exprimée en part de l'écart européen observé sur la
+période et ne dépend pas de ce que font les autres pays.
+
+**Indice chaîné, 2000-2025 en éducation, 2000-2023 en santé.**
+
+- **Calcul des variations.** La variation entre deux années consécutives est calculée, pays par
+  pays, sur les indicateurs disponibles les deux années, avec l'agrégation du bulletin.
+- **Niveau.** Il est ancré sur le score à bornes fixes de 2022 ; on cumule ensuite les variations
+  vers l'avant et vers l'arrière.
+- **Intérêt.** Un indicateur qui n'existe qu'à partir de 2015 (élèves faibles dans les trois
+  domaines, résilients, écart social) ou de 2011 (mortalité évitable) compte à partir de cette date,
+  sans créer de saut.
 
 Règles :
 
-- **Années.** Calcul annuel : éducation 2015-2025, santé 2013-2023. Les indicateurs annuels (NEET,
-  chômage, décrochage, chercheurs, espérance de vie...) bougent chaque année. PISA et TIMSS sont
-  interpolés entre deux vagues.
-- **Part observée et part interpolée.** Chaque variation annuelle du score est décomposée par
-  indicateur (`evolution_contributions.csv`). Une contribution est observée quand l'indicateur est
-  mesuré les deux années, interpolée sinon. Seule la part observée apporte une information sur
-  l'année elle-même.
-- **Interpolation.** Linéaire entre deux valeurs observées ; prolongation de 3 ans au plus.
-- **Panier.** Constant par pays. Indicateurs couvrant moins de 80 % des couples pays-année exclus.
-- **Ruptures de série.** Elles sont signalées par la source (statut Eurostat « b », désormais conservé
-  dans la colonne `statut` de la base) ou connues. Quand le saut est anormal (plus de 3 écarts-types
-  robustes), la série est raccordée : le saut de l'année de rupture est remplacé par la tendance
-  locale. Liste des raccords dans `evolution_ruptures.csv`.
-- **Indicateurs relatifs exclus.** Les indices PISA d'appartenance, de sécurité et de harcèlement
-  sont recentrés sur la moyenne OCDE à chaque cycle : leur niveau ne se compare pas d'un cycle à
-  l'autre.
+- **Comparabilité PISA.** Les échelles OCDE sont reliées depuis 2000 pour la lecture, 2003 pour les
+  mathématiques et 2006 pour les sciences ; les valeurs antérieures sont écartées.
+- **Interpolation.** Linéaire entre deux valeurs observées, prolongation de 3 ans au plus. Chaque
+  variation est décomposée par indicateur, en part observée (indicateur mesuré les deux années) et
+  part interpolée : `evolution_contributions.csv`, en points de score.
+- **Ruptures de série.** Elles sont signalées par la source (statut Eurostat « b », conservé dans
+  la colonne `statut` de la base) ou connues. Quand le saut est anormal (plus de 3 écarts-types
+  robustes), la série est raccordée. Liste dans `evolution_ruptures.csv`.
+- **Indicateurs exclus.**
+  - Indices PISA d'appartenance, de sécurité et de harcèlement, recentrés sur la moyenne OCDE à
+    chaque cycle.
+  - Indicateurs couvrant moins de 75 % des pays, quelle que soit l'année.
+- **Panier réduit.** Avant 2005, le panier compte moins des deux tiers des indicateurs : 11 en
+  éducation en 2000 (lecture PISA et indicateurs Eurostat), 8 en santé. Un seul indicateur peut
+  alors peser lourd, par exemple la vaccination antigrippale en santé en 2001. Ces années sont
+  grisées sur les figures.
+- **Contrôle.** La colonne `score_panier_constant` donne un indice à panier constant (2015-2025 en
+  éducation, 2013-2023 en santé). Pour la France, en éducation, 2015-2025 : −0,5 point en chaîné,
+  −0,6 à panier constant.
 
-Sorties : `evolution_scores.csv` (score et objectifs par pays et par année),
-`evolution_contributions.csv` (contribution de chaque indicateur à la variation annuelle, en points),
+Sorties : `evolution_scores.csv` (score, objectifs, nombre d'indicateurs, variante à panier
+constant), `evolution_contributions.csv`, `evolution_ruptures.csv`,
 `figures/evolution_education.png`, `figures/evolution_sante.png`.
-
-En 2022, l'indice est très proche du score du bulletin : corrélation 0,97 en éducation et en santé.
 
 Points à vérifier :
 
