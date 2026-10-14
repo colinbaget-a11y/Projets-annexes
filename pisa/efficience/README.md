@@ -77,3 +77,42 @@ et, pour les sources complexes, des notes `<nom>_notes.md`.
   France.
 - **R&D pharmaceutique.** La série française présente une rupture probable en 2021.
 - **Notes détaillées** : `sources/*_notes.md`.
+
+## Reproduction des figures du bulletin (`bulletin.py`)
+
+`python bulletin.py` recalcule les scores, les contributions, les frontières et la sensibilité
+(20 000 tirages), puis écrit :
+
+- `resultats_bulletin.csv` ;
+- dans `figures/` :
+  - `figure1_education.png`, `figure2_decomposition_education.png` ;
+  - `figure3_sante.png`, `figure4_decomposition_sante.png` ;
+  - `encadre_depense_education.png`, `figureA_sensibilite.png`.
+
+Le schéma de la chaîne méthodologique n'est pas reproduit : il ne repose sur aucune donnée.
+
+Les années retenues sont la dernière valeur disponible entre 2019 et 2024 ; pour TIMSS, la dernière
+valeur entre 2019 et 2023 ; pour PISA, 2022. Avec cette convention, on retrouve les chiffres de la
+note pour l'éducation :
+
+| | Note | Base |
+|---|---|---|
+| Score de la France | 0,39 | 0,393 |
+| Rang | 21ᵉ | 21ᵉ |
+| Écart à la moyenne UE | −9,8 | −9,4 |
+| Contributions des quatre objectifs | −3,3 / −1,2 / −3,6 / −1,7 | −3,4 / −1,3 / −3,2 / −1,6 |
+| Ratio d'efficience | 55 % | 55,2 % |
+| Gain à dépense constante | 32 points | 32 points |
+| Rang sous les 20 000 pondérations | 19ᵉ-23ᵉ, médiane 21ᵉ | identique |
+
+La tête du classement (Irlande, Estonie, Finlande, Pologne, Danemark) et la queue (Roumanie,
+Bulgarie, Grèce, France, Slovaquie) sont les mêmes.
+
+Écarts restants :
+
+- **Santé.** La France est bien 11ᵉ, mais avec un écart de +2,8 points (note : +3,5) et un ratio
+  de 86 % (note : 83 %). La série de dépense de santé de la note n'a pas été identifiée : sur sa
+  figure 3, l'Irlande dépense moins que la France et le Luxembourg 8 900 €, ce qui ne correspond à
+  aucune série d'Eurostat. La base utilise Eurostat en euros, 2022. Quelques rangs diffèrent.
+- **Équivalent dépense.** On trouve 48 Md€ contre 71 Md€ dans la note. Ce chiffre dépend des
+  effectifs retenus : on prend les élèves des CITE 1 et 2, soit 7,7 millions en 2022.
