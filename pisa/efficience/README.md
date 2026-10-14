@@ -153,7 +153,13 @@ Chaque variation est exprimée en part de l'écart européen observé sur la pé
 
 Règles :
 
-- **Années.** Éducation : années PISA (2015, 2018, 2022, 2025). Santé : 2013-2023.
+- **Années.** Calcul annuel : éducation 2015-2025, santé 2013-2023. Les indicateurs annuels (NEET,
+  chômage, décrochage, chercheurs, espérance de vie...) bougent chaque année. PISA et TIMSS sont
+  interpolés entre deux vagues.
+- **Part observée et part interpolée.** Chaque variation annuelle du score est décomposée par
+  indicateur (`evolution_contributions.csv`). Une contribution est observée quand l'indicateur est
+  mesuré les deux années, interpolée sinon. Seule la part observée apporte une information sur
+  l'année elle-même.
 - **Interpolation.** Linéaire entre deux valeurs observées ; prolongation de 3 ans au plus.
 - **Panier.** Constant par pays. Indicateurs couvrant moins de 80 % des couples pays-année exclus.
 - **Ruptures de série.** Elles sont signalées par la source (statut Eurostat « b », désormais conservé
@@ -165,6 +171,7 @@ Règles :
   l'autre.
 
 Sorties : `evolution_scores.csv` (score et objectifs par pays et par année),
+`evolution_contributions.csv` (contribution de chaque indicateur à la variation annuelle, en points),
 `figures/evolution_education.png`, `figures/evolution_sante.png`.
 
 En 2022, l'indice est très proche du score du bulletin : corrélation 0,97 en éducation et en santé.
