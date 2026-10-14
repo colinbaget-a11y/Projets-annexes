@@ -197,3 +197,41 @@ Points à vérifier :
   qui baisse en 2018, année du nouveau cadre et du test adaptatif.
 - **Tendance santé.** Elle intègre la hausse générale des équipements d'imagerie, que le bulletin
   compte comme une amélioration.
+
+## Performance éducative 2006-2025 (`performance_education.py`)
+
+Méthode retenue pour comparer l'évolution des pays entre eux.
+
+1. **Panier commun.** Seuls les indicateurs observés pour les 24 pays en 2006 et en fin de période
+   sont retenus. Tous les pays sont mesurés sur le même panier chaque année : pas de chaînage, pas
+   de poids propre à un pays. Le panier compte 17 indicateurs :
+   - scores PISA et élèves faibles par domaine ;
+   - élèves forts et chercheurs ;
+   - dispersion D9-D1 ;
+   - NEET, décrochage, emploi relatif et emploi des jeunes diplômés.
+
+   Sont exclus faute de recul : TIMSS, l'indicateur « faibles dans les trois domaines », les
+   résilients, l'écart social, les langues et le chômage des 15-24 ans (2009). 2006 est la première
+   année où les trois domaines PISA sont reliés dans le temps et où les 24 pays participent.
+2. **Standardisation fixe.** z = signe × (x − moyenne des pays en 2006) / écart-type moyen entre
+   pays. C'est une fonction linéaire de x, comme le min-max à bornes fixes, mais l'unité ne dépend
+   pas des deux pays extrêmes.
+3. **Agrégation du bulletin.** Quatre objectifs à 25 %. L'indice est exprimé en écarts-types
+   entre pays ; 0 = pays européen moyen en 2006.
+
+Sorties :
+
+- `performance_education.csv` : indice, objectifs et variante sans insertion.
+- Dans `figures/` :
+  - `performance_petits_multiples.png` : un panneau par pays, même échelle ;
+  - `performance_haltere.png` : niveaux 2006, 2015 et 2025 ;
+  - `performance_contributions.png` : contribution de chaque objectif à la variation.
+
+Contrôles :
+
+- Les variations 2015-2025 sont corrélées à 0,91 avec celles de l'indice chaîné (`evolution.py`).
+- La variante sans insertion, qui retire le cycle du marché du travail, a des variations
+  2006-2025 corrélées à 0,97 avec l'indice complet.
+
+Limite : les erreurs d'échantillonnage et de liaison de PISA ne sont pas encore propagées. Elles
+pourraient l'être sur 2015-2025 avec les poids répliqués des microdonnées.
