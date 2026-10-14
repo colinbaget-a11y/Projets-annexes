@@ -21,6 +21,9 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
+import numpy as np
+import pandas as pd
+
 # --------------------------------------------------------------------------------------
 # 1. Fichiers sources (URL officielles ; 2000-2012 via copies Internet Archive des .zip OCDE)
 # --------------------------------------------------------------------------------------
@@ -174,9 +177,6 @@ def telecharger(dossier_brut, annees=None) -> list[Path]:
 # --------------------------------------------------------------------------------------
 # 2. Pays, seuils, configuration par cycle
 # --------------------------------------------------------------------------------------
-import numpy as np      # noqa: E402  (imports scientifiques après la partie téléchargement)
-import pandas as pd     # noqa: E402
-
 # Code PISA (CNT, ISO 3166 alpha-3 ; QCY = Chypre dans certains fichiers) -> code Eurostat
 PAYS = {"AUT": "AT", "BEL": "BE", "BGR": "BG", "HRV": "HR", "CYP": "CY", "QCY": "CY", "CZE": "CZ",
         "DNK": "DK", "EST": "EE", "FIN": "FI", "FRA": "FR", "DEU": "DE", "GRC": "EL", "HUN": "HU",
@@ -209,23 +209,16 @@ INDICES = {
     2003: {"appartenance": "BELONG"},
 }
 
-CYCLES = {   # nb de valeurs plausibles, fichier élève, membre du zip
-    2025: dict(npv=10, cle="stu", membre="CY09_MS_STU_PUF.sav"),
-    2022: dict(npv=10, cle="stu", membre="CY08MSP_STU_QQQ.SAV"),
-    2018: dict(npv=10, cle="stu", membre=None),
-    2015: dict(npv=10, cle="stu", membre=None),
-    2012: dict(npv=5, cle="stu", membre=None),
-    2009: dict(npv=5, cle="stu", membre=None),
-    2006: dict(npv=5, cle="stu", membre=None),
-    2003: dict(npv=5, cle="stu", membre=None),
-    2000: dict(npv=5, cle=None, membre=None),
-}
+# Nombre de valeurs plausibles par cycle (ordre de traitement : priorité aux cycles récents)
+CYCLES = {2025: 10, 2022: 10, 2018: 10, 2015: 10, 2012: 5, 2009: 5, 2006: 5, 2003: 5, 2000: 5}
 
 
 # --------------------------------------------------------------------------------------
 # 3. Lecture des microdonnées (colonnes utiles seulement, UE-27 seulement), avec cache
 # --------------------------------------------------------------------------------------
 def _fichier(d: Path, annee: int, cle: str) -> Path:
+    if cle not in FICHIERS[annee]:
+        cle = cle.split("_")[0]          # « stu_qq2 » : membre du zip « stu »
     return d / _nom_local(annee, cle, FICHIERS[annee][cle])
 
 
@@ -251,7 +244,7 @@ def _lire_sav_ue(chemin_sav: Path, colonnes: list[str]) -> pd.DataFrame:
 
 
 def _colonnes_voulues(annee: int) -> list[str]:
-    npv = CYCLES[annee]["npv"]
+    npv = CYCLES[annee]
     cols = ["CNT", "CNTSTUID", "W_FSTUWT", "ESCS", *INDICES.get(annee, {}).values()]
     cols += [f"PV{i}{d}" for d in DOMAINES.values() for i in range(1, npv + 1)]
     cols += ITEMS_HARC.get(annee, [])
@@ -267,7 +260,7 @@ def _charger_sav(d: Path, annee: int, cle: str, membre_motif: str, colonnes: lis
     cache = _cache(d, annee, cle)
     if cache.exists():
         return pd.read_csv(cache)
-    zp = _fichier(d, annee, cle.split("_")[0])
+    zp = _fichier(d, annee, cle)
     membre = _membre_zip(zp, membre_motif)
     tmp = d / f"_x{annee}{cle}"
     sav = _extraire_zip(zp, membre, tmp)
@@ -334,9 +327,10 @@ def _stats_escs(pvs: np.ndarray, escs: np.ndarray, w: np.ndarray) -> dict:
     ecarts, resil = [], []
     for k in range(pvs.shape[1]):
         x = pvs[:, k]
+        ok = ~np.isnan(x)                              # élèves sans score dans ce domaine exclus
         ecarts.append(_moy(x[haut], w[haut]) - _moy(x[bas], w[bas]))
-        seuil = _quantile_pondere(x, w, 0.75)          # quart supérieur national (tous élèves)
-        resil.append(100 * w[bas & (x >= seuil)].sum() / w[bas].sum())
+        seuil = _quantile_pondere(x[ok], w[ok], 0.75)  # quart supérieur national (tous élèves)
+        resil.append(100 * w[bas & ok & (x >= seuil)].sum() / w[bas & ok].sum())
     return {"ecart_escs": float(np.mean(ecarts)), "resilients": float(np.mean(resil))}
 
 
@@ -409,7 +403,7 @@ def _cycle_sav(d: Path, annee: int, nettoyer: bool) -> list[dict]:
                            nettoyer)
         df = df.merge(qq2, on=["CNT", "CNTSTUID"], how="left", validate="one_to_one")
     nom = os.path.basename(FICHIERS[annee]["stu"])
-    lignes = _indicateurs(df, annee, CYCLES[annee]["npv"], _source(annee, nom))
+    lignes = _indicateurs(df, annee, CYCLES[annee], _source(annee, nom))
     if annee == 2022:     # pensée créative : fichier CRT (sans poids) apparié au fichier élève
         crt = _charger_sav(d, 2022, "crt", r"CRT_COG\.SAV$",
                            ["CNT", "CNTSTUID"] + [f"PV{i}CRTH_NC" for i in range(1, 11)], nettoyer)
@@ -423,3 +417,314 @@ def _cycle_sav(d: Path, annee: int, nettoyer: bool) -> list[dict]:
             lignes.append(_ligne(PAYS[cnt], "pisa_pensee_creative", 2022, v, src,
                                  "échelle 0-60 points (score « number correct »)"))
     return lignes
+
+
+# --------------------------------------------------------------------------------------
+# 6. Repli : Banque mondiale EdStats (source 12), tableaux OCDE repris (LO.PISA.*)
+# --------------------------------------------------------------------------------------
+EDSTATS_URL = ("https://api.worldbank.org/v2/country/{pays}/indicator/{ind}"
+               "?source=12&format=json&per_page=20000&date=2000:2025")
+EDSTATS_IND = [f"LO.PISA.{d}{s}" for d in ("MAT", "REA", "SCI")
+               for s in ("", ".P10", ".P90", ".2", ".3", ".4", ".5", ".6")] + \
+              ["LO.PISA.REA.0.B1C", "LO.PISA.REA.1C", "LO.PISA.REA.1B", "LO.PISA.REA.1A"]
+# Lecture : parts arrondies à l'unité ; la somme des catégories sous le niveau 2 (2 à 4 catégories,
+# souvent nulles) est plus précise que 100 - (niveaux 2 à 6), cf. pisa_notes.md.
+_REA_BAS = ["LO.PISA.REA.0.B1C", "LO.PISA.REA.1C", "LO.PISA.REA.1B", "LO.PISA.REA.1A"]
+ISO3_EDSTATS = {"AT": "AUT", "BE": "BEL", "BG": "BGR", "HR": "HRV", "CY": "CYP", "CZ": "CZE", "DK": "DNK",
+                "EE": "EST", "FI": "FIN", "FR": "FRA", "DE": "DEU", "EL": "GRC", "HU": "HUN", "IE": "IRL",
+                "IT": "ITA", "LV": "LVA", "LT": "LTU", "LU": "LUX", "MT": "MLT", "NL": "NLD", "PL": "POL",
+                "PT": "PRT", "RO": "ROU", "SK": "SVK", "SI": "SVN", "ES": "ESP", "SE": "SWE"}
+
+
+def telecharger_edstats(dossier_brut) -> Path:
+    """Télécharge les séries LO.PISA.* (UE-27) de l'API Banque mondiale ; JSON mis en cache."""
+    import json
+    dest = Path(dossier_brut) / "edstats_lo_pisa.json"
+    if dest.exists():
+        return dest
+    pays = ";".join(ISO3_EDSTATS.values())
+    lignes = []
+    for i in range(0, len(EDSTATS_IND), 10):           # 10 indicateurs par requête
+        url = EDSTATS_URL.format(pays=pays, ind=";".join(EDSTATS_IND[i:i + 10]))
+        with _requete(url) as r:
+            meta, data = json.loads(r.read().decode("utf-8"))
+        if meta.get("pages", 1) > 1:
+            raise IOError("pagination EdStats inattendue")
+        lignes += [{"iso3": x["countryiso3code"], "ind": x["indicator"]["id"], "annee": int(x["date"]),
+                    "valeur": x["value"]} for x in data if x["value"] is not None]
+    dest.write_text(json.dumps(lignes))
+    return dest
+
+
+# --------------------------------------------------------------------------------------
+# 7. Cycles 2000-2012 : fichiers texte à largeur fixe + syntaxe SPSS officielle
+# --------------------------------------------------------------------------------------
+INDICES.update({2000: {"appartenance": "BELONG"}})
+
+
+def _positions_spss(syntaxe: Path) -> dict[str, tuple[int, int]]:
+    """Lit les positions « NOM debut - fin » du bloc DATA LIST d'une syntaxe SPSS OCDE."""
+    pos = {}
+    motif = re.compile(r"^\s*/?\s*([A-Za-z_][A-Za-z0-9_]*)\s+(\d+)\s*-\s*(\d+)\b")
+    for ligne in syntaxe.read_text(encoding="latin-1").splitlines():
+        m = motif.match(ligne)
+        if m and m.group(1).upper() not in pos:
+            pos[m.group(1).upper()] = (int(m.group(2)) - 1, int(m.group(3)))
+    return pos
+
+
+def _lire_txt_ue(zp: Path, syntaxe: Path, colonnes: list[str]) -> pd.DataFrame:
+    pos = _positions_spss(syntaxe)
+    cols = [c for c in colonnes if c in pos]
+    membre = _membre_zip(zp, r"\.txt$")
+    morceaux = []
+    with zipfile.ZipFile(zp) as z, z.open(membre) as f:
+        lecteur = pd.read_fwf(f, colspecs=[pos[c] for c in cols], names=cols, header=None,
+                              dtype={"CNT": str}, chunksize=100_000, encoding="latin-1")
+        for bloc in lecteur:
+            bloc["CNT"] = bloc["CNT"].str.strip()
+            morceaux.append(bloc[bloc["CNT"].isin(PAYS)])
+    df = pd.concat(morceaux, ignore_index=True)
+    for c in cols:
+        if c != "CNT":
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+    for c in ("ESCS", "BELONG"):     # codes manquants 997-9999 dans les fichiers texte
+        if c in df.columns:
+            df.loc[df[c].abs() >= 900, c] = np.nan
+    return df
+
+
+def _charger_txt(d: Path, annee: int, cle: str, cle_syntaxe: str, colonnes: list[str],
+                 nettoyer: bool) -> pd.DataFrame:
+    cache = _cache(d, annee, cle)
+    if cache.exists():
+        return pd.read_csv(cache, dtype={"CNT": str})
+    zp = _fichier(d, annee, cle)
+    df = _lire_txt_ue(zp, _fichier(d, annee, cle_syntaxe), colonnes)
+    df.to_csv(cache, index=False, compression="gzip")
+    if nettoyer:
+        zp.unlink()
+    return df
+
+
+def _cycle_txt(d: Path, annee: int, nettoyer: bool) -> list[dict]:
+    cols = _colonnes_voulues(annee)
+    if annee != 2000:
+        df = _charger_txt(d, annee, "stu", "syntaxe", cols, nettoyer)
+        nom = os.path.basename(FICHIERS[annee]["stu"])
+        return _indicateurs(df, annee, 5, _source(annee, nom + " (Internet Archive)"))
+    parts = {}
+    for dom, suf in (("maths", "math"), ("lecture", "read"), ("sciences", "scie")):
+        parts[dom] = _charger_txt(d, 2000, f"stu_{suf}", f"syntaxe_{suf}", cols, nettoyer)
+    src = _source(2000, "intstud_read/math/scie.zip (Internet Archive)")
+    return _indicateurs(parts["lecture"], 2000, 5, src, domaines_df=parts)
+
+
+# --------------------------------------------------------------------------------------
+# 8. Valeurs publiées par l'OCDE (Chypre, absente des fichiers publics 2015-2025 ; contrôles)
+# --------------------------------------------------------------------------------------
+# PISA 2022 Results (Vol. I), tableau I.1 ; PISA 2025 Results (Vol. I), tableaux I.1 et I.5.
+PUBLIE_CHYPRE = {
+    (2012, "pisa_maths"): 440,          # PISA 2012 Results (Vol. I) ; absent d'EdStats
+    (2022, "pisa_maths"): 418, (2022, "pisa_lecture"): 381, (2022, "pisa_sciences"): 411,
+    (2025, "pisa_maths"): 412, (2025, "pisa_lecture"): 379, (2025, "pisa_sciences"): 411,
+    (2025, "pisa_appartenance"): -0.02,
+}
+SOURCE_OCDE_2022 = "OCDE, PISA 2022 Results (Volume I), tableau I.1 (valeur publiée)"
+SOURCE_OCDE_2025 = "OCDE, PISA 2025 Results (Volume I), tableaux I.1 et I.5 (valeur publiée)"
+
+# Moyennes publiées (maths, lecture, sciences) pour les contrôles : PISA 2022 et 2025, Vol. I,
+# tableau I.1 (tous pays UE disponibles) ; cycles antérieurs : France et Allemagne (rapports OCDE).
+REF_MOYENNES = {
+    2025: {"EE": (508, 499, 527), "FI": (469, 474, 504), "IE": (480, 500, 500), "AT": (477, 467, 497),
+           "PL": (484, 482, 495), "CZ": (477, 468, 490), "BE": (480, 466, 490), "LT": (470, 464, 488),
+           "DE": (464, 465, 486), "NL": (483, 441, 485), "SE": (464, 466, 485), "SI": (460, 445, 484),
+           "FR": (458, 456, 483), "IT": (468, 474, 483), "PT": (460, 462, 482), "HU": (459, 452, 480),
+           "DK": (471, 460, 478), "ES": (457, 451, 477), "HR": (455, 453, 476), "SK": (469, 448, 475),
+           "LU": (458, 443, 474), "LV": (460, 430, 468), "MT": (439, 415, 453), "EL": (424, 423, 434),
+           "RO": (419, 413, 425), "BG": (405, 387, 421)},
+    2022: {"EE": (510, 511, 526), "NL": (493, 459, 488), "IE": (492, 516, 504), "BE": (489, 479, 491),
+           "DK": (489, 489, 494), "PL": (489, 489, 499), "AT": (487, 480, 491), "CZ": (487, 489, 498),
+           "SI": (485, 469, 500), "FI": (484, 490, 511), "LV": (483, 475, 494), "SE": (482, 487, 494),
+           "LT": (475, 472, 484), "DE": (475, 480, 492), "FR": (474, 474, 487), "ES": (473, 474, 485),
+           "HU": (473, 473, 486), "PT": (472, 477, 484), "IT": (471, 482, 477), "MT": (466, 445, 466),
+           "SK": (464, 447, 462), "HR": (463, 475, 483), "EL": (430, 438, 441), "RO": (428, 428, 428),
+           "BG": (417, 404, 421)},
+    2018: {"FR": (495, 493, 493), "DE": (500, 498, 503), "EE": (523, 523, 530), "PL": (516, 512, 511)},
+    2015: {"FR": (493, 499, 495), "DE": (506, 509, 509), "EE": (520, 519, 534), "FI": (511, 526, 531)},
+    2012: {"FR": (495, 505, 499), "DE": (514, 508, 524)},
+    2009: {"FR": (497, 496, 498), "DE": (513, 497, 520)},
+    2006: {"FR": (496, 488, 495), "DE": (504, 495, 516)},
+    2003: {"FR": (511, 496, 511), "DE": (503, 491, 502)},
+    2000: {"FR": (517, 505, 500), "DE": (490, 484, 487)},
+}
+# Part de défavorisés résilients (maths) et écart de score en maths haut-bas quart ESCS publiés
+# (PISA 2022 Results, Vol. I, tableau I.2).
+REF_ESCS_2022 = {"MT": (12.7, 83), "EL": (12.0, 76), "DK": (10.2, 74), "FI": (11.9, 83), "IE": (11.9, 74),
+                 "HR": (10.7, 82), "LV": (11.7, 75), "EE": (10.3, 81), "IT": (11.3, 85), "ES": (11.7, 86),
+                 "SE": (9.9, 99), "NL": (10.6, 106), "SI": (9.4, 91), "PL": (8.6, 96), "LT": (9.8, 92),
+                 "BG": (7.4, 108), "PT": (9.4, 101), "DE": (9.5, 111), "AT": (8.2, 106), "FR": (7.4, 113),
+                 "BE": (8.2, 117), "CZ": (7.3, 116), "HU": (8.2, 121), "SK": (6.1, 133), "RO": (6.6, 132)}
+
+
+def controles(res: pd.DataFrame) -> pd.DataFrame:
+    """Compare les résultats calculés sur microdonnées aux valeurs publiées par l'OCDE."""
+    v = res.set_index(["pays", "indicateur", "annee"])["valeur"]
+    typ = res.set_index(["pays", "indicateur", "annee"])["source"].str.contains("calcul sur microdonnées")
+    lignes = []
+    for annee, pays_ref in REF_MOYENNES.items():
+        for pays, triple in pays_ref.items():
+            for ind, ref in zip(("pisa_maths", "pisa_lecture", "pisa_sciences"), triple):
+                calc = v.get((pays, ind, annee))
+                lignes.append((annee, pays, ind, ref, calc))
+    for pays, (resil, ecart) in REF_ESCS_2022.items():
+        lignes.append((2022, pays, "pisa_resilients", resil, v.get((pays, "pisa_resilients", 2022))))
+        lignes.append((2022, pays, "pisa_ecart_escs_maths", ecart, v.get((pays, "pisa_ecart_escs_maths", 2022))))
+    out = pd.DataFrame(lignes, columns=["annee", "pays", "indicateur", "publie_ocde", "calcule"])
+    out["ecart"] = out["calcule"] - out["publie_ocde"]
+    out["origine"] = ["microdonnées" if typ.get((p, i, a), False) else "repli publié"
+                      for p, i, a in zip(out["pays"], out["indicateur"], out["annee"])]
+    return out
+
+
+# --------------------------------------------------------------------------------------
+# 9. Repli EdStats -> indicateurs
+# --------------------------------------------------------------------------------------
+SOURCE_EDSTATS = ("Banque mondiale, EdStats (API v2, source 12), séries LO.PISA.* reprises des "
+                  "tableaux OCDE (valeur publiée, non recalculée)")
+
+
+def _indicateurs_edstats(d: Path) -> list[dict]:
+    import json
+    chemin = Path(d) / "edstats_lo_pisa.json"
+    if not chemin.exists():
+        return []
+    e = pd.DataFrame(json.loads(chemin.read_text()))
+    inv = {v: k for k, v in ISO3_EDSTATS.items()}
+    e["pays"] = e["iso3"].map(inv)
+    s = e.set_index(["pays", "annee", "ind"])["valeur"]
+    lignes = []
+    for (pays, annee), _ in e.groupby(["pays", "annee"]):
+        for dom, c in (("maths", "MAT"), ("lecture", "REA"), ("sciences", "SCI")):
+            g = lambda i: s.get((pays, annee, i))        # noqa: E731
+            moy = g(f"LO.PISA.{c}")
+            if moy is not None:
+                lignes.append(_ligne(pays, f"pisa_{dom}", annee, moy, SOURCE_EDSTATS))
+            p10, p90 = g(f"LO.PISA.{c}.P10"), g(f"LO.PISA.{c}.P90")
+            if p10 is not None and p90 is not None:
+                lignes.append(_ligne(pays, f"pisa_d9d1_{dom}", annee, p90 - p10, SOURCE_EDSTATS))
+            if annee < ECHELLE_DEPUIS[dom]:
+                continue
+            niv = {k: g(f"LO.PISA.{c}.{k}") for k in (2, 3, 4, 5, 6)}
+            if None in niv.values():
+                continue
+            arr = " ; parts par niveau arrondies à l'unité par la source (± 1 à 2 points)" if c == "REA" else ""
+            bas = [g(i) for i in _REA_BAS]
+            if c == "REA" and None not in bas:
+                lignes.append(_ligne(pays, f"pisa_faibles_{dom}", annee, sum(bas), SOURCE_EDSTATS,
+                                     "somme des parts sous le niveau 2" + arr))
+            else:
+                lignes.append(_ligne(pays, f"pisa_faibles_{dom}", annee, 100 - sum(niv.values()),
+                                     SOURCE_EDSTATS, "100 - somme des parts aux niveaux 2 à 6" + arr))
+            lignes.append(_ligne(pays, f"pisa_forts_{dom}", annee, niv[5] + niv[6], SOURCE_EDSTATS,
+                                 "somme des parts aux niveaux 5 et 6" + arr))
+    return lignes
+
+
+# --------------------------------------------------------------------------------------
+# 10. Notes par indicateur et cycle (ruptures de série, définitions)
+# --------------------------------------------------------------------------------------
+def _note_auto(pays: str, ind: str, annee: int) -> str:
+    n = []
+    dom = next((k for k in DOMAINES if ind.endswith(k)), None)
+    if dom and annee < ECHELLE_DEPUIS[dom]:
+        n.append(f"échelle {dom} établie en {ECHELLE_DEPUIS[dom]} : valeur {annee} non comparable aux "
+                 "cycles suivants (domaine mineur, échelle provisoire)")
+    if dom == "lecture" and annee == 2009:
+        n.append("nouveau cadre de lecture en 2009 (échelle 2000 maintenue, niveaux 1a/1b)")
+    if dom == "lecture" and annee == 2018:
+        n.append("lecture domaine majeur, nouveau cadre et test adaptatif en 2018")
+    if dom == "maths" and annee == 2022:
+        n.append("maths domaine majeur, cadre révisé en 2022")
+    if dom == "sciences" and annee == 2025:
+        n.append("sciences domaine majeur, nouveau cadre 2025 (test adaptatif multi-étapes)")
+    if annee == 2015 and (dom or ind == "pisa_resilients"):
+        n.append("passage à l'évaluation sur ordinateur et nouveau modèle d'échelonnement en 2015")
+    if pays == "ES" and annee == 2018 and dom == "lecture":
+        n.append("ATTENTION : lecture 2018 non publiée par l'OCDE pour l'Espagne (réponses "
+                 "invraisemblables d'une partie des élèves) ; valeur calculée, à exclure des comparaisons")
+    if pays == "AT" and annee == 2009:
+        n.append("OCDE : comparabilité limitée (boycott d'une partie des élèves en 2009)")
+    if pays == "NL" and annee == 2000:
+        n.append("OCDE : taux de participation insuffisant, résultats non publiés en 2000")
+    if pays == "LU" and annee == 2000:
+        n.append("OCDE : conditions de passation différentes en 2000, comparabilité limitée")
+    if ind == "pisa_resilients":
+        n.append("défavorisés = quart inférieur national de l'ESCS ; résilients = quart supérieur national "
+                 "en maths (définition OCDE de 2022 appliquée à tous les cycles)")
+    if ind == "pisa_ecart_escs_maths":
+        n.append("moyenne maths du quart supérieur national d'ESCS moins quart inférieur")
+    if ind in ("pisa_appartenance", "pisa_securite", "pisa_harcelement"):
+        n.append("indice WLE propre au cycle (moyenne OCDE ~0) : pas de comparaison de niveau entre cycles")
+    if ind == "pisa_harcelement" and annee == 2018:
+        n.append("variable BEINGBULLIED")
+    if ind == "pisa_harcelement_freq":
+        items = {2025: "5 actes dont la cyberintimidation (ST038 Q04, Q05, Q07, Q08, Q12)"}.get(
+            annee, "6 actes (ST038 Q03 à Q08)")
+        n.append(f"% d'élèves victimes d'au moins un acte au moins quelques fois par mois ; {items}")
+    if ind == "pisa_effectif_15ans":
+        n.append("somme des poids W_FSTUWT (population de 15 ans scolarisée représentée)")
+    return " ; ".join(n)
+
+
+# --------------------------------------------------------------------------------------
+# 11. Fonction principale
+# --------------------------------------------------------------------------------------
+def extraire(dossier_brut, nettoyer: bool = False) -> pd.DataFrame:
+    """Calcule les indicateurs PISA UE-27 pour tous les cycles dont les fichiers sont présents.
+
+    Ordre de priorité : microdonnées OCDE (fichiers de ``telecharger``, ou caches
+    ``cache_*_ue27.csv.gz`` créés au premier passage) ; à défaut valeurs publiées (EdStats pour
+    2000-2018, tableaux OCDE pour Chypre 2022 et 2025). ``nettoyer=True`` supprime chaque zip
+    dès que son cache UE-27 est écrit.
+    """
+    d = Path(dossier_brut)
+    lignes = []
+    for annee in CYCLES:
+        try:
+            if annee >= 2015:
+                lignes += _cycle_sav(d, annee, nettoyer)
+            else:
+                lignes += _cycle_txt(d, annee, nettoyer)
+            print(f"PISA {annee} : microdonnées traitées", file=sys.stderr)
+        except (FileNotFoundError, KeyError) as e:
+            print(f"PISA {annee} : microdonnées absentes ({e}) -> repli sur valeurs publiées",
+                  file=sys.stderr)
+    res = pd.DataFrame(lignes)
+    deja = set(zip(res["pays"], res["indicateur"], res["annee"])) if len(res) else set()
+    repli = [r for r in _indicateurs_edstats(d) if (r["pays"], r["indicateur"], r["annee"]) not in deja]
+    for (annee, ind), val in PUBLIE_CHYPRE.items():
+        if ("CY", ind, annee) not in deja:
+            src = {2012: "OCDE, PISA 2012 Results (Volume I) (valeur publiée)",
+                   2022: SOURCE_OCDE_2022}.get(annee, SOURCE_OCDE_2025)
+            repli.append(_ligne("CY", ind, annee, val, src,
+                                "Chypre : microdonnées non disponibles, valeur publiée par l'OCDE"))
+    res = pd.concat([res, pd.DataFrame(repli)], ignore_index=True)
+    auto = [_note_auto(p, i, a) for p, i, a in zip(res["pays"], res["indicateur"], res["annee"])]
+    res["note"] = [" ; ".join(x for x in (n, a) if x) for n, a in zip(res["note"].fillna(""), auto)]
+    res = res.sort_values(["indicateur", "pays", "annee"]).reset_index(drop=True)
+    return res[["pays", "indicateur", "annee", "valeur", "source", "note"]]
+
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    if args and args[0] == "--telecharger":
+        telecharger(args[1])
+        telecharger_edstats(args[1])
+        sys.exit(0)
+    if not args:
+        sys.exit("usage : python3 -I pisa.py [--telecharger] DOSSIER_BRUT")
+    sortie = extraire(args[0])
+    chemin = Path(__file__).resolve().parent / "pisa.csv"
+    sortie.to_csv(chemin, index=False, encoding="utf-8")
+    print(f"{len(sortie)} lignes -> {chemin}", file=sys.stderr)

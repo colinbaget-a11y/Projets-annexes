@@ -51,3 +51,29 @@ et, pour les sources complexes, des notes `<nom>_notes.md`.
 | Services annexes 14 %, pré-primaire et primaire 27,5 %, rémunérations 71 % (2024) | COFOG 2024 : 13,5 %, 28,4 %, 69,8 %. Écarts dus aux révisions des données |
 | Dépense de santé, France, environ 4 250 EUR par habitant (2022) | En SPA : 4 164 (2022) et 4 319 (2023). En EUR : 4 548. Correspondance probable : SPA, moyenne 2022-2023 |
 | Reste à charge 9,3 % (France) contre 14,9 % (moyenne UE) | Eurostat HF3 : 10,4 % pour la France en 2022. La source de la note est probablement l'OCDE ou l'OMS |
+
+## État de la base
+
+- 53 indicateurs du bulletin sur 53, plus la dépense, les pondérations et les séries de l'encadré :
+  107 séries et 50 481 valeurs au total.
+- Couverture par indicateur dans `indicateurs.csv`, colonnes `annees_disponibles` et `n_pays`.
+
+## Points à connaître
+
+- **PISA, cycles 2000-2012.** Les valeurs publiées (Banque mondiale EdStats) remplacent les
+  calculs sur microdonnées, car l'Internet Archive refusait les connexions.
+  - Le lecteur des fichiers texte est prêt. Relancer `python sources/pisa.py` substitue
+    automatiquement les calculs aux valeurs publiées.
+  - Pour Chypre (absente des fichiers publics), les valeurs viennent aussi des tableaux OCDE et
+    d'EdStats.
+- **Élèves résilients.** La définition OCDE 2022 est appliquée à tous les cycles. L'OCDE utilise
+  la lecture en 2018 et les sciences en 2025.
+- **TIMSS.** Pour la Belgique, `BE` correspond à la seule Communauté flamande. Les valeurs de
+  1995 sont réétalonnées, prises dans les tableaux de tendance.
+- **Infarctus.** La série est chaînée dans 20 pays et non chaînée dans 4. Une variante homogène
+  existe : `sante_ima30_nonchaine`.
+- **Antibiotiques.** Les données viennent de l'OCDE, car l'ECDC n'est pas téléchargeable.
+- **Temps d'attente.** Le délai OCDE pour une prothèse de hanche ne couvre que 11 pays, sans la
+  France.
+- **R&D pharmaceutique.** La série française présente une rupture probable en 2021.
+- **Notes détaillées** : `sources/*_notes.md`.

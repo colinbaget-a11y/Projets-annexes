@@ -62,7 +62,8 @@ DICO = [
     ("pisa_forts_maths", E, "E2", "Top performers en mathématiques", "+", "2022", ""),
     ("pisa_forts_lecture", E, "E2", "Top performers en lecture", "+", "2022", ""),
     ("pisa_forts_sciences", E, "E2", "Top performers en sciences", "+", "2022", ""),
-    ("pisa_pensee_creative", E, "E2", "PISA pensée créative", "+", "2022", "Évaluée seulement en 2022"),
+    ("pisa_pensee_creative", E, "E2", "PISA pensée créative", "+", "2022",
+     "Évaluée seulement en 2022 ; AT, IE et SE n'y ont pas participé"),
     ("edu_chercheurs", E, "E2", "Nombre de chercheurs (% population active)", "+", "2019-2024", ""),
     ("edu_langues_3plus", E, "E2", "Part de la population parlant 3 langues étrangères ou plus", "+",
      "2022", "Enquête sur l'éducation des adultes (2007, 2011, 2016, 2022), 25-64 ans"),
@@ -71,12 +72,17 @@ DICO = [
     ("timss4_avance_sciences", E, "E2", "Part d'élèves au niveau avancé, TIMSS sciences", "+",
      "2019 et 2023", ""),
     # éducation, O3
-    ("pisa_resilients", E, "E3", "Part d'élèves résilients", "+", "2022", ""),
+    ("pisa_resilients", E, "E3", "Part d'élèves résilients", "+", "2022",
+     "Définition OCDE 2022 (quart inférieur ESCS national, quart supérieur national en maths) appliquée à "
+     "tous les cycles ; l'OCDE retient la lecture en 2018 et les sciences en 2025"),
     ("pisa_ecart_escs_maths", E, "E3", "Écart favorisés / défavorisés", "-", "2022",
      "Écart de score en maths entre quartiles ESCS extrêmes"),
-    ("pisa_securite", E, "E3", "Sentiment de sécurité (PISA)", "+", "2022", "Indice FEELSAFE"),
+    ("pisa_securite", E, "E3", "Sentiment de sécurité (PISA)", "+", "2022",
+     "Indice FEELSAFE, 2022 et 2025 seulement ; absent pour DE et DK (et ES en 2022)"),
     ("pisa_appartenance", E, "E3", "Sentiment d'appartenance (PISA)", "+", "2022", "Indice BELONG"),
-    ("pisa_harcelement", E, "E3", "Exposition au harcèlement scolaire (PISA)", "-", "2022", "Indice BULLIED"),
+    ("pisa_harcelement", E, "E3", "Exposition au harcèlement scolaire (PISA)", "-", "2022",
+     "Indice BULLIED, depuis 2018 ; variante pisa_harcelement_freq (% subissant au moins un acte "
+     "quelques fois par mois), rupture en 2025 (cyberharcèlement ajouté)"),
     ("pisa_d9d1_maths", E, "E3", "Dispersion des scores en mathématiques (D9-D1)", "-", "2022", ""),
     ("pisa_d9d1_lecture", E, "E3", "Dispersion en lecture (D9-D1)", "-", "2022", ""),
     ("pisa_d9d1_sciences", E, "E3", "Dispersion en sciences (D9-D1)", "-", "2022", ""),
@@ -149,6 +155,8 @@ AUTRES = [
      "69,8 % (note : 71 %) ; écart dû aux révisions COFOG"),
     ("pisa_effectif_15ans", E, "pondération", "Population de 15 ans représentée dans PISA", "", "2022",
      "Pondération « effectifs scolarisés » (définition exacte non précisée dans la note)"),
+    ("pisa_harcelement_freq", E, "complément", "Élèves subissant au moins un acte de harcèlement "
+     "quelques fois par mois ou plus, %", "", "", "Mesure publiée par l'OCDE en 2018 et 2025"),
     ("pop_totale", S, "pondération", "Population au 1er janvier", "", "2022", ""),
 ]
 
