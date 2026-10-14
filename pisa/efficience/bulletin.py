@@ -136,6 +136,7 @@ pop = W.loc[("pop_totale", 2022)]
 _d = serie("edu_dep_eleve_cite1_2_pub_eur")
 dep_edu = _d.loc[2022:2024].mean().fillna(_d.ffill().iloc[-1]).reindex(PE)   # à défaut : dernière valeur
 dep_san = serie("sante_dep_pub_hab_eur").loc[2022].reindex(PS)
+dep_san_ppa = serie("sante_dep_pub_hab_spa").loc[2022].reindex(PS)       # variante : SPA (PPA Eurostat)
 
 res = {}
 for dom, pays, poids, dep in (("education", PE, eleves.reindex(PE), dep_edu),
@@ -146,6 +147,10 @@ for dom, pays, poids, dep in (("education", PE, eleves.reindex(PE), dep_edu),
     res[dom] = dict(N=N, O=O, g=g, ecart=ecart, C=C, dep=dep, front=front, inverse=inverse, S=S, R=R,
                     poids=poids)
 
+# variante santé en PPA : mêmes scores, seule la dépense (axe horizontal) change
+_f, _i, _ = frontiere(dep_san_ppa, res["sante"]["g"])
+res_ppa = dict(res["sante"], dep=dep_san_ppa, front=_f, inverse=_i)
+
 tab = []
 for dom, r in res.items():
     rang = r["g"].rank(ascending=False).astype(int)
@@ -154,6 +159,9 @@ for dom, r in res.items():
                     "ecart_ue_points": 100 * r["ecart"][p],
                     **{f"contrib_{o}": 100 * r["C"].loc[p, o] for o in r["C"].columns},
                     "depense": r["dep"][p], "ratio_efficience": r["g"][p] / float(r["front"](r["dep"][p])),
+                    **({"depense_ppa": dep_san_ppa[p],
+                        "ratio_efficience_ppa": r["g"][p] / float(res_ppa["front"](dep_san_ppa[p]))}
+                       if dom == "sante" else {}),
                     "rang_median_sensib": np.median(r["R"].loc[p]),
                     "rang_p5": np.percentile(r["R"].loc[p], 5), "rang_p95": np.percentile(r["R"].loc[p], 95)})
 TAB = pd.DataFrame(tab)
@@ -185,7 +193,9 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.spines
 
 
 # position des étiquettes qui se chevauchent (décalage en points, par domaine)
-DECALAGES = {"sante": {"HU": (-9, -3), "EE": (7, 0), "LU": (6, -5), "ES": (-24, 0), "FI": (0, -16), "NL": (0, -20)}}
+DECALAGES = {"sante": {"HU": (-9, -3), "EE": (7, 0), "LU": (6, -5), "ES": (-24, 0), "FI": (0, -16), "NL": (0, -20)},
+             "sante_ppa": {"ES": (-24, 0), "IE": (8, 0), "LU": (8, -9), "NL": (12, 0), "HU": (-9, -3),
+                           "EE": (0, -12), "LT": (7, 0), "HR": (7, 0), "BE": (-8, 6)}}
 
 
 def nuage(ax, r, xlabel, taille, titre_ax=None, halo=False, decalages=None):
@@ -251,11 +261,15 @@ def decomposition(r, nom, libelles, legende_ref):
 
 
 # figure 1 et figure 3 : nuages
-for dom, nom, xl in (("education", "figure1_education.png",
-                      "Dépense publique par élève, primaire + 1er cycle secondaire (€, moy. 2022-2024)"),
-                     ("sante", "figure3_sante.png", "Dépense publique et obligatoire de santé par habitant (€, 2022)")):
+for r, dom, nom, xl in (
+        (res["education"], "education", "figure1_education.png",
+         "Dépense publique par élève, primaire + 1er cycle secondaire (€, moy. 2022-2024)"),
+        (res["sante"], "sante", "figure3_sante.png",
+         "Dépense publique et obligatoire de santé par habitant (€ courants, 2022)"),
+        (res_ppa, "sante_ppa", "figure3_sante_ppa.png",
+         "Dépense publique et obligatoire de santé par habitant (€ en parité de pouvoir d'achat, 2022)")):
     fig, ax = plt.subplots(figsize=(10, 6))
-    nuage(ax, res[dom], xl, res[dom]["poids"], decalages=DECALAGES.get(dom))
+    nuage(ax, r, xl, r["poids"], decalages=DECALAGES.get(dom))
     ax.legend(loc="lower right", frameon=False)
     fig.savefig(FIG / nom)
     plt.close(fig)

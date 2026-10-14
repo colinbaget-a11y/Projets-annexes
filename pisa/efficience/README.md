@@ -88,7 +88,8 @@ et, pour les sources complexes, des notes `<nom>_notes.md`.
 - `resultats_bulletin.csv` ;
 - dans `figures/` :
   - `figure1_education.png`, `figure2_decomposition_education.png` ;
-  - `figure3_sante.png`, `figure4_decomposition_sante.png` ;
+  - `figure3_sante.png` (dépense HF1 en euros courants), `figure3_sante_ppa.png` (même dépense en
+    parité de pouvoir d'achat), `figure4_decomposition_sante.png` ;
   - `encadre_depense_education.png`, `figureA_sensibilite.png`.
 
 Le schéma de la chaîne méthodologique n'est pas reproduit : il ne repose sur aucune donnée.
@@ -120,8 +121,14 @@ En santé, avec la dépense publique et obligatoire (HF1, euros, 2022) :
 | Ratio d'efficience | 83 % | 86 % |
 | Pays sur la frontière | BG, PL, EL, PT, SI, IT, SE | BG, PL, EL, SI, ES, IT, SE, DK |
 
-Avec la dépense totale en PPA (OCDE), le ratio de la France vaut 83 %, mais la frontière passe par
-d'autres pays (Croatie, Roumanie) que dans la note.
+En parité de pouvoir d'achat (`figure3_sante_ppa.png`, colonne `ratio_efficience_ppa`) :
+- le ratio de la France passe de 86 % à 83 % ;
+- les pays d'Europe centrale et orientale perdent beaucoup : Pologne de 100 % à 73 %, Roumanie de 75 %
+  à 55 %, Hongrie de 83 % à 62 %, Tchéquie de 85 % à 73 %.
+
+Variante intermédiaire, où les biens médicaux sont comptés au prix de marché et le reste en PPA :
+la France est à 83 %, la Pologne à 73 %, la Roumanie à 63 %. Les biens médicaux ne pèsent que
+5 à 26 % de la dépense HF1, le personnel et les services le reste.
 
 Écarts restants :
 
