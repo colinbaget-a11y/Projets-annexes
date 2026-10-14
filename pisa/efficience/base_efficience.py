@@ -98,7 +98,9 @@ DICO = [
      "Moyenne annuelle de la surmortalité mensuelle Eurostat (référence 2016-2019)"),
     # santé, O2
     ("sante_mort_traitable", S, "S2", "Mortalité traitable", "-", "2019-2024", ""),
-    ("sante_ima30", S, "S2", "Mortalité à 30 jours post-infarctus", "-", "2019-2024", "OCDE, indicateurs de qualité"),
+    ("sante_ima30", S, "S2", "Mortalité à 30 jours post-infarctus", "-", "2019-2024",
+     "OCDE : série chaînée pour 20 pays, non chaînée pour AT, BE, DE, IE (définitions mêlées) ; "
+     "série homogène non chaînée : sante_ima30_nonchaine"),
     ("sante_scanners", S, "S2", "Plateau technique : scanners (CT)", "+", "2019-2024", "Bloc imagerie : 1/18 de l'objectif chacun"),
     ("sante_irm", S, "S2", "Plateau technique : IRM", "+", "2019-2024", "Bloc imagerie"),
     ("sante_tep", S, "S2", "Plateau technique : TEP (PET)", "+", "2019-2024", "Bloc imagerie"),
@@ -110,19 +112,23 @@ DICO = [
     ("sante_besoins_non_satisfaits_q1", S, "S3", "Besoins non satisfaits (quintile le plus pauvre)", "-",
      "2019-2024", ""),
     ("sante_depenses_catastrophiques", S, "S3", "Ménages à dépenses de santé catastrophiques", "-",
-     "2019-2024", "OMS"),
+     "2019-2024", "OMS Europe (UHCFP_4) : reste à charge > 40 % de la capacité à payer ; années rares"),
     ("sante_reste_a_charge", S, "S3", "Part du reste à charge", "-", "2019-2024",
      "La note donne 9,3 % pour la France et 14,9 % en moyenne UE ; Eurostat (HF3) donne 10,2-10,4 % : "
      "source ou définition différente (OCDE ou OMS)"),
-    ("sante_attente", S, "S3", "Temps d'attente moyen", "-", "2019-2024", "Définition non précisée dans la note"),
+    ("sante_attente", S, "S3", "Temps d'attente moyen", "-", "2019-2024",
+     "Définition non précisée dans la note ; base : délai moyen OCDE pour une prothèse de hanche "
+     "(11 pays, pas la France) ; compléments sante_attente_mediane et sante_attente_silc"),
     ("sante_densite_medicale", S, "S3", "Densité médicale", "+", "2019-2024", "Médecins en exercice"),
     ("sante_inegalite_densite", S, "S3", "Inégalité territoriale de densité médicale", "-", "2019-2024",
      "Dispersion entre régions NUTS 2"),
     # santé, O4
     ("sante_mort_evitable_prev", S, "S4", "Mortalité évitable par la prévention", "-", "2019-2024", ""),
     ("sante_vaccin_grippe_65", S, "S4", "Vaccination antigrippale des 65 ans et plus", "+", "2019-2024", ""),
-    ("sante_antibiotiques", S, "S4", "Consommation d'antibiotiques (J01)", "-", "2019-2024", "ECDC"),
-    ("sante_rd_pharma_ratio", S, "S4", "R&D pharmaceutique / dépense pharmaceutique", "+", "2019-2024", ""),
+    ("sante_antibiotiques", S, "S4", "Consommation d'antibiotiques (J01)", "-", "2019-2024",
+     "OCDE (ECDC non téléchargeable) ; totaux 2024 identiques à l'ECDC pour NL et EL"),
+    ("sante_rd_pharma_ratio", S, "S4", "R&D pharmaceutique / dépense pharmaceutique", "+", "2019-2024",
+     "BERD NACE C21 / dépense HC.5.1 ; rupture probable pour la France en 2021 (BERD x 2,9)"),
     ("sante_prod_pharma_croissance_10a", S, "S4", "Croissance de la production pharmaceutique sur 10 ans",
      "+", "2019-2024", ""),
 ]
