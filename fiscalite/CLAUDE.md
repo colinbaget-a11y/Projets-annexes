@@ -45,7 +45,7 @@ clés, les scripts et les notes de lecture.
   et Simon). Les versions de travail des coauteurs ne sont pas versionnées.
 - `lvt/` : note « Taxer le terrain » sur la taxe sur la valeur foncière, données françaises,
   figures `lvt_*`, notes de lecture vérifiées (`lvt/README.md`).
-- `dette/` : attribution de la dette publique entre État, collectivités et sécurité sociale,
-  corrigée des transferts entre administrations (`dette/README.md`).
+- `dette/` : « À quoi a servi la dette publique ? », attribution de la dette par fonction et par
+  administration, dynamique 1978-2025 ; un seul programme `dette/dette.py` (`dette/README.md`).
 - Scripts `graphiques*.py` et `extract_*.py` à la racine : figures et données du cours ;
   `graphiques.py` porte la charte commune (couleurs, `titre`, `panneau`, `fin`, mode `FIG_NU`).

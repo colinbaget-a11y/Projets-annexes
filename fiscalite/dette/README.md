@@ -1,158 +1,101 @@
-# À qui revient la dette publique ? Attribution entre État, collectivités et sécurité sociale
+# À quoi a servi la dette publique ? Attribution de la dette française
 
-Projet lancé en octobre 2026. La question de départ : l'État porte environ 80 % de la dette alors
-qu'il finance les collectivités et la sécurité sociale ; quelle part de la dette revient
-réellement à chacun ? L'hypothèse de départ de l'utilisateur était d'environ 50 % pour le social.
+Projet lancé en octobre 2026. Point de départ de l'utilisateur : l'État porte environ 80 % de la
+dette alors qu'il finance les collectivités et la sécurité sociale. Quelle part revient réellement
+à chacun, et à quelles dépenses ? L'hypothèse de départ était d'environ 50 % pour le social.
 
 ## Livrable
 
-- `note-dette.pdf` / `note-dette.tex` : « À quoi a servi la dette publique ? », 12 pages avec 7
-  figures et un tableau.
-  - Plan : chiffre officiel ; méthode fongible ; résultat par fonction ; dérive de la dépense ;
-    règles non fongibles ; travaux existants ; limites ; annexe.
-  - Plan : l'essentiel ; ce que disent les comptes ; attribuer suppose un contrefactuel (les règles
-    M1 à M4) ; résultats ; poids de la dette de 1995 ; travaux existants (IPP 2026, Beaufret) ;
-    limites ; annexe de méthode.
+- `note-dette.pdf` / `note-dette.tex` : « À quoi a servi la dette publique ? », 7 figures et un
+  tableau. C'est la version raccourcie d'environ 40 % de la note d'octobre.
+  - Plan : chiffre officiel ; pourquoi la dette a monté (dynamique standard, 1978-2025) ; méthode
+    fongible par fonction ; ce qui a fait monter la dépense (dérive) ; règles non fongibles ;
+    travaux existants ; limites ; annexe de méthode.
   - Compilation : depuis ce dossier, `pdflatex note-dette.tex` deux fois. La note utilise
     `../lvt/preambule.tex`.
-- `tableau_attribution.tex` : tableau 1, généré par `attribution.py`.
 
-## Méthode de référence : dynamique de la dette (`dynamique.py`)
+## Programme unique : `dette.py`
 
-- Décomposition FMI et Commission européenne, 1995-2025. Le ratio de dette passe de 57,5 % à
-  115,7 % du PIB, soit +58,2 points :
-  - déficits primaires cumulés : +50,5, dont 22 sur les années de crise 2009-2010 et 2020-2021 ;
-  - intérêts : +73,9 ;
-  - croissance du PIB : −72,3 ;
-  - ajustements stock-flux : +6,0.
-- La décomposition standard ne ventile pas par fonction. Ventilation des 50,5 points :
-  - au prorata de la dépense : 29,7 points pour le social (59 %) ;
-  - par dérive (méthode d'Auerbach), qui dépend de l'année de référence : avec 1997, vieillesse +42
-    et santé +32, autres dépenses −23 ; quelle que soit la référence, vieillesse +42 à +55 et
-    santé +32.
-- Tableau généré : `tableau_dynamique.tex`.
+Depuis `fiscalite/` :
 
-## Séries longues Insee (`extract_insee_long.py`, `dynamique_longue.py`)
+- `python dette/dette.py --telecharger` : télécharge les données Eurostat et Insee dans `donnees/`,
+  puis calcule.
+- `python dette/dette.py` : calculs, résumé imprimé, `tableau_attribution.tex`, figures PNG avec
+  titre dans `../figures/`.
+- `FIG_NU=1 python dette/dette.py` : figures sans titre pour la note, dans `../figures/nu/`.
 
-- Source : Insee, base 2014 (séries arrêtées), dette depuis 1978, déficit, intérêts, prestations et
-  PIB depuis 1949. Le raccord avec la base 2020 se fait en 1995 : prestations 22,3 % du PIB contre
-  22,4 % en base 2020 ; ratio de dette 56,1 % contre 57,5 %.
-- Il n'existe aucune série par fonction (COFOG) avant 1995 à l'Insee, en base 2010, 2014 ou 2020.
-- Décomposition 1978-1995 (ratio de 21,2 % à 56,1 % du PIB) :
-  - déficits primaires : +8,8 ;
-  - intérêts : +41,9 ; croissance : −33,4 (taux réels élevés) ;
-  - ajustements stock-flux : +17,6, inexpliqués pour l'essentiel, concentrés en 1979-1984.
-- Décomposition 1978-2025 : +94,5 points, dont 59,3 de déficits primaires.
-- Prestations sociales (espèces et remboursements en nature) : 11,3 % du PIB en 1960, 17,9 % en
-  1978, 22,3 % en 1995, 25,8 % en 2025.
+Le programme enchaîne cinq étapes, puis les figures :
 
-## Résultat principal : la méthode simple (dépenses fongibles, `fongible.py`)
+1. données ;
+2. dynamique de la dette (FMI et Commission) ;
+3. méthode fongible par fonction ;
+4. dérive (méthode d'Auerbach) ;
+5. règles par administration (M0 à M4).
 
-- Principe : chaque année, la dette hors intérêts est répartie au prorata de la dépense par fonction
-  (COFOG, hors intérêts). Chaque fonction porte les intérêts de sa dette. Le stock de 1995 est
-  réparti selon la dépense de 1995.
-- Dette attribuée fin 2025, sur 3 460 Md€ :
+Les figures, préfixe `dette_` : `emetteur`, `financement`, `dynamique`, `fonctions`,
+`fonctions_evolution`, `derive`, `prestations`.
 
-  | Fonction | Part de la dette | Montant |
-  |---|---|---|
-  | Santé et protection sociale | 57 % | 1 959 Md€ |
-  | dont vieillesse | 22 % | 766 Md€ |
-  | dont autre protection sociale | 20 % | 705 Md€ |
-  | dont santé | 14 % | 488 Md€ |
-  | Affaires économiques | 12 % | |
-  | Enseignement | 10 % | |
-  | Défense | 4 % | |
-  | Police et justice | 3 % | |
+Données (`donnees/`) :
 
-  Sur la seule dette créée depuis 1995, la part sociale est de 59 %.
-- Variation 1995-2024, en points de PIB :
-  - dépense hors intérêts : +2,3 ;
-  - recettes : +0,3 ;
-  - vieillesse : +2,4 ; santé : +2,0 ; toutes les autres fonctions : −2,1 ;
-  - intérêts : −1,4.
-- Sylvain Catherine :
-  - il ne fait pas de prorata ; il compare à l'Allemagne (dette de 58 % du PIB avec les retraites
-    allemandes) ;
-  - il affirme que les retraites sont « la cause de la moitié de l'endettement public » (X, avril
-    2026, contesté par Sterdyniak) ;
-  - ses tweets ne sont pas lisibles directement (HTTP 402) et ne sont connus que par des extraits.
+- `comptes.csv` : Eurostat `gov_10a_main`, dont les transferts D7 et D9 par sous-secteur
+  destinataire ;
+- `cofog.csv` : `gov_10a_exp`, dépense par fonction, avec la vieillesse GF1002, 1995-2024 ;
+- `impots.csv` : `gov_10a_taxag`, D2 et D211 (TVA) ;
+- `pib.csv` ;
+- `dette_insee.csv` : dette par sous-secteur, Insee base 2020 ;
+- `insee_long.csv` : Insee base 2014, séries arrêtées, en Md€ ; dette depuis 1978, déficit,
+  intérêts, prestations D62 + D632 et PIB depuis 1949.
 
-## Comparaison des règles par administration (`attribution.py`, résultats fin 2025)
+Sorties : `dynamique_longue.csv`, `fonctions_2025.csv`, `attribution_2025.csv`.
 
-- Dette par émetteur (Insee) : État et ODAC 83,6 %, APUL 8,0 %, ASSO 8,5 %, sur 3 460 Md€.
-- Décomposition de la dette au taux apparent des APU :
-  - stock 1995 et ses intérêts : 1 928 Md€ (56 %) ;
-  - déficits primaires 1996-2025 et leurs intérêts : 1 355 Md€ ;
-  - ajustements stock-flux : 177 Md€.
-- Part de la sécurité sociale, puis du social selon la règle (dette créée depuis 1995 / dette
-  totale) :
+## Résultats clés (fin 2025)
 
-  | Règle | Dette créée depuis 1995 | Dette totale |
-  |---|---|---|
-  | M0 émetteur | ≈ 0 % | 9 % |
-  | M2 transferts explicites | 3 % | 10 % |
-  | M3 TVA affectée traitée comme transfert | 42 % | 26 % |
-  | M3+ tous impôts indirects affectés | 131 % | 61 % |
-  | M1 prorata de la dépense primaire finale | 46 % | 27 % |
-  | M4 prorata par fonction (santé + protection sociale) | 59 % | 32 % |
+- **Émetteur** : État et ODAC 83,6 %, APUL 8,0 %, ASSO 8,5 % de 3 460 Md€.
+- **Dynamique**, en points de PIB :
+  - 1995-2025 : de 57,5 % à 115,7 % du PIB. Déficits primaires +50,5 (dont 22 pour 2009-2010 et
+    2020-2021), intérêts +73,9, croissance −72,3, ajustements stock-flux +6,0.
+  - 1978-1995 : de 21,2 % à 56,1 %. Déficits primaires +8,8, intérêts +41,9, croissance −33,4,
+    ajustements stock-flux +17,6, inexpliqués et concentrés en 1979-1984.
+  - Changement de base en 1995 : +1,4 point.
+- **Méthode fongible** (prorata de la dépense par fonction, intérêts qui suivent la dette, stock
+  de 1995 réparti selon la dépense de 1995) :
+  - santé et protection sociale : 1 959 Md€, soit 57 %, dont vieillesse 22 %, autres prestations
+    sociales 20 %, santé 14 % ;
+  - autres fonctions : affaires économiques 12 %, enseignement 10 %, défense 4 %, police et
+    justice 3 % ;
+  - 59 % de la dette créée depuis 1995, et 29,7 points sur les 50,5 points de déficits primaires.
+  - Par administration (M1) : ASSO 45 %, APUL 18 %, État 37 %.
+- **Dérive**, 1995-2024, en points de PIB :
+  - dépense hors intérêts +2,3 et recettes +0,3 ;
+  - vieillesse +2,4 et santé +2,0 ; les autres fonctions −2,1.
+  - Avec la méthode d'Auerbach et 1997 comme référence : vieillesse +42 et santé +32 points
+    cumulés, autres fonctions −23. Quelle que soit la référence : vieillesse +42 à +55, santé
+    +32.
+- **Prestations sociales** (D62 + D632) : 11,3 % du PIB en 1960, 17,9 % en 1978, 25,8 % en 2025.
+- **Règles non fongibles**, part de l'ASSO dans la dette créée depuis 1995 : M2 3 %, M3 (TVA
+  traitée comme transfert) 42 %, M3+ 131 %. Ces règles sont fragiles : la bascule du CICE en
+  2019 déplace environ 35 Md€ par an.
+- **Littérature** : aucune attribution documentée du stock de dette par fonction.
+  - Le rapport Pébereau (2005) la juge « impossible ».
+  - Champsaur-Cotis (2010) : contrefactuel côté recettes, environ −20 points de dette.
+  - Catherine : contrefactuel des retraites allemandes, dette de 58 % du PIB.
+  - Riedl et Kogan : lectures opposées des mêmes données aux États-Unis.
 
-  La vieillesse au prorata de la dépense : 24 % des déficits primaires cumulés.
-- Flux de l'État en 2025 :
-  - transferts D7 et D9 vers les APUL 55 Md€, vers les ASSO 23 Md€ ;
-  - TVA affectée en 2024 : ASSO 58 Md€, APUL 52 Md€ ;
-  - autres impôts sur la production des ASSO : 63 Md€.
-- ASSO, 1995-2025 : déficits cumulés 118 Md€, mais hausse de la dette de 259 Md€ (réserves des
-  régimes complémentaires et du FRR : la dette brute surestime la dette nette).
-- Conclusion de méthode :
-  - La règle la plus défendable comme convention est le prorata de la dépense (M1, M4).
-  - Les règles de « ressources propres » dépendent du statut des impôts affectés, fixé par le
-    Parlement : le CICE en 2019 déplace environ 35 Md€ par an.
-  - Une règle de ressources propres cohérente (TVA rendue à l'État, exonérations rendues à la
-    sécurité sociale) donnerait un résultat proche de M2.
+## Notes de lecture (`notes/`)
 
-## Scripts et données (`donnees/`)
-
-- `fongible.py` : méthode simple par fonction ; écrit `fonctions_2025.csv` et
-  `fonctions_evolution.csv`.
-- `extract_dette.py` télécharge les données Eurostat et Insee et écrit dans `donnees/` :
-  - `comptes.csv` : `gov_10a_main`, dont les transferts par sous-secteur destinataire ;
-  - `impots.csv` : `gov_10a_taxag` ;
-  - `cofog.csv` : `gov_10a_exp`, avec GF1002 ;
-  - `pib.csv` ;
-  - `dette.csv` : Eurostat, seulement 2024-2025 par sous-secteur ;
-  - `dette_insee.csv` : flux BDM `DETTE-TRIM-APU-2020`, 1995-2025.
-- `attribution.py` calcule les règles M0 à M4 et écrit `attribution_annuelle.csv`,
-  `attribution_deficits.csv`, `attribution_2025.csv` et `tableau_attribution.tex`.
-- `graphiques_dette.py` produit les figures `dette_*`. Avec `FIG_NU=1`, il produit les versions de la
-  note dans `../figures/nu/`.
-- Ordre d'exécution : `python dette/extract_dette.py && python dette/fongible.py && python dette/attribution.py &&
-  FIG_NU=1 python dette/graphiques_dette.py`, depuis `fiscalite/`.
-
-## Notes de lecture
-
-- `notes/lectures.md` : IPP 2026 (lu), Beaufret 2023 (lu), Beaufret 2026 (non lu), Fipeco, points
+- `lectures.md` : IPP 2026, Beaufret 2023, Fipeco, tweets de Sylvain Catherine (extraits), points
   vérifiés et non vérifiés.
-- `notes/revue_attribution_par_fonction.md` : qui a déjà attribué la dette par fonction.
-  - Pébereau 2005 juge cette attribution « impossible » : « un seul déficit ».
-  - Champsaur-Cotis 2010 : contrefactuel côté recettes, environ −20 points de PIB de dette.
-  - Fipeco 2023 : variations de dépense par fonction, 1995-2021.
-  - Auerbach 1994, OBR 2024 : cadre des décompositions de variations.
-  - États-Unis : lectures opposées de Riedl et de Kogan.
-  - Beaufret, HCP, COR ; Dufourcq (méthode non publiée) ; CAE Focus 121 (cotisations fictives de
-    l'État).
-  - Conclusion : aucune attribution documentée du stock par fonction.
-- `notes/revue_litterature_agent.md` : revue détaillée (Catherine, Dufourcq, Ecalle, reprises de dette
-  1993-2026, SEC 2010 §1.78 et pratiques européennes, impôts affectés CPO 2024), avec statut de
-  vérification de chaque fait.
+- `revue_attribution_par_fonction.md` : Pébereau, Champsaur-Cotis, Fipeco, Auerbach, OBR, Riedl et
+  Kogan, HCP, COR, Dufourcq, CAE Focus 121.
+- `revue_litterature_agent.md` : attribution par sous-secteur ; chronologie des reprises de dette
+  (CADES, SNCF Réseau, 1993) ; SEC 2010 §1.78.
 
 ## Points en suspens
 
-- Réattribuer le stock de 1995 : il faudrait les comptes par sous-secteur antérieurs (Insee, séries
-  longues).
-- Construire la variante cohérente de M3 : il faut les exonérations compensées, que donnent les
-  annexes aux PLFSS.
-- Isoler les contributions d'équilibre aux régimes de fonctionnaires (CAS pensions, CNRACL).
-- Sylvain Catherine : ses textes originaux (fils sur X) n'ont pas été lus ; seule une reprise de presse
-  l'a été.
-- Texte Insee justifiant l'enregistrement des fractions de TVA comme impôts de l'affectataire : non
-  trouvé.
+- Expliquer les ajustements stock-flux de 1979-1984 : prêts ou dotations aux entreprises
+  publiques, ou défauts de la rétropolation.
+- Corriger le double compte des pensions des fonctionnaires de l'État (CAE Focus 121) dans la
+  dépense par fonction.
+- Une règle de ressources propres cohérente demanderait les exonérations compensées, que donnent
+  les annexes aux PLFSS.
+- Les textes originaux de Sylvain Catherine sur X n'ont pas été lus (HTTP 402).

@@ -1,7 +1,6 @@
 % À quoi a servi la dette publique ? Attribution de la dette française aux dépenses qu'elle a financées
 % Compilation : pdflatex note-dette.tex (deux passes) depuis fiscalite/dette/
-% Chiffres : python dette/fongible.py && python dette/attribution.py
-%            && FIG_NU=1 python dette/graphiques_dette.py   (depuis fiscalite/)
+% Chiffres, tableau et figures : FIG_NU=1 python dette/dette.py   (depuis fiscalite/)
 \documentclass[11pt,a4paper]{article}
 \input{../lvt/preambule}
 \fancyhead[L]{\small\itshape À quoi a servi la dette publique ?}
@@ -15,338 +14,197 @@
 \vspace{8pt}
 {\fontsize{24}{28}\selectfont\bfseries\color{bleu}À quoi a servi la dette publique ?\par}
 \vspace{6pt}
-{\large Attribuer la dette française aux dépenses qu'elle a financées, 1995-2025\par}
+{\large Attribuer la dette française aux dépenses qu'elle a financées\par}
 \vspace{8pt}
-{\small Colin Baget. Comptes des administrations publiques d'Eurostat (1995-2025) et dette de
-Maastricht par sous-secteur de l'Insee ; les scripts sont dans \texttt{fiscalite/dette/}.\par}
+{\small Colin Baget. Comptes des administrations publiques d'Eurostat et de l'Insee (1949-2025) ;
+calculs et figures : \texttt{fiscalite/dette/dette.py}.\par}
 \vspace{6pt}
 {\color{bleu}\hrule height 1.2pt}
 \vspace{4pt}
 
 \section*{L'essentiel}
 
-On lit souvent que l'État porte plus de 80~\% de la dette publique. C'est exact au sens où l'État
-a emprunté cet argent, mais cela ne dit pas à quoi il a servi : l'État finance une partie des
-dépenses des collectivités et de la sécurité sociale, par des transferts et surtout par des impôts
-qu'il leur cède. Pour savoir à quoi la dette a servi, on part ici d'un principe simple : les
-recettes publiques ne sont réservées à aucune dépense, donc chaque euro dépensé est emprunté dans
-la même proportion. La dette se répartit alors entre les dépenses au prorata de leur poids. C'est
-une clé de répartition conventionnelle, pas une mesure causale : le rapport Pébereau notait
-déjà en 2005 qu'« il n'existe qu'un seul déficit » et qu'on ne sait pas quelles dépenses ont été
-financées par la dette.
+L'État porte 84~\% de la dette publique, mais ce chiffre dit qui a emprunté, pas pour quoi :
+l'État finance une partie des dépenses des collectivités et de la sécurité sociale, par des
+transferts et surtout par des impôts qu'il leur cède. Il ne reprend pas pour autant leur dette :
+la dette sociale est logée à la CADES, qui fait partie de la sécurité sociale.
 
-La méthode de référence, celle du FMI et de la Commission européenne, décompose la hausse du
-ratio de dette en déficits primaires, effet des intérêts, effet de la croissance du PIB et
-ajustements comptables. Depuis 1995, le ratio est passé de 57,5~\% à 115,7~\% du PIB.
-Sur ces 58 points de hausse, les déficits primaires cumulés en font 50,5. Les intérêts (+74 points)
-ont été presque exactement compensés par la croissance du PIB nominal ($-72$). La dette a donc monté
-parce que les administrations ont dépensé plus qu'elles ne prélevaient, hors intérêts, presque
-chaque année. Cette méthode ne dit pas quelles dépenses ont fait ces déficits ; pour le dire, il
-faut une convention.
+La méthode de référence (FMI, Commission européenne) montre pourquoi la dette a monté. De 1995 à
+2025, le ratio est passé de 57,5~\% à 115,7~\% du PIB, et les déficits primaires (hors intérêts)
+cumulés en expliquent 50,5 points ; les intérêts ont été presque exactement compensés par la
+croissance du PIB. Avant 1995, c'était l'inverse : la dette montait surtout parce que les taux
+dépassaient la croissance.
 
-Appliquée année par année depuis 1995, la convention des dépenses fongibles attribue à la santé et à la protection sociale
-1~960~Md€, soit 57~\% de la dette publique de fin 2025 (3~460~Md€). Les retraites en portent 22~\%,
-les autres prestations sociales (chômage, famille, RSA, logement, invalidité) 20~\% et la santé
-14~\%. La police et la justice en portent 3~\%, la défense 4~\% et l'enseignement 10~\%. Réparti
-entre administrations plutôt qu'entre fonctions, le même calcul donne 45~\% à la sécurité sociale,
-18~\% aux collectivités et 37~\% à l'État.
+Cette méthode ne dit pas quelles dépenses ont fait les déficits. Il faut une convention. Si l'on
+tient les recettes pour interchangeables, chaque euro dépensé est emprunté dans la même proportion,
+et la dette se répartit au prorata de la dépense. La santé et la protection sociale portent alors
+1~960~Md€, soit 57~\% de la dette fin 2025 : 22~\% pour les retraites, 20~\% pour les autres
+prestations sociales, 14~\% pour la santé. Ce chiffre reflète surtout la structure de la dépense,
+sociale aux trois cinquièmes. Ce qui a changé est plus parlant : depuis 1995, la dépense hors
+intérêts a augmenté de 2,3 points de PIB, les recettes de 0,3 point, et la hausse vient entièrement
+des retraites (+2,4) et de la santé (+2,0). Ce constat prend les recettes comme référence : rapporté
+aux baisses d'impôts décidées, le même déficit s'impute aussi à elles.
 
-Ce résultat reflète d'abord la structure de la dépense : si les dépenses sont interchangeables,
-chacune porte à peu près sa part de dette, et la dépense publique française est sociale aux trois
-cinquièmes. Ce qui a changé depuis 1995 est plus parlant. Les recettes publiques n'ont augmenté que
-de 0,3 point de PIB, la dépense hors intérêts de 2,3 points, et cette hausse vient entièrement des
-retraites (+2,4 points) et de la santé (+2,0), les autres fonctions ayant baissé ensemble de 2,1
-points. Fipeco trouve le même ordre de grandeur. Ce constat suppose toutefois que les recettes
-servent de référence : rapporté aux baisses d'impôts décidées, le même déficit s'impute aussi aux
-recettes, comme l'a fait le rapport Champsaur-Cotis de 2010.
+Personne n'a publié d'attribution documentée de la dette par fonction ; le rapport Pébereau (2005)
+la jugeait impossible. Le chiffre de 57~\% est donc une clé de répartition, pas une mesure de ce que
+la dette a causé. Les règles qui confrontent chaque administration à « ses » recettes donnent de
+3~\% à 42~\% à la sécurité sociale, selon le statut de la TVA qui lui est affectée.
 
-Le résultat ne dépend que de l'hypothèse de fongibilité. Si l'on considère au contraire que chaque
-administration doit vivre de « ses » recettes, la sécurité sociale, presque à l'équilibre depuis
-trente ans, ne porte presque rien (3~\% de la dette créée depuis 1995). Elle en porte 42~\% si
-l'on considère que la TVA qui lui est affectée est en réalité un transfert de l'État. Ces règles
-mesurent toutefois la façon dont le Parlement répartit les recettes, qu'il modifie souvent, plus
-que l'usage de la dette.
+\section{Ce que dit le chiffre officiel}\label{sec:officiel}
 
-Personne, à notre connaissance, n'a publié d'attribution documentée du stock de dette française à
-des fonctions. Les travaux sérieux décomposent les variations de dépense (Fipeco) ou chiffrent des
-contrefactuels : sans les baisses de prélèvements depuis 1999 selon Champsaur et Cotis, avec les
-retraites allemandes selon Sylvain Catherine. Les chiffres du type « 60~\% de la dette est
-sociale » (Dufourcq) ou « les retraites font la moitié des déficits » (Beaufret) reposent sur des
-conventions que le Conseil d'orientation des retraites conteste. Aux États-Unis, deux lectures
-des mêmes projections du Congressional Budget Office imputent le déficit l'une aux retraites et à
-la santé, l'autre aux baisses d'impôts : c'est l'illustration la plus nette de ce que le résultat
-dépend de la règle.
-
-\section{Ce que dit le chiffre officiel, et ce qu'il ne dit pas}\label{sec:officiel}
-
-Les comptes nationaux découpent les administrations publiques en trois sous-secteurs.
-L'administration centrale regroupe l'État et les organismes divers d'administration centrale
-(ODAC), qu'Eurostat ne sépare pas. Les administrations locales (APUL) regroupent les collectivités
-et leurs établissements. Les administrations de sécurité sociale (ASSO) comprennent les régimes de
-base et complémentaires, l'assurance chômage, la CADES et les hôpitaux. Fin 2025, l'administration
-centrale porte 84~\% de la dette publique, les collectivités 8~\% et la sécurité sociale 9~\%, et
-l'État fait presque tout le déficit (figure~\ref{fig:emetteur}).
+Les comptes nationaux distinguent l'administration centrale (l'État et les organismes divers
+d'administration centrale, ODAC), les administrations locales (APUL) et les administrations de
+sécurité sociale (ASSO : régimes de base et complémentaires, assurance chômage, CADES, hôpitaux).
+Fin 2025, l'administration centrale porte 84~\% de la dette, les collectivités 8~\% et la sécurité
+sociale 9~\%, et l'État fait presque tout le déficit (figure~\ref{fig:emetteur}).
 
 \figbloc{dette_emetteur}{Dette de Maastricht par émetteur et solde de chaque sous-secteur,
 1995-2025}{fig:emetteur}
 
-Ce partage dit qui a emprunté. Il ne dit pas pour quoi, parce que l'État finance les autres
-administrations par trois canaux (figure~\ref{fig:financement}). Les transferts (dotation globale
-de fonctionnement, subventions d'équilibre, compensations d'exonérations ciblées) apparaissent comme
-des dépenses de l'État : 55~Md€ vers les collectivités et 23~Md€ vers la sécurité sociale en 2025.
-Les impôts que l'État leur cède, eux, sont enregistrés comme des impôts de l'administration qui
-les reçoit, exactement comme si elle les avait levés elle-même. Ce deuxième canal est devenu le
-premier : en 2024, la sécurité sociale a reçu 58~Md€ de TVA et 63~Md€ d'autres impôts sur la
-production (taxe sur les salaires, droits sur les tabacs et les alcools…), et les collectivités
-52~Md€ de TVA. Le troisième est la CSG (163~Md€), créée par l'État en 1991 et affectée dès
-l'origine à la sécurité sociale. Grâce à ces recettes, la sécurité sociale et les collectivités
-paraissent presque à l'équilibre, et le déficit se concentre dans les comptes de l'État.
+L'État finance les autres administrations par trois canaux (figure~\ref{fig:financement}). Les
+transferts (dotations, subventions d'équilibre, compensations d'exonérations ciblées) sont des
+dépenses de l'État : 55~Md€ vers les collectivités et 23~Md€ vers la sécurité sociale en 2025. Les
+impôts qu'il leur cède sont enregistrés comme leurs impôts propres : en 2024, la sécurité sociale a
+reçu 58~Md€ de TVA et 63~Md€ d'autres impôts sur la production, les collectivités 52~Md€ de TVA.
+La CSG (163~Md€), créée par l'État en 1991, est affectée à la sécurité sociale. Grâce à ces
+recettes, sécurité sociale et collectivités paraissent presque à l'équilibre.
 
 \figbloc{dette_financement}{Transferts de l'État et impôts affectés aux autres administrations,
 1995-2025}{fig:financement}
 
-Cet enregistrement est une convention, et elle est discutable. Le système européen de comptes
-(SEC 2010, §1.78) attribue un impôt à l'administration qui a le pouvoir d'en fixer le taux, or la
-fraction de TVA affectée est fixée par le Parlement. Certains pays, comme la Hongrie ou
-l'Islande, enregistrent ces impôts chez l'État, puis un transfert. Les sauts de la
-figure~\ref{fig:financement} montrent aussi que l'affectation change souvent. Depuis 2006, l'État
-compense par un panier d'impôts affectés les allègements de cotisations qu'il décide, comme l'y
-oblige la loi du 25 juillet 1994. En 2019, il a remplacé le CICE, qui était une de ses dépenses,
-par une baisse pérenne des cotisations patronales compensée par de la TVA. En 2021 et 2023, la TVA
-a remplacé la taxe d'habitation et la CVAE des collectivités.
+Cet enregistrement est une convention discutable : le système européen de comptes (SEC 2010,
+§1.78) attribue un impôt à l'administration qui en fixe le taux, et c'est le Parlement qui fixe la
+fraction de TVA affectée. L'affectation change aussi souvent. Depuis 2006, l'État compense par
+des impôts affectés les allègements de cotisations qu'il décide ; en 2019, il a remplacé le CICE par
+une baisse des cotisations patronales compensée par de la TVA ; en 2021 et 2023, la TVA a remplacé
+la taxe d'habitation et la CVAE des collectivités.
 
-Une idée répandue doit être corrigée : l'État ne « reprend » pas la dette des autres. Les
-396~Md€ de dette sociale transférés depuis 1996 l'ont été à la CADES, qui fait partie de la
-sécurité sociale et les rembourse avec la CRDS et une part de la CSG. C'est d'ailleurs pourquoi
-la sécurité sociale est souvent excédentaire : la CADES rembourse environ 16~Md€ de principal par
-an, ce qui n'est pas une dépense en comptabilité nationale. La seule grosse reprise par l'État
-(16,8~Md€ en 1993) lui a été remboursée par la CADES entre 1996 et 2005. Le poids de l'État dans
-la dette vient de ce qu'il finance chaque année, pas de dettes reprises.
+L'État ne reprend pas la dette des autres. Les 396~Md€ de dette sociale transférés depuis 1996
+l'ont été à la CADES, qui les rembourse avec la CRDS et une part de la CSG ; ce remboursement
+(environ 16~Md€ par an) n'est pas une dépense en comptabilité nationale, ce qui rend la sécurité
+sociale souvent excédentaire. La seule grosse reprise par l'État, 16,8~Md€ en 1993, lui a été
+remboursée par la CADES entre 1996 et 2005.
 
-\section{La méthode de référence : la dynamique de la dette}\label{sec:dynamique}
+\section{Pourquoi la dette a monté}\label{sec:dynamique}
 
-La décomposition utilisée par le FMI, la Commission européenne et la Cour des comptes suit le
-ratio de dette $d$ (en \% du PIB) d'une année sur l'autre :
+La décomposition du FMI et de la Commission européenne suit le ratio de dette $d$ (en \% du PIB) :
 \[ d_t-d_{t-1} \;=\; \underbrace{pd_t}_{\text{déficit primaire}} \;+\;
 \underbrace{\frac{i_t-g_t}{1+g_t}\,d_{t-1}}_{\text{effet « boule de neige »}} \;+\;
 \underbrace{sf_t}_{\text{ajustements stock-flux}} \]
-où $i_t$ est le taux d'intérêt apparent et $g_t$ la croissance du PIB nominal. L'intuition est
-simple. La dette augmente quand on emprunte pour financer un déficit hors intérêts. Elle augmente
-aussi parce qu'on emprunte pour payer les intérêts, mais le PIB croît en même temps, ce qui réduit
-le poids de la dette. Le troisième terme regroupe ce qui modifie la dette sans passer par le
-déficit : achats d'actifs financiers, variations de trésorerie, primes d'émission.
+où $i_t$ est le taux d'intérêt apparent et $g_t$ la croissance du PIB nominal. La dette augmente
+quand on emprunte pour financer un déficit hors intérêts, et quand on emprunte pour payer les
+intérêts ; la croissance du PIB, elle, réduit son poids. Le dernier terme regroupe ce qui modifie
+la dette sans passer par le déficit (achats d'actifs, trésorerie). Les séries de l'Insee en base
+2014 permettent de remonter à 1978, première année où la dette de Maastricht est publiée.
 
-\figbloc{dette_dynamique}{Décomposition de la hausse du ratio de dette depuis 1995}{fig:dynamique}
+\figbloc{dette_dynamique}{Décomposition de la hausse du ratio de dette, 1978-2025}{fig:dynamique}
 
-De 1995 à 2025, le ratio de dette a augmenté de 58,2 points de PIB (figure~\ref{fig:dynamique}).
-Les déficits primaires cumulés en expliquent 50,5 points et les ajustements stock-flux 6,0. Les
-intérêts ont ajouté 73,9 points, mais la croissance du PIB nominal en a retiré 72,3 : sur trente
-ans, le taux d'intérêt moyen a presque égalé la croissance nominale, et l'effet boule de neige net
-n'est que de 1,6 point. La dette a donc monté parce que les administrations ont presque chaque année
-dépensé plus qu'elles ne prélevaient, hors intérêts. Les seules années d'excédent primaire sont
-1998 à 2001, et le solde primaire était presque à l'équilibre en 2006-2007. Les quatre années de
-crise (2009-2010 et 2020-2021) font à elles seules 22 des 50,5 points ; le reste vient de déficits
-primaires modérés mais presque permanents, de 1 à 3 points par an. L'effet des taux n'y est pour
-presque rien.
+Les deux périodes obéissent à des logiques opposées (figure~\ref{fig:dynamique}). De 1978 à 1995,
+le ratio passe de 21~\% à 56~\% du PIB, mais les déficits primaires n'y contribuent que pour 8,8
+points : après la désinflation, les taux réels étaient élevés, les intérêts (+41,9 points)
+dépassaient l'effet de la croissance ($-33{,}4$), et la dette grossissait d'elle-même. Les
+ajustements stock-flux pèsent 17,6 points, surtout de 1979 à 1984, sans que ces séries permettent de
+les expliquer (opérations financières ou imperfections de la rétropolation, non vérifié).
 
-\figbloc{dette_contributions_annuelles}{Contributions annuelles à la variation du ratio de dette,
-1996-2025}{fig:contributions}
+De 1995 à 2025, le ratio passe de 57,5~\% à 115,7~\% du PIB. Les intérêts (+73,9 points) et la
+croissance ($-72{,}3$) se compensent presque : la hausse vient des déficits primaires cumulés (50,5
+points) et, pour 6 points, des ajustements stock-flux. Seules les années 1998 à 2001 ont connu un
+excédent primaire. Les crises de 2009-2010 et 2020-2021 font 22 des 50,5 points ; le reste vient de
+déficits modérés mais presque permanents. La décomposition fait consensus, mais elle s'arrête là : ni le FMI, ni la
+Commission, ni les travaux académiques ne répartissent le déficit primaire entre les dépenses.
 
-Les séries longues de l'Insee, en base 2014, permettent de remonter à 1978, première année où la
-dette de Maastricht est publiée (figure~\ref{fig:longue}). La période 1978-1995 obéit à une autre
-logique. Le ratio de dette passe de 21,2~\% à 56,1~\% du PIB, mais les déficits primaires n'y
-contribuent que pour 8,8 points. Les intérêts ajoutent 41,9 points et la croissance n'en retire
-que 33,4 : après la désinflation des années 1980, les taux d'intérêt réels sont restés élevés,
-et la dette augmentait d'elle-même. Les ajustements stock-flux pèsent 17,6 points sur la période,
-surtout entre 1979 et 1984. Ces séries ne permettent pas de les expliquer : ils peuvent refléter
-des opérations financières, comme des prêts ou des dotations en capital aux entreprises publiques,
-autant que les imperfections de la rétropolation (non vérifié). Sur l'ensemble 1978-2025, le
-ratio a augmenté de 94,5 points : 59,3 de déficits primaires, 10,2 d'effet boule de neige net,
-23,6 d'ajustements stock-flux et 1,4 de changement de base.
+\section{À quoi a servi la dette : des dépenses fongibles}\label{sec:fongible}
 
-\figbloc{dette_longue_dynamique}{Décomposition de la hausse du ratio de dette, 1978-2025}{fig:longue}
-
-Cette décomposition fait consensus, mais elle s'arrête là : elle ne répartit jamais le déficit
-primaire entre les dépenses, ni chez le FMI, ni à la Commission, ni dans les travaux académiques sur
-la dynamique de la dette (section~\ref{sec:litterature}). Pour passer des 50,5 points de déficits
-primaires aux dépenses qu'ils ont financées, il faut une convention. Il en existe deux usuelles. La
-première répartit le déficit au prorata de la dépense (sections~\ref{sec:methode}
-et~\ref{sec:resultat}). La seconde mesure la dérive de chaque dépense par rapport à une année de
-référence (section~\ref{sec:derive}).
-
-\section{Première convention : des dépenses fongibles}\label{sec:methode}
-
-\paragraph{Le principe.} Dire que les dépenses sont fongibles, c'est dire qu'aucune recette n'est
-attachée à une dépense particulière. TVA, impôt sur le revenu, CSG et cotisations alimentent une
-caisse commune, et le déficit est ce qui manque à cette caisse pour tout payer. On ne peut alors
-pas dire qu'un euro de retraite est « plus emprunté » qu'un euro de gendarmerie : si la dépense
-publique fait 100 et le déficit 10, chaque dépense est financée à 10~\% par l'emprunt. Si les
-collectivités font 20~\% de la dépense, l'État 30~\% et la sécurité sociale 50~\%, un déficit de 5
-points de PIB leur revient pour 1, 1,5 et 2,5 points. L'hypothèse se défend parce que le partage
-des recettes entre administrations est un choix du Parlement, révisé presque chaque année
-(section~\ref{sec:officiel}) : un impôt affecté n'est pas une ressource réservée.
-
-\paragraph{Trois choix de mise en œuvre.} Le premier est de répartir entre fonctions plutôt
-qu'entre administrations. On utilise la classification internationale des fonctions des
-administrations (COFOG), qui range chaque dépense selon son objet, quel que soit le payeur : les
-pensions des fonctionnaires de l'État sont dans la vieillesse, le RSA versé par les départements
-dans la protection sociale. Quand on répartit entre administrations, on retire de la dépense de
-chacune les transferts qu'elle verse aux autres, sinon la dotation de l'État aux communes serait
-comptée deux fois.
-
-Le deuxième choix concerne les intérêts, qui sont la conséquence de la dette passée et non une
-dépense comme les autres. On les retire de la dépense, et chaque fonction porte les intérêts de
-la dette qui lui a été attribuée, au taux moyen payé par les administrations.
-
-Le troisième choix est celui de la dette ancienne, qui pèse lourd
-(figure~\ref{fig:decomposition}). Les 702~Md€ de dette de fin 1995 n'ont jamais été remboursés :
-les administrations n'ont presque jamais dégagé d'excédent primaire, si bien que leurs intérêts
-ont été payés par de nouveaux emprunts. Capitalisés au taux moyen des administrations (6,5~\% en
-1996, 1,3~\% en 2020), ils représentent 1~928~Md€ fin 2025, soit 56~\% de la dette. Les déficits
-primaires de 1996 à 2025 et leurs intérêts en font 1~355~Md€, et les ajustements stock-flux
-(achats d'actifs financiers, écarts d'émission) le reste. En proportion du PIB, le constat est le même : le ratio de 1995 (57,5~\%) fait
-à peu près la moitié du ratio de 2025, puisque les intérêts sur cette dette ont été compensés par
-la croissance. On répartit le stock de 1995 selon la dépense de 1995, ce qui revient à supposer que
-la fongibilité valait déjà avant, et les ajustements selon la dépense de l'année. Appliquée aux
-seuls 50,5 points de déficits primaires cumulés de la décomposition standard, la même règle en
-attribue 29,7 à la santé et à la protection sociale (59~\%).
-
-\figbloc{dette_decomposition}{Décomposition de la dette des administrations publiques,
-1996-2025}{fig:decomposition}
-
-\section{Résultat : la dette par fonction}\label{sec:resultat}
+\paragraph{Le principe.} Si aucune recette n'est réservée à une dépense, le déficit est ce qui
+manque à une caisse commune, et un euro de retraite n'est pas « plus emprunté » qu'un euro de
+gendarmerie : si la dépense fait 100 et le déficit 10, chaque dépense est financée à 10~\% par
+l'emprunt. De même, si les collectivités font 20~\% de la dépense, l'État 30~\% et la sécurité
+sociale 50~\%, un déficit de 5 points de PIB leur revient pour 1, 1,5 et 2,5 points. L'hypothèse se défend parce que le partage des recettes entre administrations est un
+choix du Parlement, révisé presque chaque année. On répartit donc chaque année la hausse de la dette
+hors intérêts entre fonctions (classification COFOG, qui range chaque dépense selon son objet,
+quel que soit le payeur), au prorata de leur dépense hors intérêts. Les intérêts sont retirés de la
+dépense, parce qu'ils sont la conséquence de la dette passée et non une dépense à financer comme les
+autres : chaque fonction porte ensuite les intérêts de la dette qui lui revient, au taux moyen payé
+par les administrations. Le stock de 1995 est réparti selon la dépense de 1995, ce qui revient à
+supposer que la fongibilité valait déjà avant ; comme la santé et la protection sociale faisaient
+déjà 55~\% de la dépense en 1995, ce choix pèse peu. Les pensions des fonctionnaires de l'État sont
+classées en vieillesse, le RSA versé par les départements en protection sociale.
 
 \figbloc{dette_fonctions}{Dette attribuée à chaque fonction fin 2025, si toutes les dépenses sont
 fongibles}{fig:fonctions}
 
-La santé et la protection sociale portent 1~960~Md€, soit 57~\% de la dette
-(figure~\ref{fig:fonctions}) : 766~Md€ pour la vieillesse, 705~Md€ pour les autres prestations
-sociales et 488~Md€ pour la santé. Viennent ensuite les affaires économiques (aides aux
-entreprises, transports, énergie : 12~\%), l'enseignement (10~\%), les services généraux (9~\%), la
-défense (4~\%) et la police et la justice (3~\%).
+\paragraph{Le résultat.} La santé et la protection sociale portent 1~960~Md€, soit 57~\% de la
+dette (figure~\ref{fig:fonctions}) : 766~Md€ pour la vieillesse, 705~Md€ pour les autres
+prestations sociales, 488~Md€ pour la santé. Suivent les affaires économiques (12~\%),
+l'enseignement (10~\%), les services généraux (9~\%), la défense (4~\%), la police et la justice
+(3~\%). Sur la seule dette créée depuis 1995, la part sociale est de 59~\%. Répartie entre
+administrations (en retirant de la dépense de chacune les transferts versés aux autres), la dette
+revient pour 45~\% à la sécurité sociale, 18~\% aux collectivités et 37~\% à l'État ; l'écart avec
+57~\% tient aux dépenses sociales de l'État et des collectivités (pensions de leurs fonctionnaires,
+RSA, aides au logement).
 
-\figbloc{dette_prorata_annuel}{Déficit primaire de chaque année réparti au prorata de la dépense,
-1996-2025}{fig:prorata}
+\paragraph{La limite.} Avec des dépenses fongibles, chaque fonction porte à peu près sa part de la
+dépense : la vieillesse fait 24~\% de la dépense de 2024 et 22~\% de la dette, parce qu'elle
+pesait moins dans les années 1990. Le chiffre de 57~\% est donc solide, mais il dit surtout que la
+dépense publique est sociale aux trois cinquièmes, pas quelles dépenses ont creusé la dette.
 
-La figure~\ref{fig:prorata} montre la même répartition année par année, en points de PIB. Elle
-rend visible ce que cache le stock : la convention ne fait que découper chaque déficit annuel selon
-la structure de la dépense. Les années de crise pèsent le plus, quelle que soit la fonction.
-
-Le résultat change peu avec le traitement de la dette ancienne. Sur la seule dette créée depuis
-1995, la part sociale est de 59~\%, parce que la santé et la protection sociale faisaient déjà
-55~\% de la dépense en 1995. Il change peu aussi quand on répartit entre administrations plutôt
-qu'entre fonctions : la sécurité sociale porte alors 45~\% de la dette, les collectivités 18~\% et
-l'État 37~\% (règle M1 du tableau~\ref{tab:attribution}). L'écart avec les 57~\% vient de ce que
-l'État et les collectivités ont aussi des dépenses sociales, comme les pensions de leurs
-fonctionnaires, le RSA ou les aides au logement.
-
-La limite tient à la méthode elle-même. Avec des dépenses fongibles, la part de dette d'une
-fonction ne s'écarte de sa part de dépense que si cette part a varié dans le temps : la vieillesse
-fait 24~\% de la dépense de 2024 mais 22~\% de la dette, parce qu'elle pesait moins dans les années
-1990. Le chiffre de 57~\% est donc solide, mais il apprend surtout que la dépense publique est
-sociale aux trois cinquièmes. Il ne dit pas quelles dépenses ont creusé la dette.
-
-\section{Seconde convention : ce qui a fait monter la dépense}\label{sec:derive}
+\section{Ce qui a fait monter la dépense}\label{sec:derive}
 
 \figbloc{dette_fonctions_evolution}{Variation de la dépense publique par fonction entre 1995 et
 2024}{fig:evolution}
 
-Pour savoir ce qui a creusé la dette, il faut regarder les variations
-(figure~\ref{fig:evolution}). Entre 1995 et 2024, les recettes publiques sont restées à 51~\% du
-PIB, et la dépense hors intérêts a augmenté de 2,3 points. La vieillesse (+2,4 points) et la santé
-(+2,0) ont augmenté de 4,4 points, quand toutes les autres fonctions réunies baissaient de 2,1
-points : affaires économiques et autres prestations sociales ($-0{,}8$ chacune), enseignement et
-services généraux ($-0{,}7$), défense ($-0{,}6$). La baisse des taux a réduit la charge
-d'intérêts de 1,4 point et masqué une partie de cette dérive. Toute la hausse de la dépense depuis
-trente ans vient donc de la santé et des retraites.
+Entre 1995 et 2024, les recettes sont restées à 51~\% du PIB et la dépense hors intérêts a augmenté
+de 2,3 points (figure~\ref{fig:evolution}). La vieillesse (+2,4) et la santé (+2,0) ont augmenté de
+4,4 points ; toutes les autres fonctions ont baissé ensemble de 2,1 points, affaires économiques,
+autres prestations sociales, enseignement et défense en tête. Fipeco trouve des ordres de grandeur
+proches sur 1995-2021 (retraites +2,6, santé +1,3) ; l'écart sur la santé tient aux bornes, la
+santé ayant gagné 0,8 point depuis 2019.
 
-C'est un constat sur les variations, et il faut le lire comme tel. Il ne dit pas qu'il aurait
-fallu contenir ces dépenses plutôt que relever les impôts : le vieillissement fait mécaniquement
-augmenter le nombre de retraités et la dépense de santé, et le choix entre baisser les pensions,
-augmenter les prélèvements ou réduire d'autres dépenses est politique. Il dit seulement que, sans
-la hausse de ces deux postes, la dépense hors intérêts aurait baissé de 2,1 points de PIB au lieu
-d'augmenter de 2,3 points, à recettes presque inchangées. Le
-contrefactuel de Sylvain Catherine relève de la même logique (section~\ref{sec:litterature}).
+La méthode d'Auerbach (1994) traduit cette dérive en dette. Le déficit primaire de chaque année
+s'écrit comme celui d'une année de référence, plus la hausse de chaque dépense, moins la hausse des
+recettes ; cumulé sur 1996-2025, il ventile exactement les 50,5 points de déficits primaires. Avec
+1997 comme référence, année où le solde primaire était presque à l'équilibre, la hausse de la
+vieillesse et de la santé représente 74 points cumulés, plus que la totalité des déficits
+primaires, et les autres dépenses ont baissé de 23 points (figure~\ref{fig:derive}). Le partage
+dépend de l'année de référence : prendre 1995 (déficit primaire de 1,6 point) ou 2000 (excédent de
+1,6 point) change le signe des autres postes. Seules la vieillesse (+42 à +55 points) et la santé
+(+32) pèsent lourd quelle que soit la référence.
 
-Ce constat prend aussi les recettes comme référence fixe, ce qui est un choix. Leur niveau est le
-résultat net de deux mouvements : des baisses d'impôts décidées et une croissance spontanée des
-recettes. Champsaur et Cotis (2010) chiffrent les premières à environ 3 points de PIB entre 1999
-et 2008 et estiment que, sans elles, la dette aurait été plus faible d'environ 20 points de PIB.
-Ils concluent que la dégradation « est tout autant due à une maîtrise insuffisante de la dépense
-qu'à des allègements de prélèvements ». Plus près de nous, les recettes sont passées de 53,0~\% du
-PIB en 2019 à 51,2~\% en 2024 (suppression de la taxe d'habitation, baisses d'impôts de production
-et d'impôt sur les sociétés), quand la dépense de santé augmentait de 0,8 point. Dire que la dérive
-vient de la dépense sociale et dire qu'elle vient des baisses d'impôts sont deux lectures
-également comptables du même déficit ; elles diffèrent par la référence choisie.
+\figbloc{dette_derive}{Dérive de chaque poste par rapport à 1997, cumulée depuis 1996}{fig:derive}
 
-On peut traduire cette dérive en dette, avec la méthode d'Auerbach (1994). Le déficit primaire
-de chaque année s'écrit comme celui d'une année de référence, plus la hausse de chaque dépense
-depuis cette année, moins la hausse des recettes. En cumulant sur 1996-2025, on ventile exactement
-les 50,5 points de déficits primaires de la décomposition standard (figures~\ref{fig:derive}
-et~\ref{fig:references}).
-Comme l'effet boule de neige net est presque nul, ces points cumulés se lisent presque directement
-comme des points de dette.
+Ce constat prend les recettes comme référence, ce qui est un choix. Champsaur et Cotis (2010)
+chiffrent à environ 3 points de PIB les baisses de prélèvements décidées entre 1999 et 2008, sans
+lesquelles la dette aurait été plus faible d'environ 20 points ; ils concluent que la dégradation
+« est tout autant due à une maîtrise insuffisante de la dépense qu'à des allègements de
+prélèvements ». Depuis 2019, les recettes sont passées de 53,0~\% à 51,2~\% du PIB. Imputer la dérive
+à la dépense sociale ou aux baisses d'impôts sont deux lectures également comptables du même
+déficit, qui diffèrent par la référence. Aucune ne dit non plus ce qu'il aurait fallu faire : le
+vieillissement augmente mécaniquement la dépense de retraite et de santé, et le choix entre pensions,
+prélèvements et autres dépenses est politique.
 
-\figbloc{dette_derive_cumul}{Dérive de chaque poste par rapport à 1997, cumulée depuis
-1996}{fig:derive}
+Avant 1995, l'Insee ne publie pas de dépense par fonction, dans aucune de ses bases ; on peut
+seulement suivre les prestations sociales (en espèces, et remboursements de soins et aides au
+logement). Elles passent de 11,3~\% du PIB en 1960 à 17,9~\% en 1978 et 25,8~\% en 2025
+(figure~\ref{fig:prestations}). Depuis 1978, le déficit primaire n'a augmenté que de 2,2 points :
+l'essentiel de la hausse des prestations a été couvert par des hausses de prélèvements ou des
+baisses d'autres dépenses.
 
-\figbloc{dette_derive_references}{Ventilation des déficits primaires cumulés 1996-2025, selon la
-convention et l'année de référence}{fig:references}
-
-Le résultat dépend de l'année de référence, et c'est la limite de cette convention. En 1995, le
-déficit primaire était de 1,6 point de PIB : si on le prend pour norme, le déficit de référence
-explique à lui seul toute la hausse de la dette, et les dérives de dépense et de recettes se
-compensent. En 2000, au contraire, les administrations dégageaient un excédent primaire de
-1,6 point : toutes les dépenses semblent alors avoir dérivé. L'année 1997, où le déficit primaire
-était presque nul (0,2 point), est la référence la plus neutre. Avec elle, la hausse de la dépense
-de vieillesse et de santé représente 74 points cumulés, plus que la totalité des déficits primaires
-(51 points), et les autres dépenses ont baissé de 23 points. Un résultat ne dépend pas de la
-référence : la vieillesse (+42 à +55 points) et la santé (+32) sont les deux seuls postes dont la
-dérive pèse lourd quelle que soit l'année choisie.
-
-Avant 1995, l'Insee ne publie pas de dépense par fonction, dans aucune de ses bases ; les séries
-longues ne distinguent que la nature des opérations. Elles permettent de suivre les prestations
-sociales des administrations : prestations en espèces (retraites, chômage, famille, minima
-sociaux) et remboursements de soins et aides au logement (figure~\ref{fig:prestations}). Celles-ci
-passent de 11,3~\% du PIB en 1960 à 17,9~\% en 1978, 22,3~\% en 1995 et 25,8~\% en 2025. Le
-déficit primaire, lui, n'a augmenté que de 2,2 points depuis 1978 : l'essentiel de la hausse des
-prestations a été couvert par des hausses de prélèvements ou par la baisse d'autres dépenses, que
-ces séries ne permettent pas de séparer. Jusqu'au milieu des années 1970, les administrations
-dégageaient même des excédents primaires presque chaque année.
-
-\figbloc{dette_longue_prestations}{Prestations sociales et déficit primaire des administrations,
+\figbloc{dette_prestations}{Prestations sociales et déficit primaire des administrations,
 1960-2025}{fig:prestations}
-
-La comparaison avec Fipeco (Ecalle, 2023) confirme les ordres de grandeur. Sur 1995-2021, hors
-dépenses exceptionnelles liées au Covid, Fipeco trouve une hausse de la dépense primaire de 4,0
-points de PIB, dont 2,6 pour les retraites et 1,3 pour la santé, avec une baisse de la défense
-($-0{,}8$) et de l'enseignement ($-0{,}5$). L'écart sur la santé avec nos +2,0 points tient aux
-bornes : dans nos données, la santé gagne 1,2 point entre 1995 et 2019, puis 0,8 point
-après 2019.
 
 \section{Si l'on refuse la fongibilité}\label{sec:variantes}
 
-La méthode simple répond à une question précise : si toutes les dépenses avaient été réduites
-dans la même proportion, de combien la dette serait-elle plus faible, et grâce à quelles
-dépenses ? On peut aussi poser une autre question : de combien la dette serait-elle plus faible si
-la sécurité sociale avait dépensé moins, en tenant pour acquis que l'État lui aurait cédé les mêmes
-impôts ? Cette question conduit à des règles qui confrontent chaque administration à ses propres
-recettes. Elles répartissent la dette entre administrations, pas entre fonctions
-(tableau~\ref{tab:attribution}, figure~\ref{fig:methodes}).
-
-\paragraph{Transferts suivis jusqu'au dépensier (M2).} Chaque administration garde son déficit,
-mais la part de ce déficit qui finance des transferts suit l'argent. Si l'État emprunte 10 et
-consacre 20~\% de ses dépenses à des transferts vers la sécurité sociale, 2 des 10 sont attribués
-à la sécurité sociale. Cette règle lui attribue 3~\% de la dette créée depuis 1995 : la sécurité
-sociale a presque équilibré ses comptes sur trente ans, et les transferts explicites de l'État
-sont trop faibles (1~\% du PIB) pour que son déficit la suive beaucoup.
-
-\paragraph{Impôts affectés traités comme des transferts (M3, M3+).} Même règle, mais la TVA
-affectée à la sécurité sociale et aux collectivités est traitée comme un transfert de l'État,
-qui est censé la percevoir puis la reverser. La part de la sécurité sociale monte à 42~\% de la
-dette créée depuis 1995. Si l'on traite de même tous les impôts indirects qu'elle perçoit (M3+),
-elle dépasse 100~\%. La CSG reste dans tous les cas une ressource propre ; la traiter comme un
-impôt d'État ferait exploser le résultat.
+On peut aussi demander de combien la dette serait plus faible si la sécurité sociale avait dépensé
+moins, en tenant pour acquis que l'État lui aurait cédé les mêmes impôts. Cette question conduit à
+des règles qui confrontent chaque administration à ses propres recettes
+(tableau~\ref{tab:attribution}). Dans la plus simple (M2), chaque administration garde son déficit,
+et la part qui finance des transferts suit l'argent : si l'État emprunte 10 et consacre 20~\% de ses
+dépenses à la sécurité sociale, 2 lui sont attribués. La sécurité sociale, presque à l'équilibre
+depuis trente ans, ne porte alors que 3~\% de la dette créée depuis 1995. Si l'on traite la TVA
+affectée comme un transfert de l'État (M3), sa part monte à 42~\%, et elle dépasse 100~\% si l'on
+traite de même tous ses impôts indirects (M3+). La CSG reste dans tous les cas une ressource
+propre ; la traiter comme un impôt d'État attribuerait à la sécurité sociale plus que la totalité
+du déficit.
 
 \begin{table}[htbp]\centering\small
 \caption{Part de chaque administration (ou du social) dans la dette fin 2025, selon la règle (en \%)}
@@ -362,174 +220,104 @@ impôt d'État ferait exploser le résultat.
 \end{tabular}
 \par\vspace{4pt}
 \parbox{\linewidth}{\raggedright\scriptsize\color{encre} Source : Eurostat, Insee ; calculs de
-l'auteur (\texttt{dette/attribution.py}). ASSO : sécurité sociale ; APUL : collectivités ; État :
-État et ODAC. La dette créée depuis 1995 (1~355~Md€) est la somme des déficits primaires de 1996 à
-2025 et des intérêts qu'ils ont générés. Dans la dette totale, le stock de 1995 et les ajustements
-stock-flux sont répartis comme la dépense pour les règles fongibles (M1, M4) et laissés à
-l'émetteur pour les autres. Pour M4, la première colonne est la santé et la protection sociale, la
-troisième les autres fonctions. Une part négative signale des excédents primaires cumulés ; une
-part supérieure à 100, qu'un autre sous-secteur dégage des excédents.}
+l'auteur (\texttt{dette/dette.py}). ASSO : sécurité sociale ; APUL : collectivités ; État : État
+et ODAC. La dette créée depuis 1995 est la somme des déficits primaires de 1996 à 2025 et des
+intérêts qu'ils ont générés. Dans la dette totale, le stock de 1995 et les ajustements stock-flux
+sont répartis comme la dépense pour les règles fongibles (M1, M4) et laissés à l'émetteur pour les
+autres. Pour M4, la première colonne est la santé et la protection sociale, la troisième les autres
+fonctions. Une part négative signale des excédents primaires cumulés.}
 \end{table}
 
-\figbloc{dette_methodes}{Part de chaque administration (ou du social) dans la dette fin 2025, selon
-cinq règles}{fig:methodes}
-
-Tout se joue donc sur le statut des impôts affectés, et c'est ce qui rend ces règles fragiles. La
-transformation du CICE en 2019 suffit à le montrer. Elle a remplacé une dépense de l'État, le
-crédit d'impôt, par une baisse des cotisations de la sécurité sociale, compensée par environ 35~Md€
-de TVA par an, sans rien changer aux prestations ni au coût net de la mesure. Pourtant, dans la
-règle M3, elle fait passer chaque année 35~Md€ de déficit de l'État à la sécurité sociale. Une règle
-qui déplace autant de déficit pour un simple changement d'instrument mesure l'organisation des flux
-entre administrations, pas l'usage de la dette.
-
-Une règle de ressources propres cohérente compterait la TVA affectée comme une ressource de l'État
-et, symétriquement, les cotisations exonérées comme une ressource de la sécurité sociale, puisque
-c'est l'État qui les a supprimées. Les deux corrections se compenseraient pour l'essentiel, et le
-résultat serait proche de M2. Selon la Cour des comptes, la compensation par la TVA a d'ailleurs été
-défavorable à la sécurité sociale, de 18~Md€ cumulés entre 2019 et 2024 (cité par Bach et al.,
-2026). Ces règles répondent donc à une question de gouvernance : quelle administration est en
-déficit compte tenu des recettes que la loi lui donne ? Ce n'est pas la question de cette note.
+Tout se joue sur le statut des impôts affectés, et c'est ce qui rend ces règles fragiles. La
+transformation du CICE en 2019 a remplacé une dépense de l'État par une baisse de cotisations
+compensée par environ 35~Md€ de TVA par an, sans changer les prestations ; dans la règle M3, elle
+fait pourtant passer 35~Md€ de déficit par an de l'État à la sécurité sociale. Une règle cohérente
+compterait la TVA affectée comme une ressource de l'État et, symétriquement, les cotisations
+exonérées comme une ressource de la sécurité sociale ; les deux corrections se compenseraient pour
+l'essentiel, et le résultat serait proche de M2. Selon la Cour des comptes, la compensation par la
+TVA a même été défavorable à la sécurité sociale, de 18~Md€ cumulés entre 2019 et 2024 (cité par
+Bach et al., 2026). Ces règles répondent à une question de
+gouvernance (quelle administration est en déficit avec les recettes que la loi lui donne ?), pas à
+celle de l'usage de la dette.
 
 \section{Ce qu'en disent les travaux existants}\label{sec:litterature}
 
-\paragraph{Personne n'attribue proprement le stock de dette à des fonctions.} La recherche menée
-pour cette note (institutions françaises, Cour des comptes, Insee, France Stratégie, OFCE, Fipeco,
-travaux américains, britanniques et allemands, littérature académique sur la dynamique de la dette)
-n'a trouvé aucune attribution documentée du stock de dette à des fonctions de dépense. Les travaux
-sérieux font l'une de trois choses : décomposer la dynamique de la dette en solde primaire, effet
-des taux et ajustements, jamais par fonction ; décomposer les variations de dépense par poste ; ou
-chiffrer des contrefactuels de décisions identifiées. Les chiffres du type « X~\% de la dette »
-viennent d'essayistes ou de hauts fonctionnaires s'exprimant à titre personnel.
+La recherche menée pour cette note (Cour des comptes, Insee, France Stratégie, OFCE, Fipeco,
+travaux américains, britanniques et allemands, littérature sur la dynamique de la dette) n'a trouvé
+aucune attribution documentée du stock de dette à des fonctions. Le rapport Pébereau (2005) la
+jugeait impossible : « il n'existe qu'un seul déficit […], sans que l'on sache identifier précisément
+les dépenses qui ont été financées par de la dette ». Le rapport n'admettait que deux exceptions, la
+sécurité sociale et l'assurance chômage, dont la dette est identifiée, et ne ventilait la dette que
+selon sa contrepartie : en moyenne, 40~\% des déficits de 1978 à 2002 n'avaient financé aucun actif.
+Notre prorata respecte le principe d'un seul déficit, mais c'est une clé de répartition, pas une
+identification.
 
-\paragraph{Le rapport Pébereau (2005)} pose le principe dont part cette note, mais en tire la
-conclusion inverse : « Il est impossible d'affecter l'augmentation de la dette à certaines
-catégories de dépenses publiques. En effet, dans les comptes des administrations publiques, il
-n'existe qu'un seul déficit […], sans que l'on sache identifier précisément les dépenses qui ont été
-financées par de la dette. » Les seules exceptions sont la sécurité sociale et l'assurance chômage,
-dont la dette est identifiée. Le rapport ne ventile la dette que selon sa contrepartie : en moyenne,
-40~\% des déficits de 1978 à 2002 n'ont financé aucun actif. Notre prorata respecte le principe
-de Pébereau (un seul déficit), mais il faut le présenter pour ce qu'il est : une clé de
-répartition, pas l'identification des dépenses financées par la dette.
+Les travaux établis décomposent des variations (Fipeco ; Auerbach, 1994 ; Office for Budget
+Responsibility, 2024) ou chiffrent des contrefactuels, qui donnent des résultats opposés selon le
+poste qu'on fait varier. Champsaur et Cotis (2010) raisonnent côté recettes (environ 20 points de
+dette en moins sans les baisses de prélèvements depuis 1999). Sylvain Catherine raisonne côté
+dépenses : avec la dépense de retraite allemande depuis 1995, la dette serait de 57,5~\% du PIB en
+2025 au lieu de 115,7~\% (calcul publié sur X, connu par sa reprise dans \emph{JeChange}). Les deux
+calculs sont corrects, mais ces effets ne s'additionnent pas à 100~\%. Aux États-Unis, les mêmes
+projections du Congressional Budget Office conduisent Riedl (2020) à imputer 97~\% des déficits
+futurs aux retraites et à Medicare, et Kogan (2023) à imputer 57~\% de la hausse de la dette aux
+baisses d'impôts : le résultat dépend de la référence.
 
-\paragraph{Les décompositions de variations} sont la pratique établie, et elles appuient la
-section~\ref{sec:derive}. Fipeco (Ecalle, 2023) attribue la hausse de la dépense primaire depuis
-1995 aux retraites et à la santé. Le cadre académique est celui d'Auerbach (1994). Pour analyser
-le déficit américain, il tient les autres dépenses et les recettes constantes en part du PIB, si
-bien que la hausse du déficit primaire s'explique exactement par la santé et les retraites. L'Office
-for Budget Responsibility britannique (2024) procède de même en projection. Ces travaux attribuent
-des hausses, pas un stock, et précisent la référence.
-
-\paragraph{Les contrefactuels} donnent des résultats opposés selon le poste que l'on fait varier.
-Le rapport Champsaur-Cotis (2010), demandé par le Président de la République au président de
-l'Autorité de la statistique publique et au directeur général de l'Insee, raisonne côté recettes :
-sans les baisses de prélèvements depuis 1999, la dette aurait été inférieure d'environ 20 points de
-PIB. Sylvain Catherine raisonne côté dépenses. Selon la reprise de son calcul par \emph{JeChange}
-(août 2026 ; ses fils sur X n'ont pas pu être lus directement), avec la dépense de retraite
-allemande depuis 1995, la dette serait de 57,5~\% du PIB en 2025 au lieu de 115,7~\%. Les deux
-calculs sont corrects et ne se contredisent pas : chacun mesure ce qu'aurait changé un poste, toutes
-choses égales par ailleurs, et ces effets ne s'additionnent pas à 100~\%. Aux États-Unis, les mêmes
-projections du Congressional Budget Office donnent lieu à deux lectures opposées. Riedl (Manhattan
-Institute, 2020) impute 97~\% des déficits projetés sur trente ans aux retraites publiques et à
-Medicare, nets de leurs recettes dédiées. Kogan (Center for American Progress, 2023) impute 57~\%
-de la hausse du ratio de dette depuis 2001 aux baisses d'impôts, au motif que la hausse des
-dépenses de retraite et de santé figurait déjà dans les projections. L'exemple montre à quel
-point le résultat dépend de la référence.
-
-\paragraph{Les chiffrages « par résidu ».} Jean-Pascal Beaufret (\emph{Commentaire}, 2023) estime
-que les retraites « contribuent à plus de la moitié des déficits publics ». Il compte comme déficit
-toute la dépense de pensions non couverte par des cotisations au taux de droit commun ou des
-impôts affectés : 71~Md€ en 2021, dont 45~Md€ de surcotisations des employeurs publics aux
-régimes de fonctionnaires. Le Haut-Commissariat au Plan (2022) trouve environ 30~Md€ avec une
-méthode voisine. Ces calculs montrent utilement que l'équilibre affiché des régimes de
-fonctionnaires repose sur des taux de cotisation employeur de 74~\% (civils de l'État) ou 126~\%
-(militaires). Ils refusent en revanche la fongibilité : les recettes non affectées sont réservées
-en priorité aux autres dépenses. Appliquée à la défense, qui n'a aucune recette affectée, la même
-règle lui attribuerait toute sa dépense. Le Conseil d'orientation des retraites et le Comité de
-suivi des retraites (séance du 21~septembre 2023) répondent qu'un solde n'est univoque qu'entre des
+Jean-Pascal Beaufret (2023) estime que les retraites « contribuent à plus de la moitié des déficits
+publics ». Il compte comme déficit toute la dépense de pensions non couverte par des cotisations au
+taux de droit commun ou des impôts affectés (71~Md€ en 2021, dont 45~Md€ de surcotisations des
+employeurs publics) ; le Haut-Commissariat au Plan (2022) trouvait environ 30~Md€ avec une méthode
+voisine. Le calcul montre que l'équilibre des régimes de fonctionnaires repose sur des
+taux de cotisation employeur de 74~\% (civils de l'État) ou 126~\% (militaires), mais il refuse la
+fongibilité : appliqué à la défense, qui n'a aucune recette affectée, il lui attribuerait toute sa
+dépense. Le Conseil d'orientation des retraites répond qu'un solde n'est univoque qu'entre des
 « frontières étanches », et qu'il y a sinon « autant de conventions […] que d'hypothèses ». Sylvain
-Catherine défend une position proche de Beaufret. En avril 2026, il a écrit que les retraites
-étaient « la cause […] de la moitié de l'endettement public », ce qu'Henri Sterdyniak a contesté.
-
-\paragraph{Le chiffre de Dufourcq.} Nicolas Dufourcq (\emph{La dette sociale de la France}, 2025)
-écrit que « 2~000 milliards au minimum sont des prestations sociales versées depuis 40 ans à
-crédit ». En entretien, il avance que le social fait « 58~\% des dépenses publiques » et
-« 60~\% de la dette ». Sa méthode n'est exposée dans aucune source accessible, et ses propres
-chiffres ne concordent pas : 888~Md€ de prestations sur plus de 1~600~Md€ de dépense, soit environ
-52--55~\%. Notre calcul, explicite, donne 1~960~Md€ et 57~\%.
-
-\paragraph{Les sous-secteurs.} L'Institut des politiques publiques (Bach, Bozio, De~Brouwer et
-Eryzhenskiy, 2026) et François Ecalle (Fipeco) jugent que les soldes par administration n'ont
-guère de sens, puisque ni la sécurité sociale ni les collectivités ne maîtrisent leurs recettes.
-Seule compte, selon eux, la dette de l'ensemble. Cette position rejoint celle de la note.
+Catherine défend une position proche : en avril 2026, il a écrit que les retraites étaient « la
+cause […] de la moitié de l'endettement public », ce qu'Henri Sterdyniak a contesté. Nicolas Dufourcq (2025) avance que « 2~000 milliards au minimum » de la
+dette sont des prestations sociales versées à crédit, sans exposer sa méthode, et ses propres chiffres
+(888~Md€ de prestations sur plus de 1~600~Md€ de dépense) ne concordent pas avec les « 60~\% de la
+dette » qu'il avance en entretien ; notre calcul explicite donne 1~960~Md€. Enfin, l'Institut des politiques publiques (Bach et al., 2026) et
+François Ecalle (Fipeco) jugent que les soldes par administration n'ont guère de sens : attribuer un
+solde à une administration suppose qu'elle maîtrise ses dépenses et ses recettes, ce qui n'est le
+cas ni de la sécurité sociale ni des collectivités. Seule compte la dette de l'ensemble, ce qui
+rejoint le point de départ de cette note.
 
 \section{Limites}\label{sec:limites}
 
-\begin{itemize}
-\item \textbf{Les données de dépense par fonction.} Elles ne commencent qu'en 1995, dans toutes
-  les bases de l'Insee (2010, 2014, 2020) comme chez Eurostat, et s'arrêtent en 2024 ; 2025 reprend
-  la structure de 2024. Avant 1995, on n'a que des séries par nature (base 2014).
-\item \textbf{Le stock de 1995.} Il est réparti selon la dépense de 1995, faute de séries par
-  fonction antérieures dans la même base. Comme la structure de la dépense bouge lentement,
-  l'erreur est probablement faible.
-\item \textbf{Les cotisations des employeurs publics.} Pour les fonctionnaires de l'État, la
-  comptabilité nationale enregistre deux fois la même charge. Les pensions figurent dans la
-  vieillesse, et une cotisation employeur fictive figure dans la rémunération, donc dans la
-  fonction de l'employeur. Corriger cette convention retirerait 28,9~Md€ de dépense en 2023, surtout
-  en enseignement, défense et ordre public (CAE, \emph{Focus} n°~121, 2025). Cela relèverait
-  d'environ un point la part sociale.
-\item \textbf{La dette brute.} La dette est mesurée brute : les réserves des régimes
-  complémentaires et du fonds de réserve des retraites ne sont pas déduites.
-\end{itemize}
+La dépense par fonction n'existe qu'à partir de 1995, chez l'Insee comme chez Eurostat, et s'arrête
+en 2024 (2025 reprend la structure de 2024) ; le stock de 1995 est réparti selon la dépense de 1995.
+Pour les fonctionnaires de l'État, la comptabilité nationale compte deux fois la charge des
+retraites, en pensions (vieillesse) et en cotisation employeur fictive (fonction de l'employeur) ;
+corriger cette convention retirerait 28,9~Md€ de dépense en 2023, surtout en enseignement, défense
+et ordre public (CAE, 2025), et relèverait d'environ un point la part sociale. La dette est brute :
+les réserves des régimes complémentaires ne sont pas déduites.
 
 \appendix
 \section{Méthode}\label{sec:annexe}
 
-\paragraph{Données.} Eurostat :
-\begin{itemize}
-\item \texttt{gov\_10a\_exp} : dépense des administrations publiques par fonction COFOG (premier
-  niveau et vieillesse GF1002), 1995-2024 ;
-\item \texttt{gov\_10a\_main} : dépenses, recettes, solde, intérêts, transferts courants (D7) et en
-  capital (D9) versés à chaque autre sous-secteur ;
-\item \texttt{gov\_10a\_taxag} : impôts reçus par sous-secteur ;
-\item \texttt{nama\_10\_gdp} : PIB.
-\end{itemize}
-Insee : dette trimestrielle de Maastricht par sous-secteur, en contributions consolidées (État,
-ODAC, APUL, ASSO), valeurs de fin d'année. Insee, comptes nationaux annuels en base 2014 (séries arrêtées, banque de données
-macroéconomiques) : dette de Maastricht des administrations publiques (depuis 1978), déficit
-(depuis 1949), intérêts versés, prestations sociales en espèces et en nature de produits marchands,
-PIB. Ces séries servent jusqu'en 1995 ; à partir de 1996, chaque variation est calculée en base
-2020 (\texttt{extract\_insee\_long.py}, \texttt{dynamique\_longue.py}).
+\paragraph{Données.} Eurostat : dépense par fonction COFOG (\texttt{gov\_10a\_exp}, 1995-2024),
+comptes des administrations par sous-secteur, dont les transferts versés à chaque autre sous-secteur
+(\texttt{gov\_10a\_main}), impôts reçus (\texttt{gov\_10a\_taxag}), PIB. Insee : dette de
+Maastricht par sous-secteur (contributions consolidées, base 2020) ; comptes nationaux en base 2014
+(séries arrêtées) pour la dette (depuis 1978), le déficit, les intérêts, les prestations sociales
+et le PIB (depuis 1949). Chaque variation est calculée dans une seule base : base 2014 jusqu'en 1995,
+base 2020 ensuite ; le changement de base relève la dette de 1995 de 1,4 point.
 
-\paragraph{Dynamique de la dette.} Soit $D_t$ la dette des administrations publiques et $I_t$
-les intérêts versés, et $r_t=I_t/D_{t-1}$ le taux apparent. La hausse de la dette hors intérêts,
-$\Delta D_t-I_t$, est la somme du déficit primaire et des ajustements stock-flux.
+\paragraph{Dérive.} En notant $x_{jt}$ la dépense primaire de la fonction $j$ et $\tau_t$ les
+recettes, en \% du PIB, et $R$ l'année de référence, $pd_t=pd_R+\sum_j(x_{jt}-x_{jR})-(\tau_t-\tau_R)$.
 
-\paragraph{Décomposition standard et dérive (\texttt{dynamique.py}).} Formule de la
-section~\ref{sec:dynamique}, avec $i_t$ égal aux intérêts versés rapportés à la dette de fin
-d'année précédente, et les ajustements stock-flux calculés en résidu. Dérive : en notant $x_{jt}$ la
-dépense primaire de la fonction $j$ et $\tau_t$ les recettes, en \% du PIB, et $R$ l'année de
-référence, $pd_t=pd_R+\sum_j(x_{jt}-x_{jR})-(\tau_t-\tau_R)$, cumulé sur 1996-2025.
+\paragraph{Méthode fongible (M4, M1).} Soit $D_t$ la dette, $I_t$ les intérêts, $r_t=I_t/D_{t-1}$
+et $s_{jt}$ la part de la fonction $j$ dans la dépense hors intérêts. La dette attribuée suit
+$D_{jt}=(1+r_t)D_{j,t-1}+s_{jt}(\Delta D_t-I_t)$, avec $D_{j,1995}=s_{j,1995}D_{1995}$ ; la somme
+des $D_{jt}$ est $D_t$. M1 remplace la fonction par le sous-secteur, en retirant de sa dépense les
+transferts versés aux autres.
 
-\paragraph{Méthode fongible (M4, \texttt{fongible.py}).} Soit $s_{jt}$ la part de la fonction $j$
-dans la dépense hors intérêts de l'année $t$. La dette attribuée suit
-$D_{jt}=(1+r_t)D_{j,t-1}+s_{jt}(\Delta D_t-I_t)$, avec $D_{j,1995}=s_{j,1995}D_{1995}$. La
-somme des $D_{jt}$ est égale à $D_t$. La version par administration (M1) remplace la dépense
-par fonction par la dépense hors intérêts de chaque sous-secteur, nette des transferts versés aux
-autres sous-secteurs.
-
-\paragraph{Règles non fongibles (M0, M2, M3, M3+, \texttt{attribution.py}).} Elles répartissent
-le déficit primaire ; le stock de 1995 et les ajustements stock-flux restent à l'émetteur, et
-tous les blocs sont capitalisés au taux $r_t$.
-\begin{itemize}
-\item \textbf{M0} attribue à chaque sous-secteur son propre déficit primaire.
-\item \textbf{M2.} Soit $d_j$ le déficit primaire du sous-secteur $j$, $E_j$ ses emplois hors
-  intérêts, $\tau_{ij}$ la part de ses emplois que $i$ transfère à $j$, et
-  $\sigma_j=1-\sum_k\tau_{jk}$ la part qu'il dépense lui-même. L'emprunt dont dispose $j$, le sien
-  et celui qu'il reçoit par transferts, vérifie $e_j=d_j+\sum_i e_i\tau_{ij}$ ; on lui attribue
-  $\sigma_je_j$. La somme est égale au déficit total.
-\item \textbf{M3 et M3+.} L'impôt affecté $g$ est retiré des recettes du bénéficiaire et ajouté
-  à celles de l'État, qui le reverse comme un transfert.
-\end{itemize}
+\paragraph{Règles non fongibles (M0, M2, M3, M3+).} M0 attribue à chaque sous-secteur son déficit
+primaire. Dans M2, soit $d_j$ le déficit primaire du sous-secteur $j$, $\tau_{ij}$ la part de ses
+emplois que $i$ transfère à $j$ et $\sigma_j=1-\sum_k\tau_{jk}$ ; l'emprunt dont dispose $j$
+vérifie $e_j=d_j+\sum_i e_i\tau_{ij}$, et on lui attribue $\sigma_je_j$. Dans M3 et M3+, l'impôt
+affecté est retiré des recettes du bénéficiaire et versé par l'État comme un transfert. Le stock de
+1995 et les ajustements stock-flux restent à l'émetteur.
 
 \section*{Références}
 \begin{small}\setlength{\parskip}{3pt}\raggedright
@@ -543,7 +331,7 @@ Beaufret, J.-P. (2023), « Retraites obligatoires et déficits publics. Pour la 
 \emph{Commentaire}, n°~182, p.~245-254.
 
 Catherine, S. (2026), calcul publié sur X, repris par F. Tostivint, \emph{JeChange}, 18~août
-2026, jechange.fr/credit/news/dette-france-58-pib-retraites-allemandes (source secondaire).
+2026 (source secondaire).
 
 Champsaur, P. et Cotis, J.-P. (2010), \emph{Rapport sur la situation des finances publiques},
 avril 2010, La Documentation française.
@@ -555,25 +343,13 @@ Conseil d'analyse économique (2025), \emph{Focus} n°~121.
 
 Conseil d'orientation des retraites (2023), séance du 21 septembre 2023, documents de travail.
 
-Cour des comptes (2025), \emph{Rapport sur l'application des lois de financement de la sécurité
-sociale}, mai 2025 (cité par Bach et al., 2026).
-
 Dufourcq, N. (2025), \emph{La dette sociale de la France 1974-2024}, Odile Jacob (non lu ; cité
-par Ph. Lemoine, \emph{La Grande Conversation}, décembre 2025, et par la presse).
-
-Ecalle, F. (2019), note Fipeco sur le solde de la sécurité sociale (citation relevée par
-recherche, non lue en entier).
+par la presse).
 
 Ecalle, F. (2023), « Cinquante ans de dépenses publiques en France (1972-2022) », Fipeco,
 2~novembre 2023.
 
 Eurostat (2013), \emph{Système européen des comptes, SEC 2010}, §1.78.
-
-Fipeco (2026), « Le solde et la dette des administrations de sécurité sociale », fiche de
-l'encyclopédie, mai 2026.
-
-Haut-Commissariat au Plan (2022), \emph{Retraites : une base objective pour le débat civique},
-décembre 2022 (connu par le COR et Beaufret).
 
 Kogan, B. (2023), « Tax Cuts Are Primarily Responsible for the Increasing Debt Ratio », Center
 for American Progress, mars 2023.
