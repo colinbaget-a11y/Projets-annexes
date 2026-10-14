@@ -1,0 +1,62 @@
+indicateur,domaine,objectif,libelle_bulletin,polarite,annee_bulletin,source,definition,annees_disponibles,n_annees,n_pays,dans_la_base,remarque
+pisa_maths,education,O1 Maîtrise des savoirs fondamentaux,PISA mathématiques,+,2022,,,,0,0,NON,
+pisa_lecture,education,O1 Maîtrise des savoirs fondamentaux,PISA lecture,+,2022,,,,0,0,NON,
+pisa_sciences,education,O1 Maîtrise des savoirs fondamentaux,PISA sciences,+,2022,,,,0,0,NON,
+timss4_maths,education,O1 Maîtrise des savoirs fondamentaux,TIMSS mathématiques (CM1),+,2019 et 2023,,,,0,0,NON,
+timss4_sciences,education,O1 Maîtrise des savoirs fondamentaux,TIMSS sciences (CM1),+,2019 et 2023,,,,0,0,NON,
+pisa_faibles_maths,education,O1 Maîtrise des savoirs fondamentaux,Part d'élèves peu performants,-,2022,,,,0,0,NON,"La note ne précise pas le domaine : la base donne maths, lecture et sciences (pisa_faibles_*)"
+pisa_forts_maths,education,O2 Excellence et dynamisme académique,Top performers en mathématiques,+,2022,,,,0,0,NON,
+pisa_forts_lecture,education,O2 Excellence et dynamisme académique,Top performers en lecture,+,2022,,,,0,0,NON,
+pisa_forts_sciences,education,O2 Excellence et dynamisme académique,Top performers en sciences,+,2022,,,,0,0,NON,
+pisa_pensee_creative,education,O2 Excellence et dynamisme académique,PISA pensée créative,+,2022,,,,0,0,NON,Évaluée seulement en 2022
+edu_chercheurs,education,O2 Excellence et dynamisme académique,Nombre de chercheurs (% population active),+,2019-2024,Eurostat rd_p_perslf,"Chercheurs en équivalent temps plein, % de la population active",1993-2024,32,27,oui,
+edu_langues_3plus,education,O2 Excellence et dynamisme académique,Part de la population parlant 3 langues étrangères ou plus,+,2022,Eurostat edat_aes_l22,"Adultes de 25-64 ans déclarant connaître 3 langues étrangères ou plus, % (enquête sur l'éducation des adultes)",2007-2022,4,27,oui,"Enquête sur l'éducation des adultes (2007, 2011, 2016, 2022), 25-64 ans"
+timss4_avance_maths,education,O2 Excellence et dynamisme académique,"Part d'élèves au niveau avancé, TIMSS mathématiques",+,2019 et 2023,,,,0,0,NON,
+timss4_avance_sciences,education,O2 Excellence et dynamisme académique,"Part d'élèves au niveau avancé, TIMSS sciences",+,2019 et 2023,,,,0,0,NON,
+pisa_resilients,education,O3 Équité et climat scolaire,Part d'élèves résilients,+,2022,,,,0,0,NON,
+pisa_ecart_escs_maths,education,O3 Équité et climat scolaire,Écart favorisés / défavorisés,-,2022,,,,0,0,NON,Écart de score en maths entre quartiles ESCS extrêmes
+pisa_securite,education,O3 Équité et climat scolaire,Sentiment de sécurité (PISA),+,2022,,,,0,0,NON,Indice FEELSAFE
+pisa_appartenance,education,O3 Équité et climat scolaire,Sentiment d'appartenance (PISA),+,2022,,,,0,0,NON,Indice BELONG
+pisa_harcelement,education,O3 Équité et climat scolaire,Exposition au harcèlement scolaire (PISA),-,2022,,,,0,0,NON,Indice BULLIED
+pisa_d9d1_maths,education,O3 Équité et climat scolaire,Dispersion des scores en mathématiques (D9-D1),-,2022,,,,0,0,NON,
+pisa_d9d1_lecture,education,O3 Équité et climat scolaire,Dispersion en lecture (D9-D1),-,2022,,,,0,0,NON,
+pisa_d9d1_sciences,education,O3 Équité et climat scolaire,Dispersion en sciences (D9-D1),-,2022,,,,0,0,NON,
+edu_chomage_15_24,education,O4 Insertion dans la vie active,Chômage des 15-24 ans,-,2019-2024,Eurostat une_rt_a,"Taux de chômage des 15-24 ans, % de la population active",2003-2025,23,27,oui,
+edu_neet_15_29,education,O4 Insertion dans la vie active,Taux de NEET,-,2019-2024,Eurostat edat_lfse_20,"Jeunes de 15-29 ans ni en emploi, ni en études, ni en formation, %",2000-2025,26,27,oui,Tranche d'âge 15-29 ans retenue (indicateur phare UE)
+edu_decrochage_18_24,education,O4 Insertion dans la vie active,Taux de décrochage scolaire précoce (18-24 ans),-,2019-2024,Eurostat edat_lfse_14,"Sortants précoces de l'éducation et de la formation, 18-24 ans, %",1992-2025,34,27,oui,
+edu_emploi_relatif,education,O4 Insertion dans la vie active,Taux d'emploi des diplômés (relatif),+,2019-2024,calcul (Eurostat),Rapport des taux d'emploi des 25-64 ans diplômés du supérieur et peu diplômés (CITE 5-8 / 0-2),1992-2025,34,27,oui,"Définition supposée : rapport des taux d'emploi 25-64 ans, supérieur / CITE 0-2 ; à confirmer"
+edu_emploi_diplomes_recents,education,O4 Insertion dans la vie active,Taux d'emploi des diplômés récents,+,2019-2024,Eurostat edat_lfse_24,"Taux d'emploi des 20-34 ans diplômés depuis 1 à 3 ans (CITE 3-8), hors études et formation, %",2000-2025,26,27,oui,20-34 ans diplômés depuis 1 à 3 ans (CITE 3-8)
+sante_ev_naissance,sante,O1 Résultats finaux de santé,Espérance de vie à la naissance,+,2019-2024,Eurostat demo_mlexpec,"Espérance de vie à la naissance, années",1960-2024,65,27,oui,
+sante_ev_65,sante,O1 Résultats finaux de santé,Espérance de vie à 65 ans,+,2019-2024,Eurostat demo_mlexpec,"Espérance de vie à 65 ans, années",1960-2024,65,27,oui,
+sante_evbs_naissance,sante,O1 Résultats finaux de santé,Espérance de vie en bonne santé à la naissance,+,2019-2024,Eurostat hlth_hlye,Espérance de vie en bonne santé (années de vie en bonne santé) à la naissance,2004-2024,21,27,oui,
+sante_evbs_65,sante,O1 Résultats finaux de santé,Espérance de vie en bonne santé à 65 ans,+,2019-2024,Eurostat hlth_hlye,Espérance de vie en bonne santé à 65 ans,2004-2024,21,27,oui,
+sante_depression,sante,O1 Résultats finaux de santé,Prévalence de la dépression chronique,-,2019,Eurostat hlth_ehis_cd1e,"Personnes déclarant une dépression chronique, % (EHIS, 15 ans et plus)",2014-2019,2,27,oui,EHIS 2014 et 2019
+sante_surmortalite_12m,sante,O1 Résultats finaux de santé,Surmortalité sur 12 mois,-,2019-2024,,,,0,0,NON,Moyenne annuelle de la surmortalité mensuelle Eurostat (référence 2016-2019)
+sante_mort_traitable,sante,O2 Qualité et efficience clinique,Mortalité traitable,-,2019-2024,Eurostat hlth_cd_apr,"Mortalité traitable, taux standardisé pour 100 000 habitants",2011-2023,13,27,oui,
+sante_ima30,sante,O2 Qualité et efficience clinique,Mortalité à 30 jours post-infarctus,-,2019-2024,,,,0,0,NON,"OCDE, indicateurs de qualité"
+sante_scanners,sante,O2 Qualité et efficience clinique,Plateau technique : scanners (CT),+,2019-2024,Eurostat hlth_rs_medim,Scanners (tomodensitomètres) pour 100 000 habitants (hôpitaux et soins ambulatoires),1980-2025,46,27,oui,Bloc imagerie : 1/18 de l'objectif chacun
+sante_irm,sante,O2 Qualité et efficience clinique,Plateau technique : IRM,+,2019-2024,Eurostat hlth_rs_medim,Appareils d'IRM pour 100 000 habitants (hôpitaux et soins ambulatoires),1984-2025,42,27,oui,Bloc imagerie
+sante_tep,sante,O2 Qualité et efficience clinique,Plateau technique : TEP (PET),+,2019-2024,Eurostat hlth_rs_medim,Caméras TEP pour 100 000 habitants (hôpitaux et soins ambulatoires),1998-2025,28,26,oui,Bloc imagerie
+sante_gamma,sante,O2 Qualité et efficience clinique,Plateau technique : gamma-caméras,+,2019-2024,Eurostat hlth_rs_medim,Gamma-caméras pour 100 000 habitants (hôpitaux et soins ambulatoires),1996-2025,30,26,oui,Bloc imagerie
+sante_mammographes,sante,O2 Qualité et efficience clinique,Plateau technique : mammographes,+,2019-2024,Eurostat hlth_rs_medim,Mammographes pour 100 000 habitants (hôpitaux et soins ambulatoires),1990-2025,36,25,oui,Bloc imagerie
+sante_radiotherapie,sante,O2 Qualité et efficience clinique,Plateau technique : radiothérapie,+,2019-2024,Eurostat hlth_rs_medim,Équipements de radiothérapie pour 100 000 habitants (hôpitaux et soins ambulatoires),1980-2025,46,25,oui,Bloc imagerie
+sante_besoins_non_satisfaits,sante,O3 Accès effectif et protection financière,Besoins de soins non satisfaits (total),-,2019-2024,Eurostat hlth_silc_08,"Besoins d'examen médical non satisfaits (trop cher, trop loin ou liste d'attente), % des 16 ans et plus",2008-2025,18,27,oui,
+sante_besoins_non_satisfaits_q1,sante,O3 Accès effectif et protection financière,Besoins non satisfaits (quintile le plus pauvre),-,2019-2024,Eurostat hlth_silc_08,"Idem, premier quintile de revenu",2008-2025,18,27,oui,
+sante_depenses_catastrophiques,sante,O3 Accès effectif et protection financière,Ménages à dépenses de santé catastrophiques,-,2019-2024,,,,0,0,NON,OMS
+sante_reste_a_charge,sante,O3 Accès effectif et protection financière,Part du reste à charge,-,2019-2024,Eurostat hlth_sha11_hf,"Paiements directs des ménages, % de la dépense courante de santé",1992-2025,34,27,oui,"La note donne 9,3 % pour la France et 14,9 % en moyenne UE ; Eurostat (HF3) donne 10,2-10,4 % : source ou définition différente (OCDE ou OMS)"
+sante_attente,sante,O3 Accès effectif et protection financière,Temps d'attente moyen,-,2019-2024,,,,0,0,NON,Définition non précisée dans la note
+sante_densite_medicale,sante,O3 Accès effectif et protection financière,Densité médicale,+,2019-2024,Eurostat hlth_rs_prs2,Médecins en exercice pour 100 000 habitants,1960-2025,66,27,oui,Médecins en exercice
+sante_inegalite_densite,sante,O3 Accès effectif et protection financière,Inégalité territoriale de densité médicale,-,2019-2024,,,,0,0,NON,Dispersion entre régions NUTS 2
+sante_mort_evitable_prev,sante,"O4 Prévention, innovation et résilience",Mortalité évitable par la prévention,-,2019-2024,Eurostat hlth_cd_apr,"Mortalité évitable par la prévention, taux standardisé pour 100 000 habitants",2011-2023,13,27,oui,
+sante_vaccin_grippe_65,sante,"O4 Prévention, innovation et résilience",Vaccination antigrippale des 65 ans et plus,+,2019-2024,Eurostat hlth_ps_immu,"Vaccination contre la grippe des 65 ans et plus, %",2000-2025,26,27,oui,
+sante_antibiotiques,sante,"O4 Prévention, innovation et résilience",Consommation d'antibiotiques (J01),-,2019-2024,,,,0,0,NON,ECDC
+sante_rd_pharma_ratio,sante,"O4 Prévention, innovation et résilience",R&D pharmaceutique / dépense pharmaceutique,+,2019-2024,,,,0,0,NON,
+sante_prod_pharma_croissance_10a,sante,"O4 Prévention, innovation et résilience",Croissance de la production pharmaceutique sur 10 ans,+,2019-2024,calcul (Eurostat),"Croissance de l'indice de production pharmaceutique (NACE C21) sur 10 ans, %",1990-2025,36,19,oui,
+edu_dep_eleve_cite1_2_pub_eur,education,dépense,"Dépense publique par élève, primaire et premier cycle du secondaire (EUR)",,moyenne 2022-2024,Eurostat educ_uoe_fini04,"Dépense annuelle par élève (ETP) des établissements publics, primaire et premier cycle du secondaire, EUR (UOE)",2012-2023,12,27,oui,Retrouvée : moyenne 2022-2023 pour la France = 9 362 EUR (la note : 9 360) ; 2024 pas encore publié
+sante_dep_hab_spa,sante,dépense,"Dépense courante de santé par habitant, publique et privée",,2022,Eurostat hlth_sha11_hf,"Dépense courante de santé par habitant, tous financeurs, SPA",1995-2024,30,27,oui,"La note donne 4 250 EUR pour la France : la série en SPA vaut 4 164 (2022) et 4 319 (2023), la série en EUR 4 548 ; correspondance probable : SPA, moyenne 2022-2023"
+edu_cofog_hors_superieur_pib,education,encadré,"Dépense publique d'éducation primaire et secondaire, % du PIB",,2022,calcul (Eurostat),"Dépense publique d'éducation hors enseignement supérieur (GF09 moins GF0904), % du PIB",1995-2025,31,27,oui,"Retrouvée : FR 4,5 ; BE 5,3 ; EE 4,8 ; SI 4,6 (COFOG GF09 moins GF0904)"
+edu_part_annexes,education,encadré,"Services annexes, % de la dépense d'éducation",,2024,calcul (Eurostat),"Services annexes (GF0906 : transport, restauration, internat), % de la dépense publique d'éducation",1995-2025,31,27,oui,"13,5 % (note : près de 14 %) ; écart dû aux révisions COFOG"
+edu_part_preprimaire_primaire,education,encadré,"Pré-primaire et primaire, % de la dépense d'éducation",,2024,calcul (Eurostat),"Pré-primaire et primaire (GF0901), % de la dépense publique d'éducation",1995-2025,31,27,oui,"28,4 % en 2024, 27,6-27,8 % en 2022-2023 (note : 27,5 %)"
+edu_part_remunerations,education,encadré,"Rémunérations (D1), % de la dépense d'éducation",,2024,calcul (Eurostat),"Rémunération des salariés (D1), % de la dépense publique d'éducation",1990-2025,36,27,oui,"69,8 % (note : 71 %) ; écart dû aux révisions COFOG"
+pisa_effectif_15ans,education,pondération,Population de 15 ans représentée dans PISA,,2022,,,,0,0,NON,Pondération « effectifs scolarisés » (définition exacte non précisée dans la note)
+pop_totale,sante,pondération,Population au 1er janvier,,2022,Eurostat demo_pjan,Population au 1er janvier,1960-2025,66,27,oui,
