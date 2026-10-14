@@ -19,9 +19,10 @@ Chaîne de calcul (annexe méthodologique du bulletin)
   7. Sensibilité : 20 000 tirages de poids Dirichlet(1,1,1,1), sans poids supérieur à 50 %.
 
 Dépenses : éducation, dépense publique par élève CITE 1-2 (UOE), moyenne 2022-2024 (2022-2023
-publiées ; à défaut, dernière valeur disponible, comme la Croatie en 2021) ; santé, dépense courante par habitant en euros à parité de pouvoir d'achat, 2022 (OCDE, Health
-Statistics, source indiquée par l'auteur). Sur la figure 3 de la note, quelques pays (Luxembourg,
-Irlande) ne correspondent pas à cette série (voir README).
+publiées ; à défaut, dernière valeur disponible, comme la Croatie en 2021) ; santé, dépense courante de santé par habitant des régimes publics et obligatoires (HF1, convention
+harmonisée OCDE-Eurostat-OMS qui range l'assurance privée obligatoire avec le public), euros, 2022.
+Sur la figure 3 de la note, quelques pays (Luxembourg, Irlande) ne correspondent pas à cette série
+(voir README).
 """
 import sys
 from pathlib import Path
@@ -134,7 +135,7 @@ eleves = (W.loc[("edu_eleves_cite1", 2022)] + W.loc[("edu_eleves_cite2", 2022)])
 pop = W.loc[("pop_totale", 2022)]
 _d = serie("edu_dep_eleve_cite1_2_pub_eur")
 dep_edu = _d.loc[2022:2024].mean().fillna(_d.ffill().iloc[-1]).reindex(PE)   # à défaut : dernière valeur
-dep_san = serie("sante_dep_hab_ocde_ppa").loc[2022].reindex(PS)
+dep_san = serie("sante_dep_pub_hab_eur").loc[2022].reindex(PS)
 
 res = {}
 for dom, pays, poids, dep in (("education", PE, eleves.reindex(PE), dep_edu),
@@ -184,7 +185,7 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.spines
 
 
 # position des étiquettes qui se chevauchent (décalage en points, par domaine)
-DECALAGES = {"sante": {"HU": (-9, -3), "EE": (7, 0), "LU": (6, -5), "ES": (-24, 0), "AT": (9, 6)}}
+DECALAGES = {"sante": {"HU": (-9, -3), "EE": (7, 0), "LU": (6, -5), "ES": (-24, 0), "FI": (0, -16), "NL": (0, -20)}}
 
 
 def nuage(ax, r, xlabel, taille, titre_ax=None, halo=False, decalages=None):
@@ -252,7 +253,7 @@ def decomposition(r, nom, libelles, legende_ref):
 # figure 1 et figure 3 : nuages
 for dom, nom, xl in (("education", "figure1_education.png",
                       "Dépense publique par élève, primaire + 1er cycle secondaire (€, moy. 2022-2024)"),
-                     ("sante", "figure3_sante.png", "Dépense de santé par habitant (€ à PPA, 2022, OCDE)")):
+                     ("sante", "figure3_sante.png", "Dépense publique et obligatoire de santé par habitant (€, 2022)")):
     fig, ax = plt.subplots(figsize=(10, 6))
     nuage(ax, res[dom], xl, res[dom]["poids"], decalages=DECALAGES.get(dom))
     ax.legend(loc="lower right", frameon=False)

@@ -50,7 +50,7 @@ et, pour les sources complexes, des notes `<nom>_notes.md`.
 | Dépense par élève, France, environ 9 360 EUR (moyenne 2022-2024) | UOE, établissements publics, CITE 1-2 : 9 061 (2022) et 9 663 (2023), moyenne 9 362 ; 2024 pas encore publié |
 | Primaire et secondaire, en % du PIB : FR 4,5, BE 5,3, EE 4,8, SI 4,6 | COFOG GF09 moins le supérieur (GF0904), 2022 : identique |
 | Services annexes 14 %, pré-primaire et primaire 27,5 %, rémunérations 71 % (2024) | COFOG 2024 : 13,5 %, 28,4 %, 69,8 %. Écarts dus aux révisions des données |
-| Dépense de santé, France, environ 4 250 EUR par habitant (2022), source OCDE Health Statistics | OCDE, EUR à PPA : 4 164 (2022) et 4 319 (2023), identiques à Eurostat en SPA. Pour d'autres pays de la figure 3, aucune série OCDE ou Eurostat ne correspond, quelle que soit l'année entre 2015 et 2025 : Luxembourg 8 900 dans la note contre 4 400 ; Irlande sous la France dans la note, au-dessus dans les données |
+| Dépense de santé par habitant (figure 3), source : dépense publique de santé harmonisée par l'OCDE | La convention harmonisée OCDE-Eurostat-OMS range l'assurance privée obligatoire (Allemagne, Pays-Bas) avec le public : ce sont les « régimes publics et obligatoires » (HF1). Série retenue : HF1 en euros, 2022. Elle reproduit l'allure de la figure (Bulgarie et Roumanie autour de 650 €) mais pas tous les points : France 3 783 contre 4 250, Luxembourg 5 675 contre 8 900, Irlande 4 612 contre 3 950. Écart médian d'environ 12 %. Testées sans meilleur résultat, 2015-2025 : dépense totale (EUR, SPA, PPA OCDE), COFOG santé, part du PIB × PIB par habitant |
 | Reste à charge 9,3 % (France) contre 14,9 % (moyenne UE), source OCDE Health at a Glance | Non retrouvé. OCDE et Eurostat (HF3) : 10,2-10,7 % pour la France entre 2020 et 2024. La valeur la plus proche est 9,2-9,5 %, mais pour la Croatie |
 | Part d'élèves peu performants | Élèves sous le niveau 2 dans les trois domaines à la fois (`pisa_faibles_3domaines`) : France 16,8 % en 2022 |
 
@@ -110,20 +110,26 @@ note pour l'éducation :
 La tête du classement (Irlande, Estonie, Finlande, Pologne, Danemark) et la queue (Roumanie,
 Bulgarie, Grèce, France, Slovaquie) sont les mêmes.
 
-Avec la dépense de santé de l'OCDE (EUR à PPA, 2022), la santé se rapproche de la note :
+En santé, avec la dépense publique et obligatoire (HF1, euros, 2022) :
 
 | | Note | Base |
 |---|---|---|
-| Score de la France | | 0,601 |
+| Score de la France | 0,60 | 0,601 |
 | Rang | 11ᵉ | 11ᵉ |
 | Écart à la moyenne UE | +3,5 | +2,8 |
-| Ratio d'efficience | 83 % | 83,1 % |
+| Ratio d'efficience | 83 % | 86 % |
+| Pays sur la frontière | BG, PL, EL, PT, SI, IT, SE | BG, PL, EL, SI, ES, IT, SE, DK |
+
+Avec la dépense totale en PPA (OCDE), le ratio de la France vaut 83 %, mais la frontière passe par
+d'autres pays (Croatie, Roumanie) que dans la note.
 
 Écarts restants :
 
-- **Santé.** L'écart à la moyenne UE (+2,8 contre +3,5) et quelques rangs diffèrent. Ces écarts
-  viennent des indicateurs dont la définition n'est pas précisée dans la note (temps d'attente,
-  reste à charge).
+- **Santé.** Le score de la France est retrouvé (0,601 contre 0,604). Pour la moitié des pays,
+  l'écart est de moins de 0,03. Il est plus grand pour le Portugal (−0,08), la Hongrie, la Finlande,
+  la Suède, la Slovénie, l'Estonie (environ −0,05) et l'Allemagne (+0,05). Ces écarts viennent
+  probablement des indicateurs dont la définition n'est pas précisée dans la note : temps
+  d'attente, reste à charge.
 - **Équivalent dépense : 71 Md€ dans la note, 48 Md€ dans la base.** La frontière atteint le score
   de la France pour 3 062 € par élève, contre 9 362 € dépensés. L'écart de 6 300 € par élève,
   multiplié par 7,67 millions d'élèves des CITE 1 et 2, donne 48 Md€. Or 9 362 € × 7,67 millions

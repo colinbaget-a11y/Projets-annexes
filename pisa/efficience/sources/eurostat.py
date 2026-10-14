@@ -115,6 +115,11 @@ SERIES = {
                           "Dépense courante de santé par habitant, tous financeurs, EUR"),
     "sante_dep_hab_spa": ("hlth_sha11_hf", {"unit": "PPS_HAB", "icha11_hf": "TOT_HF"},
                           "Dépense courante de santé par habitant, tous financeurs, SPA"),
+    "sante_dep_pub_hab_eur": ("hlth_sha11_hf", {"unit": "EUR_HAB", "icha11_hf": "HF1"},
+                              "Dépense courante de santé par habitant, régimes publics et obligatoires "
+                              "(HF1, convention OCDE-Eurostat-OMS), EUR"),
+    "sante_dep_pub_hab_spa": ("hlth_sha11_hf", {"unit": "PPS_HAB", "icha11_hf": "HF1"},
+                              "Dépense courante de santé par habitant, régimes publics et obligatoires, SPA"),
     "sante_dep_pib": ("hlth_sha11_hf", {"unit": "PC_GDP", "icha11_hf": "TOT_HF"},
                       "Dépense courante de santé, % du PIB"),
     # ------------------------------------------------------------ pondérations

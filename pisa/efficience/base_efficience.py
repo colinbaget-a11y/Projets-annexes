@@ -145,8 +145,12 @@ AUTRES = [
     ("edu_dep_eleve_cite1_2_pub_eur", E, "dépense", "Dépense publique par élève, primaire et premier cycle "
      "du secondaire (EUR)", "", "moyenne 2022-2024",
      "Retrouvée : moyenne 2022-2023 pour la France = 9 362 EUR (la note : 9 360) ; 2024 pas encore publié"),
+    ("sante_dep_pub_hab_eur", S, "dépense", "Dépense courante de santé par habitant, régimes publics et "
+     "obligatoires (HF1), EUR", "", "2022", "Série retenue pour la reproduction (dépense publique harmonisée "
+     "OCDE, indication de l'auteur). Écart médian d'environ 12 % avec la figure 3 de la note ; FR 3 783 "
+     "contre 4 250, LU 5 675 contre 8 900, IE 4 612 contre 3 950"),
     ("sante_dep_hab_ocde_ppa", S, "dépense", "Dépense courante de santé par habitant, publique et privée, "
-     "EUR à PPA (OCDE)", "", "2022", "Source indiquée par l'auteur : OCDE Health Statistics. France 4 164 "
+     "EUR à PPA (OCDE)", "", "", "Variante. France 4 164 "
      "(2022), 4 319 (2023) ; la note donne 4 250. Les autres pays de la figure 3 de la note (LU 8 900, "
      "IE sous la France) ne correspondent à aucune série OCDE ou Eurostat"),
     ("sante_dep_hab_spa", S, "dépense", "Dépense courante de santé par habitant, SPA (Eurostat)", "",
