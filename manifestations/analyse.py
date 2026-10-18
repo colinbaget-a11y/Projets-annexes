@@ -54,20 +54,21 @@ def charger():
 
 
 def fenetre(w, pays, jour, page=None):
+    """Sondages autour de la date, coupés aux élections, pris dans une seule page (la plus fournie)."""
     jour = pd.Timestamp(jour)
     x = w[(w.pays == pays) & (w.date >= jour - pd.Timedelta(weeks=AVANT))
           & (w.date < jour + pd.Timedelta(weeks=APRES))]
-    if page is None:
-        if x.empty:
-            return x, None
-        page = x.page.value_counts().index[0]
-    x = x[x.page == page].copy()
     avant = [d for d in ELECTIONS[pays] if d < jour]
     apres = [d for d in ELECTIONS[pays] if d >= jour]
     if avant:
         x = x[x.date > max(avant)]
     if apres:
         x = x[x.date < min(apres)]
+    if page is None:
+        if x.empty:
+            return x, None
+        page = x.page.value_counts().index[0]
+    x = x[x.page == page].copy()
     x["t"] = (x.date - jour).dt.days / 7
     return x, page
 
