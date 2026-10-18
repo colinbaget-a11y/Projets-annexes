@@ -1,0 +1,97 @@
+episode,pays,date,echantillon,n_avant,n_apres,bloc,election_dans_fenetre,series,ecart_0_6,ecart_6_12,pente_avant_par_semaine,n_placebos,ecart_type_placebo,p_valeur,ecart_0_6_sans_tendance,p_valeur_sans_tendance
+FR_banlieues_2005,FR,2005-10-27,principal,3,0,(sondages insuffisants),,,,,,,,,,
+FR_Villiers_le_Bel_2007,FR,2007-11-25,principal,1,0,(sondages insuffisants),,,,,,,,,,
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,droite radicale,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,5.845,5.091,-0.213,10.000,1.170,0.200,2.917,0.000
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,droite,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-3.398,-2.016,-0.068,10.000,1.847,0.100,-4.167,0.000
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,centre,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,4.609,9.380,-0.373,10.000,2.470,0.200,-2.458,0.200
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,gouvernement,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,4.609,9.380,-0.373,10.000,2.470,0.200,-2.458,0.200
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,gauche,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-2.221,-0.688,0.143,10.000,1.766,0.900,0.958,0.700
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,gauche radicale,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-5.914,-10.494,0.303,10.000,1.369,0.000,-0.417,0.400
+FR_Gilets_jaunes_dec_2018,FR,2018-12-01,principal,8,13,autres,,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,4.313,3.570,0.003,10.000,0.311,0.000,3.167,0.000
+FR_Nahel_2023,FR,2023-06-27,principal,13,3,(sondages insuffisants),,,,,,,,,,
+FR_PSG_2025,FR,2025-05-31,principal,18,1,(sondages insuffisants),,,,,,,,,,
+UK_emeutes_2011,UK,2011-08-06,principal,150,80,droite radicale,,Opinion_polling_for_the_2015_United_Kingdom_general_election,0.122,0.513,0.007,294.000,2.117,0.915,0.222,0.867
+UK_emeutes_2011,UK,2011-08-06,principal,150,80,droite,,Opinion_polling_for_the_2015_United_Kingdom_general_election,-0.063,-0.174,0.014,343.000,2.292,0.974,-0.093,0.948
+UK_emeutes_2011,UK,2011-08-06,principal,150,80,gouvernement,,Opinion_polling_for_the_2015_United_Kingdom_general_election,-0.063,-0.174,0.014,343.000,2.292,0.974,-0.093,0.948
+UK_emeutes_2011,UK,2011-08-06,principal,150,80,centre,,Opinion_polling_for_the_2015_United_Kingdom_general_election,0.727,0.324,-0.032,343.000,1.259,0.373,0.534,0.461
+UK_emeutes_2011,UK,2011-08-06,principal,150,80,gauche,,Opinion_polling_for_the_2015_United_Kingdom_general_election,-0.261,-0.420,-0.022,343.000,2.390,0.910,-0.472,0.749
+UK_Southport_2024,UK,2024-07-30,principal,2,19,(sondages insuffisants),,,,,,,,,,
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,droite radicale,,wahlrecht.de,0.285,-0.141,-0.082,198.000,1.123,0.833,-0.413,0.727
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,droite,,wahlrecht.de,-0.602,-1.574,0.054,295.000,1.545,0.627,-0.191,0.915
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,gouvernement,,wahlrecht.de,-0.602,-1.574,0.054,295.000,1.545,0.627,-0.191,0.915
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,centre,,wahlrecht.de,0.005,0.424,0.064,295.000,0.608,0.993,0.440,0.407
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,gauche,,wahlrecht.de,0.369,0.549,-0.006,295.000,1.720,0.715,0.420,0.668
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,gauche radicale,,wahlrecht.de,-0.354,0.167,-0.004,295.000,0.608,0.502,-0.403,0.427
+DE_Blockupy_2015,DE,2015-03-18,principal,68,31,autres,,wahlrecht.de,0.297,0.575,-0.025,295.000,1.194,0.664,0.147,0.790
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,droite radicale,2017-09-24,wahlrecht.de,2.000,4.898,-0.205,239.000,1.029,0.067,0.059,0.954
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,droite,2017-09-24,wahlrecht.de,-0.358,-3.304,0.222,239.000,2.061,0.753,1.353,0.318
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,gouvernement,2017-09-24,wahlrecht.de,-0.358,-3.304,0.222,239.000,2.061,0.753,1.353,0.318
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,centre,2017-09-24,wahlrecht.de,-0.742,-1.173,0.131,239.000,0.708,0.276,0.386,0.556
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,gauche,2017-09-24,wahlrecht.de,-1.467,-1.776,-0.116,239.000,1.728,0.238,-2.014,0.142
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,gauche radicale,2017-09-24,wahlrecht.de,0.211,0.715,0.004,239.000,0.499,0.603,0.150,0.724
+DE_G20_Hambourg_2017,DE,2017-07-06,principal,77,47,autres,2017-09-24,wahlrecht.de,0.356,0.641,-0.037,239.000,0.495,0.444,0.067,0.858
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,droite radicale,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,2.403,,0.120,154.000,1.499,0.117,3.062,0.071
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,droite,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,-0.218,,0.244,185.000,12.534,0.886,0.717,0.649
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,centre,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,-0.598,,-0.248,185.000,6.141,0.659,-2.145,0.303
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,gauche,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,-0.133,,-0.213,185.000,9.370,0.946,-1.099,0.465
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,gouvernement,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,-0.133,,-0.213,185.000,9.370,0.946,-1.099,0.465
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,gauche radicale,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,-0.359,,0.207,185.000,10.424,0.784,0.629,0.551
+ES_Catalogne_2019,ES,2019-10-14,principal,70,63,autres,"2019-04-28, 2019-11-10",Opinion_polling_for_the_November_2019_Spanish_general_election,0.190,,-0.077,185.000,1.665,0.746,0.416,0.400
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,droite radicale,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-0.093,0.864,0.066,10.000,1.170,1.000,0.281,0.900
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,droite,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,1.844,2.705,-0.131,10.000,1.847,0.300,1.140,0.400
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,centre,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-2.191,-3.230,0.234,10.000,2.470,0.500,-0.904,0.600
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,gouvernement,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-2.191,-3.230,0.234,10.000,2.470,0.500,-0.904,0.600
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,gauche,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,0.392,-1.146,0.045,10.000,1.766,0.900,0.640,0.900
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,gauche radicale,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,1.857,3.210,-0.266,10.000,1.369,0.400,0.402,0.600
+FR_Gilets_jaunes_mars_2019,FR,2019-03-16,robustesse,28,107,autres,2019-05-26,Opinion_polling_for_the_2019_European_Parliament_election_in_France ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-1.835,-2.404,0.053,10.000,0.311,0.000,-1.579,0.000
+FR_1er_mai_2018,FR,2018-05-01,robustesse,2,5,(sondages insuffisants),,,,,,,,,,
+FR_retraites_2023,FR,2023-03-16,robustesse,7,12,(sondages insuffisants),,,,,,,,,,
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,droite radicale,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,4.638,,-0.103,35.000,4.647,0.371,4.364,0.000
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,droite,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-8.947,,0.026,35.000,3.395,0.029,-9.459,0.000
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,centre,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-3.524,,0.716,35.000,4.723,0.314,1.692,0.385
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,gouvernement,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-3.524,,0.716,35.000,4.723,0.314,1.692,0.385
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,gauche,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,2.394,,-0.406,35.000,5.549,0.629,-0.393,0.731
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,gauche radicale,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,6.028,,-0.218,35.000,1.910,0.000,4.446,0.000
+FR_Corse_2022,FR,2022-03-02,robustesse,126,82,autres,2022-04-10,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-0.588,,-0.028,35.000,1.577,0.400,-0.768,0.269
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,droite radicale,,wahlrecht.de,2.192,3.524,-0.233,241.000,1.159,0.075,0.207,0.809
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,droite,,wahlrecht.de,-5.387,-10.199,0.662,241.000,2.403,0.054,-0.363,0.759
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,gouvernement,,wahlrecht.de,-5.387,-10.199,0.662,241.000,2.403,0.054,-0.363,0.759
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,centre,,wahlrecht.de,1.424,2.258,-0.142,241.000,0.818,0.112,0.147,0.830
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,gauche,,wahlrecht.de,1.596,3.600,-0.205,241.000,2.101,0.398,0.236,0.842
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,gauche radicale,,wahlrecht.de,0.310,0.807,-0.065,241.000,1.058,0.564,-0.031,0.942
+DE_Stuttgart_2020,DE,2020-06-20,robustesse,83,41,autres,,wahlrecht.de,-0.135,0.010,-0.018,241.000,0.629,0.793,-0.196,0.627
+ES_Hasel_2021,ES,2021-02-16,robustesse,0,0,(sondages insuffisants),,,,,,,,,,
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,droite radicale,,Opinion_polling_for_the_2013_Italian_general_election,-0.072,0.903,-0.085,268.000,1.190,0.888,-0.692,0.352
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,droite,,Opinion_polling_for_the_2013_Italian_general_election,-0.043,-0.467,-0.090,268.000,2.242,0.978,-0.433,0.750
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,gouvernement,,Opinion_polling_for_the_2013_Italian_general_election,-0.043,-0.467,-0.090,268.000,2.242,0.978,-0.433,0.750
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,centre,,Opinion_polling_for_the_2013_Italian_general_election,1.054,0.849,0.018,268.000,1.565,0.284,0.970,0.235
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,gauche,,Opinion_polling_for_the_2013_Italian_general_election,-0.767,-0.620,0.089,268.000,2.225,0.623,0.002,1.000
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,gauche radicale,,Opinion_polling_for_the_2013_Italian_general_election,-0.243,-1.100,0.013,248.000,0.863,0.750,-0.230,0.717
+IT_Rome_2011,IT,2011-10-15,robustesse,61,51,autres,,Opinion_polling_for_the_2013_Italian_general_election,0.040,0.422,0.039,217.000,3.754,0.945,0.232,0.803
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,droite radicale,,Opinion_polling_for_the_2018_Italian_general_election,-0.857,-1.280,0.218,338.000,1.763,0.456,1.252,0.331
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,droite,,Opinion_polling_for_the_2018_Italian_general_election,0.140,0.803,-0.108,338.000,2.047,0.876,-0.769,0.435
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,centre,,Opinion_polling_for_the_2018_Italian_general_election,0.087,0.214,-0.034,338.000,1.256,0.840,-0.227,0.621
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,gauche,,Opinion_polling_for_the_2018_Italian_general_election,-1.235,-3.149,-0.051,338.000,1.970,0.379,-1.985,0.145
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,gouvernement,,Opinion_polling_for_the_2018_Italian_general_election,-1.235,-3.149,-0.051,338.000,1.970,0.379,-1.985,0.145
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,gauche radicale,,Opinion_polling_for_the_2018_Italian_general_election,-0.328,-0.833,0.025,338.000,0.763,0.580,-0.073,0.870
+IT_Milan_2015,IT,2015-05-01,robustesse,195,70,autres,,Opinion_polling_for_the_2018_Italian_general_election,2.080,4.359,0.017,338.000,3.209,0.308,2.309,0.231
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,droite radicale,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,0.809,,0.063,55.000,4.018,0.855,1.214,0.545
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,droite,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,-0.432,,-0.024,55.000,3.048,0.836,-0.590,0.568
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,centre,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,-0.774,,-0.119,55.000,4.182,0.800,-1.606,0.273
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,gouvernement,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,-0.774,,-0.119,55.000,4.182,0.800,-1.606,0.273
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,gauche,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,-0.476,,0.063,55.000,4.825,0.873,-0.013,1.000
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,gauche radicale,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,0.720,,-0.062,55.000,1.734,0.727,0.337,0.795
+FR_Nouvelle_Caledonie_2024,FR,2024-05-13,hors_champ,88,57,autres,"2024-06-09, 2024-06-30",2024_European_Parliament_election_in_France ; Opinion_polling_for_the_2024_French_legislative_election ; Opinion_polling_for_the_2027_French_presidential_election ; fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027,0.532,,0.056,55.000,1.713,0.600,0.887,0.273
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,droite radicale,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-0.381,0.365,-0.193,25.000,4.455,1.000,-2.640,0.080
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,droite,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,3.469,3.516,0.083,25.000,3.451,0.080,4.457,0.000
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,centre,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,2.756,6.192,0.120,25.000,2.819,0.360,4.339,0.000
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,gouvernement,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,2.756,6.192,0.120,25.000,2.819,0.360,4.339,0.000
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,gauche,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-2.870,-5.821,-0.037,25.000,3.032,0.480,-3.165,0.120
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,gauche radicale,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-2.034,-3.731,-0.001,25.000,2.174,0.480,-2.065,0.040
+FR_Guadeloupe_2021,FR,2021-11-15,hors_champ,46,61,autres,,fr:Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022,-1.168,-1.087,0.065,25.000,0.535,0.040,-0.811,0.240
+UK_Ballymena_2025,UK,2025-06-09,hors_champ,139,64,droite radicale,,Opinion_polling_for_the_next_United_Kingdom_general_election,-1.283,-1.453,0.287,204.000,1.144,0.289,1.758,0.230
+UK_Ballymena_2025,UK,2025-06-09,hors_champ,139,64,droite,,Opinion_polling_for_the_next_United_Kingdom_general_election,0.484,1.487,-0.260,204.000,1.987,0.755,-2.254,0.167
+UK_Ballymena_2025,UK,2025-06-09,hors_champ,139,64,centre,,Opinion_polling_for_the_next_United_Kingdom_general_election,-1.181,-2.132,0.112,204.000,0.844,0.186,-0.068,0.931
+UK_Ballymena_2025,UK,2025-06-09,hors_champ,139,64,gauche,,Opinion_polling_for_the_next_United_Kingdom_general_election,1.219,-0.481,-0.125,204.000,1.972,0.525,-0.071,0.931
+UK_Ballymena_2025,UK,2025-06-09,hors_champ,139,64,gouvernement,,Opinion_polling_for_the_next_United_Kingdom_general_election,1.219,-0.481,-0.125,204.000,1.972,0.525,-0.071,0.931
+UK_Ballymena_2025,UK,2025-06-09,hors_champ,139,64,autres,,Opinion_polling_for_the_next_United_Kingdom_general_election,0.447,0.222,-0.012,204.000,0.296,0.083,0.325,0.225

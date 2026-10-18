@@ -10,10 +10,13 @@ Sources :
     python sondages.py --rafraichir  retélécharge tout
 
 Sortie sondages.csv.gz (format long) : pays, page, institut, date (fin du terrain), parti, part (%),
-echantillon. Les résultats d'élections présents dans les tableaux sont écartés.
+echantillon, scenario (France, présidentielle : un sondage teste plusieurs listes de candidats ;
+0 ailleurs). Les résultats d'élections présents dans les tableaux sont écartés.
 """
+import hashlib
 import io
 import re
+import urllib.parse
 import sys
 import time
 import urllib.request
@@ -55,6 +58,14 @@ PAGES = {
            "Next_French_legislative_election",
            "Opinion_polling_for_the_2027_French_presidential_election"],
 }
+# France : les pages de Wikipédia en français sont bien plus complètes entre deux élections
+WIKI_FR = "https://fr.wikipedia.org/wiki/"
+PAGES_FR = ["Liste_de_sondages_sur_l'élection_présidentielle_française_de_2007",
+            "Liste_de_sondages_sur_l'élection_présidentielle_française_de_2012",
+            "Liste_de_sondages_sur_l'élection_présidentielle_française_de_2022",
+            "Liste_de_sondages_sur_l'élection_présidentielle_française_de_2027"]
+MOIS_FR = {"janv": 1, "févr": 2, "fevr": 2, "mars": 3, "avr": 4, "mai": 5, "juin": 6, "juil": 7, "août": 8,
+           "aout": 8, "sept": 9, "oct": 10, "nov": 11, "déc": 12, "dec": 12}
 WAHLRECHT = "https://www.wahlrecht.de/umfragen/"
 INSTITUTS_DE = ["allensbach", "verian", "forsa", "politbarometer", "gms", "dimap", "insa", "yougov"]
 MOIS = {m: i + 1 for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep",
@@ -100,19 +111,30 @@ def date_fin(texte):
     return (int(an.group()) if an else None), MOIS[mois.group()[:3].lower()], int(jour.group())
 
 
+def annotation(r, inst):
+    """Ligne de commentaire fusionnée sur toute la largeur (« X annonce sa candidature (date) »)."""
+    valeurs = {str(v) for v in r.values if str(v) not in ("nan", "")}
+    return len(valeurs) <= 2 and len(inst) > 30
+
+
 def lire_wikipedia(pays, page, contenu):
     doc = lhtml.fromstring(contenu)
     lignes = []
     an_page = re.search(r"(19|20)\d{2}", page)
     annee = int(an_page.group()) if an_page else None      # à défaut de titre de section daté
-    mois_prec = None
+    mois_prec, k, hors_sujet = None, 0, False
     for el in doc.iter("h2", "h3", "h4", "table"):
         if el.tag != "table":
-            an = re.search(r"\b(19|20)\d{2}\b", el.text_content())
+            titre = el.text_content()
+            an = re.search(r"\b(19|20)\d{2}\b", titre)
             if an:
                 annee, mois_prec = int(an.group()), None
+            # tableaux qui ne sont pas des intentions de vote nationales
+            hors_sujet = bool(re.search(r"preference|preferred|likelihood|coalition|leader|approv|seat|"
+                                        r"sub-national|constituenc|region|hypothetical|second round|run-?off|"
+                                        r"by nation|scotland|wales|london|northern ireland", titre, re.I))
             continue
-        if "wikitable" not in (el.get("class") or ""):
+        if hors_sujet or "wikitable" not in (el.get("class") or ""):
             continue
         # en-têtes de partis réduits à un logo ou à une couleur : on prend le titre du lien ou l'alt
         for th in el.xpath(".//tr[position()<=2]/th"):
@@ -133,11 +155,12 @@ def lire_wikipedia(pays, page, contenu):
         if c_date is None or c_inst is None:
             continue
         c_n = next((c for c in t.columns if re.search(r"sample", c, re.I)), None)
+        k += 1
         partis = [c for c in dict.fromkeys(t.columns) if not NON_PARTIS.search(c) and c not in (c_date, c_inst)
                   and not c.startswith("Unnamed") and c.lower() != "others"]
-        for _, r in t.iterrows():
+        for i, r in t.iterrows():
             inst = str(r[c_inst])
-            if re.search(r"election|result", inst, re.I) or inst == c_inst:
+            if re.search(r"election|result", inst, re.I) or inst == c_inst or annotation(r, inst):
                 continue
             dd = date_fin(r[c_date])
             if dd is None:
@@ -162,7 +185,88 @@ def lire_wikipedia(pays, page, contenu):
                 x = nombre(v)
                 if x is not None and 0 <= x <= 70:
                     lignes.append((pays, page, re.sub(r"\[.*?\]", "", inst).strip(), d, p, x,
-                                   nombre(r[c_n]) if c_n else None))
+                                   nombre(r[c_n]) if c_n else None, f"{k}.{i}"))
+    return lignes
+
+
+def date_fin_fr(texte):
+    """« 25-29 septembre », « 28 septembre-1er octobre 2023 » -> (année ou None, mois, jour)."""
+    t = re.sub(r"\[.*?\]", "", str(texte)).lower().replace("1er", "1").strip()
+    fin = re.split(r"[–—-]", t)[-1].strip()
+    an = re.search(r"(19|20)\d{2}", fin) or re.search(r"(19|20)\d{2}", t)
+    mois = None
+    for zone in (fin, t):
+        for mot in re.findall(r"[a-zéû]{3,}", zone):
+            mois = next((v for k, v in MOIS_FR.items() if mot.startswith(k)), None)
+            if mois:
+                break
+        if mois:
+            break
+    jour = re.search(r"\b\d{1,2}\b", re.sub(r"(19|20)\d{2}", "", fin))
+    if mois is None or jour is None:
+        return None
+    return (int(an.group()) if an else None), mois, int(jour.group())
+
+
+def lire_wikipedia_fr(page, contenu):
+    """Premier tour de la présidentielle : une ligne par scénario de candidats."""
+    doc = lhtml.fromstring(contenu)
+    lignes, annee, mois_prec, premier_tour = [], None, None, False
+    an_page = re.search(r"(19|20)\d{2}", page)
+    for el in doc.iter("h2", "h3", "h4", "table"):
+        if el.tag != "table":
+            titre = el.text_content().lower()
+            if "premier tour" in titre:
+                premier_tour = True
+            elif "second tour" in titre or "notes" in titre:
+                premier_tour = False
+            an = re.search(r"\b(19|20)\d{2}\b", titre)
+            if an:
+                annee, mois_prec = int(an.group()), None
+            continue
+        if not premier_tour or "wikitable" not in (el.get("class") or ""):
+            continue
+        try:
+            t = pd.read_html(io.StringIO(lhtml.tostring(el, encoding="unicode")), thousands=None)[0]
+        except (ValueError, IndexError):
+            continue
+        cols = []
+        for c in t.columns:
+            c = c if isinstance(c, tuple) else (c, c)
+            cols.append(str(c[1] if str(c[0]).startswith("Unnamed") else c[0]))
+        cols = ["Date" if re.match(r"Dates?$", c) else c for c in cols]
+        t.columns = cols
+        if "Sondeur" not in t or "Date" not in t:
+            continue
+        candidats = [c for c in dict.fromkeys(cols) if c not in ("Sondeur", "Date", "Échantillon", "Autres")
+                     and not c.startswith("Unnamed")]
+        if annee is None and an_page:
+            annee = int(an_page.group())
+        for i, r in t.iterrows():
+            inst = str(r["Sondeur"])
+            if inst in ("Sondeur", "nan") or re.search(r"élection|résultat", inst, re.I) or annotation(r, inst):
+                continue
+            dd = date_fin_fr(r["Date"] if not isinstance(r["Date"], pd.Series) else r["Date"].iloc[0])
+            if dd is None:
+                continue
+            an, mois, jour = dd
+            if an is not None:
+                annee = an
+            elif mois_prec is not None and mois > mois_prec + 6:
+                annee -= 1
+            mois_prec = mois
+            try:
+                d = date(annee, mois, jour)
+            except (ValueError, TypeError):
+                continue
+            for c in candidats:
+                v = r[c]
+                if isinstance(v, pd.Series):
+                    v = v.iloc[0]
+                x = nombre(v)
+                if x is not None and 0 <= x <= 70:
+                    lignes.append(("FR", "fr:" + page, re.sub(r"\[.*?\]", "", inst).strip(), d,
+                                   re.sub(r"\[.*?\]", "", c).strip(), x, nombre(r.get("Échantillon")), i))
     return lignes
 
 
@@ -187,7 +291,7 @@ def lire_wahlrecht(institut, contenu):
             x = nombre(r[p])
             if x is not None and "%" in str(r[p]):
                 lignes.append(("DE", "wahlrecht.de", institut, d, p.replace("Ü", "UE").replace("GRÜNE", "GRUENE"), x,
-                               None))
+                               None, 0))
     return lignes
 
 
@@ -202,6 +306,13 @@ def main():
                 l = lire_wikipedia(pays, page, contenu)
                 print(f"{pays} {page}: {len(l)} valeurs")
                 lignes += l
+    for page in PAGES_FR:
+        nom = "frwiki_" + hashlib.md5(page.encode()).hexdigest()[:10] + ".html"
+        contenu = telecharger(WIKI_FR + urllib.parse.quote(page), nom, rafraichir)
+        if contenu:
+            l = lire_wikipedia_fr(page, contenu)
+            print(f"FR fr:{page}: {len(l)} valeurs")
+            lignes += l
     for inst in INSTITUTS_DE:
         contenu = telecharger(f"{WAHLRECHT}{inst}.htm", f"de_{inst}.htm", rafraichir)
         pages = [(f"{inst}.htm", contenu)]
@@ -214,8 +325,9 @@ def main():
                 n += len(l)
                 lignes += l
         print(f"DE {inst}: {n} valeurs ({len(pages)} pages)")
-    s = pd.DataFrame(lignes, columns=["pays", "page", "institut", "date", "parti", "part", "echantillon"])
-    s = s.drop_duplicates(["pays", "institut", "date", "parti", "part"])
+    s = pd.DataFrame(lignes, columns=["pays", "page", "institut", "date", "parti", "part", "echantillon",
+                                      "scenario"])
+    s = s.drop_duplicates(["pays", "page", "institut", "date", "parti", "part", "scenario"])
     s.to_csv(ICI / "sondages.csv.gz", index=False)
     print(s.groupby("pays").agg(debut=("date", "min"), fin=("date", "max"), sondages=("date", "size")))
 
