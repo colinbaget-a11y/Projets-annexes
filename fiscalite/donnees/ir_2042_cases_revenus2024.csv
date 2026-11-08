@@ -1,0 +1,1214 @@
+case,libelle,nombre,montant_eur
+0AB,Case à cocher : option pour la déclaration séparée,201964.0,201964.0
+0AC,Case à cocher : situation de famille Célibataire,17934123.0,17934123.0
+0AD,Case à cocher : situation de famille Divorcé,6814355.0,6814355.0
+0AF,Case à cocher : Déclarant 2 invalide,259292.0,259292.0
+0AG,Case à cocher : veuve avec pension de guerre,9659.0,9659.0
+0AL,Case à cocher : enfant élevé pendant 5 ans par un contribuable seul,1356818.0,1356818.0
+0AM,Case à cocher : situation de famille Mariés,11214135.0,11214135.0
+0AN,Case à cocher : contribuable ne vivant pas seul,492426.0,492426.0
+0AO,Case à cocher : situation de Pacsés,1840777.0,1840777.0
+0AP,Case à cocher : Déclarant 1 invalide,1314683.0,1314683.0
+0AS,Case à cocher : mariés titulaires d'une carte de combattant,322597.0,322597.0
+0AV,Case à cocher : situation de famille Veuf,3831869.0,3831869.0
+0AW,Case à cocher : contribuable seul titulaire de la carte du combattant,419259.0,419259.0
+0BT,Case à cocher : déclarant parent isolé,1965339.0,1965339.0
+0CF,Nombre d'enfants mineurs ou handicapés,8784002.0,15153706.0
+0CG,Nombre d'enfants avec carte d'invalidité,249816.0,268057.0
+0CH,Nombre d'enfants en résidence alternée - mineurs ou handicapés,1132989.0,1685538.0
+0CI,Nombre d'enfants en résidence alternée avec carte d'invalidité,17965.0,19106.0
+0CR,Nombre de personnes invalides à charge vivant sous le toit,74548.0,80108.0
+0DJ,Nombre d'enfants célibataires rattachés,1720889.0,2014392.0
+0DN,Nombre d'enfants mariés rattachés,2579.0,5077.0
+0IF,Dépôt d'une déclaration 2042 IFI - case à cocher,2297.0,2297.0
+0TA,2042 déposée par mandataire,918497.0,918497.0
+0VA,Tiers de confiance,336436.0,336436.0
+0XX,Revenus à imposer selon le système du quotient,93806.0,2661644535.0
+1AA,Revenus perçus par les salariés d'employeurs particuliers – Déclarant 1,583888.0,3908683024.0
+1AC,Salaires exonérés étrangers - Déclarant 1,56364.0,2178334232.0
+1AD,Prime de partage de la valeur exonérée – Déclarant 1,1648811.0,1710005690.0
+1AE,Frais réels sur salaires étrangers - Déclarant 1,4286.0,35958686.0
+1AF,Salaires CI=I français et salaires des non résidents - Déclarant 1,265397.0,16218744318.0
+1AG,Autres salaires de source étrangère - Déclarant 1,206981.0,10917666749.0
+1AH,Pensions exonérées étrangères - Déclarant 1,17121.0,306793783.0
+1AI,Pensions en capital des nouveaux PER - Déclarant 1,77074.0,896156558.0
+1AJ,Salaires - Déclarant 1,22920099.0,616007685378.0
+1AK,Frais réels - Déclarant 1,4274102.0,26539791171.0
+1AL,Pensions CI=I français et pensions des non résidents - Déclarant 1,97070.0,2259693632.0
+1AM,Autres pensions de source étrangère - Déclarant 1,205382.0,4059847701.0
+1AO,Pensions alimentaires perçues - Déclarant 1,1110619.0,4976928051.0
+1AP,Autres revenus imposables - Déclarant 1,4511839.0,29862457475.0
+1AQ,Agent d'assurance : salaires exonérés - Déclarant 1,103.0,1424385.0
+1AR,Rentes de source étrangère avec CI=I français - moins de 50 ans,126.0,951352.0
+1AS,"Pensions, retraites, rentes - Déclarant 1",13150477.0,305016903982.0
+1AT,"Pensions en capital taxables à 7,5 % - Déclarant 1",26048.0,1204070818.0
+1AV,PPVE majoration du seuil d’exonération- déclarant 1 (case à cocher),5892.0,5892.0
+1AW,Rentes viagères : moins de 50 ans,8288.0,33898448.0
+1AZ,Pensions d'invalidité - Déclarant 1,676360.0,7158567432.0
+1BA,Revenus perçus par les salariés d'employeurs particuliers - Déclarant2,413479.0,3137617176.0
+1BC,Salaires exonérés étrangers - Déclarant 2,10109.0,328883831.0
+1BD,Prime de partage de la valeur exonérée – Déclarant 2,463947.0,540372142.0
+1BE,Frais réels sur salaires étrangers - Déclarant 2,1195.0,8673853.0
+1BF,Salaires CI=I français et salaires des non résidents - Déclarant 2,60043.0,3484244278.0
+1BG,Autres salaires de source étrangère - Déclarant 2,49104.0,2421458549.0
+1BH,Pensions exonérées étrangères - Déclarant 2,5389.0,76860776.0
+1BI,Pensions en capital des nouveaux PER - Déclarant 2,25815.0,235643230.0
+1BJ,Salaires - Déclarant 2,6401545.0,175143504290.0
+1BK,Frais réels - Déclarant 2,1543451.0,8642079803.0
+1BL,Pensions CI=I français et pensions des non résidents - Déclarant 2,27270.0,449877542.0
+1BM,Autres pensions imposables de source étrangère - Déclarant 2,63913.0,859846485.0
+1BO,Pensions alimentaires perçues - Déclarant 2,77491.0,254310707.0
+1BP,Autres revenus imposables - Déclarant 2,1022370.0,6967970700.0
+1BQ,Agent d'assurance - TS : revenus exonérés - Déclarant 2,16.0,178904.0
+1BR,Rentes de source étrangère avec CI=I français de 50 à 59 ans,255.0,946342.0
+1BS,"Pensions, retraites, rentes - Déclarant 2",4315408.0,69075515267.0
+1BT,"Pensions en capital taxables à 7,5 % - Déclarant 2",9304.0,299714042.0
+1BV,PPVE majoration du seuil d’exonération- déclarant 2 (case à cocher),3927.0,3927.0
+1BW,Rentes viagères : de 50 à 59 ans,68314.0,92761971.0
+1BZ,Pensions d'invalidité - Déclarant 2,236697.0,2290701645.0
+1CA,Revenus perçus par les salariés d'employeurs particuliers - PAC 1,19097.0,17865476.0
+1CC,Salaires exonérés étrangers - PAC 1,414.0,2881660.0
+1CD,Prime de partage de la valeur exonérée – PAC 1,68472.0,30566347.0
+1CE,Frais réels sur salaires étrangers - PAC 1,30.0,124480.0
+1CF,Salaires avec CI=I français et salaires des non résidents - PAC 1,2315.0,18193145.0
+1CG,Autres salaires de source étrangère - PAC 1,1153.0,6942016.0
+1CH,Pensions exonérées étrangères - PAC 1,85.0,500132.0
+1CI,Pensions en capital des nouveaux PER - PAC 1,111.0,352429.0
+1CJ,Salaires - PAC 1,911027.0,3444293371.0
+1CK,Frais réels - PAC 1,42556.0,111571774.0
+1CL,Pensions avec CI=I français et pensions des non résidents - PAC 1,246.0,1963193.0
+1CM,Autres pensions de source étrangère - PAC 1,843.0,7038378.0
+1CO,Pensions alimentaires perçues - PAC 1,77521.0,226562679.0
+1CP,Autres revenus imposables - PAC 1,86109.0,188126193.0
+1CR,Rentes de source étrangère avec CI=I français - de 60 à 69 ans,654.0,3390130.0
+1CS,"Pensions, retraites, rentes - PAC 1",41385.0,209471166.0
+1CT,"Pensions en capital taxables à 7,5 % - PAC 1",248.0,1635095.0
+1CV,PPVE majoration du seuil d’exonération- PAC 1 (case à cocher),979.0,979.0
+1CW,Rentes viagères : de 60 à 69 ans,203438.0,410457811.0
+1CZ,Pensions d'invalidité - PAC 1,2235.0,13245533.0
+1DA,Revenus perçus par les salariés d'employeurs particuliers - PAC 2,3128.0,2826587.0
+1DC,Salaires exonérés étrangers - PAC 2,96.0,634749.0
+1DD,Prime de partage de la valeur exonérée – PAC 2,11391.0,4982923.0
+1DF,Salaires avec CI=I français et salaires des non résidents - PAC 2,466.0,3926776.0
+1DG,Autres salaires de source étrangère - PAC 2,243.0,1530184.0
+1DH,Pensions exonérées étrangères - PAC 2,34.0,160950.0
+1DI,Pensions en capital des nouveaux PER - PAC 2,52.0,183018.0
+1DJ,Traitements et salaires - PAC 2,121701.0,419067705.0
+1DK,Frais réels - PAC 2,5048.0,12513328.0
+1DL,Pensions avec CI=I français et pensions des non résidents - PAC 2,80.0,606184.0
+1DM,Autres pensions de source étrangère - PAC 2,320.0,2689119.0
+1DN,Sommes exonérées d'un CET versées sur PERCO - Déclarant 2,4091.0,7245808.0
+1DO,Pensions alimentaires perçues - PAC 2,34211.0,88257035.0
+1DP,Autres revenus imposables - PAC 2,8762.0,18662915.0
+1DR,Rentes de source étrangère avec CI=I français - à partir de 70 ans,383.0,3422204.0
+1DS,"Pensions, retraites, rentes - PAC 2",14509.0,64541128.0
+1DT,"Pensions en capital taxables à 7,5 % - PAC 2",134.0,613842.0
+1DV,PPVE majoration du seuil d’exonération- PAC 2 (case à cocher),289.0,289.0
+1DW,Rentes viagères : à partir de 70 ans,121263.0,356581099.0
+1DY,Revenus exonérés des salariés impatriés - Déclarant 1,17597.0,1104751367.0
+1DZ,Pensions d'invalidité - PAC 2,112.0,655371.0
+1EY,Revenus exonérés des salariés impatriés - Déclarant 2,1564.0,70310472.0
+1GA,Abattement des assistantes maternelles et journalistes - Déclarant 1,96596.0,1545835574.0
+1GB,Revenus des associés et gérants - Déclarant 1,662145.0,25997897985.0
+1GE,Marins pêcheurs hors des eaux territoriales - Déclarant 1 (à cocher),3390.0,3390.0
+1GF,Droits d'auteur et fonctionnaires chercheurs - Déclarant 1,69789.0,712344495.0
+1GG,Agents généraux d'assurance - Déclarant 1,1086.0,175485925.0
+1GH,Heures supplémentaires et jours RTT - Déclarant 1,10062536.0,17996526307.0
+1GK,Fin des revenus imposés en salaires en 2025 - Déclarant 1 (à cocher),2504.0,2504.0
+1GL,Fin des revenus imposés en salaires en 2025 - Déclarant 2 (à cocher),677.0,677.0
+1GP,Fin des revenus imposés en salaires en 2025 - PAC 1 (à cocher),143.0,143.0
+1GQ,Fin des revenus imposés en salaires en 2025 - PAC 2 (à cocher),61.0,61.0
+1HA,Abattement des assistantes maternelles et journalistes - Déclarant 2,148302.0,2793949359.0
+1HB,Revenus des associés et gérants - Déclarant 2,153509.0,4718528290.0
+1HE,Marins pêcheurs hors des eaux territoriales - Déclarant 2 (à cocher),189.0,189.0
+1HF,Droits d'auteur et fonctionnaires chercheurs - Déclarant 2,17664.0,123331954.0
+1HG,Agents généraux d'assurance - Déclarant 2,142.0,15325195.0
+1HH,Heures supplémentaires et jours RTT - Déclarant 2,2298809.0,3673534276.0
+1HK,Fin des revenus imposés en pensions en 2025 - Déclarant 1 (à cocher),450.0,450.0
+1HL,Fin des revenus imposés en pensions en 2025 - Déclarant 2 (à cocher),123.0,123.0
+1HP,Fin des revenus imposés en pensions en 2025 - PAC 1 (à cocher),101.0,101.0
+1HQ,Fin des revenus imposés en pensions en 2025 - PAC 2 (à cocher),56.0,56.0
+1IA,"Abattement forfaitaire, assistants familiaux, journalistes - PAC 1",637.0,3497592.0
+1IB,Revenus des associés et gérants - PAC 1,270.0,1121830.0
+1IF,"Droits d'auteur, fonctionnaires chercheurs - PAC 1",273.0,590627.0
+1IH,Heures supplémentaires et jours RTT - PAC 1,416914.0,139444727.0
+1JA,"Abattement forfaitaire, assistants et familiaux, journalistes - PAC 2",135.0,664722.0
+1JB,Revenus des associés et gérants - PAC 2,65.0,341236.0
+1JF,"Droits d'auteur, fonctionnaires chercheurs - PAC 2",51.0,77767.0
+1JH,Heures supplémentaires et jours RTT - PAC 2,66820.0,21229348.0
+1NX,"Gains, carried-interest - Déclarant 1",184.0,15848599.0
+1NY,Gains soumis à contribution salariale de 30 % - Déclarant 1,43.0,13200397.0
+1OX,"Gains, carried-interest - Déclarant 2",38.0,690000.0
+1OY,Gains soumis à contribution salariale de 30 % - Déclarant 2,13.0,373246.0
+1PB,Pourboires exonérés (déclarant 1),5817.0,22720687.0
+1PC,Pourboires exonérés (déclarant 2),902.0,2470080.0
+1PD,Pourboires exonérés (PAC 1),303.0,337141.0
+1PE,Pourboires exonérés (PAC 2),98.0,98444.0
+1SM,Sommes exonérées d'un CET versées sur PERCO - Déclarant 1,17951.0,37492432.0
+1TP,Rabais excédentaire sur options sur titres - Déclarant 1,153.0,8919835.0
+1TT,Gains de levée d'option à compter du 28/09/2012 - Déclarant 1,3906.0,542170984.0
+1TZ,Gain d'acquisition d'actions gratuites à compter du 08/08/2015,21274.0,744738675.0
+1UP,Rabais excédentaire sur options sur titres - Déclarant 2,24.0,164411.0
+1UT,Gains de levée d'option à compter du 28/09/2012 - Déclarant 2,789.0,77918088.0
+1UZ,Abattement pour durée de détention d'actions gratuites,5216.0,196264743.0
+1VZ,Abattement fixe sur gain d'acquisition d'actions gratuites,56.0,2067759.0
+1WZ,Abattement de 50% sur actions attribuées à compter du 01/01/2018,13365.0,440413486.0
+2AA,Report déficit RCM 2018,18073.0,59565214.0
+2AB,Crédits d'impôt sur valeurs étrangères,470195.0,70114060.0
+2AL,Report déficit RCM 2019,22835.0,49340423.0
+2AM,Report déficit RCM 2020,20431.0,63210191.0
+2AN,Report déficit RCM 2021,22062.0,43911059.0
+2AQ,Report déficit RCM 2022,25068.0,65757022.0
+2AR,Report déficit RCM 2023,24708.0,55144914.0
+2BH,RCM déjà soumis aux prélèvements sociaux avec CSG déductible,18376347.0,53746898438.0
+2CA,RCM - Frais à déduire,342289.0,92836712.0
+2CG,RCM déjà soumis aux prélèvements sociaux sans CSG déductible,910184.0,7855983140.0
+2CH,Produits des contrats d'assurance-vie et de capitalisation,1113493.0,1946508262.0
+2CK,Crédit d'impôt prélèvement forfaitaire déjà versé,14222924.0,7665213072.0
+2DC,Dividendes ouvrant droit à abattement,11501138.0,50135523805.0
+2DF,Autres revenus déjà soumis aux PS avec CSG déductible,927195.0,1364759743.0
+2DG,"Revenus déjà soumis au prélèvement de solidarité de 7,5%",6456.0,102239578.0
+2DH,"Produits contrats d'assurance-vie soumis au prélèvement lib. 7,5 %",789033.0,4265965453.0
+2DI,Revenus soumis au prélèvement de solidarité à soumettre à la CSG/CRDS,272.0,1914096.0
+2DM,Impatriés : RCM perçus à l'étranger exonérés (50%),4539.0,56644443.0
+2EE,Produits placement soumis aux prélèvements libératoires,142906.0,561866462.0
+2FU,Revenus des titres non cotés détenus dans un PEA,19009.0,173067207.0
+2GO,Revenus structures à régime fiscal privilégié sans abattement,663.0,28788934.0
+2OP,Option pour l'imposition des RCM et PV au barème - case à cocher,2540106.0,2540106.0
+2TQ,Intérêts des obligations remboursables en action (PEA-PME),242.0,373746.0
+2TR,Produits de placement à revenu fixe sans abattement,12218508.0,10427796608.0
+2TS,"Autres revenus distribués et assimilés (12,8 % ou option)",572985.0,1349001834.0
+2TT,Intérêt des prêts participatifs et des minibons,53825.0,23037638.0
+2TU,Perte en capital 2020 sur prêts participatifs: report,479.0,619984.0
+2TV,Perte en capital 2021 sur prêts participatifs : report,157.0,1530855.0
+2TW,Perte en capital 2022 sur prêts participatifs : report,234.0,1521978.0
+2TX,Perte en capital 2023 sur prêts participatifs : report,515.0,1239413.0
+2TY,Perte en capital 2024 sur prêts participatifs : report,2145.0,4272538.0
+2TZ,Produits des plans d'épargne retraite : sortie en capital,92937.0,215735155.0
+2UU,Assurance-vie + 8 ans versements à compter du 27.09.2017 (TOTAL),693058.0,514540214.0
+2VM,"Bons, contrats capi, ass. vie avt le 27.09.2017 (déjà soumis au PFL)",541.0,14779423.0
+2VN,"Bons, contrats de capi, ass. vie avant le 27.09.2017 (autres gains)",270.0,845960.0
+2VO,"Bons, contrats de capi, ass. vie à/c du 27.09.2017 (7,5% ou option)",332.0,1479476.0
+2VP,"Bons, contrats de capi, ass. vie à/c du 27.09.2017 (12,8% ou option)",415.0,4779588.0
+2VQ,"Bons, contrats de capi, assurance vie moins-value de cession (2020)",1441.0,17998998.0
+2VR,"Bons, contrats de capi, assurance vie moins-value de cession (2021)",1978.0,20533996.0
+2VS,"Bons, contrats de capi, assurance vie moins-value de cession (2022)",3076.0,45340668.0
+2VT,"Bons, contrats de capi, assurance vie moins-value de cession (2023)",4772.0,64379310.0
+2VU,"Bons, contrats de capi, assurance vie moins-value de cession (2024)",7561.0,78896227.0
+2VV,"Assurance-vie +8 ans versements à compter du 27.09.2017 (7,5% ou opt)",667492.0,426955779.0
+2WW,"Assurance-vie +8 ans versements à compter du 27.09.2017 (12,8% ou opt)",80793.0,93667137.0
+2XX,"Assurance-vie -8 ans versements avant le 27/09/2017 (15, 35 ou 45%)",57717.0,99161895.0
+2YY,Assurance-vie -8 ans versements avant le 27/09/2017(autres produits),140149.0,41979483.0
+2ZZ,Assurance-vie -8 ans versements à compter du 27/09/2017,660627.0,909889669.0
+3AN,"Cession d'actifs numériques taxables à 12,8 % (plus-value)",23984.0,368398435.0
+3BN,"Cession d'actifs numériques taxables à 12,8 % (moins-value)",4289.0,18309578.0
+3CN,Imposition barème des PV cessions d'actifs numériques -case à cocher,3186.0,3186.0
+3PI,Produits sur instruments financiers taxables à 50%,73.0,119208.0
+3SB,Plus-values avec report expiré en 2024,144.0,9972486.0
+3SE,Plus-value de cession de valeurs mobilières non résidents,223.0,93247019.0
+3SG,Abattement pour durée de détention - Plus-value,23448.0,768422736.0
+3SJ,Gains de cessions bons créateur entreprise taxables à 19 %,184.0,52302007.0
+3SK,Gains de cessions bons créateur entreprise taxables à 30 %,482.0,32200335.0
+3SL,Abattement pour durée de détention renforcé,6979.0,2410378670.0
+3SZ,PV expiré en 2024 en report d'imposition (IR) (150 0-B quater),571.0,4687366.0
+3TA,Impôt sur PV art. 150-0 B ter du CGI (sursis de paiement),114.0,139760455.0
+3TJ,Gains de cessions bons créateur entreprise à/c du 1.1.2018,1380.0,177174739.0
+3TK,Abattement fixe départ à la retraite d'un dirigeant PME,29.0,765993.0
+3UA,Plus-value avant abattement,11485.0,4734375595.0
+3VA,Abattement fixe dirigeant PME,3794.0,1070295266.0
+3VC,Gains exonérés de structures de capital risque,8663.0,93251728.0
+3VD,Gains de cession taxables à 18 %,478.0,17668429.0
+3VF,Gains de cession taxables à 41 %,53.0,206595.0
+3VG,Plus-value sans application d'abattement,200368.0,18777476227.0
+3VH,Pertes de cessions de valeurs mobilières,85651.0,1444057483.0
+3VI,Gains de cession taxables à 30 %,1724.0,117362575.0
+3VJ,Gains de cession d'options imposables en TS - Déclarant 1,945.0,22585094.0
+3VK,Gains de cession d'options imposables en TS - Déclarant 2,308.0,2593698.0
+3VN,Gains soumis à contribution salariale de 10 %,2407.0,150772378.0
+3VQ,Plus-values exonérées (50 %) des impatriés,1248.0,58661590.0
+3VR,Moins-values non imputables (50 %) des impatriés,302.0,2996570.0
+3VT,Clôture PEA ou PEA-PME avant expiration de la 5ème année,1756.0,13797733.0
+3VW,Plus-values exonérées résidence secondaire,1273.0,48531842.0
+3VZ,Plus-values immobilières,219801.0,1674342424.0
+3WA,Plus-values et créances taxables à l’IR en sursis de paiement,358.0,4692672470.0
+3WE,Complément de prix perçu en 2024,107.0,6682830.0
+3WG,PV 2024 après abattement en report d'imposition (art.150-0 B ter),4498.0,6517935933.0
+3WH,PV 2024 avant abattement en report d'imposition (art.150-0 B ter),9571.0,22172576442.0
+3WI,PV 2012 dont le report a expiré en 2024 - taxables à 24 %,17.0,1248515.0
+3WJ,PV 2012 dont le report a expiré en 2024 - taxables à 19 %,25.0,3323572.0
+3WM,Base aux prélèvements sociaux en cas de sursis de paiement,358.0,4807147103.0
+3WN,PV réalisée de 2013 à 2016 avant abattement - report expiré en 2024,347.0,191750098.0
+3WP,PV réalisée ac du 1/1/2013 après abattement - report expiré en 2024,920.0,633960468.0
+3WR,impôt sur le revenu (IR) au taux historique issu du barème,566.0,116729415.0
+3WS,"impôt sur le revenu (IR) au taux historique de 12,8% (PFU)",356.0,44415467.0
+3WT,CEHR au taux historique,372.0,54263907.0
+3XA,"Sursis de paiement - PV 150 0-B ter du CGI PS 17,2 %",89.0,699922406.0
+3XM,"Sursis de paiement - PV 150 0-B ter du CGI PS 15,5 %",28.0,131119925.0
+3XN,PV réalisée à/c de 2017 avant abattement - report expiré en 2024,599.0,1317650707.0
+4BA,Revenus fonciers,2859212.0,34953446069.0
+4BB,Déficit foncier imputable sur revenus fonciers,122989.0,1530080728.0
+4BC,Déficit foncier imputable sur revenu global,408519.0,1819368594.0
+4BD,Déficits fonciers antérieurs non encore imputés,459785.0,8515221561.0
+4BE,Régime Micro-foncier - Recettes brutes,1427014.0,8481607268.0
+4BK,Micro foncier de source étrangère avec CI = I français,33956.0,60572445.0
+4BL,Revenus fonciers de source étrangère avec CI = I français,216336.0,566293845.0
+4BN,Revenus fonciers fin de perception - case à cocher,66201.0,66201.0
+4BY,Amortissement Robien ou Borloo déduit des revenus fonciers,5058.0,34393373.0
+4BZ,Case à cocher : dépôt d'une déclaration 2044-SPE,340645.0,340645.0
+4EA,Revenus fonciers exonérés à soumettre au taux effectif,154085.0,200527291.0
+4EB,Micro-foncier - Recettes brutes exonérées à soumettre au taux effectif,41770.0,131129148.0
+5AC,Micro-entrepreneur - BIC prof. - ECF - Déclarant 1 (case à cocher),611.0,611.0
+5AD,BA - durée de l'activité en mois - Déclarant 1,13584.0,209716.0
+5AE,Micro-entrepreneur - BNC prof. - ECF - Déclarant 1 (case à cocher),716.0,716.0
+5AF,Cession ou cessation d'activité BA - Déclarant 1 (case à cocher),11043.0,11043.0
+5AG,BA - micro - ECF - Déclarant 1 (case à cocher),1063.0,1063.0
+5AH,Cession ou cessation d'activité BA – PAC (case à cocher),13.0,13.0
+5AI,Cession ou cessation d'activité BA - Déclarant 2 (case à cocher),3687.0,3687.0
+5AK,BA de source étrangère avec CI=I français - Déclarant 1,101.0,2820321.0
+5AN,"Cession, cessation activité BIC non pro. - Déclarant 1 (case à cocher)",2690.0,2690.0
+5AO,"Cession, cessation d'activité BNC pro. - Déclarant 1 (case à cocher)",22416.0,22416.0
+5AP,"Cession, cessation activité BNC non pro. - Déclarant 1 (case à cocher)",2261.0,2261.0
+5AQ,"BA PVCT, subvention d'équipement, assurance - Déclarant 1",26280.0,148329590.0
+5AT,BNC professionnels régime micro - ECF - Déclarant 1 (case à cocher),2602.0,2602.0
+5AX,BIC professionnels régime micro - ECF - Déclarant 1 (case à cocher),406.0,406.0
+5AY,BA : MVCT - Déclarant 1,896.0,2081649.0
+5BC,Micro-entrepreneur - BIC prof. - ECF - Déclarant 2 (case à cocher),176.0,176.0
+5BD,BA - durée de l'activité en mois - Déclarant 2,3652.0,172335.0
+5BE,Micro-entrepreneur - BNC prof. - ECF - Déclarant 2 (case à cocher),200.0,200.0
+5BF,Cession ou cessation activité BIC pro. - Déclarant 1 (case à cocher),21336.0,21336.0
+5BG,BA - micro - ECF - Déclarant 2 (case à cocher),269.0,269.0
+5BH,Cession ou cessation activité BIC pro. - PAC (case à cocher),73.0,73.0
+5BI,Cession ou cessation activité BIC pro. - Déclarant 2 (case à cocher),5209.0,5209.0
+5BK,BA de source étrangère avec CI=I français - Déclarant 2,31.0,693992.0
+5BN,"Cession, cessation activité BIC non pro. - Déclarant 2 (case à cocher)",613.0,613.0
+5BO,"Cession, cessation d'activité BNC pro. - Déclarant 2 (case à cocher)",8064.0,8064.0
+5BP,"Cession, cessation activité BNC non pro. - Déclarant 2 (case à cocher)",699.0,699.0
+5BQ,"BA PVCT, subventions d'équipement, assurance - Déclarant 2",6334.0,25363797.0
+5BT,BNC professionnels régime micro - ECF - Déclarant 2 (case à cocher),1170.0,1170.0
+5BX,BIC professionnels régime micro - ECF - Déclarant 2 (case à cocher),93.0,93.0
+5BY,BA : moins-value à court terme - Déclarant 2,220.0,291223.0
+5CC,Micro-entrepreneur - BIC prof. - ECF - PAC (case à cocher),32.0,32.0
+5CD,Locations meublées non pro - durée de l'activité en mois - Déclarant 1,180703.0,2341073.0
+5CE,Micro-entrepreneur - BNC prof. - ECF - PAC (case à cocher),23.0,23.0
+5CF,Cession ou cessation d'activité LMNP - Déclarant 1 (case à cocher),23592.0,23592.0
+5CI,Cession ou cessation d'activité LMNP - Déclarant 2 (case à cocher),5050.0,5050.0
+5CM,Cession ou cessation d'activité LMNP – PAC (case à cocher),25.0,25.0
+5CN,"Cession, cessation activité BIC non pro.- PAC (case à cocher)",11.0,11.0
+5CQ,Cession ou cessation d'activité BNC pro. – PAC (case à cocher),63.0,63.0
+5CR,Cession ou cessation d'activité BNC non pro. – PAC (case à cocher),22.0,22.0
+5DB,BIC professionnels - durée de l'activité en mois - Déclarant 1,53164.0,847980.0
+5DD,Locations meublées non pro - durée de l'activité en mois - Déclarant 2,45112.0,859865.0
+5DF,BIC pro de source étrangère avec CI = I français - Déclarant 1,2297.0,147913515.0
+5DK,"BIC pro PVCT, subvention d'équipement, assurance - Déclarant 1",2776.0,42080061.0
+5DM,BIC professionnels MVCT - Déclarant 1,460.0,3113692.0
+5EA,BA - option étalement de l'impôt si passage à l'IS - Déc 1,83.0,4940170.0
+5EB,BIC professionnels - durée de l'activité en mois - Déclarant 2,13916.0,190741.0
+5ED,BA - durée de l'activité en mois - PAC,46.0,347.0
+5EF,BIC pro de source étrangère avec CI=I français - Déclarant 2,610.0,23466919.0
+5EI,BA - option étalement de l'impôt si passage à l'IS - Déc 2,18.0,721734.0
+5EK,"BIC pro PVCT, subvention d'équipement, assurance - Déclarant 2",504.0,5331321.0
+5EM,BIC professionnels MVCT - Déclarant 2,89.0,721961.0
+5EY,LMNP de source étrangère avec CI = I français - Déclarant 1,4336.0,41430682.0
+5FA,BNC - option étalement de l'impôt si passage à l'IS – (case à cocher),56.0,56.0
+5FB,BIC professionnels - durée de l'activité en mois - PAC,385.0,2281.0
+5FY,LMNP de source étrangère avec CI=I français - Déclarant 2,1195.0,10581585.0
+5GA,Locations meublées non professionnelles - Déficit de 2014,31842.0,143343560.0
+5GB,Locations meublées non professionnelles - Déficit de 2015,36431.0,165825546.0
+5GC,Locations meublées non professionnelles - Déficit de 2016,42619.0,176238026.0
+5GD,Locations meublées non professionnelles - Déficit de 2017,51744.0,206515917.0
+5GE,Locations meublées non professionnelles - Déficit de 2018,60524.0,240617878.0
+5GF,Locations meublées non professionnelles - Déficit de 2019,75709.0,318263140.0
+5GG,Locations meublées non professionnelles - Déficit de 2020,98086.0,389231360.0
+5GH,Locations meublées non professionnelles - Déficit de 2021,120888.0,466349688.0
+5GI,Locations meublées non professionnelles - Déficit de 2022,152671.0,532684853.0
+5GJ,Locations meublées non professionnelles - Déficit de 2023,194933.0,673954093.0
+5HA,BA - produits de la propriété industrielle - Déclarant 1,21.0,177901.0
+5HB,BA - Revenus exonérés - Déclarant 1,2359.0,77863323.0
+5HC,BA - Régime général ou moyenne triennale. - Déclarant 1,199066.0,6538877210.0
+5HD,Revenus forfaitaires des coupes de bois - Déclarant 1,37532.0,24474742.0
+5HE,"BA - Plus-values à 12,8 % - Déclarant 1",5285.0,52907282.0
+5HF,BA - Déficits - Déclarant 1,64417.0,1100800753.0
+5HG,Plus-values exonérées à imposer aux contrib. sociales - Déclarant 1,2651.0,372403432.0
+5HK,BNC non professionnels - Revenus exonérés - Déclarant 1,401.0,6682387.0
+5HM,Jeunes agriculteurs - Abattement 50% ou 100% - Déclarant 1,11216.0,252136923.0
+5HP,BNC professionnels régime micro - Revenus exonérés - Déclarant 1,10180.0,111832465.0
+5HQ,BNC professionnels régime micro - Revenus imposables - Déclarant 1,361021.0,7713413359.0
+5HR,"BNC professionnels régime micro - Plus-values à 12,8 % - Déclarant 1",98.0,7904317.0
+5HS,BNC prof. régime micro - Moins-values à long terme - Déclarant 1,74.0,5848505.0
+5HT,BNC non professionnels - Déficit de 2018,763.0,11106278.0
+5HV,BNC prof. régime micro - Plus-values à court terme - Déclarant 1,173.0,1611568.0
+5HW,BA micro - Plus-values nettes à court terme - Déclarant 1,216.0,652489.0
+5HX,"BA micro - Plus-values à 12,8 % - Déclarant 1",72.0,293121.0
+5HY,Revenus à imposer aux contributions sociales - Déclarant 1,112472.0,933196024.0
+5IB,BA - Revenus exonérés - Déclarant 2,461.0,11208884.0
+5IC,BA - Rev. Régime général ou moyenne triennale - Déclarant 2,51700.0,1317597459.0
+5ID,Revenus forfaitaires des coupes de bois - Déclarant 2,7156.0,4033421.0
+5IE,"BA - Plus-values à 12,8 % - Déclarant 2",1153.0,6660701.0
+5IF,BA - Déficits - Déclarant 2,19301.0,257738233.0
+5IG,Plus-values exo. à imposer aux contributions sociales - Déclarant 2,560.0,74275201.0
+5IM,Jeunes agriculteurs - Abattement 50 % ou 100 % - Déclarant 2,2020.0,43013971.0
+5IP,BNC professionnels régime micro - Revenus exonérés - Déclarant 2,2614.0,30459388.0
+5IQ,BNC professionnels régime micro - Revenus imposables - Déclarant 2,118487.0,2273000135.0
+5IR,"BNC professionnels régime micro - Plus-values à 12,8 % - Déclarant 2",31.0,2370037.0
+5IS,BNC prof. régime micro - Moins-values à long terme - Déclarant 2,21.0,2086227.0
+5IT,BNC non professionnels - Déficit de 2019,758.0,6107957.0
+5IU,BIC non prof. régime micro - Moins-values à court terme - Déclarant 1,71.0,225938.0
+5IV,BNC prof. Régime micro - Plus-values à court terme - Déclarant 2,27.0,592149.0
+5IW,BA - micro - Plus-values nettes à court terme - Déclarant 2,53.0,161576.0
+5IX,"BA - micro - Plus-values à 12,8 % - Déclarant 2",16.0,31152.0
+5IY,Revenus à imposer aux contributions sociales - Déclarant 2,33302.0,271377014.0
+5JC,BA - Revenu régime général ou moyenne triennale - PAC,272.0,4876806.0
+5JD,Revenus forfaitaires des coupes de bois - PAC,70.0,19783.0
+5JF,BA - Déficits - PAC,273.0,2726738.0
+5JG,BNC non professionnels - Bénéfices - Déclarant 1,3360.0,136903786.0
+5JJ,BNC non professionnels - Déficit - Déclarant 1,1867.0,25497956.0
+5JK,BNC non professionnels - Revenus exonérés - Déclarant 2,118.0,2977261.0
+5JM,Jeunes agriculteurs – Abattement 50 % ou 100 % - PAC,14.0,358077.0
+5JP,BNC professionnels régime micro - Revenus exonérés - PAC,88.0,354862.0
+5JQ,BNC professionnels régime micro - Revenus imposables - PAC,2829.0,10741595.0
+5JT,BNC non professionnels - Déficit de 2020,810.0,6252787.0
+5JU,BNC non prof. régime micro - Moins-values à court terme - Déclarant 1,76.0,253164.0
+5JY,Revenus à imposer aux contributions sociales - PAC,742.0,3272700.0
+5KB,BIC professionnels - Revenus exonérés - Déclarant 1,14272.0,411136593.0
+5KC,BIC professionnels - Régime normal - Bénéfices - Déclarant 1,231435.0,7110970022.0
+5KE,"BIC professionnels - Plus-values à 12,8 % - Déclarant 1",2279.0,217814158.0
+5KF,BIC professionnels - Régime normal - Déficits - Déclarant 1,49269.0,682736007.0
+5KJ,BIC prof. régime micro - Moins-values à court terme - Déclarant 1,158.0,1399065.0
+5KN,BIC professionnels régime micro - Revenus exonérés - Déclarant 1,13760.0,174603427.0
+5KO,BIC professionnels régime micro - Activités ventes - Déclarant 1,179167.0,2897680032.0
+5KP,BIC professionnels régime micro - Activités prestations - Déclarant 1,279072.0,4623788322.0
+5KQ,"BIC professionnels régime micro - Plus-values à 12,8 % - Déclarant 1",111.0,6264545.0
+5KR,BIC prof. régime micro - Moins-values à long terme - Déclarant 1,41.0,623917.0
+5KT,BNC non professionnels - Déficit de 2021,862.0,11633504.0
+5KU,BNC non prof. régime micro - Revenus imposables - Déclarant 1,48575.0,372848408.0
+5KV,"BNC non prof. régime micro - Plus-values à 12,8 % - Déclarant 1",88.0,95079115.0
+5KW,BNC non prof. régime micro - Moins-values à long terme - Déclarant 1,16.0,144719.0
+5KX,BIC prof. régime micro - Plus-values à court terme - Déclarant 1,195.0,1484138.0
+5KY,BNC non prof. régime micro - Plus-values à court terme - Déclarant 1,143.0,2086550.0
+5KZ,BNC prof. régime micro - Moins-values à court terme - Déclarant 1,177.0,988237.0
+5LB,BIC professionnels - Revenus exonérés - Déclarant 2,3291.0,87368540.0
+5LC,BIC professionnels - Régime normal - Bénéfices - Déclarant 2,45786.0,1253859903.0
+5LD,BNC non prof. Régime micro - Moins-values à court terme - Déclarant 2,55.0,282471.0
+5LE,"BIC professionnels - Plus-values à 12,8 % - Déclarant 2",398.0,43485533.0
+5LF,BIC professionnels - Régime normal - Déficits - Déclarant 2,12342.0,146831854.0
+5LJ,BIC prof. régime micro - Moins-values à court terme - Déclarant 2,36.0,186832.0
+5LN,BIC professionnels régime micro - Revenus exonérés - Déclarant 2,2721.0,30028429.0
+5LO,BIC professionnels régime micro - Activités ventes - Déclarant 2,48688.0,669380007.0
+5LP,BIC professionnels régime micro - Activités prestations - Déclarant 2,68094.0,1002273996.0
+5LQ,"BIC professionnels régime micro - Plus-values à 12,8 % - Déclarant 2",38.0,2561403.0
+5LR,BIC prof. régime micro - Moins-values à long terme - Déclarant 2,12.0,1201754.0
+5LT,BNC non professionnels - Déficit de 2022,940.0,11463026.0
+5LU,BNC non prof. régime micro - Revenus imposables - Déclarant 2,17159.0,106820703.0
+5LV,"BNC non prof. régime micro - Plus-values à 12,8 % - Déclarant 2",11.0,252123.0
+5LX,BIC prof. régime micro - Plus-values à court terme - Déclarant 2,30.0,233052.0
+5LY,BNC non prof. régime micro - Plus-values à court terme - Déclarant 2,27.0,110233.0
+5LZ,BNC prof. régime micro - Moins-values à court terme - Déclarant 2,86.0,363056.0
+5MB,BIC professionnels - Revenus exonérés - PAC,42.0,884409.0
+5MC,BIC professionnels - Régime normal - Bénéfices - PAC,212.0,3882877.0
+5MF,BIC professionnels - Régime normal - Déficits - PAC,314.0,2275499.0
+5MN,BIC professionnels régime micro - Revenus exonérés - PAC,95.0,457197.0
+5MO,BIC professionnels régime micro - Activités ventes - PAC,835.0,3946957.0
+5MP,BIC professionnels régime micro - Activités prestations - PAC,1977.0,7693114.0
+5MT,BNC non professionnels - Déficit de 2023,1142.0,18407040.0
+5MU,BNC non professionnels régime micro - Revenus imposables - PAC,857.0,3011847.0
+5NA,Revenus locations meublées non professionnelles - Déclarant 1,116048.0,431842133.0
+5NB,BIC non professionnels - Revenus exonérés - Déclarant 1,642.0,6881049.0
+5NC,BIC non prof. - Régime normal - Bénéfice - Déclarant 1,10851.0,138161638.0
+5ND,BIC non professionnels régime micro - Locations meublées - Déclarant 1,619711.0,5045001230.0
+5NE,"BIC non professionnels - Plus-values à 12,8 % - Déclarant 1",176.0,18176617.0
+5NF,BIC non prof. - Régime normal - Déficit - Déclarant 1,27015.0,89394989.0
+5NG,Location de chambres d'hôtes et meublés de tourisme - Déclarant 1,93717.0,983375386.0
+5NJ,Location de chambres d'hôtes déjà soumise aux PS - Déclarant 1,9840.0,146642405.0
+5NM,Location meublée déjà taxée aux prél. Sociaux - Déclarant 1,1885.0,13212481.0
+5NN,BIC non professionnels régime micro - Revenus exonérés - Déclarant 1,7095.0,32549005.0
+5NO,BIC non prof. régime micro - Activités ventes - Déclarant 1,36836.0,183735453.0
+5NP,BIC non prof. régime micro - Activités prestations - Déclarant 1,44158.0,439760710.0
+5NQ,"BIC non prof. régime micro - Plus-values à 12,8 % - Déclarant 1",58.0,2505048.0
+5NR,BIC non prof. régime micro - Moins-values à long terme - Déclarant 1,29.0,172761.0
+5NT,"BNC non professionnels - Plus-values à 12,8 % - Déclarant 2",19.0,1362796.0
+5NW,Locations meublées déjà soumises aux PS - Déclarant 1,12820.0,104792305.0
+5NX,BIC non prof. régime micro - Plus-values à court terme - Déclarant 1,324.0,780476.0
+5NY,Locations meublées non prof. - Déficit - Déclarant 1,249955.0,681372848.0
+5OA,Revenus locations meublées non prof. - Déclarant 2,26622.0,84140088.0
+5OB,BIC non professionnels - Revenus exonérés - Déclarant 2,138.0,1661536.0
+5OC,BIC non prof. - Régime normal - Bénéfice - Déclarant 2,2494.0,34426696.0
+5OD,BIC non professionnels régime micro - Locations meublées - Déclarant 2,133555.0,1019200979.0
+5OE,"BIC non professionnels - Plus-values à 12,8 % - Déclarant 2",31.0,897749.0
+5OF,BIC non prof. - Régime normal - Déficit - Déclarant 2,4132.0,17314202.0
+5OG,Location de chambres d'hôtes et meublés de tourisme - Déclarant 2,28794.0,303419048.0
+5OJ,Location de chambres d'hôtes déjà soumise aux PS - Déclarant 2,3965.0,71035083.0
+5OM,Location meublée déjà taxée aux prél. sociaux - Déclarant 2,706.0,4733959.0
+5ON,BIC non professionnels régime micro - Revenus exonérés - Déclarant 2,1327.0,6897589.0
+5OO,BIC non professionnels régime micro - Activités ventes - Déclarant 2,7971.0,41084459.0
+5OP,BIC non prof. régime micro - Activités prestations - Déclarant 2,9445.0,85925192.0
+5OW,Locations meublées déjà soumises aux PS - Déclarant 2,3156.0,26484806.0
+5OX,BIC non prof. régime micro - Plus-values à court terme - Déclarant 2,42.0,74717.0
+5OY,Locations meublées non prof. - Déficit - Déclarant 2,67440.0,168523957.0
+5PA,Revenus locations meublées non professionnels - PAC,227.0,472646.0
+5PC,BIC non professionnels - Régime normal - Bénéfices - PAC,43.0,449327.0
+5PD,BIC non professionnels régime micro - Locations meublées - PAC,1037.0,6586744.0
+5PF,BIC non professionnels - Régime normal - Déficit - PAC,134.0,452989.0
+5PG,Location de chambres d'hôtes et meublés de tourisme - PAC,54.0,382215.0
+5PN,BIC non professionnels régime micro - Revenus exonérés - PAC,48.0,161027.0
+5PO,BIC non professionnels régime micro - Activités ventes - PAC,262.0,1217157.0
+5PP,BIC non professionnels régime micro - Activités prestations - PAC,464.0,1412865.0
+5PW,Locations meublées déjà soumises aux PS - PAC,18.0,92039.0
+5PY,Locations meublées non professionnelles - Déficit - PAC,937.0,2382252.0
+5QA,BNC pro - produits de la propriété industrielle - Déclarant 1,177.0,77730447.0
+5QB,BNC professionnels - Revenus exonérés - Déclarant 1,21106.0,1035434301.0
+5QC,BNC professionnels - Bénéfices - Déclarant 1,424190.0,29703229926.0
+5QD,"BNC professionnels - Plus-values à 12,8 % - Déclarant 1",2821.0,380471394.0
+5QE,BNC professionnels - Déficits - Déclarant 1,25140.0,235742464.0
+5QF,Déficit agricole de 2018,3686.0,103152861.0
+5QG,Déficit agricole de 2019,3863.0,98818715.0
+5QJ,BNC non pro - produits de la propriété industrielle - Déclarant 1,223.0,27755195.0
+5QL,Jeunes créateurs BNC professionnels - Abattement 50 % - Déclarant 1,337.0,3325226.0
+5QM,Indemnité cessation agent d'assurance - Déclarant 1,70.0,27296734.0
+5QN,Déficit agricole de 2020,4255.0,103984312.0
+5QO,Déficit agricole de 2021,4581.0,116359648.0
+5QP,Déficit agricole de 2022,4799.0,120836038.0
+5QQ,Déficit agricole de 2023,6032.0,150177738.0
+5RA,BNC pro - produits de la propriété industrielle - Déclarant 2,17.0,585609.0
+5RB,BNC professionnels - Revenus exonérés - Déclarant 2,9540.0,397926429.0
+5RC,BNC professionnels - Bénéfices - Déclarant 2,178736.0,10061953917.0
+5RD,"BNC professionnels - Plus-values à 12,8 % - Déclarant 2",940.0,100033458.0
+5RE,BNC professionnels - Déficits - Déclarant 2,7863.0,56482294.0
+5RF,BNC non professionnels - Bénéfices - Déclarant 2,1172.0,40579161.0
+5RG,BNC non professionnels - Déficits - Déclarant 2,584.0,3391245.0
+5RJ,BNC non pro - produits de la propriété industrielle - Déclarant 2,17.0,209451.0
+5RL,Jeunes créateurs BNC professionnels - Abattement 50 % - Déclarant 2,70.0,557073.0
+5RN,BIC non professionnels - Déficit de 2018,6720.0,30943557.0
+5RO,BIC non professionnels - Déficit de 2019,6722.0,33824614.0
+5RP,BIC non professionnels - Déficit de 2020,7912.0,38629637.0
+5RQ,BIC non professionnels - Déficit de 2021,8414.0,40930314.0
+5RR,BIC non professionnels - Déficit de 2022,8975.0,46313970.0
+5RW,BIC non professionnels - Déficit de 2023,11389.0,61440980.0
+5RZ,BIC non pro régime micro - Moins-values à court terme - Déclarant 2,16.0,27798.0
+5SB,BNC professionnels - Revenus exonérés - PAC,19.0,187673.0
+5SC,BNC professionnels - Bénéfices - PAC,133.0,850584.0
+5SE,BNC professionnels - Déficits - PAC,93.0,479643.0
+5SG,BNC non professionnels - Déficits - PAC,11.0,92843.0
+5SO,"BNC non professionnels - Plus-values à 12,8 % - Déclarant 1",101.0,7666308.0
+5SV,Jeunes créateurs - BNC non professionnels - Abatt. 50 % - Déclarant 1,23.0,122917.0
+5TA,Micro-entrepreneur - BIC prof. - Activité de ventes - Déclarant 1,178288.0,2533241830.0
+5TB,Micro-entrepreneur - BIC prof. - Prestations de services - Déclarant 1,268572.0,4193263769.0
+5TC,Inventeurs : produits taxables à 10 % - Déclarant 1,145.0,12399814.0
+5TE,Micro-entrepreneur - BNC prof. - Recettes brutes - Déclarant 1,214641.0,3712597625.0
+5TF,BIC non pro - produits de la propriété industrielle - Déclarant 1,85.0,2836911.0
+5TH,BNC non professionnels régime micro - Revenus exonérés - Déclarant 1,3548.0,24373273.0
+5TP,BIC non professionnels - durée de l'activité en mois - PAC,76.0,22519.0
+5UA,Micro-entrepreneur - BIC prof. - Activité de ventes - Déclarant 2,50871.0,624372300.0
+5UB,Micro-entrepreneur - BIC prof. - Prestations de services - Déclarant 2,66795.0,943213554.0
+5UE,Micro-entrepreneur - BNC prof. - Recettes brutes - Déclarant 2,66970.0,1063914770.0
+5UF,BIC non pro - produits de la propriété industrielle - Déclarant 2,28.0,256489.0
+5UH,BNC non professionnels régime micro - Revenus exonérés - Déclarant 2,1136.0,8050726.0
+5UI,BIC pro - produits de la propriété industrielle - Déclarant 1,69.0,3555244.0
+5UP,BIC non professionnels - durée de l'activité (en mois) - Déclarant 1,6058.0,87450.0
+5UR,BIC non pro de source étrangère CI=I français - Déclarant 1,418.0,27848491.0
+5UT,"BIC non pro PVCT, subvention d'équipt, assurance - Déclarant 1",338.0,2601865.0
+5UY,BIC non professionnels MVCT - Déclarant. 1,335.0,573038.0
+5VA,Micro-entrepreneur - BIC professionnels - Activité de ventes - PAC,1699.0,6279775.0
+5VB,Micro-entrepreneur - BIC prof. - Prestations de services - PAC,2505.0,9017884.0
+5VE,Micro-entrepreneur - BNC professionnels - Recettes brutes - PAC,1826.0,7151243.0
+5VH,BNC non professionnels régime micro - Revenus exonérés - PAC,49.0,194130.0
+5VP,BIC non professionnels - durée de l'activité (en mois) - Déclarant 2,1531.0,35390.0
+5VR,BIC non pro de source étrangère CI=I français - Déclarant 2,129.0,3125697.0
+5VT,"BIC non pro PVCT, subv d'équipt, assurance - Déclarant 2",57.0,233722.0
+5VY,BIC non professionnels MVCT - Déclarant 2,78.0,96889.0
+5WE,Déficits relevant des organismes de sec. Sociale - Déc1,2315.0,10042791.0
+5XA,BA - micro - Revenus exonérés - Déclarant 1,7654.0,65382667.0
+5XB,BA - micro - Revenus imposables 2024 - Déclarant 1,142623.0,4214422193.0
+5XE,Déficits relevant des organismes de sec. Sociale - Déc 2,950.0,3990050.0
+5XH,BNC professionnels MVCT - Déclarant 1,776.0,1777593.0
+5XI,BNC professionnels - durée de l'activité en mois - Déclarant 1,74690.0,1023939.0
+5XJ,BNC pro de source étrangère avec CI=I français - Déclarant 1,6361.0,584258170.0
+5XN,BA - micro - Moins values à long terme - Déclarant 1,38.0,248601.0
+5XO,BA - micro - Moins values nettes à court terme - Déclarant 1,148.0,955344.0
+5XP,"BNC pro PVCT subvention d'équipement, assurance - Déclarant 1",1922.0,16167276.0
+5XR,BNC non professionnels - durée de l'activité en mois - Déclarant 1,9418.0,303574.0
+5XS,BNC non pro de source étrangère avec CI=I français - Déclarant 1,763.0,342389440.0
+5XT,BA au taux marginal - Déclarant 1,2723.0,82981041.0
+5XU,BA au taux marginal - Déclarant 2,879.0,18385223.0
+5XY,"BNC non pro PVCT, subvention d'équipt., assurance - Déclarant 1",45.0,4744757.0
+5YA,BA micro - Revenus exonérés - Déclarant 2,1551.0,13651185.0
+5YB,BA micro - Revenus imposables 2024 - Déclarant 2,35687.0,1057114491.0
+5YE,Déficits relevant des organismes de sec. Sociale - PAC,13.0,17351.0
+5YH,BNC professionnels MVCT - Déclarant 2,349.0,858254.0
+5YI,BNC professionnels - durée de l'activité en mois - Déclarant 2,24250.0,260844.0
+5YJ,BNC pro de source étrangère avec CI=I français - Déclarant 2,1675.0,117859544.0
+5YN,BA - micro - Moins values à long terme - Déclarant 2,11.0,18139.0
+5YO,BA - micro - Moins values nettes à court terme - Déclarant 2,48.0,392918.0
+5YP,"BNC pro PVCT, subvention d'équipement, assurance - Déclarant 2",810.0,4237415.0
+5YR,BNC non professionnels - durée de l'activité en mois - Déclarant 2,3016.0,38495.0
+5YS,BNC non pro de source étrangère CI=I français - Déclarant 2,187.0,48886627.0
+5YY,"BNC non pro PVCT, subvention d'équipt., assurance - Déclarant 2",13.0,1027934.0
+5ZA,BA - micro - Revenus exonérés - PAC,15.0,72462.0
+5ZB,BA - micro - Revenus imposables 2024 - PAC,220.0,2749032.0
+5ZI,BNC professionnels - durée de l'activité en mois - PAC,544.0,2936.0
+5ZR,BNC non professionnels - durée de l'activité en mois - PAC,92.0,442.0
+6DD,Déductions diverses,460022.0,1088964146.0
+6DE,CSG déductible,4501240.0,3150989453.0
+6DG,Déductions des charges foncières des monuments historiques,7953.0,111444387.0
+6EL,Pensions alimentaires - 1er enfant majeur imposé séparément,818206.0,3396214775.0
+6EM,Pensions alimentaires - 2ème enfant majeur imposé séparément,186269.0,734659015.0
+6EU,Frais d'accueil pers. âgée dans le besoin - Montant,6857.0,27190635.0
+6EV,Frais d'accueil pers. âgée dans le besoin - Nombre,6786.0,7677.0
+6FA,Déficit global – 2018,10564.0,211465268.0
+6FB,Déficit global – 2019,13570.0,281964942.0
+6FC,Déficit global – 2020,18765.0,338745775.0
+6FD,Déficit global – 2021,24467.0,424046360.0
+6FE,Déficit global – 2022,30115.0,480067764.0
+6FL,Déficit global – 2023,53384.0,758941987.0
+6GH,Sommes ajoutées au revenu imposable,678.0,2625360.0
+6GI,Pension alimentaire - décision avant le 01/01/06 - 1er enfant majeur,27839.0,94304601.0
+6GJ,Pension alimentaire - décision avant le 01/01/06 - 2ème enfant majeur,6076.0,19051490.0
+6GP,Pensions alimentaires - décision de justice avant le 01/01/2006,68675.0,378559527.0
+6GU,Autres pensions alimentaires,1111093.0,4461395237.0
+6HO,Grosses réparations : report 2014,370.0,2512917.0
+6HP,Grosses réparations : report 2015,213.0,1709908.0
+6HQ,Grosses réparations : report 2016,228.0,1765752.0
+6HR,Grosses réparations : report 2017,467.0,4669777.0
+6NS,Cotisations versées sur les nouveaux plan épargne retraite - Déc 1,1200542.0,5129128323.0
+6NT,Cotisations versées sur les nouveaux plan épargne retraite - Déc 2,498929.0,1953442838.0
+6NU,Cotisations versées sur les nouveaux plan épargne retraite - PAC,3797.0,15147340.0
+6OS,Autres cotisations déduites des revenus indépendants (Déclarant 1),156206.0,728927959.0
+6OT,Autres cotisations déduites des revenus indépendants (Déclarant 2),54155.0,210231153.0
+6OU,Autres cotisations déduites des revenus indépendants (PAC),101.0,164357.0
+6PS,Plafond PERP corrigé 2024 - Déclarant 1,15624.0,291617065.0
+6PT,Plafond PERP corrigé 2024 - Déclarant 2,6729.0,109787632.0
+6PU,Plafond PERP corrigé 2024 - PAC,2441.0,27820653.0
+6QR,Demande plafond PERP mutualisé,75062.0,75062.0
+6QS,Cotisations 2024 - Déclarant 1 - Régimes obligatoires entreprise,492440.0,1208420025.0
+6QT,Cotisations 2024 - Déclarant 2 - Régimes obligatoires entreprise,158129.0,335134904.0
+6QU,Cotisations 2024 - PAC - Régimes obligatoires entreprise,2591.0,3056696.0
+6QW,Plafond PERP nouveau résident - Case à cocher,3296.0,3296.0
+6RS,Cotisations 2024 - Déclarant 1 - PERP et assimilés,323424.0,696647571.0
+6RT,Cotisations 2024 - Déclarant 2 - PERP et assimilés,147002.0,294746473.0
+6RU,Cotisations 2024 - PAC - PERP et assimilés,908.0,3669466.0
+7AA,LocAvantages et départ à l’étranger (case à cocher),55.0,55.0
+7AC,Cotisations syndicales - Déclarant 1,1043310.0,184305696.0
+7AE,Cotisations syndicales - Déclarant 2,379090.0,63272206.0
+7AG,Cotisations syndicales - PAC,15817.0,1423889.0
+7AK,Prorogation 2022 Scellier réalisé et achevé en 2012: report,2225.0,19491763.0
+7AL,"Prorog. 2022 Scellier réalisé en 2012, 2011 et achevé en 2012: report",1581.0,16504867.0
+7AM,"Prorog. 2022 Scellier réalisé en 2011, 2010 et achevé en 2012: report",1311.0,16668677.0
+7AN,"Prorog. 2022 Scellier réalisé en 2010, 2009 et achevé en 2012: report",552.0,7200971.0
+7AO,Prorogation 2022 Scellier réalisé en 2012 et achevé en 2013: report,2975.0,20746986.0
+7AV,"Prorog. 2022 Scellier réalisé en 2012, 2011 et achevé en 2013: report",3491.0,23317180.0
+7AW,"Prorog. 2022 Scellier réalisé en 2011, 2010 et achevé en 2013: report",1780.0,19878770.0
+7AX,"Prorog. 2022 Scellier réalisé en 2010, 2009 et achevé en 2013: report",425.0,6532797.0
+7AZ,Prorog. 2022 Scellier 2011 réalisé en 2011/2012 achevé en 2016: report,12.0,39378.0
+7BK,Réduction LocAvantages 15 %,1636.0,12287692.0
+7BL,Réduction LocAvantages 20 %,860.0,6763626.0
+7BM,Réduction LocAvantages 35 %,2293.0,15630751.0
+7BN,Réduction LocAvantages 40 %,1662.0,9967014.0
+7BO,Réduction LocAvantages 65 %,570.0,3046888.0
+7BR,Prorog. 2022 Scellier 2011 réalisé en 2011/2012 achevé en 2017: report,11.0,32167.0
+7BS,Report souscription au capital de sociétés foncières solidaires 2020,30.0,146090.0
+7BT,Report souscription au capital de sociétés foncières solidaires 2021,30.0,384918.0
+7BU,Report souscription au capital de sociétés foncières solidaires 2022,58.0,658222.0
+7BW,Report souscription au capital de sociétés foncières solidaires 2023,119.0,2009138.0
+7BZ,2nde prorogation 2024 réalisé en 2012 achevé en 2016,19.0,465044.0
+7CA,Report souscriptions au capital des PME du 9.5 au 31.12.2021,337.0,8279710.0
+7CB,2nde prorogation 2024 réalisé en 2011 achevé en 2015,30.0,451037.0
+7CD,Dépenses d'hébergement pour personnes dépendantes – 1ère personne,430092.0,8549527483.0
+7CE,Dépenses d’hébergement pour personnes dépendantes – 2ème personne,27078.0,465502616.0
+7CF,"2nde prorogation 2024, réalisé du 01/01 au 31/03/2011 achevé en 2015",19.0,540222.0
+7CG,"2nde prorogation 2024, réalisé du 01/04 au 31/12/2011 achevé en 2015",14.0,193189.0
+7CH,Souscriptions au capital d’ESUS du 1.1 au 27.06.2024,3155.0,13778891.0
+7CI,Souscriptions au capital de PME,27882.0,264947165.0
+7CJ,2nde prorogation 2024 réalisé en 2012 achevé en 2015,15.0,1634404.0
+7CO,Souscriptions au capital d’ESUS du 28.06.2024 au 31.12.2024,5885.0,29365547.0
+7CP,Report souscriptions au capital des PME et ESUS du 1.1 au 11.3.2023,259.0,7192071.0
+7CQ,Report souscriptions au capital des PME et ESUS du 12.3 au 31.12.2023,1140.0,31412273.0
+7CR,Souscriptions au capital des PME (jeunes entreprises innovantes),5840.0,36468805.0
+7CS,Report souscriptions au capital des PME et ESUS du 10.8 au 31.12.2020,171.0,4611332.0
+7CT,Report souscriptions au capital des PME et ESUS du 1.1 au 8.5.2021,173.0,5694160.0
+7CU,Report souscriptions au capital des PME et ESUS du 1.1 au 17.3.2022,157.0,4175946.0
+7CW,Report souscriptions au capital des PME et ESUS du 18.3 au 31.12.2022,559.0,23278842.0
+7CX,Report souscriptions au capital des PME et ESUS du 1.1 au 9.8.2020,155.0,9838601.0
+7CY,Report de réduction 2019 au titre du plafonnement global,205.0,1211202.0
+7DA,"2nde prorogation Scellier 2022, réalisé et achevé en 2009 : report",1576.0,33391843.0
+7DB,Crédit d'impôt dépenses aide à domicile,5190857.0,15371040389.0
+7DC,Report souscriptions au capital des ESUS du 9.5 au 31.12.2021,381.0,5394723.0
+7DD,"2nde prorogation Scellier 2022, réalisé et achevé en 2010 : report",5801.0,92215158.0
+7DE,2nde prorog. 2022 réalisé en 2009 ou 2010 et achevé en 2010 : report,2910.0,27308526.0
+7DF,2nde prorog. 2022 réalisé en 2011 achevé en 2013 : report,333.0,1000788.0
+7DG,Case à cocher salarié à domicile - Invalidité à 80 % minimum,184196.0,184196.0
+7DH,2nde prorog. 2022 réalisé en 2011 ou 2012 achevé en 2013 : report,74.0,578213.0
+7DJ,2nde prorog. 2022 Scellier réalisé en 2012/2013 achevé en 2013: report,41.0,681271.0
+7DK,2nde prorog. 2022 Scelllier réalisé en 2011 achevé en 2014 : report,13.0,207444.0
+7DL,Nombre d'ascendants à l'APA de plus de 65 ans,34637.0,40081.0
+7DN,2nde prorog. 2022 Scellier réalisé en 2012/2013 achevé en 2014: report,60.0,101299.0
+7DQ,Case à cocher 1er emploi d'un salarié à domicile,103119.0,103119.0
+7DR,Aides perçues pour l'emploi à domicile,426553.0,1158729462.0
+7DU,"2nde prorogation 2024, réalisé du 01/01 au 31/03/2012 achevé en 2016",44.0,296878.0
+7DV,"2nde prorogation 2024, réalisé du 01/04 au 31/12/2012 achevé en 2016",41.0,295071.0
+7DX,"2nde prorogation 2024, réalisé du 01/01 au 31/03/2013 achevé en 2016",13.0,739031.0
+7DY,Report de réduction 2020 au titre du plafonnement global,221.0,1241344.0
+7DZ,Souscriptions PME (jeunes entreprises innovantes de rupture),6599.0,46998576.0
+7EA,Enfant scolarisé - Collège - Nombre,1794093.0,2064528.0
+7EB,Enfant en résidence alternée - Collège - Nombre,297344.0,340321.0
+7EC,Enfant scolarisé - Lycée - Nombre,1586572.0,1738423.0
+7ED,Enfant en résidence alternée - Lycée - Nombre,241284.0,263374.0
+7EF,Enfant scolarisé - Enseignement supérieur - Nombre,1488247.0,1780289.0
+7EG,Enfant en résidence alternée - Enseignement supérieur - Nombre,51904.0,53230.0
+7EK,Report de réduction 2021 SFS et ESUS,254.0,944260.0
+7EL,Prorog. 2023 Scellier réalisé en 2012 ou 2013  achevé en 2013: report,1332.0,19040150.0
+7EM,"Prorog. 2023 Scellier réalisé en 2011, 2012 et achevé en 2013: report",924.0,14526469.0
+7EN,Souscriptions SOFICA - Taux 48 %,8071.0,71037703.0
+7EQ,"Prorog. 2023 Scellier réalisé en 2010, 2011 et achevé en 2013: report",809.0,21620713.0
+7ER,"Prorog. 2023 Scellier réalisé en 2009, 2010 et achevé en 2013: report",168.0,3580513.0
+7EV,Prorog. 2023 Scellier réalisé en 2012 ou 2013 achevé en 2014: report,2037.0,11532964.0
+7EW,"Prorog. 2023 Scellier réalisé en 2011, 2012 et achevé en 2014: report",551.0,4751278.0
+7EX,"Prorog. 2023 Scellier réalisé en 2010, 2011 et achevé en 2014: report",350.0,5880177.0
+7EY,Report de réduction 2021 au titre du plafonnement global,355.0,2004398.0
+7FA,"Prorog. 2023 Scellier réalisé en 2009, 2010 et achevé en 2014: report",138.0,3228418.0
+7FD,Prorog. 2023 Scellier 2012 réalisé en 2012/2013 achevé en 2017: report,12.0,28355.0
+7FF,Frais de comptabilité - Adhésion CGA-AA,278430.0,172399550.0
+7FG,Frais de comptabilité - Adhésion CGA-AA - Nombre d'exploitations,206560.0,220313.0
+7FH,Intérêts d'emprunts pour acquisition société reprise,316.0,603683.0
+7FL,Souscriptions FIP DOM COM,3591.0,16642420.0
+7FM,Souscriptions FIP Corse,4234.0,29292170.0
+7FN,Souscriptions SOFICA - Taux 30 %,124.0,676220.0
+7FQ,Souscriptions de parts de FIP du 1/1 au 11/3/2023,8274.0,49932020.0
+7FV,Investissements Duflot achevés en 2016 : report 1/9 de la RI,2857.0,12642318.0
+7FW,Investissements Duflot achevés en 2017 : report 1/9 de la RI,471.0,2242282.0
+7FX,Investissements Duflot achevés en 2018 : report 1/9 de la RI,487.0,1977923.0
+7FY,Report de réduction 2022 au titre du plafonnement global,492.0,3033317.0
+7GA,Frais de garde - 1er enfant de moins de 6 ans,1818182.0,3739181259.0
+7GB,Frais de garde - 2ème enfant de moins de 6 ans,356310.0,666612312.0
+7GC,Frais de garde - 3ème enfant de moins de 6 ans,23771.0,35859440.0
+7GE,Résidence alternée Frais de garde - 1er enfant. moins de 6 ans,115838.0,149848377.0
+7GF,Résidence alternée Frais de garde - 2ème enfant moins de 6 ans,14510.0,16535200.0
+7GG,Résidence alternée Frais de garde - 3ème enfant moins de 6 ans,668.0,692288.0
+7GH,2nde prorogation Scellier en 2024 réalisé en 2010 et achevé en 2011,3320.0,497942864.0
+7GI,2nde prorog. Scellier en 2024 engagé en 2009 achevé en 2011,640.0,86591827.0
+7GJ,2nde prorogation Scellier en 2024 réalisé en 2009 et achevé en 2011,895.0,124777920.0
+7GN,Souscriptions SOFICA - Taux 36 %,69.0,243573.0
+7GQ,Souscriptions de parts de FCPI du 1/1 au 11/3/2023,20176.0,166881375.0
+7GW,Souscriptions au capital de sociétés foncières solidaires,7143.0,55648182.0
+7GY,Report de réduction 2023 au titre du plafonnement global,1047.0,5696778.0
+7GZ,"Rente-survie, contrat d'épargne handicap",33656.0,252668617.0
+7HA,"2nde prorogation Scellier en 2024 engagé, réalisé et achevé en 2012",1682.0,269238662.0
+7HD,Invest. loc. meublée non prof. initié en 2009 : Report réduction 2020,204.0,930686.0
+7HE,Invest. loc. meublée non prof. initié en 2010 : Report réduction 2020,375.0,1551158.0
+7HF,Invest. loc. meublée non prof. initié en 2011 : Report réduction 2020,419.0,1146676.0
+7HG,Invest. loc. meublée non prof. initié en 2012 : Report réduction 2020,216.0,348453.0
+7HH,Invest. loc. meublée réalisé achevé de 2013 à 2022 : report RI 2020,818.0,1352377.0
+7HJ,2nde prorog. Scellier en 2024 engagé en 2010 réalisé et achevé en 2012,886.0,154299759.0
+7HK,2nde prorog. Scellier 2024 du 01/01/2012 au 31/03/2012 achevé en 2012,611.0,102413416.0
+7HN,2nde prorog. Scellier 2024 du 01/04/2012 au 31/12/2012 achevé en 2012,691.0,115631466.0
+7HO,Invest. Loc. meublée non prof. initié en 2009 : Report réduction 2018,329.0,1079398.0
+7HP,Invest. loc. meublée non prof. initié en 2010 : Report réduction 2018,545.0,1922902.0
+7HQ,Invest. loc. meublée non prof. initié en 2011 : Report réduction 2018,364.0,1059818.0
+7HR,Invest. loc. meublée non prof. initié en 2012 : Report réduction 2018,144.0,276623.0
+7HS,Invest. loc. meublée réalisé achevé de 2013 à 2022 : report RI 2018,417.0,772009.0
+7HT,Invest. loc. meublée non prof. initié en 2009 : Report réduction 2019,290.0,1186556.0
+7HU,Invest. loc. meublée non prof. initié en 2010 : Report réduction 2019,517.0,2095758.0
+7HV,Invest. loc. meublée non prof. initié en 2011 : Report réduction 2019,442.0,1363933.0
+7HW,Invest. loc. meublée non prof. initié en 2012 : Report réduction 2019,184.0,311411.0
+7HX,Invest. loc. meublée réalisé achevé de 2013 à 2022 : report RI 2019,568.0,915146.0
+7HY,"2nde prorogation Scellier 2024 engagé, réalisé en 2011 achevé en 2012",1706.0,301374688.0
+7HZ,"2nde prorog. 2021, réalisé et achevé en 2009: report RI",709.0,2562208.0
+7IA,Invest. Pinel métro réalisé et achevé en 2023 : report 1/6 de la RI,17979.0,258761683.0
+7IB,Invest. Pinel métro réalisé et achevé en 2023: report 1/9 de la RI,15596.0,292565496.0
+7IC,Invest. Pinel outre-mer réalisé et achevé en 2023: report 1/6 de la RI,322.0,7358360.0
+7ID,Invest. Pinel outre-mer réalisé et achevé en 2023: report 1/9 de la RI,542.0,10963676.0
+7IE,Investissement Denormandie achevé en 2023 en métropole 6 ans : report,136.0,1358504.0
+7IF,Investissement Denormandie achevé en 2023 en métropole 9 ans : report,497.0,4743673.0
+7II,Invest. loc. meublée non prof. : engagement de location Case à cocher,1574.0,1574.0
+7IJ,2nde prorog. Scellier 2024 engagé en 2010 réalisé en 2011 achevé 2012,522.0,83820066.0
+7IK,Invest. loc. meublée non prof. : résidence pers. âgées ou handicapées,566.0,566.0
+7IL,Invest. loc. meublée non prof. : résidence étudiants,934.0,934.0
+7IM,Prorogation Scellier 2009/2010 engagé en 2009 : report  RI 2023,957.0,2952944.0
+7IN,Prorogation Scellier 2010/2011 engagé en 2010 : report RI 2023,1486.0,4633288.0
+7IO,Prorogation Scellier 2011/2012 et engagé en 2011 : report RI 2022,1457.0,4336098.0
+7IP,Prorogation Scellier 2012/2013 : report RI 2022,1314.0,3351421.0
+7IQ,2nde prorog. Scellier 2024 du 01/01/2011 au 31/03/2011 achevé en 2012,630.0,109995091.0
+7IR,"2nde prorogation Scellier en 2024 engagé, réalisé et achevé en 2011",1778.0,277190513.0
+7IS,2nde prorog. Scellier en 2024 engagé en 2010 réalisé et achevé en 2011,1092.0,170729555.0
+7IT,2nde prorog. Scellier 2024 du 01/01/2011 au 31/03/2011 achevé en 2011,496.0,78148206.0
+7IU,2nde prorog. Scellier 2024 du 01/04/2011 au 31/12/2011 achevé en 2011,757.0,117061169.0
+7IV,2nde prorog. 2022 réalisé et achevé en 2009: report RI,1417.0,4349186.0
+7IW,2nde prorog. Scellier 2024 du 01/04/2011 au 31/12/2011 achevé en 2012,456.0,81599542.0
+7IX,2nde prorog. 2022 réalisé en 2011 et achevé de 2011 à 2014: report RI,199.0,529002.0
+7IY,2nde prorog. 2022 engagé en 2010 et achevé de 2011 à 2014: report RI,1094.0,3429039.0
+7IZ,2nde prorog. 2022 réalisé en 2012 ou 2013: report RI,65.0,207041.0
+7JA,Investissement Denormandie achevé en 2019 en métropole 6 ans : report,38.0,323362.0
+7JB,Investissement Denormandie achevé en 2019 en métropole 9 ans : report,100.0,1263767.0
+7JE,Investissement Denormandie achevé en 2022 en métropole 6 ans : report,148.0,1393409.0
+7JF,Investissement Denormandie achevé en 2022 en métropole 9 ans : report,371.0,3843818.0
+7JI,Invest. Pinel métro réalisé et achevé en 2022 : report 1/6 de la RI,22597.0,305181473.0
+7JJ,Invest. Pinel métro réalisé et achevé en 2022: report 1/9 de la RI,20553.0,329845439.0
+7JK,Invest. Pinel outre-mer réalisé et achevé en 2022: report 1/6 de la RI,326.0,7148550.0
+7JL,Invest. Pinel outre-mer réalisé et achevé en 2022: report 1/9 de la RI,593.0,10990855.0
+7JM,Invest. Pinel métro réalisé et achevé en 2019 : report 1/6 de la RI,25568.0,167151286.0
+7JN,Invest. Pinel métro réalisé et achevé en 2020 : report 1/6 de la RI,20890.0,158010585.0
+7JO,Invest. Pinel métro réalisé et achevé en 2020 : report 1/9 de la RI,23018.0,180769401.0
+7JP,Invest. Pinel outre-mer réalisé et achevé en 2020: report 1/6 de la RI,466.0,4264449.0
+7JQ,Invest. Pinel outre-mer réalisé et achevé en 2020: report 1/9 de la RI,786.0,9288750.0
+7JR,Investissement Denormandie achevé en 2020 en métropole 6 ans : report,79.0,495511.0
+7JS,Investissement Denormandie achevé en 2020 en métropole 9 ans : report,369.0,1522214.0
+7JV,Invest. Pinel métro réalisé et achevé en 2021 : report 1/6 de la RI,24339.0,234592685.0
+7JW,Invest. Pinel métro réalisé et achevé en 2021 : report 1/9 de la RI,23917.0,266966960.0
+7JX,Invest. Pinel outre-mer réalisé et achevé en 2021: report 1/6 de la RI,380.0,5860272.0
+7JY,Invest. Pinel outre-mer réalisé et achevé en 2021: report 1/9 de la RI,793.0,11700307.0
+7KA,2nde prorogation Scellier en 2024 réalisé en 2010 et achevé en 2012,5302.0,932202666.0
+7KB,2nde prorog. Scellier en 2024 engagé en 2009 achevé en 2012,360.0,57877018.0
+7KC,2nde prorog. 2019 réalisé en 2011 et achevé de 2011 à 2014 : report RI,100.0,375432.0
+7KD,"2nde prorog. 2019, engagé en 2010 réalisé en 2011: report RI",419.0,1847163.0
+7KE,Invest. loc. meublée non prof. initié en 2009 : Report réduction 2021,143.0,546081.0
+7KF,Invest. loc. meublée non prof. initié en 2010 : Report réduction 2021,145.0,1119373.0
+7KG,Invest. loc. meublée non prof. initié en 2011 : Report réduction 2021,257.0,962328.0
+7KH,Invest. loc. meublée non prof. initié en 2012 : Report réduction 2021,174.0,306402.0
+7KI,Invest. loc. meublée réalisé achevé de 2013 à 2022 : report RI 2021,1104.0,1948352.0
+7KK,2nde prorogation Scellier en 2024 réalisé en 2009 et achevé en 2012,238.0,34427209.0
+7KM,Invest. Pinel métro réalisé et achevé en 2019 : report 1/9 de la RI,31375.0,221054342.0
+7KT,"2nde prorog. 2021, réalisé en 2011 et achevé de 2011 à 2014: report RI",159.0,446604.0
+7KU,"2nde prorog. 2021, engagé en 2010 et achevé en 2011/2012: report RI",737.0,2340858.0
+7KV,"2nde prorog. 2021,  réalisé en 2012 ou 2013: report RI",50.0,181026.0
+7KX,Travaux de restauration Immobilière : report de la RI 2023,1175.0,11227826.0
+7KY,Travaux de restauration Immobilière : report de la RI 2022,495.0,5379565.0
+7KZ,Travaux de restauration Immobilière : report de la RI 2021,352.0,2505566.0
+7LG,Investissement Denormandie achevé en 2021 en métropole 6 ans : report,121.0,1232318.0
+7LH,Investissement Denormandie achevé en 2021 en métropole 9 ans : report,336.0,1830580.0
+7LK,Prorogation Scellier réalisé et achevé en 2009/2010 : report  RI 2022,948.0,3060111.0
+7LL,Prorogation Scellier 2011 engagé en 2010 : report RI 2022,1486.0,4545112.0
+7LM,Invest. Pinel outre-mer réalisé et achevé en 2019: report 1/6 de la RI,475.0,4977455.0
+7LO,Prorogation Scellier 2011/2012 et engagé en 2011 : report RI 2022,1034.0,3204297.0
+7LP,Prorogation Scellier 2012/2013 : report RI 2022,615.0,1544961.0
+7LQ,Invest. Denormandie 2024 en métropole : 6 ans,130.0,18849887.0
+7LR,Invest. Denormandie 2024 en métropole : 9 ans,437.0,44504889.0
+7MA,Investissement Scellier 2009 : report réduction 2020,1285.0,5431154.0
+7MB,Investissement Scellier 2010: report réduction 2020,2398.0,10730724.0
+7MC,Investissement Scellier 2011 : report réduction 2020,2303.0,9423764.0
+7MD,Investissement Scellier 2012 : report réduction 2020,1269.0,4175359.0
+7MI,Investissement Scellier 2009 : report réduction 2021,1157.0,4900681.0
+7MJ,Investissement Scellier 2010 : report réduction 2021,1502.0,6263988.0
+7MK,Investissement Scellier 2011 : report réduction 2021,2025.0,9002933.0
+7ML,Investissement Scellier 2012 : report réduction 2021,1450.0,4315346.0
+7MM,Invest. Pinel outre-mer réalisé et achevé en 2019: report 1/9 de la RI,1067.0,9101653.0
+7MN,Investissement location meublée non professionnelle réalisée en 2022,879.0,124480201.0
+7MO,Investissement Scellier 2009 : report réduction 2019,1558.0,6640367.0
+7MP,Investissement Scellier 2010: report réduction 2019,2812.0,12469907.0
+7MQ,Investissement Scellier 2011 : report réduction 2019,2067.0,8181599.0
+7MR,Investissement Scellier 2012 : report réduction 2019,962.0,3080998.0
+7MS,Investissement Scellier 2009 : report réduction 2018,1840.0,7771647.0
+7MT,Investissement Scellier 2010: report réduction 2018,2675.0,11452967.0
+7MU,Investissement Scellier 2011 : report réduction 2018,1487.0,5806285.0
+7MV,Investissement Scellier 2012 : report réduction 2018,736.0,2334751.0
+7MW,Investissement location meublée non professionnelle réalisée en 2021,312.0,45552409.0
+7MX,Entreprises de presse (30%),303.0,231888.0
+7MY,Entreprises de presse (50%),741.0,565073.0
+7MZ,Investissement location meublée non professionnelle réalisée en 2020,32.0,4415301.0
+7NA,Investissement Pinel 2016 en métropole prorogation 2023 : report,1088.0,13470859.0
+7NB,Investissement Pinel outre-mer 2016 prorogation 2023 : report,40.0,925402.0
+7NC,Investissement Pinel 2017 en métropole prorogation 2023 : report,5729.0,35725028.0
+7ND,Investissement Pinel outre-mer 2017 prorogation 2023 : report,150.0,1310888.0
+7NI,Invest. Denormandie 2021 achevé en 2024 en métropole : 6 ans,19.0,2556001.0
+7NJ,Invest. Denormandie 2021 achevé en 2024 en métropole : 9 ans,29.0,3492891.0
+7NM,Invest. Denormandie 2022 achevé en 2024 en métropole : 6 ans,29.0,5368453.0
+7NN,Invest. Denormandie 2022 achevé en 2024 en métropole : 9 ans,35.0,5111068.0
+7NO,Invest. Denormandie 2023 achevé en 2024 en métropole : 6 ans,54.0,7989497.0
+7NP,Invest. Denormandie 2023 achevé en 2024 en métropole : 9 ans,89.0,9029811.0
+7NS,Investissement Scellier 2009 : report réduction 2022,1002.0,4082782.0
+7NT,Investissement Scellier 2010 : report réduction 2022,1225.0,4896870.0
+7NU,Investissement Scellier 2011 : report réduction 2022,1104.0,5205793.0
+7NV,Investissement Scellier 2012 : report réduction 2022,931.0,3000790.0
+7NZ,Travaux de restauration et de conservation,826.0,7224053.0
+7OA,Invest. loc. meublée non prof. initié en 2009 : Report réduction 2022,141.0,530654.0
+7OB,Invest. loc. meublée non prof. initié en 2010 : Report réduction 2022,111.0,440869.0
+7OC,Invest. loc. meublée non prof. initié en 2011 : Report réduction 2022,125.0,433705.0
+7OD,Invest. loc. meublée non prof. initié en 2012 : Report réduction 2022,120.0,235151.0
+7OE,Invest. loc. meublée réalisé achevé de 2013 à 2022 : report RI 2022,1530.0,2382739.0
+7OF,Investissement Pinel 2014 en métropole prorogation 2023 : report,1111.0,6550684.0
+7OG,Investissement Pinel outre-mer 2014 prorogation 2023 : report,46.0,362610.0
+7OJ,Investissement Scellier 2009 : report réduction 2023,1162.0,4828067.0
+7OP,Invest. loc. meublée non prof. 2013 à 2016 achevé en 2016 : report,4113.0,7983944.0
+7OQ,Invest. loc. meublée non prof. initié en 2012 achevé en 2016 : report,50.0,160653.0
+7OR,Invest. loc. meublée non prof. initié en 2011 achevé en 2016 : report,50.0,806076.0
+7OS,Invest. loc. meublée non prof. initié en 2010 achevé.en 2016 : report,43.0,892947.0
+7OT,Invest. loc. meublée non prof. initié en 2009 achevé en 2016 : report,26.0,245111.0
+7OU,Investissement Scellier 2010 : report réduction 2023,1513.0,5814567.0
+7OV,Investissement Scellier 2011 : report réduction 2023,1112.0,4837009.0
+7OW,Investissement Scellier 2012 : report réduction 2023,921.0,2757933.0
+7OY,Investissement location meublée non professionnelle réalisé en 2018,15.0,1368095.0
+7PC,2nde prorog. 2020 réalisé en 2011 et achevé de 2011 à 2014: report RI,132.0,424998.0
+7PD,"2nde prorog. 2020, engagé en 2010 et achevé en 2011/2014: report RI",576.0,2110951.0
+7PE,"2nde prorog. 2020, réalisé en 2012 ou 2013: report RI",32.0,116512.0
+7PK,Investissement Pinel 2015 en métropole prorogation 2022 : report,826.0,7960557.0
+7PL,Investissement Pinel outre-mer 2015 prorogation 2022 : report,24.0,103579.0
+7PM,Investissement Pinel 2016 en métropole prorogation 2022 : report,4571.0,41608800.0
+7PN,Investissement Pinel outre-mer 2016 prorogation 2022 : report,107.0,411358.0
+7PO,Invest. loc. meublée non prof. initié en 2009 : Report réduction 2023,169.0,512352.0
+7PP,Invest. loc. meublée non prof. initié en 2010 : Report réduction 2023,111.0,439852.0
+7PQ,Invest. loc. meublée non prof. initié en 2011 : Report réduction 2023,108.0,354450.0
+7PR,Invest. loc. meublée non prof. initié en 2012 : Report réduction 2023,85.0,141696.0
+7PS,Invest. loc. meublée réalisé achevé de 2013 à 2022 : report RI 2023,2404.0,3737831.0
+7PZ,Investissement location meublée non professionnelle réalisé en 2019,20.0,1911525.0
+7QH,Invest. Pinel à/c de 2019 et départ à l'étranger (case à cocher),861.0,862.0
+7QI,Invest. Pinel métropole réalisé en 2021 et achevé en 2024 : 6 ans,2337.0,495718853.0
+7QJ,Invest. Pinel métropole réalisé en 2021 et achevé en 2024 : 9 ans,2170.0,439843272.0
+7QK,Invest. Pinel outre-mer réalisé en 2021 et achevé en 2024 : 6 ans,23.0,4448068.0
+7QL,Invest. Pinel outre-mer réalisé en 2021 et achevé en 2024: 9 ans,53.0,11246445.0
+7QM,Invest.Pinel métropole réalisé en 2022 et achevé en 2024 : 6 ans,7999.0,1796037787.0
+7QN,Invest.Pinel métropole réalisé en 2022 et achevé en 2024 : 9 ans,6392.0,1406721444.0
+7QO,Invest. Pinel outre-mer réalisé en 2022 et achevé en 2024 : 6 ans,57.0,11208825.0
+7QP,Invest. Pinel outre-mer réalisé en 2022 et achevé en 2024 : 9 ans,88.0,16938634.0
+7QR,Invest.Pinel métropole réalisé en 2023 et achevé en 2024 : 6 ans,2276.0,500711761.0
+7QS,Invest.Pinel métropole réalisé en 2023 et achevé en 2024 : 9 ans,1900.0,402057550.0
+7QT,Invest. Pinel outre-mer réalisé en 2023 et achevé en 2024 : 6 ans,54.0,10311099.0
+7QU,Invest. Pinel outre-mer réalisé en 2023 et achevé en 2024: 9 ans,54.0,10201026.0
+7RB,Invest. Pinel métro réalisé et achevé en 2017 : report 1/9 de la RI,40545.0,222741271.0
+7RD,Invest. Pinel outre-mer réalisé et achevé en 2017: report 1/9 de la RI,872.0,7918038.0
+7RF,Invest. Pinel métro réalisé et achevé en 2018 : report 1/9 de la RI,36260.0,207216801.0
+7RH,Invest. Pinel outre-mer réalisé et achevé en 2018: report 1/9 de la RI,835.0,6279313.0
+7RK,Prorogation Scellier réalisé et achevé en 2009/2010 : report RI 2021,1106.0,3972041.0
+7RL,Prorogation Scellier 2011 engagé en 2010 : report RI 2021,1299.0,4070652.0
+7RM,Prorogation Scellier 2011/2012 et engagé en 2011 : report RI 2021,594.0,1890159.0
+7RN,Prorogation Scellier 2012/2013 : report RI 2021,395.0,1132602.0
+7RR,Investissement Pinel métropole 2017 première prorogation triennale,3478.0,518528122.0
+7RS,Investissement Pinel outre-mer 2017 première prorogation triennale,97.0,15396017.0
+7RT,Invest. Scellier 2012 ou 2013 (initié en 2012) achevé en 2017 : report,1074.0,15481008.0
+7RU,Investissement Scellier réalisé en 2011 achevé en 2017 : report,980.0,24815659.0
+7RV,Investissement Pinel métropole 2014 seconde prorogation triennale,312.0,46899381.0
+7RX,Investissement Pinel métropole 2018 première prorogation triennale,12534.0,2302795955.0
+7RY,Investissement Pinel outre-mer 2018 première prorogation triennale,179.0,34542971.0
+7RZ,Invest. Pinel métro réalisé et achevé en 2016 : report 1/9 de la RI,34810.0,185156993.0
+7SA,Invest. loc. meublée non prof. 2013 à 2017 achevé en 2017 : report,3376.0,6943725.0
+7SB,Invest. loc. meublée non professionnelle 2012 achevé en 2017 : report,30.0,69233.0
+7SC,Invest. loc. meublée non professionnelle 2011 achevé en 2017 : report,38.0,434274.0
+7SD,Invest.Pinel métropole réalisé et achevé en 2024 : 6 ans,2793.0,611008971.0
+7SE,Invest.Pinel métropole réalisé et achevé en 2024 : 9 ans,2497.0,532763801.0
+7SF,Invest. Pinel outre-mer réalisé et achevé en 2024 : 6 ans,105.0,23756249.0
+7SG,Invest. Pinel outre-mer réalisé et achevé en 2024: 9 ans,70.0,11872987.0
+7SH,Investissement Pinel métropole 2015 seconde prorogation triennale,2416.0,426507138.0
+7SI,Investissement Pinel outre-mer 2015 seconde prorogation triennale,51.0,8834939.0
+7SJ,"2nde prorogation Scellier 2023, réalisé et achevé en 2010 : report",2801.0,77759689.0
+7SK,2nde prorog. 2023 réalisé en 2009 ou 2010 et achevé en 2010 : report,1135.0,20983175.0
+7SM,Invest. loc. meublée non prof. 2014 à 2020 achevé en 2020 : report,1540.0,3806678.0
+7SN,Invest. loc. meublée non prof. 2013 à 2018 achevé en 2018 : report,2539.0,4847635.0
+7SO,Invest. loc. meublée non professionnelle 2012 achevé en 2018 : report,29.0,139694.0
+7SP,Invest. loc. meublée non prof. 2013 à 2019 achevé en 2019 : report,1691.0,3293327.0
+7SR,"2nde prorog. 2023, réalisé en 2011 achevé en 2011 : report",2177.0,15463519.0
+7SS,Invest. loc. meublée non prof. 2015 à 2021 achevé en 2021 : report,1705.0,4296332.0
+7ST,Invest. loc. meublée non prof. 2016 à 2022 achevé en 2022 : report,1527.0,5377340.0
+7SX,Invest. loc. meublée non prof. 2017 à 2022 achevé en 2023 : report,1938.0,4860621.0
+7SY,Invest. Pinel 2014 en métropole seconde prorogation 2023 : report,416.0,3414558.0
+7TA,CI Travaux forestiers après sinistre - Report 2020,18.0,28085.0
+7TB,CI Travaux forestiers après sinistre (avec adhésion) - Report 2020,40.0,465661.0
+7TC,"2nde prorog. 2023, réalisé en 2011 ou en 2010 achevé en 2011: report",4393.0,37870401.0
+7TD,"2nde prorog. 2023, réalisé en 2010 ou en 2009 achevé en 2011 : report",1915.0,13712878.0
+7TE,CI Travaux forestiers après sinistre - Report 2021,13.0,47150.0
+7TF,CI Travaux forestiers après sinistre (avec adhésion) - Report 2021,18.0,76109.0
+7TH,CI Travaux forestiers après sinistre - Report 2022,18.0,123562.0
+7TI,CI Travaux forestiers après sinistre (avec adhésion) - Report 2022,19.0,145652.0
+7TJ,CI Travaux forestiers après sinistre - Report 2023,43.0,619399.0
+7TP,CI Travaux forestiers après sinistre - Report 2016,16.0,267052.0
+7TQ,CI Travaux forestiers après sinistre (avec adhésion) - Report 2016,13.0,86690.0
+7TR,CI Travaux forestiers après sinistre - Report 2017,49.0,83398.0
+7TS,CI Travaux forestiers après sinistre (avec adhésion) - Report 2017,18.0,164113.0
+7TV,CI Travaux forestiers après sinistre - Report 2019,12.0,60005.0
+7TW,CI Travaux forestiers après sinistre (avec adhésion) - Report 2019,19.0,296999.0
+7TX,Travaux de restaur. Immob. engagés en 2017 site couvert par un PSMV,2804.0,127215547.0
+7TY,Travaux de restaur. immob engagés en 2017 site non couvert par un PSMV,787.0,26556035.0
+7TZ,Invest Pinel outre-mer réalise et achevé en 2016 : report 1/9 de la RI,745.0,6191408.0
+7UA,2nde prorog. 2023 réalisé en 2011 achevé en 2014 : report,28.0,92218.0
+7UB,2nde prorog. 2023 réalisé en 2011 ou 2012 achevé en 2014 : report,68.0,363495.0
+7UC,Cotisations pour la défense des forêts contre l'incendie,6277.0,1513736.0
+7UD,Dons aux personnes en difficulté,2255253.0,771095874.0
+7UE,2nde prorog. 2023 Scellier réalisé en 2012/2013 achevé en 2014: report,92.0,147095.0
+7UF,Dons aux oeuvres,3969369.0,2875506111.0
+7UH,Dons aux partis politiques,184168.0,63363792.0
+7UJ,Dons pour la sauvegarde du patrimoine religieux,245016.0,83098960.0
+7UK,2nde prorog. 2023 Scellier réalisé en 2012/2013 achevé en 2015: report,19.0,50830.0
+7UL,Cotisations d'assurance pour la forêt,10979.0,5269199.0
+7UN,Investissements forestiers : acquisition,3974.0,81063773.0
+7UO,Dons aide aux victimes du cyclone Chido à Mayotte,186797.0,32588084.0
+7UP,CI investissements forestiers : travaux,11849.0,56707814.0
+7US,Dépenses de mécénat,9320.0,13289432.0
+7UT,CI travaux forestiers après sinistre,402.0,2070434.0
+7UU,Prorogation Scellier réalisé et achevé en 2009/2010 : report RI 2020,1013.0,3202184.0
+7UV,Prorogation Scellier 2011 engagé en 2010 : report RI 2020,789.0,2624532.0
+7UW,Prorogation Scellier 2011/2012 et engagé en 2011 : report RI 2020,321.0,1132531.0
+7UX,Prorogation Scellier 2012/2013 : report RI 2020,239.0,714756.0
+7VA,Dons versés à organis. Étrangers d'aide aux personnes en difficulté.,80090.0,26763277.0
+7VC,Dons versés à des organismes étrangers,229016.0,104052335.0
+7VD,Invest.Pinel métropole dans un quartier prioritaire en 2023 : 6 ans,686.0,141209926.0
+7VE,Invest.Pinel métropole dans un quartier prioritaire en 2023 : 9 ans,685.0,137531932.0
+7VF,Invest. Pinel outre-mer dans un quartier prioritaire en 2023 : 6 ans,31.0,4240874.0
+7VG,Invest. Pinel outre-mer dans un quartier prioritaire en 2023 : 9 ans,31.0,3621057.0
+7VJ,2nde prorog. 2023 réalisé et achevé en 2009: report RI,2778.0,8224212.0
+7VK,2nde prorog. 2023 réalisé en 2011 et achevé de 2011 à 2015: report RI,475.0,1226346.0
+7VL,2nde prorog. 2023 engagé en 2010 et achevé de 2011 à 2015: report RI,2476.0,7393181.0
+7VM,CI Travaux forestiers hors sinistre - Report 2020,172.0,3556219.0
+7VN,CI Travaux forestiers hors sinistre (avec adhésion) - Report 2020,137.0,2051411.0
+7VO,2nde prorog. 2023 réalisé en 2012 ou 2013: report RI,143.0,382239.0
+7VQ,CI Travaux forestiers hors sinistre - Report 2021,263.0,4286031.0
+7VR,CI Travaux forestiers hors sinistre (avec adhésion) - Report 2021,238.0,3901893.0
+7VS,CI Travaux forestiers hors sinistre - Report 2022,412.0,6145041.0
+7VU,CI Travaux forestiers hors sinistre (avec adhésion) - Report 2022,428.0,6310412.0
+7VV,CI Travaux forestiers hors sinistre - Report 2023,1264.0,16817773.0
+7VW,Invest.Pinel métropole dans un quartier prioritaire en 2024 : 6 ans,1998.0,407513328.0
+7VX,Invest.Pinel métropole dans un quartier prioritaire en 2024 : 9 ans,1822.0,340273269.0
+7VY,Invest. Pinel outre-mer dans un quartier prioritaire en 2024 : 6 ans,32.0,5762430.0
+7VZ,Invest. Pinel outre-mer dans un quartier prioritaire en 2024 : 9 ans,54.0,5218821.0
+7WA,Investissement Pinel métropole 2014 1ère prorogation engagement 9 ans,1299.0,185021709.0
+7WB,Investissement Pinel outre-mer 2014 1ère prorogation engagement 9 ans,27.0,3458531.0
+7WI,Equipements pour l'adaptation des logements,30636.0,120878251.0
+7WL,Travaux de prévention des risques technologiques,1310.0,7295045.0
+7WM,Capital en substitution de rente,330.0,21680555.0
+7WN,Prestations compensatoires - Sommes versées en 2024,19502.0,673214475.0
+7WO,Prestations compensatoires - Sommes totales 2024,19502.0,827518924.0
+7WP,Prestations compensatoires - Report sommes 2023,832.0,11256870.0
+7WR,Travaux de prévention des risques technologiques (logts en location),1349.0,2653896.0
+7WT,Invest. Scellier 2012 ou 2013 (initié en 2012) achevé en 2016 : report,310.0,2455797.0
+7WU,Invest. Scellier 2011 ou 2012 (initié en 2011) achevé en 2016 : report,321.0,5727131.0
+7WV,Invest. Scellier 2010 ou 2011 (initié en 2010) achevé en 2016 : report,630.0,18845009.0
+7WW,Invest. Scellier 2010 (initié en 2009) achevé en 2016 : report,367.0,16193029.0
+7XA,Investissement Pinel métropole 2015 1ère prorogation engagement 9 ans,8832.0,1379833329.0
+7XB,Investissement Pinel outre-mer 2015 1ère prorogation engagement 9 ans,190.0,30853627.0
+7XC,Prorogation Scellier EFA réalisé du 01/01 au 31/03/2013 achevé en 2015,325.0,50249061.0
+7XD,Prorogation Scellier engagé et réalisé en 2012 et achevé en 2015,256.0,41026750.0
+7XE,Prorogation Scellier engagé en 2011 réalisé en 2012 et achevé en 2015,14.0,1751296.0
+7XL,Prorogation Scellier EFA réalisé du 01/01 au 31/03/2012 achevé en 2015,23.0,3393195.0
+7XM,Prorogation Scellier EFA réalisé du 01/04 au 31/12/2012 achevé en 2015,47.0,8639346.0
+7XN,Prorogation Scellier réalisé et engagé en 2011 et achevé en 2015,80.0,9533675.0
+7XS,Dons aux œuvres - Report 2019,7796.0,78482148.0
+7XT,Dons aux œuvres - Report 2020,10223.0,166843777.0
+7XU,Dons aux œuvres - Report 2021,14262.0,225427457.0
+7XW,Dons aux œuvres - Report 2022,21620.0,201453727.0
+7XY,Dons aux œuvres - Report 2023,49726.0,348854625.0
+7YB,Prorogation Scellier EFA réalisé du 01/01 au 31/03/2013 achevé en 2014,961.0,115928893.0
+7YC,Prorogation Scellier EFA réalisé du 01/01 au 31/03/2011 achevé en 2015,21.0,1663016.0
+7YD,Prorogation Scellier engagé et réalisé en 2012 et achevé en 2014,1073.0,138698052.0
+7YF,Prorogation Scellier engagé en 2011 réalisé en 2012 et achevé en 2014,183.0,16267179.0
+7YG,Habitation princ. acompte 2023 système de charge non pilotable-cocher,2158.0,2158.0
+7YH,Habitation sec. acompte 2023 système de charge non pilotable-cocher,436.0,436.0
+7YI,Prorogation Scellier réalisé et achevé en 2009/2010 : report RI 2018,393.0,1536544.0
+7YJ,Prorogation Scellier 2011 engagé en 2010 : report RI 2018,241.0,1028838.0
+7YK,Prorogation Scellier 2011/2012 : report réduction 2018,170.0,668626.0
+7YL,Prorogation Scellier 2012 : report réduction 2018,138.0,476759.0
+7YM,Prorogation Scellier EFA réalisé du 01/04 au 31/12/2011 achevé en 2015,86.0,3587374.0
+7YN,Prorogation Scellier réalisé en 2010 et achevé en 2015,95.0,9061821.0
+7YO,Prorogation Scellier réalisé en 2010 engagé en 2009 et achevé en 2015,27.0,1804591.0
+7YP,Prorogation Scellier réalisé en 2009 et achevé en 2015,43.0,4363841.0
+7ZA,Prorogation Scellier EFA réalisé du 01/01 au 31/03/2012 achevé en 2014,206.0,30337540.0
+7ZB,Prorogation Scellier EFA réalisé du 01/04 au 31/12/2012 achevé en 2014,121.0,18761046.0
+7ZC,Prorogation Scellier réalisé et engagé en 2011 et achevé en 2014,592.0,84900422.0
+7ZD,Prorogation Scellier réalisé en 2011 engagé en 2010 et achevé en 2014,78.0,10099894.0
+7ZE,Prorogation Scellier EFA réalisé du 01/01 au 31/03/2011 achevé en 2014,82.0,12166746.0
+7ZF,Prorogation Scellier EFA réalisé du 01/04 au 31/12/2011 achevé en 2014,101.0,14578748.0
+7ZG,Prorogation Scellier réalisé en 2010 et achevé en 2014,311.0,37437491.0
+7ZH,Prorogation Scellier réalisé en 2010 engagé en 2009 et achevé en 2014,86.0,9766752.0
+7ZI,Prorogation Scellier réalisé et achevé en 2009/2010 : report RI 2019,673.0,2559444.0
+7ZJ,Prorogation Scellier 2011 engagé en 2010 : report RI 2019,382.0,1630927.0
+7ZK,Prorogation Scellier 2011/2012 et engagé en 2011 : report RI 2019,213.0,803248.0
+7ZL,Prorogation Scellier 2012/2013 : report RI 2019,189.0,582730.0
+7ZN,Prorogation Scellier réalisé en 2009 et achevé en 2014,110.0,12309563.0
+7ZQ,Premier système de charge véhicule électrique (habitation principale),50788.0,69298316.0
+7ZR,Second système de charge véhicule électrique (habitation principale),1476.0,1911599.0
+7ZS,Premier système de charge véhicule électrique (résidence secondaire),1869.0,2648134.0
+7ZT,Second système de charge véhicule électrique (résidence secondaire),88.0,101403.0
+8FV,Case à cocher : revenus perçus par des fonctionnaires Internationaux,17585.0,17585.0
+8HV,RAS sur salaires et pensions - Déclarant 1,19800827.0,52454258548.0
+8HW,Acomptes d'impôt sur le revenu déjà payés - Déclarant 1,5008232.0,14942965916.0
+8HX,Acomptes de PS déjà payés - Déclarant 1,4885829.0,4786979479.0
+8HY,Restitution IR contentieux - Déclarant 1,6938.0,11727918.0
+8HZ,Restitution PS contentieux - Déclarant 1,540.0,400156.0
+8IV,RAS sur salaires et pensions - Déclarant 2,6513600.0,13669389344.0
+8IW,Acomptes d'impôt sur le revenu déjà payés - Déclarant 2,2350614.0,4049137016.0
+8IX,Acomptes de PS déjà payés - Déclarant 2,2546980.0,2027302342.0
+8IY,Restitution IR contentieux - Déclarant 2,2347.0,2749959.0
+8IZ,Restitution PS contentieux - Déclarant 2,124.0,100448.0
+8JV,RAS sur salaires et pensions - PAC 1,147159.0,32669330.0
+8JW,Acomptes d'impôt sur le revenu déjà payés - PAC1,154.0,574602.0
+8JX,Acomptes de PS déjà payés - PAC1,137.0,147372.0
+8JY,Restitution IR contentieux - PAC 1,14.0,2121.0
+8KV,RAS sur salaires et pensions - PAC 2,20469.0,3837182.0
+8KW,Acomptes d'impôt sur le revenu déjà payés - PAC2,14.0,22869.0
+8QH,"Pensions retraite et invalidité soumises à CSG à 6,6 % (déclarant 2)",4961.0,43870264.0
+8QV,"Pensions retraite et invalidité soumises à CSG à 8,3 % (déclarant 2)",14084.0,223411051.0
+8QX,"Pensions retraite et invalidité soumises à CSG à 3,8 % (déclarant 2)",2546.0,18799636.0
+8RC,Revenus de capitaux mobiliers exonérés de CSG et CRDS,4382.0,98863834.0
+8RF,Revenus fonciers exonérés de CSG et CRDS,8002.0,71261625.0
+8RM,Plus-values de cession de valeurs mobilières exonérées de CSG et CRDS,1362.0,101996438.0
+8RP,Absence de régime obligatoire français d'assurance maladie (Déc 1),35870.0,35870.0
+8RQ,Absence de régime obligatoire français d'assurance maladie (Déc 2),16154.0,16154.0
+8RV,RVTO exonérées de CSG et CRDS,177.0,1438306.0
+8SA,"Pensions en capital prélèvement de 7,5% soumis à CSG (8,3%)",1190.0,171856700.0
+8SB,"Pensions en capital prélèvement de 7,5% soumis à CSG (3,8%)",282.0,8199129.0
+8SC,"Revenus étrangers allocation de préretraite soumis à CSG (9,2%)",88.0,1979818.0
+8SD,"Pensions en capital prélèvement de 7,5% soumis à CSG (6,6%)",262.0,11116220.0
+8SH,"Affiliation régime séc.soc. EEE, britannique ou Suisse – Déc1 (cocher)",160557.0,160557.0
+8SI,"Affiliation régime séc.soc. EEE, britannique ou Suisse – Déc2 (cocher)",66797.0,66797.0
+8SW,"Allocations de chômage soumis à CSG (6,2%)",225.0,1480696.0
+8SX,"Allocations de chômage soumis à CSG (3,8%)",116.0,691234.0
+8TA,"Retenue à la source, des non résidents au taux de 20 %",12401.0,128058510.0
+8TB,Crédit d'impôt recherche restituable,303.0,4929784.0
+8TC,Crédit d'impôt recherche non restituable,11.0,72294.0
+8TD,Contribution sur les hauts revenus - case à cocher,949.0,949.0
+8TE,Travaux de rénovation énergétique en entreprise,291.0,1290586.0
+8TF,Reprises de réduction d'impôt,987.0,3026074.0
+8TG,Crédit d'impôt investissement en Corse,27.0,444448.0
+8TH,"Pensions retraite et invalidité soumises à CSG à 6,6 % (déclarant 1)",18751.0,285331488.0
+8TI,Taux effectif,23019.0,179939871.0
+8TK,Revenus étrangers avec crédit d'impôt = impôt français,588903.0,23108064075.0
+8TL,Crédit d'impôt compétitivité et emploi restituable,300.0,1856160.0
+8TM,Taux moyen - Revenu net mondial,65519.0,22642262.0
+8TN,Montant de l'impôt en sursis de paiement,1292.0,3561363736.0
+8TO,Report crédit d'impôt Corse,109.0,2857829.0
+8TP,Reprise crédit d'impôt Corse,32.0,404464.0
+8TQ,"Revenus non salariaux étrangers soumis à CSG au taux de 9,2 %",3121.0,71789553.0
+8TR,"Revenus salariaux étrangers soumis à CSG au taux de 9,2 %",3311.0,164503685.0
+8TS,Crédit d'impôt Corse restituable immédiatement,916.0,15571085.0
+8TT,Case à cocher : Contrat de capitalisation souscrit à l’étranger,241395.0,241395.0
+8TV,"Pensions retraite et invalidité soumises à CSG à 8,3 % (déclarant 1)",44639.0,1221381237.0
+8TW,"Indemnités journalières soumises à la CSG au taux de 6,2 %",1119.0,9333062.0
+8TX,"Pensions retraite et invalidité soumises à CSG à 3,8 % (déclarant 1)",9773.0,115422543.0
+8UM,Impôt payé à l'étranger sur autres revenus - PAC,428.0,375965.0
+8UT,Plus-values en report d imposition non expiré,117112.0,173268478007.0
+8UU,Case à cocher : compte bancaire à l'étranger,1445553.0,1445553.0
+8UW,Crédit d'impôt compétitivité et emploi,69.0,98020.0
+8UY,Micro-entrepreneur : versements libératoires de l'IR,8238.0,8405264.0
+8UZ,Crédit d'impôt famille,4580.0,3967035.0
+8VL,Impôt payé à l'étranger sur RCM et plus-values,91422.0,246712899.0
+8VM,Impôt payé à l'étranger sur autres revenus - Déclarant 1,23439.0,165654189.0
+8WA,Crédit d'impôt agriculture biologique,35773.0,156986251.0
+8WC,Crédit d'impôt prêts sans intérêt,32.0,27071.0
+8WD,Crédit d'impôt formation chef entreprise,131689.0,66164186.0
+8WG,Exploitation agricole n'utilisant pas le glyphosate,30637.0,80156248.0
+8WH,Exploitation agricole à haute valeur environnementale (HVE),4499.0,11363807.0
+8WK,Crédit d'impôt collaboration de recherche,30.0,99084.0
+8WM,Impôt payé à l'étranger sur autres revenus - Déclarant 2,6244.0,33239179.0
+8WR,Crédit d'impôt métiers d'art,355.0,1854506.0
+8WT,Crédit d'impôt remplacement congé agriculteur,35173.0,32576575.0
+9AA,IFI : Résidence principale,164266.0,115959390580.0
+9AB,IFI : Autres immeubles,176106.0,253872840321.0
+9AC,"IFI : Bois, forêts et parts de groupements forestiers",15669.0,3716995760.0
+9AD,IFI : Biens ruraux loués à long terme,12867.0,3152427381.0
+9AE,IFI : Justificatif exonération bois et forêts (case à cocher),1272.0,1272.0
+9BA,IFI : Parts de Groupement Fonciers Agricoles et de G.A.F,4383.0,1389516389.0
+9BB,IFI : Autres biens,38108.0,5417184975.0
+9BZ,L’annexe 1 est présente dans la déclaration IFI (case à cocher),15478.0,15478.0
+9CA,IFI : Autres immeubles détenus indirectement,105129.0,121651083794.0
+9GF,IFI Passif : Dettes afférentes aux travaux réalisés,30193.0,5596248859.0
+9GH,IFI Passif : Autres dettes,152719.0,23699378783.0
+9GL,IFI : concubinage (case à cocher),1374.0,1374.0
+9GM,IFI : option pour déclaration séparée (case à cocher),169.0,169.0
+9NC,IFI : réduction pour dons à organisme d'intérêt général,36225.0,227179151.0
+9NG,IFI : réduction pour dons à organisme établi en Europe,396.0,2038585.0
+9PR,IFI plafonnement : impôts dus au titre des revenus et produits 2024,14620.0,2469900376.0
+9PX,IFI plafonnement : revenus et produits 2024,14843.0,8040958763.0
+9RS,IFI : impôt payé à l'étranger,653.0,14714000.0
+9YF,Code chargement (nombre de codes saisis),41601193.0,697751012.0
+9YH,Case à cocher si le contribuable a souscrit une déclaration 2047,974187.0,974187.0
+9YK,Case à cocher : Restitution des recoupements dans le FLR,2193.0,2193.0
+9YT,Code majoration,779083.0,10070080.0
+9YU,Date de dépôt de la déclaration (mois et année),208463.0,15544597575.0
+9YZ,Case à cocher si amortissement foncier sur 2044,30.0,30.0
+BDA,Garde d'enfants de moins de 3 ans (18 ans si handicapés) à domicile,68326.0,400941672.0
+BDB,Accompagnement des enfants de moins de 3 ans (18 ans si handicapés),7948.0,35357310.0
+BDC,"Assistance et aide aux personnes âgées, ou handicapées",670838.0,3058309166.0
+BDD,Conduite du véhicule personnel des personnes âgées ou handicapées,5422.0,12960276.0
+BDE,"Accompagnement des personnes âgées, ou handicapées",97019.0,418960884.0
+BDF,Entretien de la maison et travaux ménagers,2455853.0,6394147813.0
+BDG,Petits travaux de jardinage,1641295.0,2289858945.0
+BDH,Travaux de petit bricolage,82383.0,46626915.0
+BDI,Garde d'enfants de 3 ans et plus à domicile,119757.0,587387565.0
+BDJ,Accompagnement des enfants de 3 ans et plus,15375.0,39534257.0
+BDK,Soutien scolaire à domicile ou cours à domicile,298115.0,420163387.0
+BDL,Soins d'esthétique à domicile pour les personnes dépendantes,10340.0,4846898.0
+BDM,Préparation de repas à domicile,13696.0,33542479.0
+BDN,Livraison de repas à domicile,153840.0,184021994.0
+BDO,Collecte et livraison à domicile de linge repassé,7174.0,6210541.0
+BDP,Livraison de courses à domicile,8890.0,6755458.0
+BDQ,Assistance informatique et internet à domicile,110366.0,31391302.0
+BDR,Soins et promenades d'animaux de compagnie des personnes dépendantes,2447.0,2748307.0
+BDS,"Maintenance, entretien et vigilance temporaires à domicile",23478.0,39346757.0
+BDT,Assistance administrative à domicile,122656.0,78243775.0
+BDU,Téléassistance et visio assistance,275040.0,80705642.0
+BDV,Interprète en langue des signes,1131.0,1034648.0
+BDW,Conduite du véhicule des personnes en cas d’invalidité temporaire,753.0,792796.0
+BDX,Accompagnement des personnes présentant une invalidité temporaire,2597.0,5452624.0
+BDY,Assistance aux personnes ayant besoin d’une aide temporaire à domicile,28318.0,64445913.0
+BDZ,Coordination et délivrance des services à la personne,21006.0,38350048.0
+BEA,Accueil familial,12640.0,150466245.0
+HFN,"Réduction invest.O-M 2019 eng. 2013/2014 (rétro. 52,63%) - report 2019",22.0,131159.0
+HFR,Invest.O-M 2019 eng. en 2013/2014 exploitation directe-report 2019,16.0,302552.0
+HFS,Autre invest.Outre-Mer 2019 (rétro. 56%) - report 2019,134.0,636928.0
+HFT,Réduction autre invest.Outre-Mer 2019 (rétro. 66%) - report 2019,36.0,193598.0
+HFU,Réduction autre invest.O-M 2019 dans l'entreprise - report 2019,33.0,178999.0
+HFW,Autre invest.O-M 2019 avec exploitation directe - report 2019,129.0,1158927.0
+HGS,Réduction autre invest. Outre-Mer 2020 (rétro. 56%) - report 2020,163.0,681054.0
+HGT,Réduction autre invest. Outre-Mer 2020 (rétro. 66%) - report 2020,75.0,266538.0
+HGU,Réduction autre invest. Outre-Mer 2020 dans l'entreprise - report 2020,27.0,456834.0
+HGW,Autre invest.Outre-Mer 2020 avec exploitation directe - report 2020,133.0,1045001.0
+HHS,Réduction autre invest. Outre-Mer 2021 (rétro. 56%) - report 2021,367.0,1626660.0
+HHT,Réduction autre invest. Outre-Mer 2021 (rétro. 66%) - report 2021,150.0,953532.0
+HHU,Réduction autre invest. Outre-Mer 2021 dans l'entreprise - report 2021,29.0,471385.0
+HHW,Autre invest.Outre-Mer 2021 avec exploitation directe - report 2021,136.0,1016760.0
+HIS,Réduction autre invest. Outre-Mer 2022 (rétro. 56%) - report 2022,1178.0,5403107.0
+HIT,Réduction autre invest. Outre-Mer 2022 (rétro. 66%) - report 2022,420.0,1984710.0
+HIU,Réduction autre invest. Outre-Mer 2022 dans l'entreprise - report 2022,49.0,779919.0
+HIW,Autre invest.Outre-Mer 2022 avec exploitation directe - report 2022,140.0,1464845.0
+HJA,Crédit d'impôt invest Outre-Mer dans le cadre d'une entreprise,1160.0,16413474.0
+HJC,RI O-M logt pour loc. ou travaux de réhabilitation 2016 (à cocher),14.0,14.0
+HJS,Réduction autre invest. Outre-Mer 2023 (rétro. 56%) - report 2023,6938.0,26849320.0
+HJT,Réduction autre invest. Outre-Mer 2023 (rétro. 66%) - report 2023,1954.0,9326877.0
+HJU,Réduction autre invest. Outre-Mer 2023 dans l'entreprise - report 2023,52.0,603704.0
+HJW,Autre invest.Outre-Mer 2023 avec exploitation directe - report 2023,174.0,1867252.0
+HKC,RI O-M logt pour loc. ou travaux de réhabilitation 2017 (à cocher),26.0,26.0
+HKS,Réduction autre invest. Outre-Mer 2024 (rétro. 56%),39127.0,495996774.0
+HKT,Réduction autre invest. Outre-Mer 2024 (rétro. 66%),18964.0,252176192.0
+HKU,Réduction autre invest. Outre-Mer 2024 dans l'entreprise,118.0,1453812.0
+HKV,Autre invest.Outre-Mer 2024 avec exploitation directe RI calculée,241.0,3155398.0
+HKW,Autre invest.Outre-Mer 2024 avec exploitation directe,341.0,3982335.0
+HOA,Réd. invest. outre-mer logt 2011 engagé avant 2011 initié avant 2009,12.0,61358.0
+HOB,Réduction invest. outre-mer logt 2011 engagé avant 2011 initié en 2009,13.0,153087.0
+HOC,Réduction invest. outre-mer logt 2011 engagé avant 2011 initié en 2010,76.0,1481918.0
+HOD,Réduction invest. outre-mer logt 2013 engagé avant 2011,16.0,194771.0
+HOF,Réduction invest. outre-mer logt 2013 engagé en 2011 initié en 2011,19.0,88898.0
+HOJ,Réduction invest. outre-mer logt 2011 engagé en 2011 initié en 2010,30.0,552725.0
+HOK,Réduction autres invest. outre-mer logt réalisés en 2011,71.0,430940.0
+HON,Réduction invest. outre-mer logt 2012 engagé avant 2011 initié en 2010,12.0,262973.0
+HOR,Réduction invest. outre-mer logt 2012 engagé en 2011 initié en 2011,69.0,1485428.0
+HOV,Réduction invest. outre-mer logt 2012 engagé en 2012 initié en 2011,39.0,160386.0
+HOW,Réduction autres invest. outre-mer logement réalisés en 2012,99.0,1097650.0
+HOY,Réduction invest. outre-mer logt 2013 engagé 20/12/2013 initié en 2012,185.0,3452931.0
+HOZ,Réduction autres invest. outre-mer logt 2013,114.0,900574.0
+HQA,Option pour le plafonnement en % du revenu : case à cocher,228.0,228.0
+HQD,Réduction autre investissement outre-mer dans le logement en 2010,58.0,308019.0
+HQM,Réduction investissement outre-mer logement 2010 engagé en 2009,59.0,1333246.0
+HQT,Réduction investissement outre-mer logement 2010 initié avant 2009,101.0,834716.0
+HUA,Réduction investissement O-M logt 2014 engagé en 2010,27.0,192314.0
+HUF,Réduction invest. O-M logt 2014 engagé 2012/2013/2014 initié en 2012,150.0,2822795.0
+HUG,Réduction autres invest. Outre-Mer logt 2014,554.0,4031203.0
+HUH,Réduction invest. Outre-Mer logt 2015 engagé en 2010,35.0,308130.0
+HUM,Réd. invest. O-M logt 2015 engagé à compter de 2012 initié en 2012,102.0,1430960.0
+HUN,Réduction autres invest. Outre-Mer logt 2015,932.0,8366081.0
+HUO,Réduction invest. Outre-Mer logt 2016 engagé en 2010,22.0,99431.0
+HUT,Réd. invest. O-M logt 2016 engagé à compter de 2012 initié en 2012,69.0,552386.0
+HUU,Réduction autres invest. Outre-Mer logt 2016,1125.0,8212686.0
+HVA,Réduction invest. Outre-Mer logt 2017 engagé en 2010,22.0,574645.0
+HVC,Réduction invest. Outre-Mer logt 2017 engagé en 2011 initié en 2011,16.0,325782.0
+HVF,Réd. invest. O-M logt 2017 engagé à compter de 2012 initié en 2012,86.0,1117379.0
+HVG,Réduction autres invest. Outre-Mer logt 2017,2203.0,17299638.0
+HVJ,Réduction Investissement Outre-Mer logement 2020,42.0,284153.0
+HVK,Réduction Investissement Outre-Mer logement 2021,45.0,421280.0
+HVL,Réduction Investissement Outre-Mer logement 2022,63.0,1331964.0
+HVM,Réduction Investissement Outre-Mer logement 2023,78.0,812374.0
+HVN,Réduction Investissement Outre-Mer logement 2024,250.0,2514723.0
+HYC,Réduc. invest. O-M logt social 2019 engagé en 2013/2014 - Report 2019,12.0,611914.0
+HYD,Autre invest. Outre-Mer logt social réalisé en 2019 - Report 2019,22.0,191088.0
+HYE,Autre invest. Outre-Mer logt social réalisé en 2020 – Report 2020,29.0,779743.0
+HYF,Investissement Outre-Mer logt social réalisé en 2021 – Report 2021,45.0,1186603.0
+HYG,Investissement Outre-Mer logt social réalisé en 2022 – Report 2022,77.0,1082750.0
+HYH,Investissement Outre-Mer logt social réalisé en 2023 – Report 2023,299.0,1571186.0
+HYI,Investissement Outre-Mer logt social réalisé en 2024,409.0,10681103.0
+RSE,Pays de provenance des revenus de source étrangère – Déclarant 1,66241.0,6580741447.0
+RSF,Pays de provenance des revenus de source étrangère – Déclarant 2,14482.0,1437291986.0
+RSH,Pays de provenance des revenus de source étrangère – PAC,524.0,51985520.0
+ZZA,Indemnités journalières non imposables - Déclarant 1,689834.0,1745037885.0
+ZZB,Indemnités journalières non imposables - Déclarant 2,154361.0,426298391.0

@@ -1,0 +1,37 @@
+=== 1. Paramètre de Pareto de l'assiette brute par foyer (IRCOM 2024 reconstitué)
+z* =    14 k€ : a = 1.42 ; foyers au-dessus 79.04 % ; part du travail  67 %
+z* =    50 k€ : a = 2.28 ; foyers au-dessus 23.41 % ; part du travail  72 %
+z* =    90 k€ : a = 2.66 ; foyers au-dessus  6.91 % ; part du travail  78 %
+z* =   150 k€ : a = 2.80 ; foyers au-dessus  1.92 % ; part du travail  81 %
+z* =   250 k€ : a = 1.95 ; foyers au-dessus  0.29 % ; part du travail  81 %
+z* =   500 k€ : a = 1.73 ; foyers au-dessus  0.06 % ; part du travail  80 %
+
+=== 2. Taux supérieurs (Saez) : τ = (1 − g)/(1 − g + a e) ; e effectif = e × part du travail
+(a reconstitué au-dessus de 120 k€ : 2.61 ; retenu : 2.1)
+au-dessus de 120 k€, taux 40 %, e = 0.25 (effectif 0.20), a = 2.10 : taux maximisant la recette 70 % ; poids implicite g = 0.72 (avec 10 / 20 points d'autres prélèvements : coin 46 / 52 %, g = 0.64 / 0.54)
+au-dessus de 120 k€, taux 40 %, e = 0.51 (effectif 0.41), a = 2.10 : taux maximisant la recette 54 % ; poids implicite g = 0.43 (avec 10 / 20 points d'autres prélèvements : coin 46 / 52 %, g = 0.27 / 0.07)
+(a reconstitué au-dessus de 250 k€ : 1.95 ; retenu : 2.1)
+au-dessus de 250 k€, taux 49 %, e = 0.25 (effectif 0.20), a = 2.10 : taux maximisant la recette 70 % ; poids implicite g = 0.59 (avec 10 / 20 points d'autres prélèvements : coin 54 / 59 %, g = 0.50 / 0.38)
+au-dessus de 250 k€, taux 49 %, e = 0.51 (effectif 0.42), a = 2.10 : taux maximisant la recette 53 % ; poids implicite g = 0.16 (avec 10 / 20 points d'autres prélèvements : coin 54 / 59 %, g = -0.03 / -0.27)
+Dans la bande à taux unique t, la formule du taux linéaire t = (1 − ḡ)/(1 − ḡ + e) donne ḡ = 1 − e t/(1 − t) :
+  e = 0.25 : ḡ = 0.95 pour t = 17.2 %
+  e = 0.33 : ḡ = 0.93 pour t = 17.2 %
+
+=== 3. Inverse optimum : Ḡ(z) = 1 − e·part_travail·T'/(1 − T')·α(z)
+z =   20 k€ : α = 0.58 (reconstitué 0.58) ; T' actuel  9.2 %, E 17.2 % ; Ḡ (e = 0,25) actuel  0.99, E  0.98 ; Ḡ (e = 0,5) actuel  0.98, E  0.96
+z =   40 k€ : α = 1.35 (reconstitué 1.35) ; T' actuel 14.2 %, E 17.2 % ; Ḡ (e = 0,25) actuel  0.96, E  0.95 ; Ḡ (e = 0,5) actuel  0.93, E  0.91
+z =   70 k€ : α = 2.13 (reconstitué 2.13) ; T' actuel 21.1 %, E 17.2 % ; Ḡ (e = 0,25) actuel  0.90, E  0.92 ; Ḡ (e = 0,5) actuel  0.80, E  0.84
+z =  100 k€ : α = 3.06 (reconstitué 3.06) ; T' actuel 32.0 %, E 17.2 % ; Ḡ (e = 0,25) actuel  0.73, E  0.88 ; Ḡ (e = 0,5) actuel  0.46, E  0.76
+z =  140 k€ : α = 3.04 (reconstitué 3.04) ; T' actuel 32.0 %, E 40.0 % ; Ḡ (e = 0,25) actuel  0.72, E  0.60 ; Ḡ (e = 0,5) actuel  0.44, E  0.20
+z =  200 k€ : α = 2.10 (reconstitué 4.39) ; T' actuel 36.4 %, E 40.0 % ; Ḡ (e = 0,25) actuel  0.75, E  0.71 ; Ḡ (e = 0,5) actuel  0.51, E  0.43
+z =  300 k€ : α = 2.10 (reconstitué 4.45) ; T' actuel 43.4 %, E 49.0 % ; Ḡ (e = 0,25) actuel  0.67, E  0.59 ; Ḡ (e = 0,5) actuel  0.34, E  0.17
+z =  600 k€ : α = 2.10 (reconstitué 2.23) ; T' actuel 47.9 %, E 49.0 % ; Ḡ (e = 0,25) actuel  0.61, E  0.59 ; Ḡ (e = 0,5) actuel  0.22, E  0.18
+('actuel', 0.25) : min Ḡ = 0.61 (à 456 k€) ; Ḡ négatif (barème non parétien) : non
+('E', 0.25) : min Ḡ = 0.58 (à 253 k€) ; Ḡ négatif (barème non parétien) : non
+('actuel', 0.5) : min Ḡ = 0.21 (à 456 k€) ; Ḡ négatif (barème non parétien) : non
+('E', 0.5) : min Ḡ = 0.17 (à 253 k€) ; Ḡ négatif (barème non parétien) : non
+
+=== 4. Indices d'Atkinson du revenu après IR + CSG (tranches IRCOM, même revenu moyen)
+ε = 0.5 : actuel 0.1596 ; E 0.1549
+ε = 1 : actuel 0.3118 ; E 0.3039
+ε = 2 : actuel 0.5681 ; E 0.5559

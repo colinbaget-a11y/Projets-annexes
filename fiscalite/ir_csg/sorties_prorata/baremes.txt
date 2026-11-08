@@ -1,29 +1,33 @@
-Cible IR (IRCOM) + CSG (reconstituée) : 189.1 Md€ ; assiette brute 1539 Md€
-IR IRCOM 91.7 dont imputé aux autres revenus 27.6 ; CSG reconstituée sur travail et pensions 125.0 (CSG totale, comptes nationaux 2024 : 153.1) ; autres revenus hors barème 192 Md€
+Cible IR (IRCOM) + CSG (reconstituée) : 209.1 Md€ ; assiette brute 1598 Md€
+IR IRCOM 91.7 dont imputé aux autres revenus 15.1 ; CSG reconstituée sur travail et pensions 132.4 (CSG totale, comptes nationaux 2024 : 153.1) ; autres revenus hors barème 192 Md€
 
-Kakwani actuel (IR + CSG sur travail et pensions) : 0.162
+Kakwani actuel (IR + CSG sur travail et pensions) : 0.163
 
-Kakwani 0.000 ; taux marginal le plus fréquent 12.3 %, pour 100 % des foyers
+Kakwani 0.000 ; taux marginal le plus fréquent 13.1 %, pour 100 % des foyers
 A_taux_unique
-  0 k€ : 12.3 %
-  rendement mécanique 189.1 Md€ ; après réaction (élasticités Sicsic) 196.5 Md€ ; écart +7.4
-Kakwani 0.091 ; taux marginal le plus fréquent 13.6 %, pour 78 % des foyers
+  0 k€ : 13.1 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 220.1 Md€ ; écart +11.0
+Kakwani 0.117 ; taux marginal le plus fréquent 13.5 %, pour 77 % des foyers
 B_proportionnel
-  0 k€ : 5.0 % | 10 k€ : 13.6 % | 100 k€ : 30.0 % | 250 k€ : 40.0 %
-  rendement mécanique 189.1 Md€ ; après réaction (élasticités Sicsic) 191.7 Md€ ; écart +2.6
-Kakwani 0.100 ; taux marginal le plus fréquent 13.3 %, pour 78 % des foyers
+  0 k€ : 5.0 % | 10 k€ : 13.5 % | 100 k€ : 30.0 % | 250 k€ : 40.0 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 218.2 Md€ ; écart +9.1
+Kakwani 0.131 ; taux marginal le plus fréquent 12.9 %, pour 77 % des foyers
 B2_proportionnel_haut_45
-  0 k€ : 5.0 % | 10 k€ : 13.3 % | 100 k€ : 35.0 % | 250 k€ : 45.0 %
-  rendement mécanique 189.1 Md€ ; après réaction (élasticités Sicsic) 188.8 Md€ ; écart -0.3
-Kakwani 0.170 ; taux marginal le plus fréquent 10.0 %, pour 28 % des foyers
+  0 k€ : 5.0 % | 10 k€ : 12.9 % | 100 k€ : 35.0 % | 250 k€ : 45.0 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 215.1 Md€ ; écart +6.0
+Kakwani 0.188 ; taux marginal le plus fréquent 10.0 %, pour 30 % des foyers
 C_huit_tranches
-  0 k€ : 5.0 % | 15 k€ : 10.0 % | 29 k€ : 15.0 % | 44 k€ : 20.0 % | 66 k€ : 25.0 % | 103 k€ : 30.0 % | 176 k€ : 35.0 % | 367 k€ : 40.0 %
-  rendement mécanique 189.1 Md€ ; après réaction (élasticités Sicsic) 187.0 Md€ ; écart -2.1
-Kakwani 0.174 ; taux marginal le plus fréquent 19.7 %, pour 47 % des foyers
+  0 k€ : 5.0 % | 15 k€ : 10.0 % | 30 k€ : 15.0 % | 45 k€ : 20.0 % | 68 k€ : 25.0 % | 105 k€ : 30.0 % | 181 k€ : 35.0 % | 377 k€ : 40.0 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 216.2 Md€ ; écart +7.1
+Kakwani 0.195 ; taux marginal le plus fréquent 18.6 %, pour 44 % des foyers
 D_bas_protege_haut_actuel
-  0 k€ : 4.0 % | 12 k€ : 9.0 % | 30 k€ : 19.7 % | 120 k€ : 40.0 % | 250 k€ : 49.0 %
-  rendement mécanique 189.1 Md€ ; après réaction (élasticités Sicsic) 185.2 Md€ ; écart -3.9
-Kakwani 0.177 ; taux marginal le plus fréquent 15.1 %, pour 75 % des foyers
+  0 k€ : 4.0 % | 12 k€ : 9.0 % | 30 k€ : 18.6 % | 120 k€ : 40.0 % | 250 k€ : 49.0 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 212.1 Md€ ; écart +3.0
+Kakwani 0.201 ; taux marginal le plus fréquent 16.8 %, pour 76 % des foyers
 E_franchise_taux_unique
-  0 k€ : 0.0 % | 12 k€ : 15.1 % | 90 k€ : 40.0 % | 250 k€ : 49.0 %
-  rendement mécanique 189.1 Md€ ; après réaction (élasticités Sicsic) 180.4 Md€ ; écart -8.7
+  0 k€ : 0.0 % | 14 k€ : 16.8 % | 120 k€ : 40.0 % | 250 k€ : 49.0 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 212.0 Md€ ; écart +2.9
+Kakwani 0.209 ; taux marginal le plus fréquent 14.4 %, pour 74 % des foyers
+E0_version_1
+  0 k€ : 0.0 % | 12 k€ : 14.4 % | 90 k€ : 40.0 % | 250 k€ : 49.0 %
+  rendement mécanique 209.1 Md€ ; après réaction (élasticités Sicsic) 208.3 Md€ ; écart -0.8

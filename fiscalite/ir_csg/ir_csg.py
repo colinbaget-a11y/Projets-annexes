@@ -108,52 +108,98 @@ def bornes(t):
     return float(a), float(b)
 
 
-# Facteurs de passage du montant déclaré (net imposable) à l'assiette de la CSG :
-# salaires : assiette = 98,25 % du brut ; net imposable ≈ brut × (1 − ≈ 11,5 % de cotisations
-# salariales − 6,8 % × 98,25 % de CSG déductible) ≈ 0,818 brut, d'où 0,9825 / 0,818 ≈ 1,20.
-# pensions : net imposable ≈ brut × (1 − 5,9 % de CSG déductible − ≈ 1 % de cotisation maladie
-# complémentaire) ≈ 0,93, d'où ≈ 1,075. Autres revenus (capitaux, fonciers, BIC/BNC) : pris tels
-# quels. Ce sont des hypothèses moyennes, pas des données.
-F_SAL, F_PENS = 1.20, 1.075
-T_CSG_ACT, T_CSG_PAT = 0.092, 0.092
-# Taux de CSG sur les pensions selon le RFR du foyer. Seuils légaux pour une part (revenus 2023,
-# CSG 2025) : 12 817 €, 16 755 €, 26 004 € ; multipliés par 1,5 part en moyenne (hypothèse).
-SEUILS_PENS = [(12817 * 1.5, 0.0), (16755 * 1.5, 0.038), (26004 * 1.5, 0.066), (np.inf, 0.083)]
+# ------------------------------------------------------------------ hypothèses calées (v2)
+# Composition nationale de la rubrique « salaires » de l'IRCOM, d'après les totaux par case des
+# déclarations 2042 (DGFiP, revenus 2024 ; données data.economie.gouv.fr « ir-declarations-2042-nat ») :
+# salaires 1xJ 795,0 + heures sup. exonérées 21,8 + particuliers employeurs 7,1 = 823,9 Md€ de salaires
+# soumis à la CSG ; gérants (1GB, 1HB) 30,7 ; salaires de source étrangère (1xF, 1xG) 33,0, sans CSG
+# française ; « autres revenus imposables » (1xP : chômage, préretraites) 37,0. Total 925,4 Md€
+# (IRCOM : 930,5). Faute de ventilation par tranche, chaque composante est répartie comme les salaires.
+TOT_SAL = 925.4
+PART_SAL, PART_GER, PART_ETR, PART_CHO = 823.9 / TOT_SAL, 30.7 / TOT_SAL, 33.0 / TOT_SAL, 37.0 / TOT_SAL
+# Pensions : 1xS 374,4 + invalidité 9,5 = 383,9 Md€ soumis à la CSG, sur 391,5 (le reste : pensions
+# de source étrangère).
+PART_PENS = 383.9 / 391.5
+# Passage du net imposable à l'assiette de la CSG (98,25 % du brut pour les salaires) :
+# - salaires : OpenFisca-France (cas-types 21 à 250 k€ bruts) donne brut/imposable = 1,21-1,22 et une
+#   CSG de 9,04 % du brut, soit 11,0 % de l'imposable = 9,2 % × 1,20 : facteur 1,20 ;
+# - pensions : OpenFisca donne brut/imposable = 1,04 (taux réduit) à 1,063 (taux plein) : 1,055 ;
+# - gérants : rémunération nette de cotisations sociales des indépendants ; facteur 1,35 (hypothèse) ;
+# - chômage : 1,04 ; taux effectif de CSG calé sur la CSG chômage de la CCSS (0,56 Md€ en 2024).
+F_SAL, F_PENS, F_GER, F_CHO = 1.20, 1.055, 1.35, 1.04
+T_CSG_ACT = 0.092
+CSG_CHO_CCSS = 0.561
+# « Autres revenus » de l'IRCOM (RFR − 0,9 × (salaires + pensions)) : deux blocs, d'après les totaux 2042.
+# - Revenus au PFU, qui restent hors du barème fusionné : dividendes 2DC 50,1, intérêts 2TR 10,4,
+#   assurance-vie 2CH, 2DH, 2ZZ, 2UU 8,6, autres 2EE, 2TS 1,9, plus-values 3VG 18,8 et immobilières
+#   3VZ 1,7 : environ 90 Md€. L'IR qu'ils paient est connu : 12,8 % (prélèvement forfaitaire).
+# - Revenus imposés au barème, qui entrent dans le barème fusionné : bénéfices des indépendants (BIC,
+#   BNC, BA professionnels, environ 80 Md€), revenus fonciers (4BA 35,0 + micro-foncier, environ 38),
+#   meublés et pensions alimentaires : le reste des « autres revenus ». Ils paient déjà la CSG à 9,2 %
+#   (revenus d'activité ou du patrimoine). Passage à l'assiette brute : 1,15 en moyenne (1,3 pour les
+#   indépendants, dont la CSG porte sur le revenu avant cotisations ; 1,0 pour le foncier).
+# La répartition entre tranches des revenus au PFU n'est pas publiée : CAPITAL=prorata (même part des
+# autres revenus dans chaque tranche), CAPITAL=haut (revenus au PFU logés d'abord dans les tranches
+# les plus hautes, jusqu'à 90 % de leurs autres revenus), CAPITAL=mixte (moyenne, scénario central).
+CAP_PFU_TOT, F_AUT = 90.0, 1.15
+# CSG sur les pensions de retraite et d'invalidité, cible CCSS 2024 : retraites 24,81 Md€, plus
+# environ un tiers des 1,84 Md€ « invalidité et IJ » (les IJ sont dans les salaires) : 25,4 Md€.
+CSG_PENS_CCSS = 25.4
+SEUILS_1P = [(12817, 0.0), (16755, 0.038), (26004, 0.066), (np.inf, 0.083)]
 
 
-def taux_pension(rfr_moyen):
-    for s, t in SEUILS_PENS:
-        if rfr_moyen <= s:
+def taux_pension(rfr_moyen, parts=1.5):
+    for s_, t in SEUILS_1P:
+        if rfr_moyen <= s_ * parts:
             return t
 
 
-def distribution(npts=60, split=None):
+def distribution(npts=60, split=None, parts=None, forme="puissance", indep=None):
     x = pd.read_csv(RACINE / "donnees/ircom_national_revenus2024.csv")
     for c in x.columns[1:]:
         x[c] = pd.to_numeric(x[c], errors="coerce")
     x["a"], x["b"] = zip(*x.tranche.map(bornes))
     x["rfr"] = x.rfr_keur / 1e6            # Md€
     x["ir"] = x.impot_net_keur / 1e6
-    x["sal"] = x.salaires_keur / 1e6
-    x["pens"] = x.pensions_keur / 1e6
-    x["autres"] = (x.rfr - 0.9 * (x.sal + x.pens)).clip(lower=0)
+    x["sal_ircom"] = x.salaires_keur / 1e6
+    x["pens_ircom"] = x.pensions_keur / 1e6
+    x["sal"], x["ger"], x["cho"] = PART_SAL * x.sal_ircom, PART_GER * x.sal_ircom, PART_CHO * x.sal_ircom
+    x["pens"] = PART_PENS * x.pens_ircom
+    x["autres"] = (x.rfr - 0.9 * (x.sal_ircom + x.pens_ircom)).clip(lower=0)
+    mode = indep or os.environ.get("CAPITAL", "mixte")
+    prorata = CAP_PFU_TOT * x.autres / x.autres.sum()
+    haut, reste = np.zeros(len(x)), CAP_PFU_TOT
+    for i in reversed(range(len(x))):
+        haut[i] = min(0.9 * x.autres.iloc[i], reste)
+        reste -= haut[i]
+    x["capital"] = {"prorata": prorata, "haut": haut, "mixte": 0.5 * (prorata + haut)}[mode]
+    x["ind"] = x.autres - x.capital          # revenus au barème hors salaires et pensions
     x["moy"] = x.rfr * 1e9 / x.foyers
-    x["t_pens"] = x.moy.map(taux_pension)
-    # Le barème fusionné porte sur les revenus d'activité et de remplacement ; les autres revenus
-    # (capitaux mobiliers au PFU surtout, mais aussi fonciers et BIC/BNC, que l'IRCOM ne sépare
-    # pas) restent à leur régime actuel. On leur impute l'IR du PFU (12,8 %) et la CSG du
-    # patrimoine (9,2 %), et on les retire de la charge à remplacer.
-    x["assiette"] = F_SAL * x.sal + F_PENS * x.pens
-    x["csg"] = T_CSG_ACT * F_SAL * x.sal + x.t_pens * F_PENS * x.pens
-    # Deux bornes pour l'IR imputé aux autres revenus : 12,8 % (tout au PFU, borne basse) ou
-    # prorata du RFR (tout au barème, borne haute). Choix par la variable d'environnement SPLIT.
+    # taux de CSG des pensions par tranche : nombre moyen de parts calé sur la recette CCSS
+    if parts is None:
+        lo, hi = 0.8, 3.0
+        for _ in range(50):
+            m = (lo + hi) / 2
+            r = sum(F_PENS * pe * taux_pension(mo, m) for pe, mo in zip(x.pens, x.moy))
+            lo, hi = (m, hi) if r > CSG_PENS_CCSS else (lo, m)
+        parts = (lo + hi) / 2
+    x.attrs["parts"] = parts
+    x["t_pens"] = x.moy.map(lambda v: taux_pension(v, parts))
+    t_cho = CSG_CHO_CCSS / (F_CHO * x.cho.sum())
+    x["assiette"] = F_SAL * x.sal + F_GER * x.ger + F_CHO * x.cho + F_PENS * x.pens + F_AUT * x.ind
+    x["csg"] = (T_CSG_ACT * (F_SAL * x.sal + F_GER * x.ger + F_AUT * x.ind)
+                + t_cho * F_CHO * x.cho + x.t_pens * F_PENS * x.pens)
+    # IR imputé aux revenus du capital (restés au PFU) : deux bornes, 12,8 % ou prorata du RFR
     if (split or os.environ.get("SPLIT")) == "prorata":
-        x["ir_autres"] = x.ir.clip(lower=0) * x.autres / x.rfr
+        x["ir_autres"] = x.ir.clip(lower=0) * x.capital / x.rfr
     else:
-        x["ir_autres"] = np.minimum(0.128 * x.autres, x.ir.clip(lower=0))
+        x["ir_autres"] = np.minimum(0.128 * x.capital, x.ir.clip(lower=0))
     x["ir_trav"] = x.ir - x.ir_autres
     x["charge"] = x.ir_trav + x.csg
-    x["k"] = x.assiette / x.rfr                 # assiette brute (travail et pensions) par euro de RFR
+    x["k"] = x.assiette / x.rfr
+    # part de l'assiette qui vient du travail (salaires, gérants, indépendants) : seule cette part
+    # réagit au taux marginal ; les pensions et le chômage sont tenus pour fixes
+    x["part_trav"] = (F_SAL * x.sal + F_GER * x.ger + 0.7 * F_AUT * x.ind) / x.assiette                 # assiette brute (travail et pensions) par euro de RFR
 
     # foyers représentatifs : densité monotone sur [a, b] ajustée à la moyenne de la tranche
     rows = []
@@ -161,6 +207,9 @@ def distribution(npts=60, split=None):
     for _, r in x.iterrows():
         if np.isinf(r.b):
             pts = np.array([r.moy])
+        elif forme == "uniforme":
+            pts = r.a + (r.b - r.a) * q
+            pts *= r.moy / pts.mean()
         else:
             mu = np.clip((r.moy - r.a) / (r.b - r.a), 0.02, 0.98)
             if mu >= 0.5:
@@ -174,8 +223,8 @@ def distribution(npts=60, split=None):
             pts *= r.moy / pts.mean()
         w = r.foyers / len(pts)
         for v in pts:
-            rows.append((r.tranche, w, v * r.k, r.ir_trav * 1e9 / r.foyers, r.csg * 1e9 / r.foyers))
-    f = pd.DataFrame(rows, columns=["tranche", "poids", "base", "ir_moy", "csg_moy"])
+            rows.append((r.tranche, w, v * r.k, r.ir_trav * 1e9 / r.foyers, r.csg * 1e9 / r.foyers, r.part_trav))
+    f = pd.DataFrame(rows, columns=["tranche", "poids", "base", "ir_moy", "csg_moy", "part_trav"])
     return x, f
 
 
@@ -238,13 +287,20 @@ def baremes(x, f):
     def fD(m):
         return [0, 12e3, 30e3, 120e3, 250e3], [0.04, 0.09, m, 0.40, 0.49]
     sc["D_bas_protege_haut_actuel"] = fD(calibre(f, cible, fD, 0.05, 0.40))
-    # E. le plus proportionnel possible sans perdre en progressivité : franchise à 0 % sur les
-    # 12 000 premiers euros, un taux unique jusqu'à 90 000 € (trois foyers sur quatre), puis 40 %
-    # et 49 %. Paramètres retenus après balayage (franchise, seuil, taux du haut) : c'est la
-    # combinaison au seuil le plus haut dont l'indice de Kakwani reste au niveau actuel.
+    # E. le plus proportionnel possible sans redistribuer moins : franchise de 14 000 €, un taux unique
+    # jusqu'à 120 000 € (76 % des foyers), puis 40 % et 49 %. Choisi avec robustesse.py : parmi les
+    # barèmes « franchise + taux unique + deux taux supérieurs » dont le revenu après impôt domine
+    # l'actuel au sens de Lorenz et qui n'augmentent la charge d'aucune tranche de RFR de plus de
+    # 2 points de revenu brut, l'un de ceux où le taux unique couvre le plus de foyers (76-78 %) ; parmi
+    # eux, celui qui ne fait pas gagner les foyers de 100 000 à 250 000 € de RFR (la variante
+    # 14 k€ / 150 k€ / 45 % leur rendrait environ 3 000 € par an).
     def fE(m):
-        return [0, 12e3, 90e3, 250e3], [0.0, m, 0.40, 0.49]
+        return [0, 14e3, 120e3, 250e3], [0.0, m, 0.40, 0.49]
     sc["E_franchise_taux_unique"] = fE(calibre(f, cible, fE, 0.05, 0.39))
+    # E0. version 1 de la note (franchise 12 000 €, taux unique jusqu'à 90 000 €), pour comparaison
+    def fE0(m):
+        return [0, 12e3, 90e3, 250e3], [0.0, m, 0.40, 0.49]
+    sc["E0_version_1"] = fE0(calibre(f, cible, fE0, 0.05, 0.39))
     return cible, B, sc
 
 
@@ -269,11 +325,16 @@ def elasticite(rang):
 
 def comportement(x, f, sc):
     """Effet du changement de taux marginal sur l'assiette : ΔB/B = e × Δln(1 − τ)."""
-    # taux marginal actuel IR + CSG par foyer : pente de la charge moyenne par foyer entre tranches
-    xb = (x.charge * 1e9 / x.foyers).values
-    bb = (x.assiette * 1e9 / x.foyers).values
-    pente = np.gradient(xb, bb)
-    tau0_tr = dict(zip(x.tranche, np.clip(pente, 0, 0.75)))
+    # Taux marginal actuel IR + CSG des actifs, par tranche : cas-types OpenFisca-France (revenus 2024 ;
+    # personne seule, couple à un ou deux actifs, couple avec deux enfants), interpolés au RFR moyen
+    # de la tranche ; médiane des quatre profils. (La pente de la charge moyenne entre tranches, utilisée
+    # dans la version 1, sous-estimait ce taux de 10 à 20 points au-dessus de 200 000 € de RFR.)
+    of = pd.read_csv(HERE / "sorties/marges_openfisca.csv")
+    of = of[~of.profil.str.startswith("retrait")]
+    tau0_tr = {}
+    for _, r in x.iterrows():
+        v = [np.interp(r.moy, g.rfr, g.taux_marginal.clip(upper=0.6)) for _, g in of.groupby("profil")]
+        tau0_tr[r.tranche] = float(np.median(v))
     f = f.sort_values("base").reset_index(drop=True)
     f["rang"] = f.poids.cumsum() / f.poids.sum()
     tau0 = f.tranche.map(tau0_tr).values
@@ -281,7 +342,8 @@ def comportement(x, f, sc):
     out = {}
     for nom, (s, t) in sc.items():
         tau1 = taux_marginal(f.base, s, t)
-        b1 = f.base * np.exp(e * (np.log(1 - tau1) - np.log(1 - tau0)))
+        reaction = np.exp(e * (np.log(1 - tau1) - np.log(1 - tau0))) - 1
+        b1 = f.base * (1 + f.part_trav.values * reaction)
         r0 = (f.poids * impot(f.base, s, t)).sum() / 1e9
         r1 = (f.poids * impot(b1, s, t)).sum() / 1e9
         # perte d'assiette pour les autres prélèvements (cotisations, TVA…) non comptée ici
@@ -326,10 +388,10 @@ def figures(s, g, sc, haut=None):
     if haut is not None:
         a, b = g.loc[keep, "taux_actuel_pct"].values, haut[keep]
         ax.fill_between(xs, np.minimum(a, b), np.maximum(a, b), color=GRIS, alpha=0.25, lw=0,
-                        label="Actuel : incertitude sur l'IR des autres revenus")
+                        label="Actuel : autre partage de l'IR capital / travail")
     noms = {"A_taux_unique": "A : taux unique", "B_proportionnel": "B : largement proportionnel",
             "C_huit_tranches": "C : huit tranches de 5 % à 40 %", "D_bas_protege_haut_actuel": "D : bas protégé, haut à 49 %",
-            "E_franchise_taux_unique": "E : franchise, taux unique, 40 % et 49 % en haut"}
+            "E_franchise_taux_unique": "E : franchise de 14 k€, taux unique, 40 % et 49 % en haut"}
     # B et D figurent dans le tableau de la note ; la figure se limite aux trois barèmes discutés
     for nom, c, ls, lw in (("A_taux_unique", GRIS, "-", 1.2), ("C_huit_tranches", OCRE, "-", 1.4),
                            ("E_franchise_taux_unique", BLEU, "-", 2.4)):
@@ -343,12 +405,16 @@ def figures(s, g, sc, haut=None):
     titre(ax, "Taux moyen IR + CSG par tranche de revenu fiscal de référence, 2024",
           "Actuel et barèmes fusionnés à rendement égal (effet mécanique)")
     fig.subplots_adjust(bottom=0.32)
+    tA = 100 * sc["A_taux_unique"][1][0]
+    tE = 100 * sc["E_franchise_taux_unique"][1][1]
+    fr = lambda v: f"{v:.1f}".replace(".", ",")  # noqa: E731
     fin(fig, "ircsg_taux_moyens", "DGFiP, IRCOM revenus 2024 ; calculs des auteurs.",
-        "Note : taux moyen = IR et CSG payés sur les revenus d'activité et les pensions, rapportés à "
-        "leur montant brut (assiette de type CSG), par foyer fiscal. La bande grise encadre le taux "
-        "actuel selon la part de l'IR attribuée aux revenus du capital (au plus 12,8 % de ces revenus, "
-        "ou au prorata). Barèmes : A, 12,5 % dès le premier euro ; C, huit tranches de 5 % à 40 % ; "
-        "E, 0 % jusqu'à 12 000 €, 15,5 % jusqu'à 90 000 €, 40 % jusqu'à 250 000 €, 49 % au-delà.")
+        "Note : taux moyen = IR et CSG payés sur les revenus imposés au barème (activité, pensions, "
+        "indépendants, foncier), rapportés à leur montant brut (assiette de type CSG), par foyer fiscal. "
+        "La bande grise encadre le taux actuel selon le partage de l'IR entre ces revenus et ceux qui "
+        f"restent au PFU (12,8 % de ces derniers, ou prorata). Barèmes : A, {fr(tA)} % dès le premier euro ; "
+        f"C, huit tranches de 5 % à 40 % ; E, 0 % jusqu'à 14 000 €, {fr(tE)} % jusqu'à 120 000 €, "
+        "40 % jusqu'à 250 000 €, 49 % au-delà.")
 
 
 def main():

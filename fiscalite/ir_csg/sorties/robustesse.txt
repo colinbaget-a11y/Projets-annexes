@@ -1,0 +1,56 @@
+=== 1. Validation sur agrégats indépendants (revenus 2024)
+CSG reconstituée sur les salaires (hors gérants, chômage, étranger) : 91.5 Md€ ; CCSS 2024 secteur privé + public : 92,0 Md€ (+ 4,0 « agricoles et autres »)
+Salaires bruts reconstitués (assiette CSG / 0,9825) : 1012 Md€ ; Eurostat D11 reçus par les ménages 2024 : 1 137 Md€ (inclut les non-déclarants et les salaires de source étrangère)
+Pensions brutes reconstituées : 406 Md€ ; Eurostat ESSPROS 2023, pensions de vieillesse, de survie et d'invalidité : 412 Md€ (2023)
+Parts moyennes calées pour la CSG des pensions : 1.45 (cible CCSS 25,4 Md€)
+Cible IR + CSG : 212.6 Md€ ; assiette 1598 Md€ ; dont revenus au barème hors salaires et pensions (indépendants, foncier) 117 Md€ ; revenus au PFU hors champ 90 Md€, IR imputé 11.5 Md€
+
+=== 2. Sensibilité (barème E : 0 % / 14 k€ / t / 120 k€ / 40 % / 250 k€ / 49 %)
+scénario | cible Md€ | assiette Md€ | taux A | taux t de E | Kakwani actuel | Kakwani E | Lorenz E domine (écart min, ‰) | hausse max (pts)
+capital=mixte   partage=PFU     forme=puissance n= 60 |  212.6 |  1598 | 13.31 | 17.20 | 0.170 | 0.199 | oui (+0.00) | 0.25
+capital=prorata partage=PFU     forme=puissance n= 60 |  212.6 |  1598 | 13.31 | 16.63 | 0.172 | 0.212 | oui (-0.00) | 1.66
+capital=haut    partage=PFU     forme=puissance n= 60 |  212.6 |  1598 | 13.31 | 17.70 | 0.169 | 0.188 | non (-1.12) | 1.41
+capital=mixte   partage=prorata forme=puissance n= 60 |  209.1 |  1598 | 13.09 | 16.84 | 0.163 | 0.201 | oui (+0.00) | 1.36
+capital=mixte   partage=PFU     forme=uniforme  n= 60 |  212.6 |  1598 | 13.31 | 17.15 | 0.170 | 0.200 | oui (+0.00) | 0.30
+capital=mixte   partage=PFU     forme=puissance n= 20 |  212.6 |  1598 | 13.31 | 17.20 | 0.170 | 0.199 | oui (+0.00) | 0.25
+capital=mixte   partage=PFU     forme=puissance n=200 |  212.6 |  1598 | 13.31 | 17.20 | 0.170 | 0.199 | oui (+0.00) | 0.25
+
+=== 3. Barèmes franchise F + taux unique t jusqu'à S1 + T1 jusqu'à 250 k€ + 49 % : revenu après impôt dominant au sens de Lorenz, hausse ≤ 2 points de revenu brut dans chaque tranche ; taux unique pour le plus de foyers
+
+-- indépendants=mixte, partage=PFU : Kakwani actuel 0.170 ; 16 barèmes dominants sur 98
+   F    S1   T1    t     K  lorenz  part  hausse_max_pts  hausse_max_eur  perte_15_50k  perte_100_250k
+12.0 120.0 0.45 15.8 0.187    True    78            1.02            1886           227            1886
+12.0 120.0 0.40 16.1 0.181    True    78            1.16             259           259            -695
+14.0 150.0 0.45 17.7 0.189    True    77            0.62             291           291           -3223
+12.0 105.0 0.40 15.6 0.192    True    77            1.55            2348           204            2348
+14.0 120.0 0.40 17.2 0.199    True    76            0.25             133           117             133
+14.0 120.0 0.45 16.9 0.206    True    76            1.32            2700             6            2700
+14.0 105.0 0.40 16.7 0.209    True    75            1.99            3016           -18            3016
+16.0 150.0 0.45 18.9 0.209    True    74            0.65             512           305           -2098
+
+-- indépendants=mixte, partage=prorata : Kakwani actuel 0.163 ; 17 barèmes dominants sur 98
+   F    S1   T1    t     K  lorenz  part  hausse_max_pts  hausse_max_eur  perte_15_50k  perte_100_250k
+12.0 120.0 0.40 15.8 0.182    True    78            1.01            1968           225            1968
+14.0 150.0 0.45 17.4 0.190    True    77            0.30             139           139            -680
+14.0 150.0 0.40 17.6 0.187    True    77            0.42             196           196           -3199
+14.0 120.0 0.40 16.8 0.201    True    76            1.36            2781            -3            2781
+16.0 200.0 0.45 19.2 0.198    True    75            0.79             633           370           -4407
+16.0 200.0 0.40 19.3 0.198    True    75            0.82             663           384           -4370
+16.0 150.0 0.45 18.5 0.210    True    74            0.33             540           154             540
+16.0 150.0 0.40 18.7 0.207    True    74            0.45             298           210           -1966
+
+-- indépendants=prorata, partage=PFU : Kakwani actuel 0.172 ; 17 barèmes dominants sur 98
+   F    S1   T1    t     K  lorenz  part  hausse_max_pts  hausse_max_eur  perte_15_50k  perte_100_250k
+12.0 150.0 0.45 16.0 0.184    True    79            1.13             252           252             240
+14.0 200.0 0.45 17.7 0.191    True    78            0.66             306           306           -6099
+12.0 120.0 0.40 15.6 0.194    True    78            1.31            3036           203            3036
+14.0 150.0 0.40 17.3 0.200    True    77            0.34             158           158           -2278
+14.0 150.0 0.45 17.1 0.203    True    77            0.59            1374           102            1374
+14.0 120.0 0.40 16.6 0.212    True    76            1.66            3856           -20            3856
+16.0 200.0 0.45 18.9 0.211    True    75            0.69             543           314           -4942
+16.0 200.0 0.40 19.0 0.210    True    75            0.74             580           332           -4871
+
+-- indépendants=haut, partage=PFU : Kakwani actuel 0.169 ; 0 barèmes dominants sur 98
+Empty DataFrame
+Columns: [F, S1, T1, t, K, lorenz, part, hausse_max_pts, hausse_max_eur, perte_15_50k, perte_100_250k]
+Index: []
