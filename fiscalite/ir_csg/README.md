@@ -1,5 +1,8 @@
 # IR + CSG fusionnés : rendement et barèmes à rendement constant
 
+Livrable : `note-ir-csg.pdf` (6 pages, source `note-ir-csg.tex`, compilée depuis `ir_csg/` avec
+pdflatex en deux passes ; figures nues produites par `FIG_NU=1 python3 ir_csg/ir_csg.py`).
+
 Chiffrage « à la louche » de la mesure 3 de la partie III du rapport Sorbon. Il s'agit d'un impôt unique
 qui remplace l'IR et la CSG sur les revenus d'activité et de remplacement. Le barème est progressif
 mais reste largement proportionnel. Le PFU est conservé sur les revenus du capital.
@@ -41,6 +44,12 @@ Barèmes à rendement constant (assiette brute travail + pensions de 1 539 Md€
 | B, largement proportionnel | idem | 5 % jusqu'à 10 k€, 13,9 % jusqu'à 100 k€, 30 % jusqu'à 250 k€, 40 % au-delà |
 | C, huit tranches de 5 à 40 % | idem | seuils 14 / 29 / 43 / 64 / 100 / 171 / 357 k€ |
 | D, bas protégé, haut à 49 % | idem | 4 % jusqu'à 12 k€, 9 % jusqu'à 30 k€, 20,2 % jusqu'à 120 k€, 40 % jusqu'à 250 k€, 49 % au-delà |
+| **E, retenu** | idem | 0 % jusqu'à 12 k€, 15,5 % jusqu'à 90 k€ (75 % des foyers), 40 % jusqu'à 250 k€, 49 % au-delà |
+
+Kakwani (foyers classés par tranche de RFR) : actuel 0,175 (0,162 en variante prorata), E 0,175
+(0,177), C 0,169, B 0,091, A 0. E est la combinaison (franchise, premier seuil, taux du haut) au
+seuil le plus haut qui garde l'indice de Kakwani actuel ; balayage dans le script exploratoire
+décrit dans la note, section 4.
 
 Les détails par tranche de RFR (taux moyen actuel et taux sous chaque barème, gain ou perte par foyer)
 sont dans `sorties/par_tranche.csv`. Les figures sont `figures/ircsg_series` et

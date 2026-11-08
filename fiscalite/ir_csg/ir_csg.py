@@ -238,7 +238,26 @@ def baremes(x, f):
     def fD(m):
         return [0, 12e3, 30e3, 120e3, 250e3], [0.04, 0.09, m, 0.40, 0.49]
     sc["D_bas_protege_haut_actuel"] = fD(calibre(f, cible, fD, 0.05, 0.40))
+    # E. le plus proportionnel possible sans perdre en progressivité : franchise à 0 % sur les
+    # 12 000 premiers euros, un taux unique jusqu'à 90 000 € (trois foyers sur quatre), puis 40 %
+    # et 49 %. Paramètres retenus après balayage (franchise, seuil, taux du haut) : c'est la
+    # combinaison au seuil le plus haut dont l'indice de Kakwani reste au niveau actuel.
+    def fE(m):
+        return [0, 12e3, 90e3, 250e3], [0.0, m, 0.40, 0.49]
+    sc["E_franchise_taux_unique"] = fE(calibre(f, cible, fE, 0.05, 0.39))
     return cible, B, sc
+
+
+def concentration(v, pop):
+    """Indice de concentration de v, foyers classés par tranche de RFR (données groupées)."""
+    p = np.r_[0, np.cumsum(pop) / pop.sum()]
+    L = np.r_[0, np.cumsum(v) / v.sum()]
+    return 1 - np.sum((p[1:] - p[:-1]) * (L[1:] + L[:-1]))
+
+
+def kakwani(base, impot_, pop):
+    """Kakwani = concentration de l'impôt − Gini de l'assiette (> 0 : impôt progressif)."""
+    return concentration(impot_, pop) - concentration(base, pop)
 
 
 # Élasticités du revenu imposable (Sicsic 2022, Fiscal Studies, tableau 6, déjà vérifiées dans
@@ -295,7 +314,8 @@ def figures(s, g, sc, haut=None):
     ax.legend(loc="upper left")
     titre(ax, "Recettes de l'IR et de la CSG, en % du PIB, 2000-2024",
           "Pointillés verticaux : changements des taux légaux de CSG (2005, 2012, 2018)")
-    fin(fig, "ircsg_series", "Insee, comptes nationaux (recettes par impôt) ; Eurostat (PIB).")
+    fin(fig, "ircsg_series", "Insee, comptes nationaux (recettes par impôt) ; Eurostat (PIB).",
+        "Note : CSG sur tous les revenus (activité, remplacement, patrimoine et placements), hors CRDS.")
 
     lab = [t.replace(" à ", "–").replace("Plus de ", "> ") for t in g.tranche]
     # tranches regroupées pour la lisibilité : on garde jusqu'à 1 M€ puis « > 1 M€ »
@@ -308,9 +328,12 @@ def figures(s, g, sc, haut=None):
         ax.fill_between(xs, np.minimum(a, b), np.maximum(a, b), color=GRIS, alpha=0.25, lw=0,
                         label="Actuel : incertitude sur l'IR des autres revenus")
     noms = {"A_taux_unique": "A : taux unique", "B_proportionnel": "B : largement proportionnel",
-            "C_huit_tranches": "C : huit tranches de 5 % à 40 %", "D_bas_protege_haut_actuel": "D : bas protégé, haut à 49 %"}
-    for nom, c, ls in (("A_taux_unique", GRIS, "-"), ("B_proportionnel", BLEU, "-"), ("C_huit_tranches", OCRE, "-"), ("D_bas_protege_haut_actuel", VERT, "--")):
-        ax.plot(xs, g.loc[keep, nom + "_pct"], color=c, lw=1.6, ls=ls, marker="o", ms=3, label=noms[nom])
+            "C_huit_tranches": "C : huit tranches de 5 % à 40 %", "D_bas_protege_haut_actuel": "D : bas protégé, haut à 49 %",
+            "E_franchise_taux_unique": "E : franchise, taux unique, 40 % et 49 % en haut"}
+    # B et D figurent dans le tableau de la note ; la figure se limite aux trois barèmes discutés
+    for nom, c, ls, lw in (("A_taux_unique", GRIS, "-", 1.2), ("C_huit_tranches", OCRE, "-", 1.4),
+                           ("E_franchise_taux_unique", BLEU, "-", 2.4)):
+        ax.plot(xs, g.loc[keep, nom + "_pct"], color=c, lw=lw, ls=ls, marker="o", ms=3, label=noms[nom])
     ax.set_xticks(xs)
     ax.set_xticklabels([lab[i] for i in keep], rotation=60, ha="right", fontsize=7.5)
     grille(ax)
@@ -320,7 +343,12 @@ def figures(s, g, sc, haut=None):
     titre(ax, "Taux moyen IR + CSG par tranche de revenu fiscal de référence, 2024",
           "Actuel et barèmes fusionnés à rendement égal (effet mécanique)")
     fig.subplots_adjust(bottom=0.32)
-    fin(fig, "ircsg_taux_moyens", "DGFiP, IRCOM revenus 2024 ; calculs des auteurs.")
+    fin(fig, "ircsg_taux_moyens", "DGFiP, IRCOM revenus 2024 ; calculs des auteurs.",
+        "Note : taux moyen = IR et CSG payés sur les revenus d'activité et les pensions, rapportés à "
+        "leur montant brut (assiette de type CSG), par foyer fiscal. La bande grise encadre le taux "
+        "actuel selon la part de l'IR attribuée aux revenus du capital (au plus 12,8 % de ces revenus, "
+        "ou au prorata). Barèmes : A, 12,5 % dès le premier euro ; C, huit tranches de 5 % à 40 % ; "
+        "E, 0 % jusqu'à 12 000 €, 15,5 % jusqu'à 90 000 €, 40 % jusqu'à 250 000 €, 49 % au-delà.")
 
 
 def main():
@@ -333,7 +361,13 @@ def main():
     with open(SORTIES / "baremes.txt", "w") as fh:
         fh.write(f"Cible IR (IRCOM) + CSG (reconstituée) : {cible:.1f} Md€ ; assiette brute {B:.0f} Md€\n")
         fh.write(f"IR IRCOM {x.ir.sum():.1f} dont imputé aux autres revenus {x.ir_autres.sum():.1f} ; CSG reconstituée sur travail et pensions {x.csg.sum():.1f} (CSG totale, comptes nationaux 2024 : {s.loc[2024, 'csg']:.1f}) ; autres revenus hors barème {x.autres.sum():.0f} Md€\n\n")
+        pop, ass = x.foyers.values, x.assiette.values
+        fh.write(f"Kakwani actuel (IR + CSG sur travail et pensions) : {kakwani(ass, x.charge.values, pop):.3f}\n\n")
         for nom, (st, t) in sc.items():
+            tm = taux_marginal(f.base, st, t)
+            modal = pd.Series(f.poids.values).groupby(tm).sum()
+            fh.write(f"Kakwani {kakwani(ass, g[nom].values, pop):.3f} ; taux marginal le plus fréquent "
+                     f"{100*modal.idxmax():.1f} %, pour {100*modal.max()/modal.sum():.0f} % des foyers\n")
             seuils = " | ".join(f"{a/1000:,.0f} k€ : {100*r:.1f} %" for a, r in zip(st, t))
             r0, r1 = beh[nom]
             fh.write(f"{nom}\n  {seuils}\n  rendement mécanique {r0:.1f} Md€ ; après réaction (élasticités Sicsic) {r1:.1f} Md€ ; écart {r1-cible:+.1f}\n")
@@ -342,7 +376,7 @@ def main():
     figures(s, g, sc, haut)
     print(open(SORTIES / "baremes.txt").read())
     print(el.to_string())
-    cols = ["tranche", "foyers", "taux_actuel_pct", "A_taux_unique_pct", "B_proportionnel_pct", "C_huit_tranches_pct", "D_bas_protege_haut_actuel_pct", "D_bas_protege_haut_actuel_gain_par_foyer"]
+    cols = ["tranche", "foyers", "taux_actuel_pct", "A_taux_unique_pct", "B_proportionnel_pct", "C_huit_tranches_pct", "D_bas_protege_haut_actuel_pct", "E_franchise_taux_unique_pct", "E_franchise_taux_unique_gain_par_foyer"]
     print(g[cols].round(1).to_string())
 
 
