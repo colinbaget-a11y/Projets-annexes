@@ -2,8 +2,9 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable.** `note-ir-csg.pdf`, environ 9 pages avec l'annexe de vérifications. Le source est
-`note-ir-csg.tex` ; il se compile depuis `ir_csg/` avec pdflatex, en deux passes.
+**Livrable.** `note-ir-csg.pdf`, 10 pages, 14 figures et l'annexe de vérifications. Le source est
+`note-ir-csg.tex` ; il se compile depuis `ir_csg/` avec pdflatex, en deux passes. Les figures nues
+se produisent avec `FIG_NU=1` sur `ir_csg.py`, `optimal.py` et `figures_note.py`.
 
 ## Programmes
 
@@ -28,6 +29,10 @@ Tous se lancent depuis `fiscalite/`.
   - les taux supérieurs de Saez ;
   - l'inverse optimum, c'est-à-dire les poids sociaux implicites ;
   - les indices d'Atkinson.
+- **`figures_note.py`** produit les figures complémentaires `ircsg_f01` à `ircsg_f11` :
+  composition de l'assiette et de la recette, élasticités annuelles, courbes de concentration,
+  cas-types OpenFisca, gains par tranche, écart de Lorenz, balayage des barèmes, sensibilité du
+  taux unique, paramètre de Pareto, taux maximisant la recette, comparaison avec les Pays-Bas.
 - **`openfisca_cas.py`** et **`openfisca_marges.py`** calculent, sur des cas-types OpenFisca-France
   (revenus 2024), le passage du net imposable au brut, la CSG et les taux marginaux. Le résultat va
   dans `sorties/marges_openfisca.csv`, qui est versionné. Ces deux scripts demandent un environnement
