@@ -1,0 +1,18 @@
+Cible IR (IRCOM) + CSG (reconstituée) : 192.2 Md€ ; assiette brute 1539 Md€
+IR IRCOM 91.7 dont imputé aux autres revenus 24.5 ; CSG reconstituée sur travail et pensions 125.0 (CSG totale, comptes nationaux 2024 : 153.1) ; autres revenus hors barème 192 Md€
+
+A_taux_unique
+  0 k€ : 12.5 %
+  rendement mécanique 192.2 Md€ ; après réaction (élasticités Sicsic) 203.0 Md€ ; écart +10.8
+B_proportionnel
+  0 k€ : 5.0 % | 10 k€ : 13.9 % | 100 k€ : 30.0 % | 250 k€ : 40.0 %
+  rendement mécanique 192.2 Md€ ; après réaction (élasticités Sicsic) 203.1 Md€ ; écart +10.9
+B2_proportionnel_haut_45
+  0 k€ : 5.0 % | 10 k€ : 13.6 % | 100 k€ : 35.0 % | 250 k€ : 45.0 %
+  rendement mécanique 192.2 Md€ ; après réaction (élasticités Sicsic) 201.0 Md€ ; écart +8.8
+C_huit_tranches
+  0 k€ : 5.0 % | 14 k€ : 10.0 % | 29 k€ : 15.0 % | 43 k€ : 20.0 % | 64 k€ : 25.0 % | 100 k€ : 30.0 % | 171 k€ : 35.0 % | 357 k€ : 40.0 %
+  rendement mécanique 192.2 Md€ ; après réaction (élasticités Sicsic) 198.2 Md€ ; écart +6.0
+D_bas_protege_haut_actuel
+  0 k€ : 4.0 % | 12 k€ : 9.0 % | 30 k€ : 20.2 % | 120 k€ : 40.0 % | 250 k€ : 49.0 %
+  rendement mécanique 192.2 Md€ ; après réaction (élasticités Sicsic) 197.2 Md€ ; écart +5.1

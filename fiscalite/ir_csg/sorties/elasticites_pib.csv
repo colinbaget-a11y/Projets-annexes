@@ -1,0 +1,7 @@
+recette,periode,elasticite,n
+CSG,2006-2011,1.266,6
+CSG,2012-2017,0.848,6
+CSG,2019-2024,0.976,6
+"IR (années sans réforme, hors 2020)","2001, 2002, 2003, 2004, 2005, 2009, 2010, 2011, 2022",1.08,9
+"IR (pente 2000-2024, réformes comprises)",2000-2024,1.229,25
+"CSG (pente 2000-2024, hausses de taux comprises)",2000-2024,1.514,25
