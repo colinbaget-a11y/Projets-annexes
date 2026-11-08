@@ -74,5 +74,30 @@ sont dans `sorties/par_tranche.csv`. Les figures sont `figures/ircsg_series` et
 - Impôt net. L'impôt net IRCOM inclut les crédits d'impôt.
 - CSG non reconstituée. Environ 10 Md€ de la CSG des comptes nationaux ne sont pas reconstitués
   (chômage, revenus non déclarés, etc.).
-- Constitutionnalité. La contrainte constitutionnelle d'une CSG progressive reste à documenter
-  (décision 2000-437 DC).
+- Constitutionnalité. Dans la décision 2000-437 DC (considérant 9), le Conseil constitutionnel a
+  censuré une ristourne dégressive de CSG parce qu'elle ne tenait compte ni des autres revenus du
+  contribuable, ni de ceux de son foyer, ni des personnes à charge. Un barème progressif appliqué à
+  l'ensemble des revenus et qui tient compte du foyer est donc plus sûr. La décision 2015-725 DC
+  (article 77) censure pour un autre motif.
+
+## Littérature utile (lue dans les textes)
+
+- CPO, *Impôt sur le revenu, CSG : quelles réformes ?* (2015), p. 132-140 : transposer tel quel le
+  quotient conjugal dans un impôt fusionné coûterait environ 11,8 Md€, et le quotient familial
+  environ 10 Md€ ; le CPO cite le rapport inter-administratif de 2012. Le CPO voit la fusion comme un
+  projet de moyen terme.
+  https://www.vie-publique.fr/files/rapport/pdf/154000100.pdf
+- Landais, Piketty et Saez (2011). Leur impôt est individuel, assis sur la base CSG (capital
+  compris), avec un barème en taux effectifs (2 % à 1 100 €/mois, 10 % à 2 200 €, 13 % à 5 000 €,
+  25 % à 10 000 €) ; rendement environ 147 Md€ (2010). Le simulateur travaille sur des fichiers
+  synthétiques ; selon le CPO, sa vocation est « plus pédagogique que pratique ».
+- Saez, Slemrod et Giertz (2012, *JEL*) donnent la correction d'une hausse de taux en haut de
+  barème : dR = dM · [1 − e · a · τ/(1 − τ)].
+- Cabannes, Houdré et Landais (2014, *Économie et Statistique*) estiment l'élasticité française :
+  environ 0,02 sur l'ensemble des foyers et 0,31 pour le top 10 %, avec un paramètre de Pareto
+  a ≈ 2,1.
+- Mourre, Poissonnier et Lausegger (2019, DP 098 de la Commission) donnent, pour la France, une
+  élasticité de l'impôt sur le revenu à l'output gap de 1,86 et une élasticité des cotisations de
+  0,63. On ne sait pas avec certitude si cet agrégat inclut la CSG.
+- Aucune note de l'IPP consacrée à une fusion IR-CSG n'a été trouvée. Allègre, Cornilleau et
+  Sterdyniak (2007, *Revue de l'OFCE* n° 101) n'ont pas été lus.
