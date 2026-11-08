@@ -30,6 +30,7 @@
 \begin{document}
 \renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
 
+
 \thispagestyle{empty}
 \vspace*{0.6cm}
 {\footnotesize\color{ocre}\bfseries NOTE DE TRAVAIL\quad·\quad NOVEMBRE 2026\par}
@@ -48,242 +49,210 @@ programmes \texttt{fiscalite/ir\_csg/}.\par}
 
 \section*{L'essentiel}
 
-L'impôt sur le revenu (96~Md€ en 2024) et la CSG (153~Md€) frappent presque les mêmes revenus.
-Additionnés, ils donnent déjà un prélèvement presque proportionnel au milieu de la distribution :
-entre 20~000 et 100~000~€ de revenu fiscal de référence (RFR), le taux moyen ne passe que de 10 à
-15~\% du revenu brut. La progressivité tient aux deux bouts : exonérations de CSG et décote en
-bas, tranches à 41 et 45~\% en haut.
-
-La note chiffre un impôt unique qui remplace l'IR et la CSG sur tous les revenus aujourd'hui
-imposés au barème : salaires, pensions, bénéfices des indépendants, revenus fonciers. Les revenus
-au prélèvement forfaitaire unique (PFU) restent à part. Au même rendement (213~Md€ sur une
-assiette brute de 1~600~Md€), le barème retenu est :
+Les Français paient deux impôts sur le même revenu. L'impôt sur le revenu (IR, 96~Md€ en 2024)
+est progressif mais n'est payé que par un foyer sur deux. La contribution sociale généralisée
+(CSG, 153~Md€) est prélevée sur presque tous les revenus, à un taux à peu près fixe. La note
+chiffre leur remplacement par un impôt unique, au même rendement, avec un barème simple :
 \begin{center}
 \textbf{0~\% jusqu'à 14~000~€ \quad·\quad 17,2~\% jusqu'à 120~000~€ \quad·\quad 40~\% jusqu'à
 250~000~€ \quad·\quad 49~\% au-delà}
 \end{center}
-Les seuils portent sur le revenu brut du foyer. Trois foyers sur quatre ont le même taux
-marginal, 17,2~\%. Le barème a été choisi pour qu'on ne puisse pas montrer qu'il redistribue
-moins que le système actuel. Le revenu après impôt qu'il laisse domine l'actuel au sens de Lorenz :
-tout indice d'inégalité usuel (Gini, Atkinson, Theil) baisse, et, à recette égale, tout critère de
-bien-être social averse aux inégalités s'améliore. Aucune tranche de revenu ne voit sa charge
-augmenter de plus de 2~points de revenu brut.
+Les montants s'entendent en revenu brut annuel du foyer. Trois foyers sur quatre paieraient
+17,2~\% sur chaque euro gagné au-delà des 14~000 premiers. Le barème a été choisi pour qu'on ne
+puisse pas montrer qu'il redistribue moins que le système actuel, et pour qu'aucune tranche de
+revenu ne voie sa charge augmenter de plus de 2~points.
 
-Entre 15~000 et 200~000~€ de RFR, les écarts avec l'actuel restent sous 600~€ par an et par foyer,
-dans un sens ou dans l'autre ; les foyers sous 15~000~€ gagnent de 200 à 550~€. Au-dessus de
-400~000~€, les foyers paient davantage sur leurs revenus du travail, mais ce résultat dépend d'une
-inconnue des données : la part de leurs revenus qui relève du PFU. Les vraies difficultés sont
-l'unité d'imposition, l'affectation à la Sécurité sociale et la contrainte constitutionnelle.
+En moyenne par tranche de revenu, la réforme change peu de chose entre 15~000 et 200~000~€ : moins
+de 600~€ par an et par foyer. Ces moyennes cachent cependant un transfert important entre types de
+foyers. Comme le calcul applique une seule franchise par foyer et supprime le quotient familial,
+une personne seule gagnerait plusieurs milliers d'euros par an dès 50~000~€ de revenu, tandis qu'un
+couple avec enfants entre 40~000 et 100~000~€ paierait environ 1~500~€ de plus. Corriger ce point
+(une franchise par adulte, une prise en compte des enfants) est possible ; le taux unique monterait
+alors autour de 19,5 à 21,5~\%. C'est le premier chantier si la réforme est retenue.
 
-\section{Ce que rapportent l'IR et la CSG depuis 2000}
+\section{Deux impôts sur le même revenu}
+
+\textbf{L'impôt sur le revenu} est calculé pour chaque foyer fiscal, c'est-à-dire une personne
+seule ou un couple marié ou pacsé, avec ses enfants. Son barème est progressif : le revenu est
+découpé en tranches, et chaque tranche est taxée à son propre taux (0, 11, 30, 41 puis 45~\%).
+Deux mécanismes adaptent l'impôt à la famille et aux petits revenus. Le quotient familial divise
+le revenu par un nombre de « parts » (une par adulte, une demie pour chacun des deux premiers enfants) avant d'appliquer le
+barème ; un couple paie donc moins qu'une personne seule au même revenu total. La décote annule ou
+réduit l'impôt des foyers modestes. Au total, 47~\% des foyers seulement paient l'IR.
+
+\textbf{La CSG} est prélevée à la source, personne par personne, sans tenir compte de la famille :
+9,2~\% de 98,25~\% du salaire brut, de 0 à 8,3~\% des pensions de retraite selon le revenu du
+foyer, 9,2~\% des revenus du patrimoine en 2024. Elle finance la Sécurité sociale. Elle est
+presque proportionnelle : chacun paie à peu près le même pourcentage de son revenu.
 
 \figbloc{ircsg_series}{Recettes de l'IR et de la CSG, en \% du PIB, 2000-2024}{fig:series}
 
-De 2000 à 2024, l'IR passe de 49,5 à 96,2~Md€, mais son poids dans le PIB n'a pas bougé (3,4 puis
-3,3~\%). Les hausses de 2012-2013 (tranche à 45~\%, gel du barème) l'ont porté à 3,6~\% ; les
-baisses de 2017 à 2020 et de 2023 l'ont ramené à son niveau de départ. La CSG passe de 58 à
-153~Md€, et de 4,0 à 5,2~\% du PIB. Cette hausse vient presque entièrement du relèvement de
-1,7~point de 2018, qui finançait la suppression des cotisations salariales maladie et chômage.
+\textbf{Ce qu'ils rapportent.} De 2000 à 2024, l'IR passe de 49,5 à 96,2~Md€, mais son poids
+dans la richesse nationale (le PIB) ne bouge pas : 3,4 puis 3,3~\% (figure~\ref{fig:series}). Les
+hausses de 2012-2013 l'ont porté à 3,6~\%, les baisses de 2017 à 2023 l'ont ramené à son niveau de
+départ. La CSG passe de 58 à 153~Md€, de 4,0 à 5,2~\% du PIB : elle a été relevée de 1,7~point en
+2018 pour financer la suppression des cotisations salariales maladie et chômage.
 
-L'élasticité au PIB (variation en \% de la recette rapportée à la variation en \% du PIB nominal)
-dit comment ces recettes suivent la croissance quand la loi ne change pas. Sur les périodes où les
-taux légaux de CSG sont restés fixes, elle vaut 1,27 (2006-2011), 0,85 (2012-2017) et 0,98
-(2019-2024) : un impôt proportionnel sur des revenus qui croissent comme le PIB a une élasticité
-de 1. L'IR a une élasticité médiane de 1,08 les années sans réforme : ses seuils étant indexés
-sur les prix, la croissance réelle fait passer une part croissante du revenu dans les tranches
-supérieures. Hors années de réforme, ces élasticités annuelles varient de $-$1,8 à +2,8
-(figure~\ref{fig:elast}). Un impôt
-fusionné presque proportionnel perdrait environ 0,03 d'élasticité, soit de l'ordre de 1~\% de
-recette en dix ans.
+\textbf{Comment ils suivent la croissance.} Si les revenus augmentent de 1~\%, un impôt
+proportionnel rapporte 1~\% de plus. On dit que son « élasticité » au PIB vaut 1. C'est à peu près
+ce qu'on observe pour la CSG les années où ses taux ne changent pas (figure~\ref{fig:elast}). L'IR
+rapporte un peu plus (élasticité médiane de 1,08) : quand les revenus montent plus vite que les
+prix, une partie passe dans les tranches supérieures, dont les seuils ne suivent que les prix. Un
+impôt presque proportionnel perdrait ce petit surplus, de l'ordre de 1~\% de recette en dix ans.
 
-Les deux impôts ne pèsent pas sur les mêmes foyers (figure~\ref{fig:conc}). Les 63~\% de foyers
-sous 30~000~€ de RFR détiennent 30~\% de l'assiette, paient 26~\% de la CSG et 4~\% de l'IR ; les
-3,4~\% au-dessus de 100~000~€ détiennent 17~\% de l'assiette et paient 49~\% de l'IR. La fusion
-revient à choisir où placer, entre ces deux profils, la courbe de l'impôt unique.
+\textbf{Qui paie quoi.} La figure~\ref{fig:conc} range les foyers du plus modeste au plus aisé et
+montre quelle part du total chacun détient ou paie. Les 63~\% de foyers sous 30~000~€ de revenu
+détiennent 30~\% des revenus, paient 26~\% de la CSG mais seulement 4~\% de l'IR. Les 3,4~\% de
+foyers au-dessus de 100~000~€ détiennent 17~\% des revenus et paient 49~\% de l'IR. La CSG suit
+donc les revenus ; l'IR est concentré en haut.
 
-\figpaire{ircsg_f02_elasticites}{Élasticité apparente au PIB, 2001-2024}{fig:elast}%
-{ircsg_f03_concentration}{Concentration de l'assiette, de la CSG et de l'IR}{fig:conc}
+\figpaire{ircsg_f02_elasticites}{Croissance des recettes rapportée à celle du PIB}{fig:elast}%
+{ircsg_f03_concentration}{Qui détient les revenus, qui paie la CSG et l'IR}{fig:conc}
 
-\section{Ce qu'on fusionne et comment on le chiffre}
+\section{Taux moyen et taux marginal}
+
+Deux taux décrivent la charge d'un contribuable, et la suite de la note les utilise sans cesse.
+
+\begin{encadre}{Un exemple : une personne seule qui gagne 30~000~€ brut par an}
+Elle paie 2~760~€ de CSG et 870~€ d'IR, soit 3~630~€. Son \textbf{taux moyen} est la part de son
+revenu qui part en impôt : 3~630 / 30~500, environ 12~\%. C'est ce qui compte pour juger qui paie
+combien.
+
+Si elle gagne 100~€ de plus, elle paie environ 9~€ de CSG et 12~€ d'IR en plus : son \textbf{taux
+marginal} est de 21~\%. C'est ce qui compte pour la décision de travailler davantage, de demander
+une augmentation ou de déclarer un revenu : sur 100~€ de plus, il lui en reste 79.
+
+Avec un barème par tranches, le taux marginal est le taux de la tranche où l'on se trouve, et le
+taux moyen est toujours plus bas, puisque les premiers euros sont moins taxés.
+\end{encadre}
+
+\section{L'idée : une franchise et un taux unique}
+
+Le barème proposé compte quatre tranches. Les 14~000 premiers euros du foyer ne sont pas taxés :
+c'est la \emph{franchise}. Chaque euro entre 14~000 et 120~000~€ est taxé à 17,2~\%, chaque euro
+entre 120~000 et 250~000~€ à 40~\%, chaque euro au-delà à 49~\%. Un foyer qui gagne 50~000~€ paie
+donc 17,2~\% de 36~000~€, soit 6~190~€ ; son taux moyen est de 12,4~\%.
+
+La franchise suffit à rendre l'impôt progressif, c'est-à-dire à faire monter le taux moyen avec
+le revenu. Avec 20~000~€, on paie 17,2~\% de 6~000~€, soit 5,2~\% du revenu ; avec 30~000~€, 9,2~\% ;
+avec 100~000~€, 14,8~\%. Le taux marginal, lui, est le même pour tous entre 14~000 et 120~000~€.
+C'est ce qu'on appelle un impôt « largement proportionnel » : la redistribution passe par la
+franchise en bas et par les taux de 40 et 49~\% en haut, pas par une succession de tranches au
+milieu. C'est aussi l'instrument de progressivité le moins coûteux pour l'activité : la franchise
+ne relève le taux marginal de personne.
+
+\section{Ce qu'on fusionne et comment on calcule}
+
+\textbf{Le périmètre.} L'impôt unique remplace l'IR et la CSG sur tous les revenus aujourd'hui
+soumis au barème de l'IR : salaires, pensions, bénéfices des indépendants, loyers. Les revenus du
+capital soumis au prélèvement forfaitaire unique (PFU : dividendes, intérêts, plus-values,
+assurance-vie, environ 90~Md€) gardent leur régime. L'assiette est le revenu brut, comme pour la
+CSG, ce qui évite les déductions croisées entre les deux impôts actuels. Elle représente
+1~600~Md€ ; la recette à remplacer, 213~Md€ (figure~\ref{fig:compo}).
 
 \figbloc{ircsg_f01_composition}{Ce que l'impôt unique remplace : assiette et recette, 2024}{fig:compo}
 
-\textbf{Le périmètre.} L'impôt unique porte sur tous les revenus imposés aujourd'hui au barème de
-l'IR et soumis à la CSG. Seuls les revenus qui relèvent du PFU (dividendes, intérêts, plus-values
-mobilières, assurance-vie) restent à leur régime. D'après les totaux des déclarations 2042, ils
-représentent environ 90~Md€ et paient 12,8~\% d'IR, soit 11,5~Md€. Le reste de l'IR et la CSG sur
-les revenus d'activité, les pensions et les revenus fonciers forment la recette à remplacer :
-213~Md€. L'assiette est le revenu brut, comme pour la CSG, ce qui supprime la question de la CSG
-déductible et rend les taux comparables entre salariés, indépendants et retraités. La
-figure~\ref{fig:compo} détaille l'assiette et la recette.
+\textbf{Les données et le calcul.} La DGFiP publie le nombre de foyers, leurs salaires, leurs
+pensions et l'impôt payé dans 25 tranches de revenu (données IRCOM). Pour chaque tranche, on
+reconstitue ce que les foyers paient aujourd'hui en IR et en CSG, on applique le nouveau barème, et
+on ajuste le taux de 17,2~\% jusqu'à retrouver exactement la même recette totale. Le calcul suppose
+que les revenus ne changent pas avec l'impôt ; l'effet des comportements est traité à part.
 
-\textbf{Les données.} Les données IRCOM de la DGFiP répartissent 41,6~millions de foyers en 25
-tranches de RFR (RFR, impôt net, salaires, pensions) ; les totaux par case des déclarations 2042
-les décomposent. Chaque tranche est décrite par 60 foyers représentatifs qui respectent son revenu
-moyen ; on applique le barème à chacun et on cherche le taux qui redonne la recette.
+\textbf{Les vérifications.} Chaque étape a été confrontée à une source indépendante (annexe). La
+CSG reconstituée sur les salaires (91,5~Md€) correspond à celle qu'encaisse la Sécurité sociale
+(92,0~Md€) ; les pensions reconstituées (406~Md€) sont proches de celles d'Eurostat (412~Md€).
+Les cas-types du simulateur OpenFisca-France ont servi à vérifier les passages du net au brut et les
+taux marginaux actuels. Une inconnue demeure : les données publiques ne disent pas dans quelles
+tranches se trouvent les 90~Md€ de revenus au PFU. Selon l'hypothèse, le taux unique varie de 16,6
+à 17,7~\% (figure~\ref{fig:sens}).
 
-\textbf{Les vérifications.} La reconstitution a été confrontée à des sources indépendantes
-(annexe). La CSG reconstituée sur les salaires (91,5~Md€) correspond à celle que la Sécurité sociale
-encaisse sur les secteurs privé et public (92,0~Md€). Les pensions reconstituées (406~Md€) sont
-proches des pensions de vieillesse, de survie et d'invalidité recensées par Eurostat (412~Md€ en
-2023). Les cas-types d'OpenFisca-France confirment le passage du net imposable au brut (×~1,21
-pour les salaires, ×~1,04 à 1,06 pour les pensions). Ils ont aussi corrigé une erreur de la
-première version : le taux marginal actuel des foyers aisés, estimé à partir de la pente entre
-tranches, était sous-estimé de 10 à 20~points. La figure~\ref{fig:cas} montre ces cas-types : à
-assiette égale, le système actuel taxe très différemment une personne seule, un couple et une
-famille, ce que le barème E, appliqué au foyer sans quotient, ne fait plus.
+\section{Comment on a choisi les chiffres}
 
-\figbloc{ircsg_f04_cas_types}{Taux marginaux et moyens actuels par cas-type, et barème E}{fig:cas}
+Le plus simple serait un taux unique sans franchise : 13,3~\% sur tous les revenus. Il ferait payer
+de 1~100 à 1~600~€ de plus par an aux foyers de 10~000 à 30~000~€ et rendrait plus de 10~000~€ à
+ceux de 100~000 à 200~000~€. La question devient : jusqu'où peut-on étendre un taux unique sans
+qu'on puisse démontrer que la réforme redistribue moins ? J'ai retenu deux conditions.
 
-\textbf{L'inconnue principale.} Les données publiques ne disent pas comment les 90~Md€ de revenus
-au PFU se répartissent entre les tranches de RFR. Le scénario central les répartit pour moitié en
-proportion des autres revenus de chaque tranche, pour moitié en les logeant d'abord dans les
-tranches les plus hautes. Les deux hypothèses extrêmes encadrent le résultat. Le taux principal du
-barème retenu varie de 16,6 à 17,7~\% selon l'hypothèse ; seul le résultat pour les foyers au-dessus
-de 200~000~€ en dépend vraiment. La figure~\ref{fig:sens} fait varier une à une les autres
-hypothèses : aucune ne déplace le taux unique de plus de 0,6~point.
+\textbf{Ne pas redistribuer moins.} Rangeons les foyers du plus modeste au plus aisé et regardons
+quelle part du revenu total, après impôt, détiennent les 10~\% les plus modestes, puis les 20~\%,
+et ainsi de suite (c'est la « courbe de Lorenz »). Si, à chacun de ces niveaux, les plus modestes
+détiennent une part au moins égale avec la réforme, on ne peut pas dire qu'elle redistribue moins,
+quel que soit l'indicateur d'inégalité utilisé. À recette égale, l'économiste Anthony Atkinson a
+montré que c'est aussi la condition pour que la réforme soit préférable selon tout critère de
+justice qui accorde plus de poids aux plus modestes.
 
-\section{Quel barème}
+\textbf{Pas de hausse massive.} Aucune tranche de revenu ne doit voir sa charge augmenter de plus
+de 2~points de revenu. Accepter une hausse plus forte des classes moyennes modestes n'aide pas
+beaucoup : faire payer le milieu pour baisser le taux unique est justement ce que la première
+condition interdit.
 
-Le taux unique (barème A, 13,3~\%) montre où est la difficulté. Il ferait payer de 1~100 à
-1~600~€ de plus par an aux foyers de 10~000 à 30~000~€, et rendrait plus de 10~000~€ à ceux de
-100~000 à 200~000~€. La question est donc : jusqu'où peut-on étendre un taux unique sans qu'on puisse
-montrer que la réforme redistribue moins ?
-
-\textbf{Le critère.} Un barème est réputé acceptable s'il remplit deux conditions.
-\begin{itemize}
-\item Le revenu après impôt qu'il laisse domine au sens de Lorenz celui d'aujourd'hui : à chaque
-point de la distribution, les foyers les plus modestes détiennent une part au moins égale du
-revenu total. Atkinson (1970) a montré qu'à revenu moyen égal, ce qui est le cas ici puisque le
-rendement est constant, cette dominance équivaut à un bien-être plus élevé pour toute fonction de
-bien-être social averse aux inégalités. Le critère est vérifié ici sur les 25 tranches de RFR,
-et non sur des foyers individuels. Aucun indice d'inégalité cohérent avec Lorenz ne peut
-alors donner tort à la réforme. C'est un critère plus exigeant que l'indice de Kakwani : on peut
-garder le même indice en déplaçant la charge à l'intérieur de la distribution.
-\item Aucune tranche de RFR ne voit sa charge augmenter de plus de 2~points de revenu brut. On
-accepte que certains paient plus, à condition que ce ne soit massif pour personne.
-\end{itemize}
-J'ai testé 98 barèmes de la forme « franchise à 0~\%, taux unique, un taux intermédiaire de 40 ou
-45~\%, 49~\% au-delà de 250~000~€ » : franchise de 8~000 à 20~000~€, fin du taux unique de 60~000
-à 200~000~€. Seize d'entre eux remplissent les deux conditions dans le scénario central. Les plus
-proportionnels appliquent leur taux unique à 76-78~\% des foyers (figure~\ref{fig:balayage}).
-La figure~\ref{fig:lorenz} montre, pour le barème retenu, l'écart de Lorenz à chaque borne de
-tranche selon l'hypothèse sur les revenus au PFU.
-
-\figpaire{ircsg_f07_balayage}{98 barèmes à franchise et taux unique : proportionnalité et
-dominance de Lorenz}{fig:balayage}%
-{ircsg_f06_lorenz}{Barème E : écart de Lorenz avec le système actuel}{fig:lorenz}
+J'ai testé 98 barèmes du même type, en faisant varier la franchise (8~000 à 20~000~€), la fin du
+taux unique (60~000 à 200~000~€) et le taux suivant (40 ou 45~\%). Seize remplissent les deux
+conditions ; le barème retenu est l'un de ceux où le taux unique couvre le plus de foyers. Les
+barèmes plus classiques ne passent pas le premier test (tableau~\ref{tab:baremes}).
 
 \begin{table}[htbp]\centering\small
-\caption{Barèmes à rendement constant (assiette brute du foyer, revenus au barème)}
+\caption{Barèmes à rendement égal (213~Md€) : peut-on montrer qu'ils redistribuent moins ?}
 \label{tab:baremes}
 \begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}Xccc@{}}
 \toprule
- & Barème & Taux unique & Kakwani & Réaction \\
- & & (part des foyers) & & (Md€) \\
+ & Barème & Taux unique & Redistribue & Hausse \\
+ & & (part des foyers) & moins ? & maximale \\
 \midrule
-Actuel & IR + CSG & --- & 0,170 (0,163) & --- \\
-A & 13,3~\% dès le premier euro & 13,3~\% (100~\%) & 0 & +11 \\
-C & 8 tranches de 5 à 40~\%, seuils 15, 29, 44, 66, 102, 175, 365~k€ & --- & 0,187 (0,188) & +7 \\
-D & 4~\% jusqu'à 12~k€, 9~\% jusqu'à 30~k€, 19,2~\% jusqu'à 120~k€, 40~\%, 49~\% au-delà de 250~k€ & 19,2~\% (44~\%) & 0,197 (0,195) & +3 \\
-\textbf{E} & \textbf{0~\% jusqu'à 14~k€, 17,2~\% jusqu'à 120~k€, 40~\% jusqu'à 250~k€, 49~\% au-delà} & \textbf{17,2~\% (76~\%)} & \textbf{0,199 (0,201)} & \textbf{+3} \\
+A & 13,3~\% dès le premier euro & 13,3~\% (100~\%) & oui & 9,2~pts \\
+C & 8 tranches de 5 à 40~\% (seuils 15, 29, 44, 66, 102, 175, 365~k€) & --- & oui, de peu & 1,4~pt \\
+D & 4~\% jusqu'à 12~k€, 9~\% jusqu'à 30~k€, 19,2~\% jusqu'à 120~k€, 40~\%, 49~\% au-delà de 250~k€ & 19,2~\% (44~\%) & oui, de peu & 0,9~pt \\
+\textbf{E} & \textbf{0~\% jusqu'à 14~k€, 17,2~\% jusqu'à 120~k€, 40~\% jusqu'à 250~k€, 49~\% au-delà} & \textbf{17,2~\% (76~\%)} & \textbf{non} & \textbf{0,25~pt} \\
 \bottomrule
 \end{tabularx}
 \par\vspace{4pt}
-\parbox{\linewidth}{\raggedright\scriptsize Chaque barème rapporte 213~Md€ sans réaction des
-revenus. Kakwani : indice de concentration de l'impôt moins indice de Gini de l'assiette, foyers
-classés par tranche de RFR ; entre parenthèses, variante où l'IR est réparti au prorata entre
-revenus au barème et revenus au PFU (cible 209~Md€). Réaction : variation de recette quand les
-revenus du travail réagissent aux nouveaux taux marginaux (élasticités de Sicsic, 2022 ; taux
-marginaux actuels d'OpenFisca). Source : DGFiP, IRCOM et déclarations 2042, revenus 2024 ; CCSS ;
-calculs de l'auteur.}
+\parbox{\linewidth}{\raggedright\scriptsize « Redistribue moins ? » : la courbe de Lorenz du
+revenu après impôt passe-t-elle, au moins en un point, sous la courbe actuelle ? Hausse maximale :
+plus forte hausse de la charge moyenne d'une tranche de revenu, en points de revenu brut. Source :
+DGFiP, IRCOM et déclarations 2042, revenus 2024 ; CCSS ; calculs de l'auteur.}
 \end{table}
 
-\figbloc{ircsg_taux_moyens}{Taux moyen IR + CSG par tranche de RFR, actuel et barèmes
-fusionnés}{fig:taux}
+\figbloc{ircsg_taux_moyens}{Taux moyen par tranche de revenu, aujourd'hui et avec trois
+barèmes}{fig:taux}
 
-\textbf{Pourquoi la franchise.} Avec une franchise, le taux moyen d'un foyer de revenu brut $y$
-vaut $17{,}2\,\%\times(1-14\,000/y)$ : 3,0~\% à 17~000~€, 9,2~\% à 30~000~€, 15,2~\% à 120~000~€.
-Il monte avec le revenu sans qu'un seul taux marginal change entre 14~000 et 120~000~€. C'est
-l'instrument de progressivité le moins coûteux. Il ne relève le taux marginal de personne au-delà
-de la franchise ; il rend au bas de la distribution ce que lui accordent aujourd'hui les
-exonérations de CSG et la décote, par un seul mécanisme. Keen, Kim et Varsano (2008) formalisent l'arbitrage :
-à recette égale, un taux unique qui s'accompagne d'une franchise plus élevée que l'abattement
-d'origine croise l'ancien barème deux fois, et son effet sur la progressivité doit être vérifié
-sur la distribution, ce que fait le critère de Lorenz.
+La figure~\ref{fig:taux} compare les taux moyens par tranche : le barème E suit de près le
+système actuel jusqu'à 400~000~€, plus bas tout en bas, plus haut tout en haut. La
+figure~\ref{fig:gains} donne le gain moyen par foyer : jusqu'à 200~000~€, les six hypothèses
+testées concordent. La figure~\ref{fig:lorenz} vérifie la première condition : l'écart entre les
+courbes de Lorenz reste positif, sauf dans l'hypothèse extrême où tous les revenus au PFU seraient
+logés au sommet.
 
-Accepter que les classes moyennes modestes paient davantage ne permet pas d'aller beaucoup plus
-loin : faire payer le milieu pour baisser le taux unique déplace la charge dans le sens que la
-dominance de Lorenz interdit. La variante à 45~\% dès 150~000~€ remplit aussi les deux conditions,
-mais rendrait environ 3~000~€ par an aux foyers de 100~000 à 200~000~€ de RFR ; avec 40~\% dès
-120~000~€, ils ne gagnent rien.
+\figpaire{ircsg_f05_gains}{Gain moyen par foyer selon la tranche de revenu}{fig:gains}%
+{ircsg_f06_lorenz}{Part du revenu détenue par les plus modestes : réforme moins actuel}{fig:lorenz}
 
+\section{Ce qu'en dit la théorie}
 
-La figure~\ref{fig:gains} donne les gains par tranche et leur incertitude. Jusqu'à 200~000~€ de
-RFR, les six hypothèses testées donnent le même signe et des montants proches. Au-delà de
-400~000~€ (80~000 foyers), le taux moyen sur les revenus au barème passerait de 23-34~\% à
-32-49~\%, mais l'écart entre hypothèses empêche de chiffrer la perte.
+La théorie de la taxation optimale cherche le barème qui finance l'État au moindre coût pour
+l'activité, compte tenu de l'importance qu'on accorde aux plus modestes. Elle repose sur une
+grandeur mesurable, l'élasticité du revenu imposable : de combien le revenu déclaré baisse quand le
+taux marginal monte. Pour la France, les estimations vont de presque 0 à 0,5 selon les revenus et les études ;
+elles sont plus élevées pour les hauts revenus (Sicsic, 2022 ; Cabannes, Houdré et Landais, 2014). Une élasticité de 0,3 signifie qu'en gardant 1~\% de moins
+sur le dernier euro, on déclare 0,3~\% de revenu en moins.
 
-\figpaire{ircsg_f05_gains}{Barème E : gain moyen par foyer selon le RFR}{fig:gains}%
-{ircsg_f08_sensibilite}{Sensibilité du taux unique aux hypothèses}{fig:sens}
+\textbf{Le taux unique du milieu.} Pour un taux unique, la théorie donne une formule simple (Saez,
+2001 ; Piketty et Saez, 2013). Lue à l'envers, elle dit qu'un taux de 17,2~\% revient à considérer
+qu'un euro rendu à un foyer de 30~000~€ et un euro rendu à un foyer de 100~000~€ valent presque
+autant. C'est exactement le choix d'un impôt largement proportionnel : on redistribue par la
+franchise et par le haut, pas entre les classes moyennes.
 
-\section{Ce qu'en dit la théorie de la taxation optimale}\label{sec:optimal}
+\textbf{Les taux du haut.} Au-delà d'un certain taux, relever l'impôt des plus aisés rapporte
+moins, parce qu'ils déclarent moins : c'est l'effet Laffer. Ce taux maximal dépend de l'élasticité
+et de l'épaisseur du haut de la distribution. Avec les estimations françaises, il se situe entre
+53 et 70~\% (figure~\ref{fig:laffer}). Le taux de 49~\% reste en dessous, mais s'en approche si l'on
+ajoute la TVA et les cotisations patronales non contributives que paient aussi ces revenus.
+Introduire les réactions des contribuables dans le chiffrage change peu le résultat : environ
++3~Md€ pour le barème E, parce qu'il baisse les taux marginaux des revenus moyens et élevés, là
+où les revenus déclarés réagissent le plus.
 
-La théorie de la taxation optimale ne dit pas quel barème est juste, mais ce qu'il coûte en
-efficacité et quelles préférences sociales il suppose. Saez (2001) et Piketty et Saez (2013)
-l'écrivent avec deux grandeurs mesurables : la forme de la distribution des revenus et
-l'élasticité du revenu imposable $e$.
+\figpaire{ircsg_f08_sensibilite}{Taux unique selon les hypothèses de calcul}{fig:sens}%
+{ircsg_f10_laffer}{Taux du haut qui rapporte le plus, selon l'élasticité}{fig:laffer}
 
-\textbf{Le taux unique de la bande centrale.} Pour un taux linéaire, le taux optimal vaut
-$t=(1-\bar g)/(1-\bar g+e)$, où $\bar g$ est le poids social moyen des contribuables, pondéré par
-leur revenu, rapporté à la valeur d'un euro public. Lu à l'envers, un taux de 17,2~\% avec $e=0{,}25$
-correspond à $\bar g=1-e\,t/(1-t)=0{,}95$. Dans la bande centrale, le barème E traite donc presque
-de la même façon un euro à 30~000~€ et un euro à 100~000~€ de revenu. C'est la traduction exacte du
-choix « largement proportionnel » : la redistribution se fait par la franchise en bas et par les
-taux supérieurs en haut, pas à l'intérieur des classes moyennes.
-
-\textbf{Les taux du haut.} Au-delà d'un seuil $z^*$, le taux optimal vaut
-$\tau=(1-g)/(1-g+a\,e)$. Ici $a$ est le paramètre de Pareto, qui mesure l'épaisseur du haut de la
-distribution : $a=\bar z/(\bar z-z^*)$, avec $\bar z$ le revenu moyen au-dessus du seuil. Avec
-$g=0$, la formule donne le taux qui maximise la recette. Pour la France, Cabannes, Houdré et
-Landais (2014) estiment $a\approx2{,}1$ et une élasticité de 0,31 pour le décile supérieur ; Sicsic
-(2022) trouve 0,51. Seule la part de l'assiette qui vient du travail réagit, environ 80~\% au-delà
-de 120~000~€. Le taux qui maximise la recette est alors de 70~\% avec $e=0{,}25$ et de 53~\% avec
-$e=0{,}51$ (figure~\ref{fig:laffer}). Sur notre reconstitution, $a$ vaut environ 2,6 au seuil de
-120~000~€ et 1,9 à celui de 250~000~€ (figure~\ref{fig:pareto}). Elle est trop grossière au sommet
-pour remplacer l'estimation de Cabannes, Houdré et Landais.
-
-\figpaire{ircsg_f09_pareto}{Paramètre de Pareto de l'assiette brute selon le seuil}{fig:pareto}%
-{ircsg_f10_laffer}{Taux supérieur qui maximise la recette selon l'élasticité}{fig:laffer}
-
-Le taux de 49~\% n'est donc pas au-delà du maximum de recette pris isolément. Le coin fiscal qui
-compte inclut cependant les autres prélèvements non contributifs, notamment les cotisations
-patronales non contributives et la TVA. Avec 10~points de plus, il est de 54~\% ; avec l'élasticité
-de Sicsic, le poids social implicite des foyers concernés devient alors à peu près nul. Ce constat
-vaut aussi pour le système actuel (Bourguignon et Spadaro, 2012, sur données de 1995). Il plaide
-contre un taux supérieur au-delà de 49~\%, pas contre ce barème.
-
-\figbloc{ircsg_optimal}{Taux marginaux et poids sociaux implicites, actuel et barème E}{fig:optimal}
-
-\textbf{Les préférences implicites.} L'approche dite de l'inverse optimum (Bourguignon et Spadaro,
-2012 ; Lockwood et Weinzierl, 2016 ; Jacobs, Jongen et Zoutman, 2017) part du barème et en déduit
-les poids sociaux qui le rendraient optimal. Sans effet revenu, le poids moyen accordé aux foyers
-au-dessus de $z$ vaut $\bar G(z)=1-e\,T'(z)/(1-T'(z))\,\alpha(z)$, où $\alpha(z)=z\,h(z)/(1-H(z))$
-mesure l'épaisseur locale de la distribution. La figure~\ref{fig:optimal} compare les deux barèmes.
-
-Jusqu'à 100~000~€, ils supposent à peu près les mêmes préférences. Entre 70~000 et 120~000~€, le
-barème E est plus « indifférent » que l'actuel. Au-dessus, la tranche à 40~\% donne aux foyers
-de 120~000 à 250~000~€ un poids implicite plus faible qu'aujourd'hui. C'est là que le barème E
-coûte le plus en efficacité, parce que beaucoup de foyers s'y trouvent ($\alpha\approx3$). Aucun des
-deux barèmes n'implique de poids négatif, avec $e=0{,}25$ comme avec $e=0{,}5$. Aucun n'impose donc
-de taux au-delà du maximum de recette.
-
-Un barème largement proportionnel n'a rien d'exotique au regard des préférences que révèlent les
-barèmes réels : Lockwood et Weinzierl trouvent des poids presque plats aux États-Unis après 1986
-(supérieurs à 0,6 pour le 1~\% le plus aisé en 2010), et ceux de Hendren (2020) ne varient que du
-simple au double entre le bas et le haut de la distribution.
-
-\section{Ce que montrent les expériences étrangères}
+\section{À l'étranger}
 
 \begin{wrapfigure}{r}{0.47\linewidth}
 \vspace{-10pt}\centering
@@ -292,64 +261,77 @@ simple au double entre le bas et le haut de la distribution.
 \par{\raggedright\scriptsize\color{encre}\input{../figures/nu/ircsg_f11_pays_bas_note.tex}\par}
 \vspace{-6pt}
 \end{wrapfigure}
-\textbf{Pays-Bas.} C'est le précédent le plus proche d'une fusion : les cotisations des assurances nationales (retraite de base, dépendance, survivants) sont prélevées avec l'impôt
-sur le revenu, sur la même base et dans les mêmes tranches. En 2024, le barème affiché ne compte que
-deux taux : 36,97~\% jusqu'à 75~518~€, dont 27,65~points de cotisations, puis 49,50~\%. La
-progressivité passe par deux crédits d'impôt. Le crédit général (3~362~€) se retire au taux de
-6,63~\% entre 24~812 et 75~518~€ ; le crédit pour revenus d'activité se retire au taux de 6,51~\%
-entre 39~957 et 124~934~€. Le taux marginal réel dépasse donc 50~\% sur une partie de la tranche
-inférieure (fiche officielle du gouvernement néerlandais pour 2024). La leçon pour nous : la
-progressivité reportée dans des crédits dégressifs rend le barème lisible en façade, mais ses taux
-marginaux effectifs le sont beaucoup moins. La franchise du barème E évite ce défaut (figure~\ref{fig:pb}).
+\textbf{Pays-Bas.} C'est le cas le plus proche. Les cotisations de retraite de base et de
+dépendance sont prélevées avec l'impôt sur le revenu, dans les mêmes tranches : le barème affiché
+ne compte que deux taux, 36,97~\% puis 49,50~\% au-delà de 75~518~€ (2024). Mais la progressivité
+passe par des crédits d'impôt qui diminuent quand le revenu monte, ce qui porte le taux marginal
+réel au-delà de 50~\% pour une partie des classes moyennes (figure~\ref{fig:pb}). Un barème simple en
+façade peut donc cacher des taux marginaux élevés ; la franchise évite ce défaut.
 
-\textbf{Royaume-Uni.} La Mirrlees Review (\emph{Tax by Design}, 2011) recommande d'intégrer
-impôt sur le revenu et cotisations, dont le lien avec les prestations est devenu presque nul, et
-juge qu'un barème optimal peut être approché par « deux ou trois taux et un abattement ».
+\textbf{Royaume-Uni.} La grande revue fiscale dirigée par James Mirrlees (\emph{Tax by Design},
+2011) recommande de fusionner impôt sur le revenu et cotisations, et juge qu'un bon barème peut se
+contenter de « deux ou trois taux et un abattement ».
 
-\textbf{Allemagne et Europe de l'Ouest.} À rendement constant, une flat tax allemande avec
-l'abattement existant (26,9~\%) ferait gagner 3,9~\% de revenu disponible au décile le plus aisé
-et perdre les déciles 3 à 9 ; avec un abattement relevé à 10~700~€ et un taux de 31,9~\%, le Gini
-serait inchangé (Fuest, Peichl et Schaefer, 2008). Paulus et Peichl (2008) trouvent le même
-résultat dans dix pays. Le barème E évite ce coût parce qu'il garde deux taux supérieurs.
+\textbf{Allemagne.} À recette égale, un taux unique allemand qui garde l'abattement existant
+(26,9~\%) ferait gagner les 10~\% les plus aisés et perdre les déciles 3 à 9 ; il faut relever
+nettement l'abattement, et le taux à 31,9~\%, pour ne pas accroître les inégalités (Fuest, Peichl et
+Schaefer, 2008). Le barème E évite ce coût en gardant deux taux pour le haut.
 
-\textbf{Europe de l'Est.} Les flat taxes de Russie (13~\% en 2001), de Slovaquie (19~\% en 2004)
-ou de Roumanie (16~\% en 2005) n'ont produit aucun effet Laffer (Keen, Kim et Varsano, 2008). En
-Russie, environ deux tiers de la hausse du revenu déclaré venaient d'un recul de la fraude, et non
-d'un supplément d'activité (Gorodnichenko, Martinez-Vazquez et Sabirianova Peter, 2009) : au
-sommet, l'élasticité du revenu imposable mesure surtout l'optimisation, et dépend des règles
-d'assiette autant que des taux.
+\textbf{Europe de l'Est.} Les taux uniques de Russie (13~\% en 2001), de Slovaquie ou de Roumanie
+n'ont pas eu d'effet Laffer (Keen, Kim et Varsano, 2008). En Russie, les deux tiers de la hausse
+des revenus déclarés venaient d'un recul de la fraude, pas d'un surcroît d'activité (Gorodnichenko,
+Martinez-Vazquez et Sabirianova Peter, 2009).
 
 \section{Ce qui reste à trancher}
 
-\textbf{L'unité d'imposition.} Le chiffrage applique le barème au foyer fiscal, sans quotient
-conjugal ni familial, alors que la CSG est individuelle. Pour un barème presque plat, l'enjeu
-diminue beaucoup : entre 14~000 et 120~000~€, un couple paie le même taux marginal qu'il soit
-imposé ensemble ou séparément. La question se concentre sur la franchise : une par foyer ou une
-par adulte. L'IRCOM ne distingue pas les couples et ne permet pas de chiffrer cette seconde
-option ; chaque milliard à compenser demande environ 0,08~point sur le taux unique. Le Conseil des
-prélèvements obligatoires (2015) chiffrait à 11,8~Md€ le quotient conjugal transposé dans un impôt
-fusionné progressif ; on peut supposer, sans l'avoir vérifié, que ce coût serait bien plus faible
-ici. Le traitement des enfants (quotient ou crédit d'impôt
-forfaitaire, comme chez Landais, Piketty et Saez, 2011) reste à chiffrer.
+\textbf{La famille.} C'est le point principal, et la section suivante le montre. Le calcul applique
+une franchise par foyer, sans quotient familial. Or, aujourd'hui, un couple paie moins qu'une
+personne seule au même revenu total, et la CSG est individuelle. Une seconde franchise pour les
+couples coûterait environ 21~Md€ ; pour garder la recette, le taux unique passerait autour de 19,5 à
+21,5~\%. Ce chiffre est approximatif : les données publiques ne disent pas combien de couples compte
+chaque tranche de revenu (31~\% des foyers sont des couples). Le traitement des enfants reste à
+définir.
 
-\textbf{La contrainte constitutionnelle.} En 2000, le Conseil constitutionnel a censuré une
-réduction de CSG pour les bas salaires (décision 2000-437 DC). Il lui reprochait de ne tenir
-compte « ni des revenus du contribuable autres que ceux tirés d'une activité, ni des revenus des
-autres membres du foyer, ni des personnes à charge ». Un impôt sur l'ensemble des revenus au barème
-du foyer, avec une franchise et un traitement des charges de famille, répond à ce motif. Laisser
-les revenus au PFU hors barème est à faire expertiser, même si l'IR le fait déjà depuis 2018.
+\textbf{La Constitution.} En 2000, le Conseil constitutionnel a censuré une baisse de CSG réservée
+aux bas salaires, parce qu'elle ignorait les autres revenus, ceux du conjoint et les enfants
+(décision 2000-437 DC). Un impôt sur l'ensemble des revenus du foyer, qui tient compte des charges
+de famille, répond à cette objection ; laisser les revenus du capital au PFU est à faire
+expertiser.
 
-\textbf{L'affectation et les niches.} La CSG finance la Sécurité sociale : une part fixe du nouvel
-impôt, environ 62~\% (132 sur 213~Md€), peut lui être affectée. Le chiffrage suppose les
-réductions et crédits d'impôt maintenus. Les imputer sur un impôt que tous les foyers paient, et
-non plus la moitié d'entre eux, en élargirait le coût.
+\textbf{L'affectation.} La CSG finance la Sécurité sociale. Une part fixe du nouvel impôt, environ
+62~\%, peut lui être réservée.
 
-\textbf{Le résultat au sommet.} Si les revenus au PFU sont logés aussi haut que possible, le
-barème E manque la dominance de Lorenz de 1~pour mille entre 100~000 et 300~000~€. Seule une
-microsimulation sur fichiers individuels (TAXIPP, INES, OpenFisca) peut trancher ce point et celui
-de l'unité d'imposition.
+\section{Au final : la courbe actuelle et la nouvelle}
 
-\appendix
+\begin{figure}[htbp]\centering
+\caption{Taux moyen et taux marginal, aujourd'hui et avec le barème proposé}\label{fig:final}
+\includegraphics[width=\linewidth]{../figures/nu/ircsg_f12_courbes.pdf}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+\input{../figures/nu/ircsg_f12_courbes_note.tex}}
+\end{figure}
+
+La figure~\ref{fig:final} résume la réforme pour deux foyers types de salariés.
+
+\textbf{Le taux moyen (à gauche).} Aujourd'hui, une personne seule paie 9~\% jusqu'à 20~000~€
+environ (la CSG seule), puis son taux monte vite avec l'IR : 17~\% à 50~000~€, 23~\% à 80~000~€,
+29~\% à 150~000~€. Avec le barème proposé, elle paierait moins à tous les niveaux : 12~\% à 50~000~€,
+14~\% à 80~000~€, 19~\% à 150~000~€. Un couple avec deux enfants ne paie aujourd'hui que la CSG
+jusqu'à 60~000~€ grâce au quotient familial ; avec la réforme, il paierait plus entre 35~000 et
+110~000~€ environ, jusqu'à 3,5~points de revenu, à peu près autant vers 120~000-150~000~€, et un peu
+plus au-delà.
+
+\textbf{Le taux marginal (à droite).} Aujourd'hui, il monte par paliers (9, 21, 31, 40, 45~\%) à des
+niveaux de revenu qui dépendent de la composition du foyer, avec des pics dus à la décote. Avec la
+réforme, il ne prend que trois valeurs : 17,2~\% pour presque tous, puis 40 et 49~\% au-delà de
+120~000 et 250~000~€. Il baisse pour ceux qui paient aujourd'hui l'IR à 30~\% ou plus ; il monte, de
+9 à 17,2~\%, pour ceux qui ne paient aujourd'hui que la CSG, soit la moitié des foyers.
+
+La courbe proposée est la même pour tous les foyers, parce que le calcul n'a pas de quotient
+familial. C'est sa force, la simplicité, et sa faiblesse : sans correction pour les couples et les
+enfants, la réforme transfère de la charge des personnes seules vers les familles. Avec une
+franchise par adulte, la courbe des couples se rapprocherait de l'actuelle, et celle de tous les
+foyers monterait d'environ 2,5 à 4~points dans la bande du taux unique.
+
 \section*{Annexe. Vérifications}
 
 \begin{table}[htbp]\centering\scriptsize

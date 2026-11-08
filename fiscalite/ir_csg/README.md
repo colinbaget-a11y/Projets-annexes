@@ -2,9 +2,13 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable.** `note-ir-csg.pdf`, 10 pages, 14 figures et l'annexe de vérifications. Le source est
-`note-ir-csg.tex` ; il se compile depuis `ir_csg/` avec pdflatex, en deux passes. Les figures nues
-se produisent avec `FIG_NU=1` sur `ir_csg.py`, `optimal.py` et `figures_note.py`.
+**Livrable.** `note-ir-csg.pdf`, 9 pages, écrite pour un lecteur qui ne connaît pas le sujet
+(taux moyen et marginal, franchise, courbe de Lorenz expliqués), avec 11 figures et l'annexe de
+vérifications. Elle se termine sur la comparaison des courbes de taux moyen et marginal, actuelles et
+proposées (`ircsg_f12_courbes`). Le source est `note-ir-csg.tex`, compilé depuis `ir_csg/` avec
+pdflatex en deux passes. Les figures nues se produisent avec `FIG_NU=1` sur `ir_csg.py`,
+`optimal.py` et `figures_note.py`. Les figures `ircsg_f07`, `ircsg_f09` et `ircsg_optimal` restent
+produites mais ne sont plus dans la note.
 
 ## Programmes
 
@@ -33,6 +37,9 @@ Tous se lancent depuis `fiscalite/`.
   composition de l'assiette et de la recette, élasticités annuelles, courbes de concentration,
   cas-types OpenFisca, gains par tranche, écart de Lorenz, balayage des barèmes, sensibilité du
   taux unique, paramètre de Pareto, taux maximisant la recette, comparaison avec les Pays-Bas.
+- **`openfisca_courbes.py`** calcule l'IR et la CSG actuels sur une grille fine de revenus pour trois
+  profils (personne seule, couple avec deux enfants, retraité seul). Le résultat va dans
+  `sorties/courbes_openfisca.csv` ; il sert à la figure finale.
 - **`openfisca_cas.py`** et **`openfisca_marges.py`** calculent, sur des cas-types OpenFisca-France
   (revenus 2024), le passage du net imposable au brut, la CSG et les taux marginaux. Le résultat va
   dans `sorties/marges_openfisca.csv`, qui est versionné. Ces deux scripts demandent un environnement
@@ -91,6 +98,11 @@ maximise la recette au-dessus de 250 k€ est de 70 % pour e = 0,25 et de 53 % p
    Kakwani, que l'on peut tenir en déplaçant la charge.
 
 ## Limites
+
+- **Famille.** Avec une franchise par foyer et sans quotient, la réforme avantage les personnes
+  seules et fait payer davantage les couples avec enfants. Une seconde franchise pour les couples
+  coûterait environ 21 Md€ ; le taux unique monterait alors à 19,5-21,5 %. C'est un ordre de
+  grandeur : la part de couples par tranche n'est pas publiée, et 31 % des foyers sont des couples.
 
 - **Unité.** Le calcul est fait par foyer, sans quotient. Une franchise par adulte n'est pas
   chiffrable avec l'IRCOM.

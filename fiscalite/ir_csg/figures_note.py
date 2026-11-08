@@ -379,6 +379,40 @@ def f11():
         "strictement identiques entre les deux pays.")
 
 
+# ------------------------------------------------------------------ f12 courbes finales
+def f12():
+    c = pd.read_csv(HERE / "sorties/courbes_openfisca.csv")
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.4, 3.9))
+    zb = np.linspace(5e3, 250e3, 600)
+    # barème E : assiette = 98,25 % du salaire brut (base de la CSG) ; taux exprimés en % du brut
+    tE_moy = 100 * m.impot(0.9825 * zb, sE, tE) / zb
+    tE_marg = 100 * 0.9825 * m.taux_marginal(0.9825 * zb, sE, tE)
+    for prof, lab, col, ls in (("seul", "Aujourd'hui : personne seule", INK, "-"),
+                               ("couple_2enf", "Aujourd'hui : couple, deux enfants", GRIS, "--")):
+        g = c[c.profil == prof].sort_values("brut")
+        tot = g.ir + g.csg
+        a1.plot(g.brut / 1e3, 100 * tot / g.brut, color=col, lw=1.6, ls=ls, label=lab)
+        mg = np.diff(tot) / np.diff(g.brut)
+        a2.step(g.brut.values[1:] / 1e3, 100 * np.clip(mg, 0, 0.6), where="pre", color=col, lw=1.4, ls=ls, label=lab)
+    a1.plot(zb / 1e3, tE_moy, color=BLEU, lw=2.4, label="Proposé (tous les foyers)")
+    a2.plot(zb / 1e3, tE_marg, color=BLEU, lw=2.4, label="Proposé (tous les foyers)")
+    for ax, t in ((a1, "Taux moyen : part du revenu payée en impôt"),
+                  (a2, "Taux marginal : impôt sur 100 € de plus")):
+        ax.set_xlim(0, 250)
+        ax.set_xlabel("Revenu brut annuel du foyer (k€)")
+        ax.yaxis.set_major_formatter(PCT)
+        ax.set_title(t, fontsize=10, color=INK, loc="left")
+        grille(ax)
+    a1.set_ylim(0, 40)
+    a2.set_ylim(0, 55)
+    a1.legend(loc="upper left", fontsize=7.8)
+    fig.subplots_adjust(wspace=0.22)
+    fin(fig, "ircsg_f12_courbes", "OpenFisca-France 176.1 (législation des revenus 2024) ; calculs de l'auteur.",
+        "Note : IR et CSG en % du salaire brut, salariés ; le couple partage ses revenus 60/40. Barème proposé : "
+        "0 % jusqu'à 14 000 €, 17,2 % jusqu'à 120 000 €, 40 % jusqu'à 250 000 €, 49 % au-delà, appliqué au revenu "
+        "du foyer sans quotient familial. Les pics du taux marginal actuel viennent de la décote de l'IR.")
+
+
 if __name__ == "__main__":
-    for fn in (f01, f02, f03, f04, f05, f06, f07, f08, f09, f10, f11):
+    for fn in (f01, f02, f03, f04, f05, f06, f07, f08, f09, f10, f11, f12):
         fn()
