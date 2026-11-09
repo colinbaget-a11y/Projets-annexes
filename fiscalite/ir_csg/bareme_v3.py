@@ -136,13 +136,21 @@ def famille(t0, tb, z1, t1, z2, t2):
     return tm, T
 
 
+# Enfants de moins de 3 ans : naissances 2022-2024 (Insee : 725 997, 677 803, 660 787), soit 11,5 % des
+# 18 millions d'enfants à charge ; répartis entre foyers comme l'ensemble des enfants (hypothèse).
+PART_BEBES = (725997 + 677803 + 660787) / bl.ENFANTS
+ABAT_BEBE = 0.0          # abattement sur l'assiette du foyer par enfant de moins de 3 ans (option nataliste)
+
+
 def impot_types(T, C, zn=None):
-    """Impôt d'une personne seule et d'un couple du foyer représentatif : adultes imposés séparément,
-    crédit C par enfant (non remboursable)."""
+    """Impôt d'une personne seule et d'un couple du foyer représentatif : crédit C par enfant (non
+    remboursable) ; abattement ABAT_BEBE par enfant de moins de 3 ans."""
     zn = ZN if zn is None else zn
-    seul = np.clip(T(zn) - C * N_ENF_S, 0, None)
+    zs = np.clip(zn - ABAT_BEBE * PART_BEBES * N_ENF_S, 0, None)
+    zc = np.clip(zn - ABAT_BEBE * PART_BEBES * N_ENF_C, 0, None)
+    seul = np.clip(T(zs) - C * N_ENF_S, 0, None)
     if MODE == "quotient":
-        couple = np.clip(2 * T(zn / 2) - C * N_ENF_C, 0, None)
+        couple = np.clip(2 * T(zc / 2) - C * N_ENF_C, 0, None)
     else:
         couple = sum(p * np.clip(T(s * zn) + T((1 - s) * zn) - C * N_ENF_C, 0, None) for s, p in PARTAGE)
     return seul, couple
@@ -304,9 +312,13 @@ def par_type(nouv):
     return pd.DataFrame(out, columns=["revenu", "assiette_brute", "assiette_nette", "actuel", "nouveau"]).set_index("revenu")
 
 
-# barème retenu (version 3) : taux marginal 7 % au premier euro, 14 % à 20 000 €, t1 calé à 30 000 €, 45 % à
-# 120 000 € par part ; quotient conjugal (deux parts) ; crédit de 750 € par enfant
-V3 = dict(t0=0.07, tb=0.14, z1=30e3, z2=120e3, t2=0.45, C=750.0)
+# barème retenu (version 3) : taux marginal 7 % au premier euro, 14 % à 20 000 €, t1 calé à 30 000 €, 43 % à
+# 120 000 € par part ; quotient conjugal (deux parts) ; crédit de 600 € par enfant ; abattement bébé
+V3 = dict(t0=0.07, tb=0.14, z1=30e3, z2=120e3, t2=0.43, C=600.0)
+# orientation « Tax Foundation » (taux du haut 43 % au lieu de 45 %) et nataliste (abattement de 12 000 € par
+# enfant de moins de 3 ans, crédit ramené de 750 à 600 €) ; la version sans ces deux choix : V3_BASE
+V3_BASE = dict(t0=0.07, tb=0.14, z1=30e3, z2=120e3, t2=0.45, C=750.0)
+ABAT_BEBE = 12e3
 
 
 def retenu():

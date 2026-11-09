@@ -233,8 +233,8 @@ def v07():
         f"Note : salariés, en % du salaire brut ; IR, CSG et CRDS ; le couple partage ses revenus 60/40. Foyers sans "
         f"aucune niche ni déduction : un foyer réel de même revenu paie souvent moins aujourd'hui. Barème proposé, sur "
         f"le revenu après cotisations, par part : taux marginal de 7 % au premier euro, 14 % à 20 000 €, "
-        f"{fr(100 * T1)} % à 30 000 €, 45 % à partir de 120 000 € ; deux parts pour un couple ; crédit de "
-        f"{C:.0f} € par enfant.")
+        f"{fr(100 * T1)} % à 30 000 €, {100 * v.V3['t2']:.0f} % à partir de 120 000 € ; deux parts pour un couple ; "
+        f"crédit de {C:.0f} € par enfant (enfants de plus de trois ans ici).")
 
 
 # ------------------------------------------------------------------ v08 Pays-Bas
