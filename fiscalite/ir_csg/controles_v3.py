@@ -34,7 +34,7 @@ NEW, NEW_P = v.cas_types(T, C), v.cas_types(T, C, plus=True)
 p("V1", f"cible {v.CIBLE:.1f} Md€ = IR {x.ir_trav.sum():.1f} (IR IRCOM {x.ir.sum():.1f} − imputé au PFU {x.ir_autres.sum():.1f})"
         f" + CSG {x.csg.sum():.1f} + CRDS {x.crds.sum():.1f} ; assiette brute {x.assiette.sum():.0f}, nette de cotisations"
         f" {x.assiette3.sum():.0f} Md€")
-p("V2", f"barème : 7 % au premier euro, 14 % à 20 000 €, {100*t1:.2f} % à 30 000 €, 45 % à 120 000 € (par part) ; crédit {C:.0f} € par enfant")
+p("V2", f"barème : 7 % au premier euro, 14 % à 20 000 €, {100*t1:.2f} % à 30 000 €, {100*v.V3['t2']:.0f} % à 120 000 € (par part) ; crédit {C:.0f} € par enfant")
 for a in (10e3, 20e3, 30e3, 50e3, 80e3, 120e3, 200e3):
     p("V3", f"assiette par part {a:>9,.0f} € : marginal {100*float(tm(a)):.1f} %, impôt {float(T(a)):,.0f} €, moyen {100*float(T(a))/a:.1f} %")
 p("V4", f"foyers qui paient quelque chose : {100*(v.W*(n > 0)).sum()/v.W.sum():.1f} % (aujourd'hui IR : 47 %)")
@@ -96,7 +96,7 @@ dd = 100 * (NEW[g.index] - g.actuel.values) / g.brut.values
 p("V13", f"personne seule : écart de {dd.min():+.1f} pts (à {g.brut.values[dd.argmin()]:,.0f} €) à {dd.max():+.1f} pts")
 
 # ------------------------------------------------------------------ variante : imposition individuelle
-code = ("import sys; sys.path[:0]=['ir_csg','.']\nimport bareme_v3 as v\nr=v.evalue(0.07,0.07,30e3,120e3,0.45,750)\n"
+code = ("import sys; sys.path[:0]=['ir_csg','.']\nimport bareme_v3 as v\nr=v.evalue(0.07,0.07,30e3,120e3,0.50,750)\n"
         "print(round(r['t1'],4), round(r['cout'],1), round(r['mono_max_eur']), round(r['fam_max_eur']), round(r['couples_mds'],1))")
 out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, cwd=HERE.parent,
                      env=dict(os.environ, MODE="indiv")).stdout.split()
@@ -115,7 +115,7 @@ for env, lab in ((dict(CAPITAL="prorata"), "PFU au prorata"), (dict(CAPITAL="hau
 
 # ------------------------------------------------------------------ arbitrage petites retraites
 for tb in (0.10, 0.12, 0.14):
-    r = v.evalue(0.07, tb - 0.07, 30e3, 120e3, 0.45, C)
+    r = v.evalue(0.07, tb - 0.07, 30e3, 120e3, v.V3['t2'], C)
     p("V16", f"taux à 20 000 € de {100*tb:.0f} % : retraité seul hausse max {r['ret_max_eur']:+,.0f} € ;"
              f" écart max par décile {r['d_max_eur']:,.0f} € ; D7-D10 {r['hausse_D7_10']:+.2f} pt ; taux à 30 000 € {100*r['t1']:.1f} %")
 

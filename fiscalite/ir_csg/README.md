@@ -6,13 +6,13 @@ Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 l'IR, la CSG et la CRDS sur les revenus au barème (`bareme_v3.py`, `figures_v3.py`, chiffres recalculés par
 `controles_v3.py` dans `sorties/controles_v3.txt`) :
 - assiette : revenu après cotisations sociales, la même pour salariés, indépendants, retraités, chômeurs ;
-- taux marginal en ligne droite par part : 7 % au premier euro, 14 % à 20 000 €, 21,3 % à 30 000 €, 45 % à
+- taux marginal en ligne droite par part : 7 % au premier euro, 14 % à 20 000 €, 19,9 % à 30 000 €, 50 % à
   120 000 € ; quotient conjugal (deux parts) ; crédit non remboursable de 750 € par enfant ; toutes les
   réductions, abattements et demi-parts de l'IR supprimés ;
 - recette 220,1 Md€ (IR 80,2 + CSG 132,4 + CRDS 7,4) ; 96 % des foyers paient ;
-- coût d'efficacité 18 → 13 Md€ (jeu central ; 8 → 6 et 31 → 23 selon les élasticités) ;
-- déciles : au plus +450 € (D3), D10 +220 € ; salaires −13,3 Md€, pensions +11,4, chômage +3,0,
-  indépendants −1,1 ; retraité seul jusqu'à +1 700 € vers 17 000 € de pension.
+- coût d'efficacité 18 → 15 Md€ (jeu central ; 8 → 7 et 31 → 26 selon les élasticités) ;
+- déciles : au plus +450 € (D3) parmi D1-D9, D10 +640 € ; salaires −13,7 Md€, pensions +10,9,
+  chômage +3,0, indépendants −0,2 ; taux du haut 50 % (contre 54-55 % aujourd'hui au très haut) ; retraité seul jusqu'à +1 700 € vers 17 000 € de pension.
 - La charge actuelle est répartie entre personnes seules et couples d'une même tranche selon les rapports
   OpenFisca (`CUR_S`, `CUR_C`), car le barème distingue désormais les types de foyers.
 - Littérature et données vérifiées : `sorties/lit_haut_elasticites.md`, `sorties/lit_chomage_natalite.md`,
