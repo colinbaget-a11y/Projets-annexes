@@ -74,7 +74,9 @@ def l01():
     fin(fig, "ircsg_l01_aujourdhui", SRC_OF,
         "Note : IR et CSG en % du revenu brut ; taux marginal calculé sur 1 000 € de revenu en plus. Le couple "
         "partage ses revenus 60/40. Triangles : seuils où le taux de CSG d'un retraité change et s'applique à "
-        "toute sa pension (hausse d'impôt indiquée pour 1 000 € de pension en plus). Le taux du salarié seul "
+        "toute sa pension (hausse d'impôt indiquée pour 1 000 € de pension en plus). Le pic du retraité vers "
+        "33 000 € vient de la perte de l'abattement réservé aux plus de 65 ans ; les petits pics, du seuil de "
+        "61 € en dessous duquel l'IR n'est pas recouvré ; la décote crée un palier, non un pic. Le taux du salarié seul "
         "concorde à 0,4 point près avec celui de l'OCDE (Taxing Wages 2026).")
 
 
@@ -120,7 +122,7 @@ def l04():
     x, f = m.distribution()
     sE, tE = m.baremes(x, f)[2]["E_franchise_taux_unique"]
     vals = [("Aujourd'hui", b.cout(b.TAU_CUR), GRIS), ("Franchise + taux unique", b.cout(m.taux_marginal(b.Z, sE, tE)), MUTED),
-            ("Fonction, familles\npar l'impôt", b.cout(TM1(b.Z)), BLEU),
+            ("Fonction, familles\npar l'impôt", b.cout_familial(TM1), BLEU),
             ("Fonction, familles\npar la dépense", b.cout(TM2(b.Z)), OCRE)]
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.4, 3.5), gridspec_kw=dict(width_ratios=[1, 1.25]))
     y = np.arange(len(vals))[::-1]

@@ -2,17 +2,19 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable.** `note-ir-csg.pdf`, 10 pages, écrite pour un lecteur non spécialiste. Plan :
+**Livrable.** `note-ir-csg.pdf`, 12 pages, écrite pour un lecteur non spécialiste. Plan :
 (1) le système aujourd'hui ; (2) l'objectif de taxation optimale, avec la preuve empirique sur les
 réactions au taux marginal, et le barème obtenu « au premier ordre » ; (3) les problèmes à anticiper
 (familles, petites retraites, chômage, second apporteur). Barème proposé (`bareme_lisse.py`, version
 « familles par l'impôt ») : taux marginal de 4 % au premier euro, montant en ligne droite jusqu'à
-17,6 % à 30 000 €, puis jusqu'à 45 % à 400 000 € ; seconde franchise de 6 000 € pour les couples,
+17,7 % à 30 000 €, puis jusqu'à 45 % à 400 000 € ; seconde franchise de 6 000 € pour les couples,
 abattement de 3 000 € par enfant. Ses propriétés :
 - même recette qu'aujourd'hui ;
-- coût d'efficacité approché de 16 Md€ contre 28 aujourd'hui ;
-- 92 % de l'effet redistributif actuel ;
-- aucun décile à plus de +340 € par an.
+- coût d'efficacité approché de 15 Md€ contre 28 aujourd'hui ;
+- 88 à 92 % de l'effet redistributif actuel ;
+- aucun décile à plus de +330 € par an.
+
+Tous les chiffres cités dans la note sont recalculés par `controles.py` (`sorties/controles.txt`, étiquettes [C1]-[C17]).
 
 Figures : `figures_lisse.py` (`ircsg_l01` à `ircsg_l08`) et `ircsg_f10` (taux maximisant la recette).
 La version précédente (barème E à franchise et taux unique, critère de Lorenz) reste reproductible
@@ -125,5 +127,5 @@ maximise la recette au-dessus de 250 k€ est de 70 % pour e = 0,25 et de 53 % p
   revenus. Au-delà de 150 k€, cela comprime la distribution de l'assiette, et α y est remplacé par
   a = 2,1 (Cabannes, Houdré et Landais, 2014).
 - **Critère de Lorenz.** Il est vérifié sur les 25 tranches, pas sur des foyers individuels.
-- **Réductions et crédits d'impôt.** Ils sont supposés maintenus.
+- **Réductions et crédits d'impôt.** Le barème-fonction les suppose supprimés (environ 11 Md€) ; les garder porte le taux à 30 000 € à 18,9 % (barème E : supposés maintenus).
 - **Microsimulation.** Il faudra une microsimulation sur fichiers individuels avant d'aller plus loin.

@@ -44,11 +44,23 @@ E = np.where(Q < 0.5, 0.22, np.where(Q < 0.9, 0.33, 0.51)) * LAB
 RATE_K = dict(zip(x.tranche, (x.charge / x.assiette).values))
 CUR = Z * f.tranche.map(RATE_K).values             # charge actuelle, proportionnelle dans la tranche
 TAU_CUR = f.tranche.map(TAU0).values
-COUPLES, ENFANTS = 13.05e6, 17.2e6
+# enfants : mineurs à charge (0CF, 15,15 M) + majeurs rattachés (0DJ, 2,01 M) + moitié des enfants en
+# résidence alternée (0CH, 1,69 M / 2)
+COUPLES, ENFANTS = 13.05e6, 18.0e6
 
 
 def cout(tm):
     return (W * 0.5 * E * Z * tm ** 2 / (1 - tm)).sum() / 1e9
+
+
+def cout_familial(tm_fn, fr_adulte=None, abat_enfant=None):
+    """Coût d'efficacité de la version 1 : taux marginal pris sur l'assiette après abattements, séparément
+    pour les personnes seules et les couples de chaque tranche."""
+    fr_adulte = FR_ADULTE if fr_adulte is None else fr_adulte
+    abat_enfant = ABAT_ENFANT if abat_enfant is None else abat_enfant
+    zc = np.clip(Z - N_ENF * abat_enfant, 0, None)
+    d = lambda tm: 0.5 * E * Z * tm ** 2 / (1 - tm)  # noqa: E731
+    return (W * ((1 - S_COUPLE) * d(tm_fn(zc)) + S_COUPLE * d(tm_fn(np.clip(zc - fr_adulte, 0, None))))).sum() / 1e9
 
 
 def famille(F, t0, z1, t1, z2, t2):

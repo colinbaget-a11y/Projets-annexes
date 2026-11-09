@@ -1,0 +1,70 @@
+[C1] cible 212.6 Md€ = IR IRCOM 91.7 − IR imputé au PFU 11.5 + CSG sur revenus au barème 132.4 ; assiette 1598 Md€
+[C2] taux à 30 000 € : version 1 17.68 %, version 2 15.21 %
+[C3] assiette    10,000 € : marginal 8.6 %, impôt 628 €, moyen 6.3 %
+[C3] assiette    20,000 € : marginal 13.1 %, impôt 1,712 €, moyen 8.6 %
+[C3] assiette    30,000 € : marginal 17.7 %, impôt 3,252 €, moyen 10.8 %
+[C3] assiette    50,000 € : marginal 19.2 %, impôt 6,937 €, moyen 13.9 %
+[C3] assiette   100,000 € : marginal 22.9 %, impôt 17,439 €, moyen 17.4 %
+[C3] assiette   200,000 € : marginal 30.2 %, impôt 43,982 €, moyen 22.0 %
+[C4] si l'on garde 5 Md€ de crédits et réductions d'IR : taux à 30 000 € 18.3 %
+[C4] si l'on garde 11 Md€ de crédits et réductions d'IR : taux à 30 000 € 18.9 %
+[C5] coût d'efficacité : actuel 27.7 ; version 1 15.4 ; version 2 13.8 Md€
+[C6] effet redistributif (baisse du Gini) : foyers représentatifs 0.920 ; tranches groupées 0.886
+[C7] déciles version 1, € par foyer : D1 -11, D2 +106, D3 +331, D4 +331, D5 -162, D6 -56, D7 -264, D8 +54, D9 -146, D10 -177
+[C8] RFR 100 001 à 200 000 : -2,418 € par foyer ; total -2.70 Md€
+[C8] RFR 200 001 à 300 000 : -10,405 € par foyer ; total -1.70 Md€
+[C8] RFR 300 001 à 400 000 : -15,027 € par foyer ; total -0.82 Md€
+[C8] RFR 400 001 à 500 000 : -14,192 € par foyer ; total -0.38 Md€
+[C8] RFR 500 001 à 600 000 : -11,593 € par foyer ; total -0.17 Md€
+[C8] RFR 600 001 à 700 000 : -6,371 € par foyer ; total -0.05 Md€
+[C8] RFR 700 001 à 800 000 : +1,097 € par foyer ; total +0.01 Md€
+[C8] RFR 800 001 à 900 000 : +7,109 € par foyer ; total +0.03 Md€
+[C8] RFR 900 001 à 1 000 000 : +10,687 € par foyer ; total +0.03 Md€
+[C8] RFR 1 000 001 à 2 000 000 : +34,188 € par foyer ; total +0.39 Md€
+[C8] RFR 2 000 001 à 3 000 000 : +90,915 € par foyer ; total +0.27 Md€
+[C8] RFR 3 000 001 à 4 000 000 : +149,483 € par foyer ; total +0.20 Md€
+[C8] RFR 4 000 001 à 5 000 000 : +181,170 € par foyer ; total +0.12 Md€
+[C8] RFR 5 000 001 à 6 000 000 : +261,317 € par foyer ; total +0.12 Md€
+[C8] RFR 6 000 001 à 7 000 000 : +348,645 € par foyer ; total +0.10 Md€
+[C8] RFR 7 000 001 à 8 000 000 : +413,687 € par foyer ; total +0.07 Md€
+[C8] RFR 8 000 001 à 9 000 000 : +470,903 € par foyer ; total +0.07 Md€
+[C8] RFR Plus de 9 000 000 : +1,550,815 € par foyer ; total +1.08 Md€
+[C9] par type de revenu (Md€) : Salaires -9.8 ; Pensions +7.5 ; Indépendants, foncier, gérants -0.3 ; Chômage, préretraites +2.6
+[C10] retraité seul, pension 10,000 € : actuel 0 €, proposé 628 €, écart +628 €
+[C10] retraité seul, pension 15,000 € : actuel 0 €, proposé 1,113 €, écart +1,113 €
+[C10] retraité seul, pension 16,000 € : actuel 0 €, proposé 1,224 €, écart +1,224 €
+[C10] retraité seul, pension 17,000 € : actuel 0 €, proposé 1,339 €, écart +1,339 €
+[C10] retraité seul, pension 18,000 € : actuel 684 €, proposé 1,459 €, écart +775 €
+[C10] retraité seul, pension 20,000 € : actuel 760 €, proposé 1,712 €, écart +952 €
+[C10] retraité seul, pension 25,000 € : actuel 2,145 €, proposé 2,425 €, écart +280 €
+[C10] retraité seul, pension 30,000 € : actuel 3,164 €, proposé 3,252 €, écart +88 €
+[C11] personne seule 30 000 € brut : CSG 2,712 €, IR 812 €, total 3,524 €, moyen 11.7 %
+[C12] couple deux enfants 30,000 € brut : écart proposé − actuel -1,316 €
+[C12] couple deux enfants 40,000 € brut : écart proposé − actuel -824 €
+[C12] couple deux enfants 50,000 € brut : écart proposé − actuel +12 €
+[C12] couple deux enfants 60,000 € brut : écart proposé − actuel +837 €
+[C12] couple deux enfants 70,000 € brut : écart proposé − actuel +650 €
+[C12] couple deux enfants 80,000 € brut : écart proposé − actuel +541 €
+[C12] couple deux enfants 100,000 € brut : écart proposé − actuel +415 €
+[C12] couple deux enfants 150,000 € brut : écart proposé − actuel -3,665 €
+[C12] couple deux enfants : hausse entre 50,000 et 104,000 € ; maximum +885 € à 59,500 €
+[C13] personne seule 20,000 € brut : moyen actuel 9.0 %, proposé 8.3 %
+[C13] personne seule 50,000 € brut : moyen actuel 17.5 %, proposé 13.5 %
+[C13] personne seule 80,000 € brut : moyen actuel 22.7 %, proposé 15.9 %
+[C13] personne seule 150,000 € brut : moyen actuel 28.8 %, proposé 19.4 %
+[C14] foyers percevant des pensions, RFR 0 à 10 000 : 2.02 M
+[C14] foyers percevant des pensions, RFR 10 001 à 12 000 : 0.68 M
+[C14] foyers percevant des pensions, RFR 12 001 à 15 000 : 1.06 M
+[C14] foyers percevant des pensions, RFR 15 001 à 20 000 : 1.66 M
+[C15] imposition séparée des adultes (60/40) au lieu de la version 1 : coût 16.3 Md€ ; taux à 30 000 € 19.6 %
+[C15] imposition séparée des adultes (50/50) au lieu de la version 1 : coût 17.4 Md€ ; taux à 30 000 € 19.8 %
+[C16] option franchise 10 000 € (10 % → 20.3 % à 30 000 € → 45 % à 400 000 €) : déciles D1 -82, D2 -294, D3 -209, D4 -126, D5 -540, D6 -320, D7 -377, D8 +175, D9 +339, D10 +1403
+[C16]   retraité seul 15,000 € : écart +564 €
+[C16]   retraité seul 17,000 € : écart +826 €
+[C16]   retraité seul 20,000 € : écart +497 €
+[C17] PFU réparti « prorata », IR partagé « 12,8 % » : cible 212.6 Md€, taux à 30 000 € 17.16 %
+[C17] PFU réparti « prorata », IR partagé « prorata » : cible 211.2 Md€, taux à 30 000 € 16.99 %
+[C17] PFU réparti « mixte », IR partagé « 12,8 % » : cible 212.6 Md€, taux à 30 000 € 17.68 %
+[C17] PFU réparti « mixte », IR partagé « prorata » : cible 209.1 Md€, taux à 30 000 € 17.28 %
+[C17] PFU réparti « haut », IR partagé « 12,8 % » : cible 212.6 Md€, taux à 30 000 € 18.14 %
+[C17] PFU réparti « haut », IR partagé « prorata » : cible 207.0 Md€, taux à 30 000 € 17.51 %
