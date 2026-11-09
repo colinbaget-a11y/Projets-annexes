@@ -118,7 +118,7 @@ def _plier(t, large=150):
 _TEX = {"\\": r"\textbackslash{}", "&": r"\&", "%": r"\%", "$": r"\$", "#": r"\#", "_": r"\_",
         "{": r"\{", "}": r"\}", "~": r"\textasciitilde{}", "^": r"\textasciicircum{}",
         "€": r"\euro{}", "₂": r"$_2$", "≈": r"$\approx$", "×": r"$\times$", "→": r"$\rightarrow$",
-        "≥": r"$\geq$", "≤": r"$\leq$", "α": r"$\alpha$", "Ḡ": r"$\bar G$", "−": r"$-$", "…": r"\dots{}", "·": r"$\cdot$",
+        "≥": r"$\geq$", "≤": r"$\leq$", "α": r"$\alpha$", "Ḡ": r"$\bar G$", "τ": r"$\tau$", "½": r"$\frac{1}{2}$", "−": r"$-$", "…": r"\dots{}", "·": r"$\cdot$",
         " ": r"\,", " ": "~"}
 
 

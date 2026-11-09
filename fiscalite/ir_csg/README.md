@@ -2,15 +2,30 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable.** `note-ir-csg.pdf`, 9 pages, écrite pour un lecteur qui ne connaît pas le sujet
-(taux moyen et marginal, franchise, courbe de Lorenz expliqués), avec 11 figures et l'annexe de
-vérifications. Elle se termine sur la comparaison des courbes de taux moyen et marginal, actuelles et
-proposées (`ircsg_f12_courbes`). Le source est `note-ir-csg.tex`, compilé depuis `ir_csg/` avec
-pdflatex en deux passes. Les figures nues se produisent avec `FIG_NU=1` sur `ir_csg.py`,
-`optimal.py` et `figures_note.py`. Les figures `ircsg_f07`, `ircsg_f09` et `ircsg_optimal` restent
-produites mais ne sont plus dans la note.
+**Livrable.** `note-ir-csg.pdf`, 10 pages, écrite pour un lecteur non spécialiste. Plan :
+(1) le système aujourd'hui ; (2) l'objectif de taxation optimale, avec la preuve empirique sur les
+réactions au taux marginal, et le barème obtenu « au premier ordre » ; (3) les problèmes à anticiper
+(familles, petites retraites, chômage, second apporteur). Barème proposé (`bareme_lisse.py`, version
+« familles par l'impôt ») : taux marginal de 4 % au premier euro, montant en ligne droite jusqu'à
+17,6 % à 30 000 €, puis jusqu'à 45 % à 400 000 € ; seconde franchise de 6 000 € pour les couples,
+abattement de 3 000 € par enfant. Ses propriétés :
+- même recette qu'aujourd'hui ;
+- coût d'efficacité approché de 16 Md€ contre 28 aujourd'hui ;
+- 92 % de l'effet redistributif actuel ;
+- aucun décile à plus de +340 € par an.
+
+Figures : `figures_lisse.py` (`ircsg_l01` à `ircsg_l08`) et `ircsg_f10` (taux maximisant la recette).
+La version précédente (barème E à franchise et taux unique, critère de Lorenz) reste reproductible
+avec `ir_csg.py`, `robustesse.py`, `optimal.py` et `figures_note.py`.
 
 ## Programmes
+
+- **`bareme_lisse.py`** cherche la famille de barèmes « fonction » (taux marginal linéaire par morceaux,
+  sans marche) qui minimise le coût d'efficacité approché, sous trois contraintes : même recette,
+  écart d'au plus 800 € par décile, et au plus +0,3 point pour les déciles 7 à 10. Il chiffre les
+  versions familles (par l'impôt / par la dépense) et la décomposition par type de revenu. Le résultat
+  va dans `sorties/bareme_lisse.txt` et `sorties/bareme_lisse_balayage.csv`.
+- **`figures_lisse.py`** produit les figures de la note.
 
 Tous se lancent depuis `fiscalite/`.
 
