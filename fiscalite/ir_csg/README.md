@@ -2,18 +2,17 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable (version 3, relecture v2 de l'auteur).** `note-ir-csg.pdf`, 13-14 pages. Impôt unique remplaçant
+**Livrable (version 3, relecture v2 de l'auteur).** `note-ir-csg.pdf`, 13 pages. Impôt unique remplaçant
 l'IR, la CSG et la CRDS sur les revenus au barème (`bareme_v3.py`, `figures_v3.py`, chiffres recalculés par
 `controles_v3.py` dans `sorties/controles_v3.txt`) :
 - assiette : revenu après cotisations sociales, la même pour salariés, indépendants, retraités, chômeurs ;
-- taux marginal en ligne droite par part : 7 % au premier euro, 14 % à 20 000 €, 22,4 % à 30 000 €, 43 % à
-  120 000 € ; quotient conjugal (deux parts) ; crédit non remboursable de 600 € par enfant et abattement de
-  12 000 € par enfant de moins de 3 ans (orientation nataliste) ; taux du haut à 43 % (orientation Tax
-  Foundation) ; toutes les réductions, abattements et demi-parts de l'IR supprimés ;
+- taux marginal en ligne droite par part : 7 % au premier euro, 14 % à 20 000 €, 21,3 % à 30 000 €, 45 % à
+  120 000 € ; quotient conjugal (deux parts) ; crédit non remboursable de 750 € par enfant ; toutes les
+  réductions, abattements et demi-parts de l'IR supprimés ;
 - recette 220,1 Md€ (IR 80,2 + CSG 132,4 + CRDS 7,4) ; 96 % des foyers paient ;
-- coût d'efficacité 18 → 12,7 Md€ (jeu central ; 8 → 5,6 et 31 → 21,7 selon les élasticités) ;
-- déciles : au plus +450 € (D3), D10 +85 € ; salaires −13,2 Md€, pensions +11,7, chômage +3,0,
-  indépendants −1,4 ; retraité seul jusqu'à +1 700 € vers 17 000 € de pension.
+- coût d'efficacité 18 → 13 Md€ (jeu central ; 8 → 6 et 31 → 23 selon les élasticités) ;
+- déciles : au plus +450 € (D3), D10 +220 € ; salaires −13,3 Md€, pensions +11,4, chômage +3,0,
+  indépendants −1,1 ; retraité seul jusqu'à +1 700 € vers 17 000 € de pension.
 - La charge actuelle est répartie entre personnes seules et couples d'une même tranche selon les rapports
   OpenFisca (`CUR_S`, `CUR_C`), car le barème distingue désormais les types de foyers.
 - Littérature et données vérifiées : `sorties/lit_haut_elasticites.md`, `sorties/lit_chomage_natalite.md`,

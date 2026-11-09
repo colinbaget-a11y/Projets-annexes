@@ -313,13 +313,10 @@ def par_type(nouv):
     return pd.DataFrame(out, columns=["revenu", "assiette_brute", "assiette_nette", "actuel", "nouveau"]).set_index("revenu")
 
 
-# barème retenu (version 3) : taux marginal 7 % au premier euro, 14 % à 20 000 €, t1 calé à 30 000 €, 43 % à
-# 120 000 € par part ; quotient conjugal (deux parts) ; crédit de 600 € par enfant ; abattement bébé
-V3 = dict(t0=0.07, tb=0.14, z1=30e3, z2=120e3, t2=0.43, C=600.0)
-# orientation « Tax Foundation » (taux du haut 43 % au lieu de 45 %) et nataliste (abattement de 12 000 € par
-# enfant de moins de 3 ans, crédit ramené de 750 à 600 €) ; la version sans ces deux choix : V3_BASE
-V3_BASE = dict(t0=0.07, tb=0.14, z1=30e3, z2=120e3, t2=0.45, C=750.0)
-ABAT_BEBE = 12e3
+# barème retenu (version 3) : taux marginal 7 % au premier euro, 14 % à 20 000 €, t1 calé à 30 000 €, 45 % à
+# 120 000 € par part ; quotient conjugal (deux parts) ; crédit de 750 € par enfant
+V3 = dict(t0=0.07, tb=0.14, z1=30e3, z2=120e3, t2=0.45, C=750.0)
+ABAT_BEBE = 0.0
 
 
 def retenu():
