@@ -206,7 +206,7 @@ def l07():
     fig.subplots_adjust(wspace=0.22)
     fin(fig, "ircsg_l07_courbes", SRC_OF,
         f"Note : salariés, en % du salaire brut ; le couple partage ses revenus 60/40. Barème proposé (familles par "
-        f"l'impôt) : taux marginal de 4 % au premier euro, montant en ligne droite jusqu'à {100*T1_V1:.1f} % à 30 000 €, "
+        f"l'impôt) : taux marginal de 4 % au premier euro, montant en ligne droite jusqu'à {f'{100*T1_V1:.1f}'.replace('.', ',')} % à 30 000 €, "
         f"puis jusqu'à 45 % à 400 000 € ; seconde franchise de 6 000 € pour le couple et 3 000 € par enfant.")
 
 
