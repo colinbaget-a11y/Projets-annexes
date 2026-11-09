@@ -257,10 +257,11 @@ def evalue(t0, db, z1, z2, t2, C):
     tr = par_tranche(n)
     haut = tr[(tr.a >= 100e3) & (tr.a < 1e6)].delta_pts     # au-delà d'un million : données trop fragiles
     fm = ecart_profil(T, C, "couple_2enf_mono", 25e3, 150e3, pct=False)
+    c2p = ecart_profil(T, C, "couple_2enf", 20e3, 150e3)
     c0 = ecart_profil(T, C, "couple_0enf", 25e3, 150e3)
     r = dict(t0=t0, tb=tb, z1=z1, t1=t1, z2=z2, t2=t2, C=C, cout=cout(tm), d_max_eur=d.delta_eur.abs().max(),
              hausse_D7_10=d.delta_pts.iloc[6:].max(), seul_min_pts=seul.min(), seul_moy_pts=seul.mean(),
-             fam_max_eur=fam.max(), mono_max_eur=fm.max(), c0_moy_pts=c0.mean(), seul_max_pts=seul.max(), ret_max_eur=ret.max(), paient=paient, seuls_dec_min=sd.iloc[2:].min(), seuls_dec_max=sd.iloc[2:].max(), haut_min=haut.min(), haut_max=haut.max(), **pf)
+             fam_max_eur=fam.max(), mono_max_eur=fm.max(), c0_moy_pts=c0.mean(), c0_min_pts=c0.min(), c2_min_pts=c2p.min(), seul_max_pts=seul.max(), ret_max_eur=ret.max(), paient=paient, seuls_dec_min=sd.iloc[2:].min(), seuls_dec_max=sd.iloc[2:].max(), haut_min=haut.min(), haut_max=haut.max(), **pf)
     r["admissible"] = bool(r["d_max_eur"] <= 800 and r["hausse_D7_10"] <= 0.3 and r["seuls_dec_min"] >= -1.25
                            and r["fam_max_eur"] <= -300 and r["ret_max_eur"] <= 1700
                            and r["haut_min"] >= -4.5 and r["haut_max"] <= 3)
