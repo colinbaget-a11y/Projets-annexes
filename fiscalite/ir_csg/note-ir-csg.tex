@@ -5,13 +5,16 @@
 \documentclass[11pt,a4paper]{article}
 \input{../lvt/preambule}
 \renewcommand{\figbloc}[3]{%
-  \begin{figure}[htbp]\centering
+  \begin{figure}[!htbp]\centering
   \caption{#2}\label{#3}
-  \includegraphics[max width=\linewidth,max height=0.27\textheight]{../figures/nu/#1.pdf}
+  \includegraphics[max width=\linewidth,max height=0.31\textheight]{../figures/nu/#1.pdf}
   \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
     \input{../figures/nu/#1_note.tex}}%
   \end{figure}}
 \usepackage{wrapfig}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\preto\section{\needspace{6\baselineskip}}
 \renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.85}
 \setcounter{topnumber}{3}\setcounter{totalnumber}{5}
@@ -25,7 +28,7 @@
   \end{minipage}}
 \newcommand{\figpaire}[6]{%
   \begin{figure}[htbp]\demifig{#1}{#2}{#3}\hfill\demifig{#4}{#5}{#6}\end{figure}}
-\newcommand{\partie}[1]{\par\bigskip{\large\bfseries\color{ocre}\MakeUppercase{#1}\par}\vspace{-2pt}{\color{ocre}\hrule height 0.6pt}\medskip}
+\newcommand{\partie}[1]{\needspace{14\baselineskip}\par\vspace{1.4em}{\color{ocre}\normalsize\bfseries\MakeUppercase{#1}\par}\vspace{3pt}{\color{ocre}\hrule height 0.8pt}\vspace{0.3em}}
 \fancyhead[L]{\small\itshape Fusionner l'impôt sur le revenu et la CSG}
 
 \begin{document}
@@ -74,7 +77,7 @@ d'IR, paieraient 600 à 1~100~€ de plus par an ; les en protéger coûte de la
 ailleurs. Les familles peuvent être aidées par l'impôt (la version présentée) ou par des allocations
 d'environ 21~Md€, auquel cas le barème peut être plus bas.
 
-\partie{1. Le système aujourd'hui}
+\partie{Première partie · Le système aujourd'hui}
 
 \section{Deux impôts sur le même revenu}
 
@@ -97,11 +100,10 @@ vite, une partie passe dans les tranches supérieures. Un impôt plus proportion
 de ce surplus. C'est un argument pour garder un barème qui reste progressif.
 
 \textbf{Qui paie quoi.} Les foyers sous 30~000~€ de revenu fiscal sont 63~\% des foyers : ils
-détiennent 30~\% des revenus, paient 26~\% de la CSG et 4~\% de l'IR (figure~\ref{fig:qui}). Les
+détiennent 30~\% des revenus, paient 26~\% de la CSG et 4~\% de l'IR (figure~\ref{fig:croiss}). Les
 foyers au-dessus de 100~000~€ sont 3~\% : ils détiennent 17~\% des revenus et paient 49~\% de l'IR.
 
-\figpaire{ircsg_l02_croissance}{Recettes de l'IR, de la CSG et PIB, 2000-2024}{fig:croiss}%
-{ircsg_l03_qui_paie}{Qui détient les revenus, qui paie la CSG et l'IR}{fig:qui}
+\figbloc{ircsg_l02_recettes}{Ce que rapportent l'IR et la CSG, et qui les paie}{fig:croiss}
 
 \section{Taux moyen et taux marginal}
 
@@ -120,9 +122,22 @@ enfants reste à 9~\% jusqu'à 60~000~€, une personne seule passe à 31~\% dè
 modestes subissent des pics : au seuil où leur taux de CSG change, 1~€ de pension en plus peut coûter
 plusieurs centaines d'euros, parce que le nouveau taux s'applique à toute la pension.
 
+\textbf{Ce que mesure l'OCDE.} Ces courbes concordent, à 0,4~point près, avec celles que publie
+l'OCDE pour un salarié seul (\emph{Taxing Wages 2026}, données 2025, CRDS mise à part). L'OCDE va
+plus loin : elle ajoute aux impôts toutes les cotisations, salariales et patronales, et les rapporte
+au coût du travail pour l'employeur. Ce « coin fiscal » atteint en France 47~\% en moyenne au salaire
+moyen (46~000~€ brut par an), et 58~\% à la marge : sur 100~€ de plus que coûte un salarié payé au
+salaire moyen, 58 vont aux impôts et cotisations. À 67~\% du salaire moyen, la marge monte à 65~\%,
+parce que les allègements de cotisations patronales sur les bas salaires diminuent quand le salaire
+monte ; et pour un salarié seul payé la moitié du salaire moyen, à peu près le SMIC, la prime
+d'activité, qui baisse quand le revenu monte, porte son taux marginal net (hors cotisations
+patronales) à 52~\%. L'impôt sur le revenu et la CSG ne sont donc qu'une partie du
+problème : la réforme proposée ramènerait le coin marginal au salaire moyen d'environ 58 à 50~\%,
+sans toucher aux cotisations ni aux prestations.
+
 \figbloc{ircsg_l01_aujourdhui}{Taux moyen et taux marginal aujourd'hui, trois foyers types}{fig:auj}
 
-\partie{2. L'objectif : se rapprocher de la taxation optimale}
+\partie{Deuxième partie · Se rapprocher de la taxation optimale}
 
 \section{Les gens réagissent-ils au taux marginal ?}\label{sec:preuves}
 
@@ -185,8 +200,9 @@ qui sont au-dessus. Les marches placées au milieu de la distribution, là où l
 coûtent cher.
 \item \textbf{Ne pas dépasser, en haut, le taux qui maximise la recette.} Au-delà, taxer plus les plus
 aisés rapporte moins, parce qu'ils déclarent moins. Avec les estimations françaises, ce taux se situe
-entre 53 et 70~\% pour l'ensemble des prélèvements qui frappent le dernier euro
-(figure~\ref{fig:laffer}).
+entre 53 et 70~\% pour l'ensemble des prélèvements qui frappent le dernier euro ; ce coin
+marginal total est aujourd'hui de 58 à 66~\% du coût du travail entre 1 et 2,5~fois le salaire moyen
+(figure~\ref{fig:pb}).
 \end{enumerate}
 En bas de la distribution, la théorie insiste sur la décision de travailler ou non, plus sensible que
 le nombre d'heures : il ne faut pas y prélever beaucoup sur les premiers euros gagnés. C'est pourquoi
@@ -230,13 +246,12 @@ Le taux marginal est de 4~\% au premier euro, monte en ligne droite jusqu'à 17,
 plus lentement jusqu'à 45~\% à 400~000~€ et reste à 45~\% au-delà. Les couples ne paient rien sur une
 seconde tranche de 6~000~€ et chaque enfant ajoute un abattement de 3~000~€ (section~\ref{sec:familles}).
 
-\figpaire{ircsg_l04_cout}{Coût d'efficacité approché des barèmes}{fig:cout}%
-{ircsg_l05_deciles}{Variation de la charge par décile de foyers}{fig:dec}
+\figbloc{ircsg_l04_resultats}{Coût d'efficacité et variation de la charge par décile}{fig:cout}
 
 \textbf{Ce que cela change.} Le coût d'efficacité passe d'environ 28 à 16~Md€ (figure~\ref{fig:cout}).
 Ce chiffre est un ordre de grandeur, qui dépend des élasticités retenues. Aucun décile ne paie plus
 de 340~€ de plus en moyenne ; les déciles 3 et 4 (16~000 à 22~000~€ de revenu) paient 330~€ de plus,
-le décile 7 260~€ de moins, le dernier décile 190~€ de moins (figure~\ref{fig:dec}). La réforme garde
+le décile 7 260~€ de moins, le dernier décile 190~€ de moins (figure~\ref{fig:cout}). La réforme garde
 92~\% de l'effet redistributif actuel : l'indice de Gini des revenus baisse de 0,024 avec elle, contre
 0,026 aujourd'hui.
 
@@ -247,13 +262,8 @@ et l'abattement de 10~\% sur les pensions ; les chômeurs, une CSG aujourd'hui p
 première règle de la théorie : ces revenus ne réagissent pas à l'impôt. C'est aussi la principale
 difficulté politique.
 
-\begin{wrapfigure}{r}{0.47\linewidth}
-\vspace{-12pt}\centering
-\captionof{figure}{Charge par type de revenu, aujourd'hui et avec le barème proposé}\label{fig:types}
-\includegraphics[width=\linewidth]{../figures/nu/ircsg_l06_types.pdf}
-\par{\raggedright\scriptsize\color{encre}\input{../figures/nu/ircsg_l06_types_note.tex}\par}
-\vspace{-8pt}
-\end{wrapfigure}
+\figbloc{ircsg_l06_types}{Charge par type de revenu, aujourd'hui et avec le barème proposé}{fig:types}
+
 \textbf{Pourquoi pas une franchise ?} Une franchise exonère les premiers euros, par exemple 6~000 ou
 14~000~€. Elle protège les très bas revenus et rend l'impôt progressif à elle seule. Mais elle coûte
 cher : elle rend à chaque foyer l'impôt sur ses premiers euros, quel que soit son revenu, ce qu'il
@@ -273,7 +283,7 @@ assurance-vie, environ 90~Md€) gardent leur régime. L'assiette est le revenu 
 recette à remplacer, 213~Md€. Le calcul part des 25 tranches de revenu publiées par la DGFiP ; chaque
 étape est vérifiée sur une source indépendante (annexe).
 
-\partie{3. Les problèmes à anticiper}
+\partie{Troisième partie · Les problèmes à anticiper}
 
 \section{Les familles}\label{sec:familles}
 
@@ -349,17 +359,11 @@ cotisations. En Europe de l'Est, les taux uniques n'ont pas produit d'effet Laff
 hausse du revenu déclaré venait surtout d'un recul de la fraude (Keen, Kim et Varsano, 2008 ;
 Gorodnichenko et al., 2009).
 
-\figpaire{ircsg_l08_pays_bas}{Taux marginaux : Pays-Bas 2024, France aujourd'hui et barème proposé}{fig:pb}%
-{ircsg_f10_laffer}{Taux du haut qui rapporte le plus, selon l'élasticité}{fig:laffer}
+\figbloc{ircsg_l08_etranger_laffer}{Taux marginaux aux Pays-Bas ; taux du haut qui rapporte le plus}{fig:pb}
 
 \section{Au final : la courbe actuelle et la nouvelle}
 
-\begin{figure}[htbp]\centering
-\caption{Taux moyen et taux marginal, aujourd'hui et avec le barème proposé}\label{fig:final}
-\includegraphics[width=\linewidth]{../figures/nu/ircsg_l07_courbes.pdf}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
-\input{../figures/nu/ircsg_l07_courbes_note.tex}}
-\end{figure}
+\figbloc{ircsg_l07_courbes}{Taux moyen et taux marginal, aujourd'hui et avec le barème proposé}{fig:final}
 
 \textbf{Le taux marginal (à droite)} n'a plus de marche : il monte régulièrement, de 4~\% au premier euro
 à 45~\% à 400~000~€. Il baisse fortement pour les personnes seules (17~\% au lieu de 21~\% à 30~000~€,
@@ -387,6 +391,7 @@ Pensions brutes & Eurostat, pensions de vieillesse, survie, invalidité (412~Md�
 Salaires bruts & Eurostat, salaires bruts reçus par les ménages (1~137~Md€) & 1~012~Md€ : l'écart correspond aux non-déclarants et aux salaires de source étrangère, exclus \\
 Passage net imposable → brut & OpenFisca-France, cas-types 21 à 250~k€ & Salaires 1,21-1,22 ; CSG 9,04~\% du brut ; pensions 1,04-1,06 (la v1 retenait 1,075) \\
 Taux marginaux actuels & OpenFisca, six profils de foyers & La pente entre tranches de la v1 sous-estimait de 10 à 20 points au-dessus de 200~k€ de RFR : corrigé \\
+Taux moyens et marginaux d'un salarié seul & OCDE, \emph{Taxing Wages 2026} (données 2025), IR + CSG + CRDS & Écart de 0,1 à 0,4~point entre 50 et 250~\% du salaire moyen (CRDS retirée) \\
 Périmètre & Cases 2042 (PFU environ 90~Md€ ; foncier 38 ; indépendants 80) & La v1 imputait 12,8~\% d'IR au foncier et aux indépendants : corrigé \\
 Répartition du PFU entre tranches & Trois hypothèses & Taux du barème : jusqu'à un point d'écart \\
 Couples et enfants par tranche & Hypothèse calée sur les totaux 2042 (13~M de couples, 17~M d'enfants) & Taux à 30~000~€ entre 17,5 et 17,7~\% \\
