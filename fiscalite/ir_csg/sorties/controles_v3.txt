@@ -1,0 +1,97 @@
+[V1] cible 220.1 Md€ = IR 80.2 (IR IRCOM 91.7 − imputé au PFU 11.5) + CSG 132.4 + CRDS 7.4 ; assiette brute 1598, nette de cotisations 1481 Md€
+[V2] barème : 7 % au premier euro, 14 % à 20 000 €, 21.31 % à 30 000 €, 45 % à 120 000 € (par part) ; crédit 750 € par enfant
+[V3] assiette par part    10,000 € : marginal 10.5 %, impôt 875 €, moyen 8.8 %
+[V3] assiette par part    20,000 € : marginal 14.0 %, impôt 2,100 €, moyen 10.5 %
+[V3] assiette par part    30,000 € : marginal 21.3 %, impôt 3,865 €, moyen 12.9 %
+[V3] assiette par part    50,000 € : marginal 26.6 %, impôt 8,653 €, moyen 17.3 %
+[V3] assiette par part    80,000 € : marginal 34.5 %, impôt 17,809 €, moyen 22.3 %
+[V3] assiette par part   120,000 € : marginal 45.0 %, impôt 33,703 €, moyen 28.1 %
+[V3] assiette par part   200,000 € : marginal 45.0 %, impôt 69,703 €, moyen 34.9 %
+[V4] foyers qui paient quelque chose : 96.1 % (aujourd'hui IR : 47 %)
+[V5] élasticités bas (0.05, 0.05, 0.15, 0.2) : coût actuel 8.1, proposé 5.8 Md€ ; revenu du travail déclaré +5.3 Md€, recette induite +1.7 Md€
+[V5] élasticités central (0.15, 0.2, 0.3, 0.4) : coût actuel 18.1, proposé 13.1 Md€ ; revenu du travail déclaré +11.5 Md€, recette induite +3.6 Md€
+[V5] élasticités haut (0.25, 0.35, 0.5, 0.7) : coût actuel 31.1, proposé 22.5 Md€ ; revenu du travail déclaré +19.7 Md€, recette induite +6.2 Md€
+[V6] déciles, € par foyer : D1 -30, D2 +168, D3 +451, D4 +398, D5 -149, D6 -78, D7 -365, D8 -113, D9 -505, D10 +222
+[V6] déciles, points de revenu : D1 -1.48, D2 +2.13, D3 +2.75, D4 +1.82, D5 -0.57, D6 -0.25, D7 -0.95, D8 -0.24, D9 -0.79, D10 +0.18
+[V7] RFR 50 001 à 100 000 : -0.0 pts, -11 € par foyer
+[V7] RFR 100 001 à 200 000 : -1.0 pts, -1,470 € par foyer
+[V7] RFR 200 001 à 300 000 : -4.1 pts, -8,486 € par foyer
+[V7] RFR 300 001 à 400 000 : -4.0 pts, -10,507 € par foyer
+[V7] RFR 400 001 à 500 000 : -2.4 pts, -7,552 € par foyer
+[V7] RFR 500 001 à 600 000 : -1.3 pts, -4,810 € par foyer
+[V7] RFR 600 001 à 700 000 : -0.4 pts, -1,505 € par foyer
+[V7] RFR 700 001 à 800 000 : +0.8 pts, +3,762 € par foyer
+[V7] RFR 800 001 à 900 000 : +1.4 pts, +7,490 € par foyer
+[V7] RFR 900 001 à 1 000 000 : +1.5 pts, +8,880 € par foyer
+[V7] RFR 1 000 001 à 2 000 000 : +3.0 pts, +23,716 € par foyer
+[V7] RFR 2 000 001 à 3 000 000 : +4.6 pts, +59,017 € par foyer
+[V7] RFR 3 000 001 à 4 000 000 : +5.5 pts, +96,625 € par foyer
+[V7] RFR 4 000 001 à 5 000 000 : +5.1 pts, +111,565 € par foyer
+[V7] RFR 5 000 001 à 6 000 000 : +6.5 pts, +171,489 € par foyer
+[V7] RFR 6 000 001 à 7 000 000 : +8.5 pts, +247,812 € par foyer
+[V7] RFR 7 000 001 à 8 000 000 : +8.1 pts, +285,573 € par foyer
+[V7] RFR 8 000 001 à 9 000 000 : +8.8 pts, +334,008 € par foyer
+[V7] RFR Plus de 9 000 000 : +11.6 pts, +1,157,771 € par foyer
+[V8] par type de revenu (Md€) : Salaires -13.3 (actuel 145.4) ; Pensions +11.4 (actuel 41.1) ; Indépendants, foncier, gérants -1.1 (actuel 31.0) ; Chômage, préretraites +3.0 (actuel 2.5)
+[V9] personnes seules +4.5 Md€ (+157 € par foyer) ; couples -4.5 Md€ (-345 €)
+[V9] personnes seules par décile (points) : D1 -1.4, D2 +2.3, D3 +3.4, D4 +2.7, D5 +0.2, D6 +0.3, D7 -0.7, D8 -0.4, D9 -1.1, D10 +1.6
+[V10] seul                10,000 € : actuel     953 € ( 9.5 %, marginal  9.5 %) ; proposé     758 € ( 7.6 %, marginal  9.1 %) ; écart    -195 €
+[V10] seul                15,000 € : actuel   1,430 € ( 9.5 %, marginal  9.5 %) ; proposé   1,241 € ( 8.3 %, marginal 10.5 %) ; écart    -189 €
+[V10] seul                17,000 € : actuel   1,620 € ( 9.5 %, marginal  9.5 %) ; proposé   1,453 € ( 8.5 %, marginal 11.0 %) ; écart    -167 €
+[V10] seul                20,000 € : actuel   1,906 € ( 9.5 %, marginal  9.5 %) ; proposé   1,792 € ( 9.0 %, marginal 11.9 %) ; écart    -114 €
+[V10] seul                30,000 € : actuel   3,671 € (12.2 %, marginal 21.3 %) ; proposé   3,184 € (10.6 %, marginal 17.0 %) ; écart    -487 €
+[V10] seul                50,000 € : actuel   8,995 € (18.0 %, marginal 31.9 %) ; proposé   7,186 € (14.4 %, marginal 22.6 %) ; écart  -1,809 €
+[V10] seul                80,000 € : actuel  18,582 € (23.2 %, marginal 31.9 %) ; proposé  14,891 € (18.6 %, marginal 29.0 %) ; écart  -3,691 €
+[V10] seul               100,000 € : actuel  24,973 € (25.0 %, marginal 31.9 %) ; proposé  21,088 € (21.1 %, marginal 33.2 %) ; écart  -3,886 €
+[V10] seul               150,000 € : actuel  44,010 € (29.3 %, marginal 40.1 %) ; proposé  40,030 € (26.7 %, marginal 40.4 %) ; écart  -3,981 €
+[V10] couple_2enf         10,000 € : actuel     953 € ( 9.5 %, marginal  9.5 %) ; proposé       0 € ( 0.0 %, marginal  0.0 %) ; écart    -953 €
+[V10] couple_2enf         15,000 € : actuel   1,430 € ( 9.5 %, marginal  9.5 %) ; proposé       0 € ( 0.0 %, marginal  0.0 %) ; écart  -1,430 €
+[V10] couple_2enf         17,000 € : actuel   1,620 € ( 9.5 %, marginal  9.5 %) ; proposé       0 € ( 0.0 %, marginal  0.0 %) ; écart  -1,620 €
+[V10] couple_2enf         20,000 € : actuel   1,906 € ( 9.5 %, marginal  9.5 %) ; proposé      17 € ( 0.1 %, marginal  9.0 %) ; écart  -1,889 €
+[V10] couple_2enf         30,000 € : actuel   2,859 € ( 9.5 %, marginal  9.5 %) ; proposé     982 € ( 3.3 %, marginal 10.4 %) ; écart  -1,877 €
+[V10] couple_2enf         50,000 € : actuel   4,765 € ( 9.5 %, marginal  9.5 %) ; proposé   3,343 € ( 6.7 %, marginal 14.0 %) ; écart  -1,422 €
+[V10] couple_2enf         80,000 € : actuel  10,071 € (12.6 %, marginal 21.3 %) ; proposé   8,632 € (10.8 %, marginal 20.4 %) ; écart  -1,439 €
+[V10] couple_2enf        100,000 € : actuel  14,443 € (14.4 %, marginal 31.8 %) ; proposé  12,905 € (12.9 %, marginal 22.5 %) ; écart  -1,538 €
+[V10] couple_2enf        150,000 € : actuel  30,386 € (20.3 %, marginal 31.9 %) ; proposé  25,449 € (17.0 %, marginal 27.9 %) ; écart  -4,938 €
+[V10] couple_0enf         10,000 € : actuel     953 € ( 9.5 %, marginal  9.5 %) ; proposé     690 € ( 6.9 %, marginal  7.7 %) ; écart    -263 €
+[V10] couple_0enf         15,000 € : actuel   1,430 € ( 9.5 %, marginal  9.5 %) ; proposé   1,086 € ( 7.2 %, marginal  8.3 %) ; écart    -343 €
+[V10] couple_0enf         17,000 € : actuel   1,620 € ( 9.5 %, marginal  9.5 %) ; proposé   1,254 € ( 7.4 %, marginal  8.6 %) ; écart    -366 €
+[V10] couple_0enf         20,000 € : actuel   1,906 € ( 9.5 %, marginal  9.5 %) ; proposé   1,517 € ( 7.6 %, marginal  9.0 %) ; écart    -389 €
+[V10] couple_0enf         30,000 € : actuel   2,859 € ( 9.5 %, marginal  9.5 %) ; proposé   2,482 € ( 8.3 %, marginal 10.4 %) ; écart    -377 €
+[V10] couple_0enf         50,000 € : actuel   5,517 € (11.0 %, marginal 21.3 %) ; proposé   4,843 € ( 9.7 %, marginal 14.0 %) ; écart    -674 €
+[V10] couple_0enf         80,000 € : actuel  11,656 € (14.6 %, marginal 31.8 %) ; proposé  10,132 € (12.7 %, marginal 20.4 %) ; écart  -1,524 €
+[V10] couple_0enf        100,000 € : actuel  18,025 € (18.0 %, marginal 31.8 %) ; proposé  14,405 € (14.4 %, marginal 22.5 %) ; écart  -3,620 €
+[V10] couple_0enf        150,000 € : actuel  33,968 € (22.6 %, marginal 31.9 %) ; proposé  26,949 € (18.0 %, marginal 27.9 %) ; écart  -7,020 €
+[V10] couple_2enf_mono    10,000 € : actuel     953 € ( 9.5 %, marginal  9.5 %) ; proposé       0 € ( 0.0 %, marginal  0.0 %) ; écart    -953 €
+[V10] couple_2enf_mono    15,000 € : actuel   1,430 € ( 9.5 %, marginal  9.5 %) ; proposé       0 € ( 0.0 %, marginal  0.0 %) ; écart  -1,430 €
+[V10] couple_2enf_mono    17,000 € : actuel   1,620 € ( 9.5 %, marginal  9.5 %) ; proposé       0 € ( 0.0 %, marginal  0.0 %) ; écart  -1,620 €
+[V10] couple_2enf_mono    20,000 € : actuel   1,906 € ( 9.5 %, marginal  9.5 %) ; proposé      17 € ( 0.1 %, marginal  9.0 %) ; écart  -1,889 €
+[V10] couple_2enf_mono    30,000 € : actuel   2,859 € ( 9.5 %, marginal  9.5 %) ; proposé     982 € ( 3.3 %, marginal 10.4 %) ; écart  -1,877 €
+[V10] couple_2enf_mono    50,000 € : actuel   4,765 € ( 9.5 %, marginal  9.5 %) ; proposé   3,339 € ( 6.7 %, marginal 14.1 %) ; écart  -1,426 €
+[V10] couple_2enf_mono    80,000 € : actuel  10,119 € (12.6 %, marginal 21.4 %) ; proposé   8,709 € (10.9 %, marginal 20.5 %) ; écart  -1,410 €
+[V10] couple_2enf_mono   100,000 € : actuel  14,556 € (14.6 %, marginal 32.0 %) ; proposé  13,010 € (13.0 %, marginal 22.6 %) ; écart  -1,546 €
+[V10] couple_2enf_mono   150,000 € : actuel  30,534 € (20.4 %, marginal 31.9 %) ; proposé  25,619 € (17.1 %, marginal 27.9 %) ; écart  -4,915 €
+[V10] retraite_seul       10,000 € : actuel       0 € ( 0.0 %, marginal  0.0 %) ; proposé     875 € ( 8.8 %, marginal 10.7 %) ; écart    +875 €
+[V10] retraite_seul       15,000 € : actuel       0 € ( 0.0 %, marginal  0.0 %) ; proposé   1,444 € ( 9.6 %, marginal 12.4 %) ; écart  +1,444 €
+[V10] retraite_seul       17,000 € : actuel       0 € ( 0.0 %, marginal 77.4 %) ; proposé   1,696 € (10.0 %, marginal 13.1 %) ; écart  +1,696 €
+[V10] retraite_seul       20,000 € : actuel     860 € ( 4.3 %, marginal 63.1 %) ; proposé   2,100 € (10.5 %, marginal 14.4 %) ; écart  +1,240 €
+[V10] retraite_seul       30,000 € : actuel   3,314 € (11.0 %, marginal 65.9 %) ; proposé   3,865 € (12.9 %, marginal 21.4 %) ; écart    +551 €
+[V10] retraite_seul       50,000 € : actuel  10,361 € (20.7 %, marginal 37.0 %) ; proposé   8,653 € (17.3 %, marginal 26.7 %) ; écart  -1,708 €
+[V10] retraite_seul       80,000 € : actuel  21,470 € (26.8 %, marginal 37.0 %) ; proposé  17,809 € (22.3 %, marginal 34.6 %) ; écart  -3,661 €
+[V10] retraite_seul      100,000 € : actuel  29,522 € (29.5 %, marginal 47.4 %) ; proposé  25,229 € (25.2 %, marginal 39.9 %) ; écart  -4,293 €
+[V10] retraite_seul      150,000 € : actuel  53,213 € (35.5 %, marginal 47.4 %) ; proposé  47,203 € (31.5 %, marginal 45.0 %) ; écart  -6,010 €
+[V11] personne seule 30 000 € : IR 812, CSG 2,712, CRDS 147, total 3,671 € ; proposé 3,184 €
+[V11] couple deux enfants 50 000 € : IR -0, CSG 4,520, CRDS 246, total 4,765 € ; proposé 3,343 €
+[V12] retraité seul : hausse maximale +1,696 € à 17,000 € ; hausse jusqu'à 33,000 € de pension ; à 60 000 € -2,622 €
+[V13] couple_2enf 20-150 k€ : écart de -4,938 à -885 € ; moyen -2,235 €
+[V13] couple_2enf_mono 20-150 k€ : écart de -4,915 à -871 € ; moyen -2,225 €
+[V13] couple_0enf 20-150 k€ : écart de -7,020 à -129 € ; moyen -2,924 €
+[V13] seul 20-150 k€ : écart de -4,014 à -19 € ; moyen -2,920 €
+[V13] personne seule : écart de -4.7 pts (à 72,500 €) à -0.1 pts
+[V14] variante imposition individuelle (même barème, recalé) : taux à 30 000 € 17.9 %, coût 13.6 Md€, couple deux enfants à un revenu : jusqu'à +6,275 € ; à deux revenus 60/40 : jusqu'à -919 € ; couples 1.6 Md€
+[V15] sensibilité « PFU au prorata » : taux à 30 000 € 20.29 %, cible 220.1 Md€, écart maximal par décile 695 €
+[V15] sensibilité « PFU en haut » : taux à 30 000 € 22.17 %, cible 220.1 Md€, écart maximal par décile 451 €
+[V15] sensibilité « partage 60/40 pour tous » : taux à 30 000 € 21.31 %, cible 220.1 Md€, écart maximal par décile 505 €
+[V16] taux à 20 000 € de 10 % : retraité seul hausse max +1,407 € ; écart max par décile 1,982 € ; D7-D10 +1.59 pt ; taux à 30 000 € 27.1 %
+[V16] taux à 20 000 € de 12 % : retraité seul hausse max +1,551 € ; écart max par décile 1,102 € ; D7-D10 +0.88 pt ; taux à 30 000 € 24.2 %
+[V16] taux à 20 000 € de 14 % : retraité seul hausse max +1,696 € ; écart max par décile 505 € ; D7-D10 +0.18 pt ; taux à 30 000 € 21.3 %

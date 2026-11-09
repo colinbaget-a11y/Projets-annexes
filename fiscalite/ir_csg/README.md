@@ -2,19 +2,26 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable.** `note-ir-csg.pdf`, 12 pages, écrite pour un lecteur non spécialiste. Plan :
-(1) le système aujourd'hui ; (2) l'objectif de taxation optimale, avec la preuve empirique sur les
-réactions au taux marginal, et le barème obtenu « au premier ordre » ; (3) les problèmes à anticiper
-(familles, petites retraites, chômage, second apporteur). Barème proposé (`bareme_lisse.py`, version
-« familles par l'impôt ») : taux marginal de 4 % au premier euro, montant en ligne droite jusqu'à
-17,7 % à 30 000 €, puis jusqu'à 45 % à 400 000 € ; seconde franchise de 6 000 € pour les couples,
-abattement de 3 000 € par enfant. Ses propriétés :
-- même recette qu'aujourd'hui ;
-- coût d'efficacité approché de 15 Md€ contre 28 aujourd'hui ;
-- 88 à 92 % de l'effet redistributif actuel ;
-- aucun décile à plus de +330 € par an.
+**Livrable (version 3, relecture v2 de l'auteur).** `note-ir-csg.pdf`, 13 pages. Impôt unique remplaçant
+l'IR, la CSG et la CRDS sur les revenus au barème (`bareme_v3.py`, `figures_v3.py`, chiffres recalculés par
+`controles_v3.py` dans `sorties/controles_v3.txt`) :
+- assiette : revenu après cotisations sociales, la même pour salariés, indépendants, retraités, chômeurs ;
+- taux marginal en ligne droite par part : 7 % au premier euro, 14 % à 20 000 €, 21,3 % à 30 000 €, 45 % à
+  120 000 € ; quotient conjugal (deux parts) ; crédit non remboursable de 750 € par enfant ; toutes les
+  réductions, abattements et demi-parts de l'IR supprimés ;
+- recette 220,1 Md€ (IR 80,2 + CSG 132,4 + CRDS 7,4) ; 96 % des foyers paient ;
+- coût d'efficacité 18 → 13 Md€ (jeu central ; 8 → 6 et 31 → 23 selon les élasticités) ;
+- déciles : au plus +450 € (D3), D10 +220 € ; salaires −13,3 Md€, pensions +11,4, chômage +3,0,
+  indépendants −1,1 ; retraité seul jusqu'à +1 700 € vers 17 000 € de pension.
+- La charge actuelle est répartie entre personnes seules et couples d'une même tranche selon les rapports
+  OpenFisca (`CUR_S`, `CUR_C`), car le barème distingue désormais les types de foyers.
+- Littérature et données vérifiées : `sorties/lit_haut_elasticites.md`, `sorties/lit_chomage_natalite.md`,
+  `sorties/niches_crds.md` (et CSV associés).
+- `openfisca_courbes.py` exporte aussi la CRDS, la CASA et l'assiette après cotisations de chaque adulte,
+  pour cinq profils.
 
-Tous les chiffres cités dans la note sont recalculés par `controles.py` (`sorties/controles.txt`, étiquettes [C1]-[C17]).
+**Version 2 (barème-fonction familial).** Toujours reproductible : `bareme_lisse.py`, `figures_lisse.py`,
+`controles.py`.
 
 Figures : `figures_lisse.py` (`ircsg_l01` à `ircsg_l08`) et `ircsg_f10` (taux maximisant la recette).
 La version précédente (barème E à franchise et taux unique, critère de Lorenz) reste reproductible
