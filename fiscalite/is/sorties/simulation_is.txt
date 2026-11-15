@@ -1,0 +1,56 @@
+Investissement éligible année 1 (2027) : 89.1 Md€ (base 2025 84.0, +3%/an)
+[Z] Valeur actuelle des déductions pour 100 € (r = 5%) : linéaire 84.7, dégressif 89.5, 50 % immédiat + linéaire 92.4, déduction immédiate 100
+[USAGE] Coût d'usage relatif linéaire : 1.0509 -> 1,0000 avec déduction immédiate (-4.8 %)
+[USAGE] Coût d'usage relatif dégressif : 1.0352 -> 1,0000 avec déduction immédiate (-3.4 %)
+
+[CHEMIN] Coût annuel pour l'État (Md€), part imposable 60 / 75 / 90 %
+  A : déduction immédiate dès l'année 1 [lineaire] an1 15.5 an2 13.6 an3 11.6 an4 9.6 an5 7.5 an10 2.1 an20 2.8 | an1 (60-90 %) 12.4-18.6 | an10 (60-90 %) 1.7-2.5 | cumul 5 ans 57.8
+  A : déduction immédiate dès l'année 1 [degressif] an1 14.0 an2 9.9 an3 7.2 an4 5.3 an5 4.1 an10 1.4 an20 1.9 | an1 (60-90 %) 11.2-16.8 | an10 (60-90 %) 1.2-1.7 | cumul 5 ans 40.5
+  B : 50 % immédiat, reste amorti (permanent) [lineaire] an1 7.8 an2 6.8 an3 5.8 an4 4.8 an5 3.7 an10 1.1 an20 1.4 | an1 (60-90 %) 6.2-9.3 | an10 (60-90 %) 0.8-1.3 | cumul 5 ans 28.9
+  B : 50 % immédiat, reste amorti (permanent) [degressif] an1 7.0 an2 5.0 an3 3.6 an4 2.7 an5 2.0 an10 0.7 an20 1.0 | an1 (60-90 %) 5.6-8.4 | an10 (60-90 %) 0.6-0.9 | cumul 5 ans 20.3
+  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] an1 7.8 an2 6.8 an3 5.8 an4 13.3 an5 11.2 an10 2.7 an20 2.8 | an1 (60-90 %) 6.2-9.3 | an10 (60-90 %) 2.2-3.3 | cumul 5 ans 44.8
+  C : 50 % les années 1 à 3, 100 % ensuite [degressif] an1 7.0 an2 5.0 an3 3.6 an4 10.3 an5 7.5 an10 1.8 an20 1.9 | an1 (60-90 %) 5.6-8.4 | an10 (60-90 %) 1.4-2.1 | cumul 5 ans 33.4
+  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] an1 7.8 an2 6.8 an3 5.8 an4 4.8 an5 3.7 an10 6.8 an20 2.8 | an1 (60-90 %) 6.2-9.3 | an10 (60-90 %) 5.4-8.1 | cumul 5 ans 28.9
+  D : 50 % les années 1 à 6, 100 % ensuite [degressif] an1 7.0 an2 5.0 an3 3.6 an4 2.7 an5 2.0 an10 3.9 an20 1.9 | an1 (60-90 %) 5.6-8.4 | an10 (60-90 %) 3.1-4.7 | cumul 5 ans 20.3
+
+[VRAI] Coût actualisé par millésime, déduction immédiate [lineaire] : 2.04 / 2.55 / 3.06 Md€ (parts 60/75/90 %) ; en points de taux : 1.02
+[VRAI] Coût actualisé par millésime, déduction immédiate [degressif] : 1.41 / 1.76 / 2.12 Md€ (parts 60/75/90 %) ; en points de taux : 0.70
+
+[TAUX] Recette d'une hausse du taux normal (base 2022 des taux normaux, 251 Md€)
+  +1 pt : semi-élasticité 0 -> 2.5 ; semi-élasticité 0.5 -> 2.2 ; semi-élasticité 1.0 -> 1.9 ; semi-élasticité 1.5 -> 1.5 Md€
+  +3 pt : semi-élasticité 0 -> 7.5 ; semi-élasticité 0.5 -> 6.5 ; semi-élasticité 1.0 -> 5.4 ; semi-élasticité 1.5 -> 4.4 Md€
+
+[ELARG] Élargissement de l'assiette (Md€/an, statique)
+  Fin du taux réduit de 15 % (statique 2022 ; 2,2 officiel en 2019) : 2.70
+  CIR apprécié au niveau du groupe (CPO, 2025) : 0.57
+  Fin des exonérations zonées hors outre-mer (CPO, 2025) : 0.52
+  Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable) : 0.60
+  Total : 4.4 Md€, soit 1.7 point de taux normal
+
+[SOLDE] Solde cumulé (élargissement de 4.4 Md€ croissant à 3 %/an moins coût), part 75 %, Md€
+  A : déduction immédiate dès l'année 1 [lineaire] : creux -34.7 Md€ (année 6), solde annuel positif dès l'année 7, cumul repasse à zéro année 16
+  A : déduction immédiate dès l'année 1 [degressif] : creux -18.1 Md€ (année 4), solde annuel positif dès l'année 5, cumul repasse à zéro année 10
+  B : 50 % immédiat, reste amorti (permanent) [lineaire] : creux -6.8 Md€ (année 3), solde annuel positif dès l'année 4, cumul repasse à zéro année 7
+  B : 50 % immédiat, reste amorti (permanent) [degressif] : creux -3.1 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 4
+  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] : creux -26.9 Md€ (année 7), solde annuel positif dès l'année 8, cumul repasse à zéro année 16
+  C : 50 % les années 1 à 3, 100 % ensuite [degressif] : creux -10.4 Md€ (année 6), solde annuel positif dès l'année 3, cumul repasse à zéro année 10
+  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] : creux -15.9 Md€ (année 10), solde annuel positif dès l'année 4, cumul repasse à zéro année 16
+  D : 50 % les années 1 à 6, 100 % ensuite [degressif] : creux -3.1 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 4
+[SOLDE] Solde cumulé (élargissement de 3.5 Md€ croissant à 3 %/an moins coût), part 75 %, Md€
+  A : déduction immédiate dès l'année 1 [lineaire] : creux -40.5 Md€ (année 6), solde annuel positif dès l'année 7, cumul repasse à zéro année 22
+  A : déduction immédiate dès l'année 1 [degressif] : creux -22.0 Md€ (année 5), solde annuel positif dès l'année 6, cumul repasse à zéro année 13
+  B : 50 % immédiat, reste amorti (permanent) [lineaire] : creux -10.5 Md€ (année 4), solde annuel positif dès l'année 5, cumul repasse à zéro année 9
+  B : 50 % immédiat, reste amorti (permanent) [degressif] : creux -4.9 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 6
+  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] : creux -34.6 Md€ (année 8), solde annuel positif dès l'année 9, cumul repasse à zéro année 22
+  C : 50 % les années 1 à 3, 100 % ensuite [degressif] : creux -16.2 Md€ (année 6), solde annuel positif dès l'année 3, cumul repasse à zéro année 13
+  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] : creux -27.0 Md€ (année 11), solde annuel positif dès l'année 5, cumul repasse à zéro année 22
+  D : 50 % les années 1 à 6, 100 % ensuite [degressif] : creux -7.2 Md€ (année 9), solde annuel positif dès l'année 3, cumul repasse à zéro année 13
+
+[PME] Petite société : perte due à la fin du taux réduit / gain actualisé de la déduction immédiate (€/an)
+  bénéfice  42 500 €  investissement       0 €/an : perte  4 250 ; gain      0 ; avance de trésorerie la 1re année      0
+  bénéfice  42 500 €  investissement  20 000 €/an : perte  4 250 ; gain    764 ; avance de trésorerie la 1re année  4 643
+  bénéfice 100 000 €  investissement  50 000 €/an : perte  4 250 ; gain  1 909 ; avance de trésorerie la 1re année 11 607
+  bénéfice 100 000 €  investissement 150 000 €/an : perte  4 250 ; gain  5 727 ; avance de trésorerie la 1re année 34 821
+  bénéfice  30 000 €  investissement  10 000 €/an : perte  3 000 ; gain    382 ; avance de trésorerie la 1re année  2 321
+  investissement annuel qui compense la perte maximale : 111 322 €
+  taux cumulé IS + PFU sur un bénéfice distribué de 42 500 € : 41.7 % -> 48.5 %

@@ -1,0 +1,264 @@
+% Ne pas toucher au taux, mieux déduire l'investissement (rapport Sorbon, partie III)
+% Compilation depuis fiscalite/is/ : pdflatex note-is.tex (deux passes)
+% Matière et statut des sources : notes/is_recherche.md ; chiffres : donnees/is_chiffres.csv
+% Calculs : python3 simulation_is.py -> sorties/simulation_is.txt ; figure : python3 is/figures_is.py (depuis fiscalite/)
+\documentclass[11pt,a4paper]{article}
+\input{../lvt/preambule}
+\renewcommand{\figbloc}[3]{%
+  \begin{figure}[!htbp]\centering
+  \caption{#2}\label{#3}
+  \includegraphics[max width=\linewidth,max height=0.29\textheight]{../figures/nu/#1.pdf}
+  \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}%
+  \end{figure}}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\preto\section{\needspace{6\baselineskip}}
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.85}
+\fancyhead[L]{\small\itshape Ne pas toucher au taux, mieux déduire l'investissement}
+
+\begin{document}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
+
+\thispagestyle{empty}
+\vspace*{0.6cm}
+{\footnotesize\color{ocre}\bfseries NOTE DE TRAVAIL\quad·\quad NOVEMBRE 2026\par}
+\vspace{8pt}
+{\fontsize{22}{26}\selectfont\bfseries\color{bleu}Ne pas toucher au taux, mieux déduire
+l'investissement\par}
+\vspace{6pt}
+{\large L'impôt sur les sociétés : déduction immédiate des équipements, financée par la fin du taux réduit
+et de trois niches\par}
+\vspace{8pt}
+{\small Colin Baget. Droit de 2026 ; Tax Foundation, OCDE, Conseil des prélèvements obligatoires ; comptes
+nationaux 2025 et statistiques de la DGFiP ; programmes \texttt{fiscalite/is/}.\par}
+\vspace{6pt}
+{\color{bleu}\hrule height 1.2pt}
+\vspace{4pt}
+
+\section*{Introduction}
+
+L'impôt sur les sociétés (IS) n'appelle pas de grande réforme. Ce que lui reprochent les comparaisons
+internationales, c'est son taux affiché, le plus élevé de l'OCDE pour les plus grands groupes en 2025 et 2026
+avec la contribution exceptionnelle, sa complexité et son instabilité. Ce n'est pas le traitement de
+l'investissement, qui est dans la moyenne. Cette note propose de garder le taux normal à 25~\%, de laisser
+la contribution exceptionnelle s'éteindre comme prévu, et de faire un seul changement : permettre aux
+entreprises de déduire tout de suite la moitié du coût de leurs équipements, puis la totalité quand les
+finances publiques le permettent. Le financement vient de l'assiette : la fin du taux réduit de 15~\% des
+PME et le resserrement de trois niches dont l'efficacité n'est pas démontrée.
+
+Porter le taux à 28~\% pour payer cette mesure serait une erreur de calendrier autant que de principe. La
+déduction immédiate coûte cher les premières années, puis peu : de l'ordre de 2~Md€ par an, moins d'un point
+de taux. Une hausse de trois points rapporterait durablement deux à quatre fois plus, en relevant le
+paramètre que regardent les groupes qui choisissent où investir et où déclarer leurs bénéfices. La fin du
+taux réduit, elle, pèse surtout sur les petites sociétés qui investissent peu, dont beaucoup de sociétés de
+professions libérales et de sociétés patrimoniales ; elle coûte au plus 4\,250~€ par an à chacune.
+
+\section{Ce que les comparaisons reprochent à l'IS français}
+
+La Tax Foundation classe la France dernière des 38 pays de l'OCDE en 2025 et en 2026, au total comme pour
+l'IS. Ce qui la pénalise est le taux de 36,1~\% des plus grands groupes, contre 24,2~\% en moyenne, quatre taux
+différents quand la moyenne est de 2,3, une surtaxe, une boîte à brevets et la troisième subvention implicite
+à la recherche la plus généreuse. L'indice est normatif : il pénalise par construction toute incitation
+ciblée. Il ne pénalise pas, en revanche, la façon dont la France laisse déduire l'investissement : elle est
+15\up{e} sur 38 pour la récupération des coûts, et les déductions d'une machine valent 88~\% de son prix en
+valeur actuelle, contre 86~\% en moyenne.
+
+Les taux effectifs de l'OCDE disent la même chose. Le taux moyen effectif, qui compte quand une entreprise
+choisit dans quel pays implanter un projet rentable, est de 23,6~\% en France contre 22,2~\% en moyenne
+(13\up{e} sur 38). Le taux marginal effectif, qui compte pour décider d'un investissement de plus, est de
+15,0~\% contre 16,5~\%, et de 9,8~\% contre 10,4~\% pour les équipements. Ces chiffres de 2025 semblent ne pas
+intégrer la contribution exceptionnelle, ce qui n'a pas pu être vérifié. Le Conseil des prélèvements
+obligatoires (2023, 2025) et la mission d'information du Sénat (2026) font de l'instabilité le premier
+grief : la contribution exceptionnelle, présentée comme temporaire, a été prorogée une fois, et son assiette
+est la moyenne de l'IS de deux exercices, dont l'un était clos quand elle a été votée.
+
+La déduction immédiate de l'investissement ne corrige donc pas un retard français. Elle se justifie par ce
+qu'elle rapporte en investissement pour chaque euro de recette abandonné.
+
+\section{Pourquoi déduire l'investissement plutôt que baisser le taux}
+
+Une entreprise achète une machine de 100~€ qui dure sept ans. Aujourd'hui, elle en déduit le coût de son
+bénéfice par fractions, sur sept ans ; actualisées à 5~\%, ces déductions valent 85 à 90~€ selon que
+l'amortissement est linéaire ou dégressif. Si elle peut déduire les 100~€ l'année de l'achat, le total
+déduit ne change pas, seulement sa date. Mais ce décalage change la nature de l'impôt. L'État rend 25~€
+l'année de l'achat et prélève ensuite 25~\% de ce que la machine rapporte : il devient un associé qui finance
+le quart de l'investissement et reçoit le quart des gains. Un investissement qui rapporte tout juste le
+rendement normal du capital, celui qu'on obtiendrait en plaçant l'argent, ne paie alors plus d'impôt ; seuls
+restent imposés les profits qui dépassent ce rendement (marques, positions de marché, rentes) et les profits
+du capital déjà installé.
+
+Une baisse du taux procède à l'inverse : elle allège l'impôt sur tous les profits, y compris ceux des
+machines achetées il y a dix ans et ceux des rentes, qui ne dépendent pas de la décision d'investir
+aujourd'hui. L'essentiel de son coût ne change donc aucune décision. Chodorow-Reich, Smith, Zidar et Zwick
+(2026) le chiffrent sur la réforme américaine de 2017, qui a fait les deux : pour obtenir un point de capital
+supplémentaire au bout de dix ans, la baisse du taux coûte chaque année environ 10~\% de la recette de l'IS,
+la déduction immédiate 2,5~\%, quatre fois moins.
+
+L'effet sur l'investissement est établi par plusieurs évaluations sur données fiscales. Aux États-Unis, les
+déductions immédiates partielles de 2001-2004 et 2008-2010 ont augmenté l'investissement éligible de 10 et
+17~\%, deux fois plus dans les petites entreprises, et seulement dans celles qui payaient l'impôt, pour qui la
+déduction apporte de la trésorerie tout de suite (Zwick et Mahon, 2017). Au Royaume-Uni, des entreprises
+moyennes devenues éligibles à une déduction accélérée ont accru leur taux d'investissement d'environ 11~\%
+(Maffini, Xing et Devereux, 2019). Deux réserves comptent. Ces mesures étaient temporaires et ont en partie
+avancé des achats ; l'Office for Budget Responsibility estime qu'une déduction temporaire déplace
+l'investissement dans le temps sans augmenter durablement le capital, d'où l'importance qu'elle soit
+permanente. Et il n'existe aucune évaluation causale du suramortissement français de 2015 ; la seule étude
+française, sur celui de 2019-2020, trouve un effet de 12 à 14~\%, difficile à concilier avec ses 2\,390
+utilisateurs (DGE, 2026).
+
+L'ordre de grandeur pour la France peut s'écrire avec le coût d'usage du capital, ce que doit rapporter une
+machine pour couvrir son financement, son usure et l'impôt :
+\[
+c = (r+\delta)\,\frac{1-\tau z}{1-\tau},
+\]
+où $\tau$ est le taux de l'IS et $z$ la valeur actuelle des déductions pour 1~€ investi. Avec $z$ entre 0,85
+et 0,90, l'impôt majore le coût d'usage de 3,5 à 5~\% ; avec la déduction immédiate, $z = 1$ et l'impôt ne le
+majore plus. Si le stock de capital réagit à peu près proportionnellement au coût d'usage, comme le suggèrent
+les estimations britanniques, le stock d'équipements des entreprises imposables augmenterait de quelques
+pour cent à long terme. C'est une extrapolation, pas une mesure.
+
+La mesure a trois limites. Combinée à la déduction des intérêts, elle subventionne l'investissement financé
+par emprunt, ce que la limitation des charges financières à 30~\% du résultat brut atténue. Elle vaut moins
+pour les entreprises en perte, d'autant que l'imputation des déficits est plafonnée. Et elle crée une
+frontière entre les actifs éligibles et les autres : on la limite ici aux machines, équipements et
+matériels informatiques, ceux dont l'investissement réagit le plus, en laissant de côté les bâtiments, déjà
+peu taxés en France (taux marginal effectif de 7,3~\% contre 12,1~\% dans l'OCDE), et les véhicules.
+
+\section{Combien cela coûte, et pourquoi 28~\% n'est pas la réponse}
+
+Les sociétés non financières ont investi 84~Md€ en 2025 en machines, équipements et matériels
+informatiques. On suppose que les trois quarts sont le fait de sociétés imposables, qui peuvent utiliser la
+déduction tout de suite ; cette part n'est pas mesurée et le coût lui est proportionnel. La première année
+(2027), déduire tout l'investissement au lieu de son premier amortissement coûte 14 à 15,5~Md€ (11 à 19~Md€
+selon la part imposable). Le coût baisse ensuite chaque année, parce que les machines achetées après la
+réforme n'ont plus d'amortissement à déduire : l'État récupère ce qu'il a avancé. Au bout de sept ans, il ne
+reste que le coût permanent, 1,4 à 2,1~Md€ par an, qui vient de ce que l'investissement croît et de ce que
+l'avance a une valeur. Mesuré en valeur actuelle, le coût d'une année d'investissement est de 1,8 à
+2,6~Md€, soit 0,7 à 1 point de taux (figure~\ref{fig:cout}). Ces chiffres ne comptent pas l'investissement
+supplémentaire suscité, qui augmente le coût la première année et la recette ensuite.
+
+\figbloc{is_01_cout_deduction}{Coût annuel de la déduction immédiate des équipements et ressources pour la
+financer}{fig:cout}
+
+Une hausse du taux normal de 25 à 28~\% rapporterait 7,5~Md€ à bénéfices inchangés, et 4,4~Md€ si les
+bénéfices déclarés baissent de 1,5~\% par point de taux, l'ordre de grandeur que trouve la littérature sur
+les filiales de multinationales (Beer, de Mooij et Liu, 2020). C'est trop la plupart des années : elle
+financerait le coût initial, concentré sur cinq ans, par une hausse permanente, deux à quatre fois supérieure
+au coût de long terme. Elle relèverait surtout le paramètre qui compte pour les décisions les plus mobiles :
+où implanter un projet très rentable, qui dépend du taux moyen effectif, et où déclarer les bénéfices, qui
+dépend du taux affiché. L'avantage de la déduction immédiate est de ne pas toucher à l'imposition des rentes ;
+le financer par le taux reviendrait à alourdir précisément les profits les plus mobiles.
+
+Le financement par l'assiette suffit pour le régime permanent (tableau~\ref{tab:assiette}). Les quatre
+mesures retenues rapportent 3,5 à 4,4~Md€ par an, soit 1,4 à 1,7 point de taux. La première est la fin du
+taux réduit, traitée au §~4. Le crédit d'impôt recherche (8~Md€) produit environ un euro de recherche par
+euro de crédit, avec des effets concentrés sur les PME : on le garde, mais on l'apprécie au niveau du groupe
+plutôt que de chaque filiale, comme le propose le CPO (2025).
+Les exonérations zonées sont jugées « peu efficientes » par le Conseil des prélèvements obligatoires. Le
+coût de la boîte à brevets a doublé depuis 2021, et son efficacité est « mise en doute » par le même
+Conseil.
+
+\begin{table}[!htbp]\centering\small
+\caption{Ressources tirées de l'assiette}\label{tab:assiette}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{5.2cm}@{}}
+\toprule
+Mesure & Md€ par an & Source du chiffrage \\
+\midrule
+Fin du taux réduit de 15~\% & 2,2 à 2,7 & Chiffre officiel de 2019 ; calcul statique sur 2022 \\
+Crédit d'impôt recherche apprécié au niveau du groupe & 0,6 & CPO (2025) \\
+Fin des exonérations zonées, hors outre-mer & 0,5 & CPO (2025) \\
+Avantage de la boîte à brevets réduit de moitié (taux de 17,5~\%) & 0,2 à 0,6 & Calcul ; dépend de la fuite des brevets \\
+\midrule
+Total & 3,5 à 4,4 & Soit 1,4 à 1,7 point de taux normal \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Ce qui ne tient pas d'emblée, c'est la transition. Une déduction immédiate totale dès 2027 creuserait le
+solde cumulé de 18 à 40~Md€ au bout de quatre à six ans, regagnés en dix à vingt-deux ans : l'État prête aux
+entreprises, et le prêt se rembourse, mais la France n'a pas aujourd'hui la marge budgétaire pour le
+consentir. On commence donc par une déduction immédiate de 50~\%, le reste étant amorti comme aujourd'hui, et
+permanente. Elle coûte 7 à 7,8~Md€ la première année ; avec l'élargissement de l'assiette, le solde cumulé
+descend au plus de 3 à 10,5~Md€ et redevient positif en quatre à neuf ans. Elle réduit de moitié l'écart entre
+la valeur actuelle des déductions et le prix de la machine. Le passage à 100~\% vient dans un second temps et
+a sa propre bosse de coût, plus petite : la montée par paliers étale la dépense, elle ne la supprime pas.
+
+\section{La fin du taux réduit : qui y perd}
+
+Les sociétés dont le chiffre d'affaires est inférieur à 10~M€ et dont le capital est détenu à 75~\% par des
+personnes physiques paient 15~\% au lieu de 25~\% sur les 42\,500 premiers euros de bénéfice (art.~219 du
+CGI). Le Conseil d'État a jugé en 2025 que le chiffre d'affaires s'apprécie au niveau du groupe, ce qui ferme
+l'usage par les filiales de grands groupes. Le dispositif a coûté 2,2~Md€ en 2019 pour 760\,000 sociétés ; le
+bénéfice imposé à 15~\% en 2022 (27~Md€) donne environ 2,7~Md€.
+
+Le taux réduit ne finance ni l'investissement ni la croissance des entreprises. Pour une société dont le
+bénéfice dépasse le plafond, il revient à verser chaque année 4\,250~€, quoi qu'elle fasse : la somme ne
+dépend d'aucune de ses décisions, sauf celle de rester petite ou de se découper en plusieurs sociétés. Le
+CPO en demande la suppression depuis 2016 : les PME ne sont pas moins rentables que les grandes entreprises,
+on observe un pic de sociétés juste sous le plafond de bénéfice, signe que des résultats sont pilotés pour
+rester en dessous, et aucun effet sur l'émergence d'entreprises de taille intermédiaire n'a été trouvé. La
+seule étude qui trouve un effet réel, une hausse de 4~\% des actifs corporels lors de son introduction en
+2001-2003, est fragile et non publiée (Bernini et Treibich, 2014). Le meilleur argument en sa faveur, aider
+les petites entreprises à se financer sur leurs bénéfices quand les banques leur prêtent mal, est mieux servi
+par la déduction immédiate, qui donne de la trésorerie aux seules entreprises qui investissent.
+
+Qui y perd ? Toutes les sociétés éligibles, au plus 4\,250~€ par an chacune, soit au plus 10~\% de leur
+bénéfice ; celles dont le bénéfice est inférieur au plafond voient leur IS augmenter des deux tiers. La perte
+est sèche pour celles qui investissent peu en équipements : sociétés de professions libérales, sociétés de
+conseil et de services, petites holdings et sociétés civiles immobilières soumises à l'IS. Aucune
+statistique ne ventile la base imposée à 15~\% par type de société ; on peut seulement noter que, sur
+2,4~millions de redevables de l'IS, 490\,000 relèvent des activités immobilières et 190\,000 des activités
+financières, où sont classées les holdings, et supposer, sans pouvoir le mesurer, qu'une part notable du
+taux réduit leur profite. Une petite société industrielle qui investit est en partie compensée : la
+déduction immédiate lui avance l'impôt sur ses achats, 4\,600~€ la première année pour 20\,000~€
+d'équipements, mais son gain durable ne dépasse la perte que si elle investit plus de 110\,000~€ par an avec une déduction
+totale, le double avec la déduction de moitié.
+L'opération transfère donc de l'IS des petites sociétés qui investissent peu vers les entreprises de toutes
+tailles qui investissent. Pour l'associé qui se fait distribuer le bénéfice, le taux cumulé de l'IS et du PFU
+sur les 42\,500 premiers euros passe de 41,7 à 48,6~\%, le taux de toutes les autres sociétés, ce qui supprime
+une raison purement fiscale de passer à l'IS.
+
+\section{Ce qu'on ne fait pas}
+
+On n'introduit pas de barème progressif de l'IS. La taille d'une entreprise ne dit rien de la richesse de
+ses propriétaires : une société de chirurgiens appartient à des ménages aisés, une grande société cotée en
+partie à des fonds de retraite et à des épargnants modestes. La progressivité se règle dans l'impôt des
+personnes, au barème fusionné et au PFU. Un barème par tranches de bénéfice multiplierait en outre les pics
+sous les seuils et les découpages en sociétés que le taux réduit produit déjà.
+
+On n'introduit pas de taux minimal national. Le minimum mondial de 15~\% s'applique déjà aux groupes dont
+le chiffre d'affaires consolidé dépasse 750~M€ (loi de finances pour 2024, art.~33 ; 0,5~Md€ attendus en
+2026). Un minimum assis sur le taux effectif frapperait précisément les entreprises qui investissent
+beaucoup une année donnée, puisque la déduction immédiate abaisse leur taux effectif cette année-là : il
+annulerait la mesure proposée.
+
+On laisse la contribution exceptionnelle s'éteindre, comme le demandent le CPO et le Sénat : une surtaxe
+dont l'assiette est en partie rétroactive et qui est renouvelée d'année en année fait payer les
+investissements déjà faits et rend incertain le rendement de ceux qu'on envisage. Les recettes de référence
+de cette note sont celles du droit permanent, à 25~\%. Enfin, la contribution sociale de 3,3~\% pourrait être
+fondue dans le taux normal, ce qui supprimerait un taux et un seuil sans changer la recette ; c'est une
+simplification secondaire.
+
+L'ensemble ne change pas la charge des grandes fortunes de façon notable : les grands groupes paient un peu
+plus au titre du crédit d'impôt recherche et des brevets, et moins sur leurs investissements. Il n'a pas
+d'effet propre sur les familles.
+
+\vspace{6pt}
+{\scriptsize\textbf{Références.} Beer, de Mooij et Liu (2020), « International Corporate Tax Avoidance: A
+Review of the Channels, Magnitudes, and Blind Spots », \emph{Journal of Economic Surveys} 34(3). Bernini et
+Treibich (2014), document de travail FREIT n°~759. Chodorow-Reich, Smith, Zidar et Zwick (2026), « Tax
+Policy and Investment in a Global Economy », NBER WP 32180 (version de janvier 2026). Conseil des
+prélèvements obligatoires (2016, 2023, 2025), rapports sur l'IS, sur les PME et grandes entreprises, et sur
+le cadre fiscal de l'industrie. Conseil d'État, 13 mars 2025, n°~481538. DGE (2026), « Le suramortissement :
+un levier efficace pour la modernisation industrielle des PME françaises ? », document de travail n°~1.
+DGFiP, \emph{Statistiques} n°~21 (2024). IFS (2023), \emph{Green Budget}, ch.~10. Insee, comptes nationaux
+annuels, base 2020 (2026). Maffini, Xing et Devereux (2019), « The Impact of Investment Incentives: Evidence
+from UK Corporation Tax Returns », \emph{AEJ: Economic Policy} 11(3). OCDE, \emph{Corporate Tax Statistics}
+(2025). Sénat (2026), mission d'information sur le poids des prélèvements obligatoires sur les entreprises.
+Tax Foundation, \emph{International Tax Competitiveness Index} 2025 et 2026. Zwick et Mahon (2017), « Tax
+Policy and Heterogeneous Investment Behavior », \emph{American Economic Review} 107(1). Détail et statut de
+lecture : \texttt{is/notes/is\_recherche.md}.\par}
+
+\end{document}
