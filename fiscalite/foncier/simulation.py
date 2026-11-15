@@ -196,6 +196,32 @@ def cas_types(scen, p):
           + " | ".join(txt))
 
 
+R_ACT = 0.03                                 # taux d'actualisation réel
+
+
+def primo(scen, p, horizons=(7, 15)):
+    """Jeune ménage qui achète le logement médian de la commune : économie de DMTO à l'achat, hausse annuelle
+    de taxe foncière, bilan actualisé s'il revend après H ans ; propriétaire installé : hausse perpétuelle."""
+    rows = []
+    for code, t, lab in CAS:
+        i = L[(L.codgeo == code) & (L.type == t)].index
+        if len(i) == 0:
+            continue
+        i = i[0]
+        for nom, (tf1, d1) in scen.items():
+            eco = TAUX_DMTO * L.v[i] * (1 - d1[i] / L.d0[i]) if L.d0[i] > 0 else 0.0
+            dt = tf1[i] - L.tf0[i]
+            va = {h: dt * (1 - (1 + R_ACT) ** -h) / R_ACT for h in horizons}
+            rows.append(dict(cas=lab, scen=nom, valeur=L.v[i], dmto=TAUX_DMTO * L.v[i], eco=eco, dtf=dt,
+                             **{f"net{h}": eco - va[h] for h in horizons}, installe=-dt / R_ACT))
+    df = pd.DataFrame(rows)
+    for _, r in df.iterrows():
+        p(f"  {r.cas} [{r.scen}] : économie à l'achat {r.eco:,.0f} € ; TF {r.dtf:+,.0f} €/an ; gain net s'il revend après"
+          f" 7 ans {r.net7:+,.0f} €, après 15 ans {r.net15:+,.0f} € ; propriétaire installé (valeur actuelle de la hausse)"
+          f" {r.installe:+,.0f} €")
+    return df
+
+
 if __name__ == "__main__":
     lignes = []
 
@@ -251,4 +277,6 @@ if __name__ == "__main__":
     p("prix au m² médian par décile : " + " ".join(f"{u:,.0f}" for u in L.groupby("dec_prix").pm2.median()))
     p("cas-types (un logement médian de la commune) :")
     cas_types({k: scen[k] for k in ("R50", "K4", "L4")}, p)
+    p(f"primo-accédant (taux d'actualisation {100*R_ACT:.0f} %) :")
+    primo({k: scen[k] for k in ("R50", "L4")}, p).round(0).to_csv(OUT / "primo.csv", index=False)
     (OUT / "simulation.txt").write_text("\n".join(lignes) + "\n", encoding="utf-8")
