@@ -2,14 +2,26 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
-**Livrable (version finale en cours, novembre 2026).** `note-ir-csg.pdf` (et `.docx` par `tex2docx.py`),
-10 pages : « Fusionner les impôts sur le revenu : une fausse bonne idée ? ». Introduction rédigée par l'auteur,
-puis trois exercices à recette égale (`exercices.py`, chiffres dans `sorties/exercices.txt`, figures
-`figures_exercices.py`, `ircsg_x01` à `ircsg_x05`), tous avec assiette commune (revenu après cotisations, sans
-niche), impôt individuel et franchise de 6 000 € par enfant déduite du revenu du parent qui gagne le plus :
-1. harmonisation brutale : tranches de l'IR 2024 par adulte + taux unique (3,1 %) ;
-2. aplanissement : barème à taux marginal en ligne droite (taux du haut 50 %) le plus proche de la charge actuelle ;
-3. perte sèche minimale, sans correction sociale (la correction reste à décider avec l'auteur).
+**Livrable (version 4, novembre 2026).** `note-ir-csg.pdf` (et `.docx` par `tex2docx.py`), 9 pages :
+« Fusionner les impôts sur le revenu : une fausse bonne idée ? », et `annexe-ir-csg.pdf` (niches, inventaire des
+impôts sur le revenu, vérifications), sortie de la note. Introduction de l'auteur raccourcie d'un tiers. Un seul
+programme pour tous les chiffres : `proposition.py` (sortie `sorties/proposition.txt`, étiquettes P0 à P7 ; barèmes
+dans `sorties/proposition_baremes.json`, lus par `figures_exercices.py` pour `ircsg_x01` à `ircsg_x05`).
+`exercices.py` reste la version 3 (représentation des enfants par une fraction d'enfant par couple), conservée.
+Représentation des foyers : personnes seules avec ou sans enfant, couples sans enfant ou avec deux enfants,
+partages de l'Insee. Étapes à recette égale (220 Md€), assiette commune, impôt individuel :
+1. harmonisation : tranches de l'IR 2024 par adulte + 2,99 % ; perte sèche 18,5 Md€ ; perdants > 500 € 14 % ;
+2. aplanissement (écart minimal à la charge actuelle) : 5 % → 13 % à 20 k€ → 25,5 % à 30 k€ → 50 % à 250 k€ ; 13,3 Md€ ; 13 % ;
+3. perte sèche minimale : 14 % → 16 % → 18 % à 120 k€ → 50 % à 600 k€ ; 5,2 Md€ ; 57 % de perdants ;
+4. proposition (étape 3 corrigée, décidée avec l'auteur) : franchise de 8 000 € par adulte sur les revenus
+   d'activité (correction des déciles 2 à 4 ; tableau du prix de 0 à 10 000 €) et franchise de 6 000 € par enfant
+   (la plus favorable aux familles des quatre variantes) : 17 % → 22 % à 20 k€ → 24,2 % à 45 k€ → 50 % à 600 k€ ;
+   perte sèche 9,3 Md€ (3,9 à 15,9) ; 33 % de perdants ; pensions +13,0 Md€, chômage +3,0, salaires −13,3.
+Famille, quatre variantes (franchise d'activité 8 000 €) : rien (perte 7,8) ; franchise 6 000 €/enfant (aide 20,6 Md€,
+9,3) ; chèque de 772 €/enfant = coût du QF des enfants 13,9 Md€ (8,2) ; quotient conjugal et familial plafonné sur
+l'impôt fusionné (aide 3,6 Md€, 8,1). Coût du QF des enfants : 13,9 Md€ (modèle, revenus 2024), à comparer à
+13,3 Md€ pour les familles avec enfants en 2017 (André et Sireyjol, Économie et Statistique 526-527, 2021).
+Choix de l'auteur : les retraités financent la réforme (pas de dispositif pour les épargner).
 
 **Note courte (novembre 2026).** `note-efficace.pdf` (et `.docx` par `python3 tex2docx.py note-efficace`),
 3 pages : « L'impôt sur le revenu le plus efficace possible ». Objectif : perte sèche minimale, travail et

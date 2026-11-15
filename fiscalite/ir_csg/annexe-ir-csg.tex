@@ -1,0 +1,67 @@
+% Annexe de la note « Fusionner les impôts sur le revenu » : niches, inventaire des impôts sur le revenu, vérifications
+% Compilation depuis fiscalite/ir_csg/ : pdflatex annexe-ir-csg.tex (deux passes)
+\documentclass[11pt,a4paper]{article}
+\input{../lvt/preambule}
+\fancyhead[L]{\small\itshape Fusionner les impôts sur le revenu : annexe}
+\begin{document}
+\renewcommand{\tablename}{Tableau}
+\thispagestyle{empty}
+{\footnotesize\color{ocre}\bfseries ANNEXE\quad·\quad NOVEMBRE 2026\par}
+\vspace{6pt}
+{\fontsize{18}{22}\selectfont\bfseries\color{bleu}Fusionner les impôts sur le revenu : données, niches et vérifications\par}
+\vspace{5pt}
+{\small Annexe de la note « Fusionner les impôts sur le revenu : une fausse bonne idée ? ». Colin Baget.\par}
+\vspace{5pt}
+{\color{bleu}\hrule height 1.2pt}
+\vspace{8pt}
+
+\textbf{Les niches supprimées.} Les dépenses fiscales de l'IR valent 44~Md€ (\emph{Voies et moyens}, PLF 2026).
+L'assiette commune en supprime sûrement 24~Md€ : les réductions et crédits d'impôt (15,5~Md€, dont emploi à
+domicile 7,0, dons 2,2, garde d'enfants 1,8, investissement locatif 1,5, outre-mer 1,3), l'abattement de
+10~\% sur les pensions (5,3~Md€), les demi-parts spéciales (2,9~Md€) et l'abattement des plus de 65~ans
+avec quelques déductions du revenu global (0,5~Md€, dont 0,4 pour l'abattement). Selon la définition retenue des revenus, jusqu'à 12~Md€ de plus (épargne salariale, heures
+supplémentaires, régimes du foncier). Disparaissent aussi l'abattement de 10~\% des salariés, les
+déductions d'épargne retraite et de pensions alimentaires, la décote et le quotient. L'allègement de 3,8~Md€
+sur les revenus de source étrangère, imposé par les conventions fiscales, reste.
+
+\textbf{Les impôts sur le revenu en France, et ce que la fusion remplace} (revenus 2024).
+
+\begin{table}[!ht]\centering\scriptsize
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{3.8cm}@{}}
+\toprule
+Prélèvement & Rendement & Dans la fusion ? \\
+\midrule
+IR sur les salaires, pensions, revenus des indépendants, loyers et allocations chômage (après réductions et crédits) & 80~Md€ & Oui \\
+Contribution exceptionnelle sur les hauts revenus (CEHR, 3 et 4~\%) & Moins de 2~Md€, comprise dans l'IR de la DGFiP & Oui, absorbée ; la part due sur les revenus du capital est reportée sur les autres revenus \\
+Contribution différentielle sur les hauts revenus (CDHR, taux minimal de 20~\%) & 0,4~Md€ en 2025 ; créée pour les revenus 2025 & Absente de nos données 2024 \\
+CSG et CRDS sur les revenus d'activité et de remplacement & 132 et 7,4~Md€ & Oui \\
+IR sur les revenus du capital au prélèvement forfaitaire unique (12,8~\%) & Environ 11,5~Md€ & Non \\
+CSG, CRDS et prélèvement de solidarité sur les revenus du capital (9,2, 0,5 et 7,5~\%) & Environ 33~Md€ (calcul à partir de l'assiette de la CRDS) & Non \\
+CASA des retraités (0,3~\%) & Environ 1~Md€ (estimation) & Non \\
+CRDS sur les prestations familiales et les jeux & 0,5~Md€ & Non \\
+Cotisations sociales & --- & Non : l'assiette est le revenu après cotisations \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!ht]\centering\scriptsize
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.1cm}@{}}
+\toprule
+Ce qui est testé & Source de comparaison & Résultat \\
+\midrule
+Composition de la rubrique « salaires » de l'IRCOM & Totaux des cases 2042, revenus 2024 (DGFiP) & 925 Md€ par les cases contre 930 dans l'IRCOM ; pensions 391 contre 393 \\
+IR actuel & DGFiP, Statistiques n°~41 (2025) & 91,7 Md€, après réductions et crédits, comme la DGFiP (92) \\
+CSG sur les salaires & Commission des comptes de la Sécurité sociale, mai 2026 (privé 72,2, public 19,8~Md€) & 91,5 reconstitués contre 92,0 \\
+CRDS & CADES, rapport annuel 2024 (9,2~Md€, dont 7,7 dans le champ) & 7,4~Md€ reconstitués \\
+Pensions brutes & Eurostat (412~Md€ en 2023) & 406~Md€ reconstitués pour 2024 \\
+Barème de l'IR (exercice 1) & OpenFisca-France, paramètres 2024 & Seuils 11~497, 29~315, 83~823 et 180~294~€ \\
+Revenu après cotisations & OpenFisca-France, cas-types & Salaires : 88,7~\% du brut \\
+Taux d'un salarié seul & OCDE, \emph{Taxing Wages 2026} & Écart de 0,1 à 0,4~point \\
+Partage dans les couples & Insee Première 1492 & Part moyenne de la femme : 36~\% \\
+Chiffres de la note & \texttt{proposition.py} les recalcule tous & Sortie \texttt{sorties/proposition.txt} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\end{document}

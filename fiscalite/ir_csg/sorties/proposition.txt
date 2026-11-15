@@ -1,0 +1,95 @@
+[P0] quotient familial des enfants aujourd'hui (IR 2024 sans niche, foyers représentatifs) : 13.9 Md€ (couples 9.7, parents isolés 4.2) ; 18.0 M d'enfants ; chèque égal 772 € par enfant. Repère : Insee (André et Sireyjol 2021, Ines 2017) 16,6 Md€ pour l'ensemble des dispositifs familiaux, dont 11,3 couples avec enfants et 2,0 familles monoparentales.
+[P0] gain de QF d'un couple avec deux enfants, RFR 30k 0 40k 1,247 50k 1,837 60k 1,725 80k 3,582 120k 3,582
+[P1] exercice 1 : tranches de l'IR + 2.99 % ; exercice 2 : 5 % au premier euro, 13 % à 20 k€, 25.5 % à 30 k€, 50 % à 250 k€ ; perte sèche 13.3 ; transferts 2.31 pts ; exercice 3 : 14 % au premier euro, 16 % à 20 k€, 18.0 % à 120 k€, 50 % à 600 k€ ; perte sèche 5.2 ; transferts 5.82 pts
+[P1] exercice 3, 5 barèmes les moins coûteux :
+  t0   tb       z1    t1       z2  cout  transferts
+0.14 0.16 120000.0 0.180 600000.0 5.217       5.818
+0.14 0.16  80000.0 0.169 600000.0 5.297       5.817
+0.14 0.16  60000.0 0.163 600000.0 5.366       5.815
+0.14 0.16 120000.0 0.172 400000.0 5.529       5.827
+0.14 0.16  80000.0 0.160 400000.0 5.706       5.825
+[P5] ex1 : recette 220.1 Md€ ; perte sèche 18.5 (8.0 à 31.6) ; redistribution 1.26 ; perdants > 500 € 5.6 M (14 %), > 1 000 € 4.5 M (11 %) ; gagnants > 500 € 15.7 M (38 %)
+[P6] ex1 : déciles € -38 -140 -84 -153 -787 -848 -872 -129 -59 +3038 | pts -1.9 -1.8 -0.5 -0.7 -3.0 -2.7 -2.3 -0.3 -0.1 +2.4
+[P6] ex1 : types Md€ Salaires -13.1 ; Pensions +8.8 ; Indépendants, foncier, gérants +1.2 ; Chômage, préretraites +3.0
+[P6] ex1 : par type de foyer, € par foyer seul -82 (-2.0 Md€) ; parent_isole +242 (+1.0 Md€) ; couple0 +884 (+5.3 Md€) ; couple2 -614 (-4.3 Md€)
+[P7] ex1 : cas-types seul 21k -646 ; seul 30k -1,214 ; seul 50k -1,209 ; seul 80k -1,914 ; seul 150k -1,093 ; couple_0enf 50k -1,843 ; couple_2enf 30k -2,422 ; couple_2enf 50k -2,769 ; couple_2enf 80k -4,130 ; couple_2enf_mono 80k +2,590 ; retraite_seul 17k +1,114 ; retraite_seul 30k -252
+[P7] ex1 : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -4.6 -1.9 -2.8 -1.0
+[P5] ex2 : recette 220.1 Md€ ; perte sèche 13.3 (5.8 à 22.9) ; redistribution 0.97 ; perdants > 500 € 5.5 M (13 %), > 1 000 € 3.3 M (8 %) ; gagnants > 500 € 8.7 M (21 %)
+[P6] ex2 : déciles € +3 +92 +274 +165 -391 -277 -431 +4 -218 +764 | pts +0.1 +1.2 +1.7 +0.8 -1.5 -0.9 -1.1 +0.0 -0.3 +0.6
+[P6] ex2 : types Md€ Salaires -13.5 ; Pensions +10.9 ; Indépendants, foncier, gérants -0.4 ; Chômage, préretraites +3.0
+[P6] ex2 : par type de foyer, € par foyer seul -27 (-0.7 Md€) ; parent_isole +320 (+1.3 Md€) ; couple0 +657 (+4.0 Md€) ; couple2 -656 (-4.6 Md€)
+[P7] ex2 : cas-types seul 21k -368 ; seul 30k -739 ; seul 50k -1,503 ; seul 80k -3,390 ; seul 150k -7,713 ; couple_0enf 50k -1,069 ; couple_2enf 30k -1,871 ; couple_2enf 50k -2,092 ; couple_2enf 80k -2,883 ; couple_2enf_mono 80k +1,541 ; retraite_seul 17k +1,428 ; retraite_seul 30k +411
+[P7] ex2 : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -3.4 +0.3 +0.6 +1.6
+[P5] ex3 : recette 220.1 Md€ ; perte sèche 5.2 (2.2 à 9.0) ; redistribution 0.21 ; perdants > 500 € 23.7 M (57 %), > 1 000 € 13.3 M (32 %) ; gagnants > 500 € 7.1 M (17 %)
+[P6] ex3 : déciles € +143 +607 +1231 +1310 +823 +849 +501 +484 -445 -5376 | pts +7.1 +7.7 +7.5 +6.0 +3.1 +2.7 +1.3 +1.0 -0.7 -4.3
+[P6] ex3 : types Md€ Salaires -13.9 ; Pensions +16.7 ; Indépendants, foncier, gérants -5.8 ; Chômage, préretraites +2.9
+[P6] ex3 : par type de foyer, € par foyer seul +172 (+4.2 Md€) ; parent_isole +558 (+2.2 Md€) ; couple0 -21 (-0.1 Md€) ; couple2 -905 (-6.3 Md€)
+[P7] ex3 : cas-types seul 21k +802 ; seul 30k +390 ; seul 50k -2,045 ; seul 80k -7,122 ; seul 150k -21,420 ; couple_0enf 50k +1,185 ; couple_2enf 30k -750 ; couple_2enf 50k +27 ; couple_2enf 80k -1,028 ; couple_2enf_mono 80k -687 ; retraite_seul 17k +2,524 ; retraite_seul 30k +1,296
+[P7] ex3 : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -0.1 +6.9 +7.6 +7.9
+[P2] franchise d'activité 0 € : 14 % au premier euro, 16 % à 20 k€, 18.0 % à 120 k€, 50 % à 600 k€ ; perte sèche 5.2 ; transferts 5.82 pts
+[P5] F0k : recette 220.1 Md€ ; perte sèche 5.2 (2.2 à 9.0) ; redistribution 0.21 ; perdants > 500 € 23.7 M (57 %), > 1 000 € 13.3 M (32 %) ; gagnants > 500 € 7.1 M (17 %)
+[P6] F0k : déciles € +143 +607 +1231 +1310 +823 +849 +501 +484 -445 -5376 | pts +7.1 +7.7 +7.5 +6.0 +3.1 +2.7 +1.3 +1.0 -0.7 -4.3
+[P6] F0k : types Md€ Salaires -13.9 ; Pensions +16.7 ; Indépendants, foncier, gérants -5.8 ; Chômage, préretraites +2.9
+[P6] F0k : par type de foyer, € par foyer seul +172 (+4.2 Md€) ; parent_isole +558 (+2.2 Md€) ; couple0 -21 (-0.1 Md€) ; couple2 -905 (-6.3 Md€)
+[P7] F0k : cas-types seul 21k +802 ; seul 30k +390 ; seul 50k -2,045 ; seul 80k -7,122 ; seul 150k -21,420 ; couple_0enf 50k +1,185 ; couple_2enf 30k -750 ; couple_2enf 50k +27 ; couple_2enf 80k -1,028 ; couple_2enf_mono 80k -687 ; retraite_seul 17k +2,524 ; retraite_seul 30k +1,296
+[P7] F0k : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -0.1 +6.9 +7.6 +7.9
+[P2] franchise d'activité 4,000 € : 14 % au premier euro, 19 % à 20 k€, 21.2 % à 45 k€, 50 % à 600 k€ ; perte sèche 7.7 ; transferts 3.40 pts
+[P5] F4k : recette 220.1 Md€ ; perte sèche 7.7 (3.2 à 13.2) ; redistribution 0.58 ; perdants > 500 € 17.9 M (43 %), > 1 000 € 8.7 M (21 %) ; gagnants > 500 € 7.9 M (19 %)
+[P6] F4k : déciles € +27 +172 +693 +794 +330 +438 +168 +387 -167 -2773 | pts +1.4 +2.2 +4.2 +3.6 +1.3 +1.4 +0.4 +0.8 -0.3 -2.2
+[P6] F4k : types Md€ Salaires -13.4 ; Pensions +14.1 ; Indépendants, foncier, gérants -3.7 ; Chômage, préretraites +3.0
+[P6] F4k : par type de foyer, € par foyer seul +124 (+3.0 Md€) ; parent_isole +448 (+1.8 Md€) ; couple0 +256 (+1.5 Md€) ; couple2 -911 (-6.4 Md€)
+[P7] F4k : cas-types seul 21k +344 ; seul 30k +127 ; seul 50k -1,654 ; seul 80k -5,421 ; seul 150k -15,795 ; couple_0enf 50k +440 ; couple_2enf 30k -1,874 ; couple_2enf 50k -980 ; couple_2enf 80k -1,372 ; couple_2enf_mono 80k +399 ; retraite_seul 17k +2,741 ; retraite_seul 30k +1,930
+[P7] F4k : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -3.0 +4.1 +5.1 +5.5
+[P2] franchise d'activité 6,000 € : 14 % au premier euro, 22 % à 20 k€, 24.4 % à 120 k€, 50 % à 600 k€ ; perte sèche 8.3 ; transferts 3.09 pts
+[P5] F6k : recette 220.1 Md€ ; perte sèche 8.3 (3.4 à 14.3) ; redistribution 0.69 ; perdants > 500 € 15.5 M (37 %), > 1 000 € 6.2 M (15 %) ; gagnants > 500 € 6.3 M (15 %)
+[P6] F6k : déciles € +28 +126 +446 +571 +141 +317 +98 +448 +46 -2167 | pts +1.4 +1.6 +2.7 +2.6 +0.5 +1.0 +0.3 +0.9 +0.1 -1.7
+[P6] F6k : types Md€ Salaires -13.2 ; Pensions +13.6 ; Indépendants, foncier, gérants -3.3 ; Chômage, préretraites +3.0
+[P6] F6k : par type de foyer, € par foyer seul +141 (+3.5 Md€) ; parent_isole +402 (+1.6 Md€) ; couple0 +291 (+1.8 Md€) ; couple2 -975 (-6.8 Md€)
+[P7] F6k : cas-types seul 21k +122 ; seul 30k +63 ; seul 50k -1,325 ; seul 80k -4,788 ; seul 150k -15,250 ; couple_0enf 50k +135 ; couple_2enf 30k -2,166 ; couple_2enf 50k -1,493 ; couple_2enf 80k -1,349 ; couple_2enf_mono 80k +924 ; retraite_seul 17k +2,958 ; retraite_seul 30k +2,498
+[P7] F6k : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -4.8 +2.7 +4.3 +5.2
+[P2] franchise d'activité 8,000 € : 17 % au premier euro, 22 % à 20 k€, 24.2 % à 45 k€, 50 % à 600 k€ ; perte sèche 9.3 ; transferts 3.15 pts
+[P5] F8k : recette 220.1 Md€ ; perte sèche 9.3 (3.9 à 15.9) ; redistribution 0.75 ; perdants > 500 € 13.6 M (33 %), > 1 000 € 4.7 M (11 %) ; gagnants > 500 € 6.8 M (16 %)
+[P6] F8k : déciles € +51 +208 +355 +450 +12 +166 -68 +302 -6 -1436 | pts +2.6 +2.6 +2.2 +2.1 +0.0 +0.5 -0.2 +0.6 -0.0 -1.2
+[P6] F8k : types Md€ Salaires -13.3 ; Pensions +13.0 ; Indépendants, foncier, gérants -2.6 ; Chômage, préretraites +3.0
+[P6] F8k : par type de foyer, € par foyer seul +130 (+3.2 Md€) ; parent_isole +339 (+1.4 Md€) ; couple0 +364 (+2.2 Md€) ; couple2 -966 (-6.8 Md€)
+[P7] F8k : cas-types seul 21k -14 ; seul 30k -75 ; seul 50k -1,386 ; seul 80k -4,408 ; seul 150k -13,171 ; couple_0enf 50k -147 ; couple_2enf 30k -2,401 ; couple_2enf 50k -1,813 ; couple_2enf 80k -1,629 ; couple_2enf_mono 80k +1,080 ; retraite_seul 17k +3,251 ; retraite_seul 30k +2,830
+[P7] F8k : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -5.6 +2.2 +3.5 +4.3
+[P2] franchise d'activité 10,000 € : 20 % au premier euro, 22 % à 20 k€, 26.4 % à 45 k€, 50 % à 600 k€ ; perte sèche 10.1 ; transferts 3.41 pts
+[P5] F10k : recette 220.1 Md€ ; perte sèche 10.1 (4.3 à 17.3) ; redistribution 0.79 ; perdants > 500 € 13.3 M (32 %), > 1 000 € 3.7 M (9 %) ; gagnants > 500 € 8.7 M (21 %)
+[P6] F10k : déciles € +75 +293 +394 +310 -103 +37 -231 +156 -73 -839 | pts +3.7 +3.7 +2.4 +1.4 -0.4 +0.1 -0.6 +0.3 -0.1 -0.7
+[P6] F10k : types Md€ Salaires -13.4 ; Pensions +12.6 ; Indépendants, foncier, gérants -2.2 ; Chômage, préretraites +3.0
+[P6] F10k : par type de foyer, € par foyer seul +128 (+3.1 Md€) ; parent_isole +271 (+1.1 Md€) ; couple0 +424 (+2.6 Md€) ; couple2 -971 (-6.8 Md€)
+[P7] F10k : cas-types seul 21k -194 ; seul 30k -212 ; seul 50k -1,466 ; seul 80k -3,998 ; seul 150k -11,588 ; couple_0enf 50k -480 ; couple_2enf 30k -2,730 ; couple_2enf 50k -2,256 ; couple_2enf 80k -1,910 ; couple_2enf_mono 80k +1,249 ; retraite_seul 17k +3,544 ; retraite_seul 30k +3,173
+[P7] F10k : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -6.4 +1.6 +2.6 +3.2
+[P3] famille « rien », franchise d'activité 8,000 € : 17 % au premier euro, 19 % à 20 k€, 21.5 % à 45 k€, 50 % à 600 k€ ; perte sèche 7.8 ; transferts 3.16 pts
+[P5] rien : recette 220.1 Md€ ; perte sèche 7.8 (3.3 à 13.3) ; redistribution 0.64 ; perdants > 500 € 13.6 M (33 %), > 1 000 € 5.9 M (14 %) ; gagnants > 500 € 7.5 M (18 %)
+[P6] rien : déciles € +74 +291 +504 +599 +189 +314 +132 +392 -28 -2410 | pts +3.7 +3.7 +3.1 +2.7 +0.7 +1.0 +0.3 +0.8 -0.0 -1.9
+[P6] rien : types Md€ Salaires -13.4 ; Pensions +13.8 ; Indépendants, foncier, gérants -3.4 ; Chômage, préretraites +3.0
+[P6] rien : par type de foyer, € par foyer seul -197 (-4.9 Md€) ; parent_isole +1,034 (+4.1 Md€) ; couple0 -495 (-3.0 Md€) ; couple2 +530 (+3.7 Md€)
+[P7] rien : cas-types seul 21k -106 ; seul 30k -335 ; seul 50k -2,160 ; seul 80k -5,905 ; seul 150k -16,212 ; couple_0enf 50k -478 ; couple_2enf 30k -1,021 ; couple_2enf 50k +274 ; couple_2enf 80k +67 ; couple_2enf_mono 80k +2,558 ; retraite_seul 17k +3,034 ; retraite_seul 30k +2,236
+[P7] rien : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ +1.0 +7.2 +7.5 +7.5
+[P4] famille « rien » : aide aux familles dans l'impôt 0.0 Md€ (quotient familial des enfants aujourd'hui 13.9) ; impôt brut avant chèques 220.1 Md€ ; personnes seules sans enfant : -197 € par foyer par rapport à aujourd'hui ; impôt d'un adulte sans enfant à 30/50/80 k€ nets 3,982 8,024 14,664
+[P3] famille « franchise », franchise d'activité 8,000 € : 17 % au premier euro, 22 % à 20 k€, 24.2 % à 45 k€, 50 % à 600 k€ ; perte sèche 9.3 ; transferts 3.15 pts
+[P5] franchise : recette 220.1 Md€ ; perte sèche 9.3 (3.9 à 15.9) ; redistribution 0.75 ; perdants > 500 € 13.6 M (33 %), > 1 000 € 4.7 M (11 %) ; gagnants > 500 € 6.8 M (16 %)
+[P6] franchise : déciles € +51 +208 +355 +450 +12 +166 -68 +302 -6 -1436 | pts +2.6 +2.6 +2.2 +2.1 +0.0 +0.5 -0.2 +0.6 -0.0 -1.2
+[P6] franchise : types Md€ Salaires -13.3 ; Pensions +13.0 ; Indépendants, foncier, gérants -2.6 ; Chômage, préretraites +3.0
+[P6] franchise : par type de foyer, € par foyer seul +130 (+3.2 Md€) ; parent_isole +339 (+1.4 Md€) ; couple0 +364 (+2.2 Md€) ; couple2 -966 (-6.8 Md€)
+[P7] franchise : cas-types seul 21k -14 ; seul 30k -75 ; seul 50k -1,386 ; seul 80k -4,408 ; seul 150k -13,171 ; couple_0enf 50k -147 ; couple_2enf 30k -2,401 ; couple_2enf 50k -1,813 ; couple_2enf 80k -1,629 ; couple_2enf_mono 80k +1,080 ; retraite_seul 17k +3,251 ; retraite_seul 30k +2,830
+[P7] franchise : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -5.6 +2.2 +3.5 +4.3
+[P4] famille « franchise » : aide aux familles dans l'impôt 20.6 Md€ (quotient familial des enfants aujourd'hui 13.9) ; impôt brut avant chèques 220.1 Md€ ; personnes seules sans enfant : +130 € par foyer par rapport à aujourd'hui ; impôt d'un adulte sans enfant à 30/50/80 k€ nets 4,342 8,955 16,388
+[P3] famille « cheque », franchise d'activité 8,000 € : 17 % au premier euro, 22 % à 20 k€, 23.6 % à 120 k€, 50 % à 600 k€ ; perte sèche 8.2 ; transferts 32.71 pts
+[P5] cheque : recette 220.1 Md€ ; perte sèche 8.2 (3.4 à 14.1) ; redistribution 0.72 ; perdants > 500 € 15.0 M (36 %), > 1 000 € 6.0 M (14 %) ; gagnants > 500 € 6.5 M (16 %)
+[P6] cheque : déciles € -44 +180 +353 +456 +60 +280 +136 +521 +202 -2096 | pts -2.2 +2.3 +2.1 +2.1 +0.2 +0.9 +0.4 +1.1 +0.3 -1.7
+[P6] cheque : types Md€ Salaires -13.2 ; Pensions +13.5 ; Indépendants, foncier, gérants -3.2 ; Chômage, préretraites +3.0
+[P6] cheque : par type de foyer, € par foyer seul +52 (+1.3 Md€) ; parent_isole +511 (+2.0 Md€) ; couple0 +24 (+0.1 Md€) ; couple2 -495 (-3.5 Md€)
+[P7] cheque : cas-types seul 21k -14 ; seul 30k -75 ; seul 50k -1,484 ; seul 80k -5,024 ; seul 150k -15,898 ; couple_0enf 50k -147 ; couple_2enf 30k -2,512 ; couple_2enf 50k -939 ; couple_2enf 80k -520 ; couple_2enf_mono 80k +1,895 ; retraite_seul 17k +3,251 ; retraite_seul 30k +2,794
+[P7] cheque : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ -3.7 +4.3 +5.6 +6.4
+[P4] famille « cheque » : aide aux familles dans l'impôt 13.9 Md€ (quotient familial des enfants aujourd'hui 13.9) ; impôt brut avant chèques 234.0 Md€ ; personnes seules sans enfant : +52 € par foyer par rapport à aujourd'hui ; impôt d'un adulte sans enfant à 30/50/80 k€ nets 4,340 8,778 15,550
+[P3] famille « quotient », franchise d'activité 8,000 € : 17 % au premier euro, 19 % à 20 k€, 24.6 % à 45 k€, 50 % à 600 k€ ; perte sèche 8.1 ; transferts 2.95 pts
+[P5] quotient : recette 220.1 Md€ ; perte sèche 8.1 (3.4 à 13.9) ; redistribution 0.65 ; perdants > 500 € 13.0 M (31 %), > 1 000 € 5.4 M (13 %) ; gagnants > 500 € 7.0 M (17 %)
+[P6] quotient : déciles € +74 +290 +502 +592 +176 +292 +102 +381 -51 -2302 | pts +3.7 +3.7 +3.1 +2.7 +0.7 +0.9 +0.3 +0.8 -0.1 -1.8
+[P6] quotient : types Md€ Salaires -13.4 ; Pensions +13.8 ; Indépendants, foncier, gérants -3.3 ; Chômage, préretraites +3.0
+[P6] quotient : par type de foyer, € par foyer seul -89 (-2.2 Md€) ; parent_isole +903 (+3.6 Md€) ; couple0 -454 (-2.7 Md€) ; couple2 +190 (+1.3 Md€)
+[P7] quotient : cas-types seul 21k -106 ; seul 30k -335 ; seul 50k -1,996 ; seul 80k -4,968 ; seul 150k -13,515 ; couple_0enf 50k -498 ; couple_2enf 30k -1,037 ; couple_2enf 50k +187 ; couple_2enf 80k -235 ; couple_2enf_mono 80k +1,301 ; retraite_seul 17k +3,034 ; retraite_seul 30k +2,298
+[P7] quotient : gain d'une personne seule moins gain d'un couple avec deux enfants (pts de brut) à 40/60/80/100 k€ +0.8 +6.4 +5.9 +5.6
+[P4] famille « quotient » : aide aux familles dans l'impôt 3.6 Md€ (quotient familial des enfants aujourd'hui 13.9) ; impôt brut avant chèques 220.1 Md€ ; personnes seules sans enfant : -89 € par foyer par rapport à aujourd'hui ; impôt d'un adulte sans enfant à 30/50/80 k€ nets 3,984 8,322 15,859
