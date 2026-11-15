@@ -1,0 +1,71 @@
+indicateur,valeur,unite,annee,source,statut
+Recette nette de l'IS (budget de l'État),"56,8",Md€,2023 (exécution),"Évaluation des voies et moyens, tome I, PLF 2025, tableau des recettes",TEXTE LU
+Recette nette de l'IS (budget de l'État),"57,4",Md€,2024 (exécution),"Évaluation des voies et moyens, tome I, PLF 2026, p. 21",TEXTE LU
+Recette nette de l'IS (budget de l'État),"59,9",Md€,2025 (exécution),"Projet de loi de finances pour 2027 (AN n° 3210, 1er oct. 2026), tableau des recettes fiscales nettes",TEXTE LU
+Recette nette de l'IS (budget de l'État),"60,3",Md€,2026 (révisé),"PLF 2027, tableau des recettes fiscales nettes",TEXTE LU
+Recette nette de l'IS (budget de l'État),"58,5",Md€,2027 (prévision PLF),"PLF 2027, tableau des recettes fiscales nettes",TEXTE LU
+IS brut avant remboursements et dégrèvements (budget),"85,0",Md€,2026 (révisé),"PLF 2027, état A, ligne 3 (85 029 M€)",TEXTE LU
+Remboursements et dégrèvements relatifs à l'IS,"25,8",Md€,2024,"Voies et moyens tome I PLF 2026, p. 41",TEXTE LU
+"IS et contribution sociale sur les bénéfices, recettes nettes recouvrées par la DGFiP","59,4",Md€,2024,"DGFiP Statistiques n° 43, mars 2026",TEXTE LU
+"IS et contribution sociale sur les bénéfices, recettes nettes recouvrées par la DGFiP","61,8",Md€,2025,"DGFiP Statistiques n° 43, mars 2026",TEXTE LU
+"Contribution sociale sur les bénéfices (3,3 %)",1519,M€,2024,"Voies et moyens tome I PLF 2026, p. 21",TEXTE LU
+"Contribution sociale sur les bénéfices (3,3 %)",1510,M€,2026 (révisé),"PLF 2027, état A, ligne 3bis",TEXTE LU
+Contribution exceptionnelle sur les bénéfices des grandes entreprises,"7,5",Md€,2025,"DGFiP Statistiques n° 43 (prévision initiale 8 Md€, Voies et moyens tome I PLF 2026)",TEXTE LU
+Contribution exceptionnelle sur les bénéfices des grandes entreprises,"7,0",Md€,2026,"PLF 2027 : rendement 2027 de 5,0 Md€ « en diminution de 2,0 Md€ par rapport à 2026 »",TEXTE LU
+"Contribution exceptionnelle, rendement attendu de la prorogation proposée (15,7 % / 31,4 %)","5,0",Md€,"2027 (+0,5 Md€ en 2028)","PLF 2027, évaluations préalables, art. 15 ; article supprimé par l'Assemblée en 1re lecture le 27 oct. 2026 (Légifiscal)",TEXTE LU
+Impôt minimum mondial (pilier 2),"0,5",Md€,2026 (révisé),"PLF 2027, état A, ligne 3qua",TEXTE LU
+Bénéfices des redevables de l'IS (hors plus-values et brevets),278,Md€,2022,"Insee Analyses n° 112 (sept. 2025), figure 1 ; DGFiP Statistiques n° 21 (277,9 Md€)",TEXTE LU
+Bénéfice imposé au taux réduit de 15 %,"27,0",Md€,2022,"DGFiP Statistiques n° 21, graphique 2 ; Insee Analyses n° 112",TEXTE LU
+Bénéfice imposé au taux réduit de 15 %,"18,2",Md€,2018,"DGFiP Statistiques n° 21, graphique 2",TEXTE LU
+"Bénéfice imposé aux taux normaux (25 %, 26,5 %, 27,5 %)",251,Md€,2022,"DGFiP Statistiques n° 21, graphique 2 (202 + 39 + 10)",TEXTE LU
+Déficits des redevables de l'IS,113,Md€,2022,"DGFiP Statistiques n° 21, graphique 2",TEXTE LU
+IS brut (avant crédits et réductions d'impôt),"68,4",Md€,2022,"DGFiP Statistiques n° 21, tableau 2",TEXTE LU
+IS brut (avant crédits et réductions d'impôt),"68,6",Md€,2023,"CPO, sept. 2025, tableau n° 7 (source DGFiP)",TEXTE LU
+Résultat fiscal des redevables de l'IS (bénéfices moins déficits),"180,9",Md€,2023,"CPO, sept. 2025, tableau n° 7 (source DGFiP)",TEXTE LU
+Nombre de redevables de l'IS,2588,milliers,2023,"CPO, sept. 2025, tableau n° 7 (source DGFiP)",TEXTE LU
+Très petites entreprises : nombre / bénéfices / IS brut,"2213 / 60,3 / 13,1",milliers / Md€ / Md€,2022,"DGFiP Statistiques n° 21, tableau 2",TEXTE LU
+PME : nombre / bénéfices / IS brut,"217,5 / 75,9 / 18,9",milliers / Md€ / Md€,2022,"DGFiP Statistiques n° 21, tableau 2",TEXTE LU
+ETI : nombre / bénéfices / IS brut,"8,1 / 62,2 / 15,8",milliers / Md€ / Md€,2022,"DGFiP Statistiques n° 21, tableau 2",TEXTE LU
+Grandes entreprises : nombre / bénéfices / IS brut,"0,4 / 79,5 / 20,6",milliers / Md€ / Md€,2022,"DGFiP Statistiques n° 21, tableau 2",TEXTE LU
+Part de l'IS brut : GE / ETI / PME / microentreprises,38 / 21 / 25 / 16,%,2019,"CPO, juin 2023, graphique n° 5 (source DGFiP)",TEXTE LU
+"Taux implicite brut (IS hors crédits / ENE), ensemble","17,5",%,2022,"Insee Analyses n° 112 (20,7 % en 2016)",TEXTE LU
+Taux implicite brut : PME hors micro / micro / GE,"21,4 / 19,0 / 14,3",%,2022,Insee Analyses n° 112,TEXTE LU
+Effet du taux réduit de 15 % sur le taux fiscal moyen,"-0,9",point,2022,"Insee Analyses n° 112, figure 3 (-1,9 point en 2016)",TEXTE LU
+"Effet de la contribution sociale de 3,3 % sur le taux fiscal moyen","+0,4",point,2022,"Insee Analyses n° 112, figure 3",TEXTE LU
+Coût du taux réduit PME (dépense non classée dépense fiscale depuis 2006),"2,6",Md€,2014,"CPO 2016, reproduit dans CPO juin 2023, annexe 2 (source : Voies et moyens tome II PLF 2016) ; 670 000 bénéficiaires",TEXTE LU
+Coût du taux réduit PME,"2,2",Md€,2019,"CPO juin 2023, p. 17 (source : Voies et moyens tome II PLF 2019) ; 760 000 bénéficiaires",TEXTE LU
+"Coût statique du taux réduit PME (27,0 Md€ x 10 points)","2,7",Md€,2022,Calcul de l'auteur à partir de DGFiP Statistiques n° 21,CALCUL
+Rendement statique d'un point de taux normal (251 Md€ x 1 %),"2,5",Md€,base 2022,Calcul de l'auteur à partir de DGFiP Statistiques n° 21 ; avant réaction des assiettes,CALCUL
+Crédit d'impôt recherche,7800 / 8068 / 8041,M€,2024 réalisé / 2025 / 2026 prévisions,"Voies et moyens tome II PLF 2026, dépense fiscale 200302 ; 17 593 entreprises",TEXTE LU
+Taxation à 10 % des revenus de la propriété industrielle (boîte à brevets),1199 / 1258,M€,2024 / 2025,"Voies et moyens tome II PLF 2026, dépense fiscale 210326 ; 1 065 entreprises",TEXTE LU
+Suramortissement de 40 % de 2015-2017 (coût résiduel),289 / 240 / 200,M€,2024 / 2025 / 2026,"Voies et moyens tome II PLF 2026, dépense fiscale 200401 ; 81 900 entreprises ; fin d'incidence 2027",TEXTE LU
+Suramortissement robotique et numérique PME 2019-2020 (coût total),30,M€,2019-2025,"DGE, document de travail n° 1, avril 2026, figure 1 ; 2 390 déclarants, 350 M€ d'investissements",TEXTE LU
+"Suramortissement « industrie 4.0 » proposé (PLF 2027, art. 9)",161,M€ (coût total 2028-2035),2027-2029,"PLF 2027, évaluations préalables, art. 9",TEXTE LU
+Exonération d'IS des jeunes entreprises innovantes,11 / 9,M€,2024 / 2025,"Voies et moyens tome II PLF 2026, dépense fiscale 230604 ; 420 entreprises",TEXTE LU
+Exonération des entreprises créées en ZRR,411 / 430,M€,2024 / 2025,"Voies et moyens tome II PLF 2026, dépense fiscale 220104",TEXTE LU
+Taxe au tonnage (transport maritime),625 / 1435 / 620,M€,2024 / 2025 / 2026,"Voies et moyens tome II PLF 2026, dépense fiscale 320119 ; 78 entreprises",TEXTE LU
+Dépenses fiscales propres à l'IS / communes IR et IS,3913 / 14111,M€,2024,"Voies et moyens tome II PLF 2026, tableau par impôt",TEXTE LU
+CIR apprécié au niveau du groupe (rendement estimé),569,M€,2025,"CPO, sept. 2025, recommandation n° 3",TEXTE LU
+Exonérations d'IS et d'IR des ZRR et ZFU,524,M€,2025,"CPO, sept. 2025",TEXTE LU
+FBCF des sociétés non financières (P51G),"337,6 / 342,5 / 348,2",Md€,2023 / 2024 / 2025,"Insee, comptes nationaux annuels base 2020, tableau 7.101 (juillet 2026)",TEXTE LU
+Flux d'actifs fixes des SNF : constructions,"117,6",Md€,2024,"Insee, tableau 8.212 (dont logements 40,3, bâtiments non résidentiels 55,2, génie civil 22,1)",TEXTE LU
+Flux d'actifs fixes des SNF : machines et équipements,"124,6",Md€,2024,"Insee, tableau 8.212 (dont matériels de transport 41,8, TIC 7,8, autres machines 75,0)",TEXTE LU
+Flux d'actifs fixes des SNF : propriété intellectuelle,"101,1",Md€,2024,"Insee, tableau 8.212 (dont R&D 24,0, logiciels et bases de données 74,1)",TEXTE LU
+Flux d'actifs fixes des SNF : machines et équipements / constructions / PI,"126,2 / 116,2 / 106,6",Md€,2025,"Insee, tableau 8.212",TEXTE LU
+Consommation de capital fixe des SNF : total / machines et équipements / constructions / PI,"289,2 / 116,5 / 81,6 / 90,5",Md€,2024,"Insee, tableau 8.212 (proxy faute de dotations fiscales publiées)",TEXTE LU
+Excédent brut d'exploitation des SNF,"500,5 / 497,5",Md€,2024 / 2025,"Insee, tableau 7.101",TEXTE LU
+"Impôts sur le revenu payés par les SNF (D51, comptabilité nationale)","65,1 / 73,4",Md€,2024 / 2025,"Insee, tableau 7.101",TEXTE LU
+"Coût la 1re année d'un passage en charges immédiat des équipements hors transport (82,8 Md€)",13 à 14,Md€,base 2024,"Calcul de l'auteur (taux 25 %, 75 % de l'investissement fait par des entreprises imposables, régime actuel dégressif ou linéaire 7 ans) ; fourchette 10 à 17 Md€ selon la part imposable",CALCUL
+"Coût du même dispositif après 10 ans (régime permanent, croissance nominale 3 %)","1,3 à 2,0",Md€/an,base 2024,"Calcul de l'auteur, mêmes hypothèses",CALCUL
+Coût « vrai » par millésime d'investissement (valeur actualisée à 5 %),"1,6 à 2,4",Md€/an,base 2024,"Calcul de l'auteur, mêmes hypothèses",CALCUL
+Coût la 1re année d'une déduction immédiate de 50 % (reste amorti normalement),"6,5 à 7,2",Md€,base 2024,"Calcul de l'auteur, mêmes hypothèses ; coût vrai 0,8 à 1,2 Md€/an",CALCUL
+Royaume-Uni : coût initial du full expensing temporaire,10,Md£/an,2023-2026,"IFS Green Budget 2023, ch. 10 (Adam et Miller), citant le Trésor",TEXTE LU
+Royaume-Uni : coût réel du full expensing par année d'investissement,1 à 3,Md£/an,2023,"IFS Green Budget 2023, ch. 10 (75 à 90 % du coût initial récupérés) ; recette de l'IS britannique 82 Md£ en 2023-24",TEXTE LU
+"OCDE : taux effectif moyen (EATR), investissement composite, France / moyenne OCDE","23,61 / 22,24",%,2025,"OCDE, Corporate Tax Statistics, DF_ETR_BASELINE, scénario à taux fixes ; calcul de la moyenne par l'auteur (38 pays) ; France 13e taux le plus élevé",TEXTE LU
+"OCDE : taux effectif marginal (EMTR), investissement composite, France / moyenne OCDE","14,97 / 16,49",%,2025,"OCDE, Corporate Tax Statistics, scénario à taux fixes",TEXTE LU
+"OCDE : EMTR sur les actifs corporels (équipements), France / moyenne OCDE","9,82 / 10,40",%,2025,"OCDE, Corporate Tax Statistics, scénario à taux fixes",TEXTE LU
+"OCDE : EATR et EMTR composites, scénario macroéconomique propre au pays","23,8 / 20,56",%,2025,"OCDE, Corporate Tax Statistics (scénario CS)",TEXTE LU
+Tax Foundation ITCI : rang global / rang IS de la France,38 / 38,rang sur 38,2025 et 2026,"Tax Foundation, ITCI 2025 (score 45,8) et 2026 (45,7)",TEXTE LU
+Tax Foundation ITCI : sous-rangs IS 2025 (taux / cost recovery / incitations et complexité),38 / 15 / 38,rang sur 38,2025,"Tax Foundation, ITCI 2025, tableau 3",TEXTE LU
+"Tax Foundation : valeur actuelle des déductions, machines / bâtiments industriels / incorporels (France ; moyenne OCDE)","88,0 ; 54,8 ; 87,0 (85,9 ; 50,3 ; 78,2)",% du coût,2026,"Tax Foundation, ITCI 2026, page France, impôts sur les sociétés",TEXTE LU
+"Tax Foundation : taux implicite de subvention de la R&D, France / moyenne OCDE","0,34 / 0,16",,2026,"Tax Foundation, ITCI 2026, page France",TEXTE LU
