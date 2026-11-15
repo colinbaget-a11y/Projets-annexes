@@ -1,0 +1,57 @@
+champ : 30.5 M logements de particuliers, valeur 6,762 Md€, terrain 3,068 Md€ (45.4 %) ; coût de reconstruction calé pour les appartements 1,560 €/m²
+taxe foncière des particuliers 23.6 Md€ (croissance TFPB 2017-2024 1.296, part du champ 0.946) ; DMTO sur les logements anciens 11.4 Md€ (taux 5.81 %) ; TF moyenne 773 € par logement ; TF / valeur 0.348 %
+prix des terrains imputé : élasticité au prix des maisons 1.54 (constante 0.08, 3307 communes)
+part du terrain par type : {'a': 0.595, 'm': 0.365} ; par décile de prix : 16 20 22 29 34 39 46 51 54 67
+contrôle maisons par département : part du terrain par résidu 39 % (médiane), par prix des terrains à bâtir 26 % ; corrélation 0.69
+[report sur la TF actuelle, DMTO −30 %] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 27.0 ; logements dont la TF augmente de plus de 300 € 1 %, de plus de 50 % 0 % ; baisse de plus de 100 € 0 %
+  par décile de prix au m² : 0 +67 € (+14 %), total +20 € ; 1 +85 € (+14 %), total +25 € ; 2 +100 € (+14 %), total +29 € ; 3 +111 € (+14 %), total +29 € ; 4 +118 € (+14 %), total +25 € ; 5 +124 € (+14 %), total +20 € ; 6 +130 € (+14 %), total +14 € ; 7 +137 € (+14 %), total +6 € ; 8 +140 € (+14 %), total -21 € ; 9 +110 € (+14 %), total -147 €
+  par type : a +92 € (+14 %), total -18 € ; m +127 € (+14 %), total +14 €
+  par taille de commune : < 1 000 hab. +84 € (+14 %), total +17 € ; 1 000-5 000 +105 € (+14 %), total +7 € ; 5 000-20 000 +123 € (+14 %), total +6 € ; 20 000-100 000 +131 € (+14 %), total +0 € ; > 100 000 +113 € (+14 %), total -37 €
+[report sur la TF actuelle, DMTO −50 %] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 10 %, de plus de 50 % 0 % ; baisse de plus de 100 € 0 %
+  par décile de prix au m² : 0 +111 € (+24 %), total +33 € ; 1 +142 € (+24 %), total +42 € ; 2 +167 € (+24 %), total +48 € ; 3 +185 € (+24 %), total +48 € ; 4 +196 € (+24 %), total +42 € ; 5 +206 € (+24 %), total +33 € ; 6 +216 € (+24 %), total +23 € ; 7 +228 € (+24 %), total +11 € ; 8 +233 € (+24 %), total -35 € ; 9 +183 € (+24 %), total -244 €
+  par type : a +154 € (+24 %), total -31 € ; m +211 € (+24 %), total +23 €
+  par taille de commune : < 1 000 hab. +140 € (+24 %), total +28 € ; 1 000-5 000 +174 € (+24 %), total +11 € ; 5 000-20 000 +205 € (+24 %), total +10 € ; 20 000-100 000 +219 € (+24 %), total +0 € ; > 100 000 +189 € (+24 %), total -61 €
+[valeur vénale, taux unique national, DMTO −50 %] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 26 %, de plus de 50 % 23 % ; baisse de plus de 100 € 25 %
+  par décile de prix au m² : 0 -97 € (-21 %), total -175 € ; 1 -77 € (-13 %), total -178 € ; 2 -81 € (-12 %), total -200 € ; 3 -52 € (-7 %), total -188 € ; 4 +21 € (+3 %), total -132 € ; 5 +64 € (+7 %), total -110 € ; 6 +125 € (+14 %), total -67 € ; 7 +254 € (+27 %), total +36 € ; 8 +464 € (+48 %), total +197 € ; 9 +1245 € (+164 %), total +817 €
+  par type : a +233 € (+37 %), total +48 € ; m +152 € (+17 %), total -36 €
+  par taille de commune : < 1 000 hab. +91 € (+16 %), total -22 € ; 1 000-5 000 +195 € (+27 %), total +32 € ; 5 000-20 000 +162 € (+19 %), total -32 € ; 20 000-100 000 +135 € (+15 %), total -84 € ; > 100 000 +372 € (+47 %), total +121 €
+[deux taux nationaux, terrain = 2 × bâti, DMTO −50 %] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 27 %, de plus de 50 % 23 % ; baisse de plus de 100 € 32 %
+  par décile de prix au m² : 0 -169 € (-37 %), total -247 € ; 1 -167 € (-28 %), total -267 € ; 2 -177 € (-26 %), total -296 € ; 3 -134 € (-18 %), total -270 € ; 4 -44 € (-5 %), total -197 € ; 5 +26 € (+3 %), total -147 € ; 6 +127 € (+14 %), total -66 € ; 7 +303 € (+32 %), total +85 € ; 8 +552 € (+57 %), total +285 € ; 9 +1549 € (+204 %), total +1121 €
+  par type : a +317 € (+50 %), total +133 € ; m +90 € (+10 %), total -98 €
+  par taille de commune : < 1 000 hab. +9 € (+1 %), total -104 € ; 1 000-5 000 +142 € (+20 %), total -21 € ; 5 000-20 000 +148 € (+17 %), total -46 € ; 20 000-100 000 +181 € (+20 %), total -38 € ; > 100 000 +505 € (+64 %), total +254 €
+[deux taux nationaux, terrain = 4 × bâti, DMTO −50 %] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 28 %, de plus de 50 % 25 % ; baisse de plus de 100 € 40 %
+  par décile de prix au m² : 0 -230 € (-50 %), total -309 € ; 1 -243 € (-41 %), total -343 € ; 2 -259 € (-37 %), total -377 € ; 3 -203 € (-27 %), total -340 € ; 4 -99 € (-12 %), total -252 € ; 5 -5 € (-1 %), total -179 € ; 6 +128 € (+14 %), total -65 € ; 7 +344 € (+36 %), total +126 € ; 8 +626 € (+65 %), total +359 € ; 9 +1807 € (+238 %), total +1379 €
+  par type : a +389 € (+61 %), total +204 € ; m +37 € (+4 %), total -151 €
+  par taille de commune : < 1 000 hab. -61 € (-10 %), total -174 € ; 1 000-5 000 +98 € (+14 %), total -66 € ; 5 000-20 000 +136 € (+16 %), total -58 € ; 20 000-100 000 +220 € (+24 %), total +1 € ; > 100 000 +618 € (+79 %), total +367 €
+[deux taux nationaux, terrain = inf × bâti, DMTO −50 %] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 29 %, de plus de 50 % 26 % ; baisse de plus de 100 € 50 %
+  par décile de prix au m² : 0 -328 € (-71 %), total -406 € ; 1 -364 € (-62 %), total -465 € ; 2 -389 € (-56 %), total -508 € ; 3 -315 € (-41 %), total -451 € ; 4 -187 € (-23 %), total -341 € ; 5 -56 € (-7 %), total -230 € ; 6 +129 € (+14 %), total -63 € ; 7 +410 € (+43 %), total +192 € ; 8 +745 € (+77 %), total +478 € ; 9 +2219 € (+292 %), total +1792 €
+  par type : a +503 € (+79 %), total +319 € ; m -48 € (-5 %), total -236 €
+  par taille de commune : < 1 000 hab. -172 € (-30 %), total -285 € ; 1 000-5 000 +26 € (+4 %), total -138 € ; 5 000-20 000 +117 € (+14 %), total -77 € ; 20 000-100 000 +283 € (+31 %), total +64 € ; > 100 000 +798 € (+102 %), total +548 €
+[deux taux, recette constante par commune, terrain = 2 × bâti ; DMTO −50 % remplacés par un taux départemental sur le terrain] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 21 %, de plus de 50 % 12 % ; baisse de plus de 100 € 0 %
+  par décile de prix au m² : 0 +48 € (+10 %), total -30 € ; 1 +73 € (+12 %), total -27 € ; 2 +89 € (+13 %), total -30 € ; 3 +127 € (+17 %), total -10 € ; 4 +160 € (+20 %), total +7 € ; 5 +178 € (+21 %), total +4 € ; 6 +208 € (+23 %), total +15 € ; 7 +252 € (+27 %), total +34 € ; 8 +308 € (+32 %), total +41 € ; 9 +424 € (+56 %), total -3 €
+  par type : a +199 € (+31 %), total +15 € ; m +177 € (+20 %), total -11 €
+  par taille de commune : < 1 000 hab. +111 € (+19 %), total -2 € ; 1 000-5 000 +172 € (+24 %), total +8 € ; 5 000-20 000 +198 € (+23 %), total +4 € ; 20 000-100 000 +206 € (+23 %), total -13 € ; > 100 000 +250 € (+32 %), total -1 €
+[deux taux, recette constante par commune, terrain = 4 × bâti ; DMTO −50 % remplacés par un taux départemental sur le terrain] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 29.2 ; logements dont la TF augmente de plus de 300 € 22 %, de plus de 50 % 14 % ; baisse de plus de 100 € 3 %
+  par décile de prix au m² : 0 +42 € (+9 %), total -37 € ; 1 +68 € (+12 %), total -32 € ; 2 +81 € (+12 %), total -38 € ; 3 +129 € (+17 %), total -7 € ; 4 +167 € (+21 %), total +14 € ; 5 +181 € (+21 %), total +8 € ; 6 +217 € (+24 %), total +24 € ; 7 +257 € (+27 %), total +39 € ; 8 +308 € (+32 %), total +40 € ; 9 +416 € (+55 %), total -11 €
+  par type : a +205 € (+32 %), total +20 € ; m +173 € (+20 %), total -15 €
+  par taille de commune : < 1 000 hab. +111 € (+19 %), total -2 € ; 1 000-5 000 +172 € (+24 %), total +8 € ; 5 000-20 000 +198 € (+23 %), total +4 € ; 20 000-100 000 +206 € (+23 %), total -13 € ; > 100 000 +250 € (+32 %), total -1 €
+taux nationaux (terrain = 2 × bâti) : terrain 0.595 %, bâti 0.297 % de la valeur
+taux nationaux (terrain = 4 × bâti) : terrain 0.733 %, bâti 0.183 % de la valeur
+taux nationaux (terrain = inf × bâti) : terrain 0.953 %, bâti 0.000 % de la valeur
+taux départemental sur le terrain qui remplace 50 % des DMTO : médiane 0.268 %, de 0.106 à 0.845 % ; Paris 0.119 %, Creuse 0.845 %
+TF / valeur par décile de prix, R50 : 0.68 0.62 0.61 0.58 0.52 0.50 0.47 0.42 0.36 0.20
+TF / valeur par décile de prix, K4 : 0.27 0.29 0.31 0.34 0.37 0.40 0.43 0.46 0.48 0.55
+TF / valeur par décile de prix, L4 : 0.60 0.56 0.55 0.54 0.51 0.49 0.47 0.43 0.38 0.25
+TF / valeur par décile de prix, aujourd'hui : 0.55 0.50 0.49 0.46 0.42 0.40 0.38 0.34 0.29 0.16
+prix au m² médian par décile : 1,035 1,404 1,693 2,000 2,356 2,737 3,176 3,749 4,746 6,261
+cas-types (un logement médian de la commune) :
+  Paris, appartement : valeur 416,182 €, terrain 84 %, TF 392 €, DMTO à l'achat 24,166 € | R50 TF 487 € (+95), DMTO à l'achat −12,083 €, amorti en 128 ans | K4 TF 2,689 € (+2,297), DMTO à l'achat −12,083 €, amorti en 5 ans | L4 TF 818 € (+426), DMTO à l'achat −12,083 €, amorti en 28 ans
+  Lyon, appartement : valeur 279,167 €, terrain 66 %, TF 922 €, DMTO à l'achat 16,210 € | R50 TF 1,145 € (+223), DMTO à l'achat −8,105 €, amorti en 36 ans | K4 TF 1,531 € (+608), DMTO à l'achat −8,105 €, amorti en 13 ans | L4 TF 1,164 € (+242), DMTO à l'achat −8,105 €, amorti en 33 ans
+  Bordeaux, appartement : valeur 222,804 €, terrain 64 %, TF 745 €, DMTO à l'achat 12,937 € | R50 TF 925 € (+180), DMTO à l'achat −6,469 €, amorti en 36 ans | K4 TF 1,195 € (+450), DMTO à l'achat −6,469 €, amorti en 14 ans | L4 TF 1,097 € (+352), DMTO à l'achat −6,469 €, amorti en 18 ans
+  Annecy, maison : valeur 693,155 €, terrain 30 %, TF 1,354 €, DMTO à l'achat 40,249 € | R50 TF 1,681 € (+327), DMTO à l'achat −20,125 €, amorti en 62 ans | K4 TF 2,415 € (+1,061), DMTO à l'achat −20,125 €, amorti en 19 ans | L4 TF 1,225 € (-129), DMTO à l'achat −20,125 €
+  Nantes, maison : valeur 449,520 €, terrain 46 %, TF 1,730 €, DMTO à l'achat 26,102 € | R50 TF 2,148 € (+418), DMTO à l'achat −13,051 €, amorti en 31 ans | K4 TF 1,968 € (+238), DMTO à l'achat −13,051 €, amorti en 55 ans | L4 TF 1,978 € (+248), DMTO à l'achat −13,051 €, amorti en 53 ans
+  Limoges, maison : valeur 171,810 €, terrain 23 %, TF 1,195 €, DMTO à l'achat 9,976 € | R50 TF 1,484 € (+289), DMTO à l'achat −4,988 €, amorti en 17 ans | K4 TF 536 € (-659), DMTO à l'achat −4,988 € | L4 TF 1,529 € (+334), DMTO à l'achat −4,988 €, amorti en 15 ans
+  Saint-Étienne, appartement : valeur 78,049 €, terrain 10 %, TF 632 €, DMTO à l'achat 4,532 € | R50 TF 784 € (+153), DMTO à l'achat −2,266 €, amorti en 15 ans | K4 TF 186 € (-446), DMTO à l'achat −2,266 € | L4 TF 602 € (-29), DMTO à l'achat −2,266 €
+  Ussel (Corrèze), maison : valeur 102,719 €, terrain 10 %, TF 1,210 €, DMTO à l'achat 5,965 € | R50 TF 1,502 € (+292), DMTO à l'achat −2,982 €, amorti en 10 ans | K4 TF 245 € (-965), DMTO à l'achat −2,982 € | L4 TF 1,276 € (+66), DMTO à l'achat −2,982 €, amorti en 45 ans
+  Guéret (Creuse), maison : valeur 109,992 €, terrain 11 %, TF 1,012 €, DMTO à l'achat 6,387 € | R50 TF 1,257 € (+244), DMTO à l'achat −3,193 €, amorti en 13 ans | K4 TF 267 € (-745), DMTO à l'achat −3,193 € | L4 TF 1,123 € (+110), DMTO à l'achat −3,193 €, amorti en 29 ans
+  Arcachon, maison : valeur 781,856 €, terrain 42 %, TF 1,892 €, DMTO à l'achat 45,400 € | R50 TF 2,349 € (+457), DMTO à l'achat −22,700 €, amorti en 50 ans | K4 TF 3,242 € (+1,350), DMTO à l'achat −22,700 €, amorti en 17 ans | L4 TF 2,069 € (+177), DMTO à l'achat −22,700 €, amorti en 128 ans

@@ -1,0 +1,254 @@
+"""Simulations de la note foncière : moins de droits de mutation, plus de taxe foncière, deux taux terrain/bâti.
+
+Lancer depuis fiscalite/foncier/ après donnees_foncier.py : python3 simulation.py  ->  sorties/simulation.txt
+
+Champ : logements des particuliers (parc du recensement 2022 moins les HLM), France métropolitaine hors
+Alsace-Moselle (pas de DVF). Unité : la commune, avec deux types de logements (maison, appartement).
+
+Hypothèses (toutes réglables en tête de fichier) :
+- valeur d'un logement = prix médian au m² des ventes 2023-2024 (commune, sinon intercommunalité, sinon
+  département) × surface médiane des logements vendus du même type ;
+- part du terrain = 1 − coût de reconstruction du bâti / prix au m², bornée entre 10 et 90 % ; le coût de
+  reconstruction est calé pour que la part du terrain de l'ensemble égale celle des comptes de patrimoine des
+  ménages (Insee, 2024 : 3 993 Md€ de terrains pour 4 807 Md€ de logements) ;
+- taxe foncière actuelle d'un logement = (taxe foncière / valeur des logements de la commune, Insee IA 91, 2017)
+  × valeur 2024 × facteur national calé sur le total ;
+- droits de mutation = taux × valeur des ventes de logements anciens de la commune (moyenne annuelle 2023-2024).
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / "sorties"
+OUT.mkdir(exist_ok=True)
+
+LAMBDA_MENAGES = 3993 / (3993 + 4807)        # Insee, comptes de patrimoine 2024, ménages (S14)
+LMIN, LMAX = 0.10, 0.90
+RATIO_COUT_APPART = 1.25                     # coût de reconstruction au m² habitable : appartement / maison
+TAUX_DMTO = 0.045 + 0.012 + 0.0237 * 0.045   # 2024 : département 4,5 %, commune 1,2 %, frais d'assiette de l'État
+PART_DEP_DMTO = (0.045 + 0.0237 * 0.045) / TAUX_DMTO
+TF_2017_MENAGES = 19.2e9                     # Insee IA 91 : TFPB nette sur les logements et dépendances des ménages
+CROISSANCE_TF = None                         # TFPB 2024 / 2017 (REI) : lu dans donnees/croissance_tf.json
+
+c = pd.read_csv(HERE / "donnees/communes.csv.gz", dtype={"codgeo": str, "dep": str, "epci": str}).set_index("codgeo")
+c = c[c.log.fillna(0) > 0].copy()
+
+# ---------------------------------------------------------------- parc des particuliers, valeurs
+hlm = c.rp_lochlmv.fillna(0)
+tot = (c.maison + c.appart).replace(0, np.nan)
+c["n_m"] = (c.maison - hlm * c.maison / tot).clip(lower=0).fillna(0)
+c["n_a"] = (c.appart - hlm * c.appart / tot).clip(lower=0).fillna(0)
+c["v_m"] = c.m_pm2 * c.m_surf
+c["v_a"] = c.a_pm2 * c.a_surf
+
+# ---------------------------------------------------------------- part du terrain
+# Maisons : mesure directe = prix au m² des terrains à bâtir (commune si au moins 5 ventes, sinon département)
+# × surface de parcelle médiane des maisons vendues (plafonnée à PARCELLE_MAX), rapportée au prix de la maison.
+# Appartements : résidu (1 − coût de reconstruction / prix au m²), le coût étant calé pour que la part du terrain
+# de l'ensemble égale celle des comptes de patrimoine des ménages.
+PARCELLE_MAX = 1500.0
+# Communes sans assez de ventes de terrains : prix du terrain du département ajusté selon l'écart de prix des
+# maisons entre la commune et son département, avec l'élasticité estimée sur les communes qui ont des ventes.
+dep_m = (c.m_pm2 * c.n_m).groupby(c.dep).sum() / c.n_m.groupby(c.dep).sum()
+x_ = np.log(c.m_pm2 / c.dep.map(dep_m))
+y_ = np.log(c.pm2_tab_com / c.pm2_tab_dep)
+ok_ = (c.n_tab_com.fillna(0) >= 5) & (c.m_n.fillna(0) >= 10) & x_.notna() & y_.notna()
+ELAST_TERRAIN, CONST_TERRAIN = np.polyfit(x_[ok_], y_[ok_], 1)
+N_REG_TERRAIN = int(ok_.sum())
+pm2_tab = c.pm2_tab_com.where(c.n_tab_com.fillna(0) >= 5,
+                              c.pm2_tab_dep * np.exp(CONST_TERRAIN + ELAST_TERRAIN * x_.fillna(0)))
+c["l_m"] = (pm2_tab * c.m_terrain.clip(upper=PARCELLE_MAX) / c.v_m).clip(LMIN, LMAX)
+c["l_m"] = c.l_m.fillna(c.dep.map(c.groupby("dep").l_m.median())).fillna(c.l_m.median())
+
+
+def part_agregee(B):
+    la = (1 - B / c.a_pm2).clip(LMIN, LMAX)
+    V = c.n_m * c.v_m + c.n_a * c.v_a
+    return (c.n_m * c.v_m * c.l_m + c.n_a * c.v_a * la).sum() / V.sum()
+
+
+lo, hi = 100.0, 20000.0
+for _ in range(60):
+    B = (lo + hi) / 2
+    lo, hi = (B, hi) if part_agregee(B) > LAMBDA_MENAGES else (lo, B)
+B_APPART = (lo + hi) / 2
+c["l_a"] = (1 - B_APPART / c.a_pm2).clip(LMIN, LMAX)
+
+
+def parts_residu(B):
+    """Variante de contrôle : résidu pour les maisons aussi (coût maison = coût appartement / RATIO_COUT_APPART)."""
+    return (1 - B / RATIO_COUT_APPART / c.m_pm2).clip(LMIN, LMAX)
+
+
+# ---------------------------------------------------------------- taxe foncière actuelle par logement
+r = c.tf_valeur_2017 / 100
+r = r.fillna(c.epci.map(r.groupby(c.epci).median())).fillna(c.dep.map(r.groupby(c.dep).median()))
+c["r2017"] = r
+cr = json.loads((HERE / "donnees/croissance_tf.json").read_text())
+CROISSANCE_TF = cr["tfpb_2024"] / cr["tfpb_2017"]
+part_champ = (c.n_m + c.n_a).sum() / cr["logements_metro_particuliers"]
+CIBLE_TF = TF_2017_MENAGES * CROISSANCE_TF * part_champ
+brut = (c.r2017 * (c.n_m * c.v_m + c.n_a * c.v_a)).sum()
+KAPPA = CIBLE_TF / brut
+c["tf_m"], c["tf_a"] = KAPPA * c.r2017 * c.v_m, KAPPA * c.r2017 * c.v_a
+
+# ---------------------------------------------------------------- droits de mutation annuels, par logement du parc
+c["dmto"] = TAUX_DMTO * c.valeur_ventes_an
+c["dmto_m"] = np.where(c.n_m > 0, TAUX_DMTO * c.valeur_ventes_m_an / c.n_m.replace(0, np.nan), 0)
+c["dmto_a"] = np.where(c.n_a > 0, TAUX_DMTO * c.valeur_ventes_a_an / c.n_a.replace(0, np.nan), 0)
+c[["dmto_m", "dmto_a"]] = c[["dmto_m", "dmto_a"]].fillna(0)
+
+# table longue : une ligne par commune et type de logement
+L = pd.concat([pd.DataFrame({"codgeo": c.index, "dep": c.dep, "type": t, "n": c[f"n_{t}"], "v": c[f"v_{t}"],
+                             "lam": c[f"l_{t}"], "tf0": c[f"tf_{t}"], "d0": c[f"dmto_{t}"], "pm2": c[f"{t}_pm2"],
+                             "pmen": c.pmen, "epci": c.epci}) for t in ("m", "a")], ignore_index=True)
+L = L[L.n > 0].reset_index(drop=True)
+L["dec_prix"] = pd.qcut(L.pm2.rank(method="first"), 10, labels=False)  # déciles de prix au m² (lignes)
+# déciles pondérés par le nombre de logements
+o = L.sort_values("pm2")
+cum = o.n.cumsum() / o.n.sum()
+L.loc[o.index, "dec_prix"] = np.minimum((cum * 10).astype(int), 9)
+L["taille"] = pd.cut(L.pmen.fillna(0), [-1, 1000, 5000, 20000, 100000, 1e9],
+                     labels=["< 1 000 hab.", "1 000-5 000", "5 000-20 000", "20 000-100 000", "> 100 000"])
+TF0, D0 = (L.n * L.tf0).sum(), (L.n * L.d0).sum()
+VAL, TERRE = (L.n * L.v).sum(), (L.n * L.v * L.lam).sum()
+
+
+# ---------------------------------------------------------------- scénarios
+def report_tf(s):
+    """Baisse des DMTO de s, taxe foncière actuelle relevée du même pourcentage partout."""
+    return L.tf0 * (1 + s * D0 / TF0), (1 - s) * L.d0
+
+
+def valeur_unique(s):
+    t = (TF0 + s * D0) / VAL
+    return t * L.v, (1 - s) * L.d0
+
+
+TAUX = {}
+
+
+def deux_taux(s, k):
+    """Taux sur le terrain = k × taux sur le bâti (k = inf : terrain seul), recette nationale constante."""
+    base = L.v * (L.lam * (k if np.isfinite(k) else 1.0) + (1 - L.lam) * (1.0 if np.isfinite(k) else 0.0))
+    t = (TF0 + s * D0) / (L.n * base).sum()
+    TAUX[k] = (t * (k if np.isfinite(k) else 1.0), t if np.isfinite(k) else 0.0)
+    return t * base, (1 - s) * L.d0
+
+
+def deux_taux_local(s, k):
+    """Chaque commune garde sa recette de taxe foncière, répartie selon la base à deux taux ; chaque département
+    remplace ses droits de mutation perdus (part départementale, communale et frais) par un taux sur la valeur
+    des terrains de son territoire."""
+    base = L.v * (L.lam * k + (1 - L.lam))
+    g = L.assign(b=L.n * base, t0=L.n * L.tf0, terre=L.n * L.v * L.lam, d=L.n * L.d0)
+    tc = g.groupby("codgeo").t0.sum() / g.groupby("codgeo").b.sum()
+    td = s * g.groupby("dep").d.sum() / g.groupby("dep").terre.sum()
+    TAUX[f"dep{k}"] = td
+    return L.codgeo.map(tc) * base + L.dep.map(td) * L.v * L.lam, (1 - s) * L.d0
+
+
+def resume(nom, tf1, d1, p):
+    dtf = tf1 - L.tf0
+    dtot = dtf + (d1 - L.d0)
+    n = L.n
+    rec = ((n * tf1).sum() + (n * d1).sum()) / 1e9
+    perd = n[dtf > 300].sum() / n.sum()
+    perd50 = n[dtf > 0.5 * L.tf0].sum() / n.sum()
+    gagne = n[dtf < -100].sum() / n.sum()
+    p(f"{nom} : recette TF + DMTO {rec:.1f} Md€ (avant {(TF0 + D0)/1e9:.1f}) ; TF {(n*tf1).sum()/1e9:.1f} ;"
+      f" logements dont la TF augmente de plus de 300 € {100*perd:.0f} %, de plus de 50 % {100*perd50:.0f} % ;"
+      f" baisse de plus de 100 € {100*gagne:.0f} %")
+    for cle, lab in (("dec_prix", "décile de prix au m²"), ("type", "type"), ("taille", "taille de commune")):
+        g = L.assign(w=n, a=n * dtf, b=n * dtot, t0=n * L.tf0).groupby(cle, observed=True)
+        t = pd.DataFrame({"dTF €": g.a.sum() / g.w.sum(), "dTF %": 100 * g.a.sum() / g.t0.sum(),
+                          "dTF+DMTO €": g.b.sum() / g.w.sum()}).round(0)
+        p(f"  par {lab} : " + " ; ".join(f"{i} {r['dTF €']:+.0f} € ({r['dTF %']:+.0f} %), total {r['dTF+DMTO €']:+.0f} €"
+                                         for i, r in t.iterrows()))
+    return dtf, dtot
+
+
+CAS = [("75056", "a", "Paris, appartement"), ("69123", "a", "Lyon, appartement"), ("33063", "a", "Bordeaux, appartement"),
+       ("74010", "m", "Annecy, maison"), ("44109", "m", "Nantes, maison"), ("87085", "m", "Limoges, maison"),
+       ("42218", "a", "Saint-Étienne, appartement"), ("19272", "m", "Ussel (Corrèze), maison"),
+       ("23096", "m", "Guéret (Creuse), maison"), ("33009", "m", "Arcachon, maison")]
+
+
+def cas_types(scen, p):
+    for code, t, lab in CAS:
+        i = L[(L.codgeo == code) & (L.type == t)].index
+        if len(i) == 0:
+            p(f"  {lab} : absent")
+            continue
+        i = i[0]
+        dm = TAUX_DMTO * L.v[i]
+        txt = []
+        for nom, (tf1, d1) in scen.items():
+            dtf = tf1[i] - L.tf0[i]
+            eco = dm * (1 - d1[i] / L.d0[i]) if L.d0[i] > 0 else 0
+            txt.append(f"{nom} TF {tf1[i]:,.0f} € ({dtf:+,.0f}), DMTO à l'achat −{eco:,.0f} €"
+                       + (f", amorti en {eco/dtf:.0f} ans" if dtf > 0 else ""))
+        p(f"  {lab} : valeur {L.v[i]:,.0f} €, terrain {100*L.lam[i]:.0f} %, TF {L.tf0[i]:,.0f} €, DMTO à l'achat {dm:,.0f} € | "
+          + " | ".join(txt))
+
+
+if __name__ == "__main__":
+    lignes = []
+
+    def p(s):
+        print(s, flush=True)
+        lignes.append(s)
+    p(f"champ : {L.n.sum()/1e6:.1f} M logements de particuliers, valeur {VAL/1e9:,.0f} Md€, terrain {TERRE/1e9:,.0f} Md€"
+      f" ({100*TERRE/VAL:.1f} %) ; coût de reconstruction calé pour les appartements {B_APPART:,.0f} €/m²")
+    p(f"taxe foncière des particuliers {TF0/1e9:.1f} Md€ (croissance TFPB 2017-2024 {CROISSANCE_TF:.3f}, part du champ"
+      f" {part_champ:.3f}) ; DMTO sur les logements anciens {D0/1e9:.1f} Md€ (taux {100*TAUX_DMTO:.2f} %) ;"
+      f" TF moyenne {TF0/L.n.sum():,.0f} € par logement ; TF / valeur {100*TF0/VAL:.3f} %")
+    lm = (L.n * L.v * L.lam).groupby(L.type).sum() / (L.n * L.v).groupby(L.type).sum()
+    p(f"prix des terrains imputé : élasticité au prix des maisons {ELAST_TERRAIN:.2f} (constante {CONST_TERRAIN:.2f},"
+      f" {N_REG_TERRAIN} communes)")
+    p("part du terrain par type : " + str(lm.round(3).to_dict()) + " ; par décile de prix : " + " ".join(
+        f"{100*u:.0f}" for u in ((L.n * L.v * L.lam).groupby(L.dec_prix).sum() / (L.n * L.v).groupby(L.dec_prix).sum())))
+    # validation : méthode des terrains à bâtir (maisons, par département)
+    td = pd.read_csv(HERE / "donnees/terrains_dep.csv", dtype={"dep": str}).set_index("dep")
+    lt = (td.pm2_tab * td.m_terrain / (td.m_pm2 * td.m_surf)).rename("tab")
+    lr_ = parts_residu(B_APPART)
+    lr = (c.n_m * c.v_m * lr_).groupby(c.dep).sum() / (c.n_m * c.v_m).groupby(c.dep).sum()
+    j = pd.concat([lt, lr.rename("resid")], axis=1).dropna()
+    p(f"contrôle maisons par département : part du terrain par résidu {100*j.resid.median():.0f} % (médiane), par prix"
+      f" des terrains à bâtir {100*j.tab.median():.0f} % ; corrélation {j.corr().iloc[0,1]:.2f}")
+    scen = {}
+    for s in (0.3, 0.5):
+        scen[f"R{int(100*s)}"] = report_tf(s)
+        resume(f"[report sur la TF actuelle, DMTO −{int(100*s)} %]", *scen[f"R{int(100*s)}"], p)
+    s = 0.5
+    scen["V50"] = valeur_unique(s)
+    resume("[valeur vénale, taux unique national, DMTO −50 %]", *scen["V50"], p)
+    for k in (2, 4, np.inf):
+        nom = f"K{k}" if np.isfinite(k) else "Kinf"
+        scen[nom] = deux_taux(s, k)
+        resume(f"[deux taux nationaux, terrain = {k} × bâti, DMTO −50 %]", *scen[nom], p)
+    for k in (2, 4):
+        scen[f"L{k}"] = deux_taux_local(s, k)
+        resume(f"[deux taux, recette constante par commune, terrain = {k} × bâti ; DMTO −50 % remplacés par un taux"
+               f" départemental sur le terrain]", *scen[f"L{k}"], p)
+    for k in (2, 4, np.inf):
+        tl, tb = TAUX[k]
+        p(f"taux nationaux (terrain = {k} × bâti) : terrain {100*tl:.3f} %, bâti {100*tb:.3f} % de la valeur")
+    td = TAUX["dep4"]
+    p(f"taux départemental sur le terrain qui remplace 50 % des DMTO : médiane {100*td.median():.3f} %, de {100*td.min():.3f}"
+      f" à {100*td.max():.3f} % ; Paris {100*td.get('75', np.nan):.3f} %, Creuse {100*td.get('23', np.nan):.3f} %")
+    w = L.n * L.v
+    for nom in ("R50", "K4", "L4"):
+        tf1 = scen[nom][0]
+        rr = (L.n * tf1).groupby(L.dec_prix).sum() / w.groupby(L.dec_prix).sum()
+        p(f"TF / valeur par décile de prix, {nom} : " + " ".join(f"{100*u:.2f}" for u in rr))
+    rr = (L.n * L.tf0).groupby(L.dec_prix).sum() / w.groupby(L.dec_prix).sum()
+    p("TF / valeur par décile de prix, aujourd'hui : " + " ".join(f"{100*u:.2f}" for u in rr))
+    p("prix au m² médian par décile : " + " ".join(f"{u:,.0f}" for u in L.groupby("dec_prix").pm2.median()))
+    p("cas-types (un logement médian de la commune) :")
+    cas_types({k: scen[k] for k in ("R50", "K4", "L4")}, p)
+    (OUT / "simulation.txt").write_text("\n".join(lignes) + "\n", encoding="utf-8")
