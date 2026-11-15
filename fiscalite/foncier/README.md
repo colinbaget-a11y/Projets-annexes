@@ -59,3 +59,14 @@ TF +2 % (décile le moins cher) à +60 % (le plus cher) ; total TF + DMTO de −
 - `inventaire.md` : tous les prélèvements sur l'immobilier, montants vérifiés, comparaison OCDE.
 - `droits_mutation.md` : effets des DMTO (transactions, mobilité, primo-accédants).
 - `taxe_fonciere_split_rate.md` : problèmes de l'impôt foncier, Pennsylvanie, Bade-Wurtemberg, faisabilité.
+
+## Révision après revue (novembre 2026, `../revue/revue_foncier.md`)
+
+- Taxe foncière actuelle vieillie commune par commune (croissance de la TFPB 2017-2024, REI ;
+  `donnees/tfpb2017_communes.csv`) : Paris +36 % par rapport à la croissance nationale.
+- Taux national sur le terrain calé sans reprise des ventes (0,19 %) ; la reprise est un gain.
+- Contrôles ajoutés à `sorties/simulation.txt` ([CONTROLE], [VARIANTE]) : impôt sur le bâti 14,1 -> 7,3 Md€ ;
+  appartement parisien : +660 €/an, −22 000 € en valeur actuelle sans capitalisation des droits, −8 250 € si
+  les deux se capitalisent ; variante « résidu pour les maisons » qui inverse le partage maisons/appartements.
+- Texte : deux hypothèses d'incidence, calendrier (hausse uniforme temporaire le temps d'établir les valeurs),
+  finances locales, références corrigées (Bachelet et Poulhès ; Dolls et al. 2025 ; TSE WP 23-1486).

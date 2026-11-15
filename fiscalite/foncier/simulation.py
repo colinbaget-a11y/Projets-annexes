@@ -16,6 +16,7 @@ Hypothèses (toutes réglables en tête de fichier) :
 - droits de mutation = taux × valeur des ventes de logements anciens de la commune (moyenne annuelle 2023-2024).
 """
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -32,6 +33,7 @@ RATIO_COUT_APPART = 1.25                     # coût de reconstruction au m² ha
 TAUX_DMTO = 0.045 + 0.012 + 0.0237 * 0.045   # 2024 : département 4,5 %, commune 1,2 %, frais d'assiette de l'État
 PART_DEP_DMTO = (0.045 + 0.0237 * 0.045) / TAUX_DMTO
 TF_2017_MENAGES = 19.2e9                     # Insee IA 91 : TFPB nette sur les logements et dépendances des ménages
+CROISS_COMMUNE = os.environ.get("CROISS_COMMUNE", "1") == "1"   # croissance de la TF par commune
 CROISSANCE_TF = None                         # TFPB 2024 / 2017 (REI) : lu dans donnees/croissance_tf.json
 
 c = pd.read_csv(HERE / "donnees/communes.csv.gz", dtype={"codgeo": str, "dep": str, "epci": str}).set_index("codgeo")
@@ -92,9 +94,15 @@ cr = json.loads((HERE / "donnees/croissance_tf.json").read_text())
 CROISSANCE_TF = cr["tfpb_2024"] / cr["tfpb_2017"]
 part_champ = (c.n_m + c.n_a).sum() / cr["logements_metro_particuliers"]
 CIBLE_TF = TF_2017_MENAGES * CROISSANCE_TF * part_champ
-brut = (c.r2017 * (c.n_m * c.v_m + c.n_a * c.v_a)).sum()
+# croissance propre à chaque commune de la taxe foncière bâtie 2017-2024 (taux et bases, REI), relative à la
+# croissance nationale : corrige par exemple la hausse du taux parisien de 13,5 à 20,5 % en 2023. Communes
+# fusionnées ou absentes : croissance nationale ; bornée à [0,7 ; 2].
+t17 = pd.read_csv(HERE / "donnees/tfpb2017_communes.csv", dtype={"codgeo": str}).set_index("codgeo").tfpb_2017
+g = (c.tfpb / c.index.map(t17)) / CROISSANCE_TF
+c["g_rel"] = g.where(np.isfinite(g) & (g > 0), 1.0).clip(0.7, 2.0) if CROISS_COMMUNE else 1.0
+brut = (c.r2017 * c.g_rel * (c.n_m * c.v_m + c.n_a * c.v_a)).sum()
 KAPPA = CIBLE_TF / brut
-c["tf_m"], c["tf_a"] = KAPPA * c.r2017 * c.v_m, KAPPA * c.r2017 * c.v_a
+c["tf_m"], c["tf_a"] = KAPPA * c.r2017 * c.g_rel * c.v_m, KAPPA * c.r2017 * c.g_rel * c.v_a
 
 # ---------------------------------------------------------------- droits de mutation annuels, par logement du parc
 c["dmto"] = TAUX_DMTO * c.valeur_ventes_an
@@ -172,8 +180,10 @@ def resume(nom, tf1, d1, p):
     perd = n[dtf > 300].sum() / n.sum()
     perd50 = n[dtf > 0.5 * L.tf0].sum() / n.sum()
     gagne = n[dtf < -100].sum() / n.sum()
+    perd100 = n[dtf > L.tf0].sum() / n.sum()
     p(f"{nom} : recette TF + DMTO {rec:.1f} Md€ (avant {(TF0 + D0)/1e9:.1f}) ; TF {(n*tf1).sum()/1e9:.1f} ;"
-      f" logements dont la TF augmente de plus de 300 € {100*perd:.0f} %, de plus de 50 % {100*perd50:.0f} % ;"
+      f" logements dont la TF augmente de plus de 300 € {100*perd:.0f} %, de plus de 50 % {100*perd50:.0f} %,"
+      f" de plus de 100 % {100*perd100:.1f} % ;"
       f" baisse de plus de 100 € {100*gagne:.0f} %")
     for cle, lab in (("dec_prix", "décile de prix au m²"), ("type", "type"), ("taille", "taille de commune")):
         g = L.assign(w=n, a=n * dtf, b=n * dtot, t0=n * L.tf0).groupby(cle, observed=True)
@@ -313,6 +323,38 @@ if __name__ == "__main__":
     w = L.n * L.v
     rr = (L.n * scen["N4"][0]).groupby(L.dec_prix).sum() / w.groupby(L.dec_prix).sum()
     p("TF / valeur par décile de prix, N4 : " + " ".join(f"{100*u:.2f}" for u in rr))
+    # contrôles demandés par la revue (revue/revue_foncier.md)
+    base4 = L.v * (L.lam * 4 + (1 - L.lam))
+    g4 = L.assign(b=L.n * base4, t0=L.n * L.tf0)
+    tc4 = L.codgeo.map(g4.groupby("codgeo").t0.sum() / g4.groupby("codgeo").b.sum())
+    bati_av = (L.n * L.tf0 * (1 - L.lam)).sum() / 1e9
+    bati_ap = (L.n * tc4 * L.v * (1 - L.lam)).sum() / 1e9
+    p(f"[CONTROLE] part de la TF portant sur le bâti (TF actuelle répartie selon la valeur) : {bati_av:.1f} Md€ ;"
+      f" après la proposition : {bati_ap:.1f} Md€")
+    dtf = scen["N4"][0] - L.tf0
+    paris = (L.codgeo == "75056") & (L.type == "a")
+    p(f"[CONTROLE] Paris, appartement médian : TF {float(L.tf0[paris].iloc[0]):,.0f} € -> "
+      f"{float(scen['N4'][0][paris].iloc[0]):,.0f} € ; hausse capitalisée à {100*R_ACT:.0f} % : "
+      f"{float(dtf[paris].iloc[0])/R_ACT:,.0f} € ; nette de la baisse annuelle moyenne des DMTO du parc : "
+      f"{float((dtf + scen['N4'][1] - L.d0)[paris].iloc[0])/R_ACT:,.0f} €")
+    # variante : part du terrain des maisons par résidu, coût de reconstruction recalé sur 45 % au total
+    lam0 = L.lam.copy()
+    def part_tot(B):
+        lm_ = (1 - B / RATIO_COUT_APPART / L.pm2).clip(LMIN, LMAX)
+        la_ = (1 - B / L.pm2).clip(LMIN, LMAX)
+        lam_ = np.where(L.type == "m", lm_, la_)
+        return lam_, (L.n * L.v * lam_).sum() / (L.n * L.v).sum()
+    lo, hi = 100.0, 6000.0
+    for _ in range(40):
+        Bv = (lo + hi) / 2
+        lo, hi = (Bv, hi) if part_tot(Bv)[1] > LAMBDA_MENAGES else (lo, Bv)
+    L["lam"] = part_tot(Bv)[0]
+    TERRE_SAUVE = TERRE
+    globals()["TERRE"] = (L.n * L.v * L.lam).sum()
+    tfv, dv = deux_taux_local_national(0.5, 4)
+    resume(f"[VARIANTE résidu pour les maisons aussi (coût recalé {Bv:,.0f} €/m²) : proposition]", tfv, dv, p)
+    L["lam"] = lam0
+    globals()["TERRE"] = TERRE_SAUVE
     p("cas-types (un logement médian de la commune) :")
     cas_types({k: scen[k] for k in ("R50", "K4", "N4")}, p)
     p(f"primo-accédant (taux d'actualisation {100*R_ACT:.0f} %) :")

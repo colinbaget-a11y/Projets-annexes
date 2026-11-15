@@ -50,7 +50,8 @@ def f1():
         "trois scénarios remplacent la moitié des droits de mutation (5,7 Md€) par de la taxe foncière, à recette "
         "constante, sans réaction des ventes. « Deux taux » : taux sur le terrain égal à quatre fois le taux sur le "
         "bâti. Proposition : chaque commune garde sa recette, répartie selon les deux taux, et un taux national de "
-        "0,19 % sur la valeur des terrains remplace les droits perdus.")
+        "0,19 % sur la valeur des terrains remplace les droits perdus. Taxe actuelle : rapport taxe/valeur de 2017 "
+        "vieilli selon la croissance de la taxe foncière de chaque commune de 2017 à 2024.")
 
 
 def f2():
@@ -109,9 +110,9 @@ def f3():
     a1.set_title("Prélèvements assis sur l'immobilier, environ 116 Md€", fontsize=9.5, color=INK, loc="left")
     grille(a1, "x")
     x = np.arange(2)
-    a2.bar(x - 0.18, [1.95, 0.62], width=0.34, color="#003399", label="France (2024)")
+    a2.bar(x - 0.18, [1.90, 0.72], width=0.34, color="#003399", label="France (2023)")
     a2.bar(x + 0.18, [0.95, 0.37], width=0.34, color="#c79100", label="Moyenne OCDE (2023)")
-    for xi, (f_, o_) in enumerate([(1.95, 0.95), (0.62, 0.37)]):
+    for xi, (f_, o_) in enumerate([(1.90, 0.95), (0.72, 0.37)]):
         a2.text(xi - 0.18, f_ + 0.04, f"{f_:.2f}".replace(".", ","), ha="center", fontsize=8)
         a2.text(xi + 0.18, o_ + 0.04, f"{o_:.2f}".replace(".", ","), ha="center", fontsize=8)
     a2.set_xticks(x)
@@ -123,7 +124,7 @@ def f3():
     fin(fig, "fon_03_inventaire",
         "DGCL-DGFiP, note REI 2025 ; OFGL ; SDES, compte du logement 2025 ; DGFiP Statistiques n° 43 ; OCDE, "
         "Revenue Statistics ; calculs de l'auteur.",
-        "Note : rendements 2024, périmètres hétérogènes ; part immobilière des droits de succession estimée à 60 % "
+        "Note : rendements 2024 (OCDE : 2023), périmètres hétérogènes ; part immobilière des droits de succession estimée à 60 % "
         "(clé du CPO, pas de ventilation officielle). Transactions : droits de mutation, TVA du neuf et des terrains, "
         "plus-values immobilières, contribution de sécurité immobilière. « Autres » de la détention : taxes d'habitation restantes, "
         "IFI, taxe sur le foncier non bâti, taxe sur les bureaux d'Île-de-France, GEMAPI et taxes spéciales "
