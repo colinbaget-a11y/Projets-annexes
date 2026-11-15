@@ -1,0 +1,266 @@
+% Garder le prélèvement forfaitaire unique (rapport Sorbon, partie III)
+% Compilation depuis fiscalite/pfu/ : pdflatex note-pfu.tex (deux passes)
+% Matière et statut des sources : notes/pfu_recherche.md ; chiffres : donnees/pfu_chiffres.csv
+% Figure : python3 pfu/figures_pfu.py puis FIG_NU=1 python3 pfu/figures_pfu.py (depuis fiscalite/)
+\documentclass[11pt,a4paper]{article}
+\input{../lvt/preambule}
+\renewcommand{\figbloc}[3]{%
+  \begin{figure}[!htbp]\centering
+  \caption{#2}\label{#3}
+  \includegraphics[max width=\linewidth,max height=0.27\textheight]{../figures/nu/#1.pdf}
+  \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}%
+  \end{figure}}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\preto\section{\needspace{6\baselineskip}}
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.85}
+\fancyhead[L]{\small\itshape Garder le prélèvement forfaitaire unique}
+
+\begin{document}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
+
+\thispagestyle{empty}
+\vspace*{0.6cm}
+{\footnotesize\color{ocre}\bfseries NOTE DE TRAVAIL\quad·\quad NOVEMBRE 2026\par}
+\vspace{8pt}
+{\fontsize{22}{26}\selectfont\bfseries\color{bleu}Garder le prélèvement forfaitaire unique\par}
+\vspace{6pt}
+{\large Un taux qui a fait ses preuves ; la faille est dans le circuit des holdings\par}
+\vspace{8pt}
+{\small Colin Baget. Droit en vigueur au 15 novembre 2026 (LFSS et LF 2026) ; évaluations de France
+Stratégie, de l'IPP et de l'Insee ; rapport de la commission d'enquête de l'Assemblée nationale n°~3056.
+Sources et statut de lecture : \texttt{fiscalite/pfu/notes/}.\par}
+\vspace{6pt}
+{\color{bleu}\hrule height 1.2pt}
+\vspace{4pt}
+
+\section*{Introduction}
+
+Le prélèvement forfaitaire unique (PFU) impose depuis 2018 les dividendes, les intérêts et les plus-values
+de valeurs mobilières à un taux unique, de 31,4~\% en 2026, au lieu du barème progressif. Cette note
+recommande de le garder tel qu'il est : même taux, même structure. Elle écarte les deux idées qui
+circulent pour le modifier, une baisse à 25~\% et un impôt de 25~\% sur les revenus conservés dans les
+holdings. Elle retient une seule correction, déjà inscrite au projet de loi de finances pour 2027, et
+précise comment le PFU s'articule avec la fusion de l'impôt sur le revenu et de la CSG.
+
+La raison principale est que la France a fait l'expérience dans les deux sens. En 2013, l'imposition des
+dividendes au barème a fait chuter de 40~\% les dividendes déclarés par les foyers concernés, et la réforme
+a coûté de l'argent au lieu d'en rapporter. En 2018, le PFU les a fait remonter et a coûté beaucoup moins que
+prévu. Le PFU ne doit pas pour autant être présenté comme une réforme favorable à l'investissement : aucune
+évaluation ne trouve d'effet sur l'investissement des entreprises. Il se défend par ses recettes, par sa
+lisibilité et parce qu'il réduit l'écart d'imposition entre un bénéfice distribué et un bénéfice conservé.
+
+La faiblesse du système n'est pas dans le taux du PFU, mais à côté. Un bénéfice remonté dans une holding et
+conservé y supporte environ 27~\% d'impôt au total, contre 49~\% s'il est distribué au ménage, et les
+plus-values logées dans une holding s'effacent le plus souvent au décès. C'est là que porte la correction
+proposée.
+
+\section{Le PFU en 2026}
+
+Le PFU additionne 12,8~\% d'impôt sur le revenu (art.~200~A du CGI) et 18,6~\% de prélèvements sociaux. Ce
+second taux était de 17,2~\% jusqu'en 2025 : l'article 12 de la LFSS pour 2026 a porté la CSG sur les revenus
+du capital de 9,2 à 10,6~\%, mais l'a laissée à 9,2~\% pour une liste fermée de revenus, dont l'assurance-vie,
+l'épargne logement, les revenus fonciers et les plus-values immobilières. Il existe donc désormais deux taux
+de prélèvements sociaux sur l'épargne, sans justification économique. Les loyers et les plus-values
+immobilières restent hors PFU. Le contribuable peut opter pour le barème, globalement pour tous ses revenus
+du capital de l'année ; l'option ouvre droit à l'abattement de 40~\% sur les dividendes et, depuis la LF
+2026, elle est révocable. 2,5~millions de foyers l'ont exercée sur leurs revenus de 2024.
+
+Deux contributions s'ajoutent en haut de la distribution. La contribution exceptionnelle sur les hauts
+revenus (CEHR) prélève 3 puis 4~\% au-delà de 250\,000~€ de revenu fiscal pour une personne seule
+(500\,000~€ pour un couple) : le taux marginal sur les revenus du capital monte alors à 35,4~\%. La
+contribution différentielle (CDHR), créée pour les revenus de 2025, garantit que l'impôt sur le revenu et la
+CEHR atteignent au moins 20~\% du revenu au-delà des mêmes seuils ; pour un foyer qui vit de dividendes,
+elle porte le taux à 38,6~\%. Elle est prorogée jusqu'à ce que le déficit du budget de l'État repasse sous 3~\% du PIB, et
+le PLF 2027 en attend 0,6~Md€.
+
+Le PFU ne s'apprécie qu'avec l'impôt déjà payé par la société. Sur 100~€ de bénéfice, une société au taux
+normal paie 25,8~€ d'impôt sur les sociétés et de contribution sociale ; si elle distribue le reste,
+l'actionnaire paie 31,4~\% des 74,2~€ restants, soit 23,3~€. Le bénéfice distribué supporte donc 49,1~\% au
+total, et jusqu'à 54,5~\% pour un foyer à la CDHR (figure~\ref{fig:taux}). C'est proche du taux marginal
+supérieur sur un salaire, 55,4~\% hors cotisations sociales : pour un bénéfice distribué, l'imposition de la
+société et celle de l'actionnaire s'emboîtent à peu près comme celle d'un revenu du travail. C'est élevé en
+Europe. La Tax Foundation place la France au sixième rang sur 35 pour le taux personnel supérieur sur les
+dividendes (34~\% en 2025, pour une moyenne de 21~\%). L'OCDE trouve, à cinq fois le salaire moyen, un taux
+intégré de 49~\% que seuls le Danemark et l'Espagne dépassent (Hourani et al., 2023, cité par France
+Stratégie).
+
+Le chiffre qui surprend est au bas de la figure. Si la société verse son dividende à une holding détenue par
+l'actionnaire et que celle-ci le garde, la holding ne paie que 1,25~\% : le régime mère-fille exonère le
+dividende, sauf une quote-part de 5~\% imposée à 25~\%. Le bénéfice n'a alors supporté que 26,7~\%. Tant qu'il
+reste dans la holding, il peut être placé ou réinvesti sans autre impôt.
+
+\figbloc{pfu_01_taux_cumule}{Impôt total sur 100~€ de bénéfice, selon ce qu'en fait l'actionnaire (2026)}{fig:taux}
+
+\section{Ce que les réformes de 2013 et de 2018 ont appris}
+
+La France a changé deux fois de régime en cinq ans, en sens opposés, ce qui fournit une expérience rare. En
+2013, l'option pour un prélèvement libératoire disparaît et tous les dividendes sont imposés au barème. L'IPP compare les foyers qui
+avaient choisi le prélèvement libératoire en 2012, donc les plus touchés, aux autres foyers (Bach et al.,
+2019). Leurs dividendes déclarés baissent de 40~\%, sans hausse de leurs salaires ni de leurs autres
+revenus. Les entreprises qu'ils détiennent distribuent moins et accumulent des actifs financiers ; elles ne
+réduisent pas leur investissement. La réforme devait rapporter 0,4~Md€ ; elle en a coûté 0,9.
+
+Pourquoi le dividende réagit-il autant et l'investissement si peu ? Pour l'actionnaire d'une société qui
+finance ses investissements sur ses bénéfices, l'impôt sur le dividende ne change pas le choix d'investir.
+Prenons 100~€ de bénéfice après impôt sur les sociétés. Distribués aujourd'hui, ils rapportent 68,6~€ nets de
+PFU. Réinvestis à 5~\%, ils donneront 105~€ distribuables l'an prochain, soit 72,0~€ nets. Le PFU prend la
+même fraction dans les deux cas : il réduit le coût de l'investissement, le dividende auquel on renonce, dans
+la même proportion que son rendement, et laisse le choix inchangé. Ce qui change, c'est la date et la forme du
+revenu. Quand l'impôt sur le dividende monte, l'actionnaire qui contrôle sa société laisse le bénéfice
+dedans : il le récupérera plus tard sous forme de plus-value, ou jamais s'il transmet ses titres. C'est
+exactement ce qu'on observe en 2013. Le raisonnement ne vaut pas pour une jeune entreprise qui lève des fonds
+propres auprès d'investisseurs extérieurs : l'impôt réduit alors le rendement sans réduire le coût. Le seul
+effet réel trouvé après 2018 va dans ce sens : des créations d'entreprises un peu plus rapides dans les
+secteurs les plus exposés, d'ampleur faible et difficile à séparer de la baisse de l'impôt sur les sociétés
+(IPP, 2023). La baisse américaine de 2003 n'a pas davantage modifié l'investissement (Yagan, 2015).
+
+Le PFU a produit l'effet inverse de 2013. Les dividendes reçus par les ménages passent d'environ 14~Md€ par an
+en 2013-2017 à 23~Md€ en 2018-2020 ; l'IPP attribue à la réforme une hausse de 15~\% dès 2018. Le coût
+budgétaire en est réduit d'autant : 0,4~Md€ au lieu de 0,9 à comportements inchangés selon l'IPP ;
+0,74~Md€ au lieu de 1,05 dans l'hypothèse basse de l'Insee, et un gain de 0,36~Md€ dans son hypothèse haute
+(Paquier et Sicsic, 2021). Le comité d'évaluation de France Stratégie conclut que le coût a été « annulé les
+premières années » (2023). Cette conclusion repose sur la part de la hausse des dividendes qu'il attribue au
+PFU, plus de la moitié, qui est un jugement et non une mesure. Le tableau~\ref{tab:etabli} résume ce que
+les évaluations établissent.
+
+\begin{table}[!htbp]\centering\small
+\caption{Ce que les évaluations du PFU établissent}\label{tab:etabli}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Effet & Ce qu'on sait \\
+\midrule
+Dividendes distribués & Forte réaction au taux : $-$40~\% en 2013, +15~\% en 2018. Établi par deux réformes de sens opposé \\
+Coût budgétaire & Très inférieur au chiffrage statique ; autofinancement possible, non mesuré \\
+Investissement des entreprises existantes & Aucun effet détecté, en 2013 comme en 2018 \\
+Créations d'entreprises & Un peu plus rapides dans les secteurs exposés ; effet faible, mêlé à la baisse de l'IS \\
+Salaires transformés en dividendes & Non observé au niveau agrégé \\
+Exil & Faible dans le centile le plus riche ; non mesuré au-delà \\
+\bottomrule
+\end{tabularx}
+\par\vspace{2pt}{\scriptsize\raggedright Sources : Bach et al. (2019) ; Paquier et Sicsic (2021) ; France
+Stratégie (2023) ; IPP (2023) ; CAE, Focus n°~118 (2025).\par}
+\end{table}
+
+Le revers est la concentration. En 2021, 1~\% des foyers déclarent 96~\% des dividendes, 0,1~\% en déclarent
+62~\% et 0,01~\% (environ 4\,000 foyers) en déclarent 33~\% (France Stratégie, 2023). Ces parts ont gagné 5 à
+10 points depuis 2017, ce qui mesure d'abord un changement de ce qui est déclaré, des bénéfices autrefois
+gardés dans les sociétés étant désormais distribués, plutôt qu'un enrichissement. Toute variation du taux du
+PFU profite ou coûte donc presque entièrement à ce centile.
+
+Reste à savoir si le taux est le bon. La seule estimation française du taux qui maximise les recettes sur les
+revenus du capital, prélèvements sociaux compris, le situe entre 43~\% et 57~\%, selon qu'on tient compte ou
+non de ce que les foyers déplacent aussi une partie de leurs revenus d'activité quand ce taux change
+(Lefebvre, Lehmann et Sicsic, 2025). Le PFU, de 31,4 à 38,6~\%, est en dessous, mais la marge est mince.
+Avec l'élasticité qu'ils estiment (0,77), un relèvement de 31,4 à 33~\% ne garde qu'un peu moins des deux
+tiers de son rendement mécanique ; le CAE chiffre un relèvement de 3 points à 1,2~Md€ nets (Focus n°~124,
+2025). L'exil est faible : 0,2~\% du centile le plus riche en revenus du capital part chaque année, et un
+point d'imposition effective supplémentaire en fait partir à long terme 0,02 à 0,23~\% de plus (Bach et
+al., Focus CAE n°~118, 2025). Aucune donnée ne mesure le comportement des 0,01~\% les plus riches. La
+commission d'enquête de l'Assemblée sur l'imposition des plus hauts patrimoines recommande d'ailleurs de
+« maintenir la stabilité » des taux du PFU (rapport n°~3056, recommandation~13).
+
+\section{Deux idées à écarter}
+
+\textbf{Ramener le PFU à 25~\%.} L'assiette du PFU est d'environ 80~Md€ (revenus de 2024 : 50~Md€ de
+dividendes, 10~Md€ d'intérêts, 19~Md€ de plus-values). Baisser le taux de 6,4 points coûte 5,1~Md€ à
+comportements inchangés. Avec une élasticité de 0,65 à 1, la hausse de l'assiette n'en rembourse qu'une
+partie et le coût net reste de 3,2 à 3,9~Md€ par an. Ce gain irait pour l'essentiel au centile qui perçoit
+96~\% des dividendes. Il ne corrige aucun défaut identifié : le frein aux distributions créé en 2013 a été levé
+en 2018, et l'investissement n'a réagi ni à l'un ni à l'autre. Il creuserait en outre l'écart avec le
+salaire (44~\% contre 55~\% sur la figure~\ref{fig:taux}) et pousserait les dirigeants-actionnaires à se
+rémunérer en dividendes plutôt qu'en salaire. On n'observe pas ce comportement au niveau agrégé aujourd'hui,
+mais il dépend précisément de cet écart.
+
+\textbf{Un impôt de 25~\% sur les plus-values et les revenus non réinvestis des holdings.} Il vise le bon
+problème, le circuit décrit au §~1, mais avec un instrument qui ne passe pas. Juridiquement, la directive
+mère-fille (2011/96/UE) interdit d'imposer les dividendes qu'une filiale européenne verse à sa mère au-delà
+d'une quote-part de 5~\%, que la France applique déjà ; et imposer chez l'associé des bénéfices qu'il n'a pas
+perçus se heurte à la jurisprudence constitutionnelle, qui exige des revenus disponibles (analyse de la
+direction de la législation fiscale rapportée par la commission d'enquête). Économiquement, il ajoute un
+troisième étage d'imposition, après la société opérationnelle et avant l'associé, et oblige à définir ce
+qu'est un revenu « non réinvesti ». Surtout, il alourdirait fortement l'impôt des très grandes fortunes, dont
+85 à 90~\% détiennent une holding (IPP, note n°~92, 2023) : la quote-part de 1,25~\% deviendrait 25~\% sur une partie de
+l'assiette. C'est l'inverse de la contrainte que se fixe ce rapport. Associé à la baisse du PFU, il déplacerait
+la charge entre très riches, plus pour ceux qui gardent dans une holding, moins pour ceux qui se font
+distribuer, sans gain d'efficacité démontré.
+
+\section{Une correction et une articulation}
+
+\subsection*{Faire expirer le report de l'apport-cession à la transmission}
+
+Un entrepreneur qui vend sa société paie 31,4~\% sur sa plus-value. S'il apporte d'abord ses titres à une
+holding qu'il contrôle, puis fait vendre la société par la holding, la plus-value d'apport est placée en
+report : elle n'est imposée que si la holding vend sans réinvestir au moins 70~\% du produit dans une activité
+économique (art.~150-0~B~ter du CGI, version de la LF 2026). Ce report se défend tant qu'il diffère l'impôt
+sur un capital qui reste investi. Il cesse de se défendre à la transmission : au décès, le report devient une
+exonération définitive ; en cas de donation, il passe au donataire et s'efface si celui-ci ne vend pas
+pendant six ans. Les montants sont considérables. 33,6~Md€ de plus-values ont été mises en report en 2023 et
+22,2~Md€ en 2024, davantage que les 18,8~Md€ de plus-values imposées au PFU. Le stock atteint 153~Md€, les
+deux tiers des entrées de 2023 sont concentrés sur 84 foyers, et seulement 0,4 à 1,5~Md€ de reports expirent
+chaque année (rapport n°~3056). Avec les bénéfices conservés dans les holdings, c'est ce qui fait baisser le
+taux d'imposition total tout en haut de la distribution, selon la commission d'enquête.
+
+L'article 5 du PLF 2027, en discussion au Parlement, fait expirer le report à toute transmission, à titre
+gratuit comme onéreux, pour les transmissions intervenues depuis le 1\up{er} octobre 2026. Il permet d'étaler
+le paiement sur cinq ans, pour que les héritiers n'aient pas à vendre l'entreprise pour payer, et fait expirer
+de même le sursis de l'exit tax sur ces plus-values. La commission d'enquête le recommande (recommandation~11), et la direction
+de la législation fiscale le juge sans obstacle constitutionnel, à la différence d'une imposition générale
+des plus-values latentes au décès. Le rendement annoncé est d'environ 0,5~Md€ par an (chiffre de seconde
+main, non vérifié dans l'évaluation préalable).
+
+C'est la seule mesure de cette note qui alourdit nettement l'impôt de grandes fortunes : elle touche les
+quelque 9\,000 foyers qui placent chaque année des plus-values en report, et une poignée d'entre eux très
+fortement. Elle reste compatible avec la contrainte du rapport parce qu'elle ne relève aucun taux : elle
+supprime un effacement, et un foyer qui garde sa holding jusqu'à sa succession paiera ce qu'aurait payé un
+foyer qui vend, pas davantage. Elle a aussi un argument d'efficacité. Tant que la plus-value s'efface au
+décès, un propriétaire âgé a intérêt à garder ses capitaux dans la holding jusqu'à sa succession plutôt qu'à
+les distribuer ou à céder ses titres ; si le report expire de toute façon, attendre ne fait plus économiser
+l'impôt. On peut supposer que cela libère des capitaux immobilisés, sans que l'effet ait été mesuré.
+
+\subsection*{Garder la majoration de 4 points quand l'IR et la CSG fusionnent}
+
+La note sur la fusion de l'impôt sur le revenu et de la CSG absorbe la CEHR dans le barème fusionné et reporte
+sur les autres revenus la part payée sur les revenus du capital. Le PFU serait alors de 31,4~\% pour tous, au
+lieu de 35,4~\% au-delà des seuils de la CEHR : une baisse de 4 points pour les foyers qui perçoivent
+l'essentiel des dividendes, contraire à l'objectif de garder le PFU tel qu'il est. On garde donc cette
+majoration sur les revenus du capital, aux mêmes seuils, la CEHR ne disparaissant que pour les revenus soumis
+au barème fusionné. Celui-ci a un peu moins à lever : une partie, que les données publiques ne ventilent pas,
+des 1,4~Md€ de CEHR. La CDHR reste en l'état jusqu'à son extinction prévue, mais son assiette (l'impôt sur le
+revenu et la CEHR) devra être redéfinie dans l'impôt fusionné. On ne la durcit pas, comme le propose la
+commission d'enquête (recommandations 14 à 17) : elle vise les mêmes foyers que l'expiration du report, et
+cumuler les deux irait contre la contrainte du rapport.
+
+\subsection*{Ce qu'on ne fait pas}
+
+Trois mesures sont défendables mais ne sont pas retenues. Aligner les deux taux de prélèvements sociaux
+supprimerait une distorsion sans fondement : un épargnant devrait choisir entre un compte-titres et une
+assurance-vie selon leur rendement, pas selon leur fiscalité. L'alignement à 18,6~\% rapporterait de l'ordre
+de 1,3~Md€ (estimation fragile), payés surtout par la classe moyenne épargnante ; c'est une recette
+disponible si le rapport en a besoin, pas une mesure de croissance. Un prélèvement modéré sur la trésorerie
+passive des holdings, distinguée de leur trésorerie opérationnelle, est la version défendable de l'impôt de
+25~\% écarté plus haut ; l'Irlande taxe ainsi à 20~\% les revenus passifs non distribués. Il alourdirait lui
+aussi l'impôt des grandes fortunes, et on le garde en réserve si l'expiration du report ne suffit pas. Enfin,
+on ne rétablit pas d'abattement pour durée de détention sur les plus-values : celui de 2013-2017 avait
+fortement compliqué l'impôt (France Stratégie, 2023). La correction de principe pour une détention longue est d'imposer
+le gain réel, en indexant le prix d'acquisition sur l'inflation, ou d'exonérer le rendement normal du
+capital comme le prévoit le cadre dual du rapport. Elle a un coût, non chiffré ici. Le PFU étant
+proportionnel et sans quotient familial, rien dans cette note ne modifie la situation des familles.
+
+\vspace{6pt}
+{\scriptsize\textbf{Références.} Assemblée nationale (2026), commission d'enquête sur l'imposition des plus
+hauts patrimoines et des revenus les plus élevés, rapport n°~3056 (J.-P. Mattei, président ; C. de Courson,
+rapporteur). Bach, Bozio, Fabre, Guillouzouic, Leroy et Malgouyres (2019), note IPP n°~46. Bach, Bozio, Grimprel, Guillouzouic, Landais et Malgouyres
+(2025), Focus du CAE n°~118. CAE (2025, 2026), Focus n°~124 et n°~147. France Stratégie (2023), Comité
+d'évaluation des réformes de la fiscalité du capital, quatrième rapport. Hourani, Millar-Powell, Perret et
+Ramm (2023), OCDE, \emph{Taxation Working Paper} n°~65. IPP (2023), rapport n°~47 sur le réinvestissement des
+plus-values et les créations d'entreprises ; note n°~92, « Quels impôts les milliardaires paient-ils ? ». Lefebvre, Lehmann et Sicsic (2025), « Estimating the Laffer Tax
+Rate on Capital Income: Cross-Base Responses Matter! », \emph{Scandinavian Journal of Economics} (IZA DP
+16112, 2023). Paquier et Sicsic (2021), \emph{Économie et Statistique} n°~530-31. Tax Foundation (2026),
+\emph{Dividend Tax Rates in Europe}. Yagan (2015), « Capital Tax Reform and the Real Economy: The Effects of
+the 2003 Dividend Tax Cut », \emph{American Economic Review} 105(12). LFSS 2026 (loi n°~2025-1403), art.~12 ;
+LF 2026 (loi n°~2026-103) ; PLF 2027, art.~5.\par}
+
+\end{document}
