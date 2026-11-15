@@ -1,0 +1,18 @@
+CAPITAL=prorata : t1 recalé 22.8 %
+  RFR 0.25 M€ à 0.5 M€ : 138 373 foyers ; charge fusionnée -6.1 pts de RFR (-24 % de la charge actuelle sur les revenus du barème)
+  RFR 0.5 M€ à 1 M€ : 36 007 foyers ; charge fusionnée -3.8 pts de RFR (-16 % de la charge actuelle sur les revenus du barème)
+  RFR 1 M€ à 3 M€ : 14 477 foyers ; charge fusionnée +2.1 pts de RFR (+9 % de la charge actuelle sur les revenus du barème)
+  RFR 3 M€ à 9 M€ : 3 109 foyers ; charge fusionnée +8.0 pts de RFR (+39 % de la charge actuelle sur les revenus du barème)
+  RFR 9 M€ à + : 695 foyers ; charge fusionnée +12.1 pts de RFR (+71 % de la charge actuelle sur les revenus du barème)
+CAPITAL=mixte : t1 recalé 24.2 %
+  RFR 0.25 M€ à 0.5 M€ : 138 373 foyers ; charge fusionnée -6.2 pts de RFR (-28 % de la charge actuelle sur les revenus du barème)
+  RFR 0.5 M€ à 1 M€ : 36 007 foyers ; charge fusionnée -5.1 pts de RFR (-25 % de la charge actuelle sur les revenus du barème)
+  RFR 1 M€ à 3 M€ : 14 477 foyers ; charge fusionnée -1.5 pts de RFR (-8 % de la charge actuelle sur les revenus du barème)
+  RFR 3 M€ à 9 M€ : 3 109 foyers ; charge fusionnée +2.8 pts de RFR (+18 % de la charge actuelle sur les revenus du barème)
+  RFR 9 M€ à + : 695 foyers ; charge fusionnée +6.2 pts de RFR (+51 % de la charge actuelle sur les revenus du barème)
+CAPITAL=haut : t1 recalé 25.4 %
+  RFR 0.25 M€ à 0.5 M€ : 138 373 foyers ; charge fusionnée -6.5 pts de RFR (-33 % de la charge actuelle sur les revenus du barème)
+  RFR 0.5 M€ à 1 M€ : 36 007 foyers ; charge fusionnée -6.3 pts de RFR (-36 % de la charge actuelle sur les revenus du barème)
+  RFR 1 M€ à 3 M€ : 14 477 foyers ; charge fusionnée -4.6 pts de RFR (-32 % de la charge actuelle sur les revenus du barème)
+  RFR 3 M€ à 9 M€ : 3 109 foyers ; charge fusionnée -2.3 pts de RFR (-20 % de la charge actuelle sur les revenus du barème)
+  RFR 9 M€ à + : 695 foyers ; charge fusionnée +0.3 pts de RFR (+5 % de la charge actuelle sur les revenus du barème)
