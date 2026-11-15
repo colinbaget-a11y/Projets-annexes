@@ -35,9 +35,12 @@ def courbe(profil, nouveau=False):
 
 
 def trace_marginal(ax, z, mg, **kw):
-    """Les sauts de plus de 60 % (seuils de CSG des retraités) sont signalés par un triangle."""
+    """Les sauts de plus de 60 % (seuils de CSG des retraités) sont signalés par un triangle ; le reste de la
+    courbe est lissé par une médiane glissante sur 2 000 € pour effacer les pointes isolées."""
+    import pandas as pd
     ok = mg <= 0.6
-    ax.plot(z / 1e3, np.where(ok, 100 * mg, np.nan), **kw)
+    lisse = pd.Series(np.where(ok, mg, np.nan)).rolling(5, center=True, min_periods=1).median().values
+    ax.plot(z / 1e3, np.where(ok, 100 * lisse, np.nan), **kw)
     if (~ok).any():
         ax.plot(z[~ok] / 1e3, np.full((~ok).sum(), 58), ls="none", marker="^", color=kw.get("color", INK), ms=5)
         ax.annotate(f"seuils de CSG : +{1000 * mg[~ok].min():.0f} à +{1000 * mg[~ok].max():.0f} €\n"
@@ -57,11 +60,11 @@ def axes_taux(a1, a2, xmax=200):
 # ------------------------------------------------------------------ v01 système actuel
 def v01():
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.4, 3.6))
-    for prof, lab, col, ls in (("seul", "Salarié seul", INK, "-"), ("couple_2enf", "Couple, deux enfants", GRIS, "--"),
-                               ("retraite_seul", "Retraité seul", OCRE, "-")):
+    for prof, lab, col, ls in (("seul", "Salarié seul", "#1a1a1a", "-"), ("couple_2enf", "Couple, deux enfants", "#0072B2", "--"),
+                               ("retraite_seul", "Retraité seul", "#E69F00", "-.")):
         z, t, mg = courbe(prof)
-        a1.plot(z / 1e3, 100 * t / z, color=col, lw=1.6, ls=ls, label=lab)
-        trace_marginal(a2, z, mg, color=col, lw=1.3, ls=ls)
+        a1.plot(z / 1e3, 100 * t / z, color=col, lw=1.8, ls=ls, label=lab)
+        trace_marginal(a2, z, mg, color=col, lw=1.6, ls=ls)
     axes_taux(a1, a2)
     a1.set_ylim(0, 42)
     a2.set_ylim(0, 62)
@@ -69,10 +72,11 @@ def v01():
     fig.subplots_adjust(wspace=0.22)
     fin(fig, "ircsg_v01_aujourdhui", SRC_OF,
         "Note : IR, CSG et CRDS en % du revenu brut (salaire brut ou pension brute) ; taux marginal calculé sur "
-        "1 000 € de plus. Le couple partage ses revenus 60/40. Triangles : seuils où le taux de CSG d'un retraité "
+        "1 000 € de plus, lissé sur 2 000 € (médiane glissante). Le couple partage ses revenus 60/40. Triangles : seuils où le taux de CSG d'un retraité "
         "change et s'applique à toute sa pension. Le pic du retraité vers 33 000 € vient de la perte de "
-        "l'abattement des plus de 65 ans ; les petits pics, du seuil de 61 € sous lequel l'IR n'est pas "
-        "recouvré.")
+        "l'abattement des plus de 65 ans ; les petites pointes dues au seuil de 61 € sous lequel l'IR n'est "
+        "pas recouvré sont effacées par le lissage. Le creux du couple entre 86 000 et 95 000 € suit la fin de la décote, dont la sortie progressive "
+        "alourdit le taux marginal en dessous.")
 
 
 # ------------------------------------------------------------------ v02 recettes et répartition

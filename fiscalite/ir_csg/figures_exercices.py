@@ -1,96 +1,98 @@
 """Figures des exercices (ircsg_x01 à ircsg_x05).
 
 Lancer depuis fiscalite/ : python3 ir_csg/figures_exercices.py ; FIG_NU=1 python3 ir_csg/figures_exercices.py
+
+Lisibilité : une palette distinguable par les daltoniens (Okabe et Ito) et un style de trait par étape ; un
+profil de foyer par ligne de panneaux ; le taux marginal est lissé par une médiane glissante sur 2 000 € pour
+effacer les pointes isolées (seuil de recouvrement de l'IR, arrondis), sans toucher aux marches.
 """
 import sys
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE), str(HERE.parent)]
 import exercices as ex  # noqa: E402
-from graphiques import BLEU, GRIS, INK, MUTED, OCRE, PCT, fin, grille, plt  # noqa: E402
+from graphiques import INK, PCT, fin, grille, plt  # noqa: E402
 
-BRIQUE = "#993333"
+# palette d'Okabe et Ito : noir, orange, bleu, violet-rose
+STYLE = {"auj": dict(color="#1a1a1a", lw=1.3, ls="-"),
+         "ex1": dict(color="#E69F00", lw=2.2, ls="-."),
+         "ex2": dict(color="#0072B2", lw=2.2, ls="-"),
+         "ex3": dict(color="#CC79A7", lw=2.2, ls="--")}
+NOMS = {"auj": "Aujourd'hui", "ex1": "Exercice 1 : harmonisation", "ex2": "Exercice 2 : aplanissement",
+        "ex3": "Exercice 3 : perte sèche minimale"}
 SRC = "OpenFisca-France 176.1 (législation des revenus 2024) ; DGFiP, IRCOM revenus 2024 ; calculs de l'auteur."
 RES = ex.resultats()
-ETAPES = [("Exercice 1 : harmonisation", RES["ex1"], OCRE), ("Exercice 2 : aplanissement", RES["ex2"], BLEU),
-          ("Exercice 3 : perte sèche minimale", RES["ex3"], BRIQUE)]
+T_EX = {"ex1": RES["ex1"][1], "ex2": RES["ex2"][1], "ex3": RES["ex3"][1]}
 CT = ex.CT
+PROFILS = [("seul", "Personne seule"), ("couple_2enf", "Couple, deux enfants, revenus partagés 60/40"),
+           ("couple_2enf_mono", "Couple, deux enfants, un seul revenu")]
 NOTE_COMMUNE = ("Impôt individuel sur le revenu après cotisations, franchise de 6 000 € par enfant déduite du revenu "
-                "du parent qui gagne le plus ; même recette qu'aujourd'hui.")
+                "du parent qui gagne le plus ; même recette qu'aujourd'hui. Salariés, IR + CSG + CRDS en % du salaire "
+                "brut ; taux marginal sur 1 000 € de plus, lissé sur 2 000 € (médiane glissante) pour effacer les "
+                "pointes isolées. Aujourd'hui, le taux marginal du couple monte à 21 % vers 60 000 € puis retombe à "
+                "18 % entre 86 000 et 95 000 € : en dessous, la sortie progressive de la décote alourdit l'IR.")
 
 
-def courbe(profil, T=None):
+def lisse(a):
+    return pd.Series(a).rolling(5, center=True, min_periods=1).median().values
+
+
+def courbe(profil, cle):
     g = CT[CT.profil == profil].sort_values("brut")
-    if T is None:
-        return g.brut.values, g.actuel.values, ((g.actuel_plus - g.actuel) / 1000).values
-    n, n1 = ex.cas_types(T)[g.index], ex.cas_types(T, plus=True)[g.index]
-    return g.brut.values, n, (n1 - n) / 1000
+    if cle == "auj":
+        t, t1 = g.actuel.values, g.actuel_plus.values
+    else:
+        t, t1 = ex.cas_types(T_EX[cle])[g.index], ex.cas_types(T_EX[cle], plus=True)[g.index]
+    return g.brut.values, 100 * t / g.brut.values, lisse(100 * (t1 - t) / 1000)
 
 
-def axes(a1, a2, xmax=200, ymoy=40, ymarg=55):
-    for ax, t in ((a1, "Taux moyen : part du revenu payée"), (a2, "Taux marginal : impôt sur 1 000 € de plus")):
-        ax.set_xlim(0, xmax)
-        ax.set_xlabel("Revenu brut annuel du foyer (k€)")
-        ax.yaxis.set_major_formatter(PCT)
-        ax.set_title(t, fontsize=10, color=INK, loc="left")
-        grille(ax)
-    a1.set_ylim(0, ymoy)
-    a2.set_ylim(0, ymarg)
-
-
-def compare(nom_fig, etape, col, titre_note):
-    """Aujourd'hui (gris) et l'exercice (couleur), pour une personne seule et un couple avec deux enfants."""
-    nom, (tm, T), _ = etape
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.4, 3.8))
-    for prof, lab, ls in (("seul", "personne seule", "-"), ("couple_2enf", "couple, deux enfants", "--")):
-        z, t, mg = courbe(prof)
-        a1.plot(z / 1e3, 100 * t / z, color=GRIS, lw=1.4, ls=ls, label=f"Aujourd'hui, {lab}")
-        a2.plot(z / 1e3, np.where(mg < 0.6, 100 * mg, np.nan), color=GRIS, lw=1.2, ls=ls)
-        z, t, mg = courbe(prof, T)
-        a1.plot(z / 1e3, 100 * t / z, color=col, lw=2.2, ls=ls, label=f"{nom.split(' : ')[0]}, {lab}")
-        a2.plot(z / 1e3, 100 * mg, color=col, lw=2.2, ls=ls)
-    axes(a1, a2)
-    a1.legend(loc="upper left", fontsize=7.2)
-    fig.subplots_adjust(wspace=0.22)
-    fin(fig, nom_fig, SRC, f"Note : salariés, IR + CSG + CRDS en % du salaire brut ; le couple partage ses revenus "
-                           f"60/40. {titre_note} {NOTE_COMMUNE}")
-
-
-def synthese():
-    """Les quatre étapes pour une personne seule et pour un couple avec deux enfants."""
-    fig, axs = plt.subplots(2, 2, figsize=(9.4, 6.6), sharex=True)
-    for ligne, (prof, lab) in enumerate((("seul", "Personne seule"), ("couple_2enf", "Couple, deux enfants (60/40)"))):
+def panneaux(axs, profils, cles, legende=True):
+    for ligne, (prof, lab) in enumerate(profils):
         a1, a2 = axs[ligne]
-        z, t, mg = courbe(prof)
-        a1.plot(z / 1e3, 100 * t / z, color=GRIS, lw=1.8, label="Aujourd'hui")
-        a2.plot(z / 1e3, np.where(mg < 0.6, 100 * mg, np.nan), color=GRIS, lw=1.6)
-        for nom, (tm, T), col in ETAPES:
-            z, t, mg = courbe(prof, T)
-            a1.plot(z / 1e3, 100 * t / z, color=col, lw=1.8, label=nom)
-            a2.plot(z / 1e3, 100 * mg, color=col, lw=1.8)
-        for ax, t_ in ((a1, f"{lab} : taux moyen"), (a2, f"{lab} : taux marginal")):
+        for cle in cles:
+            z, moy, mg = courbe(prof, cle)
+            a1.plot(z / 1e3, moy, label=NOMS[cle], **STYLE[cle])
+            a2.plot(z / 1e3, mg, **STYLE[cle])
+        for ax, t in ((a1, f"{lab} : taux moyen"), (a2, f"{lab} : taux marginal")):
             ax.set_xlim(0, 200)
             ax.yaxis.set_major_formatter(PCT)
-            ax.set_title(t_, fontsize=9.5, color=INK, loc="left")
+            ax.set_title(t, fontsize=9, color=INK, loc="left")
             grille(ax)
         a1.set_ylim(0, 40)
         a2.set_ylim(0, 55)
-    for ax in axs[1]:
+    for ax in axs[-1]:
         ax.set_xlabel("Revenu brut annuel du foyer (k€)")
-    axs[0, 0].legend(loc="upper left", fontsize=7)
-    fig.subplots_adjust(wspace=0.2, hspace=0.25)
-    fin(fig, "ircsg_x04_synthese", SRC, "Note : salariés, IR + CSG + CRDS en % du salaire brut. " + NOTE_COMMUNE)
+    if legende:
+        axs[0][0].legend(loc="upper left", fontsize=7.2, frameon=True)
+
+
+def compare(nom_fig, cle, note):
+    fig, axs = plt.subplots(3, 2, figsize=(9.4, 8.4), sharex=True)
+    panneaux(axs, PROFILS, ["auj", cle])
+    fig.subplots_adjust(wspace=0.18, hspace=0.3)
+    fin(fig, nom_fig, SRC, f"Note : {note} {NOTE_COMMUNE}")
+
+
+def synthese():
+    fig, axs = plt.subplots(2, 2, figsize=(9.4, 6.4), sharex=True)
+    panneaux(axs, PROFILS[:2], ["auj", "ex1", "ex2", "ex3"], legende=False)
+    h, l = axs[0][0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper center", ncol=4, fontsize=7.6, frameon=False, bbox_to_anchor=(0.5, 1.0))
+    fig.subplots_adjust(wspace=0.18, hspace=0.3, top=0.9)
+    fin(fig, "ircsg_x04_synthese", SRC, "Note : " + NOTE_COMMUNE)
 
 
 def deciles():
-    fig, ax = plt.subplots(figsize=(9.4, 3.4))
+    fig, ax = plt.subplots(figsize=(9.4, 3.6))
     xs = np.arange(1, 11)
-    for k, (nom, (tm, T), col) in enumerate(ETAPES):
-        d = ex.v.deciles(ex.impot(T))
-        ax.bar(xs + (k - 1) * 0.27, d.delta_eur, width=0.26, color=col, label=nom)
+    for k, cle in enumerate(("ex1", "ex2", "ex3")):
+        d = ex.v.deciles(ex.impot(T_EX[cle]))
+        ax.bar(xs + (k - 1) * 0.27, d.delta_eur, width=0.26, color=STYLE[cle]["color"], label=NOMS[cle],
+               edgecolor="white", lw=0.3, hatch=["", "", "//"][k])
     ax.axhline(0, color=INK, lw=0.7)
     ax.set_xticks(xs)
     ax.set_xticklabels([f"D{i}" for i in xs], fontsize=8)
@@ -98,24 +100,25 @@ def deciles():
     ax.set_ylabel("€ par foyer et par an")
     ax.set_title("Variation de la charge moyenne par rapport à aujourd'hui (+ : paie plus)", fontsize=10, color=INK, loc="left")
     grille(ax)
-    ax.legend(loc="upper left", fontsize=7.5)
+    ax.legend(loc="lower left", fontsize=7.5)
     fin(fig, "ircsg_x05_deciles", "DGFiP, IRCOM et déclarations 2042, revenus 2024 ; CCSS ; calculs de l'auteur.",
         "Note : effet avant réactions, en moyenne par foyer fiscal ; foyers réels, niches comprises dans la charge "
-        "actuelle. " + NOTE_COMMUNE)
+        "actuelle. Impôt individuel sur le revenu après cotisations, franchise de 6 000 € par enfant ; même recette.")
 
 
 if __name__ == "__main__":
-    tau = RES["tau"]
-    b2, b3 = RES["b2"], RES["b3"]
+    tau, b2, b3 = RES["tau"], RES["b2"], RES["b3"]
     f = lambda u: f"{100 * u:.1f}".replace(".", ",")  # noqa: E731
-    compare("ircsg_x01_harmonisation", ETAPES[0], OCRE,
-            f"Exercice 1 : tranches de l'IR des revenus 2024 (0, 11, 30, 41, 45 %) appliquées à chaque adulte, plus un "
+    compare("ircsg_x01_harmonisation", "ex1",
+            f"exercice 1 : tranches de l'IR des revenus 2024 (0, 11, 30, 41, 45 %) appliquées à chaque adulte, plus un "
             f"taux unique de {f(tau)} % sur tout le revenu.")
-    compare("ircsg_x02_aplanissement", ETAPES[1], BLEU,
-            f"Exercice 2 : taux marginal de {f(b2.t0)} % au premier euro, {f(b2.tb)} % à 20 000 €, {f(b2.t1)} % à "
-            f"{b2.z1/1e3:.0f} 000 €, 50 % à {b2.z2/1e3:.0f} 000 € par adulte, en ligne droite entre ces seuils.")
-    compare("ircsg_x03_perte_seche", ETAPES[2], BRIQUE,
-            f"Exercice 3 : taux marginal de {f(b3.t0)} % au premier euro, {f(b3.tb)} % à 20 000 €, {f(b3.t1)} % à "
-            f"{b3.z1/1e3:.0f} 000 €, 50 % à {b3.z2/1e3:.0f} 000 € par adulte, en ligne droite entre ces seuils.")
+    compare("ircsg_x02_aplanissement", "ex2",
+            f"exercice 2 : taux marginal de {f(b2.t0)} % au premier euro, {f(b2.tb)} % à 20 000 €, {f(b2.t1)} % à "
+            f"{b2.z1/1e3:.0f} 000 €, 50 % à {b2.z2/1e3:.0f} 000 € par adulte (revenu après cotisations), en ligne droite "
+            f"entre ces seuils.")
+    compare("ircsg_x03_perte_seche", "ex3",
+            f"exercice 3 : taux marginal de {f(b3.t0)} % au premier euro, {f(b3.tb)} % à 20 000 €, {f(b3.t1)} % à "
+            f"{b3.z1/1e3:.0f} 000 €, 50 % à {b3.z2/1e3:.0f} 000 € par adulte (revenu après cotisations), en ligne droite "
+            f"entre ces seuils.")
     synthese()
     deciles()
