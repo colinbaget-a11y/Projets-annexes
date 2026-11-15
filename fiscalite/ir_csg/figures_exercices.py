@@ -111,7 +111,7 @@ if __name__ == "__main__":
     f = lambda u: f"{100 * u:.1f}".replace(".", ",")  # noqa: E731
     compare("ircsg_x01_harmonisation", "ex1",
             f"exercice 1 : tranches de l'IR des revenus 2024 (0, 11, 30, 41, 45 %) appliquées à chaque adulte, plus un "
-            f"taux unique de {f(tau)} % sur tout le revenu.")
+            f"taux unique de {f(tau)} % sur tout le revenu après la franchise pour enfants.")
     compare("ircsg_x02_aplanissement", "ex2",
             f"exercice 2 : taux marginal de {f(b2.t0)} % au premier euro, {f(b2.tb)} % à 20 000 €, {f(b2.t1)} % à "
             f"{b2.z1/1e3:.0f} 000 €, 50 % à {b2.z2/1e3:.0f} 000 € par adulte (revenu après cotisations), en ligne droite "

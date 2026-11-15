@@ -189,6 +189,14 @@ def penalites(T):
                 pen_equite=float((np.clip(eq, 0, None) ** 2).mean() / SIG["equite"] ** 2))
 
 
+def redistribution(n):
+    """Baisse du Gini due à l'impôt, rapportée à celle d'aujourd'hui. La charge actuelle est connue par tranche
+    (proportionnelle dans la tranche) : on traite la nouvelle charge de la même façon pour comparer à l'identique."""
+    d = pd.DataFrame({"t": v.f.tranche.values, "n": n * W, "z": Z * W}).groupby("t").sum()
+    n_prop = Z * v.f.tranche.map(d.n / d.z).values
+    return (G0 - gini(Z - n_prop, W)) / (G0 - GC)
+
+
 def bilan(tm, T):
     n = impot(T)
     seul, couple = impot_types(T)
@@ -197,7 +205,7 @@ def bilan(tm, T):
     return dict(recette=(W * n).sum() / 1e9, cout=cout(tm), cout_bas=cout(tm, "bas"), cout_haut=cout(tm, "haut"),
                 reaction=reaction(tm), deciles=v.deciles(n), tranches=v.par_tranche(n), types=v.par_type(n),
                 seuls_mds=((seul - v.CUR_S) * ws).sum() / 1e9, couples_mds=((couple - v.CUR_C) * wc).sum() / 1e9,
-                seuls_dec=100 * sd.dn / sd.z, redistribution=(G0 - gini(Z - n, W)) / (G0 - GC),
+                seuls_dec=100 * sd.dn / sd.z, redistribution=redistribution(n),
                 transferts=transferts(T), paient=(W * (n > 0)).sum() / W.sum())
 
 
@@ -230,7 +238,7 @@ def grille():
         if tb < t0 or z1 >= z2:
             continue
         t1, (tm, T) = famille(t0, tb, z1, z2)
-        if not tb <= t1 <= TOP:
+        if not tb <= t1 <= TOP or abs(recette(T) - v.CIBLE) > 0.05:      # recette non atteinte même à t1 = TOP
             continue
         rows.append(dict(t0=t0, tb=tb, z1=z1, t1=t1, z2=z2, cout=cout(tm), transferts=transferts(T), **penalites(T)))
     return pd.DataFrame(rows)
@@ -255,7 +263,7 @@ if __name__ == "__main__":
     res = resultats()
     p("E0", f"recette cible {v.CIBLE:.1f} Md€ ; franchise {FRANCHISE:,.0f} € par enfant ; coût d'efficacité actuel"
              f" {v.cout_actuel():.1f} Md€ (bas {v.cout_actuel('bas'):.1f}, haut {v.cout_actuel('haut'):.1f})")
-    p("E1", f"exercice 1 : tranches de l'IR 2024 + taux unique de {100*res['tau']:.2f} % sur tout le revenu ;"
+    p("E1", f"exercice 1 : tranches de l'IR 2024 + taux unique de {100*res['tau']:.2f} % sur tout le revenu après franchise ;"
             f" part « barème de l'IR » {recette(bareme_empile(0.0)[1]):.1f} Md€")
     G = res["grille"]
     G.round(4).to_csv(HERE / "sorties/exercices_grille.csv", index=False)

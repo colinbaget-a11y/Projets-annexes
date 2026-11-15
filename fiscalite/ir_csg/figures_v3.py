@@ -73,9 +73,9 @@ def v01():
     fin(fig, "ircsg_v01_aujourdhui", SRC_OF,
         "Note : IR, CSG et CRDS en % du revenu brut (salaire brut ou pension brute) ; taux marginal calculé sur "
         "1 000 € de plus, lissé sur 2 000 € (médiane glissante). Le couple partage ses revenus 60/40. Triangles : seuils où le taux de CSG d'un retraité "
-        "change et s'applique à toute sa pension. Le pic du retraité vers 33 000 € vient de la perte de "
-        "l'abattement des plus de 65 ans ; les petites pointes dues au seuil de 61 € sous lequel l'IR n'est "
-        "pas recouvré sont effacées par le lissage. Le creux du couple entre 86 000 et 95 000 € suit la fin de la décote, dont la sortie progressive "
+        "change et s'applique à toute sa pension. Vers 33 000 €, le retraité perd l'abattement des plus de 65 ans ; "
+        "ce saut, sur 1 000 € seulement, et les petites pointes dues au seuil de 61 € sous lequel l'IR n'est "
+        "pas recouvré sont effacés par le lissage. Le creux du couple entre 86 000 et 95 000 € suit la fin de la décote, dont la sortie progressive "
         "alourdit le taux marginal en dessous.")
 
 
