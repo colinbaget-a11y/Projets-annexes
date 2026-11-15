@@ -11,6 +11,17 @@ niche), impôt individuel et franchise de 6 000 € par enfant déduite du reven
 2. aplanissement : barème à taux marginal en ligne droite (taux du haut 50 %) le plus proche de la charge actuelle ;
 3. perte sèche minimale, sans correction sociale (la correction reste à décider avec l'auteur).
 
+**Note courte (novembre 2026).** `note-efficace.pdf` (et `.docx` par `python3 tex2docx.py note-efficace`),
+3 pages : « L'impôt sur le revenu le plus efficace possible ». Objectif : perte sèche minimale, travail et
+familles favorisés, redistribution indifférente, même recette (220 Md€). Programme `systeme_efficace.py`
+(chiffres dans `sorties/systeme_efficace.txt`, étiquettes S0 à S9), figure `figures_efficace.py`
+(`ircsg_e01_systeme`). Système proposé (B) : 21,4 % sur les revenus d'activité et fonciers au-delà de 10 000 €
+par adulte, 26,4 % sur les pensions et le chômage dès le premier euro, crédit de 1 500 € par enfant (27 Md€).
+Perte sèche 6 Md€ (2 à 10) contre 18 (8 à 31) ; 11 des 12 Md€ de gain viennent des 10 % du haut. Payé par les
+retraités (+15,5 Md€) et les chômeurs (+3) ; retraité seul à 17 000 € : +4 490 €. Variantes : A sans
+franchise (15,2 / 20,2 %, perte 3 Md€, SMIC +850 €) ; C franchise sur tout revenu, taux unique 24,4 % (perte
+9 Md€, retraité à 17 000 € +1 710 €). Ne modifie rien des exercices.
+
 **Livrable (version 3, relecture v2 de l'auteur).** `note-ir-csg.pdf`, 13 pages. Impôt unique remplaçant
 l'IR, la CSG et la CRDS sur les revenus au barème (`bareme_v3.py`, `figures_v3.py`, chiffres recalculés par
 `controles_v3.py` dans `sorties/controles_v3.txt`) :

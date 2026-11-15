@@ -1,0 +1,77 @@
+[S0] recette 220.1 Md€ ; assiette nette 1481 Md€ dont pensions et chômage 444 Md€ ; enfants 18.0 M ; coût actuel 18.1 (bas 8.1, haut 31.1)
+[S1] écart 0 pt, crédit 0 € : travail 14.9 %, pensions et chômage 14.9 % ; coût 2.9 (1.1 à 5.0) ; crédit 0.0 Md€ ; redistribution -0.02 ; D1-D10 € +195 +762 +1459 +1575 +1126 +1124 +824 +748 -242 -7399
+[S1] écart 0 pt, crédit 1000 € : travail 16.1 %, pensions et chômage 16.1 % ; coût 3.4 (1.3 à 5.9) ; crédit 18.0 Md€ ; redistribution 0.06 ; D1-D10 € +64 +694 +1393 +1505 +1035 +1071 +739 +723 -219 -6848
+[S1] écart 0 pt, crédit 1500 € : travail 16.7 %, pensions et chômage 16.7 % ; coût 3.7 (1.4 à 6.4) ; crédit 27.0 Md€ ; redistribution 0.10 ; D1-D10 € -1 +660 +1360 +1469 +989 +1045 +697 +711 -207 -6573
+[S1] écart 0 pt, crédit 2000 € : travail 17.3 %, pensions et chômage 17.3 % ; coût 4.0 (1.5 à 6.9) ; crédit 36.0 Md€ ; redistribution 0.14 ; D1-D10 € -67 +626 +1327 +1434 +943 +1018 +655 +698 -196 -6298
+[S1] écart 3 pt, crédit 0 € : travail 14.0 %, pensions et chômage 17.0 % ; coût 2.5 (1.0 à 4.3) ; crédit 0.0 Md€ ; redistribution -0.06 ; D1-D10 € +206 +806 +1531 +1599 +1159 +1164 +892 +844 -254 -7767
+[S1] écart 3 pt, crédit 1000 € : travail 15.2 %, pensions et chômage 18.2 % ; coût 3.0 (1.2 à 5.2) ; crédit 18.0 Md€ ; redistribution 0.01 ; D1-D10 € +75 +738 +1465 +1529 +1068 +1111 +808 +819 -231 -7216
+[S1] écart 3 pt, crédit 1500 € : travail 15.8 %, pensions et chômage 18.8 % ; coût 3.3 (1.3 à 5.6) ; crédit 27.0 Md€ ; redistribution 0.05 ; D1-D10 € +10 +704 +1433 +1494 +1022 +1085 +765 +806 -219 -6941
+[S1] écart 3 pt, crédit 2000 € : travail 16.4 %, pensions et chômage 19.4 % ; coût 3.6 (1.4 à 6.1) ; crédit 36.0 Md€ ; redistribution 0.09 ; D1-D10 € -56 +670 +1400 +1459 +976 +1058 +723 +794 -208 -6665
+[S1] écart 5 pt, crédit 0 € : travail 13.4 %, pensions et chômage 18.4 % ; coût 2.3 (0.9 à 3.9) ; crédit 0.0 Md€ ; redistribution -0.09 ; D1-D10 € +214 +835 +1580 +1615 +1181 +1191 +938 +908 -262 -8012
+[S1] écart 5 pt, crédit 1000 € : travail 14.6 %, pensions et chômage 19.6 % ; coût 2.8 (1.1 à 4.8) ; crédit 18.0 Md€ ; redistribution -0.02 ; D1-D10 € +83 +767 +1514 +1545 +1090 +1138 +853 +882 -239 -7461
+[S1] écart 5 pt, crédit 1500 € : travail 15.2 %, pensions et chômage 20.2 % ; coût 3.0 (1.2 à 5.2) ; crédit 27.0 Md€ ; redistribution 0.02 ; D1-D10 € +17 +733 +1481 +1510 +1044 +1112 +811 +870 -227 -7186
+[S1] écart 5 pt, crédit 2000 € : travail 15.8 %, pensions et chômage 20.8 % ; coût 3.3 (1.3 à 5.7) ; crédit 36.0 Md€ ; redistribution 0.06 ; D1-D10 € -48 +699 +1448 +1475 +998 +1085 +768 +857 -216 -6911
+[S1] écart 8 pt, crédit 0 € : travail 12.5 %, pensions et chômage 20.5 % ; coût 2.0 (0.8 à 3.4) ; crédit 0.0 Md€ ; redistribution -0.14 ; D1-D10 € +225 +879 +1653 +1639 +1214 +1231 +1006 +1003 -274 -8380
+[S1] écart 8 pt, crédit 1000 € : travail 13.7 %, pensions et chômage 21.7 % ; coût 2.4 (0.9 à 4.1) ; crédit 18.0 Md€ ; redistribution -0.06 ; D1-D10 € +94 +811 +1587 +1569 +1122 +1178 +921 +978 -251 -7829
+[S1] écart 8 pt, crédit 1500 € : travail 14.3 %, pensions et chômage 22.3 % ; coût 2.7 (1.0 à 4.6) ; crédit 27.0 Md€ ; redistribution -0.02 ; D1-D10 € +28 +777 +1554 +1534 +1077 +1152 +879 +966 -239 -7554
+[S1] écart 8 pt, crédit 2000 € : travail 14.9 %, pensions et chômage 22.9 % ; coût 2.9 (1.1 à 5.0) ; crédit 36.0 Md€ ; redistribution 0.02 ; D1-D10 € -37 +743 +1521 +1499 +1031 +1125 +837 +953 -228 -7278
+[S2] retenu : travail 15.18 %, pensions et chômage 20.18 %, crédit 1500 € par enfant (27.0 Md€)
+[S2] coût 3.0 Md€ (1.2 à 5.2) contre 18.1 ; revenu du travail déclaré +47.6 Md€, recette induite +6.6 Md€ ; redistribution 0.02
+[S3] déciles € +17 +733 +1481 +1510 +1044 +1112 +811 +870 -227 -7186 | pts +0.9 +9.3 +9.0 +6.9 +4.0 +3.5 +2.1 +1.8 -0.4 -5.8
+[S4] types (Md€) Salaires -12.2 ; Pensions +19.1 ; Indépendants, foncier, gérants -9.8 ; Chômage, préretraites +3.0
+[S5] tranches RFR ≥ 100 k€ (pts) -7.1 -12.9 -15.8 -16.7 -17.5 -18.0 -17.8 -18.1 -18.6 -18.9 -19.4 -19.4 -20.2 -19.2 -17.4 -18.0 -17.4 -15.3 ; 100-200k -10,732 € ; 200-300k -26,385 €
+[S6] seul              15k +590 17k +669 21k +846 30k +368 50k -2,267 80k -7,766 100k -11,433 150k -23,658
+[S6] couple_0enf       15k +590 17k +669 21k +846 30k +1,180 50k +1,215 80k -892 100k -4,548 150k -13,699
+[S6] couple_2enf       15k -2,410 17k -2,331 21k -2,154 30k -1,820 50k -1,033 80k -2,307 100k -3,966 150k -13,117
+[S6] couple_2enf_mono  15k -2,410 17k -2,331 21k -2,154 30k -1,820 50k -1,037 80k -2,303 100k -4,016 150k -13,182
+[S6] retraite_seul     15k +3,027 17k +3,431 21k +2,813 30k +2,741 50k -270 80k -5,325 100k -9,340 150k -22,940
+[S7] seul 21.5 k€ : aujourd'hui 2,049 € (9.5 %, marginal 9.5 %) ; proposé 2,895 € (13.5 %, marginal 13.5 %)
+[S7] seul 50.0 k€ : aujourd'hui 8,995 € (18.0 %, marginal 31.9 %) ; proposé 6,728 € (13.5 %, marginal 13.6 %)
+[S7] seul 100.0 k€ : aujourd'hui 24,973 € (25.0 %, marginal 31.9 %) ; proposé 13,541 € (13.5 %, marginal 13.6 %)
+[S7] couple_2enf 50.0 k€ : aujourd'hui 4,765 € (9.5 %, marginal 9.5 %) ; proposé 3,732 € (7.5 %, marginal 13.5 %)
+[S7] couple_2enf 80.0 k€ : aujourd'hui 10,071 € (12.6 %, marginal 21.3 %) ; proposé 7,765 € (9.7 %, marginal 13.6 %)
+[S7] retraite_seul 17.0 k€ : aujourd'hui 0 € (0.0 %, marginal 77.4 %) ; proposé 3,431 € (20.2 %, marginal 20.2 %)
+[S7] retraite_seul 30.0 k€ : aujourd'hui 3,314 € (11.0 %, marginal 65.9 %) ; proposé 6,055 € (20.2 %, marginal 20.2 %)
+[S8] franchise travail 0 € : travail 15.2 %, pensions 20.2 % ; coût 3.0 (1.2 à 5.2) ; SMIC seul +846 € ; seul 50 k€ -2,267 € ; redistribution 0.02 ; D1-D10 € +17 +733 +1481 +1510 +1044 +1112 +811 +870 -227 -7186
+[S8] franchise travail 5,000 € : travail 18.1 %, pensions 23.1 % ; coût 4.4 (1.7 à 7.5) ; SMIC seul +495 € ; seul 50 k€ -1,886 € ; redistribution 0.34 ; D1-D10 € -101 +295 +973 +1074 +664 +849 +651 +929 +137 -5348
+[S8] franchise travail 8,000 € : travail 20.0 %, pensions 25.0 % ; coût 5.4 (2.1 à 9.2) ; SMIC seul +170 € ; seul 50 k€ -1,714 € ; redistribution 0.48 ; D1-D10 € -82 +343 +682 +755 +376 +617 +474 +875 +289 -4234
+[S8] franchise travail 10,000 € : travail 21.4 %, pensions 26.4 % ; coût 6.0 (2.3 à 10.3) ; SMIC seul -107 € ; seul 50 k€ -1,645 € ; redistribution 0.55 ; D1-D10 € -69 +393 +659 +528 +182 +443 +325 +815 +327 -3526
+[S9] système A {'ecart': 0.05, 'C': 1500.0, 'F': 0.0, 'univ': False} : travail 15.2 %, pensions et chômage 20.2 % ; coût 3.0 ; redistribution 0.02
+[S9]   déciles € +17 +733 +1481 +1510 +1044 +1112 +811 +870 -227 -7186 | pts +0.9 +9.3 +9.0 +6.9 +4.0 +3.5 +2.1 +1.8 -0.4 -5.8
+[S9]   types Md€ Salaires -12.2 ; Pensions +19.1 ; Indépendants, foncier, gérants -9.8 ; Chômage, préretraites +3.0 ; RFR 200-300k -26,385 € ; 1-2M -18.9 pts
+[S9]   seul 21.5 k€ : +846 € (proposé 2,895 €, marginal 13.5 %)
+[S9]   seul 30.0 k€ : +368 € (proposé 4,039 €, marginal 13.5 %)
+[S9]   seul 50.0 k€ : -2,267 € (proposé 6,728 €, marginal 13.6 %)
+[S9]   seul 100.0 k€ : -11,433 € (proposé 13,541 €, marginal 13.6 %)
+[S9]   couple_2enf 30.0 k€ : -1,820 € (proposé 1,039 €, marginal 13.5 %)
+[S9]   couple_2enf 50.0 k€ : -1,033 € (proposé 3,732 €, marginal 13.5 %)
+[S9]   couple_2enf 80.0 k€ : -2,307 € (proposé 7,765 €, marginal 13.6 %)
+[S9]   couple_0enf 50.0 k€ : +1,215 € (proposé 6,732 €, marginal 13.5 %)
+[S9]   retraite_seul 17.0 k€ : +3,431 € (proposé 3,431 €, marginal 20.2 %)
+[S9]   retraite_seul 30.0 k€ : +2,741 € (proposé 6,055 €, marginal 20.2 %)
+[S9] système B {'ecart': 0.05, 'C': 1500.0, 'F': 10000.0, 'univ': False} : travail 21.4 %, pensions et chômage 26.4 % ; coût 6.0 ; redistribution 0.55
+[S9]   déciles € -69 +393 +659 +528 +182 +443 +325 +815 +327 -3526 | pts -3.5 +5.0 +4.0 +2.4 +0.7 +1.4 +0.8 +1.7 +0.5 -2.8
+[S9]   types Md€ Salaires -12.1 ; Pensions +15.5 ; Indépendants, foncier, gérants -6.5 ; Chômage, préretraites +3.0 ; RFR 200-300k -18,570 € ; 1-2M -13.7 pts
+[S9]   seul 21.5 k€ : -107 € (proposé 1,942 €, marginal 19.0 %)
+[S9]   seul 30.0 k€ : -114 € (proposé 3,557 €, marginal 19.0 %)
+[S9]   seul 50.0 k€ : -1,645 € (proposé 7,351 €, marginal 19.2 %)
+[S9]   seul 100.0 k€ : -8,013 € (proposé 16,961 €, marginal 19.2 %)
+[S9]   couple_2enf 30.0 k€ : -4,444 € (proposé -1,585 €, marginal 19.0 %)
+[S9]   couple_2enf 50.0 k€ : -2,551 € (proposé 2,214 €, marginal 19.0 %)
+[S9]   couple_2enf 80.0 k€ : -2,168 € (proposé 7,903 €, marginal 19.1 %)
+[S9]   couple_0enf 50.0 k€ : -303 € (proposé 5,214 €, marginal 19.0 %)
+[S9]   retraite_seul 17.0 k€ : +4,491 € (proposé 4,491 €, marginal 26.4 %)
+[S9]   retraite_seul 30.0 k€ : +4,611 € (proposé 7,925 €, marginal 26.4 %)
+[S9] système C {'ecart': 0.0, 'C': 1500.0, 'F': 10000.0, 'univ': True} : travail 24.4 %, pensions et chômage 24.4 % ; coût 8.6 ; redistribution 0.93
+[S9]   déciles € -318 -520 -5 +327 -1 +351 +254 +858 +775 -1679 | pts -15.8 -6.6 -0.0 +1.5 -0.0 +1.1 +0.7 +1.8 +1.2 -1.3
+[S9]   types Md€ Salaires -11.3 ; Pensions +12.9 ; Indépendants, foncier, gérants -4.7 ; Chômage, préretraites +3.1 ; RFR 200-300k -14,628 € ; 1-2M -11.2 pts
+[S9]   seul 21.5 k€ : +168 € (proposé 2,217 €, marginal 21.7 %)
+[S9]   seul 30.0 k€ : +389 € (proposé 4,060 €, marginal 21.7 %)
+[S9]   seul 50.0 k€ : -605 € (proposé 8,390 €, marginal 21.9 %)
+[S9]   seul 100.0 k€ : -5,614 € (proposé 19,359 €, marginal 21.9 %)
+[S9]   couple_2enf 30.0 k€ : -4,244 € (proposé -1,385 €, marginal 21.7 %)
+[S9]   couple_2enf 50.0 k€ : -1,814 € (proposé 2,952 €, marginal 21.7 %)
+[S9]   couple_2enf 80.0 k€ : -626 € (proposé 9,445 €, marginal 21.8 %)
+[S9]   couple_0enf 50.0 k€ : +434 € (proposé 5,952 €, marginal 21.7 %)
+[S9]   retraite_seul 17.0 k€ : +1,711 € (proposé 1,711 €, marginal 24.4 %)
+[S9]   retraite_seul 30.0 k€ : +1,575 € (proposé 4,889 €, marginal 24.4 %)

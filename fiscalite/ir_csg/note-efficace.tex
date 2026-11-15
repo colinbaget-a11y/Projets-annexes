@@ -1,0 +1,176 @@
+% L'impôt sur le revenu le plus efficace possible (note courte, complément de note-ir-csg.tex)
+% Compilation depuis fiscalite/ir_csg/ : pdflatex note-efficace.tex (deux passes)
+% Chiffres : python3 ir_csg/systeme_efficace.py -> ir_csg/sorties/systeme_efficace.txt (étiquettes [Sn])
+% Figure : FIG_NU=1 python3 ir_csg/figures_efficace.py (depuis fiscalite/)
+\documentclass[11pt,a4paper]{article}
+\input{../lvt/preambule}
+\geometry{left=2.3cm,right=2.3cm,top=2.1cm,bottom=2.3cm}
+\setlength{\parskip}{0.5em}
+\renewcommand{\figbloc}[3]{%
+  \begin{figure}[!htbp]\centering
+  \caption{#2}\label{#3}
+  \includegraphics[max width=\linewidth,max height=0.34\textheight]{../figures/nu/#1.pdf}
+  \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}%
+  \end{figure}}
+\renewcommand{\topfraction}{0.9}\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.85}
+\titlespacing*{\section}{0pt}{1.6ex plus .6ex minus .2ex}{0.8ex plus .2ex}
+\fancyhead[L]{\small\itshape L'impôt sur le revenu le plus efficace possible}
+
+\begin{document}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
+
+\thispagestyle{empty}
+{\footnotesize\color{ocre}\bfseries NOTE DE TRAVAIL\quad·\quad NOVEMBRE 2026\par}
+\vspace{6pt}
+{\fontsize{20}{24}\selectfont\bfseries\color{bleu}L'impôt sur le revenu le plus efficace possible\par}
+\vspace{5pt}
+{\large Un taux unique sur le travail, un crédit par enfant, à recette inchangée\par}
+\vspace{6pt}
+{\small Colin Baget. Mêmes données et même modèle que la note « Fusionner les impôts sur le revenu »
+(DGFiP, IRCOM et déclarations 2042, revenus 2024 ; OpenFisca-France pour les foyers types) ; programme
+\texttt{ir\_csg/systeme\_efficace.py}.\par}
+\vspace{5pt}
+{\color{bleu}\hrule height 1.2pt}
+
+\section*{Ce que l'on cherche}
+
+La question est volontairement étroite : quel impôt unique, à la place de l'IR, de la CSG et de la CRDS
+sur les revenus du travail et de remplacement, rapporte les mêmes 220~Md€ en décourageant le moins
+possible l'activité, tout en aidant les familles ? L'égalité n'est pas un objectif ; la redistribution
+n'est mesurée que pour information.
+
+Un impôt sur le revenu coûte à l'économie plus que ce qu'il rapporte, parce que chacun peut réduire son
+revenu imposable : travailler moins, refuser des heures ou une promotion, se faire payer autrement ou
+plus tard. Ce qui pèse sur ces décisions est le taux marginal, la part prélevée sur le prochain euro, et
+la perte qui en résulte (la perte sèche) croît à peu près comme son carré. D'où deux règles : un même
+taux pour tous sur l'assiette la plus large possible (à recette égale, imposer deux moitiés de
+l'assiette à 10 et 30~\% coûte un quart de plus qu'un taux unique de 20~\%, puisque $10^2+30^2=1\,000$
+contre $2\times20^2=800$) ; des taux plus élevés sur ce qui ne réagit pas.
+
+Poussée au bout, cette logique mène à un impôt par tête : environ 4~000~€ par adulte, sans aucun taux
+marginal. Personne ne réduirait son travail pour y échapper, mais un salarié à mi-temps au SMIC y
+laisserait plus du tiers de son salaire brut. On retient donc une seule contrainte étrangère à
+l'efficacité : les bas salaires ne doivent pas payer sensiblement plus qu'aujourd'hui. Le reste découle
+des chiffres.
+
+Favoriser le travail renvoie à deux décisions : prendre un emploi, qui dépend de l'impôt sur les
+premiers euros, et gagner davantage, qui dépend du taux marginal. Pour les familles, le quotient
+familial ne sert plus à rien avec un taux unique, puisqu'il n'agit qu'en faisant changer de tranche.
+L'aide la moins coûteuse est un montant fixe par enfant : il ne change le taux marginal de personne, et
+seul son financement coûte.
+
+\section*{Le système proposé}
+
+Une seule assiette, le revenu après cotisations sociales, sans abattement ni niche : l'abattement de
+10~\% sur les salaires et les pensions, le quotient familial, les réductions et crédits d'impôt et la
+contribution exceptionnelle sur les hauts revenus disparaissent dans un impôt unique prélevé à la
+source (les revenus du capital au prélèvement forfaitaire unique restent hors champ). Trois paramètres le définissent, le premier étant calé pour que la recette reste de 220~Md€ :
+\begin{itemize}
+\item 21,4~\% sur les revenus d'activité (salaires, bénéfices des indépendants, rémunérations des
+gérants) et les revenus fonciers, au-delà d'une franchise de 10~000~€ par adulte ;
+\item 26,4~\% sur les pensions de retraite et les allocations chômage, dès le premier euro ;
+\item un crédit de 1~500~€ par enfant, versé même à qui ne paie pas d'impôt (27~Md€ pour 18~millions
+d'enfants à charge).
+\end{itemize}
+
+La franchise est ce qui sépare ce système de l'impôt par tête. Sans elle (variante A du
+tableau~\ref{tab:eff}), un taux de 15,2~\% suffit et la perte sèche tombe à 3~Md€, mais un salarié seul
+au SMIC paie 850~€ de plus par an. Chaque millier d'euros de franchise oblige à relever le taux
+d'environ 0,6~point ; à 10~000~€, le salarié au SMIC paie à peu près ce qu'il paie aujourd'hui (100~€ de
+moins). La franchise est individuelle : dans un couple, le conjoint qui reprend un emploi ne paie rien
+sur ses 10~000 premiers euros, alors qu'aujourd'hui ce premier euro supporte la CSG et le taux marginal
+d'IR du foyer. Elle ne s'applique ni aux pensions ni au chômage : c'est une aide au travail, pas au
+revenu.
+
+L'écart de 5~points entre pensions et travail tient à ce que les retraités d'aujourd'hui ne peuvent
+plus modifier leur pension : la taxer ne décourage rien. Il pousse aussi vers l'emploi : à 63~ans,
+continuer à travailler plutôt que liquider sa retraite rapporte davantage quand la pension est plus
+taxée que le salaire, et l'allocation chômage nette baisse par rapport au salaire qu'on retrouverait.
+Le modèle, où pensions et allocations ne réagissent pas, pousserait l'écart bien plus loin : les
+5~points sont un choix, pas un résultat.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\caption{Trois systèmes efficaces comparés à aujourd'hui, à recette égale (220~Md€)}\label{tab:eff}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& Aujourd'hui & A & \textbf{B (proposé)} & C \\
+\midrule
+Taux sur le travail & barème actuel & 15,2~\% & \textbf{21,4~\%} & 24,4~\% \\
+Taux sur les pensions et le chômage & barème actuel & 20,2~\% & \textbf{26,4~\%} & 24,4~\% \\
+Franchise par adulte & --- & aucune & \textbf{10~000~€ (travail)} & 10~000~€ (tout revenu) \\
+\midrule
+Perte sèche, Md€ par an (élasticités basses à hautes) & 18 (8 à 31) & 3 (1 à 5) & \textbf{6 (2 à 10)} & 9 (3 à 15) \\
+Taux marginal, salarié seul au SMIC & 9,5~\% & 13,5~\% & \textbf{19,0~\%} & 21,7~\% \\
+Taux marginal, salarié seul à 50~000~€ brut & 31,9~\% & 13,6~\% & \textbf{19,2~\%} & 21,9~\% \\
+Effet redistributif (aujourd'hui = 100) & 100 & 2 & \textbf{55} & 93 \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Impôt aujourd'hui, puis variation par an (+ : paie plus)}} \\
+Salarié seul au SMIC (21~500~€ brut) & 2~050~€ & +850~€ & \textbf{$-$110~€} & +170~€ \\
+Salarié seul, 50~000~€ brut & 9~000~€ & $-$2~270~€ & \textbf{$-$1~650~€} & $-$610~€ \\
+Couple de salariés sans enfant, 50~000~€ & 5~520~€ & +1~220~€ & \textbf{$-$300~€} & +430~€ \\
+Couple de salariés, deux enfants, 50~000~€ & 4~770~€ & $-$1~030~€ & \textbf{$-$2~550~€} & $-$1~810~€ \\
+Retraité seul, 17~000~€ de pension & 0~€ & +3~430~€ & \textbf{+4~490~€} & +1~710~€ \\
+Ensemble des pensions (Md€) & 41 & +19,1 & \textbf{+15,5} & +12,9 \\
+Dixième décile de foyers (Md€) & --- & $-$30,5 & \textbf{$-$15,0} & $-$7,1 \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}
+Source : DGFiP, IRCOM et déclarations 2042, revenus 2024 ; OpenFisca-France 176.1 pour les foyers
+types ; calculs de l'auteur. Note : IR + CSG + CRDS, avant réactions des contribuables. Tous les
+systèmes versent 1~500~€ par enfant. Couple : revenus partagés 60/40. Effet redistributif : baisse de
+l'indice de Gini due à l'impôt, rapportée à celle d'aujourd'hui.}
+\end{table}
+
+\section*{Ce que cela donne}
+
+La perte sèche tombe de 18 à 6~Md€ par an dans le scénario central, de 8 à 2~Md€ avec les élasticités
+basses, de 31 à 10~Md€ avec les hautes. Ce gain vient presque entièrement du haut de la distribution :
+11 des 12~Md€ sont gagnés sur les 10~\% de foyers les plus aisés, dont le taux marginal moyen passe à
+19~\%, contre 33~\% aujourd'hui entre le 90\textsuperscript{e} et le 99\textsuperscript{e} centile et 43~\% au-dessus. Plus bas, un salarié seul à 50~000~€ brut voit son taux
+marginal passer de 32 à 19~\% (figure~\ref{fig:eff}). Le revenu du travail déclaré augmenterait
+d'environ 33~Md€ (16 à 57), soit 6~Md€ de recette (3 à 10) non comptés dans le calage : de quoi baisser
+le taux d'un demi-point.
+
+Pour les familles, le crédit fait l'essentiel. Un couple de salariés avec deux enfants gagne 2~550~€
+par an à 50~000~€ de revenu ; à 30~000~€, il reçoit 1~590~€ au lieu de payer 2~860~€. Au même revenu de
+50~000~€, un couple sans enfant ne gagne que 300~€ et un salarié seul 1~650~€.
+
+La baisse sur les salaires (12~Md€) et sur les revenus des indépendants et les loyers (6,5~Md€) est
+payée par les retraités (15,5~Md€) et les chômeurs (3~Md€). Un retraité seul à 17~000~€ de pension, qui
+ne paie aujourd'hui ni IR ni CSG, paierait 4~490~€, soit 26~\% de sa pension. En moyenne par décile, ces
+hausses l'emportent : les déciles 2 à 9 paient 200 à 800~€ de plus par foyer ; le dixième reçoit
+15~Md€, 3~500~€ par foyer.
+
+\figbloc{ircsg_e01_systeme}{Taux moyen et taux marginal, aujourd'hui et avec le système proposé}{fig:eff}
+
+\section*{Ce qui peut changer la conclusion}
+
+\textbf{L'ampleur du gain repose sur la réaction des hauts revenus.} Ce sont eux qui portent les
+élasticités les plus fortes du modèle, de 0,30 à 0,40 dans le scénario central. Or, en haut de la
+distribution, ce qui réagit au taux est surtout le calendrier et la forme des revenus déclarés, plus
+que le travail lui-même (Saez, Slemrod et Giertz, 2012). Une assiette sans niche ferme une partie de
+ces échappatoires, ce qui réduit le gain à attendre d'une baisse de leur taux. Avec les élasticités
+basses, le système rapporte 6~Md€ d'efficacité au lieu de 12, alors que le transfert vers le dixième
+décile reste de 15~Md€ : il ne dépend pas des élasticités.
+
+\textbf{La surtaxe des pensions n'est sans coût que pour les retraités actuels.} Pour les actifs, une
+pension plus taxée diminue ce que rapportent les cotisations ; pour ceux qui l'anticipent, une partie de
+la surtaxe redevient un impôt sur le travail. Surtout, faire payer 4~500~€ de plus à un retraité à
+17~000~€ de pension est un choc difficile à imposer, même par étapes. La variante C (24,4~\% pour
+tous les revenus, franchise de 10~000~€ y compris sur les pensions) le ramène à 1~700~€, au prix de
+3~points de taux en plus sur le travail et de 2,6~Md€ de perte sèche en plus. C'est le coût de
+l'égalité de traitement entre retraités et actifs.
+
+\textbf{En bas, la franchise crée une marche.} Au-delà de la franchise, le taux marginal saute de 0 à 19~\% du
+salaire brut : un salarié à temps plein au SMIC paie 19~\% sur chaque euro de plus au lieu de 9,5~\%
+aujourd'hui, en plus du retrait de la prime d'activité (non modélisée, inchangée). Le système
+favorise la prise d'un emploi et la progression des revenus moyens et élevés, pas le passage d'un SMIC à
+un SMIC et demi. Adoucir cette marche demanderait un taux d'entrée réduit, donc un second taux.
+
+{\footnotesize\color{encre} \emph{Méthode.} Foyers représentatifs par tranche de revenu fiscal de
+référence ; perte sèche $\tfrac12\,e\,z\,\tau^2/(1-\tau)$ sur les revenus du travail, marge intensive
+seulement, élasticités de 0,15 à 0,40 selon le revenu. Résultats fragiles au-delà d'un million
+d'euros.\par}
+
+\end{document}

@@ -1,6 +1,6 @@
-"""Convertit note-ir-csg.tex en note-ir-csg.docx (pandoc), en dépliant les commandes propres à la note.
+"""Convertit une note LaTeX du dossier en .docx (pandoc), en dépliant les commandes propres aux notes.
 
-Lancer depuis fiscalite/ir_csg/ : python3 tex2docx.py
+Lancer depuis fiscalite/ir_csg/ : python3 tex2docx.py [note-efficace]   (par défaut : note-ir-csg)
 - \\figbloc{nom}{légende}{label} -> image PNG (source et note de lecture comprises dans l'image) + légende ;
 - \\partie{...} -> titre de niveau 1, \\section -> niveau 2 ;
 - encadré -> titre en gras suivi du texte ;
@@ -8,10 +8,12 @@ Lancer depuis fiscalite/ir_csg/ : python3 tex2docx.py
 """
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-src = (HERE / "note-ir-csg.tex").read_text(encoding="utf-8")
+NOTE = sys.argv[1] if len(sys.argv) > 1 else "note-ir-csg"
+src = (HERE / f"{NOTE}.tex").read_text(encoding="utf-8")
 corps = src[src.index("\\begin{document}") + len("\\begin{document}"):src.index("\\end{document}")]
 corps = corps.replace("\\figgrand{", "\\figbloc{")
 
@@ -35,7 +37,7 @@ corps = re.sub(r"\\renewcommand\{\\figurename\}.*?\n", "", corps)
 t = re.search(r"\\selectfont\\bfseries\\color\{bleu\}(.*?)\\par\}", corps, re.S).group(1)
 st = re.search(r"\{\\large (.*?)\\par\}", corps, re.S).group(1)
 au = re.search(r"\{\\small (Colin Baget.*?)\\par\}", corps, re.S).group(1)
-debut = corps.index("\\section*{Introduction}")
+debut = corps.index("\\section*{Introduction}") if "\\section*{Introduction}" in corps else corps.index("\\section*{")
 corps = (f"\\textbf{{NOTE DE TRAVAIL · NOVEMBRE 2026}}\n\n\\section*{{{t}}}\n\n\\textit{{{st}}}\n\n{au}\n\n"
          + corps[debut:])
 
@@ -69,7 +71,7 @@ tex = ("\\documentclass{article}\n\\usepackage{graphicx}\n\\usepackage{booktabs}
        + corps + "\n\\end{document}\n")
 tmp = HERE / "_note_pandoc.tex"
 tmp.write_text(tex, encoding="utf-8")
-subprocess.run(["pandoc", str(tmp), "-f", "latex", "-t", "docx", "-o", str(HERE / "note-ir-csg.docx"),
+subprocess.run(["pandoc", str(tmp), "-f", "latex", "-t", "docx", "-o", str(HERE / f"{NOTE}.docx"),
                 "--resource-path", str(HERE)], check=True)
 tmp.unlink()
-print("note-ir-csg.docx écrit")
+print(f"{NOTE}.docx écrit")
