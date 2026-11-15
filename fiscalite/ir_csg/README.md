@@ -168,3 +168,16 @@ maximise la recette au-dessus de 250 k€ est de 70 % pour e = 0,25 et de 53 % p
 - **Critère de Lorenz.** Il est vérifié sur les 25 tranches, pas sur des foyers individuels.
 - **Réductions et crédits d'impôt.** Le barème-fonction les suppose supprimés (environ 11 Md€) ; les garder porte le taux à 30 000 € à 18,9 % (barème E : supposés maintenus).
 - **Microsimulation.** Il faudra une microsimulation sur fichiers individuels avant d'aller plus loin.
+
+## Révision après revue (novembre 2026, `../revue/revue_ir_csg.md`, `../revue/revue_transversale.md`)
+
+Corrigé dans le texte (10 pages) : très hauts revenus présentés sous les deux conventions de répartition du
+capital (`controle_hauts.py`, et un passage complet du modèle en CAPITAL=haut : t1 = 25,4 %, perte sèche 9,0,
+34 % de perdants) ; réserves sur la perte sèche (gain concentré en haut, coin limité à IR + CSG) ; retraités
+imposés au même barème, plus que les actifs à revenu égal ; minimum vieillesse ; franchise et loyers ; familles
+(plafond, trois enfants, comparateur 16,2 Md€) ; risque constitutionnel (2000-437 DC, 2012-662 DC) ; citations.
+
+Restent à faire dans le modèle (demandent un nouveau calcul complet) : coin marginal total (cotisations non
+contributives, prime d'activité) ; part du PFU par tranche calée sur le rapport IR/RFR ; loyers hors franchise ;
+exonération jusqu'au minimum vieillesse ; familles de trois enfants ; parents isolés (+340 € en moyenne) ;
+marge extensive.
