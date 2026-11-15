@@ -44,6 +44,14 @@ TF / valeur par décile de prix, K4 : 0.27 0.29 0.31 0.34 0.37 0.40 0.43 0.46 0.
 TF / valeur par décile de prix, L4 : 0.60 0.56 0.55 0.54 0.51 0.49 0.47 0.43 0.38 0.25
 TF / valeur par décile de prix, aujourd'hui : 0.55 0.50 0.49 0.46 0.42 0.40 0.38 0.34 0.29 0.16
 prix au m² médian par décile : 1,035 1,404 1,693 2,000 2,356 2,737 3,176 3,749 4,746 6,261
+baisse des DMTO de 30 % (1.7 points) : perte de recette 3.4 Md€ avec +0 % de ventes par point ; hausse de TF nécessaire 14 %
+baisse des DMTO de 30 % (1.7 points) : perte de recette 3.0 Md€ avec +3 % de ventes par point ; hausse de TF nécessaire 13 %
+baisse des DMTO de 30 % (1.7 points) : perte de recette 2.6 Md€ avec +6 % de ventes par point ; hausse de TF nécessaire 11 %
+baisse des DMTO de 30 % (1.7 points) : perte de recette 2.3 Md€ avec +8 % de ventes par point ; hausse de TF nécessaire 10 %
+baisse des DMTO de 50 % (2.9 points) : perte de recette 5.7 Md€ avec +0 % de ventes par point ; hausse de TF nécessaire 24 %
+baisse des DMTO de 50 % (2.9 points) : perte de recette 5.2 Md€ avec +3 % de ventes par point ; hausse de TF nécessaire 22 %
+baisse des DMTO de 50 % (2.9 points) : perte de recette 4.6 Md€ avec +6 % de ventes par point ; hausse de TF nécessaire 20 %
+baisse des DMTO de 50 % (2.9 points) : perte de recette 4.3 Md€ avec +8 % de ventes par point ; hausse de TF nécessaire 18 %
 cas-types (un logement médian de la commune) :
   Paris, appartement : valeur 416,182 €, terrain 84 %, TF 392 €, DMTO à l'achat 24,166 € | R50 TF 487 € (+95), DMTO à l'achat −12,083 €, amorti en 128 ans | K4 TF 2,689 € (+2,297), DMTO à l'achat −12,083 €, amorti en 5 ans | L4 TF 818 € (+426), DMTO à l'achat −12,083 €, amorti en 28 ans
   Lyon, appartement : valeur 279,167 €, terrain 66 %, TF 922 €, DMTO à l'achat 16,210 € | R50 TF 1,145 € (+223), DMTO à l'achat −8,105 €, amorti en 36 ans | K4 TF 1,531 € (+608), DMTO à l'achat −8,105 €, amorti en 13 ans | L4 TF 1,164 € (+242), DMTO à l'achat −8,105 €, amorti en 33 ans

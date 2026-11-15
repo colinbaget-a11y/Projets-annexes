@@ -197,6 +197,15 @@ def cas_types(scen, p):
 
 
 R_ACT = 0.03                                 # taux d'actualisation réel
+# Réaction des volumes de ventes (revue droits_mutation.md) : +6 % de ventes par point de baisse du taux
+# (fourchette 0 à +8 %), appliquée de façon multiplicative ; elle réduit le coût de la baisse des droits.
+VOL_PAR_POINT = 0.06
+
+
+def cout_baisse(s, vol=VOL_PAR_POINT):
+    """Perte de recette de DMTO pour une baisse de s du taux, avec réaction des volumes (Md€)."""
+    dpts = 100 * s * TAUX_DMTO
+    return D0 * (1 - (1 - s) * (1 + vol) ** dpts) / 1e9, dpts
 
 
 def primo(scen, p, horizons=(7, 15)):
@@ -275,6 +284,11 @@ if __name__ == "__main__":
     rr = (L.n * L.tf0).groupby(L.dec_prix).sum() / w.groupby(L.dec_prix).sum()
     p("TF / valeur par décile de prix, aujourd'hui : " + " ".join(f"{100*u:.2f}" for u in rr))
     p("prix au m² médian par décile : " + " ".join(f"{u:,.0f}" for u in L.groupby("dec_prix").pm2.median()))
+    for s_ in (0.3, 0.5):
+        for vol in (0.0, 0.03, VOL_PAR_POINT, 0.08):
+            c_, dp = cout_baisse(s_, vol)
+            p(f"baisse des DMTO de {int(100*s_)} % ({dp:.1f} points) : perte de recette {c_:.1f} Md€ avec +{100*vol:.0f} % de"
+              f" ventes par point ; hausse de TF nécessaire {100*c_*1e9/TF0:.0f} %")
     p("cas-types (un logement médian de la commune) :")
     cas_types({k: scen[k] for k in ("R50", "K4", "L4")}, p)
     p(f"primo-accédant (taux d'actualisation {100*R_ACT:.0f} %) :")
