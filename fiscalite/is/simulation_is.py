@@ -104,6 +104,47 @@ def petite_societe(benefice, invest):
     return perte, gain
 
 
+R_ETAT = 0.0325          # taux d'emprunt de l'État (hypothèse, 3 à 3,5 %)
+PIB_2027 = 3100.0        # PIB nominal 2027, Md€ (ordre de grandeur)
+NICHES = (0.57 + 0.52 + 0.2, 0.57 + 0.52 + 0.6)      # CIR groupe, zones, brevets (bas, haut)
+REDUIT = (2.2, 2.7)                                   # fin du taux réduit (bas, haut)
+
+
+def scenario(regime, bonus, financement, baisse_pts=0.0, baisse_des=None, r=R_ETAT, h=H):
+    """Solde budgétaire année par année (Md€) et dette cumulée avec intérêts.
+    bonus(t) : fraction déduite tout de suite ; financement : Md€/an en année 1, croissant avec G ;
+    baisse_pts : baisse du taux normal (points) à partir de l'année baisse_des (rendue sur la base 2022,
+    croissant avec G, et le coût de la déduction est réduit dans la proportion (TAU - baisse)/TAU)."""
+    cout = chemin(regime, bonus, 0.75)[:h]
+    cr = (1 + G) ** np.arange(h)
+    rec = financement * cr
+    if baisse_des is not None:
+        on = np.arange(h) >= baisse_des
+        rec = rec - on * baisse_pts / 100 * BASE_NORMALE * cr
+        cout = np.where(on, cout * (TAU - baisse_pts / 100) / TAU, cout)
+    solde = rec - cout
+    dette = np.zeros(h)
+    d = 0.0
+    for t in range(h):
+        d = d * (1 + r) - solde[t]
+        dette[t] = d
+    return solde, dette
+
+
+def resume_scenario(nom, regime, bonus, fin, **kw):
+    solde, dette = scenario(regime, bonus, fin, **kw)
+    pib = PIB_2027 * (1 + G) ** np.arange(len(dette))
+    pic = dette.max()
+    ret = next((t + 1 for t in range(int(np.argmax(dette)), len(dette)) if dette[t] <= 0), None)
+    return (f"  {nom} [{regime}] : dette max {pic:.1f} Md€ (an {int(np.argmax(dette))+1}), "
+            f"remboursée an {ret} ; solde an 10 {solde[9]:+.1f}, an 20 {solde[19]:+.1f} Md€ ; "
+            f"dette an 30 {dette[29]:+.1f} Md€ ({100*dette[29]/pib[29]:+.2f} pt de PIB)")
+
+
+def cout_vrai_r(regime, b, part, r):
+    return TAU * part * I1 * (z(plan_bonus(regime, b), r) - z(plan(regime), r))
+
+
 if __name__ == "__main__":
     L = []
     p = L.append
@@ -169,5 +210,31 @@ if __name__ == "__main__":
     p(f"  investissement annuel qui compense la perte maximale : {perte/(TAU*(1-zl)):,.0f} €".replace(",", " "))
     p(f"  taux cumulé IS + PFU sur un bénéfice distribué de 42 500 € : {100*(0.15+0.85*0.314):.1f} % -> "
       f"{100*(0.25+0.75*0.314):.1f} %")
+
+    p("")
+    p(f"[VRAI_ETAT] Coût par millésime actualisé au taux de l'État ({R_ETAT:.2%}), déduction totale : "
+      + " ; ".join(f"{reg} " + " / ".join(f"{cout_vrai_r(reg, 1.0, s_, R_ETAT):.2f}" for s_ in PARTS)
+                   for reg in ("lineaire", "degressif")) + " Md€ (parts 60/75/90 %)")
+    p(f"[SCEN] Dette cumulée avec intérêts à {R_ETAT:.2%} (part imposable 75 %, horizon 30 ans)")
+    pal = lambda t: 0.5 if t < 6 else 1.0
+    for reg in ("lineaire", "degressif"):
+        for nom, bonus, fin, kw in (
+                ("S1 50 % permanent, niches", lambda t: 0.5, NICHES, {}),
+                ("S2 50 % puis 100 % en an 7, niches", pal, NICHES, {}),
+                ("S3 50 % puis 100 % en an 7, niches + taux réduit", pal, tuple(a + b for a, b in zip(NICHES, REDUIT)), {}),
+                ("S3b idem, taux normal -1 pt dès l'an 13", pal, tuple(a + b for a, b in zip(NICHES, REDUIT)),
+                 dict(baisse_pts=1.0, baisse_des=12)),
+                ("S4 100 % dès l'an 1, niches + taux réduit", lambda t: 1.0, tuple(a + b for a, b in zip(NICHES, REDUIT)), {})):
+            for f in fin:
+                p(resume_scenario(f"{nom} ({f:.1f})", reg, bonus, f, **kw))
+    # gain de PIB de long terme (ordre de grandeur)
+    K, DEP, PIB25 = 541.0, 0.14, 2950.0      # stock éligible fin 2025 (Insee 8.212, lu par la revue), dépréciation
+    sk = (0.05 + DEP) * K / PIB25
+    for nom, dc in (("100 %", (0.034, 0.048)), ("50 %", (0.017, 0.024))):
+        lo = sk * 0.5 * dc[0] * 0.75
+        hi = sk * 1.6 * dc[1] * 0.75
+        mid = sk * 1.0 * sum(dc) / 2 * 0.75
+        p(f"[PIB] {nom} : part du revenu de ce capital {100*sk:.1f} % du PIB ; gain de long terme "
+          f"{100*lo:.2f} à {100*hi:.2f} % du PIB (central {100*mid:.2f} %, soit {mid*PIB25:.1f} Md€)")
     (OUT / "simulation_is.txt").write_text("\n".join(L) + "\n")
     print("\n".join(L))
