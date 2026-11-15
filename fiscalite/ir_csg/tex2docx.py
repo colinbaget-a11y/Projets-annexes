@@ -65,6 +65,21 @@ corps = re.sub(r">\{\\raggedright\\arraybackslash\}p\{[^}]*\}", "l", corps)
 corps = re.sub(r"\\par\s*\\end\{table\}", r"\\end{table}", corps)
 corps = re.sub(r"\\cmidrule(\([a-z]*\))?\{[^}]*\}", "", corps)
 corps = corps.replace("@{}", "")                       # pandoc ne lit pas les tableaux avec @{}
+corps = corps.replace("$-$", "−").replace("$\\times$", "×")  # signe moins typographique, pas une formule
+
+
+def largeurs(m):
+    """Colonnes à largeur fixe : la première (libellés) prend 38 % de la ligne, les autres se partagent le reste."""
+    spec = m.group(1)
+    n = len(spec)
+    if n < 2:
+        return m.group(0)
+    autre = 0.60 / (n - 1)
+    cols = "p{0.38\\linewidth}" + "".join(f"p{{{autre:.3f}\\linewidth}}" for _ in range(n - 1))
+    return "\\begin{tabular}{" + cols + "}"
+
+
+corps = re.sub(r"\\begin\{tabular\}\{([lrc]+)\}", largeurs, corps)
 corps = corps.replace(">{\\raggedright\\arraybackslash}X", "l")
 
 tex = ("\\documentclass{article}\n\\usepackage{graphicx}\n\\usepackage{booktabs}\n\\begin{document}\n"
