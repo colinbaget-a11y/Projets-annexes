@@ -32,91 +32,51 @@ Les fichiers téléchargés pour cette note sont dans le dossier de travail de l
 
 ## Synthèse
 
-### Établi
+**Établi.**
+- L'impôt sur la propriété (terrain et bâti) est largement capitalisé quand l'écart est permanent et
+  visible : quasi complètement pour la council tax anglaise, à 3-4 % d'actualisation (Koster et
+  Pinchbeck, 2022). *Causal.* Pour une taxe sur le seul sol, c'est contesté : complète au Danemark selon
+  Høj et al. (2018), nulle sur la même réforme selon Nielsson, Wroblewski et Yding (2024, non publié).
+- La TFPB est régressive rapportée à la valeur (plus de 0,5 % pour les petits patrimoines, 0,18 % pour le
+  millième le plus doté) et progressive rapportée au revenu (André et Meslin, Insee, 2023). *Fait mesuré*,
+  dû aux valeurs locatives de 1970.
+- Les évaluations de masse sont régressives : aux États-Unis, niveau d'évaluation deux fois plus élevé
+  au premier décile de prix qu'au dernier (Berry, 2021) ; charge supérieure de 10 à 13 % pour les
+  propriétaires noirs et hispaniques, parce que les évaluations suivent mal le quartier (Avenancio-León
+  et Howard, 2022). *Fait mesuré à grande échelle.*
+- Un plafond attaché au propriétaire crée un verrou (Proposition 13 : mobilité +25 % à 55 ans quand
+  l'avantage devient transférable ; Ferreira, 2010). *Causal.*
+- Sortir d'une assiette figée déplace fortement la charge, et les réformes non lissées échouent :
+  Pittsburgh 2001, révision française de 1990, council tax figée depuis 1991, Corée 2024, « éléments de
+  confort » suspendus en 2025. *Faits observés.*
+- L'assiette sol charge les maisons sur grands terrains et les terrains nus, allège les copropriétés
+  (Karlsruhe 2025, à recette constante : maisons individuelles +76 %, terrains nus et divers +265 %,
+  copropriétés −20 %, commerces −40 %). Le sens entre classes dépend de l'intensité foncière locale (au
+  Texas, la charge irait vers le commerce ; Plummer). *Fait mesuré, statique.*
+- Le modèle du Bade-Wurtemberg est conforme à la Loi fondamentale selon le BFH (20/05/2026) ; deux
+  recours constitutionnels sont pendants.
+- Les reports de paiement facultatifs sont très peu utilisés (moins de 1 % des éligibles aux États-Unis) ;
+  le Danemark inscrit par défaut.
 
-- **L'impôt foncier sur la propriété (terrain et bâti) est largement capitalisé quand l'écart de taxe
-  est permanent et visible** : capitalisation quasi complète de la council tax anglaise à un taux
-  d'actualisation de 3 à 4 % (Koster et Pinchbeck, 2022) ; deux tiers à 100 % dans les études
-  américaines (Oates 1969, Palmon et Smith 1998). *Effet causal.* Pour une taxe sur le seul terrain,
-  le résultat est **contesté** : capitalisation complète au Danemark selon Høj et al. (2018), effet nul
-  et précis sur la même réforme selon Nielsson, Wroblewski et Yding (2024, document de travail).
-- **En France, la TFPB est régressive rapportée à la valeur des biens et progressive rapportée au
-  revenu** : 0,34 % du patrimoine immobilier brut en moyenne, plus de 0,5 % pour les plus petits
-  patrimoines, 0,18 % pour le millième le plus doté ; plus de 4 % du revenu disponible des 20 % de
-  propriétaires les plus modestes (André et Meslin, Insee, 2023). *Fait mesuré.* La cause principale est
-  l'écart entre valeurs locatives de 1970 et valeurs de marché.
-- **Les évaluations administratives de masse sont régressives partout où on les a mesurées** : aux
-  États-Unis, à l'intérieur d'une même juridiction, le niveau d'évaluation des biens du premier décile de
-  prix est en moyenne le double de celui du dernier décile (Berry, 2021) ; les propriétaires noirs et
-  hispaniques supportent une charge supérieure de 10 à 13 % à taux et services donnés
-  (Avenancio-León et Howard, 2022). *Fait mesuré à grande échelle*, mécanisme identifié : les
-  évaluations réagissent moins que les prix aux caractéristiques du quartier.
-- **Un plafond de hausse attaché au propriétaire crée un verrou** : en Californie, la transférabilité de
-  l'avantage de la Proposition 13 à 55 ans augmente la mobilité de 25 % à cet âge (Ferreira, 2010).
-  *Effet causal.*
-- **Remplacer une assiette ancienne par une assiette actuelle, ou la valeur totale par la valeur du sol,
-  déplace fortement la charge, et les réformes qui ne lissent pas échouent** : Pittsburgh abandonne son
-  double taux en 2001 après une réévaluation brutale (+81 % sur le sol) ; la révision française de 1990
-  n'a jamais été intégrée ; l'Angleterre n'a jamais réévalué la council tax depuis 1991 ; la Corée
-  abandonne sa feuille de route en 2024 ; la mise à jour des « éléments de confort » (7,4 millions de
-  logements, +63 € en moyenne) est suspendue en novembre 2025. *Faits observés*, sans contrefactuel.
-- **Le passage à l'assiette sol déplace la charge vers les maisons individuelles sur grands terrains et
-  les terrains nus, et l'éloigne des copropriétés** : Karlsruhe 2025, à recette constante, maisons
-  individuelles +76 %, maisons bifamiliales +105 %, terrains nus et divers +265 %, copropriétés −20 %,
-  commerces −40 %. *Fait mesuré* (calcul de la ville sur les nouvelles bases). Le sens du déplacement
-  entre classes dépend de l'intensité foncière locale : au Texas (Plummer), la charge irait au contraire
-  du logement vers le commerce et les terrains nus.
-- **Le modèle « valeur du sol » du Bade-Wurtemberg est conforme à la Loi fondamentale selon le
-  Bundesfinanzhof** (20/05/2026, II R 26/24 et II R 27/24) ; deux recours constitutionnels sont pendants
-  devant la Cour constitutionnelle fédérale. *Fait juridique.*
-- **Un report de paiement n'est utilisé que s'il est automatique** : moins de 1 % des éligibles y
-  recouraient aux États-Unis au milieu des années 1990 (Shan, 2010, citant Baer). *Fait mesuré.*
+**Probable.** Le double taux de Pennsylvanie a accru modestement construction et densité (+5 à 6 points de
+croissance décennale des pièces, surtout plus de logements ; Banzhaf et Lavery, 2010), sans expliquer le
+boom de Pittsburgh (Oates et Schwab, 1997). La part bâti de l'impôt freine l'investissement là où l'offre
+est élastique (élasticité d'environ −1 ; Lutz, 2015). En Allemagne, 83 % d'une hausse passe dans les loyers
+en trois ans (Löffler et Siegloch, 2024), l'impôt y étant récupérable, ce qu'il n'est pas en France. Des
+réévaluations régulières réduisent la régressivité (Philadelphie : PRD de 1,42 à 1,14). La concurrence
+par les taux est faible (Finlande, Basse-Saxe : aucune imitation avec des chocs exogènes).
 
-### Probable
+**Plausible, non démontré.** Reporter les DMTO sur une taxe à deux taux augmenterait les transactions,
+l'effet propre du second taux restant faible ; le passage au sol pèserait sur les propriétaires âgés de
+maisons sur grands terrains des périphéries chères ; une hausse annoncée serait mal capitalisée et
+retomberait sur les propriétaires successifs (Bradley ; Elinder et Persson ; Nielsson et al.) ; la
+révision à chaque vente votée en commission pour le PLF 2027 (amendement Juvin) créerait un verrou du type
+Proposition 13.
 
-- **L'impôt à deux taux de Pennsylvanie a augmenté modestement la construction et la densité** :
-  +5 à 6 points de croissance décennale du nombre de pièces dans les premières décennies, surtout par
-  davantage de logements (Banzhaf et Lavery, 2010) ; +3 à 4 % de construction résidentielle (Plassmann et
-  Tideman, 2000). *Effets causaux à identification fragile* (adoption non aléatoire, écarts de taux
-  effectifs faibles). Le boom de Pittsburgh des années 1980 n'est pas attribuable à l'impôt (Oates et
-  Schwab, 1997).
-- **La part de l'impôt qui porte sur le bâti réduit l'investissement là où l'offre est élastique** :
-  élasticité de l'investissement résidentiel d'environ −1 au New Hampshire (Lutz, 2015) ; en Allemagne,
-  +1 % de taux réduit la base de 0,11 % et déplace population et logements vers les communes voisines
-  (Thunecke, 2026, résumé).
-- **En Allemagne, les hausses d'impôt foncier sont répercutées à environ 83 % sur les loyers en trois
-  ans** (Löffler et Siegloch, 2024, document de travail). L'impôt y est récupérable sur le locataire ;
-  en France il ne l'est pas.
-- **Des réévaluations régulières réduisent la régressivité** : à Philadelphie, après trente ans sans
-  réévaluation, le coefficient de régressivité (PRD) passe de 1,42 à 1,14 entre 2013 et 2019 (Hou et al.,
-  différence de différences avec 15 villes).
-- **La concurrence fiscale par les taux d'impôt foncier est faible** : aucune interaction stratégique en
-  Finlande (Lyytikäinen, 2012) ni en Basse-Saxe (Baskaran, 2014) avec des chocs exogènes ; les études
-  françaises qui en trouvent portent sur la taxe professionnelle, avec des méthodes que ces travaux
-  jugent biaisées vers le haut.
-
-### Plausible, non démontré
-
-- Une bascule des DMTO vers une taxe foncière à deux taux augmenterait les transactions (élasticités
-  françaises et étrangères des DMTO) et la densification marginale ; l'effet propre du second taux serait
-  faible au regard de celui de la baisse des DMTO (ACT : environ 80 % du gain modélisé vient de la
-  suppression des droits).
-- Le passage au sol pèserait sur les propriétaires âgés de maisons sur grands terrains dans les
-  périphéries chères ; aucune donnée française par âge ne permet de le chiffrer.
-- Une hausse annoncée mais peu visible serait mal capitalisée : la charge tomberait sur les propriétaires
-  successifs plutôt que sur ceux du jour de l'annonce (Bradley 2017 ; Elinder et Persson 2017 ; Økland
-  2021 ; Nielsson et al. 2024).
-- La réévaluation à chaque vente adoptée en commission des finances pour le PLF 2027 (amendement Juvin)
-  créerait un verrou et une inégalité entre voisins du type Proposition 13, par analogie.
-
-### Inconnu
-
-- La valeur du sol parcelle par parcelle en France : il n'existe pas d'équivalent des Bodenrichtwerte ;
-  les tests gallois (2026) jugent la confiance dans les valeurs du sol « faible ».
-- Les effets ex post du modèle du Bade-Wurtemberg : aucune étude académique trouvée au 15/11/2026.
-- L'incidence de la TFPB française sur les loyers et sur la construction : aucune étude.
-- La répartition par âge et par revenu d'une bascule française vers le sol.
-- Le sort de l'amendement Juvin en séance et au Sénat.
+**Inconnu.** La valeur du sol parcelle par parcelle en France (pas d'équivalent des Bodenrichtwerte ; au
+pays de Galles, confiance « faible » dans les valeurs du sol) ; les effets ex post du modèle badois (aucune
+étude au 15/11/2026) ; l'incidence de la TFPB française sur les loyers et la construction ; la répartition
+par âge et par revenu d'une bascule française ; le sort de l'amendement Juvin.
 
 ### Paramètres pour une simulation française
 
@@ -519,7 +479,7 @@ projetée erronée.
 
 ### 2.2 Le Bade-Wurtemberg (Grundsteuer B sur la valeur du sol, depuis 2025)
 
-**Règles de la loi** (Landesgrundsteuergesetz, LGrStG, du 4 novembre 2020, modifiée le 13/06/2023 et le
+**Règles de la loi** (Landesgrundsteuergesetz, LGrStG, du 4 novembre 2020, modifiée notamment fin 2021, le 13/06/2023 et le
 18/11/2025) [TEXTE LU : version de 2020 sur gesetze-im-internet.de et loi modificative du 18/11/2025
 (GBl. n° 113) ; règle des 30 % lue dans le communiqué du BFH] :
 - assiette : surface du terrain × Bodenrichtwert de la zone (§ 38 al. 1) ; « maßgebend ist der
@@ -540,7 +500,7 @@ projetée erronée.
   terrains constructibles non bâtis, désignés par arrêté communal, est prévu (§ 50a, « Grundsteuer C »),
   contenu non lu [NON VÉRIFIÉ] ;
 - réévaluation générale tous les sept ans (§ 15), première au 1er janvier 2022 pour l'impôt de 2025 ;
-  Bodenrichtwerts mis à jour au moins tous les deux ans (§ 196 BauGB, note LVT) ;
+  Bodenrichtwerte mis à jour au moins tous les deux ans (§ 196 BauGB, note LVT) ;
 - échéances trimestrielles (15 février, mai, août, novembre ; § 52) ;
 - aucun dispositif de lissage ou de cas difficiles prévu par le Land (présentation de Karlsruhe, note LVT).
 - **Taux effectifs** [CALCUL] : avec le Hebesatz de 270 % de Karlsruhe, 0,25 % de la valeur de zone pour un
@@ -587,8 +547,9 @@ de 100 % à plus de 1 000 %.
 
 **Ce qu'on peut transposer** : le droit (typisation par zones publiées, preuve contraire au-delà d'un
 seuil, différenciation par le taux) et l'ordre de grandeur du déplacement de charge ; pas d'effet
-économique mesuré. Le Land a fait la bascule sans lissage ni registre contraignant : un tiers des communes
-ont profité de la réforme pour augmenter leurs recettes.
+économique mesuré. Le Land a fait la bascule sans lissage ni registre contraignant : près d'un tiers des
+communes ont fixé un taux au-dessus de la fourchette neutre, dont environ 18 % de l'ensemble avec une
+hausse de recettes d'au moins 5 % environ (Bund der Steuerzahler [SECONDAIRE, note LVT]).
 
 ### 2.3 Danemark (grundskyld) et réforme de 2024
 

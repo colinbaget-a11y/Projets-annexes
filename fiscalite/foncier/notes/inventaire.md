@@ -199,7 +199,7 @@ logement (p. 23). L'OCDE la compte au contraire dans la catégorie 4100 : 9 428 
 | Patrimoine net imposable, Md€ | 466,8 | 492,8 | id. |
 | Encaissements budgétaires, Md€ | 2,74 | 2,77 | *DGFiP Statistiques* n° 43, tableau 1 |
 
-[TEXTE LU]. Les Voies et moyens (PLF 2026, tome I, p. 23) donnent 2 739 M€ de recettes en 2024, 2 965 M€ prévus en 2025
+[TEXTE LU]. Les Voies et moyens (PLF 2026, tome I, p. 24) donnent 2 739 M€ de recettes en 2024, 2 965 M€ prévus en 2025
 et 3 095 M€ en 2026 ; le PLF 2027 (état A, ligne 1406) en prévoit 3 081 M€ pour 2027 [TEXTE LU]. Comptabilité
 nationale : 2 678 M€ (2024) ; Compte du logement : 2 644 M€ (2024) et 2 675 M€ (2025). L'écart d'environ 0,5 Md€ entre
 l'impôt émis (2,3 Md€) et les encaissements (2,8 Md€) n'est expliqué par aucune source lue ; la DGFiP précise
@@ -277,9 +277,10 @@ publie « CFE et IFER » ensemble : 11,29 Md€ (2024) et 11,53 Md€ (2025) enc
   pas été propriétaire de sa résidence principale au cours des deux années précédant l'acte (réponse à la QE AN
   n° 5129, JO du 16/09/2025, p. 8098) [TEXTE LU]. En indivision, l'exclusion vaut pour chaque indivisaire
   primo-accédant à hauteur de sa quote-part ; en communauté, les deux époux doivent remplir la condition (même
-  réponse). Le Compte du logement 2025 écrit à tort que les départements « peuvent également exonérer les
-  primo-accédants » (p. 81), et service-public.fr (2 avril 2025) donne à tort le 30 avril 2028 comme terme. Le texte
-  du BOFiP et la réponse ministérielle disent 31 mars 2028 ;
+  réponse). Deux sources secondaires officielles divergent : le Compte du logement 2025 écrit que les départements
+  « peuvent également exonérer les primo-accédants » (p. 81), ce qui laisse croire à une option alors que l'exclusion
+  est de droit ; service-public.fr (actualité du 2 avril 2025) donne le 30 avril 2028 comme terme, contre le 31 mars
+  2028 dans le BOFiP et la réponse ministérielle, qu'on retient ;
 - **option distincte (art. 1594 F septies)** : le tableau des taux de la DGFiP comporte une colonne « biens
   constituant une première propriété pour l'acquéreur, taux après réduction ». Au 1er juin 2026, seule la Savoie
   l'utilise, à 4,00 % [TEXTE LU]. Ni la date de création de cet article ni son régime exact n'ont été vérifiés ;
@@ -322,7 +323,7 @@ avec l'immobilier (fonds de commerce, actes civils).
 ### 3.2 Frais d'assiette de l'État sur les DMTO
 
 Aucune source ne les isole : la ligne 2303 des Voies et moyens (950 M€ en 2024) regroupe tous les frais d'assiette sur
-des impositions affectées à des tiers (PLF 2026, tome I, p. 55) [TEXTE LU]. À 2,37 % de la part départementale, ils
+des impositions affectées à des tiers (PLF 2026, tome I, p. 55-56) [TEXTE LU]. À 2,37 % de la part départementale, ils
 vaudraient environ 263 M€ en 2024 et 320 M€ en 2025 [NON VÉRIFIÉ (calcul)].
 
 ### 3.3 Contribution de sécurité immobilière
@@ -345,7 +346,7 @@ Compte du logement 2025 (série T321, M€) [TEXTE LU] :
 | TVA sur les gros travaux d'entretien et d'amélioration | 5 231 | 5 546 | 5 664 | 5 674 |
 | TVA sur les frais d'agence et de notaire | 2 087 | 1 639 | 1 394 | 1 625 |
 
-Taux de 20 % sur la livraison d'immeubles neufs (CPO, p. 25) ; taux réduits de 10 % et 5,5 % pour le logement social et
+Taux de 20 % sur la livraison d'immeubles neufs (CPO, p. 21 et 29) ; taux réduits de 10 % et 5,5 % pour le logement social et
 assimilé, qui représentaient en 2022 un coût de 2,0 et 1,0 Md€, pour un rendement de ces taux d'environ 5,3 Md€ (CPO,
 p. 22, note 10) [TEXTE LU]. Le régime de TVA des terrains à bâtir (prix total ou marge) n'a pas été relu. **Champ** :
 logements seulement. La TVA sur les bâtiments neufs non résidentiels n'a été trouvée dans aucune source.
