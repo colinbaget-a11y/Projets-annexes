@@ -152,6 +152,18 @@ def deux_taux_local(s, k):
     return L.codgeo.map(tc) * base + L.dep.map(td) * L.v * L.lam, (1 - s) * L.d0
 
 
+def deux_taux_local_national(s, k, cout=None):
+    """Comme deux_taux_local, mais la perte de DMTO est remplacée par un taux national unique sur la valeur des
+    terrains (reversé aux départements selon leurs pertes : péréquation) ; cout = perte de recette à compenser."""
+    base = L.v * (L.lam * k + (1 - L.lam))
+    g = L.assign(b=L.n * base, t0=L.n * L.tf0)
+    tc = g.groupby("codgeo").t0.sum() / g.groupby("codgeo").b.sum()
+    perte = s * D0 if cout is None else cout
+    tn = perte / TERRE
+    TAUX[f"nat{k}"] = tn
+    return L.codgeo.map(tc) * base + tn * L.v * L.lam, (1 - s) * L.d0
+
+
 def resume(nom, tf1, d1, p):
     dtf = tf1 - L.tf0
     dtot = dtf + (d1 - L.d0)
@@ -225,9 +237,9 @@ def primo(scen, p, horizons=(7, 15)):
                              **{f"net{h}": eco - va[h] for h in horizons}, installe=-dt / R_ACT))
     df = pd.DataFrame(rows)
     for _, r in df.iterrows():
-        p(f"  {r.cas} [{r.scen}] : économie à l'achat {r.eco:,.0f} € ; TF {r.dtf:+,.0f} €/an ; gain net s'il revend après"
-          f" 7 ans {r.net7:+,.0f} €, après 15 ans {r.net15:+,.0f} € ; propriétaire installé (valeur actuelle de la hausse)"
-          f" {r.installe:+,.0f} €")
+        p(f"  {r.cas} [{r.scen}] : économie à l'achat {r.eco:,.0f} € ; TF {r.dtf:+,.0f} €/an ; gain net s'il revend après "
+          + ", après ".join(f"{h} ans {r[f'net{h}']:+,.0f} €" for h in horizons)
+          + f" ; propriétaire installé (valeur actuelle de la hausse) {r.installe:+,.0f} €")
     return df
 
 
@@ -289,8 +301,20 @@ if __name__ == "__main__":
             c_, dp = cout_baisse(s_, vol)
             p(f"baisse des DMTO de {int(100*s_)} % ({dp:.1f} points) : perte de recette {c_:.1f} Md€ avec +{100*vol:.0f} % de"
               f" ventes par point ; hausse de TF nécessaire {100*c_*1e9/TF0:.0f} %")
+    scen["N4"] = deux_taux_local_national(0.5, 4)
+    taux_n4 = TAUX["nat4"]
+    resume("[deux taux, recette constante par commune, terrain = 4 × bâti ; DMTO −50 % remplacés par un taux national"
+           " unique sur le terrain]", *scen["N4"], p)
+    c_vol, _ = cout_baisse(0.5)
+    scen["N4v"] = deux_taux_local_national(0.5, 4, cout=c_vol * 1e9)
+    resume(f"[idem, avec réaction des volumes : perte à compenser {c_vol:.1f} Md€]", *scen["N4v"], p)
+    p(f"taux national sur le terrain : {100*taux_n4:.3f} % de la valeur des terrains sans réaction des ventes,"
+      f" {100*TAUX['nat4']:.3f} % avec")
+    w = L.n * L.v
+    rr = (L.n * scen["N4"][0]).groupby(L.dec_prix).sum() / w.groupby(L.dec_prix).sum()
+    p("TF / valeur par décile de prix, N4 : " + " ".join(f"{100*u:.2f}" for u in rr))
     p("cas-types (un logement médian de la commune) :")
-    cas_types({k: scen[k] for k in ("R50", "K4", "L4")}, p)
+    cas_types({k: scen[k] for k in ("R50", "K4", "N4")}, p)
     p(f"primo-accédant (taux d'actualisation {100*R_ACT:.0f} %) :")
-    primo({k: scen[k] for k in ("R50", "L4")}, p).round(0).to_csv(OUT / "primo.csv", index=False)
+    primo({k: scen[k] for k in ("R50", "N4")}, p).round(0).to_csv(OUT / "primo.csv", index=False)
     (OUT / "simulation.txt").write_text("\n".join(lignes) + "\n", encoding="utf-8")

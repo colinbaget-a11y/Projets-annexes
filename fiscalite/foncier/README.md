@@ -1,6 +1,7 @@
 # Réforme de la fiscalité immobilière : moins de droits de mutation, plus de taxe foncière, deux taux
 
-Travail en cours (novembre 2026) pour le rapport Sorbon. Objectif de l'auteur : une fiscalité immobilière
+Note livrée (novembre 2026) pour le rapport Sorbon : `note-foncier.pdf` (7 pages) et `note-foncier.docx`
+(par `python3 ../ir_csg/tex2docx.py ../foncier/note-foncier` depuis `ir_csg/`). Objectif de l'auteur : une fiscalité immobilière
 favorable à la croissance et à l'accession à la propriété, en particulier des jeunes. Trois volets :
 état des lieux de tous les prélèvements assis sur l'immobilier ; littérature (problèmes de l'impôt foncier,
 effets des droits de mutation, en priorité sur la France) ; proposition simulée (baisser les DMTO de 30 à 50 %,
@@ -45,7 +46,15 @@ S'appuie sur la note « Taxer le terrain » (`../lvt/`, notes de lecture vérifi
   +9 à +55 % selon le décile ; taux départemental de 0,11 % (Paris : 0,12 %) à 0,85 % (Creuse) de la valeur
   du terrain, d'où la question de la péréquation.
 
-## Notes de lecture (`notes/`, en cours)
+## Proposition retenue
+
+DMTO divisés par deux (5,81 → 2,9 %) ; chaque commune garde sa recette de taxe foncière, répartie sur la
+valeur de marché avec un taux sur le terrain égal à 4 fois le taux sur le bâti ; taux national unique sur la
+valeur des terrains (0,15 % avec reprise des ventes de +6 % par point, 0,19 % sans) reversé aux départements.
+TF +2 % (décile le moins cher) à +60 % (le plus cher) ; total TF + DMTO de −86 à +26 € par logement et par an ;
+18 % des logements à plus de 300 € de hausse ; transition sur dix ans, plafond attaché au bien.
+
+## Notes de lecture (`notes/`)
 
 - `inventaire.md` : tous les prélèvements sur l'immobilier, montants vérifiés, comparaison OCDE.
 - `droits_mutation.md` : effets des DMTO (transactions, mobilité, primo-accédants).
