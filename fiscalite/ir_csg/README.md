@@ -2,6 +2,15 @@
 
 Ce dossier chiffre la mesure 3 de la partie III du rapport Sorbon.
 
+**Livrable (version finale en cours, novembre 2026).** `note-ir-csg.pdf` (et `.docx` par `tex2docx.py`),
+10 pages : « Fusionner les impôts sur le revenu : une fausse bonne idée ? ». Introduction rédigée par l'auteur,
+puis trois exercices à recette égale (`exercices.py`, chiffres dans `sorties/exercices.txt`, figures
+`figures_exercices.py`, `ircsg_x01` à `ircsg_x05`), tous avec assiette commune (revenu après cotisations, sans
+niche), impôt individuel et franchise de 6 000 € par enfant déduite du revenu du parent qui gagne le plus :
+1. harmonisation brutale : tranches de l'IR 2024 par adulte + taux unique (3,1 %) ;
+2. aplanissement : barème à taux marginal en ligne droite (taux du haut 50 %) le plus proche de la charge actuelle ;
+3. perte sèche minimale, sans correction sociale (la correction reste à décider avec l'auteur).
+
 **Livrable (version 3, relecture v2 de l'auteur).** `note-ir-csg.pdf`, 13 pages. Impôt unique remplaçant
 l'IR, la CSG et la CRDS sur les revenus au barème (`bareme_v3.py`, `figures_v3.py`, chiffres recalculés par
 `controles_v3.py` dans `sorties/controles_v3.txt`) :

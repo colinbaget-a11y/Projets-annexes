@@ -13,6 +13,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 src = (HERE / "note-ir-csg.tex").read_text(encoding="utf-8")
 corps = src[src.index("\\begin{document}") + len("\\begin{document}"):src.index("\\end{document}")]
+corps = corps.replace("\\figgrand{", "\\figbloc{")
 
 # numéros des figures et tableaux, dans l'ordre d'apparition
 nums, nf, nt = {}, 0, 0
@@ -34,7 +35,7 @@ corps = re.sub(r"\\renewcommand\{\\figurename\}.*?\n", "", corps)
 t = re.search(r"\\selectfont\\bfseries\\color\{bleu\}(.*?)\\par\}", corps, re.S).group(1)
 st = re.search(r"\{\\large (.*?)\\par\}", corps, re.S).group(1)
 au = re.search(r"\{\\small (Colin Baget.*?)\\par\}", corps, re.S).group(1)
-debut = corps.index("\\section*{L'essentiel}")
+debut = corps.index("\\section*{Introduction}")
 corps = (f"\\textbf{{NOTE DE TRAVAIL · NOVEMBRE 2026}}\n\n\\section*{{{t}}}\n\n\\textit{{{st}}}\n\n{au}\n\n"
          + corps[debut:])
 

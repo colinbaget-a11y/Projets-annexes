@@ -1,0 +1,68 @@
+[E0] recette cible 220.1 Md€ ; franchise 6,000 € par enfant ; coût d'efficacité actuel 18.1 Md€ (bas 8.1, haut 31.1)
+[E1] exercice 1 : tranches de l'IR 2024 + taux unique de 3.12 % sur tout le revenu ; part « barème de l'IR » 177.2 Md€
+[E2] exercice 2 (transferts minimaux) : 5 % au premier euro, 13 % à 20 000 €, 25.9 % à 30 k€, 50 % à 250 k€ ; coût 13.6 ; transferts 2.02 pts ; pénalités déciles 4.92, haut 0.74, équité 2.12
+[E3] exercice 3 (perte sèche minimale) : 13 % au premier euro, 16 % à 20 000 €, 19.2 % à 80 k€, 50 % à 600 k€ ; coût 5.9 ; transferts 4.49 pts ; pénalités déciles 72.32, haut 14.00, équité 151.61
+[E3] 5 barèmes les moins coûteux :
+  t0   tb      z1    t1       z2  cout  transferts
+0.13 0.16 80000.0 0.192 600000.0 5.906       4.494
+0.13 0.16 60000.0 0.181 600000.0 5.914       4.494
+0.13 0.16 45000.0 0.173 600000.0 5.921       4.494
+0.13 0.16 30000.0 0.165 600000.0 5.930       4.492
+0.13 0.16 80000.0 0.185 400000.0 6.300       4.503
+[E4] 1 harmonisation : recette 220.1 ; coût 18.6 (8.1 à 31.9) ; réaction revenu -2.2, recette -1.6 Md€ ; redistribution 1.33 ; transferts 2.80 pts ; foyers qui paient 100.0 %
+[E5] 1 harmonisation : déciles € -51 -140 -104 -151 -796 -890 -914 -119 -77 +3166 | pts -2.5 -1.8 -0.6 -0.7 -3.0 -2.8 -2.4 -0.2 -0.1 +2.5
+[E6] 1 harmonisation : tranches RFR ≥ 100 k€ (pts) +2.1 -0.7 -0.9 +0.2 +1.0 +1.9 +3.0 +3.6 +3.8 +5.4 +7.1 +8.1 +7.8 +9.2 +11.2 +10.8 +11.6 +14.4
+[E6] 1 harmonisation : RFR 100-200k +3,208 € ; 200-300k -1,432 € ; 1-2M +5.4 pts
+[E7] 1 harmonisation : types (Md€) Salaires -13.0 ; Pensions +8.7 ; Indépendants, foncier, gérants +1.3 ; Chômage, préretraites +3.0
+[E8] 1 harmonisation : personnes seules -0.5 Md€, couples +0.5 Md€ ; seules par décile -2.5 -1.7 -0.2 +0.1 -2.1 -2.3 -1.6 +0.7 +0.9 +3.6
+[E9] 1 harmonisation : seul              15k -816 17k -756 21k -621 30k -1,178 50k -1,150 80k -1,820 100k -1,676 150k -916
+[E9] 1 harmonisation : couple_0enf       15k -1,014 17k -1,149 21k -1,454 30k -1,537 50k -1,784 80k -1,663 100k -2,292 150k -3,417
+[E9] 1 harmonisation : couple_2enf       15k -1,263 17k -1,432 21k -1,811 30k -2,403 50k -2,727 80k -4,052 100k -2,685 150k -3,809
+[E9] 1 harmonisation : couple_2enf_mono  15k -1,389 17k -1,524 21k -1,828 30k -2,061 50k -895 80k +2,668 100k +4,176 150k +7,265
+[E9] 1 harmonisation : retraite_seul     15k +854 17k +1,136 21k +245 30k -212 50k -635 80k -1,807 100k -1,455 150k -3,085
+[E10] 1 harmonisation : taux marginal d'un adulte (assiette nette) 5k 3.1 15k 14.1 25k 14.1 40k 33.1 60k 33.1 100k 44.1 200k 48.1 400k 48.1
+[E10] 1 harmonisation : impôt d'un adulte sans enfant 10k 312 (3.1 %) 20k 1,560 (7.8 %) 30k 3,102 (10.3 %) 50k 9,726 (19.5 %) 80k 19,663 (24.6 %) 120k 36,891 (30.7 %) 200k 72,977 (36.5 %)
+[E11] 1 harmonisation : seul 30 k€ brut : taux moyen 8.3 % (auj. 12.2), marginal 12.5 % (auj. 21.3)
+[E11] 1 harmonisation : seul 50 k€ brut : taux moyen 15.7 % (auj. 18.0), marginal 29.7 % (auj. 31.9)
+[E11] 1 harmonisation : seul 80 k€ brut : taux moyen 21.0 % (auj. 23.2), marginal 29.7 % (auj. 31.9)
+[E11] 1 harmonisation : couple_2enf 50 k€ brut : taux moyen 4.1 % (auj. 9.5), marginal 12.5 % (auj. 9.5)
+[E11] 1 harmonisation : couple_2enf 80 k€ brut : taux moyen 7.5 % (auj. 12.6), marginal 22.8 % (auj. 21.3)
+[E12] 1 harmonisation : valeur de la franchise par enfant pour le parent au revenu net de 20k 847 € 30k 977 € 45k 1,987 € 60k 1,987 € 100k 2,647 € 200k 2,887 €
+[E4] 2 aplanissement : recette 220.1 ; coût 13.6 (5.9 à 23.3) ; réaction revenu +9.7, recette +2.6 Md€ ; redistribution 1.04 ; transferts 2.02 pts ; foyers qui paient 100.0 %
+[E5] 2 aplanissement : déciles € -25 +79 +252 +140 -428 -315 -459 -13 -200 +947 | pts -1.2 +1.0 +1.5 +0.6 -1.6 -1.0 -1.2 -0.0 -0.3 +0.8
+[E6] 2 aplanissement : tranches RFR ≥ 100 k€ (pts) -0.4 -3.9 -4.6 -3.5 -2.5 -1.4 -0.1 +0.9 +1.3 +3.8 +6.8 +8.3 +8.3 +9.9 +12.0 +11.8 +12.6 +15.9
+[E6] 2 aplanissement : RFR 100-200k -588 € ; 200-300k -7,977 € ; 1-2M +3.8 pts
+[E7] 2 aplanissement : types (Md€) Salaires -13.4 ; Pensions +10.8 ; Indépendants, foncier, gérants -0.3 ; Chômage, préretraites +3.0
+[E8] 2 aplanissement : personnes seules +0.9 Md€, couples -0.9 Md€ ; seules par décile -1.2 +1.1 +2.0 +1.3 -1.0 -0.5 -0.7 +0.1 -0.5 +0.8
+[E9] 2 aplanissement : seul              15k -410 17k -412 21k -368 30k -731 50k -1,435 80k -3,238 100k -3,997 150k -7,410
+[E9] 2 aplanissement : couple_0enf       15k -580 17k -630 21k -717 30k -792 50k -1,061 80k -1,245 100k -2,782 150k -5,786
+[E9] 2 aplanissement : couple_2enf       15k -1,107 17k -1,246 21k -1,551 30k -1,871 50k -2,092 80k -2,850 100k -2,532 150k -5,890
+[E9] 2 aplanissement : couple_2enf_mono  15k -1,361 17k -1,447 21k -1,596 30k -1,702 50k -419 80k +1,657 100k +2,616 150k +1,671
+[E9] 2 aplanissement : retraite_seul     15k +1,200 17k +1,428 21k +483 30k +429 50k -1,225 80k -3,421 100k -4,984 150k -10,530
+[E10] 2 aplanissement : taux marginal d'un adulte (assiette nette) 5k 7.0 15k 11.0 25k 19.4 40k 27.0 60k 29.2 100k 33.5 200k 44.5 400k 50.0
+[E10] 2 aplanissement : impôt d'un adulte sans enfant 10k 700 (7.0 %) 20k 1,800 (9.0 %) 30k 3,743 (12.5 %) 50k 9,136 (18.3 %) 80k 18,049 (22.6 %) 120k 31,467 (26.2 %) 200k 63,569 (31.8 %)
+[E11] 2 aplanissement : seul 30 k€ brut : taux moyen 9.8 % (auj. 12.2), marginal 19.6 % (auj. 21.3)
+[E11] 2 aplanissement : seul 50 k€ brut : taux moyen 15.1 % (auj. 18.0), marginal 24.7 % (auj. 31.9)
+[E11] 2 aplanissement : seul 80 k€ brut : taux moyen 19.2 % (auj. 23.2), marginal 27.3 % (auj. 31.9)
+[E11] 2 aplanissement : couple_2enf 50 k€ brut : taux moyen 5.3 % (auj. 9.5), marginal 10.1 % (auj. 9.5)
+[E11] 2 aplanissement : couple_2enf 80 k€ brut : taux moyen 9.0 % (auj. 12.6), marginal 22.5 % (auj. 21.3)
+[E12] 2 aplanissement : valeur de la franchise par enfant pour le parent au revenu net de 20k 708 € 30k 1,320 € 45k 1,631 € 60k 1,730 € 100k 1,993 € 200k 2,651 €
+[E4] 3 perte sèche minimale : recette 220.1 ; coût 5.9 (2.5 à 10.2) ; réaction revenu +35.7, recette +6.6 Md€ ; redistribution 0.32 ; transferts 4.49 pts ; foyers qui paient 100.0 %
+[E5] 3 perte sèche minimale : déciles € +64 +540 +1121 +1199 +712 +740 +393 +407 -457 -4610 | pts +3.2 +6.9 +6.8 +5.5 +2.7 +2.4 +1.0 +0.8 -0.7 -3.7
+[E6] 3 perte sèche minimale : tranches RFR ≥ 100 k€ (pts) -5.6 -10.6 -12.7 -12.7 -12.7 -12.3 -11.3 -10.7 -10.5 -7.4 -2.1 +1.5 +2.6 +5.2 +7.7 +8.2 +9.2 +14.6
+[E6] 3 perte sèche minimale : RFR 100-200k -8,537 € ; 200-300k -21,831 € ; 1-2M -7.4 pts
+[E7] 3 perte sèche minimale : types (Md€) Salaires -13.8 ; Pensions +15.9 ; Indépendants, foncier, gérants -5.1 ; Chômage, préretraites +3.0
+[E8] 3 perte sèche minimale : personnes seules +5.7 Md€, couples -5.7 Md€ ; seules par décile +3.3 +7.0 +7.5 +6.2 +3.2 +2.4 +0.2 -1.1 -3.7 -5.4
+[E9] 3 perte sèche minimale : seul              15k +433 17k +510 21k +703 30k +298 50k -2,044 80k -6,775 100k -9,709 150k -19,274
+[E9] 3 perte sèche minimale : couple_0enf       15k +369 17k +429 21k +572 30k +876 50k +994 80k -755 100k -4,058 150k -11,929
+[E9] 3 perte sèche minimale : couple_2enf       15k -717 17k -809 21k -1,014 30k -863 50k -164 80k -1,197 100k -2,573 150k -10,618
+[E9] 3 perte sèche minimale : couple_2enf_mono  15k -1,259 17k -1,213 21k -1,093 30k -800 50k +147 80k -525 100k -1,623 150k -8,448
+[E9] 3 perte sèche minimale : retraite_seul     15k +2,119 17k +2,427 21k +1,614 30k +1,213 50k -2,418 80k -7,999 100k -12,085 150k -24,825
+[E10] 3 perte sèche minimale : taux marginal d'un adulte (assiette nette) 5k 13.8 15k 15.2 25k 16.3 40k 17.1 60k 18.2 100k 20.4 200k 26.3 400k 38.2
+[E10] 3 perte sèche minimale : impôt d'un adulte sans enfant 10k 1,375 (13.8 %) 20k 2,900 (14.5 %) 30k 4,527 (15.1 %) 50k 7,943 (15.9 %) 80k 13,471 (16.8 %) 120k 21,640 (18.0 %) 200k 40,817 (20.4 %)
+[E11] 3 perte sèche minimale : seul 30 k€ brut : taux moyen 13.2 % (auj. 12.2), marginal 14.5 % (auj. 21.3)
+[E11] 3 perte sèche minimale : seul 50 k€ brut : taux moyen 13.9 % (auj. 18.0), marginal 15.6 % (auj. 31.9)
+[E11] 3 perte sèche minimale : seul 80 k€ brut : taux moyen 14.8 % (auj. 23.2), marginal 16.9 % (auj. 31.9)
+[E11] 3 perte sèche minimale : couple_2enf 50 k€ brut : taux moyen 9.2 % (auj. 9.5), marginal 13.7 % (auj. 9.5)
+[E11] 3 perte sèche minimale : couple_2enf 80 k€ brut : taux moyen 11.1 % (auj. 12.6), marginal 14.8 % (auj. 21.3)
+[E12] 3 perte sèche minimale : valeur de la franchise par enfant pour le parent au revenu net de 20k 933 € 30k 983 € 45k 1,031 € 60k 1,080 € 100k 1,215 € 200k 1,570 €
