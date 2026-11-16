@@ -354,4 +354,14 @@ def controles():
              f" pensions) ; des actifs {cur_a:.1f} Md€ ({100 * cur_a / (W_A * ZN).sum() * 1e9:.1f} % de leur revenu net)")
     L.append(f"   repère, pensions dans le modèle d'origine (par_type) : CSG {csg_p:.1f} + CRDS {crds_p:.1f} + IR au prorata"
              f" de l'assiette {ir_p:.1f} = {csg_p + crds_p + ir_p:.1f} Md€ (vérification : environ 41)")
+    for z_ in (20e3, 30e3, 50e3, 100e3):
+        L.append(f"   OpenFisca, revenu net {z_ / 1e3:.0f} k€ : charge d'un retraité seul {100 * r_ret(z_):.1f} %, d'un actif seul"
+                 f" {100 * r_seul(z_):.1f} % (rapport {rho(z_):.2f})")
+    # sensibilité : couple de retraités évalué au revenu / 1,5 au lieu de la moitié (seuils de CSG d'un couple plus bas
+    # que deux fois ceux d'une personne seule ; le rapport exact n'est pas vérifié ici)
+    u = dict(_U, retraite_couple=ZN * r_c0(ZN) * rho(ZN / 1.5))
+    norm = sum(w * u[_cle(nom)] for nom, _, _, w, _, _ in TYPES) / W
+    cur_r15 = sum((w * CUR * u[_cle(nom)] / norm).sum() for nom, g_, _, w, _, _ in TYPES if g_ == "R") / 1e9
+    L.append(f"   sensibilité : couple de retraités évalué au revenu / 1,5 au lieu de la moitié : charge des retraités"
+             f" {cur_r15:.1f} Md€")
     return L
