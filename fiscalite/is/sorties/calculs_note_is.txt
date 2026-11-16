@@ -1,0 +1,190 @@
+====================================================================================================
+1. SITUATION ACTUELLE
+[RECETTE] IS net 2025 59,9 Md€ = 2.00 % du PIB ; avec contribution exceptionnelle (7,5) et sociale (≈1,5) : 68.9 Md€ = 2.30 % du PIB
+[RECETTE] IS brut budgétaire 2026 (avant remboursements et dégrèvements, dont CIR) : 85,0 Md€ ; IS net 2027 (PLF) 58,5 hors contribution exceptionnelle (5,0 proposés pour 2027 par l'art. 15 du PLF, article supprimé en 1re lecture selon Légifiscal)
+[QUI PAIE 2022] Très petites   2 213 000 entreprises ; bénéfices  60.3 Md€ ; IS brut  13.1 Md€ (19 % de l'IS brut) ; IS brut / bénéfices 21.7 %
+[QUI PAIE 2022] PME              217 500 entreprises ; bénéfices  75.9 Md€ ; IS brut  18.9 Md€ (28 % de l'IS brut) ; IS brut / bénéfices 24.9 %
+[QUI PAIE 2022] ETI                8 100 entreprises ; bénéfices  62.2 Md€ ; IS brut  15.8 Md€ (23 % de l'IS brut) ; IS brut / bénéfices 25.4 %
+[QUI PAIE 2022] Grandes              400 entreprises ; bénéfices  79.5 Md€ ; IS brut  20.6 Md€ (30 % de l'IS brut) ; IS brut / bénéfices 25.9 %
+[TAUX] taux affichés : 15 % (≤ 42 500 €), 25 %, 25,825 % (contribution sociale), 30,98 % et 36,13 % (contribution exceptionnelle 2025-2026 : 25 × (1 + 3,3 % + 20,6 %) = 30.97 ; 25 × (1 + 3,3 % + 41,2 %) = 36.125)
+[TAUX] taux implicites 2022 (IS avant crédits / excédent net d'exploitation, Insee) : micro 19,0 ; PME 21,4 ; GE 14,3 ; ensemble 17,5 % ; OCDE 2025 : taux moyen effectif 23,6 % (moyenne 22,2) ; marginal 15,0 % (16,5) ; équipements 9,8 % (10,4)
+[OCDE] 2019 : France 2.06 % du PIB ; moyenne 2.95 ; médiane 3.01 ; rang 26 sur 38 ; Allemagne 1.9, Italie 1.9, Espagne 2.0, Royaume-Uni 2.3, États-Unis 1.3
+[OCDE] 2022 : France 2.85 % du PIB ; moyenne 3.87 ; médiane 3.39 ; rang 25 sur 38 ; Allemagne 2.3, Italie 2.7, Espagne 2.7, Royaume-Uni 3.2, États-Unis 2.2
+[OCDE] 2023 : France 2.35 % du PIB ; moyenne 3.75 ; médiane 3.41 ; rang 32 sur 38 ; Allemagne 2.2, Italie 2.7, Espagne 2.9, Royaume-Uni 3.4, États-Unis 2.2
+[OCDE] 2024 : France 2.25 % du PIB ; moyenne 3.62 ; médiane 3.47 ; rang 31 sur 36 ; Allemagne 2.2, Italie 2.7, Espagne 3.0, Royaume-Uni 3.5, États-Unis 2.2
+
+====================================================================================================
+2. PARAMÈTRES ET HYPOTHÈSES PROPRES À LA REFONTE
+[PLAFOND] Pareto sur les effectifs : alpha 0.77 ; entreprises ≥ 1 M€ : 1.17 % des investisseurs (14 054) ; part de l'investissement couverte par un plafond de 0 5 M€ : 17.8 % ; de 1 M€ : 21.4 %
+[PLAFOND] retenu : theta = 20% (15 à 30 %) ; champ Insee plus large (bâtiments, entreprises individuelles), composition des investissements par taille inconnue : hypothèse H23 du tableau d'annexe
+[FIN] ressources de l'assiette en 2027 : bas 3.50 ; central 4.06 ; haut 4.62 Md€ (fin du taux réduit 2.15 à 2.87 ; CIR au niveau du groupe 0.59 ; zones IR et IS 0.54 ; brevets 0.21 à 0.62) ; un point de taux = 2.95 Md€ (2.66 sur la seule base au taux normal)
+
+====================================================================================================
+3. RÉFORME NAÏVE : BAISSE GÉNÉRALE DU TAUX NORMAL (taux réduit gardé)
+[NAIF] −1 point(s) (taux 24 %) : coût statique 2.7 Md€ ; avec retour de bénéfices déclarés (1 à 1,5 % par point) 1.7 à 2.0 Md€
+[NAIF] −3 point(s) (taux 22 %) : coût statique 8.0 Md€ ; avec retour de bénéfices déclarés (1 à 1,5 % par point) 5.4 à 6.2 Md€
+[NAIF] −5 point(s) (taux 20 %) : coût statique 13.3 Md€ ; avec retour de bénéfices déclarés (1 à 1,5 % par point) 9.3 à 10.7 Md€
+[NAIF qui] base à 15 % (toute chez les très petites) : Très petites 13 % ; PME 30 % ; ETI 25 % ; Grandes 32 %
+[NAIF qui] base à 15 % (aux trois quarts chez les très petites) : Très petites 16 % ; PME 28 % ; ETI 25 % ; Grandes 32 %
+[NAIF part] impôt actualisé sur le rendement normal d'une année d'équipements (= coût actualisé de la déduction totale) : 1.73 à 2.55 Md€ ; un point de taux en retire 1/25, soit 0.069 à 0.102 Md€, pour un coût de 2.66 Md€ par an : 2.6 à 3.8 % du coût
+
+[TEF] convention : fonds propres, r réel 5 %, inflation 2 %, δ 14 % (équipements) ou 3,1 % (bâtiments), z au taux nominal ; niveaux non comparables à l'OCDE (part de dette non lue), écarts seuls significatifs
+[TEF] Équipement, aujourd'hui (25 %, linéaire 7 ans)                 taux 25.00 % z 0.794 : TEMI  20.7 % ; TEMA (projet à 20 %)  23.6 % ; coin 6.85 %
+[TEF] Équipement, aujourd'hui (25 %, dégressif)                      taux 25.00 % z 0.860 : TEMI  15.1 % ; TEMA (projet à 20 %)  22.1 % ; coin 4.68 %
+[TEF] Équipement, baisse de même coût actualisé (24.04 %)            taux 24.04 % z 0.794 : TEMI  19.8 % ; TEMA (projet à 20 %)  22.7 % ; coin 6.51 %
+[TEF] Équipement, baisse à 22 %                                      taux 22.00 % z 0.794 : TEMI  18.1 % ; TEMA (projet à 20 %)  20.8 % ; coin 5.80 %
+[TEF] Équipement, baisse à 20 %                                      taux 20.00 % z 0.794 : TEMI  16.3 % ; TEMA (projet à 20 %)  18.9 % ; coin 5.14 %
+[TEF] Équipement, déduction immédiate 50 % (25 %)                    taux 25.00 % z 0.897 : TEMI  11.5 % ; TEMA (projet à 20 %)  21.2 % ; coin 3.43 %
+[TEF] Équipement, déduction immédiate 100 % (25 %)                   taux 25.00 % z 1.000 : TEMI   0.0 % ; TEMA (projet à 20 %)  18.8 % ; coin 0.00 %
+[TEF] Équipement, petite société sous 42 500 € aujourd'hui (15 %)    taux 15.00 % z 0.794 : TEMI  12.1 % ; TEMA (projet à 20 %)  14.2 % ; coin 3.63 %
+[TEF] Bâtiment, aujourd'hui (25 %)                                   taux 25.00 % z 0.478 : TEMI  22.0 % ; TEMA (projet à 20 %)  24.0 %
+[TEF] Bâtiment, petite société sous 42 500 € aujourd'hui (15 %)      taux 15.00 % z 0.478 : TEMI  13.0 % ; TEMA (projet à 20 %)  14.4 %
+[TEF] Bâtiment, baisse à 22 %                                        taux 22.00 % z 0.478 : TEMI  19.2 % ; TEMA (projet à 20 %)  21.1 %
+[NAIF eff] baisse de même coût actualisé que la déduction totale (linéaire, 5 %) : 0.96 point ; coin sur le coût d'usage des équipements 5.09 % -> 4.83 % (déduction totale : 0)
+
+====================================================================================================
+4. CALENDRIERS DE LA DÉDUCTION IMMÉDIATE (part imposable 75 %, θ = 20 %)
+[OPT falaise] 50 % de 2027 à 2032, 100 % en 2033 (ancienne note)
+    coût (dég. – lin., Md€) 2027 7.0–7.8 ; 2028 5.0–6.8 ; 2030 2.7–4.8 ; 2032 1.3–2.7 ; 2033 9.0–10.8 ; 2034 6.6–9.1 ; 2040 1.6–2.4 ; pic central (2027-2041) 9.9 (2033) ; plus forte hausse d'une année sur l'autre +7.9
+    coût actualisé par millésime en régime permanent : 1.73–2.55 Md€ (5 %) ; 1.17–1.74 (3,25 %) ; en points de taux 0.59–0.86
+    financement bas (3.50) : deg : pic 7.6 (2035), éteinte 2040, baisse 0.83 pt dès 2041 | mix : pic 18.9 (2037), éteinte 2045, baisse 0.74 pt dès 2046 | lin : pic 32.4 (2038), éteinte 2051, baisse 0.65 pt dès 2052
+    financement central (4.06) : deg : pic 3.8 (2028), éteinte 2031, baisse 1.02 pt dès 2032 | mix : pic 11.2 (2036), éteinte 2041, baisse 0.94 pt dès 2042 | lin : pic 23.5 (2037), éteinte 2046, baisse 0.85 pt dès 2047
+    financement haut (4.62) : deg : pic 2.7 (2028), éteinte 2030, baisse 1.22 pt dès 2031 | mix : pic 4.3 (2035), éteinte 2038, baisse 1.13 pt dès 2039 | lin : pic 15.2 (2036), éteinte 2042, baisse 1.04 pt dès 2043
+[OPT paliers] 50 % en 2027, +10 points par an, 100 % en 2032
+    coût (dég. – lin., Md€) 2027 7.0–7.8 ; 2028 6.4–8.4 ; 2030 6.0–9.1 ; 2032 5.8–9.0 ; 2033 3.9–6.8 ; 2034 3.0–5.1 ; 2040 1.6–2.4 ; pic central (2027-2041) 7.6 (2031) ; plus forte hausse d'une année sur l'autre +0.1
+    coût actualisé par millésime en régime permanent : 1.73–2.55 Md€ (5 %) ; 1.17–1.74 (3,25 %) ; en points de taux 0.59–0.86
+    financement bas (3.50) : deg : pic 16.4 (2033), éteinte 2040, baisse 0.83 pt dès 2041 | mix : pic 26.7 (2034), éteinte 2046, baisse 0.74 pt dès 2047 | lin : pic 38.7 (2035), éteinte 2053, baisse 0.65 pt dès 2054
+    financement central (4.06) : deg : pic 12.2 (2032), éteinte 2038, baisse 1.02 pt dès 2039 | mix : pic 21.4 (2033), éteinte 2042, baisse 0.94 pt dès 2043 | lin : pic 32.2 (2034), éteinte 2047, baisse 0.85 pt dès 2048
+    financement haut (4.62) : deg : pic 8.3 (2032), éteinte 2036, baisse 1.22 pt dès 2037 | mix : pic 16.6 (2033), éteinte 2039, baisse 1.13 pt dès 2040 | lin : pic 26.7 (2034), éteinte 2043, baisse 1.04 pt dès 2044
+[OPT plafond_paliers] 100 % sous 1 M€ dès 2027 ; au-delà, paliers 50 → 100 % (2032)
+    coût (dég. – lin., Md€) 2027 8.4–9.3 ; 2028 7.1–9.4 ; 2030 5.9–9.2 ; 2032 5.2–8.3 ; 2033 3.4–6.1 ; 2034 2.6–4.5 ; 2040 1.6–2.4 ; pic central (2027-2041) 8.9 (2027) ; plus forte hausse d'une année sur l'autre +0.1
+    coût actualisé par millésime en régime permanent : 1.73–2.55 Md€ (5 %) ; 1.17–1.74 (3,25 %) ; en points de taux 0.59–0.86
+    financement bas (3.50) : deg : pic 17.7 (2032), éteinte 2040, baisse 0.83 pt dès 2041 | mix : pic 27.8 (2034), éteinte 2046, baisse 0.74 pt dès 2047 | lin : pic 39.8 (2035), éteinte 2053, baisse 0.65 pt dès 2054
+    financement central (4.06) : deg : pic 13.7 (2032), éteinte 2038, baisse 1.02 pt dès 2039 | mix : pic 22.9 (2033), éteinte 2042, baisse 0.94 pt dès 2043 | lin : pic 33.6 (2034), éteinte 2047, baisse 0.85 pt dès 2048
+    financement haut (4.62) : deg : pic 9.8 (2032), éteinte 2036, baisse 1.22 pt dès 2037 | mix : pic 18.3 (2032), éteinte 2039, baisse 1.13 pt dès 2040 | lin : pic 28.3 (2033), éteinte 2043, baisse 1.04 pt dès 2044
+[OPT plafond_seul] 100 % sous 1 M€ par groupe, sans plus (AIA britannique seule)
+    coût (dég. – lin., Md€) 2027 2.8–3.1 ; 2028 2.0–2.7 ; 2030 1.1–1.9 ; 2032 0.5–1.1 ; 2033 0.3–0.6 ; 2034 0.3–0.4 ; 2040 0.3–0.5 ; pic central (2027-2041) 3.0 (2027) ; plus forte hausse d'une année sur l'autre +0.0
+    coût actualisé par millésime en régime permanent : 0.35–0.51 Md€ (5 %) ; 0.23–0.35 (3,25 %) ; en points de taux 0.12–0.17
+    financement bas (3.50) : deg : pic -0.7 (2027), éteinte 2027, baisse 1.11 pt dès 2028 | mix : pic -0.5 (2027), éteinte 2027, baisse 1.10 pt dès 2028 | lin : pic -0.4 (2027), éteinte 2027, baisse 1.08 pt dès 2028
+    financement central (4.06) : deg : pic -1.3 (2027), éteinte 2027, baisse 1.31 pt dès 2028 | mix : pic -1.1 (2027), éteinte 2027, baisse 1.29 pt dès 2028 | lin : pic -1.0 (2027), éteinte 2027, baisse 1.27 pt dès 2028
+    financement haut (4.62) : deg : pic -1.8 (2027), éteinte 2027, baisse 1.50 pt dès 2028 | mix : pic -1.7 (2027), éteinte 2027, baisse 1.48 pt dès 2028 | lin : pic -1.5 (2027), éteinte 2027, baisse 1.46 pt dès 2028
+[OPT cent] 100 % pour tous dès 2027
+    coût (dég. – lin., Md€) 2027 14.0–15.5 ; 2028 9.9–13.6 ; 2030 5.3–9.6 ; 2032 2.7–5.3 ; 2033 1.3–3.1 ; 2034 1.3–2.0 ; 2040 1.6–2.4 ; pic central (2027-2041) 14.8 (2027) ; plus forte hausse d'une année sur l'autre +0.1
+    coût actualisé par millésime en régime permanent : 1.73–2.55 Md€ (5 %) ; 1.17–1.74 (3,25 %) ; en points de taux 0.59–0.86
+    financement bas (3.50) : deg : pic 24.3 (2031), éteinte 2041, baisse 0.83 pt dès 2042 | mix : pic 34.4 (2032), éteinte 2047, baisse 0.74 pt dès 2048 | lin : pic 45.6 (2033), éteinte 2054, baisse 0.65 pt dès 2055
+    financement central (4.06) : deg : pic 21.1 (2031), éteinte 2038, baisse 1.02 pt dès 2039 | mix : pic 30.5 (2032), éteinte 2043, baisse 0.94 pt dès 2044 | lin : pic 41.3 (2032), éteinte 2048, baisse 0.85 pt dès 2049
+    financement haut (4.62) : deg : pic 18.5 (2030), éteinte 2036, baisse 1.22 pt dès 2037 | mix : pic 27.0 (2031), éteinte 2040, baisse 1.13 pt dès 2041 | lin : pic 37.3 (2032), éteinte 2044, baisse 1.04 pt dès 2045
+[OPT cinquante] 50 % pour tous, sans montée
+    coût (dég. – lin., Md€) 2027 7.0–7.8 ; 2028 5.0–6.8 ; 2030 2.7–4.8 ; 2032 1.3–2.7 ; 2033 0.6–1.5 ; 2034 0.7–1.0 ; 2040 0.8–1.2 ; pic central (2027-2041) 7.4 (2027) ; plus forte hausse d'une année sur l'autre +0.0
+    coût actualisé par millésime en régime permanent : 0.86–1.28 Md€ (5 %) ; 0.58–0.87 (3,25 %) ; en points de taux 0.29–0.43
+    financement bas (3.50) : deg : pic 5.0 (2029), éteinte 2032, baisse 1.01 pt dès 2033 | mix : pic 7.6 (2030), éteinte 2034, baisse 0.96 pt dès 2035 | lin : pic 11.4 (2031), éteinte 2036, baisse 0.92 pt dès 2037
+    financement central (4.06) : deg : pic 3.8 (2028), éteinte 2031, baisse 1.20 pt dès 2032 | mix : pic 5.7 (2029), éteinte 2033, baisse 1.16 pt dès 2034 | lin : pic 8.8 (2030), éteinte 2034, baisse 1.11 pt dès 2035
+    financement haut (4.62) : deg : pic 2.7 (2028), éteinte 2030, baisse 1.39 pt dès 2031 | mix : pic 4.0 (2028), éteinte 2032, baisse 1.35 pt dès 2033 | lin : pic 6.3 (2029), éteinte 2033, baisse 1.31 pt dès 2034
+[OPT neutre] Amortissement neutre (annuités revalorisées à 3,25 %)
+    coût (dég. – lin., Md€) 2027 0.0–0.0 ; 2028 0.1–0.1 ; 2030 0.6–0.5 ; 2032 1.1–1.3 ; 2033 1.4–1.8 ; 2034 1.4–2.2 ; 2040 1.7–2.6 ; pic central (2027-2041) 2.2 (2041) ; plus forte hausse d'une année sur l'autre +0.4
+    coût actualisé par millésime en régime permanent : 1.10–1.61 Md€ (5 %) ; 1.17–1.74 (3,25 %) ; en points de taux 0.37–0.54
+    financement bas (3.50) : deg : pic -3.5 (2027), éteinte 2027, baisse 0.80 pt dès 2028 | mix : pic -3.5 (2027), éteinte 2027, baisse 0.70 pt dès 2028 | lin : pic -3.5 (2027), éteinte 2027, baisse 0.60 pt dès 2028
+    financement central (4.06) : deg : pic -4.1 (2027), éteinte 2027, baisse 0.99 pt dès 2028 | mix : pic -4.1 (2027), éteinte 2027, baisse 0.90 pt dès 2028 | lin : pic -4.1 (2027), éteinte 2027, baisse 0.80 pt dès 2028
+    financement haut (4.62) : deg : pic -4.6 (2027), éteinte 2027, baisse 1.19 pt dès 2028 | mix : pic -4.6 (2027), éteinte 2027, baisse 1.09 pt dès 2028 | lin : pic -4.6 (2027), éteinte 2027, baisse 1.00 pt dès 2028
+[OPT] surcoût du plafond à 100 % en 2027 par rapport aux seuls paliers : 1.48 Md€ (central)
+[ATTENTE] falaise (50 → 100 points) : acheter juste après le palier fait gagner τ × Δb × (1 − z) = 1.91 % (linéaire) / 1.29 % (dégressif) du prix
+[ATTENTE] palier annuel (10 points) : acheter juste après le palier fait gagner τ × Δb × (1 − z) = 0.38 % (linéaire) / 0.26 % (dégressif) du prix
+
+====================================================================================================
+5. SENSIBILITÉS (proposition : 100 % sous plafond + paliers)
+[PART 60%] coût 2027 7.1 ; dette max → année d'extinction : deg-bas 9 → 2037 ; deg-haut 3 → 2033 ; mix-bas 16 → 2040 ; mix-haut 8 → 2036 ; lin-bas 24 → 2045 ; lin-haut 15 → 2038 ; central 12 (2032) → 2038
+[PART 75%] coût 2027 8.9 ; dette max → année d'extinction : deg-bas 18 → 2040 ; deg-haut 10 → 2036 ; mix-bas 28 → 2046 ; mix-haut 18 → 2039 ; lin-bas 40 → 2053 ; lin-haut 28 → 2043 ; central 23 (2033) → 2042
+[PART 90%] coût 2027 10.6 ; dette max → année d'extinction : deg-bas 27 → 2045 ; deg-haut 18 → 2039 ; mix-bas 41 → 2053 ; mix-haut 30 → 2043 ; lin-bas 57 → 2066 ; lin-haut 43 → 2049 ; central 35 (2034) → 2047
+[THETA 15%] coût 2027 8.5 ; dette centrale max 22.5 (2033) éteinte 2042
+[THETA 20%] coût 2027 8.9 ; dette centrale max 22.9 (2033) éteinte 2042
+[THETA 30%] coût 2027 9.6 ; dette centrale max 23.6 (2033) éteinte 2042
+[R_ETAT 2.50%] dette centrale max 22.2 (2033) éteinte 2041
+[R_ETAT 3.25%] dette centrale max 22.9 (2033) éteinte 2042
+[R_ETAT 5.00%] dette centrale max 24.5 (2033) éteinte 2043
+[G 2%] coût permanent 2034 2.93 ; dette centrale max 21.5 (2033) éteinte 2041
+[G 4%] coût permanent 2034 4.24 ; dette centrale max 24.3 (2033) éteinte 2043
+[INDUIT] +10 % d'investissement éligible : coût 2027 +0.89 Md€, récupéré ensuite par l'impôt sur les rendements (non compté)
+
+====================================================================================================
+6. FINANCEMENT : VARIANTES (proposition, régime mixte)
+[VARFIN] assiette (référence) : 3.50 Md€ : pic 28 (2034), éteinte 2046 | 4.62 Md€ : pic 18 (2032), éteinte 2039
+[VARFIN] taux réduit porté à 20 % (moitié de l'avantage) : 2.42 Md€ : pic 40 (2037), éteinte 2067 | 3.19 Md€ : pic 31 (2034), éteinte 2049
+[VARFIN] taux réduit maintenu : 1.34 Md€ : pic 376 (2096), non éteinte, 143 Md€ en 2066 | 1.76 Md€ : pic 132 (2096), non éteinte, 88 Md€ en 2066
+[VARFIN] taux réduit retiré aux seules sociétés immobilières et financières (23 à 28 % du rendement, hypothèse) : 1.84 Md€ : pic 90 (2087), non éteinte, 77 Md€ en 2066 | 2.56 Md€ : pic 38 (2036), éteinte 2062
+[VARFIN] taux normal à 28 % (taux réduit gardé ; 1,5 à 0 % de base perdue par point) : 4.64 Md€ : pic 18 (2032), éteinte 2039 | 7.99 Md€ : pic 1 (2028), éteinte 2030
+[RÉSERVÉ] sociétés à l'IS des activités immobilières et financières : 28 % du nombre, 23 % de l'IS brut (2022) ; si la base à 15 % se répartissait ainsi (invérifiable), les en exclure rapporterait 0.5 à 0.8 Md€
+[DEUX ANS] taux réduit à 20 % en 2027 puis supprimé : ressource 2027 -1.25 Md€ ; dette centrale max 22.9 → 24.4 ; extinction 2042 → 2042
+
+====================================================================================================
+7. CONTRIBUTION EXCEPTIONNELLE
+[CE] rendement : 7,5 Md€ (2025), ≈ 7,0 (2026) ; droit en vigueur : rien à partir de l'exercice 2027 ; PLF 2027 art. 15 (troisième exercice à taux réduits) : 5,0 en 2027 et 0,5 en 2028
+[CE] par rapport à 2026, l'extinction est une baisse de 7 Md€ ; par rapport au PLF 2027, de 5 Md€ en 2027
+[CE affectée] bas deg : sans 17.7 (éteinte 2040) ; avec une dernière année affectée à la transition 11.2 (éteinte 2038)
+[CE affectée] bas mix : sans 27.8 (éteinte 2046) ; avec une dernière année affectée à la transition 21.0 (éteinte 2043)
+[CE affectée] bas lin : sans 39.8 (éteinte 2053) ; avec une dernière année affectée à la transition 32.7 (éteinte 2050)
+[CE affectée] central deg : sans 13.7 (éteinte 2038) ; avec une dernière année affectée à la transition 7.3 (éteinte 2036)
+[CE affectée] central mix : sans 22.9 (éteinte 2042) ; avec une dernière année affectée à la transition 16.2 (éteinte 2040)
+[CE affectée] central lin : sans 33.6 (éteinte 2047) ; avec une dernière année affectée à la transition 26.8 (éteinte 2045)
+[CE affectée] haut deg : sans 9.8 (éteinte 2036) ; avec une dernière année affectée à la transition 3.4 (éteinte 2034)
+[CE affectée] haut mix : sans 18.3 (éteinte 2039) ; avec une dernière année affectée à la transition 11.9 (éteinte 2037)
+[CE affectée] haut lin : sans 28.3 (éteinte 2043) ; avec une dernière année affectée à la transition 21.7 (éteinte 2041)
+
+====================================================================================================
+8. CAS TYPES (€ par an ; valeur de la déduction = valeur actualisée à 5 % de l'avance d'impôt, par année d'achats)
+[CAS] PME industrielle : bénéfice 300 000 € ; achats 150 000 €/an ; IS actuel 70 750 € ; fin du taux réduit +4 250 ; valeur de la déduction −5 727 ; net −1 477 € (-2.1 % de l'IS) ; trésorerie 2027 −30 571 €
+[CAS] PME de services : bénéfice 40 000 € ; achats 10 000 €/an ; IS actuel 6 000 € ; fin du taux réduit +4 000 ; valeur de la déduction −382 ; net 3 618 € (+60.3 % de l'IS) ; trésorerie 2027 1 679 €
+[CAS] Société qui n'investit pas : bénéfice 42 500 € ; achats 0 €/an ; IS actuel 6 375 € ; fin du taux réduit +4 250 ; valeur de la déduction −0 ; net 4 250 € (+66.7 % de l'IS) ; trésorerie 2027 4 250 €
+[CAS] Grand groupe : bénéfice 500 000 000 € ; achats 300 000 000 €/an ; IS actuel 129 099 821 € ; fin du taux réduit +0 ; valeur de la déduction −11 453 221 ; net −11 453 221 € (-8.9 % de l'IS) ; trésorerie 2027 −34 937 500 € ; IS 2026 avec contribution exceptionnelle 180,6 M€, dont contribution 51,5 M€ (29 % de l'impôt 2026)
+[CAS] grand groupe : baisse finale de 0,6 à 1,2 point → 3,0 à 6,0 M€ par an de moins, après extinction de la dette ; fin de la contribution exceptionnelle : 51,5 M€ de moins dès 2027 (29 % de l'impôt 2026)
+[SEUIL r=5%] achats annuels qui compensent la perte maximale de 4 250 € : 100 % linéaire 111 322 € ; dégressif 164 436 € ; 50 % linéaire 222 645 €
+[SEUIL r=8%] achats annuels qui compensent la perte maximale de 4 250 € : 100 % linéaire 75 061 € ; dégressif 109 593 € ; 50 % linéaire 150 122 €
+[SEUIL r=10%] achats annuels qui compensent la perte maximale de 4 250 € : 100 % linéaire 63 024 € ; dégressif 91 348 € ; 50 % linéaire 126 049 €
+[CAS] associé d'une petite société qui distribue : IS + PFU sur 42 500 € 41.69 % → 48.55 %
+
+====================================================================================================
+9. PRODUCTION ET BIEN-ÊTRE (reprise de simulation_is.py et perte_seche_autres.py)
+[PIB] 100 % (proposition en régime permanent) : 0.044 à 0.198 % du PIB à long terme, central 0.106 % (3.2 Md€ de 2025)
+[PIB] 100 % sous plafond seulement (marge des seules sociétés sous le plafond) : 0.009 à 0.040 % du PIB à long terme, central 0.021 % (0.6 Md€ de 2025)
+[PS] triangle évité (perte sèche statique sur le capital) : 0,02 à 0,16 Md€ par an ; IS à 28 % : +0,05 à +0,3 sur le capital, 0 à +3,2 par le transfert de bénéfices (synthese/sorties/perte_seche_autres.txt)
+
+====================================================================================================
+10. TRANSITION ANNÉE PAR ANNÉE (proposition, régime mixte, financement central, part 75 %)
+[PERM] coût permanent à l'échelle de 2027 (euros de 2027, investissement de 2027) : dégressif 1.08 ; linéaire 1.61 ; central 1.35 Md€ ; en 2034 (courants) 1.33 à 1.99 ; en % du PIB 0.034 à 0.051
+[PERM] ressources de l'assiette à l'échelle de 2027 : 3.50 à 4.62 ; excédent permanent 1.88 à 3.54 Md€
+[TRANS] 2027 : déduction au-delà du plafond 50 % ; coût  8.86 (permanent 1.35, transition  7.51) ; ressources  4.06 ; solde  -4.80 ; intérêts  0.00 ; dette fin d'année   4.80 Md€ (0.15 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026 -11.80
+[TRANS] 2028 : déduction au-delà du plafond 60 % ; coût  8.28 (permanent 1.39, transition  6.89) ; ressources  4.18 ; solde  -4.09 ; intérêts  0.16 ; dette fin d'année   9.05 Md€ (0.28 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026 -11.09
+[TRANS] 2029 : déduction au-delà du plafond 70 % ; coût  7.86 (permanent 1.43, transition  6.43) ; ressources  4.31 ; solde  -3.55 ; intérêts  0.29 ; dette fin d'année  12.90 Md€ (0.38 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026 -10.55
+[TRANS] 2030 : déduction au-delà du plafond 80 % ; coût  7.53 (permanent 1.47, transition  6.06) ; ressources  4.44 ; solde  -3.10 ; intérêts  0.42 ; dette fin d'année  16.42 Md€ (0.47 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026 -10.10
+[TRANS] 2031 : déduction au-delà du plafond 90 % ; coût  7.22 (permanent 1.52, transition  5.70) ; ressources  4.57 ; solde  -2.65 ; intérêts  0.53 ; dette fin d'année  19.60 Md€ (0.55 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -9.65
+[TRANS] 2032 : déduction au-delà du plafond 100 % ; coût  6.75 (permanent 1.56, transition  5.19) ; ressources  4.71 ; solde  -2.05 ; intérêts  0.64 ; dette fin d'année  22.28 Md€ (0.61 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -9.05
+[TRANS] 2033 : déduction au-delà du plafond 100 % ; coût  4.72 (permanent 1.61, transition  3.11) ; ressources  4.85 ; solde  +0.13 ; intérêts  0.72 ; dette fin d'année  22.87 Md€ (0.60 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -6.87
+[TRANS] 2034 : déduction au-delà du plafond 100 % ; coût  3.56 (permanent 1.66, transition  1.90) ; ressources  4.99 ; solde  +1.43 ; intérêts  0.74 ; dette fin d'année  22.18 Md€ (0.57 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -5.57
+[TRANS] 2035 : déduction au-delà du plafond 100 % ; coût  2.91 (permanent 1.71, transition  1.20) ; ressources  5.14 ; solde  +2.24 ; intérêts  0.72 ; dette fin d'année  20.67 Md€ (0.51 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -4.76
+[TRANS] 2036 : déduction au-delà du plafond 100 % ; coût  2.42 (permanent 1.76, transition  0.66) ; ressources  5.30 ; solde  +2.88 ; intérêts  0.67 ; dette fin d'année  18.46 Md€ (0.45 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -4.12
+[TRANS] 2037 : déduction au-delà du plafond 100 % ; coût  2.09 (permanent 1.81, transition  0.28) ; ressources  5.46 ; solde  +3.37 ; intérêts  0.60 ; dette fin d'année  15.70 Md€ (0.37 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -3.63
+[TRANS] 2038 : déduction au-delà du plafond 100 % ; coût  1.92 (permanent 1.87, transition  0.05) ; ressources  5.62 ; solde  +3.70 ; intérêts  0.51 ; dette fin d'année  12.51 Md€ (0.28 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -3.30
+[TRANS] 2039 : déduction au-delà du plafond 100 % ; coût  1.92 (permanent 1.92, transition -0.00) ; ressources  5.79 ; solde  +3.86 ; intérêts  0.41 ; dette fin d'année   9.05 Md€ (0.20 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -3.14
+[TRANS] 2040 : déduction au-delà du plafond 100 % ; coût  1.98 (permanent 1.98, transition -0.00) ; ressources  5.96 ; solde  +3.98 ; intérêts  0.29 ; dette fin d'année   5.37 Md€ (0.12 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -3.02
+[TRANS] 2041 : déduction au-delà du plafond 100 % ; coût  2.04 (permanent 2.04, transition  0.00) ; ressources  6.14 ; solde  +4.10 ; intérêts  0.17 ; dette fin d'année   1.44 Md€ (0.03 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.90
+[TRANS] 2042 : déduction au-delà du plafond 100 % ; coût  2.10 (permanent 2.10, transition -0.00) ; ressources  6.32 ; solde  +4.22 ; intérêts  0.05 ; dette fin d'année  -2.74 Md€ (-0.06 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.78
+[TRANS] 2043 : déduction au-delà du plafond 100 % ; coût  2.16 (permanent 2.16, transition -0.00) ; ressources  6.51 ; solde  +4.35 ; intérêts -0.09 ; dette fin d'année  -7.17 Md€ (-0.14 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.65
+[TRANS] 2044 : déduction au-delà du plafond 100 % ; coût  2.23 (permanent 2.23, transition  0.00) ; ressources  6.71 ; solde  +4.48 ; intérêts -0.23 ; dette fin d'année -11.89 Md€ (-0.23 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.52
+[TRANS] 2045 : déduction au-delà du plafond 100 % ; coût  2.30 (permanent 2.30, transition  0.00) ; ressources  6.91 ; solde  +4.61 ; intérêts -0.39 ; dette fin d'année -16.89 Md€ (-0.31 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.39
+[TRANS] 2046 : déduction au-delà du plafond 100 % ; coût  2.37 (permanent 2.37, transition  0.00) ; ressources  7.12 ; solde  +4.75 ; intérêts -0.55 ; dette fin d'année -22.19 Md€ (-0.40 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.25
+[TRANS] 2047 : déduction au-delà du plafond 100 % ; coût  2.44 (permanent 2.44, transition  0.00) ; ressources  7.33 ; solde  +4.90 ; intérêts -0.72 ; dette fin d'année -27.81 Md€ (-0.49 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -2.10
+[TRANS] 2048 : déduction au-delà du plafond 100 % ; coût  2.51 (permanent 2.51, transition -0.00) ; ressources  7.55 ; solde  +5.04 ; intérêts -0.90 ; dette fin d'année -33.75 Md€ (-0.57 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -1.96
+[TRANS] 2049 : déduction au-delà du plafond 100 % ; coût  2.58 (permanent 2.58, transition  0.00) ; ressources  7.78 ; solde  +5.19 ; intérêts -1.10 ; dette fin d'année -40.04 Md€ (-0.66 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -1.81
+[TRANS] 2050 : déduction au-delà du plafond 100 % ; coût  2.66 (permanent 2.66, transition  0.00) ; ressources  8.01 ; solde  +5.35 ; intérêts -1.30 ; dette fin d'année -46.70 Md€ (-0.75 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -1.65
+[TRANS] 2051 : déduction au-delà du plafond 100 % ; coût  2.74 (permanent 2.74, transition  0.00) ; ressources  8.25 ; solde  +5.51 ; intérêts -1.52 ; dette fin d'année -53.72 Md€ (-0.83 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -1.49
+[TRANS] 2052 : déduction au-delà du plafond 100 % ; coût  2.82 (permanent 2.82, transition -0.00) ; ressources  8.50 ; solde  +5.68 ; intérêts -1.75 ; dette fin d'année -61.15 Md€ (-0.92 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -1.32
+[TRANS] 2053 : déduction au-delà du plafond 100 % ; coût  2.91 (permanent 2.91, transition  0.00) ; ressources  8.76 ; solde  +5.85 ; intérêts -1.99 ; dette fin d'année -68.98 Md€ (-1.01 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -1.15
+[TRANS] 2054 : déduction au-delà du plafond 100 % ; coût  3.00 (permanent 3.00, transition  0.00) ; ressources  9.02 ; solde  +6.02 ; intérêts -2.24 ; dette fin d'année -77.24 Md€ (-1.10 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -0.98
+[TRANS] 2055 : déduction au-delà du plafond 100 % ; coût  3.09 (permanent 3.09, transition -0.00) ; ressources  9.29 ; solde  +6.20 ; intérêts -2.51 ; dette fin d'année -85.95 Md€ (-1.18 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -0.80
+[TRANS] 2056 : déduction au-delà du plafond 100 % ; coût  3.18 (permanent 3.18, transition  0.00) ; ressources  9.57 ; solde  +6.39 ; intérêts -2.79 ; dette fin d'année -95.13 Md€ (-1.27 % du PIB) ; avec la fin de la contribution exceptionnelle, écart à 2026  -0.61
+[TRANS] pic de la dette 22.9 Md€ en 2033 (19.2 Md€ de 2027 ; 0.60 % du PIB) ; éteinte en 2042 ; baisse finale de 0.94 point dès 2043
+[TRANS] cumul 2027-2032 du coût : 46.5 Md€, dont transition 37.8 ; des ressources : 26.3
+[TRANS] contribution exceptionnelle : par rapport à 2026, −7.0 Md€ chaque année (droit en vigueur, à bénéfices de 2026) ; par rapport au PLF 2027, −5,0 en 2027 et −0,5 en 2028 ; écart total à 2026 en 2027 : -11.8 (réforme -4.8) ; par rapport au PLF : -9.8
+[BORNES] deg bas : pic 17.7 (2032) ; extinction 2040 ; baisse finale 0.83 point
+[BORNES] deg haut : pic 9.8 (2032) ; extinction 2036 ; baisse finale 1.22 point
+[BORNES] lin bas : pic 39.8 (2035) ; extinction 2053 ; baisse finale 0.65 point
+[BORNES] lin haut : pic 28.3 (2033) ; extinction 2043 ; baisse finale 1.04 point
