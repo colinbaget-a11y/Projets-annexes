@@ -818,11 +818,11 @@
   },
   "rd_cir_30": {
    "nom": "Dépense de R&D, CIR à 30 %",
-   "fp": -0.39999999999999997
+   "fp": -0.6666666666666666
   },
   "rd_cir_5": {
    "nom": "Dépense de R&D, CIR à 5 %",
-   "fp": -0.06666666666666667
+   "fp": -0.07142857142857144
   }
  },
  "taux_effectifs_convention": {

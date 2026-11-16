@@ -28,7 +28,7 @@
 [TEF] Déduction de 50 % (25 %)                         équip. fp   9.9 ; dette  -37.0 ; 1/3 dette  -1.7 ; logiciel  10.8 ; bâtiment  22.0 (dette  -19.3)
 [TEF] Déduction intégrale (long terme)                 équip. fp   0.0 ; dette  -53.4 ; 1/3 dette -13.1 ; logiciel   0.0 ; bâtiment  22.0 (dette  -19.3)
 [TEF] Petite société sous 42 500 €, aujourd'hui (15 %) équip. fp  10.4 ; dette  -12.8 ; 1/3 dette   3.8 ; logiciel  11.4 ; bâtiment  13.0 (dette  -10.0)
-[TEF] R&D passée en charges : TMEI 0 ; avec CIR à 30 % : TMEI -40 % ; à 5 % : -7 %
+[TEF] R&D passée en charges : TMEI 0 ; avec CIR à 30 % : TMEI -67 % ; à 5 % : -7 % (−c/(1−τ−c), crédit non imposable)
 
 5. EFFETS RÉELS DE LONG TERME (stock de capital, PIB potentiel Cobb-Douglas, niveau)
 [REEL ded50] coût d'usage équip. -2.07 %, bât. +0.00 % ; ΔK 8.4 (4.2–13.4) Md€ ; investissement en régime établi +1.4 Md€/an ; PIB 0.053 % (0.027–0.085), 1.6 Md€

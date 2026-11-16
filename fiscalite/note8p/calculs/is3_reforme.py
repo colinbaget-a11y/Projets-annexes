@@ -245,8 +245,8 @@ for k, (nom, tau, b) in CONF.items():
       f"logiciel {100*t['logiciel_fp']:5.1f} ; bâtiment {100*t['batiment_fp']:5.1f} (dette {100*t['batiment_dette']:6.1f})")
 # dépense de R&D (salaires) : déductible immédiatement → TMEI nul hors CIR ; avec CIR au taux c, subvention
 for c in (0.30, 0.05):
-    TEF[f"rd_cir_{int(c*100)}"] = {"nom": f"Dépense de R&D, CIR à {int(c*100)} %", "fp": -c / (1 - TAU)}
-p(f"[TEF] R&D passée en charges : TMEI 0 ; avec CIR à 30 % : TMEI {-100*0.30/0.75:.0f} % ; à 5 % : {-100*0.05/0.75:.0f} %")
+    TEF[f"rd_cir_{int(c*100)}"] = {"nom": f"Dépense de R&D, CIR à {int(c*100)} %", "fp": -c / (1 - TAU - c)}
+p(f"[TEF] R&D passée en charges : TMEI 0 ; avec CIR à 30 % : TMEI {-100*0.30/0.45:.0f} % ; à 5 % : {-100*0.05/0.70:.0f} % (−c/(1−τ−c), crédit non imposable)")
 J["taux_effectifs"] = TEF
 J["taux_effectifs_convention"] = {"r_reel": RR, "inflation": PI, "delta": {"equipement": .14, "logiciel": .33, "batiment": .031},
                                   "dette": "intérêt nominal 7,1 % déductible ; mixte : 1/3 d'emprunt"}
