@@ -45,7 +45,10 @@ W, Z, ZN, Q, DEC, S = P.W, P.Z, P.ZN, P.Q, P.DEC, P.S
 TR = v.f.tranche
 CUR = v.CUR                                   # charge actuelle IR + CSG + CRDS du foyer représentatif
 CIBLE = v.CIBLE
-TAU0 = v.bl.TAU_CUR                           # taux marginal actuel IR-CSG des actifs, par euro brut
+# taux marginal actuel IR + CSG + CRDS des actifs, par euro d'assiette de la CSG (Z). bl.TAU_CUR vient de
+# ir_csg/sorties/marges_openfisca.csv, qui ne compte que l'IR et la CSG : on ajoute la CRDS (0,5 % de la même assiette),
+# comprise dans la charge actuelle et remplacée par l'impôt fusionné (correction du 16/11/2026, revue/hypotheses_ircsg.md)
+TAU0 = v.bl.TAU_CUR + v.T_CRDS
 CT = ex.CT
 ENF_CT = ex.ENF
 
