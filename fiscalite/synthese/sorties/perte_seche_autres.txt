@@ -18,12 +18,12 @@
 
 [PFU] baisse à 25 % ; π = part de la réaction qui échappe définitivement à l'impôt ; recette perdue en régime
   permanent (seule la part π de la réaction rapporte durablement) ; entre crochets, celle des premières années
-  e = 0.65 ; π = 0.0 : ΔPS = +0.20 / +0.41 / +0.87 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 5.1 Md€ [3.9] ; réaction +4.6 Md€
-  e = 0.65 ; π = 0.5 : ΔPS = -0.47 / -0.29 / +0.12 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 4.5 Md€ [3.9] ; réaction +4.6 Md€
-  e = 0.65 ; π = 1.0 : ΔPS = -1.14 / -0.99 / -0.63 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.9 Md€ [3.9] ; réaction +4.6 Md€
-  e = 0.77 ; π = 0.0 : ΔPS = +0.20 / +0.41 / +0.87 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 5.1 Md€ [3.7] ; réaction +5.5 Md€
-  e = 0.77 ; π = 0.5 : ΔPS = -0.59 / -0.42 / -0.02 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 4.4 Md€ [3.7] ; réaction +5.5 Md€
-  e = 0.77 ; π = 1.0 : ΔPS = -1.39 / -1.24 / -0.91 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.7 Md€ [3.7] ; réaction +5.5 Md€
-  e = 1.0 ; π = 0.0 : ΔPS = +0.20 / +0.41 / +0.87 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 5.1 Md€ [3.3] ; réaction +7.1 Md€
-  e = 1.0 ; π = 0.5 : ΔPS = -0.83 / -0.66 / -0.29 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 4.2 Md€ [3.3] ; réaction +7.1 Md€
-  e = 1.0 ; π = 1.0 : ΔPS = -1.87 / -1.74 / -1.44 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.3 Md€ [3.3] ; réaction +7.1 Md€
+  e = 0.65 ; π = 0.0 : ΔPS = +0.17 / +0.34 / +0.73 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 4.3 Md€ [3.3] ; réaction +3.9 Md€
+  e = 0.65 ; π = 0.5 : ΔPS = -0.40 / -0.24 / +0.10 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.8 Md€ [3.3] ; réaction +3.9 Md€
+  e = 0.65 ; π = 1.0 : ΔPS = -0.96 / -0.83 / -0.53 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.3 Md€ [3.3] ; réaction +3.9 Md€
+  e = 0.77 ; π = 0.0 : ΔPS = +0.17 / +0.34 / +0.73 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 4.3 Md€ [3.1] ; réaction +4.6 Md€
+  e = 0.77 ; π = 0.5 : ΔPS = -0.50 / -0.35 / -0.02 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.7 Md€ [3.1] ; réaction +4.6 Md€
+  e = 0.77 ; π = 1.0 : ΔPS = -1.17 / -1.05 / -0.76 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.1 Md€ [3.1] ; réaction +4.6 Md€
+  e = 1.0 ; π = 0.0 : ΔPS = +0.17 / +0.34 / +0.73 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 4.3 Md€ [2.8] ; réaction +6.0 Md€
+  e = 1.0 ; π = 0.5 : ΔPS = -0.70 / -0.56 / -0.24 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 3.5 Md€ [2.8] ; réaction +6.0 Md€
+  e = 1.0 ; π = 1.0 : ΔPS = -1.57 / -1.46 / -1.21 Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue 2.8 Md€ [2.8] ; réaction +6.0 Md€

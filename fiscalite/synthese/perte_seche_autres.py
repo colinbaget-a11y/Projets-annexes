@@ -45,7 +45,8 @@ def capital(m0, m1, eps):
 
 
 # ---------------------------------------------------------------- PFU (pfu/notes/pfu_recherche.md)
-B_PFU = 79.6                # assiette du PFU, Md€
+B_PFU = 67.0                # assiette du PFU, revenus de 2025 (estimée, DGFiP n° 53 ; pfu/sorties/calculs_pfu.txt, 1a) ;
+                            # 79,6 Md€ sur les revenus de 2024 (base 2025, recalage du 17/11/2026)
 
 
 def pfu(t1, e, pi, mu1, t0=0.314, cout_net=None):
@@ -89,9 +90,10 @@ if __name__ == "__main__":
                        for e in (0.5, 1, 1.6)) + " Md€")
     for kappa in (0.0, 0.5, 1.0):
         # IS à 28 %, taux réduit maintenu : base déclarée perdue 1 à 1,5 % par point × 3 points × base au taux normal
-        # en 2027, 251 Md€ (2022) × 1,061 (bénéfice fiscal, is/simulation_is.py) = 266 Md€. Correction du 16/11/2026 :
-        # 322 Md€ comptait la base au taux réduit, que la hausse ne touche pas, et une croissance de 3 % par an.
-        db = np.array([0.03, 0.045]) * 251.0 * 1.061
+        # en 2027, 256,8 Md€ (exercice 2025, DGFiP n° 51) × 1,0404 (deux ans à 2 %, is/calculs_note_is.py) = 267 Md€.
+        # Correction du 16/11/2026 : 322 Md€ comptait la base au taux réduit, que la hausse ne touche pas, et une
+        # croissance de 3 % par an ; recalage sur l'exercice 2025 le 17/11/2026 (auparavant 251 Md€ de 2022 × 1,061).
+        db = np.array([0.03, 0.045]) * 256.8 * 1.0404
         p(f"  IS à 28 %, coût réel du transfert de bénéfices κ = {kappa} : +{kappa*0.265*db[0]:.1f} à +{kappa*0.265*db[1]:.1f} Md€")
     p("")
     p("[PFU] baisse à 25 % ; π = part de la réaction qui échappe définitivement à l'impôt ; recette perdue en régime")

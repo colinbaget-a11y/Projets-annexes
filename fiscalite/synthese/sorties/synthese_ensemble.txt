@@ -2,84 +2,88 @@
 0. REPÈRE
 ====================================================================================================================
 [OCDE 2023] prélèvements obligatoires de la France 43,9 % du PIB, rang 2 sur 41 pays du fichier ; devant : Danemark
+[OCDE 2024] prélèvements obligatoires de la France 43,5 % du PIB, rang 2 sur 37 pays du fichier ; devant : Danemark
 
 ====================================================================================================================
 1. TABLEAU D'ENSEMBLE (Md€ par an ; + = recette ou gain d'efficacité)
 ====================================================================================================================
-[IR-CSG] recette 0 par construction (220,1 Md€ avant réaction) ; transition 0 (convergence linéaire sur cinq ans, recette constante chaque année) ; gain 4,91 (2,25 à 10,94 ; long terme 7,30 ; permanent 3,25 à 4,10) ; revenu déclaré non compté +3,0 (1,5 à 4,5) ; retraités +20,8 Md€, actifs −20,8
-[IMMOBILIER] recette 0 à terme ; transition : déficit cumulé 14,3 Md€ sur cinq ans (11,6 avec la reprise des ventes) ; gain 1,92 (0,22 à 4,28 ; +0,38 avec les autres immeubles) ; non compté : droits sur les ventes supplémentaires +1,3 Md€ ; taux national 4,5 logements, 2,1 entreprises, 0,6 terrains nus, pour 5,7 + 1,4 de droits en moins
-[IS] recette 0 à terme (excédent rendu par une baisse de 0,94 point après 2042) ; transition : dette maximale 22,9 Md€ en 2033 ; coût permanent 1,35 (1,08 à 1,61) ; gain 0,07 (0,02 à 0,16) ; non compté : investissement suscité (+10 % : +0,9 Md€ en 2027, récupéré ensuite)
+[IR-CSG] recette 0 par construction (229,9 Md€ en 2025 avant réaction) ; transition 0 (convergence linéaire sur cinq ans, recette constante chaque année) ; gain 4,67 (2,13 à 10,29 ; long terme 6,66 ; permanent 2,97 à 3,85) ; revenu déclaré non compté +2,6 (1,3 à 3,9) ; retraités +21,5 Md€, actifs −21,5
+[IMMOBILIER] recette 0 à terme ; transition : déficit cumulé 15,2 Md€ sur cinq ans (12,4 avec la reprise des ventes) ; gain 2,06 (0,23 à 4,61 ; +0,37 avec les autres immeubles) ; non compté : droits sur les ventes supplémentaires +1,4 Md€ ; taux national 4,7 logements, 2,2 entreprises, 0,6 terrains nus, pour 6,2 + 1,4 de droits en moins
+[IS] recette 0 à terme (excédent rendu par une baisse de 0,98 point après 2041) ; transition : dette maximale 21,5 Md€ en 2033 ; coût permanent 1,35 (1,08 à 1,61) ; gain 0,07 (0,02 à 0,16) ; non compté : investissement suscité (+10 % : +0,9 Md€ en 2027, récupéré ensuite)
 [IS, droit en vigueur] fin de la contribution exceptionnelle : −7,0 Md€ par an par rapport à 2026 ; −5,0 en 2027 et −0,5 en 2028 par rapport au PLF 2027
 [PFU] fin de l'effacement : an 1 +1,90, an 10 +3,62, an 30 +5,78 ; moyenne ans 1-10 +2,81 (0,76 à 7,54) ; pas de transition ; gain non chiffré (0 dans la mesure de la note)
-[CRDS, droit en vigueur] extinction fin 2033 : 7,44 Md€ sur le champ de la fusion (taux fusionné −0,75 point en 2034 pour rester à recette constante) ; environ 1,0 Md€ sur les revenus du capital (0,5 % de 204 Md€) : le PFU passe de 31,4 à 30,9 % si rien ne la remplace
-[GAIN TOTAL] 6,9 Md€ (2,5 à 15,4) = 0,23 % du PIB ; long terme 9,3 ; permanent (retraités actuels exclus) 5,2 à 6,1 ; si la CSG n'est pas perçue −0,1, perçue à moitié 3,3
-   parts du gain central : IR-CSG 71 %, immobilier 28 %, IS 1 % ; gain de transition (retraités actuels) 0,8 à 1,7
+[CRDS, droit en vigueur] extinction fin 2033 : 7,61 Md€ sur le champ de la fusion (taux fusionné −0,74 point en 2034 pour rester à recette constante) ; environ 1,1 Md€ sur les revenus du capital (0,5 % de 210 Md€, assiette de 2025) : le PFU passe de 31,4 à 30,9 % si rien ne la remplace
+[GAIN TOTAL] 6,8 Md€ (2,4 à 15,1) = 0,23 % du PIB ; long terme 8,8 ; permanent (retraités actuels exclus) 5,1 à 6,0 ; si la CSG n'est pas perçue −0,4, perçue à moitié 3,1
+   parts du gain central : IR-CSG 69 %, immobilier 30 %, IS 1 % ; gain de transition (retraités actuels) 0,8 à 1,7
 
 ====================================================================================================================
 2. LE HAUT DE LA DISTRIBUTION (1 % des foyers ; Md€ par an ; + = paie davantage)
 ====================================================================================================================
-[FUSION IR-CSG] convention mixte (centrale) 0,01 ; convention haut −2,8 (barème recalé, controle_hauts_purs.txt) ; prorata +3,7 ; mixte avec 10,2 Md€ d'IR imputé au PFU au lieu de 11,5 : −0,97 (à barème inchangé)
-[CEHR] 1,41 Md€ (revenus 2023) ; part capital 50-80 % (hypothèse) : 0,71 à 1,13 ; sa disparition sur les revenus du barème, non comptée dans la fusion, rend 0,28 à 0,71 (centre 0,49) au 1 %
+[FUSION IR-CSG] convention mixte (centrale) −0,05 ; convention haut −3,0 (barème recalé, controle_hauts_purs.txt) ; prorata +3,8 ; mixte avec 10,2 Md€ d'IR imputé au PFU au lieu de 11,5 : −1,11 (à barème inchangé)
+[CEHR] 1,39 Md€ (revenus 2025, DGFiP n° 53 ; convention de la partie PFU) ; part capital 50-80 % (hypothèse) : 0,69 à 1,11 ; sa disparition sur les revenus du barème, non comptée dans la fusion, rend 0,28 à 0,69 (centre 0,49) au 1 % ; CEHR encaissée en 2025 (revenus 2024) : 1,94
 [EFFACEMENT] charge du 1 % (90 % de la recette) : moyenne ans 1-10 +2,53 (0,69 à 6,78) ; an 5 +2,47 ; an 10 +3,26 ; an 30 +5,20
-[IMMOBILIER] logements du dixième de prix le plus cher : taxe moins droits +11 € par logement et par an (quasi neutre) ; sol des entreprises et terrains nus : +1,20 Md€ nets, non localisés ; part du 1 % supposée de 0,0 à 0,5 Md€ (ordre de grandeur, hypothèse)
-[BILAN] central +2,05 (de 0,00 à 7,01) ; convention haut −0,77 ; prorata +5,73 ; IR imputé corrigé +1,06
-[COMPENSATION 1 : suppression de la majoration ex-CEHR sur le capital, −0,92] central +1,13 (de −0,92 à 6,10) ; convention haut −1,69 ; IR imputé corrigé 0,15
+[IMMOBILIER] logements du dixième de prix le plus cher : taxe moins droits −14 € par logement et par an (quasi neutre) ; sol des entreprises et terrains nus : +1,45 Md€ nets, non localisés ; part du 1 % supposée de 0,0 à 0,5 Md€ (ordre de grandeur, hypothèse)
+[BILAN] central +1,99 (de −0,05 à 6,96) ; convention haut −0,96 ; prorata +5,84 ; IR imputé corrigé +0,93
+[COMPENSATION 1 : suppression de la majoration ex-CEHR sur le capital, −0,90] central +1,09 (de −0,96 à 6,05) ; convention haut −1,86 ; IR imputé corrigé 0,03
 [COMPENSATION 2, convention centrale : rendre 1,1 Md€ au 1 % par le barème]
-   V2 (si le calage confirme la convention centrale) : barème inchangé jusqu'à 150 000 € de revenu imposé (39,2 %), puis 50 % atteint à 1 216 k€ au lieu de 265 k€ ; coût budgétaire 1,12 Md€ ; Δ 1 % −1,10 ; dixième du haut 0,95 ; gain 5,09 (2,34 à 11,39) au lieu de 4,91 ; revenu déclaré +3,3 ; décile le plus touché 389 € ; cadre à 200 000 € brut −11 101 € (proposition −10 917)
-   V1 (pour mémoire) : recette de la fusion constante ; 50 % à 394 k€ et taux à 25 k€ de 28,3 % au lieu de 27,4 % : les autres foyers paient 1,1 Md€ de plus ; retraités +21,2 ; décile le plus touché 465 €
-   convention haut : neutralité du 1 % à recette constante → 50 % à 110 k€, taux à 25 k€ 23,6 %, décile le plus touché 1 152 € ; recette à remplacer 220,1 Md€
-   convention prorata : neutralité du 1 % à recette constante → 50 % à 866 k€, taux à 25 k€ 28,7 %, décile le plus touché 473 € ; recette à remplacer 220,1 Md€
-   convention mixte, IR imputé corrigé : neutralité du 1 % à recette constante → 50 % à 212 k€, taux à 25 k€ 27,0 %, décile le plus touché 562 € ; recette à remplacer 221,4 Md€
-[COMPENSATION RETENUE] la CEHR disparaît entièrement : coût 1,41 Md€ par an (dont 0,49 déjà impliqués par la fusion) ; avec la pente plus douce du barème (V2), 2,53 ; à comparer à la recette de la fin de l'effacement : 2,81 en moyenne sur dix ans, dont 2,53 payés par le 1 %
+   V2 (si le calage confirme la convention centrale) : barème inchangé jusqu'à 150 000 € de revenu imposé (41,5 %), puis 50 % atteint à 1 251 k€ au lieu de 231 k€ ; coût budgétaire 1,06 Md€ ; Δ 1 % −1,10 ; dixième du haut 0,80 ; gain 4,86 (2,23 à 10,77) au lieu de 4,67 ; revenu déclaré +2,9 ; décile le plus touché 354 € ; cadre à 200 000 € brut −8 767 € (proposition −8 553)
+   V1 (pour mémoire) : recette de la fusion constante ; 50 % à 329 k€ et taux à 30 k€ de 29,7 % au lieu de 28,8 % : les autres foyers paient 1,1 Md€ de plus ; retraités +21,9 ; décile le plus touché 427 €
+   convention haut : neutralité du 1 % à recette constante → 50 % à 91 k€, taux à 30 k€ 24,0 %, décile le plus touché 1 308 € ; recette à remplacer 229,9 Md€
+   convention prorata : neutralité du 1 % à recette constante → 50 % à 761 k€, taux à 30 k€ 30,1 %, décile le plus touché 445 € ; recette à remplacer 229,9 Md€
+   convention mixte, IR imputé corrigé : neutralité du 1 % à recette constante → 50 % à 180 k€, taux à 30 k€ 28,3 %, décile le plus touché 543 € ; recette à remplacer 231,3 Md€
+[COMPENSATION RETENUE] la CEHR disparaît entièrement : coût 1,39 Md€ par an (dont 0,49 déjà impliqués par la fusion) ; avec la pente plus douce du barème (V2), 2,45 ; à comparer à la recette de la fin de l'effacement : 2,81 en moyenne sur dix ans, dont 2,53 payés par le 1 %
+[CEHR ENCAISSÉE EN 2025, sensibilité] 1,94 Md€ : bilan central +1,80 ; après suppression de la majoration +0,54 ; coût de la compensation 1,94 au lieu de 1,39
 
 ====================================================================================================================
 3. TRAJECTOIRE 2027-2036 (Md€ ; solde des réformes par rapport au droit en vigueur ; + = recette)
 ====================================================================================================================
 année : IR-CSG | fin de la CEHR | immobilier | IS | fin de l'effacement | total | dette (3,25 %) | sans compensation du haut : total, dette
-  2027 : 0 | −1,41 | −5,71 | −4,80 | +1,90 | −10,02 | 10,0 | −8,61, 8,6
-  2028 : 0 | −1,41 | −4,28 | −4,09 | +2,12 | −7,66 | 18,0 | −6,25, 15,1
-  2029 : 0 | −1,41 | −2,85 | −3,55 | +2,34 | −5,48 | 24,1 | −4,07, 19,7
-  2030 : 0 | −1,41 | −1,43 | −3,10 | +2,54 | −3,39 | 28,2 | −1,98, 22,3
-  2031 : 0 | −1,41 | 0,00 | −2,65 | +2,74 | −1,32 | 30,5 | 0,09, 22,9
-  2032 : 0 | −1,41 | 0,00 | −2,05 | +2,93 | −0,53 | 32,0 | 0,89, 22,8
-  2033 : 0 | −1,41 | 0,00 | 0,13 | +3,11 | 1,83 | 31,2 | 3,24, 20,3
-  2034 : 0 | −1,41 | 0,00 | 1,43 | +3,29 | 3,31 | 28,9 | 4,72, 16,2
-  2035 : 0 | −1,41 | 0,00 | 2,24 | +3,46 | 4,28 | 25,6 | 5,69, 11,1
-  2036 : 0 | −1,41 | 0,00 | 2,88 | +3,62 | 5,08 | 21,3 | 6,49, 4,9
-[DETTE, avec le barème V2 en plus] pic 39,8 en 2033, 34,3 fin 2036
-[DETTE] avec la fin de la CEHR : pic 32,0 Md€ en 2032 (1,07 % du PIB de 2025), 21,3 fin 2036 ; sans : pic 22,9 en 2031, 4,9 fin 2036 ; défavorable (IS 90 % imposable, effacement bas) : pic 59,1, 59,0 fin 2036 ; favorable (IS 60 %, effacement haut, reprise des ventes) : pic 5,2, −50,6 fin 2036
+  2027 : 0 | −1,39 | −6,06 | −4,64 | +1,90 | −10,20 | 10,2 | −8,81, 8,8
+  2028 : 0 | −1,39 | −4,55 | −3,93 | +2,12 | −7,74 | 18,3 | −6,35, 15,4
+  2029 : 0 | −1,39 | −3,03 | −3,38 | +2,34 | −5,47 | 24,3 | −4,08, 20,0
+  2030 : 0 | −1,39 | −1,52 | −2,92 | +2,54 | −3,28 | 28,4 | −1,89, 22,6
+  2031 : 0 | −1,39 | 0,00 | −2,47 | +2,74 | −1,12 | 30,4 | 0,27, 23,0
+  2032 : 0 | −1,39 | 0,00 | −1,86 | +2,93 | −0,32 | 31,8 | 1,07, 22,7
+  2033 : 0 | −1,39 | 0,00 | 0,32 | +3,11 | 2,04 | 30,7 | 3,43, 20,0
+  2034 : 0 | −1,39 | 0,00 | 1,63 | +3,29 | 3,53 | 28,2 | 4,92, 15,7
+  2035 : 0 | −1,39 | 0,00 | 2,44 | +3,46 | 4,51 | 24,6 | 5,90, 10,4
+  2036 : 0 | −1,39 | 0,00 | 3,08 | +3,62 | 5,31 | 20,1 | 6,70, 4,0
+[DETTE, avec le barème V2 en plus] pic 38,9 en 2033, 32,3 fin 2036
+[DETTE] avec la fin de la CEHR : pic 31,8 Md€ en 2032 (1,06 % du PIB de 2025), 20,1 fin 2036 ; sans : pic 23,0 en 2031, 4,0 fin 2036 ; défavorable (IS 90 % imposable, effacement bas) : pic 58,1, 57,8 fin 2036 ; favorable (IS 60 %, effacement haut, reprise des ventes) : pic 5,4, −52,0 fin 2036
+[DETTE, CEHR encaissée en 2025 (1,94 Md€ par an), sensibilité] pic 35,3, 26,5 fin 2036
 [EXTINCTION] dette éteinte en 2040 avec la fin de la CEHR, en 2037 sans compensation (IS : baisse finale du taux non comptée, elle n'intervient qu'après l'extinction de sa propre dette)
-[SOLDE] 2027 −10,0 ; 2031 −1,3 ; 2036 5,1 ; premier excédent : 2033 (sans compensation : 2031)
-[POUR MÉMOIRE, droit en vigueur] fin de la contribution exceptionnelle : −7,0 Md€ chaque année par rapport à 2026 (cumul 2027-2036 70 Md€) ; CRDS : −7,4 sur le champ de la fusion et −1,0 sur le capital à partir de 2034 par rapport à 2033
-[REPORT DE TAXE FONCIÈRE] avances (hors solde, dans la dette brute), majorant si tous les propriétaires occupants reportent : 2,4 Md€ par an en régime, 19,0 Md€ cumulés fin 2036 ; moitié environ si le report est réservé aux 65 ans et plus (ordre de grandeur non vérifié)
+[SOLDE] 2027 −10,2 ; 2031 −1,1 ; 2036 5,3 ; premier excédent : 2033 (sans compensation : 2031)
+[POUR MÉMOIRE, droit en vigueur] fin de la contribution exceptionnelle : −7,0 Md€ chaque année par rapport à 2026 (cumul 2027-2036 70 Md€) ; CRDS : −7,6 sur le champ de la fusion et −1,1 sur le capital à partir de 2034 par rapport à 2033
+[REPORT DE TAXE FONCIÈRE] avances (hors solde, dans la dette brute), majorant si tous les propriétaires occupants reportent : 2,5 Md€ par an en régime, 19,8 Md€ cumulés fin 2036 ; moitié environ si le report est réservé aux 65 ans et plus (ordre de grandeur non vérifié)
 
 ====================================================================================================================
 4. CAS-TYPES CUMULÉS (€ par an en régime permanent, après la transition ; + = paie davantage)
 ====================================================================================================================
-[retraite_province] Retraité modeste propriétaire en province : IR-CSG 1 005 ; taxe foncière 248 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total 1 252 € par an (7,8 % du revenu) ; transmission : impôt latent 0 € (0 aujourd'hui)
-      hypothèses : seul, 75 ans, pension de 16 000 € ; maison médiane de Limoges (171 800 €, taxe foncière 1 209 €) ; ne déménage pas ; épargne sur livrets ; hausse de taxe foncière reportable sur la succession ; Guéret : +26 € au lieu de +248 €
-[retraites_paris] Couple de retraités propriétaire à Paris : IR-CSG 1 330 ; taxe foncière 523 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total 1 852 € par an (4,1 % du revenu) ; transmission : impôt latent 25 120 € (0 aujourd'hui)
-      hypothèses : pensions de 45 000 € (60/40) ; appartement parisien médian (416 200 €, taxe foncière 518 €) ; portefeuille de 200 000 € dont 80 000 € de plus-value latente ; hausse de taxe foncière reportable ; transmission : impôt dû par les héritiers quand ils vendent
-[primo_lyon] Jeune couple primo-accédant, deux enfants, à Lyon : IR-CSG −2 408 ; taxe foncière 285 ; droits −8 105 à l'achat (−950 par an) ; IS 0 ; PFU 0 ; total −3 073 € par an (−6,1 % du revenu) ; transmission : impôt latent 0 € (0 aujourd'hui)
-      hypothèses : salaires de 50 000 € brut (60/40) ; achète l'appartement lyonnais médian (279 200 €) ; si la hausse de taxe passe dans les prix (cas central), l'achat coûte environ 9 500 € de moins
-[monoactif_3enf] Couple à un seul revenu, trois enfants, locataire : IR-CSG −1 003 ; taxe foncière 0 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total −1 003 € par an (−1,7 % du revenu) ; transmission : impôt latent 0 € (0 aujourd'hui)
-      hypothèses : un salaire de 60 000 € brut ; locataire ; hypothèse : la taxe sur le sol ne passe pas dans les loyers (théorie) ; avec le quotient conjugal (repli, barème recalculé), +102 € au lieu de −1 003 €
-[cadre_paris] Cadre parisien qui achète : IR-CSG −4 015 ; taxe foncière 523 ; droits −12 083 à l'achat (−1 417 par an) ; IS 0 ; PFU 0 ; total −4 908 € par an (−4,9 % du revenu) ; transmission : impôt latent 37 680 € (0 aujourd'hui)
+[retraite_province] Retraité modeste propriétaire en province : IR-CSG 1 050 ; taxe foncière 253 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total 1 303 € par an (8,1 % du revenu) ; transmission : impôt latent 0 € (0 aujourd'hui)
+      hypothèses : seul, 75 ans, pension de 16 000 € ; maison médiane de Limoges (171 800 €, taxe foncière 1 232 €) ; ne déménage pas ; épargne sur livrets ; hausse de taxe foncière reportable sur la succession ; Guéret : +27 € au lieu de +253 €
+[retraites_paris] Couple de retraités propriétaire à Paris : IR-CSG 1 834 ; taxe foncière 545 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total 2 378 € par an (5,3 % du revenu) ; transmission : impôt latent 25 120 € (0 aujourd'hui)
+      hypothèses : pensions de 45 000 € (60/40) ; appartement parisien médian (416 200 €, taxe foncière 527 €) ; portefeuille de 200 000 € dont 80 000 € de plus-value latente ; hausse de taxe foncière reportable ; transmission : impôt dû par les héritiers quand ils vendent
+[primo_lyon] Jeune couple primo-accédant, deux enfants, à Lyon : IR-CSG −2 313 ; taxe foncière 303 ; droits −8 105 à l'achat (−950 par an) ; IS 0 ; PFU 0 ; total −2 961 € par an (−5,9 % du revenu) ; transmission : impôt latent 0 € (0 aujourd'hui)
+      hypothèses : salaires de 50 000 € brut (60/40) ; achète l'appartement lyonnais médian (279 200 €) ; si la hausse de taxe passe dans les prix (cas central), l'achat coûte environ 10 100 € de moins (hausse capitalisée à 3 %)
+[monoactif_3enf] Couple à un seul revenu, trois enfants, locataire : IR-CSG −1 259 ; taxe foncière 0 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total −1 259 € par an (−2,1 % du revenu) ; transmission : impôt latent 0 € (0 aujourd'hui)
+      hypothèses : un salaire de 60 000 € brut ; locataire ; hypothèse : la taxe sur le sol ne passe pas dans les loyers (théorie) ; avec le quotient conjugal (repli, barème recalculé), −27 € au lieu de −1 259 €
+[cadre_paris] Cadre parisien qui achète : IR-CSG −3 606 ; taxe foncière 545 ; droits −12 083 à l'achat (−1 417 par an) ; IS 0 ; PFU 0 ; total −4 478 € par an (−4,5 % du revenu) ; transmission : impôt latent 37 680 € (0 aujourd'hui)
       hypothèses : seul, 100 000 € brut ; achète l'appartement parisien médian ; 10 000 € de dividendes et plus-values par an (PFU inchangé) ; portefeuille de 300 000 € dont 120 000 € de plus-value latente
-[dirigeant] Dirigeant de PME, holding transmise : IR-CSG −10 917 ; taxe foncière 0 ; droits 0 à l'achat (0 par an) ; IS −1 477 ; PFU 0 ; total −12 393 € par an (−6,2 % du revenu) ; transmission : impôt latent 1 570 000 € (0 aujourd'hui)
-      hypothèses : seul, salaire de 200 000 € brut ; PME industrielle (bénéfice 300 000 €, 150 000 € de machines par an) ; holding de 6 M€ dont 5 M€ de plus-value latente à son décès ; impôt de sa société ; trésorerie 2027 : 30 571 € ; barème V2 : −184 € de plus ; transmission : rien si les héritiers ne vendent ni ne liquident
-[rentier] Rentier : IR-CSG 0 ; taxe foncière 5 021 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total 5 021 € par an (0,2 % du revenu) ; transmission : impôt latent 12 560 000 € (0 aujourd'hui)
+[dirigeant] Dirigeant de PME, holding transmise : IR-CSG −8 553 ; taxe foncière 0 ; droits 0 à l'achat (0 par an) ; IS −1 477 ; PFU 0 ; total −10 029 € par an (−5,0 % du revenu) ; transmission : impôt latent 1 570 000 € (0 aujourd'hui)
+      hypothèses : seul, salaire de 200 000 € brut ; PME industrielle (bénéfice 300 000 €, 150 000 € de machines par an) ; holding de 6 M€ dont 5 M€ de plus-value latente à son décès ; impôt de sa société ; trésorerie 2027 : 30 571 € ; barème V2 : −214 € de plus ; transmission : rien si les héritiers ne vendent ni ne liquident
+[rentier] Rentier : IR-CSG 0 ; taxe foncière 5 193 ; droits 0 à l'achat (0 par an) ; IS 0 ; PFU 0 ; total 5 193 € par an (0,2 % du revenu) ; transmission : impôt latent 12 560 000 € (0 aujourd'hui)
       hypothèses : 3 M€ de dividendes par an (38,6 %, CDHR) ; portefeuille de 60 M€ dont 40 M€ de plus-value latente ; appartement parisien de 2 M€ et maison à Saint-Tropez ; suppression de la majoration : 0 tant que la CDHR existe, puis −107 500 € par an
-[CONVENTIONS] droits annualisés sur 10 ans à 3 % (facteur 0,1172) ; IR-CSG au terme de la transition de cinq ans (un cinquième par an), avant l'extinction de la CRDS en 2034 ; impôt latent transmis payé par les héritiers à la vente (63 % en valeur actualisée à 3,5 % avec le rythme de ventes de la partie PFU) ; Paris 2 M€ : hausse de l'appartement médian au prorata de la valeur (2 512 €) ; Saint-Tropez : maisons, +2 509 €
+[CONVENTIONS] droits annualisés sur 10 ans à 3 % (facteur 0,1172) ; IR-CSG au terme de la transition de cinq ans (un cinquième par an), avant l'extinction de la CRDS en 2034 ; impôt latent transmis payé par les héritiers à la vente (63 % en valeur actualisée à 3,5 % avec le rythme de ventes de la partie PFU) ; Paris 2 M€ : hausse de l'appartement médian au prorata de la valeur (2 617 €) ; Saint-Tropez : maisons, +2 576 €
 
 ====================================================================================================================
 5. INCOHÉRENCES ENTRE PARTIES
 ====================================================================================================================
-[IR IMPUTÉ AU PFU] modèle IR-CSG : 12,8 % × 90 = 11,52 Md€ ; partie PFU : 12,8 % × 79,6 = 10,19 (majorant, foyers au barème compris) ; acompte prélevé (2CK) 7,7 sur les seuls dividendes et intérêts
+[IR IMPUTÉ AU PFU, revenus 2024] modèle IR-CSG : 12,8 % × 90 = 11,52 Md€ (porté à 12,4 en 2025 avec le reste de l'IR) ; partie PFU : 12,8 % × 79,6 = 10,24 (majorant, foyers au barème compris) ; acompte prélevé (2CK) 7,7 sur les seuls dividendes et intérêts ; revenus 2025 (partie PFU) : impôt hors barème 8,43 sur une assiette de 67,0 Md€
    les « 90 Md€ » = dividendes 50,1 + intérêts 10,4 + assurance-vie 7,6 + autres (1,9) + plus-values mobilières 18,8 + plus-values immobilières 1,7 = 90,6 ; l'assiette du PFU retire l'assurance-vie, les plus-values immobilières et les moins-values (1,4) : écart d'IR 1,4 Md€ ; l'assurance-vie paie 7,5 ou 12,8 % après abattement, les plus-values immobilières 19 % chez le notaire (hors IRCOM : point non vérifié)
-   effet (convention mixte, IR imputé 10,2) : recette à remplacer 221,41 au lieu de 220,09 ; au barème proposé, la fusion rend 1,32 Md€, dont 0,97 au 1 % ; neutralité du 1 % à recette constante : 50 % à 212 k€, taux à 25 k€ 27,0 %, décile le plus touché 562 €, gain 4,61
-[CEHR] la fusion la supprime sur les revenus du barème sans le compter : 0,28 à 0,71 Md€ de recette et de baisse pour le 1 % (partie IR-CSG : « n'est comptée dans aucun cas »)
-[CRDS DU CAPITAL] la CRDS (0,5 %) fait partie des 18,6 % de prélèvements sociaux du PFU : son extinction fin 2033 fait passer le PFU à 30,9 % et retire environ 1,0 Md€ ; la partie PFU dit que le taux « ne doit pas bouger » sans le mentionner
-[PLUS-VALUES IMMOBILIÈRES] la partie PFU renvoie leur effacement à la transmission à la partie Immobilier, qui n'en traite pas
+   effet (convention mixte, IR imputé 10,2) : recette à remplacer 231,34 au lieu de 229,92 ; au barème proposé, la fusion rend 1,42 Md€, dont 1,11 au 1 % ; neutralité du 1 % à recette constante : 50 % à 180 k€, taux à 30 k€ 28,3 %, décile le plus touché 543 €, gain 4,29
+[CEHR] la fusion la supprime sur les revenus du barème sans le compter : 0,28 à 0,69 Md€ de recette et de baisse pour le 1 % (partie IR-CSG : « n'est comptée dans aucun cas »)
+[CRDS DU CAPITAL] la CRDS (0,5 %) fait partie des 18,6 % de prélèvements sociaux du PFU : son extinction fin 2033 fait passer le PFU à 30,9 % et retire environ 1,1 Md€ ; la partie PFU le dit désormais (cohérent)
+[PLUS-VALUES IMMOBILIÈRES] leur effacement à la transmission n'est traité ni par la partie PFU (qui le dit) ni par la partie Immobilier
+[IR 2025 DU CAPITAL] le modèle IR-CSG porte l'IR imputé au capital au niveau de 2025 comme le reste de l'IR (+7,9 % : 12,4 Md€), alors que la partie PFU mesure un impôt hors barème en baisse de 17,7 % sur les revenus de 2025 (8,4 Md€) : convention propre à chaque partie, non réconciliée
 [ZONES] la partie IS compte 0,54 Md€ pour la fin des exonérations zonées « d'IR et d'IS » ; la part d'IR (bénéfices des entreprises individuelles) relève aussi de l'assiette large de la fusion : double compte possible, de moins de 0,5 Md€ (part non publiée ; inclusion de ces bénéfices dans le revenu fiscal non vérifiée)
-[DATES] IR-CSG : revenus 2024 ; immobilier : ventes 2023-2024 et fiscalité locale 2024 ; IS : euros courants 2027 et suivants ; PFU : revenus 2024, patrimoine fin 2025 ; la trajectoire additionne ces montants sans les indexer
+[DATES] base 2025 : IR-CSG, impôt encaissé en 2025 (retenue à la source sur les revenus de 2025 et solde de 2024), répartition des revenus de 2024 (IRCOM) recalée en 2025 ; immobilier : ventes, droits et fiscalité locale de 2025 ; IS : bénéfices de 2025 portés en 2027 (euros courants 2027 et suivants) ; PFU : revenus de 2025 (assiette estimée), patrimoine fin 2025 ; CEHR : revenus de 2025. Restent en 2024 : répartition par foyer (IRCOM), cases de la déclaration 2042, IR imputé au capital, OCDE (comparaison) ; la trajectoire additionne ces montants sans les indexer

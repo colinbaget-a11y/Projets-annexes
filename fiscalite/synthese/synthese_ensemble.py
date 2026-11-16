@@ -18,6 +18,17 @@ modèle IR-CSG (outils_ircsg.py, modele_purs.py) pour trois questions qui traver
    Immobilier), IS (sociétés types), revenus du capital et transmission (partie PFU) ; hypothèses en tête du bloc.
 5. Gain d'efficacité total, part permanente, jeu de long terme ; incohérences de chiffres entre parties.
 
+Conventions d'année (base 2025, DECISIONS.md, décision 5 ; recalage du 17/11/2026) :
+- IR-CSG : recette de 2025 (impôt encaissé en 2025 : surtout la retenue à la source sur les revenus de 2025, plus le
+  solde de l'impôt sur les revenus de 2024) ; répartition entre foyers des revenus de 2024 (IRCOM), recalée en 2025 ;
+- CEHR : revenus de 2025 (1,39 Md€, DGFiP n° 53), comme la partie PFU ; en sensibilité, CEHR encaissée en 2025
+  (revenus de 2024 : 1,94 Md€) ;
+- IR imputé aux revenus du capital (sensibilité IMPUT_PFU) : revenus de 2024 (10,2 Md€ = 12,8 % de l'assiette du PFU
+  de 2024), même année que la répartition IRCOM dont le modèle le retire (11,52 Md€) ; le modèle porte ensuite l'IR
+  restant au niveau de 2025. Pour mémoire, revenus de 2025 : 8,4 Md€ (DGFiP n° 53) ;
+- immobilier : ventes, droits et fiscalité locale de 2025 ; IS : bénéfices de l'exercice 2025 portés en 2027 ; PFU :
+  revenus de 2025 (assiette estimée), patrimoine de fin 2025.
+
 Lancer depuis fiscalite/ : python3 synthese/synthese_ensemble.py  ->  synthese/sorties/synthese_ensemble.{txt,json}
 (environ une minute ; quatre sous-processus du modèle IR-CSG).
 """
@@ -125,10 +136,10 @@ if len(sys.argv) > 1 and sys.argv[1] == "--ircsg":
         return dict(z2b=z2b, cout=float(M.CIBLE - r["recette"]), **r)
 
     out = dict(cible=float(M.CIBLE), r150=R150, proposition=resume(S0))
-    for T in (-0.5, -1.1, -1.5, -2.5, -4.0):
-        out[f"v1_{T}"] = v1(T)
-        out[f"v2_{T}"] = v2(T)
-    for T in (0.0,):
+    cibles = [-0.5, -1.1, -1.5, -2.5, -4.0]
+    if os.environ.get("CIBLE_HAUT"):          # montant à rendre au 1 %, calculé par le programme principal
+        cibles.append(-float(os.environ["CIBLE_HAUT"]))
+    for T in sorted(set(cibles)) + [0.0]:
         out[f"v1_{T}"] = v1(T)
         out[f"v2_{T}"] = v2(T)
     print("JSON" + json.dumps(out))
@@ -185,9 +196,28 @@ def ps_is():
     return lin, deg
 
 
+# ------------------------------------------------------------------ montant à rendre au 1 % (convention centrale)
+# Calculé avant les sous-processus, pour qu'ils cherchent les barèmes de compensation de ce montant exact : charge du
+# 1 % dans la fusion (proposition, convention mixte), fin de l'effacement, CEHR (revenus de 2025) ; le sous-processus
+# « mixte » doit retrouver la même charge du 1 % (contrôle plus bas).
+CEHR = PFU["recettes"]["cehr"]                          # 1,39 Md€ (revenus 2025, DGFiP n° 53), tous revenus
+CEHR_ENC = PFU["recettes"]["cehr_2024"]                 # 1,94 Md€ : CEHR encaissée en 2025 (revenus 2024), sensibilité
+EFF1 = {k: PFU["haut"][k]["moy10"] for k in ("bas", "central", "haut")}   # fin de l'effacement, charge du 1 %
+
+
+def cehr_parts(c):
+    cap = (0.5 * c, 0.8 * c)                            # part payée sur le capital : 50 à 80 % (hypothèse, partie PFU)
+    bar = (c - cap[1], c - cap[0])                      # part payée sur les revenus du barème
+    return cap, bar
+
+
+_cap, _bar = cehr_parts(CEHR)
+CIBLE_HAUT = round(PR["top1_Md"] + EFF1["central"] - sum(_bar) / 2 - sum(_cap) / 2, 1)
+
+
 # ------------------------------------------------------------------ modèle IR-CSG : sous-processus par convention
 def ircsg(conv, imput=None):
-    env = dict(os.environ, CAPITAL=conv)
+    env = dict(os.environ, CAPITAL=conv, CIBLE_HAUT=str(CIBLE_HAUT))
     env.pop("IMPUT_PFU", None)
     if imput:
         env["IMPUT_PFU"] = str(imput)
@@ -195,7 +225,8 @@ def ircsg(conv, imput=None):
                             stderr=subprocess.PIPE, text=True, cwd=ROOT)
 
 
-IMPUT_CORR = round(PFU["recettes"]["ir_pfu"], 1)       # 10,2 Md€ : IR au PFU, majorant de la partie PFU
+IMPUT_CORR = round(PFU["recettes"]["ir_pfu"], 1)       # 10,2 Md€ : IR au PFU sur les revenus de 2024, majorant de la
+                                                        # partie PFU, même année que la répartition IRCOM du modèle
 procs = {"mixte": ircsg("mixte"), "haut": ircsg("haut"), "prorata": ircsg("prorata"),
          "mixte_imput": ircsg("mixte", IMPUT_CORR)}
 IR = {}
@@ -211,12 +242,13 @@ J["ircsg_conventions"] = IR
 # =====================================================================================================================
 import pandas as pd  # noqa: E402
 _oc = pd.read_csv(ROOT / "donnees/recettes_ocde_pct_pib.csv")
-_oc = _oc[(_oc.categorie == "_T") & (_oc.annee == 2023)].sort_values("pct_pib", ascending=False).reset_index(drop=True)
-_rg = int(_oc.index[_oc.code == "FRA"][0]) + 1
 bloc("0. REPÈRE")
-p(f"[OCDE 2023] prélèvements obligatoires de la France {fr(float(_oc.pct_pib[_rg - 1]), 1)} % du PIB, rang {_rg} sur"
-  f" {len(_oc)} pays du fichier ; devant : {', '.join(_oc.pays[:_rg - 1])}")
-J["ocde_2023"] = dict(pct=float(_oc.pct_pib[_rg - 1]), rang=_rg, n=len(_oc))
+for _an in (2023, 2024):            # 2024 : dernière année publiée par l'OCDE, pour 37 pays seulement
+    _o = _oc[(_oc.categorie == "_T") & (_oc.annee == _an)].sort_values("pct_pib", ascending=False).reset_index(drop=True)
+    _rg = int(_o.index[_o.code == "FRA"][0]) + 1
+    p(f"[OCDE {_an}] prélèvements obligatoires de la France {fr(float(_o.pct_pib[_rg - 1]), 1)} % du PIB, rang {_rg} sur"
+      f" {len(_o)} pays du fichier ; devant : {', '.join(_o.pays[:_rg - 1])}")
+    J[f"ocde_{_an}"] = dict(pct=float(_o.pct_pib[_rg - 1]), rang=_rg, n=len(_o))
 
 # =====================================================================================================================
 # 1. Tableau d'ensemble
@@ -265,11 +297,13 @@ pfu_c, pfu_b, pfu_h = PF["central"]["prop"], PF["bas"]["prop"], PF["haut"]["prop
 moy10 = {k: sum(PF[k]["prop"][:10]) / 10 for k in ("bas", "central", "haut")}
 # CRDS
 CRDS_FUS = TRI["crds"]["recette_Md"]
-PS_CAP = 204.0          # assiette des prélèvements sociaux du capital, Md€ (annexe PFU, tableau tab:pfu_a_assiette)
+# assiette des prélèvements sociaux du capital : 36,2 Md€ encaissés en 2025 au taux de 17,2 % (DGFiP n° 43), soit
+# 210 Md€ (annexe PFU, tableau tab:pfu_a_assiette ; 204 Md€ dans l'ancien calcul aux taux de 2026)
+PS_CAP = PFU["recettes"]["ps_tot"] / 0.172
 CRDS_CAP = 0.005 * PS_CAP
 
-p(f"[IR-CSG] recette 0 par construction (220,1 Md€ avant réaction) ; transition 0 (convergence linéaire sur cinq ans,"
-  f" recette constante chaque année) ; gain {fr(G['ircsg']['central'], 2)} ({fr(G['ircsg']['bas'], 2)} à"
+p(f"[IR-CSG] recette 0 par construction ({fr(PR['recette'])} Md€ en 2025 avant réaction) ; transition 0 (convergence"
+  f" linéaire sur cinq ans, recette constante chaque année) ; gain {fr(G['ircsg']['central'], 2)} ({fr(G['ircsg']['bas'], 2)} à"
   f" {fr(G['ircsg']['haut'], 2)} ; long terme {fr(G['ircsg']['long'], 2)} ; permanent {fr(G['ircsg']['perm_1'], 2)} à"
   f" {fr(G['ircsg']['perm_05'], 2)}) ; revenu déclaré non compté +{fr(decl[1])} ({fr(decl[0])} à {fr(decl[2])}) ;"
   f" retraités +{fr(PR['groupes']['retraites']['Md'])} Md€, actifs {fr(PR['groupes']['actifs']['Md'])}")
@@ -291,7 +325,8 @@ p(f"[PFU] fin de l'effacement : an 1 +{fr(pfu_c[0], 2)}, an 10 +{fr(pfu_c[9], 2)
   f" non chiffré (0 dans la mesure de la note)")
 p(f"[CRDS, droit en vigueur] extinction fin 2033 : {fr(CRDS_FUS, 2)} Md€ sur le champ de la fusion (taux fusionné"
   f" {fr(TRI['crds']['points'], 2)} point en 2034 pour rester à recette constante) ; environ {fr(CRDS_CAP, 1)} Md€ sur les"
-  f" revenus du capital (0,5 % de {fr(PS_CAP, 0)} Md€) : le PFU passe de 31,4 à 30,9 % si rien ne la remplace")
+  f" revenus du capital (0,5 % de {fr(PS_CAP, 0)} Md€, assiette de 2025) : le PFU passe de 31,4 à 30,9 % si rien ne la"
+  f" remplace")
 p(f"[GAIN TOTAL] {fr(tot['central'], 1)} Md€ ({fr(tot['bas'], 1)} à {fr(tot['haut'], 1)}) = {fr(100 * tot['central'] / PIB, 2)} %"
   f" du PIB ; long terme {fr(tot['long'], 1)} ; permanent (retraités actuels exclus) {fr(tot['perm_1'], 1)} à"
   f" {fr(tot['perm_05'], 1)} ; si la CSG n'est pas perçue {fr(tot['csg0'], 1)}, perçue à moitié {fr(tot['csg05'], 1)}")
@@ -306,19 +341,28 @@ J["crds"] = dict(fusion=CRDS_FUS, capital=CRDS_CAP, points=TRI["crds"]["points"]
 # =====================================================================================================================
 # 2. Le haut de la distribution (calculé avant la trajectoire, qui inclut la compensation)
 # =====================================================================================================================
-CEHR = PFU["recettes"]["cehr"]                          # 1,41 Md€ (revenus 2023), tous revenus
-CEHR_CAP = (0.5 * CEHR, 0.8 * CEHR)                     # part payée sur le capital : 50 à 80 % (hypothèse, partie PFU)
-CEHR_BAR = (CEHR - CEHR_CAP[1], CEHR - CEHR_CAP[0])     # part payée sur les revenus du barème : 0,3 à 0,7
+CEHR_CAP, CEHR_BAR = cehr_parts(CEHR)                  # capital 0,7 à 1,1 ; barème 0,3 à 0,7 (revenus 2025)
 cehr_bar_c = sum(CEHR_BAR) / 2
 cehr_cap_c = sum(CEHR_CAP) / 2
-EFF1 = {k: PFU["haut"][k]["moy10"] for k in ("bas", "central", "haut")}   # fin de l'effacement, charge du 1 %
 EFF1_an = {k: PFU["haut"]["central"][k] for k in ("an5", "an10", "an30")}
 # immobilier : charge nette du taux national sur le sol des entreprises et les terrains nus (non localisée)
 IMMO_NET_ENT = tn["paye_aut"] + tn["paye_nu"] - tn["cut_aut"]
 IMMO_1 = (0.0, 0.5)                                      # part du 1 % : ordre de grandeur (hypothèse, voir le texte)
 mix, hau, pro, imp = IR["mixte"], IR["haut"], IR["prorata"], IR["mixte_imput"]
-TOP_IRCSG = dict(mixte=mix["proposition"]["top1"], haut=-2.8, prorata=3.7, imput=imp["proposition"]["top1"])
-# haut et prorata : barème recalé sur la recette dans chaque convention (sorties/controle_hauts_purs.txt)
+# haut et prorata : barème recalé sur la recette dans chaque convention (sorties/controle_hauts_purs.txt, lignes
+# « proposition_n »)
+_CH = (SORT / "controle_hauts_purs.txt").read_text(encoding="utf-8")
+
+
+def _top_conv(conv):
+    return float(re.search(rf"\[{conv} / proposition_n\][^\n]*?1 % du haut ([-+\d.]+) Md€", _CH).group(1))
+
+
+TOP_IRCSG = dict(mixte=mix["proposition"]["top1"], haut=_top_conv("haut"), prorata=_top_conv("prorata"),
+                 imput=imp["proposition"]["top1"])
+if abs(TOP_IRCSG["mixte"] - PR["top1_Md"]) > 0.05:
+    print(f"ATTENTION : charge du 1 % du sous-processus ({TOP_IRCSG['mixte']:.2f}) différente de la proposition"
+          f" ({PR['top1_Md']:.2f}) : cible de compensation à recalculer", file=sys.stderr)
 
 
 def bilan(top_ircsg, eff, cehr_bar, immo=0.0):
@@ -336,18 +380,21 @@ B["imput"] = bilan(TOP_IRCSG["imput"], EFF1["central"], cehr_bar_c)
 B_maj = {k: v - cehr_cap_c for k, v in B.items()}
 # 2) cible pour le barème : ce qui reste dans la convention centrale
 cible = round(B_maj["central"], 1)
-v2c = mix[f"v2_{-cible}"] if f"v2_{-cible}" in mix else mix["v2_-1.1"]
-v1c = mix[f"v1_{-cible}"] if f"v1_{-cible}" in mix else mix["v1_-1.1"]
+if cible != CIBLE_HAUT:
+    print(f"ATTENTION : cible {cible} différente de celle passée aux sous-processus ({CIBLE_HAUT})", file=sys.stderr)
+v2c = mix[f"v2_{-CIBLE_HAUT}"]
+v1c = mix[f"v1_{-CIBLE_HAUT}"]
 bloc("2. LE HAUT DE LA DISTRIBUTION (1 % des foyers ; Md€ par an ; + = paie davantage)")
 p(f"[FUSION IR-CSG] convention mixte (centrale) {fr(TOP_IRCSG['mixte'], 2)} ; convention haut {fr(TOP_IRCSG['haut'])}"
   f" (barème recalé, controle_hauts_purs.txt) ; prorata +{fr(TOP_IRCSG['prorata'])} ; mixte avec {fr(IMPUT_CORR)} Md€"
   f" d'IR imputé au PFU au lieu de 11,5 : {fr(TOP_IRCSG['imput'], 2)} (à barème inchangé)")
-p(f"[CEHR] {fr(CEHR, 2)} Md€ (revenus 2023) ; part capital 50-80 % (hypothèse) : {fr(CEHR_CAP[0], 2)} à {fr(CEHR_CAP[1], 2)}"
-  f" ; sa disparition sur les revenus du barème, non comptée dans la fusion, rend {fr(CEHR_BAR[0], 2)} à"
-  f" {fr(CEHR_BAR[1], 2)} (centre {fr(cehr_bar_c, 2)}) au 1 %")
+p(f"[CEHR] {fr(CEHR, 2)} Md€ (revenus 2025, DGFiP n° 53 ; convention de la partie PFU) ; part capital 50-80 %"
+  f" (hypothèse) : {fr(CEHR_CAP[0], 2)} à {fr(CEHR_CAP[1], 2)} ; sa disparition sur les revenus du barème, non comptée"
+  f" dans la fusion, rend {fr(CEHR_BAR[0], 2)} à {fr(CEHR_BAR[1], 2)} (centre {fr(cehr_bar_c, 2)}) au 1 % ; CEHR"
+  f" encaissée en 2025 (revenus 2024) : {fr(CEHR_ENC, 2)}")
 p(f"[EFFACEMENT] charge du 1 % (90 % de la recette) : moyenne ans 1-10 +{fr(EFF1['central'], 2)} ({fr(EFF1['bas'], 2)} à"
   f" {fr(EFF1['haut'], 2)}) ; an 5 +{fr(EFF1_an['an5'], 2)} ; an 10 +{fr(EFF1_an['an10'], 2)} ; an 30 +{fr(EFF1_an['an30'], 2)}")
-p(f"[IMMOBILIER] logements du dixième de prix le plus cher : taxe moins droits +{fr(FON['prop']['tot'][9], 0)}"
+p(f"[IMMOBILIER] logements du dixième de prix le plus cher : taxe moins droits {'+' if FON['prop']['tot'][9] > 0 else ''}{fr(FON['prop']['tot'][9], 0)}"
   f" € par logement et par an (quasi neutre) ; sol des entreprises et terrains nus : +{fr(IMMO_NET_ENT, 2)} Md€ nets, non"
   f" localisés ; part du 1 % supposée de {fr(IMMO_1[0])} à {fr(IMMO_1[1])} Md€ (ordre de grandeur, hypothèse)")
 p(f"[BILAN] central +{fr(B['central'], 2)} (de {fr(B['bas'], 2)} à {fr(B['haut_fourchette'], 2)}) ; convention haut"
@@ -356,19 +403,20 @@ p(f"[COMPENSATION 1 : suppression de la majoration ex-CEHR sur le capital, −{f
   f" +{fr(B_maj['central'], 2)} (de {fr(B_maj['bas'], 2)} à {fr(B_maj['haut_fourchette'], 2)}) ; convention haut"
   f" {fr(B_maj['conv_haut'], 2)} ; IR imputé corrigé {fr(B_maj['imput'], 2)}")
 p(f"[COMPENSATION 2, convention centrale : rendre {fr(cible)} Md€ au 1 % par le barème]")
-p(f"   V2 (si le calage confirme la convention centrale) : barème inchangé jusqu'à 150 000 € de revenu imposé ({fr(100 * mix['r150'], 1)} %), puis 50 % atteint à"
-  f" {fr(v2c['z2b'] / 1e3, 0)} k€ au lieu de 265 k€ ; coût budgétaire {fr(v2c['cout'], 2)} Md€ ; Δ 1 % {fr(v2c['top1'], 2)} ;"
+CP = PJ["choix"]
+p(f"   V2 (si le calage confirme la convention centrale) : barème inchangé jusqu'à 150 000 € de revenu imposé"
+  f" ({fr(100 * mix['r150'], 1)} %), puis 50 % atteint à {fr(v2c['z2b'] / 1e3, 0)} k€ au lieu de {fr(CP['z2'] / 1e3, 0)} k€ ; coût budgétaire {fr(v2c['cout'], 2)} Md€ ; Δ 1 % {fr(v2c['top1'], 2)} ;"
   f" dixième du haut {fr(v2c['top10'], 2)} ; gain {fr(v2c['gain'], 2)} ({fr(v2c['gain_bas'], 2)} à {fr(v2c['gain_haut'], 2)})"
   f" au lieu de {fr(mix['proposition']['gain'], 2)} ; revenu déclaré +{fr(v2c['decl'], 1)} ; décile le plus touché"
   f" {fr(v2c['dec_max'], 0)} € ; cadre à 200 000 € brut {fr(v2c['cas']['cadre200'], 0)} € (proposition"
   f" {fr(mix['proposition']['cas']['cadre200'], 0)})")
-p(f"   V1 (pour mémoire) : recette de la fusion constante ; 50 % à {fr(v1c['z2'] / 1e3, 0)} k€ et taux à 25 k€ de"
-  f" {fr(100 * v1c['t1'], 1)} % au lieu de 27,4 % : les autres foyers paient {fr(-v1c['top1'], 1)} Md€ de plus ; retraités"
+p(f"   V1 (pour mémoire) : recette de la fusion constante ; 50 % à {fr(v1c['z2'] / 1e3, 0)} k€ et taux à"
+  f" {fr(CP['z1'] / 1e3, 0)} k€ de {fr(100 * v1c['t1'], 1)} % au lieu de {fr(100 * CP['t1'], 1)} % : les autres foyers paient {fr(-v1c['top1'], 1)} Md€ de plus ; retraités"
   f" +{fr(v1c['retraites'], 1)} ; décile le plus touché {fr(v1c['dec_max'], 0)} €")
 for conv, d in (("haut", hau), ("prorata", pro), ("mixte, IR imputé corrigé", imp)):
     z = d.get("v1_0.0") or {}
     p(f"   convention {conv} : neutralité du 1 % à recette constante → 50 % à {fr(z.get('z2', float('nan')) / 1e3, 0)} k€,"
-      f" taux à 25 k€ {fr(100 * z.get('t1', float('nan')), 1)} %, décile le plus touché {fr(z.get('dec_max', float('nan')), 0)} € ;"
+      f" taux à {fr(CP['z1'] / 1e3, 0)} k€ {fr(100 * z.get('t1', float('nan')), 1)} %, décile le plus touché {fr(z.get('dec_max', float('nan')), 0)} € ;"
       f" recette à remplacer {fr(d['cible'], 1)} Md€")
 COMP = dict(cehr_total=CEHR, cehr_bar=cehr_bar_c, cehr_cap=cehr_cap_c, bareme=v2c["cout"], total=CEHR,
             total_v2=CEHR + v2c["cout"])
@@ -376,9 +424,16 @@ p(f"[COMPENSATION RETENUE] la CEHR disparaît entièrement : coût {fr(CEHR, 2)}
   f" impliqués par la fusion) ; avec la pente plus douce du barème (V2), {fr(COMP['total_v2'], 2)} ; à comparer à la"
   f" recette de la fin de l'effacement : {fr(moy10['central'], 2)} en moyenne sur dix ans, dont {fr(EFF1['central'], 2)}"
   f" payés par le 1 %")
+# sensibilité : CEHR encaissée en 2025 (revenus de 2024) au lieu de la CEHR des revenus de 2025
+_cap_e, _bar_e = cehr_parts(CEHR_ENC)
+B_ENC = bilan(TOP_IRCSG["mixte"], EFF1["central"], sum(_bar_e) / 2)
+p(f"[CEHR ENCAISSÉE EN 2025, sensibilité] {fr(CEHR_ENC, 2)} Md€ : bilan central +{fr(B_ENC, 2)} ; après suppression de la"
+  f" majoration +{fr(B_ENC - sum(_cap_e) / 2, 2)} ; coût de la compensation {fr(CEHR_ENC, 2)} au lieu de {fr(CEHR, 2)}")
 J["haut"] = dict(top_ircsg=TOP_IRCSG, cehr=dict(total=CEHR, cap=CEHR_CAP, bar=CEHR_BAR), effacement=EFF1,
                  effacement_an=EFF1_an, immo_ent=IMMO_NET_ENT, immo_1=IMMO_1, bilan=B, bilan_majoration=B_maj,
-                 cible=cible, v2=v2c, v1=v1c, compensation=COMP)
+                 cible=cible, v2=v2c, v1=v1c, compensation=COMP,
+                 cehr_encaissee=dict(total=CEHR_ENC, bilan=B_ENC, apres=B_ENC - sum(_cap_e) / 2),
+                 z2_prop=CP["z2"], imput=IMPUT_CORR)
 
 # =====================================================================================================================
 # 3. Trajectoire 2027-2036
@@ -418,7 +473,7 @@ tot_v2 = [a + b + c + h for a, b, c, h in zip(fon, is_c, pfu_c[:10], haut_v2)]
 tot_def = [a + b + c + h for a, b, c, h in zip(fon, is_90, pfu_b[:10], haut_l)]
 tot_fav = [a + b + c + h for a, b, c, h in zip(fon_vol, is_60, pfu_h[:10], haut_l)]
 d_c, d_sans, d_def, d_fav, d_v2 = dette(tot_c), dette(tot_sans), dette(tot_def), dette(tot_fav), dette(tot_v2)
-report = [2.38 * min((i + 1) / 5, 1.0) for i in range(10)]          # avances du report, majorant (tous occupants)
+report = [FON["report"]["majorant"] * min((i + 1) / 5, 1.0) for i in range(10)]   # avances du report, majorant (tous occupants)
 report_cum = [sum(report[:i + 1]) for i in range(10)]
 p("année : IR-CSG | fin de la CEHR | immobilier | IS | fin de l'effacement | total | dette (3,25 %) | sans"
   " compensation du haut : total, dette")
@@ -445,6 +500,9 @@ p(f"[DETTE] avec la fin de la CEHR : pic {fr(d_c[imax], 1)} Md€ en {ANS[imax]}
   f" PIB de 2025), {fr(d_c[9], 1)} fin 2036 ; sans : pic {fr(d_sans[imax_s], 1)} en {ANS[imax_s]}, {fr(d_sans[9], 1)} fin"
   f" 2036 ; défavorable (IS 90 % imposable, effacement bas) : pic {fr(max(d_def), 1)}, {fr(d_def[9], 1)} fin 2036 ;"
   f" favorable (IS 60 %, effacement haut, reprise des ventes) : pic {fr(max(d_fav), 1)}, {fr(d_fav[9], 1)} fin 2036")
+_d_enc = dette([a + b + c - CEHR_ENC for a, b, c in zip(fon, is_c, pfu_c[:10])])
+p(f"[DETTE, CEHR encaissée en 2025 ({fr(CEHR_ENC, 2)} Md€ par an), sensibilité] pic {fr(max(_d_enc), 1)},"
+  f" {fr(_d_enc[9], 1)} fin 2036")
 p(f"[EXTINCTION] dette éteinte en {ext_c} avec la fin de la CEHR, en {ext_s} sans compensation (IS : baisse finale du"
   f" taux non comptée, elle n'intervient qu'après l'extinction de sa propre dette)")
 p(f"[SOLDE] 2027 {fr(tot_c[0], 1)} ; 2031 {fr(tot_c[4], 1)} ; 2036 {fr(tot_c[9], 1)} ; premier excédent :"
@@ -477,6 +535,10 @@ tf_paris_2m = paris["prop"] / paris["valeur"] * 2e6
 v2_cad200 = v2c["cas"]["cadre200"] - mix["proposition"]["cas"]["cadre200"]
 CEHR_RENT = 0.03 * (500e3 - 250e3) + 0.04 * (3e6 - 500e3)       # CEHR d'un rentier seul à 3 M€ de dividendes
 va_cession = PFU["va_cohorte"]["central_0.035"] / (PFU_T * 1450 * 0.023 * 0.55 + 0.30 * 144 / 25)  # VA / impôt latent
+lim, gue, lyon = CASF["Limoges, maison"], CASF["Guéret, maison"], CASF["Lyon, appartement"]
+cap_lyon = lyon["prop"] / R_ACT                 # hausse de taxe capitalisée dans le prix (perpétuité à 3 %, partie Immobilier)
+ARB = lit(SORT / "arbitrages_prop_ircsg.json")
+qc_3m = ARB["quotient_c"]["cas"]["c3m_60"]["delta"]   # quotient conjugal (repli), barème recherché de nouveau
 
 
 def cas(cle, nom, revenu, ircsg, tf=0.0, droits=0.0, is_=0.0, pfu=0.0, transm=0.0, hyp="", notes=""):
@@ -489,22 +551,24 @@ def cas(cle, nom, revenu, ircsg, tf=0.0, droits=0.0, is_=0.0, pfu=0.0, transm=0.
 CT = [
     cas("retraite_province", "Retraité modeste propriétaire en province", 16000, CASI["ret16"]["delta"],
         tf=CASF["Limoges, maison"]["prop"],
-        hyp="seul, 75 ans, pension de 16 000 € ; maison médiane de Limoges (171 800 €, taxe foncière 1 209 €) ; ne"
-            " déménage pas ; épargne sur livrets",
-        notes="hausse de taxe foncière reportable sur la succession ; Guéret : +26 € au lieu de +248 €"),
+        hyp=f"seul, 75 ans, pension de 16 000 € ; maison médiane de Limoges ({fr(round(lim['valeur'], -2), 0)} €, taxe foncière"
+            f" {fr(lim['tf0'], 0)} €) ; ne déménage pas ; épargne sur livrets",
+        notes=f"hausse de taxe foncière reportable sur la succession ; Guéret : +{fr(gue['prop'], 0)} € au lieu de"
+              f" +{fr(lim['prop'], 0)} €"),
     cas("retraites_paris", "Couple de retraités propriétaire à Paris", 45000, CASI["rc45"]["delta"], tf=paris["prop"],
         transm=PFU_T * 80e3,
-        hyp="pensions de 45 000 € (60/40) ; appartement parisien médian (416 200 €, taxe foncière 518 €) ; portefeuille"
-            " de 200 000 € dont 80 000 € de plus-value latente",
+        hyp=f"pensions de 45 000 € (60/40) ; appartement parisien médian ({fr(round(paris['valeur'], -2), 0)} €, taxe foncière"
+            f" {fr(paris['tf0'], 0)} €) ; portefeuille de 200 000 € dont 80 000 € de plus-value latente",
         notes="hausse de taxe foncière reportable ; transmission : impôt dû par les héritiers quand ils vendent"),
     cas("primo_lyon", "Jeune couple primo-accédant, deux enfants, à Lyon", 50000, CASI["c2_50"]["delta"],
         tf=CASF["Lyon, appartement"]["prop"], droits=CASF["Lyon, appartement"]["eco"],
-        hyp="salaires de 50 000 € brut (60/40) ; achète l'appartement lyonnais médian (279 200 €)",
-        notes="si la hausse de taxe passe dans les prix (cas central), l'achat coûte environ 9 500 € de moins"),
+        hyp=f"salaires de 50 000 € brut (60/40) ; achète l'appartement lyonnais médian ({fr(round(lyon['valeur'], -2), 0)} €)",
+        notes=f"si la hausse de taxe passe dans les prix (cas central), l'achat coûte environ {fr(round(cap_lyon, -2), 0)} € de"
+              f" moins (hausse capitalisée à 3 %)"),
     cas("monoactif_3enf", "Couple à un seul revenu, trois enfants, locataire", 60000, CASI["c3m_60"]["delta"],
         hyp="un salaire de 60 000 € brut ; locataire",
-        notes="hypothèse : la taxe sur le sol ne passe pas dans les loyers (théorie) ; avec le quotient conjugal"
-              " (repli, barème recalculé), +102 € au lieu de −1 003 €"),
+        notes=f"hypothèse : la taxe sur le sol ne passe pas dans les loyers (théorie) ; avec le quotient conjugal"
+              f" (repli, barème recalculé), {fr(qc_3m, 0)} € au lieu de {fr(CASI['c3m_60']['delta'], 0)} €"),
     cas("cadre_paris", "Cadre parisien qui achète", 100000, CASI["cadre100"]["delta"], tf=paris["prop"],
         droits=paris["eco"], pfu=0.0, transm=PFU_T * 120e3,
         hyp="seul, 100 000 € brut ; achète l'appartement parisien médian ; 10 000 € de dividendes et plus-values"
@@ -544,9 +608,10 @@ C42 = {r["case"]: float(r["montant_eur"]) / 1e9 for r in csv.DictReader(open(ROO
 av = C42["2CH"] + C42["2DH"] + C42["2ZZ"] + C42["2UU"]
 mod90 = C42["2DC"] + C42["2TR"] + av + C42["2EE"] + C42["2TS"] + C42["3VG"] + C42["3VZ"]
 pfu80 = PFU["assiette"]["total"]
-p(f"[IR IMPUTÉ AU PFU] modèle IR-CSG : 12,8 % × 90 = 11,52 Md€ ; partie PFU : 12,8 % × {fr(pfu80, 1)} = "
-  f"{fr(PFU['recettes']['ir_pfu'], 2)} (majorant, foyers au barème compris) ; acompte prélevé (2CK) 7,7 sur les seuls"
-  f" dividendes et intérêts")
+p(f"[IR IMPUTÉ AU PFU, revenus 2024] modèle IR-CSG : 12,8 % × 90 = 11,52 Md€ (porté à 12,4 en 2025 avec le reste de"
+  f" l'IR) ; partie PFU : 12,8 % × {fr(pfu80, 1)} = {fr(PFU['recettes']['ir_pfu'], 2)} (majorant, foyers au barème"
+  f" compris) ; acompte prélevé (2CK) 7,7 sur les seuls dividendes et intérêts ; revenus 2025 (partie PFU) : impôt hors"
+  f" barème {fr(PFU['recettes']['ir_pfu_2025'], 2)} sur une assiette de {fr(PFU['assiette']['total_2025'], 1)} Md€")
 p(f"   les « 90 Md€ » = dividendes {fr(C42['2DC'], 1)} + intérêts {fr(C42['2TR'], 1)} + assurance-vie {fr(av, 1)} + autres"
   f" ({fr(C42['2EE'] + C42['2TS'], 1)}) + plus-values mobilières {fr(C42['3VG'], 1)} + plus-values immobilières"
   f" {fr(C42['3VZ'], 1)} = {fr(mod90, 1)} ; l'assiette du PFU retire l'assurance-vie, les plus-values immobilières et les"
@@ -555,20 +620,25 @@ p(f"   les « 90 Md€ » = dividendes {fr(C42['2DC'], 1)} + intérêts {fr(C42[
 p(f"   effet (convention mixte, IR imputé {fr(IMPUT_CORR)}) : recette à remplacer {fr(imp['cible'], 2)} au lieu de"
   f" {fr(mix['cible'], 2)} ; au barème proposé, la fusion rend {fr(imp['cible'] - imp['proposition']['recette'], 2)} Md€,"
   f" dont {fr(-imp['proposition']['top1'], 2)} au 1 % ; neutralité du 1 % à recette constante : 50 % à"
-  f" {fr(imp['v1_0.0']['z2'] / 1e3, 0)} k€, taux à 25 k€ {fr(100 * imp['v1_0.0']['t1'], 1)} %, décile le plus touché"
+  f" {fr(imp['v1_0.0']['z2'] / 1e3, 0)} k€, taux à {fr(CP['z1'] / 1e3, 0)} k€ {fr(100 * imp['v1_0.0']['t1'], 1)} %, décile le plus touché"
   f" {fr(imp['v1_0.0']['dec_max'], 0)} €, gain {fr(imp['v1_0.0']['gain'], 2)}")
 p(f"[CEHR] la fusion la supprime sur les revenus du barème sans le compter : {fr(CEHR_BAR[0], 2)} à {fr(CEHR_BAR[1], 2)} Md€"
   f" de recette et de baisse pour le 1 % (partie IR-CSG : « n'est comptée dans aucun cas »)")
 p(f"[CRDS DU CAPITAL] la CRDS (0,5 %) fait partie des 18,6 % de prélèvements sociaux du PFU : son extinction fin 2033 fait"
-  f" passer le PFU à 30,9 % et retire environ {fr(CRDS_CAP, 1)} Md€ ; la partie PFU dit que le taux « ne doit pas bouger »"
-  f" sans le mentionner")
-p("[PLUS-VALUES IMMOBILIÈRES] la partie PFU renvoie leur effacement à la transmission à la partie Immobilier, qui n'en"
-  " traite pas")
+  f" passer le PFU à 30,9 % et retire environ {fr(CRDS_CAP, 1)} Md€ ; la partie PFU le dit désormais (cohérent)")
+p("[PLUS-VALUES IMMOBILIÈRES] leur effacement à la transmission n'est traité ni par la partie PFU (qui le dit) ni par la"
+  " partie Immobilier")
+p(f"[IR 2025 DU CAPITAL] le modèle IR-CSG porte l'IR imputé au capital au niveau de 2025 comme le reste de l'IR (+7,9 % :"
+  f" 12,4 Md€), alors que la partie PFU mesure un impôt hors barème en baisse de 17,7 % sur les revenus de 2025"
+  f" ({fr(PFU['recettes']['ir_pfu_2025'], 1)} Md€) : convention propre à chaque partie, non réconciliée")
 p("[ZONES] la partie IS compte 0,54 Md€ pour la fin des exonérations zonées « d'IR et d'IS » ; la part d'IR (bénéfices"
   " des entreprises individuelles) relève aussi de l'assiette large de la fusion : double compte possible, de moins de"
   " 0,5 Md€ (part non publiée ; inclusion de ces bénéfices dans le revenu fiscal non vérifiée)")
-p(f"[DATES] IR-CSG : revenus 2024 ; immobilier : ventes 2023-2024 et fiscalité locale 2024 ; IS : euros courants 2027 et"
-  f" suivants ; PFU : revenus 2024, patrimoine fin 2025 ; la trajectoire additionne ces montants sans les indexer")
+p(f"[DATES] base 2025 : IR-CSG, impôt encaissé en 2025 (retenue à la source sur les revenus de 2025 et solde de 2024),"
+  f" répartition des revenus de 2024 (IRCOM) recalée en 2025 ; immobilier : ventes, droits et fiscalité locale de 2025 ;"
+  f" IS : bénéfices de 2025 portés en 2027 (euros courants 2027 et suivants) ; PFU : revenus de 2025 (assiette estimée),"
+  f" patrimoine fin 2025 ; CEHR : revenus de 2025. Restent en 2024 : répartition par foyer (IRCOM), cases de la"
+  f" déclaration 2042, IR imputé au capital, OCDE (comparaison) ; la trajectoire additionne ces montants sans les indexer")
 J["incoherences"] = dict(ir_pfu=dict(modele=11.52, pfu=PFU["recettes"]["ir_pfu"], acompte=7.67, mod90=mod90, av=av,
                                      pvi=C42["3VZ"], mv=C42["3VH"], cible_corr=imp["cible"],
                                      rend=imp["cible"] - imp["proposition"]["recette"],

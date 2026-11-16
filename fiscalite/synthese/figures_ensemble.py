@@ -27,6 +27,18 @@ def md(v, d=1):
     return _fr(v, d) + " Md€"
 
 
+def sg(v, d=1):
+    """Nombre signé à la française (+1,1 ; −0,4 ; 0,0 quand l'arrondi est nul)."""
+    if abs(v) < 0.5 * 10 ** -d:
+        return _fr(0.0, d)
+    return ("+" if v > 0 else "") + _fr(v, d)
+
+
+H_ = D["haut"]
+V2_ = H_["v2"]
+CRDS_PTS = _fr(-D["crds"]["points"], 2)
+
+
 # ------------------------------------------------------------------ 1. gain d'efficacité
 def n01():
     G = D["gains"]
@@ -106,11 +118,13 @@ def n02():
         "sorties/calculs_foncier.json (calendrier sur cinq ans), pfu/sorties/calculs_pfu.json (recette, jeu central).",
         "Note : solde par rapport au droit en vigueur (+ : recette en plus). La fusion IR-CSG est à recette constante "
         "chaque année et n'apparaît pas. Fin de la CEHR : suppression de la majoration du PFU et disparition de la CEHR "
-        "sur les revenus du barème (1,4 Md€). Barème adouci : 50 % atteint à 1,2 M€ au lieu de 265 000 € au-delà de "
-        "150 000 € (1,1 Md€). Dette : intérêts au taux d'emprunt de l'État de la partie IS (3,25 %). Ne sont pas comptés : "
+        f"sur les revenus du barème ({md(H_['cehr']['total'])}, CEHR des revenus de 2025). Barème adouci : 50 % atteint à "
+        f"{_fr(V2_['z2b'] / 1e6, 2)} M€ au lieu de {_fr(H_['z2_prop'] / 1e3, 0)} 000 € au-delà de 150 000 € "
+        f"({md(V2_['cout'])}). Dette : intérêts au taux d'emprunt de l'État de la partie IS (3,25 %). Ne sont pas comptés : "
         "la fin de la contribution exceptionnelle sur l'IS (7 Md€ par an de moins qu'en 2026), l'extinction de la CRDS "
-        "en 2034 (à recette constante si le taux fusionné baisse de 0,75 point), les avances du report de taxe foncière "
-        "(prêts, hors solde). Montants des parties en euros de dates différentes, sans indexation.")
+        f"en 2034 (à recette constante si le taux fusionné baisse de {CRDS_PTS} point), les avances du report de taxe "
+        "foncière (prêts, hors solde). Montants de 2025 pour l'essentiel (IS : bénéfices de 2025 portés en 2027), "
+        "additionnés sans indexation.")
 
 
 # ------------------------------------------------------------------ 3. le haut
@@ -127,19 +141,21 @@ def n03():
     for i, (nom, v) in enumerate(pas):
         ax.bar(i, v if abs(v) > 0.02 else 0.04, bottom=cum, width=0.6,
                color=PROP if v >= 0 else NUANCES_BLEU[4], zorder=2)
-        ax.text(i, max(cum, cum + v) + 0.15, ("+" if v > 0.02 else "") + _fr(v, 1), ha="center", fontsize=9.5, color=ENCRE)
+        ax.text(i, max(cum, cum + v) + 0.15, sg(v, 1), ha="center", fontsize=9.5, color=ENCRE)
         cum += v
         xs.append(nom)
     ax.bar(3, bil, width=0.6, color=AUJ, zorder=2)
-    ax.text(3, bil + 0.15, "+" + _fr(bil, 1), ha="center", fontsize=9.5, color=ENCRE, fontweight="bold")
+    ax.text(3, bil + 0.15, sg(bil, 1), ha="center", fontsize=9.5, color=ENCRE, fontweight="bold")
     ax.bar(4, maj, bottom=bil, width=0.6, color=NUANCES_BLEU[4], zorder=2)
     ax.text(4, bil + 0.15, _fr(maj, 1), ha="center", fontsize=9.5, color=ENCRE)
     ax.bar(5, apres, width=0.6, color=AUJ, zorder=2)
-    ax.text(5.33, apres, "+" + _fr(apres, 1), va="center", fontsize=9.5, color=ENCRE, fontweight="bold")
+    ax.text(5.33, apres, sg(apres, 1), va="center", fontsize=9.5, color=ENCRE, fontweight="bold")
     for v, lab in ((H["bilan_majoration"]["imput"], "IR du capital corrigé"),
                    (H["bilan_majoration"]["conv_haut"], "revenus du capital logés tout en haut")):
         ax.plot(5, v, marker="D", ms=7, color=VAR, mec="white", mew=1.2, zorder=4)
-        ax.text(5.33, v, f"{'+' if v > 0 else ''}{_fr(v, 1)} : {lab}", va="center", fontsize=8.5, color=ENCRE2)
+        yt = v + 0.17 if abs(v) < 0.2 else v          # au-dessus de l'axe quand le losange est sur le zéro
+        ax.text(5.33, yt, f"{sg(v, 1)} : {lab}", va="center", fontsize=8.5, color=ENCRE2,
+                bbox=dict(facecolor="white", edgecolor="none", pad=0.5))
     ax.axhline(0, color=ENCRE2, lw=0.7)
     ax.set_xticks(range(6))
     ax.set_xticklabels(xs + ["Bilan", "Fin de la\nmajoration", "Après\ncompensation"], fontsize=FS * 0.9)
@@ -150,13 +166,18 @@ def n03():
     fin(fig, "ensemble_n03_haut", SRC + " : sorties/proposition_ircsg.json, controle_hauts_purs.txt, "
         "pfu/sorties/calculs_pfu.json.",
         "Note : 1 % des foyers au revenu le plus élevé ; convention centrale du modèle IR-CSG pour la répartition des "
-        "revenus du capital entre tranches. Fin de l'effacement : moyenne des dix premières années (0,7 à 6,8 Md€), "
-        "en supposant que le 1 % en paie 90 %. CEHR : 1,4 Md€, dont 50 à 80 % payés sur les revenus du capital "
+        "revenus du capital entre tranches. Fin de l'effacement : moyenne des dix premières années "
+        f"({_fr(H_['effacement']['bas'], 1)} à {md(H_['effacement']['haut'])}), en supposant que le 1 % en paie 90 %. "
+        f"CEHR : {md(H_['cehr']['total'])} (revenus de 2025), dont 50 à 80 % payés sur les revenus du capital "
         "(hypothèse). L'immobilier (au plus quelques centaines de millions) et l'IS ne sont pas comptés. Losanges : "
-        "même bilan avec 10,2 Md€ d'IR imputés aux revenus du capital au lieu de 11,5, ou dans la convention « haut ».")
+        f"même bilan avec {_fr(H_['imput'], 1)} Md€ d'IR imputés aux revenus du capital au lieu de 11,5 (revenus de "
+        "2024), ou dans la convention « haut ».")
 
 
 # ------------------------------------------------------------------ 4. cas-types cumulés
+_CAS = {c["cle"]: c for c in D["cas_types"]["cas"]}
+
+
 def n04():
     C = D["cas_types"]["cas"]
     noms = {"retraite_province": "Retraité modeste,\nmaison à Limoges", "retraites_paris": "Couple de retraités,\nParis",
@@ -195,9 +216,10 @@ def n04():
     ax.legend(frameon=False, fontsize=8, loc="lower left", bbox_to_anchor=(0.0, 1.0), ncol=3, handlelength=1.2)
     fin(fig, "ensemble_n04_cas_types", SRC + " : cas-types OpenFisca de la partie IR-CSG (sorties/proposition_ircsg.json), "
         "logements médians de la partie Immobilier, société type de la partie IS, cas de la partie PFU.",
-        "Note : variation annuelle au terme des transitions (fusion après cinq ans, avant la baisse de 0,75 point liée à "
-        "la fin de la CRDS en 2034). Droits de mutation économisés à l'achat ramenés à un montant annuel sur dix ans de "
-        "détention, à 3 % (Lyon : 8 105 €, Paris : 12 083 € une fois). Taxe foncière sans effet sur les prix ; hausse "
+        f"Note : variation annuelle au terme des transitions (fusion après cinq ans, avant la baisse de {CRDS_PTS} point "
+        "liée à la fin de la CRDS en 2034). Droits de mutation économisés à l'achat ramenés à un montant annuel sur dix "
+        f"ans de détention, à 3 % (Lyon : {_fr(-_CAS['primo_lyon']['droits'], 0)} €, Paris : "
+        f"{_fr(-_CAS['cadre_paris']['droits'], 0)} € une fois). Taxe foncière sans effet sur les prix ; hausse "
         "reportable pour les retraités. En italique : impôt sur la plus-value latente que les héritiers paieront en "
         "vendant (rien aujourd'hui). Hypothèses de chaque ménage : tableau de la section et sortie du programme.")
 
