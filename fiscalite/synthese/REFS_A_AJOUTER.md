@@ -19,3 +19,11 @@
 - DGE (2026), Kuyu et Toe, document de travail n° 1
 - Devereux et Griffith (2003), International Tax and Public Finance 10 (à vérifier) ; Devereux, Liu et Loretz (2014), AEJ: Economic Policy 6(2)
 - OCDE, Revenue Statistics (téléchargé le 16/11/2026)
+
+## IR-CSG
+- Cabannes, Houdré et Landais (2014), Économie et Statistique 467-468 ; Carbonnier (2021), Revue économique 72(2)
+- CJCE, 15 février 2000, Commission c/ France, C-169/98 et C-34/98
+- Loi organique du 7 août 2020 relative à la dette sociale et à l'autonomie
+- Lois de finances pour 1978 (n° 77-1467, art. 3) et pour 1991
+- Eurostat ilc_pnp2 (2024) ; Insee Première n° 1492 ; Insee, espérance de vie 2025 (provisoire)
+- OpenFisca-France 176.1 ; service-public.fr F2971 et F16871

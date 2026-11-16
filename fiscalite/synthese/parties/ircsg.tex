@@ -57,9 +57,11 @@ l'impôt des foyers de retraités.
 
 \figbloc{ircsg_n04_meme_revenu}{À revenu égal, un retraité modeste paie deux fois moins qu'un salarié}{fig:ircsg_meme_revenu}
 
-Il n'est pas non plus imposé de la même façon selon la composition du foyer. Le quotient conjugal fait qu'un couple
-dont le revenu est partagé paie, à 50\,000~€ brut, 11,0~\% de son revenu, contre 18,0~\% pour une personne seule
-qui gagne la même somme. Le quotient familial, lui, ne vaut rien pour un couple qui gagne moins de 45\,000~€ environ
+Il n'est pas non plus imposé de la même façon selon la composition du foyer. Le quotient conjugal rend l'impôt d'un
+couple marié indépendant de la répartition de ses revenus : à 50\,000~€ brut, il paie 5\,500~€, qu'il ait un ou deux
+salaires, quand une personne seule au même revenu paie 9\,000~€. La contrepartie est que le salaire du second conjoint
+supporte le taux marginal du couple : le conjoint d'un salarié à 30\,000~€ qui prend un emploi au Smic perd 13,8~\% de
+son salaire en impôt, contre 9,5~\% pour une personne seule. Le quotient familial, lui, ne vaut rien pour un couple qui gagne moins de 45\,000~€ environ
 (il ne paie pas d'IR, avec ou sans enfants), puis jusqu'à 3\,582~€ par an avec deux enfants et 7\,164~€ avec trois,
 plafonds atteints vers 95\,000 et 115\,000~€ de revenu (figure~\ref{fig:ircsg_quotient}). Au total, le quotient
 familial des enfants réduit l'IR d'environ 13~Md€ dans le modèle, soit 742~€ par enfant en moyenne, mais concentrés
@@ -105,12 +107,14 @@ commune (résultat connu ici par le seul résumé publié). Le message est donc 
 Chacun des dispositifs empilés avait pourtant une raison. Le quotient familial, instauré au lendemain de la guerre
 (date non relue sur le texte), proportionne l'impôt aux charges de famille, et le quotient conjugal traite le couple
 comme une unité de consommation. La CSG a été créée par la loi de finances pour 1991 pour financer la protection
-sociale par un prélèvement sur tous les revenus, et non plus sur les seuls salaires : proportionnelle et retenue à
-la source, elle évitait de rouvrir le débat sur le barème. L'abattement de 10~\% sur les pensions date de la loi de
+sociale par un prélèvement sur tous les revenus, et non plus sur les seuls salaires : proportionnelle, individuelle et
+retenue à la source, elle a été conçue comme une cotisation élargie plutôt que comme un impôt sur le revenu. L'abattement de 10~\% sur les pensions date de la loi de
 finances pour 1978 et devait être le pendant, pour les retraités, de la déduction forfaitaire de 10~\% pour frais
 professionnels des salariés (sources parlementaires, texte non relu). Les taux réduits de CSG protègent les petites
-pensions ; la CRDS, créée en 1996, rembourse la dette sociale logée à la CADES. Trente ans plus tard, ces raisons ont
-en partie disparu (un retraité n'a pas de frais professionnels), et leur accumulation produit ce que personne n'a
+pensions ; la CRDS, créée en 1996, rembourse la dette sociale logée à la CADES. Des décennies plus tard, ces raisons ont
+en partie disparu : un retraité n'a pas de frais professionnels, et le revenu médian des plus de 65 ans atteint
+94~\% de celui de l'ensemble de la population, contre 90~\% dans l'Union européenne et 83~\% en Allemagne
+(Eurostat, 2024). Leur accumulation, surtout, produit ce que personne n'a
 voulu : au moins 24~Md€ de réductions, abattements et demi-parts, dont 5,3~Md€ pour le seul abattement sur les
 pensions, des seuils qui font payer 600~€ pour 500~€ de pension en plus, et un second salaire qui supporte le taux
 marginal du couple. Une réforme qui veut taxer mieux plutôt que davantage doit donc unifier l'assiette, supprimer les
@@ -239,7 +243,7 @@ prix de l'impôt individuel pour ceux qui profitent aujourd'hui pleinement du qu
 à 100\,000~€ brut paierait 4\,000~€ de moins et un dirigeant salarié à 200\,000~€, 10\,900~€ de moins : la neutralité
 du 1~\% le plus aisé est une moyenne, qui recouvre une baisse pour les hauts salaires, payée par la fin des niches et
 la taxation des grosses pensions à l'intérieur du même centile. Au-delà de 1~M€ de revenu, la charge sur les revenus
-du barème monterait de 3 à 17 points de ce revenu.
+du barème monterait de 3 à 17 points de ce revenu dans la convention centrale du modèle.
 
 \input{parties/tab_ircsg_cas}
 
@@ -330,7 +334,11 @@ figure~\ref{fig:ircsg_transition}) : 270~€ par an pour un retraité seul à 20
 680~€ au 90\textsuperscript{e} centile des retraités et 1\,100~€ au 90\textsuperscript{e} centile des couples de
 retraités. Trois ans les augmentent des deux tiers ; dix ans les divisent par deux mais exposent la réforme à
 dix budgets successifs. Les centiles viennent de foyers représentatifs : la dispersion réelle des hausses est plus
-forte, et seule une microsimulation sur fichiers individuels la mesurerait.
+forte, et seule une microsimulation sur fichiers individuels la mesurerait. Une réserve sur la recette : les dirigeants
+dont le taux marginal baisse (de 44 à 37~\% vers 200\,000~€) ont intérêt à reporter une partie de leur rémunération
+vers la fin de la transition, comme le calendrier des dividendes s'est ajusté aux réformes de 2013 et de 2018
+(section~\ref{sec:pfu}) ; faire converger
+le haut du barème dès la première année limite cet effet.
 
 \figbloc{ircsg_n16_transition}{Sur cinq ans, la hausse reste sous 400~€ par an pour un retraité seul à 25\,000~€}{fig:ircsg_transition}
 
@@ -356,7 +364,9 @@ CADES ; l'impôt fusionné doit être partagé selon des fractions fixes, faute 
 sociale dépendrait chaque année de la loi de finances. Le second porte sur la CRDS : elle s'éteint avec la CADES fin
 2033 (loi organique du 7 août 2020). Garder la recette fusionnée au-delà, c'est rendre permanents 7,4~Md€ de
 prélèvement ; il faut donc soit baisser tous les taux de 0,75 point en 2034, soit dire explicitement que l'impôt
-fusionné reprend le financement de la dette sociale, ce que la dette de l'ACOSS rend probable. Reste le droit
+fusionné reprend le financement de la dette sociale, ce que la dette de l'ACOSS rend probable. Sur la constitutionnalité, le texte devra justifier l'impôt individuel par un objectif
+d'intérêt général explicite, l'emploi du second apporteur de revenu, et prévoir le repli décrit plus haut (imposition
+commune) si le Conseil constitutionnel s'en tient à sa décision de 2012. Reste le droit
 européen : la Cour de justice a jugé en 2000 que la CSG et la CRDS ne pouvaient pas frapper les revenus d'activité de
 résidents affiliés à la sécurité sociale d'un autre État membre (C-169/98) ; un impôt de résidence unique change la
 situation des frontaliers et des retraités non résidents, et fait entrer la recette de la CSG dans le champ des
