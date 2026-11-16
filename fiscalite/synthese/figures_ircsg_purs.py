@@ -7,7 +7,7 @@ ircsg_p02_frontiere : gain d'efficacité et part des foyers qui perdent plus de 
 du barème neutre à l'optimum.
 ircsg_p03_qui_paie : variation de l'impôt par type de foyer (€ par an), étapes 1 et 2 et proposition.
 
-Couleurs : palette catégorielle validée (skill dataviz : bleu, orange, vert d'eau, en ordre fixe) ; aujourd'hui en
+Couleurs : palette des figures de la note (bleu #1d4ba6, ocre #c79100, brique #993333, validée) ; aujourd'hui en
 encre ; l'optimum, simple étalon, en gris. Lancer depuis fiscalite/ :
 python3 synthese/figures_ircsg_purs.py && FIG_NU=1 python3 synthese/figures_ircsg_purs.py
 """
@@ -27,7 +27,7 @@ ex = M.ex
 E = json.loads((HERE / "sorties/etapes_ircsg.json").read_text(encoding="utf-8"))
 J = json.loads((HERE / "sorties/architectures_ircsg.json").read_text(encoding="utf-8"))
 INK, INK2, GRIS, GRILLE = "#0b0b0b", "#52514e", "#8a8984", "#e4e3df"
-BLEU, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"
+BLEU, ORANGE, AQUA = "#c79100", "#993333", "#1d4ba6"   # étape 2 ocre, étape 1 brique, proposition bleu (palette des autres figures)
 SRC = ("OpenFisca-France (législation des revenus 2024) ; DGFiP, IRCOM revenus 2024 ; calculs de l'auteur "
        "(synthese/modele_purs.py, architectures_ircsg.py, etapes_ircsg.py).")
 

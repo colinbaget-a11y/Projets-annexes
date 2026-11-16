@@ -8,28 +8,44 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE.parent)]
-from graphiques import INK, PCT, fin, grille, plt  # noqa: E402
+from graphiques import ECH_TXT, INK, NU, fin, plt  # noqa: E402
 
-CAS = [("Bénéfice distribué, PFU (31,4 %)", 49.1, "#003399"),
-       ("Distribué, foyer à la CEHR (35,4 %)", 52.1, "#003399"),
-       ("Distribué, foyer à la CDHR (38,6 %)", 54.5, "#003399"),
-       ("Variante PFU à 25 %", 44.4, "#c79100"),
-       ("Bénéfice remonté dans une holding et conservé", 26.8, "#993333"),
-       ("Pour comparaison : salaire, taux marginal supérieur", 55.4, "#6b6b6b")]
+# Réglages propres à cette figure (la charte graphiques.py sert aussi au cours et n'est pas modifiée) :
+# TXT donne 8 pt imprimés en mode nu. Couleur selon le statut du cas : droit de 2026 en bleu, variante en
+# ocre, comparaison en gris (palette validée avec dataviz/validate_palette.js, mode clair).
+TXT = 10.3
+plt.rcParams.update({k: TXT * ECH_TXT for k in ("xtick.labelsize", "ytick.labelsize")})
+BLEU, OCRE, GRIS = "#1d4ba6", "#c79100", "#8c8c8c"
 
-fig, ax = plt.subplots(figsize=(8.6, 3.4))
-for i, (lab, v, col) in enumerate(CAS):
-    ax.barh(i, v, color=col, height=0.62)
-    ax.text(v + 0.8, i, f"{v:.1f} %".replace(".", ","), va="center", fontsize=8.5, color=INK)
-ax.set_yticks(range(len(CAS)))
-ax.set_yticklabels([c[0] for c in CAS], fontsize=8.5)
-ax.invert_yaxis()
-ax.set_xlim(0, 62)
-ax.xaxis.set_major_formatter(PCT)
-grille(ax, "x")
+# (libellé, taux cumulé, couleur, position) : un blanc sépare le bénéfice distribué, le bénéfice gardé dans
+# une holding et le salaire.
+CAS = [("Bénéfice distribué, PFU (31,4 %)", 49.1, BLEU, 0),
+       ("Distribué, foyer à la CEHR (35,4 %)", 52.1, BLEU, 1),
+       ("Distribué, foyer à la CDHR (38,6 %)", 54.5, BLEU, 2),
+       ("Distribué, variante : PFU à 25 %", 44.4, OCRE, 3),
+       ("Bénéfice remonté dans une holding et conservé", 26.8, BLEU, 4.45),
+       ("Pour comparaison : salaire, taux marginal supérieur", 55.4, GRIS, 5.9)]
+
+fig, ax = plt.subplots(figsize=(8.6, 3.3))
+if not NU:   # libellés dans le cadre, alignés avec le bloc des sources
+    fig.subplots_adjust(left=0.37)
+for lab, v, col, y in CAS:
+    ax.barh(y, v, color=col, height=0.66, zorder=3)
+    ax.text(v + 0.7, y, f"{v:.1f} %".replace(".", ","), va="center", fontsize=TXT, color=INK)
+ax.set_yticks([c[3] for c in CAS])
+ax.set_yticklabels([c[0] for c in CAS])
+ax.tick_params(axis="y", length=0, pad=5)
+ax.set_ylim(6.4, -0.5)
+# chaque barre porte sa valeur : pas d'axe horizontal, seulement la ligne de base
+ax.set_xlim(0, 61)
+ax.set_xticks([])
+for c in ("bottom", "left"):
+    ax.spines[c].set_visible(False)
+ax.axvline(0, color=INK, lw=0.8, zorder=4)
 fin(fig, "pfu_01_taux_cumule",
     "Code général des impôts ; LFSS et LF 2026 ; calculs de l'auteur.",
-    "Note : impôt total sur 100 de bénéfice avant impôt, droit de 2026. Impôt sur les sociétés de 25 % plus la "
+    "Note : impôt total sur 100 de bénéfice avant impôt, droit de 2026 ; entre parenthèses, le taux du prélèvement "
+    "personnel sur le dividende. Impôt sur les sociétés de 25 % plus la "
     "contribution sociale de 3,3 % (25,8 %), puis prélèvement personnel sur le dividende : PFU de 31,4 % (12,8 % "
     "d'impôt sur le revenu et 18,6 % de prélèvements sociaux), majoré de la contribution exceptionnelle sur les "
     "hauts revenus (4 %) ou porté au plancher de 20 % de la contribution différentielle. Holding : dividende "
