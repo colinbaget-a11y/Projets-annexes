@@ -1,17 +1,70 @@
-% Synthèse PROVISOIRE
-Cette section rassemblera le bilan des quatre réformes une fois la partie sur la fusion recalculée. En l'état,
-pour les trois autres :
+% Bilan d'ensemble (chiffres : sorties/architectures_ircsg.txt, sorties/perte_seche_autres.txt,
+% ../foncier/sorties/simulation.txt, ../is/sorties/simulation_is.txt)
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Bilan provisoire (Md€ par an, régime permanent)}\label{tab:ensemble}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
+\caption{Les quatre réformes, à recette constante (Md€ par an, régime permanent)}\label{tab:ensemble}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Réforme & Recette & Perte sèche & Grandes fortunes \\
+Réforme & Recette & Gain d'efficacité (fourchette) & Qui paie plus \\
 \midrule
-Fusion IR-CSG-CRDS & 0 par construction & en cours de recalcul & dépend de la répartition du capital entre tranches \\
-Immobilier : droits $-$50~\%, deux taux, taux national sur le sol & 0 (transition : hausse temporaire de la taxe actuelle) & environ $-$2 ($-$1 à $-$5) & taxe foncière des biens chers en hausse, droits en baisse à l'achat \\
-IS : déduction immédiate, financée par l'assiette & +0,6 à +1,2 point de taux à rendre une fois la dette de transition (2 à 32) remboursée & $-$0,05 à $-$0,16 (hors fin du taux réduit : 0 à +0,8) & presque rien \\
-PFU maintenu, report d'apport-cession transmis sans effacement & 0 aujourd'hui, recette différée ensuite & environ 0 & pas de hausse à la transmission \\
+Fusion IR-CSG-CRDS : franchise d'activité 4~000~€, 6~000~€ par enfant, petites pensions exonérées & 0 par
+construction ; moindre optimisation : +1,9 à +5,7 & 4,9 (2,3 à 11,1) & retraités (+15~Md€) ; 29~\% des foyers
+plus de 500~€ \\
+Immobilier : droits de mutation $-$50~\%, taxe foncière à deux taux, taux national sur le sol & 0 (transition :
+hausse temporaire de la taxe actuelle) & 1,9 (1,0 à 4,2) & propriétaires de terrains chers (Paris,
+Hauts-de-Seine) \\
+IS : déduction immédiate de l'investissement, financée par l'assiette & 0 en régime permanent ; dette de
+transition de 2 à 32 & 0,1 (0,05 à 0,16), moins 0 à 0,8 si fin du taux réduit & sociétés au taux réduit,
+crédit d'impôt recherche \\
+PFU maintenu, report d'apport-cession & 0 ; recette différée selon le traitement du report & 0 & selon le
+traitement du report \\
+\midrule
+Ensemble & 0 & environ 7 (2,5 à 15,5) & \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\textbf{Le gain total est modeste et robuste} (tableau~\ref{tab:ensemble}). Il est d'environ 7~Md€ par an au
+centre, 0,2~\% du PIB. Il pourrait être trois fois moindre ou deux fois plus grand selon les comportements.
+Dans tous les jeux d'hypothèses, la fusion et la réforme de l'immobilier réduisent la perte sèche, et aucun
+gain ne repose sur une réaction déclarative. Plus des deux tiers du gain viennent de la fusion de l'impôt sur le revenu et de la CSG, un peu plus
+d'un quart du remplacement des droits de mutation. L'IS et le PFU servent surtout à ne pas aggraver les choses :
+ne pas monter des taux que les bénéfices et les dividendes savent fuir, et rendre l'impôt prévisible. Le gain
+de la fusion représente environ deux tiers de ce qu'un barème optimisé sans contrainte obtiendrait. Le dernier
+tiers demanderait de rendre plus de 20~Md€ au dernier décile, sur la foi d'élasticités que personne n'a
+mesurées pour un tel changement.
+
+\textbf{Les grandes fortunes.} Trois profils sont à distinguer.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Le dirigeant salarié.} Son taux marginal passe de 55~\% environ (avec la CEHR) à 50~\%. Le 1~\% le
+plus aisé paie 2,7~Md€ de moins sur ses revenus du barème.
+\item \emph{Le rentier.} Il garde le PFU, majoration comprise. Il paie plus de taxe foncière s'il possède des
+terrains chers, et moins de droits quand il achète.
+\item \emph{L'entrepreneur qui a apporté ses titres à une holding.} Son sort dépend du traitement du report
+d'apport-cession (section~\ref{sec:pfu}). L'expiration à toute transmission alourdirait de 90 à 100~M€ la
+facture de chacun des plus gros apporteurs ; la transmission du report sans effacement n'augmente rien à la
+transmission.
+\end{itemize}
+Une incertitude demeure pour les 3\,800 foyers au-delà de 3~M€ de revenu fiscal : selon la part (non publiée)
+de leurs revenus au PFU, la fusion baisse leur impôt sur le barème ou l'augmente de plusieurs points. Il faut
+la lever avec les données de la DGFiP avant d'arrêter le barème.
+
+\textbf{Les familles} gagnent : 1\,200~€ par an en moyenne pour un couple avec deux enfants, 230~€ pour un
+parent isolé. La franchise de 6\,000~€ par enfant vaut 6\,000~€ fois le taux marginal du parent : 840~€ par
+enfant sous 20\,000~€ de revenu imposé, 1\,800~€ vers 45\,000~€, davantage au-delà, contre 742~€ en moyenne
+pour le quotient familial actuel. Les droits de mutation, payés au moment où une famille achète plus grand,
+sont divisés par deux.
+
+\textbf{Les retraités} sont les principaux contributeurs. La fusion leur fait payer 15~Md€ de plus,
+2\,300~€ par an pour un couple, car elle met fin à leurs taux réduits et à leur abattement. Propriétaires plus
+souvent que la moyenne, ils paient aussi la hausse de taxe foncière, sans profiter de la baisse des droits
+s'ils ne déménagent pas. C'est le prix du gain d'efficacité : les pensions ne réagissent pas à l'impôt, et les
+taxer comme les salaires permet de baisser ce qui pèse sur le travail. Trois leviers atténuent cette charge :
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item l'exonération des petites pensions, retenue ici ;
+\item le maintien de l'abattement de 10~\%, pour 0,6~point de taux pour tous ;
+\item une transition sur quatre ans, et, pour la taxe foncière, le report de paiement des propriétaires âgés.
+\end{itemize}
+
+\textbf{Les dates.} Les chiffres décrivent le droit de 2026. L'IR et la CSG sont mesurés sur les revenus de
+2024, l'IS en euros de 2027, l'immobilier sur les ventes de 2023-2024 et la fiscalité locale de 2024.

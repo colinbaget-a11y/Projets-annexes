@@ -45,425 +45,285 @@ et dossiers \texttt{ir\_csg/}, \texttt{foncier/}, \texttt{is/}, \texttt{pfu/}. V
 
 Cette note examine quatre réformes avec un seul critère : à recette à peu près constante, quel système
 fiscal gêne le moins la croissance, c'est-à-dire décourage le moins de travailler, d'investir, de déménager
-ou de déclarer ses revenus ? La redistribution n'est pas l'objectif, mais deux contraintes s'imposent. La
+ou de produire en France ? La redistribution n'est pas l'objectif, mais deux contraintes s'imposent. La
 somme des réformes ne doit pas alourdir nettement la facture des plus grandes fortunes : leur départ coûterait
 plus qu'il ne rapporterait. Et le système doit être, à la marge, plus favorable aux familles avec enfants.
 Il s'agit de taxer mieux, pas davantage.
 
-La méthode est la même pour les quatre impôts. On part d'une référence simple : l'assiette la plus large,
-le même taux pour tout le monde, sans niche. Puis on fait apparaître chacun des endroits où un choix doit
-être fait (une franchise pour les revenus d'activité, un traitement des familles, la vitesse de la
-déduction de l'investissement, le sort des plus-values logées dans une holding) et on chiffre chaque
-choix de la même façon : ce qu'il coûte en recette, ce qu'il coûte ou rapporte en perte sèche, et qui
-paie. La note ne tranche pas ces arbitrages à la place du lecteur ; elle dit ce que chacun coûte.
-
-\begin{encadre}{Comment la perte sèche est calculée}
-\textbf{Ce qu'elle mesure.} Un impôt fait renoncer à des choses qui auraient valu plus qu'elles ne coûtaient :
-une heure de travail, une machine, une vente de logement. La perte sèche est la valeur de ces renoncements,
-au-delà de l'impôt lui-même. Elle se mesure par la réaction des quantités taxées à l'impôt.
-
-\textbf{La formule.} La perte sèche ordinaire, $\tfrac12\,\varepsilon\,\tau^2/(1-\tau)$ fois la base, suppose une seule marge et aucun autre impôt
-dessus. On utilise sa généralisation (Harberger ; Hines, 1999 ; Chetty, 2009) : la variation de perte sèche
-est la somme, sur chaque marge touchée, du coin fiscal total qui frappe cette marge multiplié par la
-variation de la quantité taxée. Un euro de salaire perdu coûte à la collectivité tout ce qu'il aurait payé :
-impôt sur le revenu et CSG, mais aussi cotisations non contributives et prestations perdues. Trois
-conséquences comptent :
+Pour chaque impôt, la note distingue trois choses :
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{le coin total} : relever l'impôt là où les cotisations et le retrait des prestations prélèvent
-déjà 60~\% d'un euro de salaire en plus (autour de 1 à 1,5 Smic) coûte beaucoup plus que le calcul sur le
-seul impôt ne le dit ;
-\item \emph{les déplacements entre impôts} : un revenu qui quitte le barème pour l'impôt sur les sociétés ou le
-prélèvement forfaitaire n'est perdu que pour l'écart de taux ; une réaction de calendrier (distribuer un
-dividende un an plus tard) ne coûte presque rien ;
-\item \emph{la décision de travailler} : on compte aussi la réaction de ceux qui hésitent à prendre un emploi,
-qui dépend de ce que l'impôt prélève sur l'ensemble du premier salaire.
+\item ce que la théorie dit de la direction à prendre ;
+\item ce que les études empiriques, françaises autant que possible, permettent de chiffrer ;
+\item ce que nous proposons, compte tenu de la répartition de la charge, des institutions et de ce qu'on ignore
+des comportements.
+\end{itemize}
+Les élasticités disponibles ont été mesurées sur des réformes modestes, d'une année sur l'autre. Personne ne
+sait comment les comportements réagiraient à un système entièrement différent. La note ne laisse donc pas un
+calcul d'optimisation choisir la réforme. Elle compare quelques architectures simples à la situation actuelle,
+et se sert de l'optimum seulement comme étalon, pour savoir quelle part du gain atteignable une réforme
+prudente obtient. Elle chiffre aussi chaque arbitrage, pour que le lecteur voie ce que coûte chaque choix et
+qui le paie.
+
+\begin{encadre}{Comment le gain d'efficacité est mesuré}
+\textbf{Un écart à l'existant.} Un impôt fait renoncer à des choses qui auraient valu plus qu'elles ne
+coûtaient : une heure de travail, un emploi, une machine, une vente de logement. La perte sèche est la valeur
+de ces renoncements. On ne cherche pas ce que coûte la fiscalité française par rapport à un monde sans impôt.
+On cherche de combien une réforme réduit cette perte par rapport à aujourd'hui, à recette égale. C'est le
+« gain d'efficacité » des tableaux.
+
+\textbf{Le coin total.} La variation de perte sèche est la somme, sur chaque marge touchée, du prélèvement
+total qui frappe cette marge multiplié par la variation de la quantité taxée (Harberger ; Hines, 1999). Un
+euro de salaire en moins ne coûte pas seulement l'impôt réformé : il fait perdre aussi les cotisations sans
+contrepartie de droits et il augmente les prestations sous condition de ressources. On compte ces trois
+éléments.
+
+\textbf{La réaction réelle, pas la réaction déclarative.} Un revenu déclaré peut baisser parce qu'on
+travaille ou investit moins, ou parce qu'on le déclare plus tard, sous une autre forme, dans une société.
+Seule la première réaction est un gain ou une perte d'activité. La seconde est un effet sur la recette, net de
+ce qui est récupéré sur une autre assiette (Chetty, 2009). Elle est donnée à part et n'entre jamais dans le
+gain d'efficacité.
+
+\textbf{Des comportements réalistes.} Les salariés réagissent à l'impôt qu'ils voient : leur salaire suit le
+taux de l'impôt sur le revenu, pas celui des cotisations (Lehmann, Marical et Rioux, 2013), et trois fois moins
+le retrait des prestations (Sicsic, 2022). On fait donc réagir les quantités au taux de l'impôt réformé, et on
+compte le coût au coin total. On sépare deux décisions :
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item ajuster ses heures ou son effort, qui réagit peu à l'impôt (élasticité de 0,05 à 0,10 au centre) ;
+\item prendre un emploi, qui dépend de ce que l'impôt prélève sur tout le premier salaire (élasticité de 0,25
+sous deux Smic).
 \end{itemize}
 
-\textbf{Comparer des variantes.} Quand deux variantes ne lèvent pas la même recette, la différence doit être
-levée ailleurs. On la valorise au « prix d'un milliard » levé par le barème fusionné : 0,16 à 0,60~Md€ de perte
-sèche par milliard selon le coin retenu, 0,38 au centre (méthode et paramètres : \texttt{revue/methode\_perte\_seche.md}).
+\textbf{Trois jeux d'hypothèses.} Chaque résultat est donné avec des hypothèses basses, centrales et hautes.
+Le jeu central est prudent, calé sur les études françaises (\texttt{cours/elasticites-france.tex}).
 
-\textbf{Ce qui reste fragile.} Les élasticités, et surtout deux paramètres sans estimation française : la part
-de la réaction des hauts revenus qui n'est qu'un déplacement vers l'impôt sur les sociétés, et la part de
-l'ajustement des distributions de dividendes qui n'est qu'un report. Chaque résultat est donné avec sa
-fourchette.
+\textbf{Le prix d'un milliard.} Quand deux variantes ne lèvent pas la même recette, la différence est levée
+par un point de taux de l'impôt fusionné pour tous. Chaque milliard ainsi levé coûte 0,07~Md€ de perte sèche
+(0,03 à 0,14).
+
+\textbf{Ce qui reste fragile.} Toutes les élasticités françaises sont de court terme. Aucune ne mesure le
+revenu d'activité du 1~\% le plus aisé. La part réelle des réactions n'est séparée de la part déclarative que
+par des indices.
 \end{encadre}
 
 
 \section{Fusionner l'impôt sur le revenu, la CSG et la CRDS}\label{sec:ircsg}
-% Partie IR-CSG PROVISOIRE (copie de ../ir_csg/note-ir-csg.tex), à réécrire
-\begin{encadre}{Partie provisoire : chiffres en cours de recalcul}
-Cette partie reprend la note sur la fusion telle qu'elle était avant la vérification de ses calculs. Celle-ci
-(\texttt{revue/verif\_ir\_csg.md}) a trouvé un défaut de fond : chaque tranche de revenu est représentée par un
-foyer qui touche à la fois des pensions et des revenus d'activité, si bien que la franchise d'activité profite
-aussi aux retraités. Conséquences connues : les pensions paient au moins 28~Md€ de plus, et non 13 ; avec des
-foyers séparés selon la source de revenu, le même barème rapporterait jusqu'à 243~Md€ au lieu de 220 ; les
-parents isolés sont deux fois trop nombreux (4,0 millions au lieu de 2,0) et le quotient familial des enfants
-coûte environ 12,9~Md€, non 13,9. Le modèle est en cours de reconstruction avec des foyers d'actifs et de
-retraités séparés ; la partie sera réécrite à partir d'une référence à assiette large et même barème pour
-tous, chaque arbitrage (franchise, pensions, famille, imposition commune, taux supérieur) étant chiffré avec
-la perte sèche généralisée de l'encadré de méthode. Les chiffres ci-dessous ne doivent pas être repris.
-\end{encadre}
+% Partie IR-CSG (méthode v2 : revue/methode_v2.md ; chiffres : sorties/architectures_ircsg.txt,
+% sorties/controle_hauts_purs.txt ; tableaux générés par tables_ircsg.py)
 
-La France dispose aujourd'hui de trois grands impôts sur le revenu : l'impôt sur le revenu (IR,
-92~Md€ pour les revenus 2024), la CSG (153~Md€) et la CRDS (9~Md€). Le premier est fortement progressif
-mais mité par une multitude de niches, abattements et dispositifs particuliers. La deuxième ressemble
-davantage à l'idée qu'un économiste débarquant de Mars se ferait d'un impôt efficace : une assiette
-large, des taux relativement faibles et peu de niches. La troisième obéit à une logique assez proche.
+L'impôt sur le revenu, la CSG et la CRDS prélèvent 220~Md€ sur les revenus soumis au barème : salaires,
+pensions, bénéfices des indépendants, loyers, allocations chômage. Cette somme se décompose en 80~Md€ d'IR,
+hors l'IR des revenus du capital au prélèvement forfaitaire, en 132~Md€ de CSG et en 7~Md€ de CRDS. Les
+revenus du capital au prélèvement forfaitaire gardent leur régime (section~\ref{sec:pfu}). Les trois impôts
+se superposent sans se coordonner. Pour une personne seule salariée, ils prélèvent 9,5~\% du salaire brut
+jusqu'à 23\,000~€ environ ; le taux marginal saute alors à 21~\%, puis à 32~\% vers 40\,000~€ et à 40~\% au-delà
+de 110\,000~€ (figure~\ref{fig:baremes}). Les retraités paient moins à revenu égal, du fait de l'abattement de
+10~\% (5,3~Md€) et des taux réduits de CSG. Ces taux réduits créent cependant des marches : quand le revenu
+fiscal franchit un seuil, le nouveau taux s'applique à toute la pension, et 1\,000~€ de pension en plus
+peuvent coûter 620 à 770~€. Le quotient familial des enfants réduit l'IR d'environ 13~Md€.
 
-À première vue, rien de bien compliqué pour rationaliser l'ensemble : on fusionne les trois impôts, on
-définit un nouveau barème qui rapporte autant, et l'on dispose d'un impôt unique, plus simple et plus
-transparent. Mais si l'on se contente de conserver toutes les règles existantes sous une appellation
-commune, on n'a pas simplifié grand-chose. \textbf{Le véritable intérêt de la réforme suppose d'harmoniser
-les assiettes, les exemptions et les modalités de calcul. Et c'est là que les difficultés commencent.}
+\subsection{Ce que dit la théorie}
 
-Car la plupart des exceptions fiscales, aussi critiquables soient-elles, ont une justification
-économique ou sociale, au moins à l'origine. Prenons l'abattement de 10~\% sur les pensions de retraite.
-Dans le projet de loi de finances pour 1978, le gouvernement proposait un abattement de 5~000~F accordé une
-seule fois, au départ en retraite : les nouveaux retraités devaient acquitter un impôt calculé sur leurs
-revenus d'activité, alors même que leurs ressources venaient de diminuer. L'Assemblée nationale a
-transformé cet allégement ponctuel en une déduction permanente de 10~\% sur toutes les pensions (Sénat,
-1977). Près de cinquante ans plus tard, le prélèvement à la source a fait disparaître le problème initial,
-mais l'avantage demeure et coûte 5,3~Md€ par an ; le projet de loi de finances pour 2027 proposait seulement
-d'en abaisser le plafond à 3~000~€ par foyer, article supprimé par l'Assemblée en octobre 2026. Le crédit d'impôt pour l'emploi à domicile, créé en 1991
-pour créer des emplois et faire déclarer un travail souvent dissimulé, coûte aujourd'hui 7~Md€. Chacun de
-ces avantages a ses raisons d'être, mais leur accumulation finit par coûter cher, et certaines
-justifications ont perdu de leur pertinence.
+\textbf{Une assiette large permet des taux plus bas là où ils coûtent.} Un taux marginal coûte par ce qu'il
+fait renoncer à gagner. Ce coût est d'autant plus élevé que l'euro en question est déjà lourdement prélevé, et
+que les revenus concernés sont nombreux et capables de réagir. Les pensions déjà liquidées et les revenus
+aujourd'hui exonérés par des niches (au moins 24~Md€) ne réagissent presque pas. Les taxer comme les salaires
+permet, à recette égale, d'abaisser les taux qui pèsent sur le travail. C'est le mécanisme principal de la
+fusion, et il fait des retraités les premiers contributeurs de la réforme.
 
-\textbf{Le quotient familial pose une question plus fondamentale encore.} On peut le considérer comme une
-aide à la natalité, auquel cas il est difficile de justifier qu'il bénéficie davantage aux familles
-aisées. Mais on peut aussi y voir un principe de justice fiscale : selon les conventions de l'Insee, un
-couple avec trois jeunes enfants gagnant 10~000~€ par mois a un niveau de vie comparable à celui d'un
-couple sans enfant gagnant 6~250~€. Supprimer purement et simplement le quotient familial reviendrait à
-opérer une redistribution considérable des familles avec enfants vers les contribuables sans enfant.
-Même difficulté avec la CSG, dont les taux varient selon la nature des revenus et le statut des
-contribuables : pourquoi les retraités paieraient-ils moins que les actifs à revenus comparables ? On
-peut défendre cette différence, mais elle ne relève pas d'une nécessité économique. La supprimer revient
-à transférer une partie de la charge des actifs vers les retraités, et c'est ce transfert qui, on le
-verra, finance l'essentiel de la réforme.
+\textbf{Les marches et les hauts taux du milieu coûtent plus que leur rendement ne le laisse croire.} Entre 1
+et 1,5~Smic, les cotisations non contributives et la sortie de la prime d'activité prélèvent déjà près de 60~\%
+d'un euro de salaire en plus. Ajouter un saut d'IR à cet endroit coûte beaucoup plus que ne le dit le seul taux
+de l'impôt.
 
-Nous avançons par étapes, à rendement inchangé, chacune corrigeant le principal défaut de la précédente.
-La première harmonise brutalement les règles en gardant les barèmes actuels. La deuxième remplace leur
-empilement par un barème unique sans marche, le plus proche possible de ce que chacun paie aujourd'hui. La
-troisième cherche le barème qui décourage le moins le travail et la déclaration des revenus, sans autre
-considération. Notre proposition corrige enfin ce que ce barème a d'inacceptable : une forte hausse pour les
-foyers modestes, et un gain bien plus grand pour une personne seule aisée que pour une famille de même
-revenu. \textbf{Reste la famille} : l'IR repose sur le foyer, la CSG et la CRDS sont individuelles. Nous
-comparons quatre réponses, de l'absence de toute aide familiale dans l'impôt à un quotient familial
-appliqué à l'impôt fusionné. \textbf{Car derrière une réforme fiscale apparemment technique se cache
-finalement une question assez simple : quelles différences entre contribuables l'État considère-t-il comme
-suffisamment légitimes pour justifier qu'ils ne paient pas le même impôt ?}
+\textbf{La décision de travailler dépend de l'impôt sur tout le premier salaire.} Peu de salariés ajustent
+leurs heures au taux marginal ; beaucoup plus choisissent de prendre un emploi, de reprendre après une
+interruption ou d'ajouter un second revenu au foyer. Une franchise sur les premiers euros d'activité baisse
+l'impôt sur ce premier salaire sans toucher au taux marginal des autres. C'est la logique du crédit d'impôt sur
+les revenus d'activité introduit en Suède en 2007, dont les effets sur l'emploi restent d'ailleurs discutés.
 
-\begin{encadre}{Comment les étapes sont chiffrées}
-\textbf{Ce qui est remplacé.} L'IR, la CSG et la CRDS sur les revenus imposés au barème de l'IR : salaires,
-pensions, bénéfices des indépendants, loyers, allocations chômage. Ils rapportent 220~Md€ : 80~Md€ d'IR
-(une fois retiré celui qui porte sur les revenus du capital au prélèvement forfaitaire), 132~Md€ de CSG et
-7~Md€ de CRDS. Chaque étape rapporte exactement autant. Les revenus du capital au prélèvement forfaitaire
-unique gardent leur régime.
+\textbf{L'élasticité des hauts revenus dépend des règles.} Leur revenu déclaré réagit fortement au taux, mais
+surtout par la forme, la date ou le lieu de la déclaration. Une assiette sans niche réduit ces possibilités.
+Ce gain va à la recette, non à l'activité.
 
-\textbf{L'assiette commune} est le revenu après cotisations sociales, le même pour un salarié, un
-indépendant, un retraité ou un chômeur, sans réduction, abattement ni taux réduit. Les niches supprimées
-représentent au moins 24~Md€ (annexe) ; la charge actuelle du modèle est l'impôt réellement payé, niches
-déduites. L'impôt est individuel : chaque adulte est imposé sur son propre revenu.
+\subsection{Ce qu'on peut chiffrer}
 
-\textbf{Les données.} Les 25 tranches de revenu fiscal de l'IRCOM (DGFiP, revenus 2024), réparties en
-personnes seules avec ou sans enfant et couples sans enfant ou avec deux enfants, de façon à retrouver les
-18~millions d'enfants à charge ; partage des revenus dans les couples selon l'Insee (Morin, 2014). Les foyers
-types sont calculés avec OpenFisca-France ; sans niche, ils paient souvent plus aujourd'hui qu'un foyer réel.
+On mesure chaque architecture par son écart à la situation actuelle, avec la méthode de l'encadré : on
+distingue la réaction réelle de la réaction déclarative et on compte le coin total. Toutes partagent la même
+base :
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item l'assiette est le revenu après cotisations, le même pour un salarié, un indépendant, un retraité ou un
+chômeur, sans réduction, abattement ni taux réduit ;
+\item l'impôt est individuel, et le même barème vaut pour tous ;
+\item le taux marginal monte en ligne droite entre quelques seuils, jusqu'à 50~\% ;
+\item la recette est toujours de 220~Md€.
+\end{itemize}
 
-\textbf{La perte sèche} est le revenu que les contribuables cessent de gagner ou de déclarer à cause de
-l'impôt, net de ce qu'ils y gagnent en temps libre ; elle croît avec le carré du taux marginal (Feldstein,
-1999). Elle porte sur les seuls revenus du travail, avec des élasticités de 0,15 pour la moitié la moins
-aisée à 0,40 pour le 1~\% le plus aisé : environ 18~Md€ par an aujourd'hui, 8 à 31~Md€ selon les
-élasticités.
+\textbf{Le barème neutre.} Parmi ces barèmes, on retient d'abord celui qui s'écarte le moins de ce que chaque
+foyer paie aujourd'hui : 2~\% au premier euro, 14~\% à 20\,000~€, 23~\% à 30\,000~€ et 50~\% à 250\,000~€ par
+adulte (figure~\ref{fig:baremes}).
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Qui paie plus ou moins.} Aucun décile ne voit sa charge moyenne bouger de plus de 600~€
+(tableau~\ref{tab:ircsg_dec}). Il reste qu'un foyer sur quatre paie plus de 500~€ de plus, à cause des niches
+supprimées, de l'imposition individuelle et de l'alignement des retraités, qui paient 7~Md€ de plus.
+\item \emph{Gain d'efficacité.} Le gain est de 4,0~Md€ par an, entre 1,9 et 9,2~Md€ selon les hypothèses.
+\item \emph{D'où il vient.} Pour un peu moins de la moitié (1,8~Md€), de la participation : le taux d'entrée de
+2~\% remplace les 9,7~\% de CSG et de CRDS prélevés dès le premier euro. Pour le reste, du dixième le plus
+aisé : son taux marginal baisse, alors que son impôt moyen monte un peu avec la fin des niches.
+\item \emph{Effet sur la recette.} La moindre optimisation des hauts revenus rapporterait en plus 1,5 à
+4,5~Md€. Ce supplément est trop incertain pour financer quoi que ce soit, et il n'entre pas dans le gain.
+\end{itemize}
 
-\textbf{Les perdants} sont les foyers dont la charge augmente de plus de 500~€ par an. Dans une tranche,
-tous les foyers d'un même type ont ici la même composition de revenus : le décompte sous-estime la
-dispersion réelle et ne vaut que comme ordre de grandeur.
-\end{encadre}
+\textbf{Ce qu'on peut obtenir au mieux.} Le barème simple qui minimise la perte sèche, franchise d'activité
+comprise, gagne 7,8~Md€ (3,8 à 18,2). Il est presque proportionnel : 16~\% jusqu'à 60\,000~€, et le taux de
+50~\% n'est atteint qu'à 2~M€. Le dernier décile y gagne 25~Md€, et la moitié des foyers perdent plus de
+500~€ par an. C'est ce que dirait la seule efficacité, avec des élasticités que personne n'a mesurées pour un
+changement de cette ampleur. Il sert ici d'étalon, non de proposition.
 
-\subsection{Aujourd'hui : trois barèmes empilés}
+\figbloc{ircsg_p02_frontiere}{Gain d'efficacité et nombre de perdants : rendements décroissants}{fig:frontiere}
 
-Pour une personne seule salariée, l'IR, la CSG et la CRDS prélèvent 9,5~\% du salaire brut jusqu'à
-environ 23~000~€, puis le taux marginal saute à 21~\%, 32~\% dès 40~000~€, 40~\% au-delà de 110~000~€
-(figure~\ref{fig:auj}). Pour un couple avec deux enfants, le quotient familial et la décote maintiennent le
-taux marginal à 9,5~\% jusqu'à 60~000~€. Les retraités subissent des sauts sans justification : quand leur
-revenu fiscal franchit un seuil, le nouveau taux de CSG s'applique à toute leur pension, et 1~000~€ de pension
-en plus coûtent 620 à 770~€.
-
-\figbloc{ircsg_v01_aujourdhui}{Taux moyen et taux marginal aujourd'hui, trois foyers types}{fig:auj}
-
-\subsection{Étape 1 : harmoniser sans toucher aux barèmes}
-
-\textbf{La règle.} On garde le barème de l'IR (0, 11, 30, 41 et 45~\% avec les seuils des revenus 2024) et on
-l'applique à chaque adulte, sur l'assiette commune, après une franchise de 6~000~€ par enfant déduite du
-revenu du parent qui gagne le plus. On garde aussi un prélèvement proportionnel sur tout le revenu,
-l'héritier de la CSG et de la CRDS, dont le taux est calé pour obtenir la même recette.
-
-\textbf{Le taux proportionnel tombe à 3,0~\%.} Appliqué à une assiette sans niche, sans abattement de
-10~\%, sans quotient ni décote, le barème de l'IR rapporte à lui seul 179~Md€, plus du double des 80~Md€
-d'aujourd'hui. Il ne reste que 41~Md€ à trouver avec le prélèvement proportionnel, au lieu de 140~Md€ de CSG
-et de CRDS. L'harmonisation à barèmes constants rend donc l'ensemble \emph{beaucoup plus} progressif : son
-effet redistributif dépasse d'un quart celui d'aujourd'hui.
-
-\figgrand{ircsg_x01_harmonisation}{Étape 1 : taux moyen et taux marginal}{fig:ex1}
-
-\textbf{Qui gagne, qui perd.} Les neuf premiers déciles paient moins, surtout les déciles 5 à 7 (790 à
-870~€ de moins par an), parce que le prélèvement proportionnel, qui frappe dès le premier euro, baisse
-fortement. Le dernier décile paie 3~040~€ de plus en moyenne (2,4~points de revenu). Les pensions paient
-8,8~Md€ de plus, les allocations chômage 3~Md€ ; un retraité seul à 17~000~€ de pension, aujourd'hui exonéré,
-paierait 1~110~€. Les couples à un seul revenu paient beaucoup plus : avec deux enfants et 80~000~€, un
-couple gagne 4~130~€ s'il partage ses revenus à 60/40, mais paie 2~590~€ de plus si un seul conjoint les
-gagne, car l'imposition individuelle supprime le quotient conjugal. Au total, 14~\% des foyers perdent plus
-de 500~€ par an.
-
-\textbf{Le défaut : on a supprimé les niches, mais gardé les marches} (figure~\ref{fig:ex1}). Le taux
-marginal d'une personne seule saute de 3~\% à 12~\% vers 13~000~€ brut, puis à 29~\% vers 33~000~€ et à
-40~\% vers 95~000~€. La perte sèche reste celle d'aujourd'hui, 18~Md€.
-
-\subsection{Étape 2 : un barème unique sans marche}
-
-\textbf{La règle.} Le taux marginal monte en ligne droite entre quelques seuils, sans aucune marche, jusqu'à
-50~\% pour les plus hauts revenus. Parmi les barèmes de ce type, on retient celui qui s'écarte le moins de
-ce que chaque foyer paie aujourd'hui, à même recette. Il prélève, par adulte et sur le revenu après
-cotisations, 5~\% au premier euro, 13~\% à 20~000~€, 26~\% à 30~000~€, puis monte doucement jusqu'à 50~\% à
-250~000~€.
-
-\figgrand{ircsg_x02_aplanissement}{Étape 2 : taux moyen et taux marginal}{fig:ex2}
-
-\textbf{Ce qui change.} Les marches disparaissent (figure~\ref{fig:ex2}). Pour une personne seule à
-50~000~€ brut, le taux marginal passe de 32 à 24~\%. L'effet redistributif est le même qu'aujourd'hui et la
-perte sèche baisse d'un quart, à 13~Md€. Les transferts qui restent tiennent à l'harmonisation elle-même :
-les pensions paient 10,9~Md€ de plus (1~430~€ pour un retraité seul à 17~000~€), les déciles 2 à 4 de 90 à
-270~€ de plus, les déciles 5 à 7 de 280 à 430~€ de moins. Les couples à un seul revenu paient encore
-1~540~€ de plus à 80~000~€ avec deux enfants. Les perdants de plus de 500~€ restent 13~\% des foyers.
-
-\textbf{Le défaut : un barème proche d'aujourd'hui garde l'essentiel de son coût}, car ses taux marginaux de
-25 à 35~\% portent sur la masse des revenus du travail, entre 30~000 et 120~000~€.
-
-\subsection{Étape 3 : ce que donne la seule efficacité}
-
-\textbf{La règle.} Parmi les mêmes barèmes, on retient celui qui minimise la perte sèche, à même recette,
-sans aucune autre contrainte. C'est le meilleur des barèmes essayés, pas un optimum : il bute sur les bornes
-de la grille, et sans taux supérieur imposé il tendrait vers un impôt proportionnel.
-
-\textbf{Le résultat est un impôt presque proportionnel} (figure~\ref{fig:ex3}) : 14~\% au premier euro,
-16~\% à 20~000~€, 18~\% à 120~000~€, et 50~\% n'est atteint qu'à 600~000~€ par adulte, la limite des
-barèmes essayés. La perte sèche tombe à 5~Md€ (2 à 9 selon les élasticités), plus de trois fois moins
-qu'aujourd'hui. Le mécanisme est simple : la perte croît avec le carré du taux marginal et les hauts revenus
-réagissent le plus ; on abaisse donc leur taux marginal et on reprend la recette sur tout le monde, en
-particulier sur les pensions, qui ne réagissent pas.
-
-\figgrand{ircsg_x03_perte_seche}{Étape 3 : taux moyen et taux marginal}{fig:ex3}
-
-\textbf{Le défaut : une forte redistribution à l'envers.} Les déciles 2 à 4 paient 610 à 1~310~€ de plus par
-an (6 à 8~points de revenu), le dernier décile 5~380~€ de moins ; 57~\% des foyers perdent plus de 500~€. Un
-salarié seul au SMIC paie 800~€ de plus. Et le gain va surtout aux personnes seules aisées : à 80~000~€ brut,
-une personne seule gagne 7~120~€, un couple avec deux enfants 1~030~€, soit 7,6~points de revenu d'écart.
-
-\textbf{À quel point les gens réagissent-ils vraiment ?} Tout repose sur les élasticités. À court terme, les heures
-de la plupart des salariés bougent peu, en partie parce que les horaires sont fixés par l'employeur, ce qui
-masque une réaction de long terme plus forte (Chetty, Friedman, Olsen et Pistaferri, 2011) ; une année
-blanche d'impôt en Suisse n'a guère changé l'emploi (Martínez, Saez et Siegenthaler, 2021). Les réactions sont nettes chez les hauts revenus et les indépendants, qui changent
-surtout la forme ou la déclaration de leurs revenus (Cabannes, Houdré et Landais, 2014 ; Sicsic, 2022),
-chez les seconds apporteurs et chez les seniors. Entre pays, le lien entre taxation du travail et heures
-disparaît quand on tient compte des dépenses sociales et du droit du travail (Gethin et Saez, 2026). Avec
-les élasticités basses, le gain d'efficacité de l'étape 3 n'est que de 6~Md€ par an ; avec les hautes,
-de 22~Md€.
-
-\subsection{Étape 4 : notre proposition}
-
-On part du barème de l'étape 3 et on corrige ses deux défauts, en acceptant de perdre une partie du gain
-d'efficacité. Le barème est à chaque fois réoptimisé : c'est toujours celui qui minimise la perte sèche
-sous les nouvelles règles.
-
-\textbf{Première correction : une franchise de 8~000~€ par adulte sur les revenus d'activité.} Les
-premiers 8~000~€ de salaire, de bénéfice ou de loyer de chaque adulte ne sont pas imposés ; les pensions et
-les allocations chômage n'en bénéficient pas. Elle fait deux choses. Pour un salarié au SMIC, elle compense
-la hausse du taux d'entrée : il paie ce qu'il paie aujourd'hui. Et elle rend le premier emploi, ou le
-retour à l'emploi d'un conjoint, plus payant, puisque ses premiers euros ne sont pas imposés. Le
-tableau~\ref{tab:franchise} montre le prix de ce choix : chaque millier d'euros de franchise oblige à relever
-les taux et coûte environ 0,5~Md€ de perte sèche. Au-delà de 8~000~€, la hausse des déciles 2 à 4 ne baisse
-plus : le taux d'entrée qu'il faut relever pour financer la franchise reprend ce qu'elle donne.
+\textbf{Les rendements sont décroissants} (figure~\ref{fig:frontiere}).
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item La fusion à répartition inchangée capte la moitié du gain atteignable.
+\item Une franchise sur les revenus d'activité porte cette part à 59~\% avec 4\,000~€ par adulte, à 64~\% avec
+8\,000~€. C'est le seul dispositif qui ajoute du gain, par la marge extensive.
+\item Aller plus loin demande d'aplatir le barème au-dessus de 45\,000~€. Les 30 premiers pour cent du chemin
+vers l'optimum portent la part de 52 à 69~\%, mais le dernier décile passe de +2,5 à $-$6~Md€. Le dernier tiers
+du gain exige de lui rendre 20 à 25~Md€, et fait perdre plus de 500~€ à la moitié des foyers.
+\end{itemize}
+On obtient donc environ deux tiers du gain atteignable sans bouleverser la répartition par décile.
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}
-\caption{Le prix de la franchise sur les revenus d'activité (enfants : franchise de 6~000~€)}\label{tab:franchise}
-\begin{tabular}{@{}lrrrrr@{}}
+\caption{Architectures comparées, à recette égale (220~Md€)}\label{tab:ircsg_arch}
+{%
+\begin{tabular}{@{}lrrrrrrr@{}}
 \toprule
-Franchise par adulte & 0~€ & 4~000~€ & 6~000~€ & \textbf{8~000~€} & 10~000~€ \\
+& Points & Gain d'efficacité & Part du & Perdants & Retraités & Couple, & 10~\% \\
+& pour tous & Md€ par an & gain & $>$ 500~€ & Md€ & 2 enfants & du haut \\
+& & (fourchette) & atteignable & & & € par foyer & Md€ \\
 \midrule
-Perte sèche (Md€ par an) & 5,2 & 7,7 & 8,3 & \textbf{9,3} & 10,1 \\
-Déciles 2 à 4 (€ par foyer et par an) & +610 à +1~310 & +170 à +790 & +130 à +570 & \textbf{+210 à +450} & +290 à +390 \\
-Foyers qui perdent plus de 500~€ & 57~\% & 43~\% & 37~\% & \textbf{33~\%} & 32~\% \\
-Salarié seul au SMIC (€ par an) & +800 & +340 & +120 & \textbf{$-$10} & $-$190 \\
-Retraité seul, 17~000~€ (€ par an) & +2~520 & +2~740 & +2~960 & \textbf{+3~250} & +3~540 \\
+Barème neutre & 0,0 & 4,0 (1,9 à 9,2) & 52~\% & 25~\% & +7,0 & +570 & +2,5 \\
+\multicolumn{8}{@{}l}{\emph{Un dispositif ajouté au barème neutre}} \\
+\quad Franchise d'activité 4~000~€ & +1,8 & 4,6 (2,1 à 10,2) & 59~\% & 30~\% & +14,0 & +217 & +3,6 \\
+\quad Franchise d'activité 8~000~€ & +3,6 & 5,0 (2,2 à 11,0) & 64~\% & 33~\% & +21,4 & $-$172 & +4,7 \\
+\quad Franchise de 8~000~€ sur tous les revenus & +5,8 & 3,3 (1,4 à 7,4) & 43~\% & 21~\% & +5,4 & +775 & +9,6 \\
+\quad Franchise de 6~000~€ par enfant & +1,5 & 3,6 (1,7 à 8,4) & 47~\% & 27~\% & +13,0 & $-$983 & +0,6 \\
+\quad Chèque de 742~€ par enfant & +0,9 & 3,1 (1,5 à 7,3) & 40~\% & 26~\% & +10,7 & $-$361 & +3,1 \\
+\quad Quotient conjugal et familial & +2,0 & 3,9 (1,9 à 9,0) & 50~\% & 28~\% & +12,1 & $-$965 & $-$3,0 \\
+\quad Abattement de 10~\% sur les pensions & +0,6 & 3,4 (1,6 à 8,0) & 44~\% & 24~\% & +0,9 & +923 & +2,7 \\
+\quad Petites pensions exonérées & +0,4 & 3,7 (1,7 à 8,5) & 47~\% & 16~\% & +3,2 & +786 & +4,0 \\
+\midrule
+\textbf{Proposition}, franchise d'activité 4~000~€ & --- & 4,9 (2,3 à 11,1) & 63~\% & 29~\% & +15,2 & $-$1\,195 & $-$1,7 \\
+Proposition, franchise d'activité 8~000~€ & --- & 5,2 (2,4 à 11,8) & 67~\% & 26~\% & +22,8 & $-$1\,629 & $-$1,5 \\
+\midrule
+Optimum d'efficacité, sans franchise & --- & 7,4 (3,7 à 17,4) & 95~\% & 58~\% & +13,7 & $-$519 & $-$25,7 \\
+Gain atteignable (optimum, franchise 4~000~€) & --- & 7,8 (3,8 à 18,2) & 100~\% & 49~\% & +20,3 & $-$869 & $-$25,1 \\
 \bottomrule
-\end{tabular}
-\end{table}
-
-\textbf{Seconde correction : la famille.} La première correction rapproche déjà familles et personnes
-seules, parce qu'elle oblige à relever les taux du milieu du barème, dont profitaient surtout les personnes
-seules aisées. Reste à choisir comment l'impôt tient compte des enfants. Des quatre traitements comparés à la
-section suivante, la franchise de 6~000~€ par enfant, déjà utilisée aux étapes 1 à 3, est celle qui
-rapproche le plus les familles des personnes seules : à 80~000~€ brut, la personne seule gagne 4~410~€, le
-couple avec deux enfants 1~630~€, soit 3,5~points de revenu d'écart, contre 7,6 à l'étape 3 et 7,5 sans aucune
-aide familiale dans l'impôt.
-
-\textbf{Le barème proposé} prélève, par adulte et sur le revenu après cotisations et franchise, 17~\% au
-premier euro, 22~\% à 20~000~€, 24~\% à 45~000~€, puis monte en ligne droite jusqu'à 50~\% à 600~000~€
-(figure~\ref{fig:prop}). La perte sèche est de 9~Md€ (4 à 16 selon les élasticités), deux fois moins
-qu'aujourd'hui. Ce gain doit être lu avec deux réserves. Il vient pour l'essentiel (plus de 90~\%) du
-dixième le plus aisé, dont l'élasticité mesure surtout des changements de forme ou de calendrier des revenus,
-et pour partie des passages vers l'impôt sur les sociétés ou le prélèvement forfaitaire : une partie du gain
-est un déplacement entre impôts plutôt qu'un surcroît d'activité. Et le calcul ne retient que l'IR et la CSG
-dans le coin fiscal ; avec les cotisations non contributives et la prime d'activité, les pertes seraient plus
-élevées à tous les niveaux et l'ordre des barèmes pourrait changer. Un tiers des foyers perdent plus de 500~€, contre 57~\% à l'étape 3.
-
-\figgrand{ircsg_x04_proposition}{La proposition : taux moyen et taux marginal}{fig:prop}
-
-\textbf{Qui finance.} Par type de revenu, les salaires paient 13,3~Md€ de moins, les revenus des
-indépendants et les loyers 2,6~Md€ de moins ; les pensions paient 13,0~Md€ de plus, les allocations chômage
-3,0~Md€. La fin des niches élargit l'assiette, mais c'est l'imposition des retraités au même barème que les actifs, quel
-que soit leur revenu, qui finance l'essentiel de la baisse sur le travail. Un retraité seul à 17~000~€ de
-pension, qui ne paie rien aujourd'hui, paierait 3~250~€ ; à 30~000~€, 2~830~€ de plus. Comme la franchise ne
-porte que sur les revenus d'activité, un retraité modeste paie même nettement plus qu'un salarié de même
-revenu brut : à 17~000~€, 3~250~€ contre 1~270~€ ; à 30~000~€, 6~140~€ contre 3~600~€. C'est un choix : la
-franchise récompense l'activité, pas le revenu ; dans le modèle, elle couvre aussi les loyers, qu'il serait
-plus cohérent d'en exclure. Une limite s'impose en bas : à 10~000~€ de pension, l'impôt serait de 1~800~€, et
-les titulaires du minimum vieillesse (12~523~€ par an) tomberaient sous ce minimum. Il faut exonérer les
-pensions jusqu'à ce niveau, ce que le modèle ne fait pas.
-
-\textbf{Les très hauts revenus.} Leurs revenus du capital restent au prélèvement forfaitaire, majoration
-de 3 puis 4~points comprise (note PFU) ; seule change l'imposition de leurs revenus du barème. Le résultat
-dépend de la part de leurs revenus qui relève du prélèvement forfaitaire, que la DGFiP ne publie pas par
-tranche. Dans la convention centrale du modèle, les 3~800 foyers déclarant plus de 3~M€ paieraient 3 à
-6~points de revenu de plus ; mais cette convention prête à leurs revenus du barème un IR actuel d'environ
-23~\%, bien en dessous de leur taux marginal de 49~\%, ce qui gonfle la hausse. Si l'on suppose plutôt que le
-capital se concentre en haut, ce que suggère la concentration des dividendes, les foyers de 250\,000~€ à
-9~M€ paient 2 à 6,5~points de moins, le taux marginal supérieur passant de 55 à 50~\%, et les 700 foyers
-au-delà autant qu'aujourd'hui ; le barème doit alors être un peu plus haut (25,4~\% au lieu de 24,2~\% à
-45\,000~€), le reste bougeant peu (perte sèche de 9,0~Md€, 34~\% de perdants). Caler cette part sur les
-données d'impôt par tranche est la prochaine étape du modèle.
-
-\subsection{La famille : quatre façons de faire}\label{sec:famille}
-
-Aujourd'hui, le quotient familial des enfants réduit l'IR d'environ 14~Md€ : 13,9~Md€ dans notre modèle
-pour les revenus 2024, dont 9,7 pour les couples et 4,2 pour les parents isolés. L'Insee trouvait 13,3~Md€
-pour les familles avec enfants en 2017, sur 16,6~Md€ pour l'ensemble des demi-parts familiales (André et
-Sireyjol, 2021). Le tableau~\ref{tab:famille} compare quatre traitements, avec la même franchise
-d'activité de 8~000~€ et un barème à chaque fois réoptimisé.
-
-\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
-\caption{Quatre traitements de la famille dans l'impôt fusionné (franchise d'activité de 8~000~€)}\label{tab:famille}
-\begin{tabular}{@{}lrrrr@{}}
-\toprule
-& Rien & \textbf{Franchise} & Chèque & Quotient \\
-\midrule
-Aide aux familles dans l'impôt (Md€ ; aujourd'hui 13,9) & 0 & \textbf{20,6} & 13,9 & 3,6 \\
-Perte sèche (Md€ par an) & 7,8 & \textbf{9,3} & 8,2 & 8,1 \\
-Foyers qui perdent plus de 500~€ & 33~\% & \textbf{33~\%} & 36~\% & 31~\% \\
-\midrule
-\multicolumn{5}{@{}l}{\emph{Variation moyenne par foyer et par an}} \\
-Personnes seules sans enfant & $-$200~€ & \textbf{+130~€} & +50~€ & $-$90~€ \\
-Parents isolés & +1~030~€ & \textbf{+340~€} & +510~€ & +900~€ \\
-Couples sans enfant & $-$500~€ & \textbf{+360~€} & +20~€ & $-$450~€ \\
-Couples avec deux enfants & +530~€ & \textbf{$-$970~€} & $-$500~€ & +190~€ \\
-\midrule
-\multicolumn{5}{@{}l}{\emph{Foyers types, 80~000~€ brut}} \\
-Personne seule & $-$5~910~€ & \textbf{$-$4~410~€} & $-$5~020~€ & $-$4~970~€ \\
-Couple, deux enfants, 60/40 & +70~€ & \textbf{$-$1~630~€} & $-$520~€ & $-$240~€ \\
-Couple, deux enfants, un seul revenu & +2~560~€ & \textbf{+1~080~€} & +1~900~€ & +1~300~€ \\
-\bottomrule
-\end{tabular}
+\end{tabular}}
 \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}
-Rien : aucune aide familiale dans l'impôt. Franchise : 6~000~€ par enfant déduits du revenu du parent qui
-gagne le plus. Chèque : le coût actuel du quotient familial des enfants reversé en un montant égal par
-enfant (772~€ par an), versé même sans impôt. Quotient familial : quotient conjugal et familial appliqués à
-l'impôt fusionné, plafond de 1~791~€ par demi-part comme aujourd'hui. Aide aux familles : ce que les foyers
-avec enfants paieraient de plus s'ils n'en avaient pas.}
+Gain d'efficacité : baisse de la perte sèche sur l'activité réelle par rapport à aujourd'hui, hypothèses centrales (basses et hautes entre parenthèses) ; la réaction du revenu déclaré n'y est pas comptée. Points pour tous : hausse des taux du barème neutre qui finance le dispositif. Proposition : franchise d'activité, 6~000~€ par enfant, pensions exonérées jusqu'à 12~500~€ puis de moins en moins jusqu'à 25~000~€ ; barème le plus efficace parmi ceux qui ne changent la charge moyenne d'aucun décile de plus de 500~€ et n'alourdissent pas celle du 1~\% le plus aisé. Retraités, couples, 10~\% du haut : variation de leur impôt (positif : ils paient plus).}
 \end{table}
 
-\textbf{Rien dans l'impôt.} C'est alors aux prestations de prendre le relais. Les familles perdent : 530~€ en moyenne
-pour un couple avec deux enfants, 1~030~€ pour un parent isolé, et l'écart avec les personnes seules
-atteint 7,5~points de revenu à 80~000~€. C'est la variante la moins coûteuse en efficacité, parce qu'elle
-n'a rien à financer.
 
-\textbf{Un chèque égal par enfant.} Reverser le coût actuel du quotient familial donne 772~€ par enfant et
-par an. Il faut pour cela que l'impôt rapporte 13,9~Md€ de plus avant chèques, 234~Md€ au lieu de 220. Les
-personnes seules sans enfant paient-elles plus ? Par rapport à aujourd'hui, à peine : 50~€ par foyer en
-moyenne, puisqu'elles finançaient déjà le quotient. Par rapport à une fusion sans aide familiale, oui :
-250~€ de plus. Le chèque donne autant à chaque enfant, quel que soit le revenu des parents : les familles
-aisées y gagnent moins qu'avec le quotient d'aujourd'hui, d'où un gain moyen limité pour les couples avec
-enfants (500~€).
+\textbf{Chaque dispositif a un prix} (tableau~\ref{tab:ircsg_arch}). Les dispositifs qui ne touchent pas à
+l'activité, aide aux enfants ou ménagement des pensions, se financent par des taux un peu plus élevés pour
+tous. Chacun réduit le gain de 0,1 à 0,9~Md€. Quatre arbitrages ressortent.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Activité ou tous les revenus.} Une même franchise de 8\,000~€ étendue à tous les revenus coûte
+deux points de plus et fait perdre un tiers du gain. Elle donne aux retraités ce que la franchise d'activité
+réserve aux actifs, sans aucun effet sur l'emploi.
+\item \emph{Ce que couvre la franchise d'activité.} Le modèle ne distingue pas, dans les revenus d'activité,
+les salaires des loyers et des bénéfices. Il ne peut donc pas chiffrer une franchise réservée aux salaires.
+Une franchise sur les loyers ne rend pourtant aucun travail plus payant.
+\item \emph{Pensions.} Garder l'abattement de 10~\% ramène la hausse des retraités de 7 à 1~Md€, pour
+0,6~point de taux pour tous. Exonérer les petites pensions la ramène à 3~Md€, pour 0,4~point.
+\item \emph{Enfants.} Une franchise de 6\,000~€ par enfant est l'option la plus favorable aux familles :
+1\,000~€ de moins en moyenne pour un couple avec deux enfants. Le chèque de 742~€ par enfant, qui reverse à
+parts égales le coût actuel du quotient, l'est moins (360~€). Le quotient conjugal et familial profite surtout
+aux couples aisés : le dixième le plus aisé y gagne 3~Md€.
+\end{itemize}
 
-\textbf{Le quotient familial sur l'impôt fusionné.} Le quotient ne vaut que par la progressivité : il
-divise le revenu pour le faire passer sous des taux plus bas. Or le barème fusionné est presque
-proportionnel entre 20~000 et 100~000~€ : appliqué à lui, le quotient ne vaut plus que 3,6~Md€ pour les
-enfants, et les couples avec deux enfants paient 190~€ de plus en moyenne. Le quotient conjugal, lui, profite
-surtout aux couples sans enfant (450~€ de moins).
+\subsection{Ce que nous proposons}
 
-\textbf{La franchise par enfant, retenue,} est la plus favorable aux familles : elle vaut de 1~300 à
-1~550~€ par enfant et par an selon le revenu du parent, plus que le quotient d'aujourd'hui pour les familles
-modestes et moyennes, et davantage aussi au-delà d'environ 170\,000~€ de revenu, car sa valeur suit le taux
-marginal alors que le quotient est plafonné à 1~791~€. Les familles de trois enfants, que le quotient
-favorise aujourd'hui, ne sont pas modélisées. Au total, 20,6~Md€ au lieu de 13,9 (16,2 en comptant les
-réductions pour frais de garde et de scolarité, supprimées avec les niches), financés par des taux un peu plus élevés pour tous, d'où une perte sèche
-plus forte de 1,1 à 1,5~Md€ que dans les autres variantes. C'est le prix de la seconde correction.
+\figbloc{ircsg_p01_baremes}{Taux moyen et taux marginal : aujourd'hui, barème neutre et proposition}{fig:baremes}
 
-\subsection{Qui perd, qui gagne, à chaque étape}
+\textbf{La proposition} retient les trois dispositifs que la note défend, et fixe la répartition avant de
+choisir le barème.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Les dispositifs.} Une franchise de 4\,000~€ par adulte sur les revenus d'activité, pour l'emploi.
+Une franchise de 6\,000~€ par enfant, déduite du revenu du parent qui gagne le plus, pour les familles.
+L'exonération des pensions jusqu'à 12\,500~€, à peu près le minimum vieillesse, puis de moins en moins
+jusqu'à 25\,000~€, pour que le minimum vieillesse ne soit pas imposé.
+\item \emph{La contrainte de répartition.} La charge moyenne d'aucun décile ne doit bouger de plus de 500~€, et
+celle du 1~\% le plus aisé ne doit pas monter.
+\item \emph{Le barème.} Parmi ceux qui respectent la contrainte, on prend le plus efficace : 14~\% jusqu'à
+20\,000~€ imposés, puis une montée en ligne droite jusqu'à 30~\% à 45\,000~€, puis une montée lente jusqu'à
+50~\% à 1~M€.
+\end{itemize}
+Le gain d'efficacité est de 4,9~Md€ par an (2,3 à 11,1), soit 63~\% du gain atteignable ; 29~\% des foyers
+perdent plus de 500~€.
 
-\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}
-\caption{Les étapes en chiffres}\label{tab:synth}
-\begin{tabular}{@{}lrrrrr@{}}
+\textbf{Qui paie.} Les actifs paient 15~Md€ de moins, les retraités 15~Md€ de plus. Le tableau~\ref{tab:ircsg_dec}
+donne la variation par décile.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Familles.} Un couple avec deux enfants paie 1\,200~€ de moins en moyenne (1\,360~€ à 50\,000~€ de
+revenu), un parent isolé 230~€ de moins.
+\item \emph{Salariés.} Un salarié au Smic paie à peu près ce qu'il paie aujourd'hui (+60~€) ; une personne
+seule active, 320~€ de moins en moyenne.
+\item \emph{Retraités.} Un retraité seul paie 600~€ de plus en moyenne, un couple de retraités 2\,300~€. Un
+retraité seul à 17\,000~€ de pension, aujourd'hui exonéré, paierait 1\,260~€.
+\end{itemize}
+Entre 12\,500 et 25\,000~€ de pension, la sortie de l'exonération fait monter le taux marginal à 28~\%. C'est
+sans effet sur l'activité, mais visible ; une sortie plus lente l'adoucirait, au prix d'un peu plus de taux pour
+tous.
+
+Avec une franchise de 8\,000~€, le gain monte à 5,2~Md€ (67~\%). Les retraités paient alors 23~Md€ de plus, et un
+couple de retraités 3\,200~€. C'est l'arbitrage central de la réforme : l'emploi et les familles se financent
+pour l'essentiel sur les pensions.
+
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\caption{Variation de l'impôt par décile de revenu fiscal (€ par foyer et par an)}\label{tab:ircsg_dec}
+{%
+\begin{tabular}{@{}lrrrrrrrrrrr@{}}
 \toprule
-& Aujourd'hui & Étape 1 & Étape 2 & Étape 3 & \textbf{Proposition} \\
+& D1 & D2 & D3 & D4 & D5 & D6 & D7 & D8 & D9 & D10 & 1~\% du haut (Md€) \\
 \midrule
-Taux marginal, seul à 50~000~€ brut & 31,9~\% & 29,6~\% & 24,4~\% & 14,8~\% & \textbf{21,1~\%} \\
-Perte sèche (Md€ par an) & 18 & 18 & 13 & 5 & \textbf{9} \\
-Effet redistributif (aujourd'hui = 100) & 100 & 126 & 97 & 21 & \textbf{75} \\
-\midrule
-Foyers qui perdent plus de 500~€ & --- & 14~\% & 13~\% & 57~\% & \textbf{33~\%} \\
-Foyers qui perdent plus de 1~000~€ & --- & 11~\% & 8~\% & 32~\% & \textbf{11~\%} \\
-Foyers qui gagnent plus de 500~€ & --- & 38~\% & 21~\% & 17~\% & \textbf{16~\%} \\
-\midrule
-Déciles 2 à 4 (€ par foyer) & --- & $-$80 à $-$150 & +90 à +270 & +610 à +1~310 & \textbf{+210 à +450} \\
-Dernier décile (€ par foyer) & --- & +3~040 & +760 & $-$5~380 & \textbf{$-$1~440} \\
-Pensions (Md€) & --- & +8,8 & +10,9 & +16,7 & \textbf{+13,0} \\
-Retraité seul, 17~000~€ & --- & +1~110~€ & +1~430~€ & +2~520~€ & \textbf{+3~250~€} \\
-Salarié seul au SMIC & --- & $-$650~€ & $-$370~€ & +800~€ & \textbf{$-$10~€} \\
-Personne seule, 80~000~€ & --- & $-$1~910~€ & $-$3~390~€ & $-$7~120~€ & \textbf{$-$4~410~€} \\
-Couple, 2 enfants, 80~000~€, 60/40 & --- & $-$4~130~€ & $-$2~880~€ & $-$1~030~€ & \textbf{$-$1~630~€} \\
-Couple, 2 enfants, 80~000~€, un revenu & --- & +2~590~€ & +1~540~€ & $-$690~€ & \textbf{+1~080~€} \\
+Barème neutre & $-$34 & $-$13 & +164 & +121 & $-$370 & $-$235 & $-$333 & +111 & $-$1 & +578 & +0,3 \\
+Proposition (franchise 4~000~€) & $-$82 & $-$122 & +251 & +461 & $-$26 & +19 & $-$239 & +228 & $-$68 & $-$411 & $-$2,7 \\
+Proposition (franchise 8~000~€) & $-$82 & $-$275 & +70 & +306 & $-$114 & +4 & $-$147 & +492 & +107 & $-$346 & $-$2,5 \\
+Optimum d'efficacité & +179 & +698 & +1\,327 & +1\,401 & +924 & +902 & +591 & +544 & $-$374 & $-$6\,050 & $-$13,0 \\
 \bottomrule
-\end{tabular}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre} Foyers types sans niche (OpenFisca) ;
-déciles, pensions et perdants : foyers réels, niches comprises dans la charge actuelle. Les foyers types
-paient souvent plus aujourd'hui qu'un foyer réel de même revenu, d'où des gains plus élevés que dans les
-moyennes par décile.}
+\end{tabular}}
 \end{table}
 
-\subsection{Comment passer d'un système à l'autre}
 
-La collecte ne change presque pas. Les employeurs, les caisses de retraite et France Travail prélèvent déjà à
-la source l'IR et la CSG sur les mêmes revenus ; ils appliqueraient un seul taux au lieu de deux. Le taux
-individualisé dans les couples est même devenu la règle par défaut du prélèvement à la source depuis le
-1\textsuperscript{er}~septembre~2025 (loi de finances pour 2024, art.~19) : l'impôt individuel n'y ajoute
-qu'un calcul de franchise par adulte.
+\textbf{Les très hauts revenus.} Pour les 3\,800 foyers qui déclarent plus de 3~M€, le résultat dépend d'une
+donnée que la DGFiP ne publie pas : la part de leurs revenus imposée au prélèvement forfaitaire.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Si leurs revenus du barème paient aujourd'hui ce que dit le barème légal}, 44 à 49~\% : la
+proposition baisse leur impôt de 6 à 13~points de ce revenu. Seuls les 700 foyers au-delà de 9~M€ paient
+1~point de plus.
+\item \emph{Dans la convention centrale du modèle}, qui leur prête un taux actuel de 32 à 37~\%, difficile à
+concilier avec le barème : ils paieraient 2 à 16~points de plus.
+\end{itemize}
+Dans les deux cas, la comparaison omet la CEHR, qui disparaîtrait sur les revenus du barème et leur retirerait
+3 à 4~points. Leurs revenus du capital restent au prélèvement forfaitaire, majoration comprise
+(section~\ref{sec:pfu}). Caler cette part sur les données de la DGFiP par tranche est le premier travail à faire
+avant de chiffrer définitivement.
 
-Le vrai sujet est le rythme : un retraité à 17~000~€ de pension absorberait difficilement 3~250~€ en une
-année.
-Une convergence linéaire sur quatre ans, où chaque paramètre (abattements, taux de CSG, barème) parcourt
-chaque année un quart du chemin, limite la hausse annuelle à environ 800~€ pour ce retraité, sans changer
-la cible. Comme les gagnants et les perdants avancent au même rythme, la recette reste à peu près
-constante chaque année.
+\textbf{La transition.} La collecte ne change presque pas : employeurs, caisses de retraite et France Travail
+prélèvent déjà à la source l'IR et la CSG sur les mêmes revenus. Le taux individualisé est la règle par défaut
+du prélèvement à la source depuis le 1\textsuperscript{er}~septembre~2025 (loi de finances pour 2024,
+art.~19). Une convergence linéaire sur quatre ans limiterait la hausse annuelle du retraité à 17\,000~€ à
+environ 320~€ ; comme gagnants et perdants avancent au même rythme, la recette reste à peu près constante
+chaque année.
 
 \textbf{Le risque constitutionnel.} Le Conseil constitutionnel a censuré en 2000 une réduction de CSG qui
-ignorait les autres revenus du foyer et les charges de famille (décision 2000-437 DC), et en 2012 une
-contribution assise sur chaque personne sans tenir compte du foyer (2012-662 DC). Un impôt individuel avec
-une franchise réservée aux revenus d'activité réunit ces deux traits. La proposition s'en distingue parce
-qu'elle remplace l'impôt de foyer au lieu de s'y ajouter et qu'elle tient compte des enfants, mais
-l'argument reste à construire ; la variante « quotient », qui rétablit l'imposition commune des couples, est
-la solution de repli (perte sèche de 8,1~Md€).
+ignorait les autres revenus du foyer et les charges de famille (décision 2000-437~DC), et en 2012 une
+contribution assise sur chaque personne sans tenir compte du foyer (2012-662~DC). Un impôt individuel avec une
+franchise réservée aux revenus d'activité réunit ces deux traits. La proposition s'en distingue parce qu'elle
+remplace l'impôt de foyer au lieu de s'y ajouter et qu'elle tient compte des enfants. L'argument reste à
+construire. La variante « quotient », qui rétablit l'imposition commune des couples, est la solution de repli :
+elle coûte peu en efficacité (3,9~Md€ de gain au lieu de 4,0 pour le barème neutre).
 
 
 \section{Immobilier : moins taxer les ventes, mieux taxer le sol}\label{sec:foncier}
@@ -845,10 +705,11 @@ n°~3056, 2026).
 
 \textbf{Le taux.} Un PFU à 25~\% coûterait au plus 5,1~Md€ à comportements inchangés (un majorant, à cause des
 foyers qui optent pour le barème) et 3,2 à 3,9~Md€ après réaction. Le gain irait d'abord au centile le plus
-aisé (44~\% du gain du PFU en 2018 selon le Gouvernement). Sa perte sèche dépend de la part de la réaction qui
-échappe définitivement à l'impôt plutôt que d'être différée : si elle est nulle, la baisse coûte le prix de
-3,7~Md€ à lever ailleurs, environ +1,4~Md€ de perte sèche ; si toute la réaction échappait à l'impôt, elle
-serait à peu près neutre. Une hausse rapporterait peu : 1,2~Md€ nets pour 3~points selon le CAE.
+aisé (44~\% du gain du PFU en 2018 selon le Gouvernement). Aucune réaction réelle n'a été mesurée après 2018,
+ni sur l'investissement ni sur les salaires (France Stratégie, 2023) : la baisse ne rapporterait donc rien en
+activité, et coûterait le prix des 3,7~Md€ à lever ailleurs, environ +0,3~Md€ de perte sèche (0,15 à 0,6).
+La réaction des dividendes est une affaire de recette, pas d'efficacité : si une partie était une évasion
+définitive que la baisse ferait cesser, la recette perdue serait moindre, sans gain d'activité. Une hausse rapporterait peu : 1,2~Md€ nets pour 3~points selon le CAE.
 
 \textbf{Le report de l'apport-cession.} Un entrepreneur qui apporte ses titres à une holding avant de les
 vendre place sa plus-value en report : elle n'est imposée que si la holding vend sans réinvestir au moins
@@ -884,23 +745,76 @@ de 2013 à 2017.
 
 
 \section{L'ensemble}\label{sec:ensemble}
-% Synthèse PROVISOIRE
-Cette section rassemblera le bilan des quatre réformes une fois la partie sur la fusion recalculée. En l'état,
-pour les trois autres :
+% Bilan d'ensemble (chiffres : sorties/architectures_ircsg.txt, sorties/perte_seche_autres.txt,
+% ../foncier/sorties/simulation.txt, ../is/sorties/simulation_is.txt)
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Bilan provisoire (Md€ par an, régime permanent)}\label{tab:ensemble}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
+\caption{Les quatre réformes, à recette constante (Md€ par an, régime permanent)}\label{tab:ensemble}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Réforme & Recette & Perte sèche & Grandes fortunes \\
+Réforme & Recette & Gain d'efficacité (fourchette) & Qui paie plus \\
 \midrule
-Fusion IR-CSG-CRDS & 0 par construction & en cours de recalcul & dépend de la répartition du capital entre tranches \\
-Immobilier : droits $-$50~\%, deux taux, taux national sur le sol & 0 (transition : hausse temporaire de la taxe actuelle) & environ $-$2 ($-$1 à $-$5) & taxe foncière des biens chers en hausse, droits en baisse à l'achat \\
-IS : déduction immédiate, financée par l'assiette & +0,6 à +1,2 point de taux à rendre une fois la dette de transition (2 à 32) remboursée & $-$0,05 à $-$0,16 (hors fin du taux réduit : 0 à +0,8) & presque rien \\
-PFU maintenu, report d'apport-cession transmis sans effacement & 0 aujourd'hui, recette différée ensuite & environ 0 & pas de hausse à la transmission \\
+Fusion IR-CSG-CRDS : franchise d'activité 4~000~€, 6~000~€ par enfant, petites pensions exonérées & 0 par
+construction ; moindre optimisation : +1,9 à +5,7 & 4,9 (2,3 à 11,1) & retraités (+15~Md€) ; 29~\% des foyers
+plus de 500~€ \\
+Immobilier : droits de mutation $-$50~\%, taxe foncière à deux taux, taux national sur le sol & 0 (transition :
+hausse temporaire de la taxe actuelle) & 1,9 (1,0 à 4,2) & propriétaires de terrains chers (Paris,
+Hauts-de-Seine) \\
+IS : déduction immédiate de l'investissement, financée par l'assiette & 0 en régime permanent ; dette de
+transition de 2 à 32 & 0,1 (0,05 à 0,16), moins 0 à 0,8 si fin du taux réduit & sociétés au taux réduit,
+crédit d'impôt recherche \\
+PFU maintenu, report d'apport-cession & 0 ; recette différée selon le traitement du report & 0 & selon le
+traitement du report \\
+\midrule
+Ensemble & 0 & environ 7 (2,5 à 15,5) & \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\textbf{Le gain total est modeste et robuste} (tableau~\ref{tab:ensemble}). Il est d'environ 7~Md€ par an au
+centre, 0,2~\% du PIB. Il pourrait être trois fois moindre ou deux fois plus grand selon les comportements.
+Dans tous les jeux d'hypothèses, la fusion et la réforme de l'immobilier réduisent la perte sèche, et aucun
+gain ne repose sur une réaction déclarative. Plus des deux tiers du gain viennent de la fusion de l'impôt sur le revenu et de la CSG, un peu plus
+d'un quart du remplacement des droits de mutation. L'IS et le PFU servent surtout à ne pas aggraver les choses :
+ne pas monter des taux que les bénéfices et les dividendes savent fuir, et rendre l'impôt prévisible. Le gain
+de la fusion représente environ deux tiers de ce qu'un barème optimisé sans contrainte obtiendrait. Le dernier
+tiers demanderait de rendre plus de 20~Md€ au dernier décile, sur la foi d'élasticités que personne n'a
+mesurées pour un tel changement.
+
+\textbf{Les grandes fortunes.} Trois profils sont à distinguer.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Le dirigeant salarié.} Son taux marginal passe de 55~\% environ (avec la CEHR) à 50~\%. Le 1~\% le
+plus aisé paie 2,7~Md€ de moins sur ses revenus du barème.
+\item \emph{Le rentier.} Il garde le PFU, majoration comprise. Il paie plus de taxe foncière s'il possède des
+terrains chers, et moins de droits quand il achète.
+\item \emph{L'entrepreneur qui a apporté ses titres à une holding.} Son sort dépend du traitement du report
+d'apport-cession (section~\ref{sec:pfu}). L'expiration à toute transmission alourdirait de 90 à 100~M€ la
+facture de chacun des plus gros apporteurs ; la transmission du report sans effacement n'augmente rien à la
+transmission.
+\end{itemize}
+Une incertitude demeure pour les 3\,800 foyers au-delà de 3~M€ de revenu fiscal : selon la part (non publiée)
+de leurs revenus au PFU, la fusion baisse leur impôt sur le barème ou l'augmente de plusieurs points. Il faut
+la lever avec les données de la DGFiP avant d'arrêter le barème.
+
+\textbf{Les familles} gagnent : 1\,200~€ par an en moyenne pour un couple avec deux enfants, 230~€ pour un
+parent isolé. La franchise de 6\,000~€ par enfant vaut 6\,000~€ fois le taux marginal du parent : 840~€ par
+enfant sous 20\,000~€ de revenu imposé, 1\,800~€ vers 45\,000~€, davantage au-delà, contre 742~€ en moyenne
+pour le quotient familial actuel. Les droits de mutation, payés au moment où une famille achète plus grand,
+sont divisés par deux.
+
+\textbf{Les retraités} sont les principaux contributeurs. La fusion leur fait payer 15~Md€ de plus,
+2\,300~€ par an pour un couple, car elle met fin à leurs taux réduits et à leur abattement. Propriétaires plus
+souvent que la moyenne, ils paient aussi la hausse de taxe foncière, sans profiter de la baisse des droits
+s'ils ne déménagent pas. C'est le prix du gain d'efficacité : les pensions ne réagissent pas à l'impôt, et les
+taxer comme les salaires permet de baisser ce qui pèse sur le travail. Trois leviers atténuent cette charge :
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item l'exonération des petites pensions, retenue ici ;
+\item le maintien de l'abattement de 10~\%, pour 0,6~point de taux pour tous ;
+\item une transition sur quatre ans, et, pour la taxe foncière, le report de paiement des propriétaires âgés.
+\end{itemize}
+
+\textbf{Les dates.} Les chiffres décrivent le droit de 2026. L'IR et la CSG sont mesurés sur les revenus de
+2024, l'IS en euros de 2027, l'immobilier sur les ventes de 2023-2024 et la fiscalité locale de 2024.
 
 
 \vspace{8pt}

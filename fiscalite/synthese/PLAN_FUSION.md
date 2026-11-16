@@ -64,3 +64,21 @@ Arbitrages à faire apparaître :
 Objectifs et contraintes répétés dans chaque introduction ; taux cumulés IS + PFU (notes IS et PFU) ;
 CEHR et majoration (IR-CSG et PFU) ; paragraphes « grandes fortunes » et « familles » de chaque note ;
 « ce qu'on ne fait pas » ; listes de références.
+
+## État (16/11, méthode v2)
+- Demande de l'auteur : ne pas laisser l'optimiseur décider ; coin total ; réel contre déclaratif ; marges
+  intensive et extensive ; écart à l'existant avec trois jeux prudents ; architectures simples ; rendements
+  décroissants. Diagnostic et calibrage : `revue/methode_v2.md`.
+- Modèle : `modele_purs.py` (clés v2 de `evalue`, jeux `V2`) ; `architectures_ircsg.py` (barème neutre, dispositifs,
+  optimum pour mémoire, chemin, proposition sous contrainte de répartition, prix d'un milliard) ;
+  `controle_hauts_purs.py` (très hauts revenus selon la convention du capital) ; `tables_ircsg.py` (tableaux
+  générés) ; `figures_ircsg_purs.py` (ircsg_p01_baremes, ircsg_p02_frontiere).
+- Résultats : gain atteignable 7,8 Md€ (3,8 à 18,2) ; barème neutre 4,0 (52 %) ; proposition (franchise
+  d'activité 4 000 €, 6 000 € par enfant, petites pensions) 4,9 (63 %), retraités +15 Md€ ; ensemble des
+  quatre réformes environ 7 Md€ par an (2,5 à 15,5).
+- `perte_seche_ircsg_purs.py` et ses sorties (méthode v1, référence optimisée) sont gardés pour mémoire ; ils ne
+  sont plus cités dans la note.
+- Note : parties ircsg, introduction et ensemble réécrites ; PFU (prix d'un milliard v2) mis à jour ;
+  21 pages ; docx par aplatissement (`note-reforme-fiscale-plat.tex`) puis `ir_csg/tex2docx.py`.
+- Reste à faire : caler la part du PFU par tranche sur les données DGFiP (très hauts revenus) ; séparer
+  salaires, loyers et bénéfices dans les revenus d'activité (franchise sur les seuls salaires).
