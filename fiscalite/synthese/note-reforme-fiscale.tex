@@ -58,6 +58,20 @@ et dossiers \texttt{ir\_csg/}, \texttt{foncier/}, \texttt{is/}, \texttt{pfu/}. V
 \section{L'ensemble}\label{sec:ensemble}
 \input{parties/ensemble}
 
+\clearpage
+\appendix
+\renewcommand{\thesection}{Annexe \Alph{section}}
+\section{Fusion de l'IR, de la CSG et de la CRDS : calibrage, hypothèses et variantes}\label{ann:ircsg}
+\IfFileExists{parties/annexe_ircsg.tex}{\input{parties/annexe_ircsg}}{}
+\section{Immobilier : calibrage, hypothèses et variantes}\label{ann:foncier}
+\IfFileExists{parties/annexe_foncier.tex}{\input{parties/annexe_foncier}}{}
+\section{Impôt sur les sociétés : calibrage, hypothèses et variantes}\label{ann:is}
+\IfFileExists{parties/annexe_is.tex}{\input{parties/annexe_is}}{}
+\section{Revenus du capital : calibrage, hypothèses et variantes}\label{ann:pfu}
+\IfFileExists{parties/annexe_pfu.tex}{\input{parties/annexe_pfu}}{}
+\section{Méthode commune}\label{ann:methode}
+\IfFileExists{parties/annexe_methode.tex}{\input{parties/annexe_methode}}{}
+
 \input{parties/references}
 
 \end{document}
