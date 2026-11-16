@@ -2,30 +2,32 @@
 % Chiffres : sorties/calculs_foncier.txt et .json (synthese/calculs_foncier.py) ; ../foncier/sorties/simulation.txt
 % (foncier/simulation.py) ; registre : ../revue/hypotheses_foncier.md ; figures : ../foncier/figures_note.py. Base 2025
 % (décision 5 du 17/11/2026) : données 2025 par ../foncier/donnees_2025.py. Figures n04, n05 et n10 venues du corps.
-% Le tableau « base 2024 / base 2025 » de la version du 17/11 (avant coupe) est retiré : chiffres de la base 2024 par
-% BASE_FONCIER=2024 (voir calculs_foncier.py) et dans l'historique git (commit e7232a5).
+% Retirés à la coupe (chiffres inchangés, dans les sorties et dans la version e7232a5) : le tableau « base 2024 / base
+% 2025 » (BASE_FONCIER=2024 redonne la base 2024) et les colonnes N4 du tableau par dixième (foncier/sorties/simulation.txt).
 
 \subsection{Champ, données et calibrage}
 
 \textbf{Champ.} Les 30,5~millions de logements des particuliers de France métropolitaine hors Alsace-Moselle (dont DVF
-ne publie pas les ventes), environ 94~\% de la métropole : parc du recensement de 2022 moins les logements HLM loués,
-résidences secondaires, logements vacants et environ un million de logements d'autres personnes morales compris. L'unité
-de calcul est la cellule « commune × maisons » ou « commune × appartements », dont tous les logements sont supposés
-identiques ; la taxe de chaque commune est répartie entre statuts d'occupation au prorata du nombre de logements
-(figure~\ref{fig:fon_qui}).
+ne publie pas les ventes), environ 94~\% de la métropole : parc du recensement de 2022 moins les HLM loués, y compris
+résidences secondaires, logements vacants et environ un million de logements d'autres personnes morales. Unité de calcul :
+la cellule « commune × type de logement », dont tous les logements sont supposés identiques ; la taxe de la commune est
+répartie entre statuts d'occupation au prorata des logements (figure~\ref{fig:fon_qui}).
 
-\textbf{Base 2025.} Taxe foncière bâtie par commune (REI 2025), ventes de logements anciens (DVF 2025), comptes de
-patrimoine et PIB de 2025 (Insee, comptes de la Nation publiés en 2026), droits et taxe foncière sur les logements (Compte
-du logement 2025), droits de toutes les collectivités (OFGL, comptes de gestion 2025). Restent antérieurs le parc
-(recensement de 2022), le rapport taxe/valeur de chaque commune (2017) et les prix des logements (ventes de 2023-2024).
+\textbf{Données.} De 2025 : taxe foncière bâtie par commune (REI), ventes de logements anciens (DVF), comptes de
+patrimoine et PIB (Insee, publiés en 2026), droits et taxe foncière sur les logements (Compte du logement), droits de
+toutes les collectivités (OFGL). Antérieurs : parc (recensement de 2022), rapport taxe/valeur des communes (2017), prix
+des logements (ventes de 2023-2024, supérieurs de 1,5~\% à ceux de 2025 selon les indices Notaires-Insee : Paris
+$-$2,0~\%, Île-de-France hors Paris $-$3,6~\%, province $-$1,0~\% en 2025). Le passage de la base 2024 à la base 2025 ne
+change pas les conclusions : le taux national reste à 0,12~\%, et la bascule « taxe moins droits » devient favorable dans
+tous les dixièmes. Quatre erreurs relevées par le registre des hypothèses (\texttt{revue/hypotheses\_foncier.md},
+§~5.2) sont corrigées.
 
 \textbf{Valeur.} Prix médian au m² des ventes 2023-2024 de la commune (à défaut, de l'intercommunalité, puis du
 département, sous dix ventes) × surface médiane des logements vendus : 6\,762~Md€, 20~\% de moins que les comptes de
 patrimoine de l'Insee de fin 2025 ramenés au champ (8\,467~Md€). L'écart n'est pas uniforme : le prix moyen des ventes
 dépasse la valeur modélisée de 24~\% dans le dixième de communes le moins cher, de 6 à 10~\% au milieu et de 21~\% dans le
-plus cher. Les recettes sont justes, mais les taux en part de la valeur du modèle sont surestimés d'environ un cinquième ;
-le corps du texte donne donc les taux en valeurs de l'Insee. Les prix de 2025 sont inférieurs de 1,5~\% à ceux de
-2023-2024 (indices Notaires-Insee : Paris $-$2,0~\%, Île-de-France hors Paris $-$3,6~\%, province $-$1,0~\%).
+plus cher. Les recettes sont justes ; les taux en part de la valeur du modèle, surestimés d'environ un cinquième, sont
+donnés dans le corps en valeurs de l'Insee.
 
 \textbf{Part du sol.} Maisons : prix au m² des terrains à bâtir de la commune (à défaut, celui du département ajusté par
 l'écart de prix des maisons, élasticité de 1,54 estimée sur 3\,307~communes) × parcelle médiane plafonnée à 1\,500~m².
@@ -42,18 +44,17 @@ dont la taxe varie de moins de $-$20~\% ou de plus de +30~\% entre 2024 et 2025 
 
 \textbf{Droits de mutation.} 5,81~\% (4,50~\% départemental, 1,20~\% communal, frais d'assiette de 2,37~\% de la part
 départementale) des 212~Md€ de ventes de logements anciens de 2025 (840\,000 ventes, 2,8~\% du parc) : 12,3~Md€, dont 9,5
-départementaux, 2,5 communaux et 0,2 de frais (196~Md€ de ventes et 11,4~Md€ de droits par an en 2023-2024). Rapportés au
-parc, 404~€ par logement et par an, 0,18~\% de la valeur. Le relèvement temporaire de la part départementale à 5~\% n'est
-pas compté : les droits perçus sur les logements en 2025 (13,6~Md€, France entière ; figure~\ref{fig:fon_cycle})
-dépassent de 0,4~Md€ ce qu'aurait donné le taux permanent si le champ en représente la même part qu'en 2023-2024
-(93,9~\%), soit un taux moyen effectif d'environ 6,0~\% (calcul de l'auteur, non vérifié).
+départementaux, 2,5 communaux et 0,2 de frais (196~Md€ de ventes et 11,4~Md€ de droits par an en 2023-2024), soit 404~€
+par logement et par an, 0,18~\% de la valeur du parc. Le relèvement temporaire à 5~\% de la part départementale n'est pas
+compté : les droits perçus sur les logements en 2025 (13,6~Md€, France entière ; figure~\ref{fig:fon_cycle}) dépassent
+de 0,4~Md€ ce qu'aurait donné le taux permanent si le champ en représente la même part qu'en 2023-2024 (93,9~\%), soit un
+taux moyen effectif d'environ 6,0~\% (calcul de l'auteur, non vérifié).
 
-\textbf{Scénarios.} Tous remplacent la moitié des droits sur les logements (6,2~Md€ sans réaction des ventes) par de la
-taxe foncière, à recette constante. Réforme naïve : taxe actuelle relevée de 25,4~\% partout, soit 30,4~Md€ de taxe sur
-les logements des particuliers. « N4 » (proposition de la version précédente) : chaque commune garde sa recette, répartie
-selon deux taux (sol = 4 × bâti), et un taux national de 0,197~\% sur le sol des logements du modèle remplace les droits.
-Proposition : même part communale, droits divisés par deux aussi sur les autres immeubles, taux national sur tous les
-terrains privés ; la taxe des logements des particuliers atteint 28,9~Md€.
+\textbf{Scénarios.} À recette constante, chacun remplace la moitié des droits sur les logements (6,2~Md€ sans réaction
+des ventes). Réforme naïve : taxe actuelle relevée de 25,4~\% partout (30,4~Md€ sur les logements des particuliers).
+Variante « N4 », sol des seuls logements : chaque commune garde sa recette, répartie selon deux taux (sol = 4 × bâti), et un taux
+national de 0,197~\% sur le sol des seuls logements remplace les droits. Proposition : même part communale, droits
+divisés par deux sur tous les immeubles, taux national sur tous les terrains privés (28,9~Md€ sur les logements).
 
 \figbloc{foncier_n04_qui_paie}{Les propriétaires occupants paient un peu plus de la moitié de la taxe foncière des logements des particuliers}{fig:fon_qui}
 
@@ -80,22 +81,18 @@ Ensemble & 7\,032 & 902 & 717 & 6\,656 \\
 \bottomrule
 \end{tabularx}
 \par\vspace{2pt}{\raggedright\scriptsize Source : Insee, comptes nationaux annuels base 2020, tableau 8.200, millésime
-de juin 2026 (\texttt{foncier/donnees/terrains\_secteurs\_2025.csv}), cohérent avec l'Insee Première n° 2135 (novembre
-2026 : 4\,190~Md€ de terrains bâtis pour les ménages au sens large). Ce millésime relève de 5~\% la valeur des terrains
-bâtis de 2024 (7\,044 au lieu de 6\,729~Md€). Le sol est une valeur résiduelle (valeur de marché moins bâti au coût de
-remplacement), sans marge d'incertitude publiée ; les « autres terrains » comprennent des terrains naturels et boisés
-valorisés au prix des terres agricoles et des forêts.\par}
+de juin 2026 (\texttt{foncier/donnees/terrains\_secteurs\_2025.csv}), cohérent avec l'Insee Première n° 2135. Ce
+millésime relève de 5~\% les terrains bâtis de 2024 (7\,044 au lieu de 6\,729~Md€). Le sol est une valeur résiduelle,
+sans marge d'incertitude publiée ; les « autres terrains » incluent des terrains naturels et boisés.\par}
 \end{table}
 
-\textbf{Méthode.} Le taux national lève $R$ = 7,58~Md€ à l'échelle du champ (6,16~Md€ de droits sur les logements, 1,42
-sur les autres immeubles). La part des logements des particuliers, $s = 4\,136/6\,656$, est répartie entre logements au
-prorata de la valeur de leur sol dans le modèle : $sR/3\,126 = 0,151~\%$ des valeurs du modèle. En valeurs de l'Insee, le
-taux vaut $R/(6\,656 \times 0,946) = 0,120~\%$, si le champ représente la même fraction (94,6~\%) des terrains de chaque
-secteur. Les droits sur les autres immeubles (3,13~Md€ en 2025, 3,08~Md€ par an en 2023-2024) sont la différence entre le
-total des collectivités (OFGL) et les logements (Compte du logement), deux sources de périmètres différents ; ils sont
-ramenés au champ et au taux permanent par le rapport entre droits du modèle et droits perçus sur les logements en 2025
-(0,907). Le sol des 4,2~millions de logements HLM loués est estimé à 603~Md€ en valeurs de l'Insee, avec la valeur
-médiane des logements de leur commune (un majorant).
+\textbf{Méthode.} Le taux national lève $R$ = 7,58~Md€ dans le champ (6,16~Md€ de droits sur les logements, 1,42 sur
+les autres immeubles). La part des logements des particuliers, $s = 4\,136/6\,656$, est répartie selon la valeur du sol de
+chaque logement : $sR/3\,126 = 0,151~\%$ des valeurs du modèle, soit $R/(6\,656 \times 0,946) = 0,120~\%$ en valeurs de
+l'Insee si le champ représente la même fraction (94,6~\%) des terrains de chaque secteur. Les droits sur les autres
+immeubles (3,13~Md€ en 2025) sont la différence entre le total des collectivités (OFGL) et les logements (Compte du
+logement), ramenée au champ et au taux permanent (facteur 0,907). Le sol des 4,2~millions de HLM loués vaut au plus
+603~Md€ (valeur médiane des logements de leur commune).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Le taux national selon l'assiette}\label{tab:fon_sens}
@@ -111,56 +108,53 @@ Tous les terrains privés, terres agricoles comprises & 0,106~\% & 0,133~\% & +8
 Tous les terrains privés, droits des seuls logements & 0,098~\% & 0,122~\% & +80~\% & +366~€ & 14,3~\% \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Sans réaction des ventes ; avec une reprise de 6~\% des ventes par point, taux
-et hausses baissent d'environ 18~\%. Paris : variation moyenne de la taxe des logements ; dernier dixième : variation
-moyenne par logement dans le dixième le plus cher. Les terres agricoles toucheraient des exploitants déjà soumis à la
-taxe sur le foncier non bâti.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Variation moyenne de la taxe des logements à Paris et dans le dixième le plus
+cher ; sans réaction des ventes (avec 6~\% de ventes en plus par point, environ 18~\% de moins). Les terres agricoles
+sont déjà soumises à la taxe sur le foncier non bâti.\par}
 \end{table}
 
 \subsection{Résultats complets par dixième de logements}
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Taxe foncière et droits par dixième de logements, selon le prix au m² de leur commune}\label{tab:fon_dec}
-\setlength{\tabcolsep}{3.5pt}
-\begin{tabularx}{\linewidth}{@{}c r *{4}{r} *{3}{r} *{3}{r}@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}c r *{3}{r} *{2}{r} *{2}{r}@{}}
 \toprule
-& Prix & \multicolumn{4}{c}{Taxe / valeur (\%)} & \multicolumn{3}{c}{Variation de taxe (€/an)} & \multicolumn{3}{c}{Taxe moins droits (€/an)} \\
-\cmidrule(lr){3-6}\cmidrule(lr){7-9}\cmidrule(l){10-12}
-Dixième & (€/m²) & auj. & naïve & N4 & prop. & naïve & N4 & proposition & naïve & N4 & prop. \\
+& Prix & \multicolumn{3}{c}{Taxe / valeur (\%)} & \multicolumn{2}{c}{Variation de taxe (€/an)} & \multicolumn{2}{c}{Taxe moins droits (€/an)} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-7}\cmidrule(l){8-9}
+Dixième & (€/m²) & auj. & naïve & prop. & naïve & proposition & naïve & prop. \\
 \midrule
-1 & 1\,035 & 0,54 & 0,67 & 0,55 & 0,55 & +114 & +16 & +10 (+2~\%) & +33 & $-$65 & $-$72 \\
-2 & 1\,404 & 0,49 & 0,61 & 0,52 & 0,51 & +147 & +36 & +25 (+4~\%) & +42 & $-$69 & $-$80 \\
-3 & 1\,693 & 0,49 & 0,61 & 0,53 & 0,52 & +175 & +53 & +38 (+5~\%) & +45 & $-$77 & $-$92 \\
-4 & 2\,000 & 0,46 & 0,58 & 0,53 & 0,51 & +193 & +104 & +81 (+11~\%) & +47 & $-$42 & $-$65 \\
-5 & 2\,356 & 0,43 & 0,54 & 0,51 & 0,49 & +212 & +144 & +113 (+14~\%) & +47 & $-$21 & $-$52 \\
-6 & 2\,737 & 0,41 & 0,52 & 0,50 & 0,48 & +224 & +177 & +137 (+16~\%) & +36 & $-$10 & $-$50 \\
-7 & 3\,176 & 0,39 & 0,49 & 0,49 & 0,47 & +235 & +236 & +185 (+20~\%) & +26 & +26 & $-$25 \\
-8 & 3\,749 & 0,36 & 0,45 & 0,46 & 0,44 & +252 & +295 & +228 (+23~\%) & +20 & +63 & $-$4 \\
-9 & 4\,746 & 0,31 & 0,38 & 0,41 & 0,39 & +256 & +358 & +274 (+27~\%) & $-$38 & +63 & $-$21 \\
-10 & 6\,261 & 0,18 & 0,23 & 0,31 & 0,28 & +212 & +602 & +456 (+55~\%) & $-$258 & +132 & $-$14 \\
+1 & 1\,035 & 0,54 & 0,67 & 0,55 & +114 & +10 (+2~\%) & +33 & $-$72 \\
+2 & 1\,404 & 0,49 & 0,61 & 0,51 & +147 & +25 (+4~\%) & +42 & $-$80 \\
+3 & 1\,693 & 0,49 & 0,61 & 0,52 & +175 & +38 (+5~\%) & +45 & $-$92 \\
+4 & 2\,000 & 0,46 & 0,58 & 0,51 & +193 & +81 (+11~\%) & +47 & $-$65 \\
+5 & 2\,356 & 0,43 & 0,54 & 0,49 & +212 & +113 (+14~\%) & +47 & $-$52 \\
+6 & 2\,737 & 0,41 & 0,52 & 0,48 & +224 & +137 (+16~\%) & +36 & $-$50 \\
+7 & 3\,176 & 0,39 & 0,49 & 0,47 & +235 & +185 (+20~\%) & +26 & $-$25 \\
+8 & 3\,749 & 0,36 & 0,45 & 0,44 & +252 & +228 (+23~\%) & +20 & $-$4 \\
+9 & 4\,746 & 0,31 & 0,38 & 0,39 & +256 & +274 (+27~\%) & $-$38 & $-$21 \\
+10 & 6\,261 & 0,18 & 0,23 & 0,28 & +212 & +456 (+55~\%) & $-$258 & $-$14 \\
 \bottomrule
-\end{tabularx}
+\end{tabular*}
 \par\vspace{2pt}{\raggedright\scriptsize Dixièmes de logements (et non de communes), classés selon le prix médian au m²
 de leur commune. Taxe moins droits : baisse des droits rapportée à l'ensemble des logements de la commune. Sans réaction
 des ventes.\par}
 \end{table}
 
-\textbf{Distribution individuelle (proposition).} Variation de la taxe foncière par logement : $-$9~€ au
-10\textsuperscript{e} centile, +36~€ au 25\textsuperscript{e}, +110~€ à la médiane, +238~€ au 75\textsuperscript{e},
-+422~€ au 90\textsuperscript{e}, +545~€ au 95\textsuperscript{e} et +647~€ au 99\textsuperscript{e} ; 7,2~\% des
-logements dépassent +500~€, 0,9~\% +660~€ et 0,2~\% +1\,000~€ ; 11~\% voient leur taxe baisser (un sur neuf). Avec le taux
-national sur le seul sol des logements, les mêmes centiles valent +4, +51, +141, +301, +529, +709 et +800~€
-(figure~\ref{fig:fon_distrib}). Plus fortes hausses (cellules d'au moins 1\,000~logements) : maisons de Saint-Tropez
-+2\,576~€ (+71~\%), de Megève +1\,927~€, appartements de Saint-Jean-Cap-Ferrat +1\,887~€, maisons de Ramatuelle +1\,799~€,
-de La Clusaz +1\,742~€ et de Cassis +1\,673~€ (+109~\%). Hors Paris, le dixième le plus cher prend 40~\%. Par type, les
-maisons prennent +112~€ et les appartements +212~€ en moyenne, mais +197 et +97~€ si l'on mesure le sol des maisons par
-résidu, comme celui des appartements (coût de reconstruction recalé à 1\,973~€/m²).
+\textbf{Distribution individuelle (proposition).} Variation de la taxe par logement : $-$9~€ au 10\textsuperscript{e}
+centile, +36~€ au 25\textsuperscript{e}, +110~€ à la médiane, +238~€ au 75\textsuperscript{e}, +422~€ au
+90\textsuperscript{e}, +545~€ au 95\textsuperscript{e}, +647~€ au 99\textsuperscript{e} ; 7,2~\% des logements dépassent
++500~€, 0,9~\% +660~€ et 0,2~\% +1\,000~€ ; un sur neuf voit sa taxe baisser (figure~\ref{fig:fon_distrib}). Plus fortes hausses (cellules d'au moins
+1\,000~logements) : maisons de Saint-Tropez +2\,576~€ (+71~\%), de Megève +1\,927~€, appartements de Saint-Jean-Cap-Ferrat
++1\,887~€, maisons de Ramatuelle +1\,799~€, de La Clusaz +1\,742~€ et de Cassis +1\,673~€ (+109~\%). Hors Paris, le
+dixième le plus cher prend 40~\%. Les maisons prennent +112~€ et les appartements +212~€ en moyenne, mais +197 et +97~€
+si l'on mesure le sol des maisons par résidu, comme celui des appartements (coût de reconstruction recalé à
+1\,973~€/m²).
 
-\textbf{Vieillissement de la taxe actuelle.} Appliquer le rapport taxe/valeur de 2017 aux valeurs de 2023-2024, puis la
-croissance de la taxe de 2017 à 2025, compte deux fois la hausse des prix de 2017 à 2023-2024. Une correction à trois
-zones (indices Notaires-Insee : Paris ×1,113, Île-de-France hors Paris ×1,134, province ×1,281) ramène la hausse
-parisienne de +99 à +88~\% et celle du dernier dixième de +55 à +52~\% ; la part des hausses de plus de 300~€ ne change
-pas (19,0~\%). Une correction propre demande les valeurs de 2017 par commune.
+\textbf{Vieillissement de la taxe actuelle.} Appliquer le rapport de 2017 aux valeurs de 2023-2024, puis la croissance de
+la taxe de 2017 à 2025, compte deux fois la hausse des prix. Une correction à trois zones (indices Notaires-Insee : Paris
+×1,113, Île-de-France hors Paris ×1,134, province ×1,281) ramène la hausse parisienne de +99 à +88~\% et celle du dernier
+dixième de +55 à +52~\% ; la part des hausses de plus de 300~€ reste de 19,0~\%. Une correction propre demande les valeurs
+de 2017 par commune.
 
 \figbloc{foncier_n12_variantes}{Toutes les variantes de répartition : les deux taux nationaux inversent la régressivité, la taxe relevée l'aggrave}{fig:fon_var_toutes}
 
@@ -175,29 +169,24 @@ Valeur de marché, taux national unique & $-$72~€ ($-$16~\%) & +1\,247~€ (+1
 Deux taux nationaux, sol = 2 × bâti & $-$149~€ ($-$33~\%) & +1\,559~€ (+187~\%) & 28~\% & 12,5~\% \\
 Deux taux nationaux, sol = 4 × bâti & $-$213~€ ($-$47~\%) & +1\,821~€ (+218~\%) & 29~\% & 13,7~\% \\
 Sol seul, taux national & $-$315~€ ($-$70~\%) & +2\,236~€ (+268~\%) & 29~\% & 16,3~\% \\
-Deux taux par commune (2 × bâti), taux départemental sur le sol & +51~€ (+11~\%) & +463~€ (+55~\%) & 23~\% & 1,2~\% \\
-Deux taux par commune (4 × bâti), taux départemental sur le sol & +45~€ (+10~\%) & +454~€ (+54~\%) & 25~\% & 1,9~\% \\
+Deux taux par commune (4 × bâti), taux départemental & +45~€ (+10~\%) & +454~€ (+54~\%) & 25~\% & 1,9~\% \\
 Deux taux par commune, taux national sur le sol des logements (N4) & +16~€ (+4~\%) & +602~€ (+72~\%) & 25~\% & 5,9~\% \\
-N4 avec reprise des ventes (+6~\% par point) & +11~€ (+2~\%) & +487~€ (+58~\%) & 20~\% & 4,8~\% \\
 Proposition (tous les terrains, tous les immeubles) & +10~€ (+2~\%) & +456~€ (+55~\%) & 19~\% & 4,5~\% \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Variation moyenne de la taxe foncière par logement. Taux nationaux, en part de
-la valeur du modèle : 0,614 et 0,307~\% (sol = 2 × bâti), 0,753 et 0,188~\% (4 ×), 0,972~\% (sol seul). Taux
-départemental : de 0,106~\% (Paris : 0,130~\%) à 0,789~\% (Creuse). Sources : \texttt{foncier/sorties/simulation.txt},
-\texttt{sorties/calculs\_foncier.txt}.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Variation moyenne de la taxe par logement. Taux nationaux (valeurs du modèle) :
+0,614 et 0,307~\% (sol = 2 × bâti), 0,753 et 0,188~\% (4 ×), 0,972~\% (sol seul) ; taux départemental de 0,106~\% (Paris :
+0,130~\%) à 0,789~\% (Creuse). Sources : \texttt{foncier/sorties/simulation.txt}, \texttt{sorties/calculs\_foncier.txt}.\par}
 \end{table}
 
 \figbloc{foncier_n13_distribution}{Le taux national sur tous les terrains réduit les plus fortes hausses d'un cinquième par rapport au taux sur le seul sol des logements}{fig:fon_distrib}
 
 \subsection{Perte sèche}
 
-Deux triangles (méthode : \texttt{revue/methode\_perte\_seche.md}). Sur les ventes, $\sigma V(\tau_1^2-\tau_0^2)/2$, où
-$V$ = 212~Md€ de ventes (2025) et $\sigma$ la baisse des ventes par point de droits. Sur le capital bâti,
-$\varepsilon_K (K/u)(t_1^2-t_0^2)/2$, où $t$ est l'impôt sur le bâti rapporté à sa valeur ($K$ = 3\,636~Md€), $u$ le
-coût d'usage (4,5~\%) et $\varepsilon_K$ l'élasticité du capital logement (1). Le sol n'entre dans aucun triangle. Ces
-pertes sèches sont statiques ; à long terme, que les ventes perdues en 2014 ne semblent pas l'avoir été durablement
-(Bérard et Trannoy, 2018) plaide pour le bas de la fourchette.
+Deux triangles statiques (\texttt{revue/methode\_perte\_seche.md}), le sol n'entrant dans aucun. Ventes :
+$\sigma V(\tau_1^2-\tau_0^2)/2$, avec $V$ = 212~Md€ (2025) et $\sigma$ la baisse des ventes par point de droits. Capital
+bâti : $\varepsilon_K (K/u)(t_1^2-t_0^2)/2$, où $t$ est l'impôt sur le bâti rapporté à sa valeur ($K$ = 3\,636~Md€), $u$
+le coût d'usage (4,5~\%) et $\varepsilon_K$ l'élasticité du capital logement (1).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Perte sèche évitée (Md€ par an ; signe moins = gain)}\label{tab:fon_ps}
@@ -208,7 +197,7 @@ Ventes de logements, baisse de 30~\% / de 100~\% ($\sigma$ = 6) & $-$1,09 / $-$2
 Bâti, proposition (impôt sur le bâti de 14,3 à 7,3~Md€) : $\varepsilon_K$ = 1 / 0,5 ; $u$ = 3,5 / 6~\% & $-$0,46 / $-$0,23 ; $-$0,59 / $-$0,34 \\
 Bâti, rapport sol/bâti de 2 / 4 / sol seul (impôt sur le bâti de 10,7 / 7,3 / 0~Md€) & $-$0,27 / $-$0,46 / $-$0,62 \\
 Bâti, réforme naïve (impôt sur le bâti de 14,3 à 17,9~Md€) & +0,36 \\
-Bâti, en comptant les droits comme un impôt annuel sur la détention (0,18~\%) : proposition / réforme naïve & $-$0,98 / +0,04 \\
+Bâti, droits comptés comme impôt annuel sur la détention (0,18~\%) : proposition / naïve & $-$0,98 / +0,04 \\
 Ventes des autres immeubles ($\sigma$ = 6 transposé, 49~Md€ de ventes ; ordre de grandeur) & $-$0,37 \\
 \midrule
 Total, réforme naïve & $-$1,25 \\
@@ -216,21 +205,19 @@ Total, proposition, logements / avec les autres immeubles & $-$2,06 / $-$2,44 \\
 Variante : coût des logements mal adaptés (Määttänen et Terviö, 2022) à la place du triangle sur les ventes & environ $-$3,8 \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize La variante de Määttänen et Terviö applique aux 30,5~millions de logements le
-gain par ménage de leur modèle d'Helsinki (euros de 2004), interpolé entre 30~€ par an pour un droit de 2~\% et 180~€ pour
-6~\% (109~€ par logement, 3,3~Md€) ; elle remplace le triangle sur les ventes, qui mesure les mêmes échanges manqués.
-Le loyer que se verse un propriétaire occupant n'étant pas imposé, alléger l'impôt sur le bâti peut aussi accroître une
-distorsion existante : le signe du terme bâti n'est pas certain.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Variante de Määttänen et Terviö : gain par ménage de leur modèle d'Helsinki
+(euros de 2004), interpolé entre 30~€ par an pour un droit de 2~\% et 180~€ pour 6~\% (109~€ par logement, 3,3~Md€),
+appliqué aux 30,5~millions de logements ; elle remplace le triangle sur les ventes. Le loyer implicite des propriétaires
+occupants n'étant pas imposé, le signe du terme bâti n'est pas certain.\par}
 \end{table}
 
 \subsection{Capitalisation, report de paiement et transition}
 
-\textbf{Capitalisation.} Un impôt annuel permanent $\Delta$ réduit la valeur d'un bien de $\Delta/r$, avec $r$ le taux
-d'actualisation réel (3~\%, mesuré à 3-4~\% en Angleterre par Koster et Pinchbeck, 2022). Cas symétrique : la valeur
-varie de $-(\Delta T + \Delta D)/r$, où $\Delta D$ est la baisse annuelle moyenne des droits par logement de la commune ;
-cas asymétrique : de $-\Delta T/r$. Une montée linéaire sur $n$ années laisse supporter à l'annonce une part
-$\sum_t \min(t/n, 1)(1+r)^{-t} \big/ \sum_t (1+r)^{-t}$ de la perte : 97~\% sur trois ans, 94~\% sur cinq, 88~\% sur dix,
-77~\% sur vingt.
+\textbf{Capitalisation.} Un impôt annuel permanent $\Delta$ réduit la valeur d'un bien de $\Delta/r$ ($r$ = 3~\% réel,
+mesuré à 3-4~\% en Angleterre par Koster et Pinchbeck, 2022). Cas symétrique : $-(\Delta T + \Delta D)/r$, où $\Delta D$
+est la baisse annuelle moyenne des droits par logement de la commune ; cas asymétrique : $-\Delta T/r$. Une montée
+linéaire sur $n$ années laisse supporter à l'annonce une part $\sum_t \min(t/n, 1)(1+r)^{-t} \big/ \sum_t (1+r)^{-t}$ de
+la perte : 97~\% sur trois ans, 94~\% sur cinq, 88~\% sur dix, 77~\% sur vingt.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Variation de la valeur des logements des particuliers selon l'incidence (r = 3~\%)}\label{tab:fon_cap}
@@ -243,8 +230,8 @@ Proposition, cas asymétrique & $-$157~Md€ ($-$2,3~\%) & 168~Md€ & $-$18\,15
 Réforme naïve, cas asymétrique & $-$205~Md€ ($-$3,0~\%) & 205~Md€ & $-$4\,466~€ ($-$1,1~\%) & --- \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Cas symétrique : la hausse de taxe et la baisse des droits passent toutes deux
-dans les prix ; cas asymétrique : seule la hausse de taxe y passe.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Cas symétrique : hausse de taxe et baisse des droits passent toutes deux dans
+les prix ; cas asymétrique : seule la hausse de taxe.\par}
 \end{table}
 
 \textbf{Report de paiement.} La hausse $\Delta$ reportée chaque année pendant $h$ ans au taux $i$ forme une dette de
@@ -264,11 +251,10 @@ Droits non remplacés (Md€) & 6,1 & 4,5 & 3,0 & 1,5 & 0 \\
 Taxe de l'appartement parisien médian (€, 527 en 2025) & 636 & 745 & 854 & 963 & 1\,072 \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Droits divisés par deux dès l'annonce (année 0, dont les quelques mois avant le
-1\textsuperscript{er}~janvier ne sont pas comptés) ; ventes et taxe foncière de 2025, en euros de 2025. Déficit cumulé :
-15,2~Md€ (12,4 avec la reprise des ventes) ; sur trois ans 7,6 (6,2), sur dix ans 34,1 (27,8). Si la montée ne commence
-qu'après trois années de droits baissés : 30,3 / 37,9 / 56,8~Md€ (montée sur 3, 5 ou 10 ans) ; avec une baisse des droits
-en deux temps (un quart à l'annonce, un quart au démarrage), qui limite ce risque mais recrée l'attente : 18,9 / 26,5 /
+\par\vspace{2pt}{\raggedright\scriptsize Droits divisés par deux dès l'annonce (année 0, non comptée) ; ventes et taxe
+de 2025, euros de 2025. Déficit cumulé : 15,2~Md€ (12,4 avec la reprise des ventes) ; 7,6 (6,2) sur trois ans, 34,1
+(27,8) sur dix. Montée retardée de trois ans : 30,3 / 37,9 / 56,8~Md€ (sur 3, 5 ou 10 ans) ; baisse des droits en deux
+temps (un quart à l'annonce, un quart au démarrage), qui limite ce risque mais recrée l'attente : 18,9 / 26,5 /
 45,5~Md€.\par}
 \end{table}
 
@@ -277,12 +263,11 @@ d'un coup +534~€ (+698~€ avec le taux sur le seul sol des logements). Financ
 taxe actuelle demanderait 31~\% de hausse et porterait la taxe à 0,70~\% de la valeur dans le dixième le moins cher,
 contre 0,24~\% dans le plus cher.
 
-\textbf{Collectivités.} Droits perdus sur les logements (ventes de 2025, taux permanent) : 6,16~Md€, dont 4,77 pour les
-départements, 1,27 pour les communes et 0,11 de frais de l'État ; s'y ajoutent 1,42~Md€ sur les autres immeubles. Reversé
-à chaque département à hauteur de ses pertes, le taux national crée une péréquation : sur la seule part des logements,
-Paris paie 621~M€ et perd 537~M€ (+83~M€), les Hauts-de-Seine +45~M€, la Creuse $-$4~M€ ; sept départements sont
-contributeurs nets, pour 204~M€. Avec le taux sur le seul sol des logements, Paris paierait 811~M€ (+274~M€), les
-Hauts-de-Seine +137~M€, et les transferts atteindraient 869~M€.
+\textbf{Collectivités.} Droits perdus sur les logements : 6,16~Md€ (4,77 pour les départements, 1,27 pour les communes,
+0,11 de frais de l'État), plus 1,42~Md€ sur les autres immeubles. Sur la part des logements, Paris paie 621~M€ de taux
+national et perd 537~M€ de droits (+83~M€), les Hauts-de-Seine +45~M€, la Creuse $-$4~M€ ; sept départements sont
+contributeurs nets, pour 204~M€. Avec le taux sur le seul sol des logements : Paris +274~M€ (811~M€ payés),
+Hauts-de-Seine +137~M€, 869~M€ de transferts.
 
 \subsection{Cas-types complets}
 
@@ -306,86 +291,61 @@ Ussel, maison & 10~\% & 2\,982 & +15 & 15 & +2\,886 / +2\,798 & jamais (13 ans) 
 \bottomrule
 \end{tabularx}
 \par\vspace{2pt}{\raggedright\scriptsize En euros ; taxe de 2025, droits au taux permanent, logement médian aux prix de
-2023-2024. Revend : économie de droits moins la valeur actuelle (3~\%) de la hausse de taxe payée pendant la détention,
-sans effet sur les prix. Économie rattrapée : durée au bout de laquelle la hausse actualisée égale l'économie (« jamais »
-si la hausse perpétuelle actualisée reste inférieure) ; entre parenthèses, la réforme naïve. Part communale : variation
-totale moins part nationale. Une famille nantaise qui passe d'un appartement à une maison de 450\,000~€ paie 13\,050~€ de
-droits au lieu de 26\,100~€.\par}
+2023-2024, sans effet sur les prix. Revend : économie de droits moins la valeur actuelle (3~\%) de la hausse de taxe
+payée pendant la détention. Économie rattrapée : durée au bout de laquelle la hausse actualisée égale l'économie
+(« jamais » si la hausse perpétuelle actualisée reste inférieure) ; entre parenthèses, la réforme naïve. Une famille
+nantaise qui passe d'un appartement à une maison de 450\,000~€ paie 13\,050~€ de droits au lieu de 26\,100~€.\par}
 \end{table}
 
 \figbloc{foncier_n10_primo}{Un ménage qui achète le logement médian gagne 2\,000 à 13\,000~€ de droits ; la hausse de taxe foncière en reprend moins de la moitié en dix ans}{fig:fon_primo}
-
-\subsection{Changements par rapport à la version précédente}
-
-La version précédente reposait sur la taxe foncière de 2024, les ventes de 2023-2024 et les comptes de patrimoine de fin
-2024. En base 2025, les ventes de logements anciens dépassent de 8~\% la moyenne de 2023-2024, la taxe foncière bâtie de
-2,8~\% celle de 2024, et les terrains privés valent 4,9~\% de plus, surtout parce que l'Insee a relevé d'environ 5~\% ses
-valeurs de 2024. Le taux national reste à 0,12~\%, la répartition des hausses ne change presque pas, et la bascule « taxe
-moins droits » devient favorable dans tous les dixièmes ; les conclusions ne changent pas. Quatre chiffres de la version
-précédente étaient faux (registre \texttt{revue/hypotheses\_foncier.md}, §~5.2) : la taxe foncière sur les logements
-de 2024 valait 30,5~Md€, et non 31,6 (chiffre de 2025) ; le sol seul évite 0,6~Md€ de perte sèche sur le bâti, et non
-0,5 ; la péréquation parisienne (« 213~M€ ») supposait un taux national limité à la part départementale des droits ;
-et les « 660~€ » attribués à l'appartement parisien médian étaient le seuil des 5~\% de plus fortes hausses. Les dixièmes
-portent désormais sur le prix au m² des communes et non sur leur richesse ; le coût des logements mal adaptés remplace le
-triangle sur les ventes au lieu de s'y ajouter ; le taux national, qui porte sur tous les terrains privés, monte
-progressivement, et la transition n'est plus financée par la taxe assise sur les valeurs de 1970.
 
 \subsection{Hypothèses fortes et chiffres non vérifiés}
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Hypothèses fortes}\label{tab:fon_hyp}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Hypothèse & Où elle joue & Ce qu'elle change si elle est fausse \\
+Hypothèse & Où elle joue & Si elle est fausse \\
 \midrule
-Dans une commune, taxe actuelle proportionnelle à la valeur de marché & variations individuelles & Gagnants et perdants plus nombreux et plus marqués (écarts entre quartiers : voir le corps) ; non chiffrable sans les fichiers fonciers \\
-Logements d'une cellule commune × type identiques & parts de logements, cas-types & Parts de cellules : ordres de grandeur, pas des nombres d'avis \\
-Valeur = prix médian × surface médiane (20~\% sous l'Insee, biais en U) & taux en part de la valeur & Taux du modèle surestimés d'un cinquième ; recettes justes ; régressivité confirmée après correction (environ 0,43 à 0,15~\%) \\
-Sol des appartements : coût de reconstruction uniforme (1\,464~€/m²) & part nationale, bâti & 9~\% des logements à la borne de 10~\% ; avec 2\,500~€/m² à Paris, hausse parisienne inférieure d'environ 11~\% \\
-Sol des maisons = terrains à bâtir × parcelle médiane & maisons / appartements & Mesuré par résidu, le partage s'inverse : ne rien en conclure \\
-Taxe actuelle vieillie en comptant deux fois la hausse des prix & taxe actuelle par commune & Paris +88~\% au lieu de +99~\% ; dixièmes peu touchés \\
-Calage sur 19,2~Md€ (2017), champ plus étroit que le modèle & hausses en pourcentage & Taxe actuelle peut-être sous-estimée de 7~\% au plus : hausses en pourcentage un peu surestimées \\
-Ventes de 2025 au taux permanent de 5,81~\% & coût, taux national & Au niveau de 2021-2022, la baisse sur les logements coûterait près de 8~Md€ ; au taux temporaire de 6,32~\%, 9~\% de plus \\
-Ventes en hausse de 6~\% par point de baisse (convention) & gain, coût & Sans réaction durable, 0,5~Md€ de gain (bâti) seulement ; gain linéaire en $\sigma$ \\
-Incidence : trois cas polaires & capitalisation & Études contradictoires (acheteur en France en 2014, vendeur en Allemagne ; capitalisation complète ou nulle au Danemark) \\
-Bâti : $\varepsilon_K$ = 1, $u$ = 4,5~\%, construction non bloquée par le droit des sols & gain sur le bâti & De 0,2 à 0,6~Md€ ; plus faible là où le zonage bloque la construction \\
-Valeurs de l'Insee des terrains par secteur, même part de champ par secteur & assiette, taux national & Valeurs résiduelles, révisées de 9~\% (2023) puis de 5~\% (2024) ; terrains d'entreprise surestimés : taux et charge des logements plus élevés (sol bâti seul : 0,13~\%) \\
-Charge sur les entreprises et les terrains nus non localisée & péréquation & Géographie des 2,9~Md€ non résidentiels inconnue : péréquation calculée pour les seuls logements \\
-Droits sur les autres immeubles = différence de deux sources ; même réaction des ventes & coût (1,42~Md€), gain (0,4~Md€) & Montant et gain incertains ; variante limitée aux logements : 0,098~\% \\
-Chaque commune garde sa recette ; locaux professionnels, HLM et taxe d'ordures ménagères hors modèle & part communale & Étendre la base aux locaux professionnels créerait des transferts non simulés \\
-Valeurs provisoires du sol prêtes dès la première année & calendrier, déficit & Trois ans de retard : +23~Md€ de déficit ; validité juridique non expertisée \\
-Actualisation et intérêt du report à 3~\% réels & valeurs actuelles, dette reportée & À 4~\%, la perte actualisée baisse d'un quart \\
-Exonérations actuelles (plus de 75~ans modestes, neuf) non modélisées & retraités, taux national & À décider pour le taux national \\
-Millésimes différents (taxe/valeur 2017, recensement 2022, prix 2023-2024, taxe et ventes 2025) & tout & Prix de 2025 inférieurs de 1,5~\% ; à actualiser pour une réforme en 2028-2030 \\
+Taxe actuelle proportionnelle à la valeur dans chaque commune ; logements d'une cellule identiques & variations individuelles, parts de logements & Gagnants et perdants plus nombreux et plus marqués ; parts = ordres de grandeur, pas des nombres d'avis \\
+Valeur = prix médian × surface médiane (20~\% sous l'Insee) & taux en part de la valeur & Taux surestimés d'un cinquième, recettes justes ; régressivité confirmée après correction (environ 0,43 à 0,15~\%) \\
+Sol des appartements : coût de reconstruction uniforme & part nationale & 9~\% des logements à la borne de 10~\% ; avec 2\,500~€/m² à Paris, hausse parisienne inférieure d'environ 11~\% \\
+Sol des maisons = terrains à bâtir × parcelle médiane & maisons / appartements & Mesuré par résidu, le partage s'inverse \\
+Taxe actuelle : hausse des prix comptée deux fois ; calage sur 19,2~Md€ (2017) & taxe actuelle, hausses en pourcentage & Paris +88~\% au lieu de +99~\% ; taxe peut-être sous-estimée de 7~\% au plus \\
+Ventes de 2025 au taux permanent & coût, taux national & Au niveau de 2021-2022, près de 8~Md€ ; au taux temporaire de 6,32~\%, 9~\% de plus \\
+Ventes en hausse de 6~\% par point de baisse (convention) & gain, coût & Sans réaction durable, 0,5~Md€ de gain (bâti) seulement \\
+Incidence : trois cas polaires & capitalisation & Études contradictoires (voir le corps) \\
+Bâti : $\varepsilon_K$ = 1, $u$ = 4,5~\%, construction non bloquée & gain sur le bâti & De 0,2 à 0,6~Md€ ; moins là où le zonage bloque \\
+Terrains par secteur (Insee), même part de champ ; charge non résidentielle (2,9~Md€) non localisée & assiette, taux, péréquation & Valeurs révisées de 9 puis 5~\% ; terrains d'entreprise surestimés : taux plus élevé (sol bâti seul : 0,13~\%) ; péréquation calculée pour les seuls logements \\
+Droits sur les autres immeubles : différence de deux sources, même réaction des ventes & coût (1,42~Md€), gain (0,4~Md€) & Incertains ; sans eux, taux de 0,098~\% \\
+Recette communale constante ; locaux professionnels, HLM, ordures ménagères et exonérations actuelles hors modèle & part communale, retraités & Transferts non simulés ; exonérations à décider pour le taux national \\
+Valeurs provisoires prêtes dès la première année & déficit & Trois ans de retard : +23~Md€ ; validité juridique non expertisée \\
+Actualisation et intérêt du report à 3~\% réels & valeurs actuelles & À 4~\%, perte actualisée inférieure d'un quart \\
+Millésimes de 2017 à 2025 & tout & À actualiser pour une réforme en 2028-2030 \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Chiffres non vérifiés sur une source primaire}\label{tab:fon_nv}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.4cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 Chiffre & Où il sert & État \\
 \midrule
-Part immobilière des successions : 60~\% (12,7~Md€ en 2025) & inventaire & clé du CPO, aucune ventilation officielle \\
-Taxe foncière hors logements : 11,5~Md€ en 2025 & inventaire & REI moins Compte du logement \\
-Droits sur les autres biens : 3,1~Md€ en 2025 & coût de la baisse & OFGL moins Compte du logement \\
-Frais d'assiette de l'État : 2,37~\% de la part départementale & taux de 5,81~\% & CPO et BOFiP ; article du CGI non relu \\
-Taxe d'ordures ménagères assise sur la base de la taxe foncière & transition & article 1522 du CGI non relu \\
-Plafond de revenu de l'exonération des plus de 75~ans (12\,793~€ pour une part en 2026) & retraités & source secondaire \\
-Quotité moyenne financée de 84,7~\% (apport de 15~\%) & poids des droits dans l'apport & CCSF 2026 d'après la note de lecture \\
-Taxe foncière non récupérable sur le locataire, déductible au régime réel & cas de la bailleuse & décret n°~87-713 et article 31 du CGI non relus \\
-Coût de reconstruction de 1\,464~€/m² & part du sol & calé, jamais comparé à une source publiée \\
-Produit du relèvement temporaire des droits en 2025 : 0,4~Md€ & droits de 2025 & suppose que le champ pèse la même part des droits qu'en 2023-2024 \\
-Plus-values immobilières (2,8~Md€), contribution de sécurité immobilière (0,7~Md€), taxe sur les bureaux d'Île-de-France (1,1~Md€) & inventaire & chiffres de 2024 ; plus-values d'après l'audition de la Cour des comptes (rapport non lu) \\
-Sol des HLM : 603~Md€ & variante d'exonération & estimation du modèle, majorant \\
-Réaction des ventes : 6~\% par point & gain, coût & convention construite sur la littérature \\
-Danemark : base de 80~\% de la valeur depuis 2024, report automatique des hausses & report par défaut & textes officiels lus via des outils de recherche (\texttt{lvt/notes/transitions\_et\_saillance.md}) \\
-Territoire de la capitale australienne : transition ralentie & calendrier & presse et organismes favorables à la réforme \\
-Recours constitutionnels pendants en Allemagne & expériences étrangères & source associative \\
-Karlsruhe : maisons +76~\%, copropriétés $-$20~\% & expériences étrangères & calcul de la ville (présentation du 7/10/2024) \\
-Banzhaf et Lavery : +3~points de croissance décennale du nombre de pièces & problème du bâti & version de travail de 2008 \\
-Recours au report facultatif inférieur à 1~\% aux États-Unis & report par défaut & Baer (1998), cité par Shan (2010) \\
+Part immobilière des successions : 60~\% (12,7~Md€) & inventaire & clé du CPO \\
+Taxe foncière hors logements (11,5~Md€), droits sur les autres biens (3,1~Md€) & inventaire, coût & différences de deux sources \\
+Frais d'assiette (2,37~\% de la part départementale) ; taxe d'ordures ménagères assise sur la base foncière & taux, transition & CGI non relu (article 1522 pour la seconde) \\
+Plafond de l'exonération des plus de 75~ans (12\,793~€ pour une part en 2026) & retraités & source secondaire \\
+Quotité moyenne financée de 84,7~\% ; taxe foncière non récupérable sur le locataire & apport, bailleuse & CCSF 2026 et décret n°~87-713 non relus \\
+Coût de reconstruction de 1\,464~€/m² ; sol des HLM (603~Md€, majorant) & part du sol, variante & estimations du modèle \\
+Relèvement temporaire des droits : 0,4~Md€ en 2025 & droits de 2025 & calcul de l'auteur \\
+Plus-values immobilières (2,8~Md€), contribution de sécurité immobilière (0,7~Md€), taxe sur les bureaux d'Île-de-France (1,1~Md€) & inventaire & chiffres de 2024 ; plus-values d'après une audition de la Cour des comptes \\
+Réaction des ventes : 6~\% par point & gain, coût & convention \\
+Danemark : base de 80~\% de la valeur, report automatique & report & textes lus via des outils de recherche \\
+Capitale australienne : transition ralentie & calendrier & presse, organismes favorables \\
+Allemagne : recours pendants ; Karlsruhe, maisons +76~\%, copropriétés $-$20~\% & expériences étrangères & source associative ; calcul de la ville (7/10/2024) \\
+Banzhaf et Lavery : +3~points de croissance décennale des pièces & bâti & version de travail de 2008 \\
+Report facultatif utilisé par moins de 1~\% des ayants droit aux États-Unis & report & Baer (1998), cité par Shan (2010) \\
 \bottomrule
 \end{tabularx}
 \end{table}
