@@ -4,12 +4,7 @@
 
 ## Verdict
 
-1. Sur le fond, la note suit la direction de la grille : une assiette large et des taux marginaux plus bas en haut pour l'impôt sur le revenu, des droits de mutation remplacés par un impôt récurrent, un impôt sur les sociétés financé par l'assiette plutôt que par le taux, un PFU stable. Aucune erreur n'inverse cette direction.
-2. Trois défauts de conception affaiblissent pourtant ce qui la justifie :
-   - la « taxe sur le sol » ne frappe que le sol des logements des particuliers ; elle taxe donc un usage résidentiel, pas le sol ;
-   - le gain de la fusion suppose que les pensions ne réagissent pas, ce qui n'est vrai que pour les retraités actuels ;
-   - le calendrier de la déduction immédiate crée une falaise en 2033, et son financement renchérit le capital des PME.
-3. Les autres défauts se corrigent sans changer la thèse : l'épargne retraite imposée deux fois, le report d'apport-cession que la note ne tranche pas, la CRDS rendue permanente sans le dire.
+La note ne se trompe pas de direction : une assiette large avec des taux marginaux plus bas en haut, des droits de mutation remplacés par un impôt récurrent, un IS financé par l'assiette plutôt que par le taux et un PFU stable, c'est ce que demande la grille. Trois défauts de conception affaiblissent pourtant sa justification : la « taxe sur le sol » ne frappe que le sol des logements des particuliers, et taxe donc un usage plutôt que le sol ; le gain de la fusion suppose que les pensions ne réagissent pas, ce qui n'est vrai que pour les retraités actuels ; le calendrier de la déduction immédiate crée une falaise en 2033, et son financement renchérit le capital des PME. Les autres défauts (épargne retraite imposée deux fois, report d'apport-cession non tranché, CRDS rendue permanente sans le dire) se corrigent sans changer la thèse.
 
 ## Grosses erreurs de fond, de la plus grave à la moins grave
 
