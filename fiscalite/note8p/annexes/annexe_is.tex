@@ -1,181 +1,146 @@
-% Annexe technique du bloc IS (note8p). Chiffres : note8p/sorties/is.json, produit par note8p/calculs/is_reforme.py.
+% Annexe technique du bloc IS (note8p, version 3 : taux normal maintenu à 25 %). Chiffres : note8p/sorties/is3.json,
+% produit par note8p/calculs/is3_reforme.py ; figure g7 : note8p/calculs/is3_figure_g7.py.
 \subsection{Impôt sur les sociétés : données, méthode et trajectoire}\label{ann:is}
 
-\paragraph{Droit de référence (2026).} Taux normal de 25~\% ; taux réduit de 15~\% sur les 42\,500 premiers euros de
-bénéfice par période de douze mois pour les sociétés dont le chiffre d'affaires est d'au plus 10~M€, au capital
-entièrement libéré et détenu de manière continue à 75~\% au moins par des personnes physiques (CGI, art.~219~I~b ;
-BOI-IS-LIQ-20-10 ; service-public.fr, fiche vérifiée le 17/02/2026, après la loi de finances pour 2026). Contribution
-sociale de 3,3~\% au-delà de 763\,000~€ d'impôt. Contribution exceptionnelle sur les bénéfices des grandes entreprises
-due au titre des deux premiers exercices clos à compter du 31/12/2025, puis éteinte (LFI 2026, art.~12 ;
-BOI-IS-AUT-60) : son extinction appartient au droit en vigueur et n'est pas comptée dans la réforme. Amortissement
-dégressif : coefficient 2,25 au-delà de six ans de durée d'usage (CGI, art.~39~A), plan achevé au septième exercice
-(BOI-BIC-AMT-20-20-30, §~260). Déficits : report en avant sans limite de durée, imputable à hauteur de 1~M€ plus 50~\% du
-bénéfice au-delà (BOI-IS-DEF-10-30) ; report en arrière sur le seul exercice précédent, dans la limite de 1~M€, sous forme
-de créance (BOI-IS-DEF-20-10). Charges financières nettes déductibles jusqu'au plus élevé de 3~M€ et de 30~\% de l'EBITDA
-fiscal (CGI, art.~212~bis).
+\paragraph{Droit de référence (2026).} Taux normal de 25~\%, maintenu ; contribution sociale de 3,3~\% au-delà de
+763\,000~€ d'impôt. Taux réduit de 15~\% sur les 42\,500 premiers euros de bénéfice pour les sociétés dont le chiffre
+d'affaires est d'au plus 10~M€ et dont le capital, entièrement libéré, est détenu à 75~\% au moins par des personnes
+physiques (CGI, art.~219~I~b ; BOI-IS-LIQ-20-10 ; service-public.fr, fiche vérifiée le 17/02/2026). Contribution
+exceptionnelle sur les grandes entreprises due au titre des deux premiers exercices clos à compter du 31/12/2025, puis
+éteinte (LFI 2026, art.~12 ; BOI-IS-AUT-60) : droit en vigueur, non comptée. Amortissement dégressif : coefficient 2,25
+au-delà de six ans (CGI, art.~39~A). Déficits : report en avant imputable à hauteur de 1~M€ plus 50~\% du bénéfice
+au-delà (BOI-IS-DEF-10-30) ; report en arrière d'un exercice dans la limite de 1~M€ (BOI-IS-DEF-20-10). Charges
+financières nettes déductibles jusqu'au plus élevé de 3~M€ et de 30~\% de l'EBITDA fiscal (art.~212~bis). CIR (art.~244
+quater~B) : 30~\% des dépenses jusqu'à 100~M€, 5~\% au-delà ; depuis la LF 2025 (art.~55-56, d'après Légifiscal), forfait
+de fonctionnement de 40~\% des dépenses de personnel, frais de brevets exclus ; CII ramené à 20~\% et prorogé jusqu'au
+31/12/2027.
 
-\paragraph{Données.} Bénéfices imposables de l'exercice 2025 (DGFiP, \emph{Statistiques} n°~51) : 256,8~Md€ au taux
-normal, 30,6~Md€ au taux réduit, portés en 2027 par la croissance du bénéfice fiscal (+1~\% en 2025, puis +2~\% par an
-en 2026 et 2027, hypothèse), soit 267,2 et 31,8~Md€ ; +3~\% par an ensuite. Investissement éligible : autres machines et
-équipements et matériel informatique des sociétés non financières, 84,1~Md€ en 2025 (Insee, tableau 8.212), 89,1~Md€
-en 2027, +3~\% par an ; stock de fin 2025 : 541~Md€ (équipements), 400~Md€ (bâtiments non résidentiels). Part de cet
-investissement faite par des sociétés imposables : 75~\% (60 à 90~\%, hypothèse non mesurée). Plan actuel : moitié
-linéaire, moitié dégressif sur 7~ans (hypothèse ; bornes : tout linéaire, tout dégressif). Convention : années
-d'exercice ; en caisse, l'essentiel arrive l'année suivante.
+\paragraph{Données et conventions.} Bénéfices imposables de l'exercice 2025 (DGFiP, \emph{Statistiques} n°~51) : 256,8~Md€
+au taux normal, 30,6~Md€ au taux réduit, soit 267,2 et 31,8~Md€ en 2027 ; +3~\% par an ensuite. Un point de taux normal :
+2,99~Md€ en 2027. Investissement éligible (machines, équipements, informatique des sociétés non financières, Insee
+8.212) : 84,1~Md€ en 2025, 89,1~Md€ en 2027 ; stocks de fin 2025 : 541~Md€ (équipements), 400~Md€ (bâtiments).
+Hypothèses : 75~\% de l'investissement éligible fait par des sociétés imposables ; plan actuel moitié linéaire, moitié
+dégressif sur 7~ans. Années d'exercice ; en caisse, un an plus tard. Dépenses fiscales : Voies et moyens, tome~II,
+PLF~2026 (coûts 2024 réalisés, 2025 et 2026 prévus), portées à +3~\% par an.
 
-\paragraph{Formules.} Avec $d_k$ la fraction du prix déduite la $k$-ième année du plan ordinaire et $b$ la fraction
-déduite immédiatement, le nouveau plan est $b\,e_0 + (1-b)\,d$ : la déduction de 50~\% déduit la moitié du prix l'année de
-l'achat et amortit l'autre moitié selon le plan ordinaire. Coût de l'année $t$ pour l'État :
-$C_t = \tau\, s \sum_{v\le t} I_v\,[\,b_v e_0 + (1-b_v) d - d\,]_{t-v}$. En régime établi (investissement croissant au
-taux $g$), $C_t = \tau\, s\, b\, I_t\,(1 - z(g))$, où $z(r)=\sum_k d_k/(1+r)^k$ ; coût actualisé d'une année d'achats :
-$\tau\, s\, b\, I\,(1-z(r))$. Coût d'usage relatif : $(1-\tau z)/(1-\tau)$. Taux marginal effectif (Devereux et Griffith) :
-$\tilde p = (1-\tau z)(\rho-\pi+\delta(1+\pi))/((1-\tau)(1+\pi)) - \delta$, $\mathrm{TMEI} = (\tilde p - r)/\tilde p$, avec
-$r = 5~\%$ réel, $\pi = 2~\%$, $\delta = 14~\%$ (équipements) ou 3,1~\% (bâtiments, linéaire 25~ans) ; $\rho = 7{,}1~\%$
-nominal pour les fonds propres, $\rho = i(1-\tau)$ pour l'emprunt ($i = 7{,}1~\%$) ; financement mixte : un tiers
-d'emprunt. Effets réels : $\Delta K/K = -\varepsilon\, s\, \Delta\ln c$, avec $\varepsilon$ = 0,5 à 1,6 (équipements ;
-Maffini et al., 2019) et 0,25 à 1 (bâtiments, hypothèse) ; production Cobb-Douglas à emploi donné,
-$\Delta Y/Y = \sum_j \sigma_j\, \Delta K_j/K_j$, où $\sigma_j = (r+\delta_j)K_j/Y$ est la part du revenu du capital $j$
-(3,4~\% pour les équipements, 1,1~\% pour les bâtiments ; part totale du capital d'environ un tiers).
+\paragraph{Formules.} Nouveau plan d'amortissement : $b\,e_0 + (1-b)\,d$, où $d_k$ est le plan ordinaire et $b$ la
+fraction déduite l'année de l'achat. Coût de l'année $t$ : $C_t = \tau\, s \sum_{v\le t} I_v\,[\,b_v e_0 + (1-b_v) d - d\,]_{t-v}$ ;
+en régime établi, $C_t = \tau\, s\, b\, I_t\,(1 - z(g))$, avec $z(r)=\sum_k d_k/(1+r)^k$ ; coût actualisé d'une année
+d'achats : $\tau\, s\, b\, I\,(1-z(r))$. Coût d'usage relatif : $(1-\tau z)/(1-\tau)$. TMEI (Devereux et Griffith) :
+$\tilde p = (1-\tau z)(\rho-\pi+\delta(1+\pi))/((1-\tau)(1+\pi)) - \delta$, $\mathrm{TMEI} = (\tilde p - r)/\tilde p$ ; $r = 5~\%$,
+$\pi = 2~\%$, $\delta$ = 14~\% (équipements, 7~ans), 33~\% (logiciels, 3~ans), 3,1~\% (bâtiments, 25~ans) ; $\rho = 7{,}1~\%$
+(fonds propres) ou $i(1-\tau)$ (emprunt) ; mixte : un tiers d'emprunt. Dépense de R\&D passée en charges avec un crédit
+non imposable au taux $c$ : $\mathrm{TMEI} = -c/(1-\tau-c)$. Effets réels : $\Delta K_j/K_j = -\varepsilon_j\, s\, \Delta\ln c_j$,
+$\varepsilon$ = 1 (0,5 à 1,6) pour les équipements, 0,5 (0,25 à 1, hypothèse) pour les bâtiments ; Cobb-Douglas à emploi
+donné, $\Delta Y/Y = \sum_j \sigma_j \Delta K_j/K_j$, $\sigma_j = (r+\delta_j)K_j/Y$ (3,4~\% et 1,1~\%) ; investissement de
+régime établi : $(\delta_j + g)\,\Delta K_j$.
 
-\paragraph{Taux réduit.} Rendement de sa suppression, à plein, en 2027 : 3,18~Md€ statiques (10~points sur 31,8~Md€) ;
-2,15~Md€ en borne prudente (coût officiel de 2019, 2,2~Md€ pour 13~points, ramené à 10~points et porté à 3~\% par an) ;
-2,67~Md€ au centre. Calendrier : taux de 20~\% pour les exercices 2027 (moitié du rendement), alignement sur le taux
-normal dès 2028. Si le taux final est $x$, l'alignement ne rapporte que $(x-15)/10$ du rendement ; la table l'impute au
-coût du point de taux, calculé sur la base totale.
+\paragraph{Taux réduit.} Rendement à plein en 2027 : 3,18~Md€ statiques (10~points sur 31,8~Md€) ; 2,15~Md€ en série
+prudente (coût officiel de 2019, 2,2~Md€ pour 13~points, ramené à 10~points et actualisé), retenue pour le bouclage.
+Calendrier : 20~\% pour l'exercice 2027 (moitié du rendement), 25~\% dès 2028. Perte par société : $0{,}10\min(B,
+42\,500)$, au plus 4\,250~€ ; 760\,000 bénéficiaires en 2019, au moins 720\,000 sociétés en équivalent plafond en 2025.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Trajectoire pour le bouclage (Md€ courants, exercices ; + = recette publique)}\label{tab:is8_annuel}
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{3.2pt}
 \begin{tabular}{@{}lrrrrrrrrr@{}}
 \toprule
-& Fin du & Déduction & \emph{Repère :} & Un point & Interaction & \multicolumn{3}{c}{Solde IS, taux final dès 2028} & 23~\%\\
-\cmidrule(lr){7-9}
-Année & taux réduit & de 50~\% & 100~\% & de taux & par point & 24~\% & 23~\% & 22~\% & par étapes \\
+& Fin du & \multicolumn{3}{c}{Déduction de 50~\%, départ en} & Niches & \emph{Brevets} & \multicolumn{3}{c}{Solde du bloc, départ en} \\
+\cmidrule(lr){3-5}\cmidrule(l){8-10}
+Année & taux réduit & 2027 & 2028 & 2029 & (noyau) & \emph{(hors)} & 2027 & 2028 & 2029 \\
 \midrule
-2027 & 1,33 & $-$3,69 & $-$14,77 & $-$2,99 & 0,148 & $-$2,36 & $-$2,36 & $-$2,36 & $-$2,36 \\
-2028 & 2,75 & $-$6,75 & $-$11,77 & $-$3,08 & 0,270 & $-$6,81 & $-$9,62 & $-$12,43 & $-$4,00 \\
-2029 & 2,83 & $-$5,38 & $-$9,40 & $-$3,17 & 0,215 & $-$5,50 & $-$8,46 & $-$11,42 & $-$5,50 \\
-2030 & 2,92 & $-$4,28 & $-$7,45 & $-$3,27 & 0,171 & $-$4,46 & $-$7,56 & $-$10,65 & $-$4,46 \\
-2031 & 3,00 & $-$3,35 & $-$5,75 & $-$3,37 & 0,134 & $-$3,58 & $-$6,81 & $-$10,04 & $-$6,81 \\
-2032 & 3,09 & $-$2,48 & $-$3,99 & $-$3,47 & 0,099 & $-$2,75 & $-$6,12 & $-$9,49 & $-$6,12 \\
-2033 & 3,19 & $-$1,58 & $-$2,19 & $-$3,57 & 0,063 & $-$1,90 & $-$5,40 & $-$8,91 & $-$5,40 \\
-2034 & 3,28 & $-$0,98 & $-$1,66 & $-$3,68 & 0,039 & $-$1,33 & $-$4,97 & $-$8,61 & $-$4,97 \\
-2035 & 3,38 & $-$0,85 & $-$1,71 & $-$3,79 & 0,034 & $-$1,23 & $-$4,98 & $-$8,73 & $-$4,98 \\
-2036 & 3,48 & $-$0,88 & $-$1,76 & $-$3,90 & 0,035 & $-$1,26 & $-$5,13 & $-$9,00 & $-$5,13 \\
-2037 & 3,59 & $-$0,91 & $-$1,81 & $-$4,02 & 0,036 & $-$1,30 & $-$5,29 & $-$9,27 & $-$5,29 \\
-2038 & 3,69 & $-$0,93 & $-$1,87 & $-$4,14 & 0,037 & $-$1,34 & $-$5,44 & $-$9,54 & $-$5,44 \\
-2039 & 3,81 & $-$0,96 & $-$1,92 & $-$4,26 & 0,038 & $-$1,38 & $-$5,61 & $-$9,83 & $-$5,61 \\
-2040 & 3,92 & $-$0,99 & $-$1,98 & $-$4,39 & 0,040 & $-$1,42 & $-$5,78 & $-$10,13 & $-$5,78 \\
+2027 & 1,08 & $-$3,69 & -- & -- & -- & -- & $-$2,62 & 1,08 & 1,08 \\
+2028 & 2,22 & $-$6,75 & $-$3,80 & -- & 2,80 & 1,33 & $-$1,73 & 1,21 & 5,01 \\
+2029 & 2,29 & $-$5,38 & $-$6,95 & $-$3,92 & 3,36 & 1,38 & 0,26 & $-$1,31 & 1,72 \\
+2030 & 2,35 & $-$4,28 & $-$5,54 & $-$7,16 & 3,55 & 1,42 & 1,62 & 0,36 & $-$1,25 \\
+2031 & 2,42 & $-$3,35 & $-$4,41 & $-$5,71 & 3,75 & 1,46 & 2,82 & 1,77 & 0,47 \\
+2032 & 2,50 & $-$2,48 & $-$3,45 & $-$4,54 & 3,96 & 1,50 & 3,98 & 3,00 & 1,92 \\
+2033 & 2,57 & $-$1,58 & $-$2,55 & $-$3,56 & 4,18 & 1,55 & 5,18 & 4,20 & 3,19 \\
+2034 & 2,65 & $-$0,98 & $-$1,62 & $-$2,63 & 4,41 & 1,59 & 6,08 & 5,44 & 4,43 \\
+2035 & 2,73 & $-$0,85 & $-$1,01 & $-$1,67 & 4,65 & 1,64 & 6,52 & 6,37 & 5,71 \\
+2036 & 2,81 & $-$0,88 & $-$0,88 & $-$1,04 & 4,79 & 1,69 & 6,72 & 6,72 & 6,56 \\
+2037 & 2,89 & $-$0,91 & $-$0,91 & $-$0,91 & 4,93 & 1,74 & 6,92 & 6,92 & 6,92 \\
+2038 & 2,98 & $-$0,93 & $-$0,93 & $-$0,93 & 5,08 & 1,79 & 7,13 & 7,13 & 7,13 \\
+2039 & 3,07 & $-$0,96 & $-$0,96 & $-$0,96 & 5,23 & 1,85 & 7,34 & 7,34 & 7,34 \\
+2040 & 3,16 & $-$0,99 & $-$0,99 & $-$0,99 & 5,39 & 1,90 & 7,56 & 7,56 & 7,56 \\
 \bottomrule
 \end{tabular}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Déduction : 25~\% en 2027, 50~\% dès 2028, plan actuel moyen,
-part imposable 75~\% ; bornes dégressif–linéaire : 2028 de $-$6,1 à $-$7,4 ; 2040 de $-$0,8 à $-$1,2. Repère : déduction
-intégrale dès 2027 (non retenue). Point de taux : coût statique sur la base totale (2,67~Md€ en 2027 sur la seule base
-au taux normal). Interaction : la déduction coûte $\tau/25$ fois son coût à 25~\%. Solde IS : fin du taux réduit, moins la
-déduction au taux final, moins les points de baisse ; « par étapes » : 1~point en 2029, 2 en 2031, 3 en 2033 (ici
-plafonné à 2 points pour 23~\%). Hors bilan : extinction de la contribution exceptionnelle, environ $-$7~Md€ par an par
-rapport à 2026, droit en vigueur. Source : \texttt{note8p/calculs/is\_reforme.py}.}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Taux réduit : série prudente (statique : 1,59 en 2027, 3,28
+en 2028, 4,68 en 2040). Déduction : 25~\% l'année de départ, 50~\% ensuite ; introduite à 50~\% d'emblée, son pic serait de
+7,4, 7,6 ou 7,8~Md€. Niches (noyau) : CIR recentré, mécénat, crédits culture, zonages, crédit famille. Brevets : suppression
+du taux de 10~\%, statique, non comptée au bouclage prudent. Solde : taux réduit + déduction + noyau. Mémoire, non
+comptés (droit en vigueur) : fin de la contribution exceptionnelle, environ $-$7~Md€ par an par rapport à 2026 ; extinction
+du CII et du suramortissement de 2015-2017. Source : \texttt{note8p/calculs/is3\_reforme.py}.}
 \end{table}
 
-\paragraph{Déduction immédiate : profil et coûts.} La déduction de 50~\% dès 2027 coûterait 7,4~Md€ la première année
-(7,0 à 7,8), puis 5,9, 4,7, 3,7 ; elle rejoint en 2034 son coût permanent, 0,67~Md€ en euros de 2027 (0,54 à 0,81),
-soit 0,99~Md€ en 2040. Le calendrier retenu (25~\% puis 50~\%) ramène 2027 à 3,7~Md€ et place le pic en 2028
-(6,7~Md€) ; le cumul 2027-2040 ne change pas (34~Md€). Différer à 2029 le passage à 50~\% repousserait le pic à 2029
-(6,3~Md€). Coût actualisé d'une année d'achats : 1,07~Md€ à 5~\% (0,73 au taux de l'État de 3,25~\%), soit 0,36 point
-de taux ; déduction intégrale : 2,14 (0,72 point). L'ancienne variante « 50~\% dès 2027 », financée par 4,2~Md€
-d'assiette par an, accumulait une dette de transition de 5,2~Md€ au plus (2029), remboursée ensuite : ce n'était pas un
-coût annuel de 5~Md€. Sensibilités : part imposable de 60 ou 90~\% : pic de 5,4 ou 8,1~Md€ et coût permanent de 0,54 ou
-0,81 ; véhicules utilitaires inclus (moitié du matériel de transport, hypothèse) : coûts multipliés par 1,25 ; l'inclusion
-des logiciels acquis (amortis en deux ou trois ans depuis l'abrogation de l'art.~236~II en 2017) coûterait peu.
-Investissement suscité : non compté dans le coût (il accroît la première année le coût de la déduction, puis rapporte
-par l'impôt sur les rendements) ; aucune recette de croissance n'est comptée.
+\paragraph{Déduction immédiate.} Coût permanent : 0,67~Md€ de 2027 par an (0,54 à 0,81 selon le plan actuel), 0,99~Md€ en
+2040 ; coût actualisé d'une année d'achats : 1,07~Md€ à 5~\% (0,73 au taux de l'État de 3,25~\%). Le coût des premières
+années est une avance d'impôt, récupérée ensuite. Véhicules utilitaires (moitié du matériel de transport, hypothèse) :
+coûts multipliés par 1,25. Aucune recette de croissance n'est comptée.
+
+\paragraph{Niches : paquet chiffré.} Coûts statiques des Voies et moyens (2026). CIR : plafond de 100~M€ apprécié au
+niveau du groupe, 569~M€ (CPO, septembre 2025, recommandation~3), et suppression du taux de 5~\% au-delà, 400~M€ (CAE,
+Focus n°~90, 2022, données 2019), sans le terme croisé : 0,97~Md€. Mécénat des entreprises (210309, 1\,730~M€,
+157\,399~bénéficiaires) : réduction remplacée par la déduction du don, $1{,}73\,(1-0{,}25/0{,}60) = 1{,}01$~Md€ à dons
+inchangés. Crédits culture (320121, 129, 140, 135, 142, 128, 145, 148) : 0,71~Md€, moitié en 2028. Zonages (220104,
+220109, 220102, 230602, 230606, 230608, 230605, 210305) : 0,66~Md€, fermés aux entrants, extinction linéaire sur huit ans
+(hypothèse). Crédit famille (210308) : 0,22~Md€. Noyau : 3,57~Md€ (2026). Hors paquet : taxe au tonnage (régime européen,
+base mobile), outre-mer (à budgétiser), PTZ et HLM (logement), SIIC et SPPICAV (transparence). La quote-part de frais et
+charges sur les titres de participation et le régime mère-fille éliminent la double imposition : ils ne sont pas des
+niches. Doubles comptes : les dispositifs communs IR-IS sont comptés ici en entier (le bloc IR ne les reprend pas) ; les
+exonérations de fiscalité locale en zone et le mécénat des ménages relèvent d'autres blocs.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Taux marginaux et moyens effectifs d'un investissement neuf (\%)}\label{tab:is8_tef}
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lrrrrrrr@{}}
-\toprule
-& \multicolumn{2}{c}{TMEI, fonds propres} & TMEI, & TMEI, & Avantage & TMEI & TMEA \\
-\cmidrule(lr){2-3}
-Configuration & moyen & lin.--dég. & emprunt & 1/3 dette & dette & bâtiment & (20~\%) \\
-\midrule
-Système actuel (25~\%) & 18,0 & 20,7--15,1 & $-$23,8 & 7,6 & 2,06 & 22,0 & 22,9 \\
-Taux normal à 24~\% & 17,2 & 19,8--14,4 & $-$22,6 & 7,1 & 1,96 & 21,1 & 21,9 \\
-Taux normal à 23~\% & 16,4 & 18,9--13,7 & $-$21,4 & 6,7 & 1,86 & 20,2 & 21,0 \\
-Taux normal à 22~\% & 15,6 & 18,1--13,1 & $-$20,2 & 6,3 & 1,77 & 19,2 & 20,1 \\
-Déduction de 50~\% (25~\%) & 9,9 & 11,5--8,2 & $-$37,0 & $-$1,7 & 1,90 & 22,0 & 20,8 \\
-24~\% + déduction de 50~\% & 9,4 & 11,0--7,8 & $-$35,0 & $-$1,8 & 1,81 & 21,1 & 20,0 \\
-23~\% + déduction de 50~\% & 8,9 & 10,4--7,4 & $-$33,0 & $-$1,8 & 1,73 & 20,2 & 19,1 \\
-22~\% + déduction de 50~\% & 8,5 & 9,9--7,0 & $-$31,1 & $-$1,8 & 1,65 & 19,2 & 18,3 \\
-Déduction intégrale & 0,0 & 0,0--0,0 & $-$53,4 & $-$13,1 & 1,74 & 22,0 & 18,8 \\
-Petite société (15~\%) & 10,4 & 12,1--8,6 & $-$12,8 & 3,8 & 1,15 & 13,0 & 13,7 \\
-\bottomrule
-\end{tabular}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Avantage de la dette : coût du capital exigé d'un projet
-financé par fonds propres moins celui d'un projet financé par emprunt, en points ; il vaut
-$(\rho - i(1-\tau))(1-\tau z)/(1-\tau)$ et baisse quand $z$ monte ou que $\tau$ baisse. TMEA : taux moyen effectif d'un
-projet en équipements de rendement réel brut de 20~\%, financé par fonds propres. Niveaux non comparables à ceux de
-l'OCDE (2025 : TMEA 23,6~\%, TMEI des équipements 9,8~\%), dont les conventions diffèrent ; seuls les écarts comptent.}
-\end{table}
-
-\paragraph{Lecture des taux effectifs.} La déduction de 50~\% fait passer le TMEI des équipements de 18,0 à 9,9~\% ;
-deux points de taux, à 16,4~\%. La combinaison (23~\% et 50~\%) donne 8,9~\%. Le risque pro-dette n'est pas une
-aggravation de l'avantage relatif de la dette, qui recule de 2,06 à 1,73 point, mais un TMEI plus négatif pour le projet
-financé par emprunt ($-$24 à $-$33~\%) ; en financement mixte, le TMEI reste proche de zéro ($-$1,8~\%), alors qu'il
-tomberait à $-$13~\% avec la déduction intégrale. Les sociétés dont le bénéfice reste sous 42\,500~€ voient leurs
-équipements un peu moins taxés (10,4 à 8,9~\%) et leurs bâtiments davantage (13,0 à 20,2~\%).
-
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Cas types (euros)}\label{tab:is8_cas}
+\caption{Taux marginaux effectifs d'un investissement neuf (\%)}\label{tab:is8_tef}
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}lrr@{\hspace{14pt}}lrrrr@{}}
+\begin{tabular}{@{}lrrrrrr@{}}
 \toprule
-\multicolumn{3}{@{}l}{Machine de 500\,000~€ achetée le 1er juillet} & \multicolumn{5}{l}{Société de services : variation d'IS par an (+ = perte)}\\
-\cmidrule(r){1-3}\cmidrule(l){4-8}
-& Linéaire & Dégressif & Bénéfice & IS actuel & 24~\% & 23~\% & 22~\% \\
+& \multicolumn{3}{c}{Équipement} & Logiciel & \multicolumn{2}{c}{Bâtiment} \\
+\cmidrule(lr){2-4}\cmidrule(l){6-7}
+Configuration & fonds propres & emprunt & 1/3 dette & fonds propres & fonds propres & emprunt \\
 \midrule
-Déduction an 1, aujourd'hui & 35\,714 & 80\,357 & 30\,000 & 4\,500 & 2\,700 & 2\,400 & 2\,100 \\
-Déduction an 1, réforme & 267\,857 & 290\,179 & 42\,500 & 6\,375 & 3\,825 & 3\,400 & 2\,975 \\
-Trésorerie an 1 (25~\%) & 58\,036 & 52\,455 & 60\,000 & 10\,750 & 3\,650 & 3\,050 & 2\,450 \\
-Trésorerie an 1 (23~\%) & 53\,393 & 48\,259 & 100\,000 & 20\,750 & 3\,250 & 2\,250 & 1\,250 \\
-Avantage actualisé, 5~\% (25~\%) & 9\,544 & 6\,461 & 150\,000 & 33\,250 & 2\,750 & 1\,250 & $-$250 \\
-Avantage actualisé, 8~\% (25~\%) & 14\,155 & 9\,695 & 300\,000 & 70\,750 & 1\,250 & $-$1\,750 & $-$4\,750 \\
+Aujourd'hui (25~\%) & 18,0 & $-$23,8 & 7,6 & 19,5 & 22,0 & $-$19,3 \\
+Taux à 22,5~\% (comparaison) & 16,0 & $-$20,8 & 6,5 & 17,5 & 19,7 & $-$16,7 \\
+Déduction de 50~\% (proposition) & 9,9 & $-$37,0 & $-$1,7 & 10,8 & 22,0 & $-$19,3 \\
+Déduction intégrale (long terme) & 0,0 & $-$53,4 & $-$13,1 & 0,0 & 22,0 & $-$19,3 \\
+Petite société sous 42\,500~€, aujourd'hui & 10,4 & $-$12,8 & 3,8 & 11,4 & 13,0 & $-$10,0 \\
 \bottomrule
 \end{tabular}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Machine : durée d'usage de 7~ans, exercice civil ; dégressif
-au taux de 32,1~\% (2,25/7), passage au linéaire quand il devient plus favorable. L'avance de trésorerie est rendue les
-années suivantes ; l'avantage actualisé est le gain réel. Pour cette machine, deux points de taux valent 1\,707~€ si
-elle rapporte juste son coût du capital, 11\,350~€ si elle rapporte 20~\% réels bruts (plan moyen, actualisation à 5~\%),
-contre 8\,003~€ pour la déduction de 50~\%. Services : 10\,000~€ d'informatique par an (amortis sur 3~ans) ; la
-déduction de 50~\% vaut environ 80~€ par an. Seuil de perte : $4\,250/(0{,}25-\tau)$, soit 425\,000~€ (24~\%), 212\,500~€
-(23~\%), 141\,667~€ (22~\%).}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Bâtiments hors champ de la déduction. Dépense de R\&D passée
+en charges : TMEI nul ; avec le CIR à 30~\% : $-$67~\% ; au taux de 5~\% au-delà de 100~M€ : $-$7~\%. Avantage de la dette (écart
+de coût du capital entre fonds propres et emprunt) : 2,06 points aujourd'hui, 1,90 avec la déduction de 50~\%. Niveaux non
+comparables à ceux de l'OCDE ; seuls les écarts comptent.}
 \end{table}
 
-\paragraph{Effets réels.} Baisse du coût d'usage des équipements : $-$2,1~\% avec la déduction de 50~\% (exactement la
-moitié des $-$4,2~\% de la déduction intégrale), $-$0,4~\% avec deux points de taux, qui baissent aussi de 1,3~\% celui des
-bâtiments. Capital supplémentaire de long terme (central, bornes) : 8,4 (4,2 à 13,4)~Md€ pour la déduction de 50~\% ;
-3,7 (1,8 à 6,6) pour le taux à 23~\% ; 11,2 (5,6 à 18,7) pour la combinaison ; 17,0 (8,5 à 27,1) pour la déduction
-intégrale. Investissement des premières années : +2,5 à 4,3~Md€ par an pour la déduction de 50~\% (élasticité de court
-terme de 1,8 à 3,1 du terme fiscal, ordre de grandeur des 8 à 14~\% obtenus pour la réforme américaine de 2017 par
-Chodorow-Reich, Zidar et Zwick, 2024), puis +0,6 à 2,0 en régime établi ($(\delta + 1~\%)\,\Delta K$). PIB potentiel,
-effet de niveau atteint en une dizaine d'années : +0,05~\% (0,03 à 0,09) pour la déduction de 50~\%, +0,016~\% (0,008 à
-0,028) pour le taux à 23~\%, +0,06~\% (0,03 à 0,10) pour la combinaison. Par Md€ cumulé sur 2027-2036, la déduction
-accumule 0,28~Md€ de capital, la baisse du taux 0,05 : un rapport de 5 dans ce calcul partiel, qui ignore la
-localisation, les bénéfices transférés, l'immatériel acquis et les stocks ; le modèle complet de Chodorow-Reich et al.
-donne 1,5. Perte sèche évitée sur les équipements : 0,03 à 0,08~Md€ par an (déduction de 50~\%), indicateur d'efficacité
-et non supplément de PIB. Contre-effet : la fin du taux réduit retire 2,7~Md€ de trésorerie aux petites sociétés ; avec
-0,1 à 0,3~€ d'investissement par euro de trésorerie (hypothèse), leur investissement baisse de 0,3 à 0,8~Md€ par an.
+\paragraph{Effets réels.} Coût d'usage des équipements : $-$2,1~\% avec la déduction de 50~\%, $-$4,2~\% avec la déduction
+intégrale, $-$0,5~\% avec un taux de 22,5~\% (qui baisse aussi de 1,6~\% celui des bâtiments). Capital supplémentaire
+(central, bornes) : 8,4 (4,2 à 13,4)~Md€ ; 17,0 (8,5 à 27,1) pour la déduction intégrale ; 4,6 (2,3 à 8,3) pour le taux à
+22,5~\%. Investissement de régime établi : +1,4~Md€ par an. PIB potentiel, effet de niveau : +0,05~\% (0,03 à 0,09), soit
+1,6~Md€, pour la déduction de 50~\% ; +0,11~\% pour la déduction intégrale ; +0,02~\% pour le taux à 22,5~\%. Par Md€ de coût
+économique annuel (coût actualisé d'une année d'achats, ou coût permanent du taux), 7,8~Md€ de capital pour la
+déduction, 0,6 pour le taux : calcul partiel, qui ignore la localisation et les bénéfices transférés ; Chodorow-Reich,
+Zidar et Zwick (2024) trouvent un écart plus faible, de même sens. Petites sociétés sous le plafond : coût d'usage des
+équipements $-$0,1~\%, des bâtiments +6~\% ; non agrégé, faute de connaître leur part du capital ; effet de trésorerie non
+chiffré (sensibilité non estimée en France). Niches : aucun effet sur le PIB potentiel compté.
 
-\paragraph{Variantes non retenues.} Déduction intégrale dès 2027 : 14,8~Md€ la première année, 60~Md€ cumulés sur dix
-ans, coût permanent 1,35~Md€ ; rendement par euro identique à celui de la déduction de 50~\%, mais une avance trop lourde
-sans dette, et un TMEI mixte de $-$13~\%. Taux réduit maintenu ou relevé à 49\,000~€ (amendement au PLF~2027 en
-commission) : perte de la seule ressource interne à l'IS. Déduction pour fonds propres (ACE belge de 2006, ACE
-italienne de 2011, abrogée à partir de 2024) : effet mesuré sur l'endettement (Princen, 2012 ; Branzoli et Caiumi, 2020),
-coût élevé, effet sur l'investissement incertain. Amortissement « neutre » (annuités revalorisées) : coût de première
-année faible, mais avantage perçu moindre par des entreprises qui actualisent plus haut que l'État.
+\paragraph{Long terme, non retenu.} Passer de 50 à 100~\% en 2035 : 9,4~Md€ de plus la première année, 7,5 la deuxième,
+puis 0,67~Md€ par an (euros de 2027) ; d'un coup en 2027 : 14,8~Md€ ; TMEI mixte de $-$13~\%, d'où un traitement des intérêts
+à prévoir. Déduction pour fonds propres et remboursement des pertes : non chiffrés (fonds propres fiscaux non disponibles
+dans une source vérifiée).
 
-\paragraph{Limites.} Part imposable de l'investissement (non mesurée) ; mélange linéaire/dégressif (non publié) ;
-croissance des bases de 3~\% par an ; rendement du taux réduit (pas de ventilation de la base à 15~\%) ; élasticités
-transposées des États-Unis et du Royaume-Uni ; sociétés en perte, qui ne tirent rien tout de suite de la déduction et
-dont l'imputation future n'est pas chiffrée ; TMEI sensibles au taux d'intérêt et à l'inflation ; durée d'usage type de
-7~ans non vérifiée sur un barème officiel.
+\paragraph{Cas types.} Machine de 500\,000~€ achetée le 1\textsuperscript{er} juillet, 7~ans, à 25~\% : déduction de la
+première année de 35\,714 à 267\,857~€ (linéaire), soit 58\,036~€ de trésorerie, rendus ensuite ; avantage actualisé de
+9\,544~€ (5~\%) ou 14\,155~€ (8~\%) ; dégressif : 52\,455 et 6\,461~€. Suramortissement « industrie~4.0 » (PLF~2027, art.~9,
+proposé) sur la même machine : 43\,600~€ (40~\%), 87\,200~€ (80~\%), 130\,800~€ (120~\%) actualisés, contre 8\,003~€ pour la
+déduction de 50~\% (plan moyen). Société de services : perte de $0{,}10\min(B, 42\,500)$, soit 3\,000~€ à 30\,000~€ de
+bénéfice ; la déduction sur 10\,000~€ d'informatique annuelle lui vaut environ 90~€.
+
+\paragraph{Variantes écartées et hypothèses retirées.} Taux à 22,5~\% : 7,5~Md€ par an pour un effet sur le capital
+domestique moindre. CIR plafonné à 20~M€ (CAE : 1,75 à 2,5~Md€). Retirés par parcimonie : rendement « central » du taux
+réduit (fuite de 16~\%), effet de trésorerie des PME, multiplicateur d'investissement de court terme, retour par les
+bénéfices déclarés, sensibilités de la part imposable ; aucune décote comportementale sur les niches (la boîte à brevets
+est exclue du bouclage prudent).
+
+\paragraph{Limites.} Part imposable de l'investissement et plan actuel (non mesurés) ; élasticité des bâtiments ;
+chiffrages CIR du CPO et du CAE non actualisés ; tome~II des Voies et moyens du PLF~2027 non lu ; durées d'extinction des
+zonages et taux du mécénat (CGI, art.~238~bis) non revérifiés sur les textes ; issue du PLF~2027 inconnue au 18/11/2026.
