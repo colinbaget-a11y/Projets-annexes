@@ -1,203 +1,181 @@
-% Annexe du bloc « fiscalité immobilière » de la note de 8 pages (note8p/CADRE.md). Générée par
-% note8p/calculs/foncier_annexe.py à partir de note8p/sorties/foncier.json (note8p/calculs/foncier_calculs.py, qui importe
-% foncier/simulation.py). Compte rendu : note8p/sorties/foncier.md. Montants en Md€ de 2025, assiettes 2025 non indexées.
+% Annexe du bloc « fiscalité immobilière » (version 3, note8p/CONSIGNES_V3.md). Générée par
+% note8p/calculs/foncier3_annexe.py à partir de note8p/sorties/foncier3.json (foncier3_calculs.py, qui importe
+% foncier_calculs.py et foncier/simulation.py). Compte rendu : note8p/sorties/foncier3.md. Md€ de 2025, années de caisse.
 
-\subsection{Données, champ et calibrage}
+\subsection{Données, champ et droits de mutation}
 
-Le modèle communal est celui de la note fusionnée (\texttt{foncier/simulation.py}, inchangé) : 30,5~millions de logements
-des particuliers de métropole hors Alsace-Moselle ; valeur = prix médian au m² des ventes 2023-2024 de la commune × surface
-médiane ; part du sol mesurée par les terrains à bâtir (maisons) ou par résidu (appartements), calée sur les comptes de
-patrimoine des ménages (46,2~\% fin 2025) ; taxe foncière de 2025 (REI) répartie au prorata de la valeur dans chaque
-commune. Les agrégats nationaux viennent des comptes de patrimoine de l'Insee (tableau 8.200, fin 2025) : biens privés
-(sociétés non financières, sociétés financières, ménages, institutions sans but lucratif), hors terres agricoles et biens
-publics. Sol : 6\,656~Md€, dont 565 de terrains non bâtis ; bâti (logements et bâtiments non résidentiels)
-: 6\,560~Md€.
+Modèle communal de \texttt{foncier/simulation.py} (inchangé) : 30,5~millions de logements des particuliers de métropole
+hors Alsace-Moselle ; valeur = prix médian au m² des ventes 2023-2024 de la commune × surface médiane ; part du sol
+mesurée par les terrains à bâtir (maisons) ou par résidu (appartements), calée sur les comptes de patrimoine des ménages ;
+taxe foncière de 2025 (REI) répartie au prorata de la valeur dans chaque commune, donc identique en proportion pour tous
+les logements d'une commune. Agrégats : comptes de patrimoine de l'Insee (tableau 8.200, fin 2025), biens privés (sociétés,
+ménages, ISBLSM), hors terres agricoles et biens publics : sol 6\,656~Md€, dont 565
+de terrains non bâtis ; bâti 6\,560~Md€.
+Droits au taux permanent de 5,807~\% (4,50~\% département, art.~1594~D CGI ; 1,20~\% commune, art.~1584 ; frais d'assiette
+de 2,37~\% de la part départementale, art.~1647~V) ; la majoration à 5~\% (loi n°~2025-127, art.~116) cesse le 31/3/2028.
+France entière, ventes de 2025 : 16,1~Md€, dont 13,1 sur les logements ; la division
+par deux coûte \textbf{8,07~Md€} (7,2 aux ventes de 2023-2024, 10,0 à celles de 2022) ; un point de taux vaut
+2,78~Md€. Aucune reprise durable des ventes n'est comptée.
 
-\textbf{Droits de mutation.} Taux permanent de 5,807~\% : 4,50~\% pour le département (art.~1594~D CGI), 1,20~\% pour la
-commune (art.~1584) et 2,37~\% de la part départementale de frais d'assiette (art.~1647~V). La majoration à 5~\% (loi
-n°~2025-127, art.~116), dont les primo-accédants sont exclus, cesse le 31~mars 2028 ; la référence de la réforme est donc
-le taux permanent. France entière, au taux permanent et sur les ventes de 2025, les droits valent 13,1~Md€
-sur les logements et 3,0~Md€ sur les autres biens (différence OFGL moins Compte du logement, ramenée au
-taux permanent), soit 16,1~Md€ : la division par deux coûte \textbf{8,07~Md€}, contre
-7,58 dans l'ancien calibrage, limité au champ du modèle. Le coût suit le cycle :
-7,2~Md€ aux ventes moyennes de 2023-2024, 10,0~Md€ à celles de 2022. Un point de taux vaut
-2,78~Md€.
+\subsection{Deux architectures}
 
-\subsection{Architecture et formules}
+Chaque bien $i$ a un sol $S_i$ (bâti ou non) et un bâti $B_i$. La part communale est la même dans les deux
+architectures : base $S_i + B_i/4$, taux $t_c$ voté par la commune, fixé à la bascule pour garder sa recette
+($t_c = \sum_{i\in c}\mathrm{TF}_i^0/\sum_{i\in c}(S_i+B_i/4)$) ; le rapport de 4 est fixé par la loi.
+\textbf{A} ajoute un taux national uniforme $t_n^A = E/\sum_i (S_i + B_i/4)$ sur la même base : un seul montant par bien.
+\textbf{B} ajoute une taxe nationale sur le seul sol, $t_n^B = E/\sum_i S_i$ : deux lignes sur l'avis, l'une sur
+$S+B/4$, l'autre sur $S$. Le rapport effectif entre le taux du sol et celui du bâti vaut 4 partout dans A et
+$4\,(1 + t_n^B/t_c)$ dans B. Répartition de la recette nationale : logements des ménages 64,5~\% (A) et
+62,1~\% (B) ; terrains non bâtis 6,8 et 8,5~\% ; sociétés
+29,3 et 30,3~\% ; part portant sur le bâti 19,8~\% et 0.
+Dans le modèle, la part des logements est répartie au prorata de $S_i + B_i/4$ (A) ou de $S_i$ (B).
 
-Chaque bien $i$ a une base $b_i = S_i + B_i/4$ ($S$ : valeur du sol, bâti ou non ; $B$ : valeur du bâti). Il paie
-$(t_c + t_n)\,b_i$ : le sol est taxé au taux $t$ et le bâti au taux $t/4$. Lors de la bascule, le taux communal
-$t_c = \sum_{i \in c} \mathrm{TF}_i^0 / \sum_{i \in c} b_i$ garde la recette de chaque commune ; la commune le vote
-ensuite librement, le rapport de 4 étant fixé par la loi. Le taux national uniforme $t_n$ lève l'enveloppe $E$ :
-$t_n = E / \sum_i b_i$, la part des logements des ménages (64,5~\% de la base) étant répartie
-entre les logements du modèle au prorata de $b_i$.
-
-\textbf{Capitalisation.} La valeur du sol est la rente nette capitalisée : $S = \rho/(r + \tau_S)$, où $\tau_S$ est
-l'impôt sur le sol rapporté à sa valeur. Aujourd'hui, $\tau_S^0 = 0{,}358~\%$ (taxe / valeur des logements, appliquée à
-tous les biens bâtis) et 0,08~\% pour les terrains non bâtis (hypothèse). Après la réforme, $\tau_S^1 = t_c + t_n$ ; le
-taux communal monte pour garder la recette sur un sol moins cher. Le point fixe
-$S^1 = S^0 (r+\tau_S^0)/(r+\tau_S^1)$, $t_n = E/(S^1 + B/4)$ est résolu numériquement avec $r = 3~\%$ (variante 4~\%), le
-bâti restant à son coût. La perte de valeur des biens est la valeur actuelle de la hausse, $\Delta \mathrm{TF}_i / r$
-(baisse des droits gardée par l'acheteur, cas central ; variante symétrique dans le tableau~\ref{tab:fon8_env}).
+\textbf{Capitalisation.} Valeur d'un bien = loyer net d'impôt capitalisé au taux $r$ (3~\% ; variante 4~\%) : une hausse
+permanente d'impôt $\Delta T$ réduit la valeur de $\Delta T/r$. Le bâti restant à son coût de remplacement, la baisse porte
+sur le sol, comme dans les comptes de patrimoine où le sol est un résidu. Pour l'ensemble, $\Delta V = -(E - \kappa\,
+\Delta D)/r$, où $\Delta D = 8,07$~Md€ est la baisse des droits et $\kappa$ la part capitalisée dans les prix
+(0, 50 ou 100~\%) ; le transfert communal du bâti vers le sol est à somme nulle entre biens. Le taux national est calé sur
+la base après baisse, avec $\kappa = 0$ (prudent : si les droits se capitalisent, la base et la recette sont plus
+grandes). La version précédente faisait aussi porter sur le sol le transfert communal, sans contrepartie : taux 5~\%
+plus élevés. Chiffres présentés comme ordres de grandeur, pas comme prévisions : $r$ constant, capitalisation complète,
+aucune réaction de l'offre.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Enveloppes de recette foncière nouvelle}\label{tab:fon8_env}
+\caption{Enveloppes et architectures : taux, logements, trajectoire}\label{tab:fon3_env}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrrrrrrrrrrrr@{}}
+\toprule
+ & $E$ & \multicolumn{2}{c}{Taux national (\%)} & \multicolumn{3}{c}{Hausse par logement (€/an)} & \multicolumn{2}{c}{Logements (\%)} & Paris & Bâti & Sol/bâti & \multicolumn{3}{c}{Net (Md€)} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}\cmidrule(lr){8-9}\cmidrule(lr){13-15}
+ & (Md€) & sol & bâti & moy. & méd. & P90 & $>$300 € & $>$600 € & app. & (Md€) & méd./P90 & 2029 & 2031 & 2040 \\
+\midrule
+A & 9 & 0,113 & 0,028 & +180 & +142 & +421 & 21 & 1 & +514 & 8,6 & 4,0/4,0 & +0,2 & +0,3 & +0,1 \\
+A & 10 & 0,126 & 0,031 & +200 & +158 & +461 & 23 & 2 & +570 & 8,7 & 4,0/4,0 & +0,5 & +1,2 & +1,0 \\
+A & 12 & 0,152 & 0,038 & +240 & +189 & +542 & 30 & 8 & +682 & 9,0 & 4,0/4,0 & +1,1 & +3,1 & +2,8 \\
+A & 15 & 0,192 & 0,048 & +301 & +237 & +655 & 40 & 12 & +850 & 9,4 & 4,0/4,0 & +2,1 & +5,8 & +5,5 \\
+A & 18 & 0,234 & 0,058 & +361 & +284 & +776 & 48 & 17 & +1\,018 & 9,8 & 4,0/4,0 & +3,1 & +8,5 & +8,2 \\
+\midrule
+B & 9 & 0,142 & 0 & +174 & +122 & +467 & 21 & 6 & +611 & 7,3 & 4,9/6,1 & +0,2 & +0,3 & 0 \\
+B & 10 & 0,158 & 0 & +193 & +135 & +508 & 24 & 7 & +677 & 7,3 & 5,0/6,4 & +0,5 & +1,2 & +0,9 \\
+B & 12 & 0,192 & 0 & +232 & +162 & +592 & 29 & 10 & +811 & 7,3 & 5,2/6,8 & +1,1 & +3,0 & +2,7 \\
+B & 15 & 0,244 & 0 & +290 & +201 & +718 & 38 & 14 & +1\,011 & 7,3 & 5,5/7,5 & +2,1 & +5,8 & +5,4 \\
+B & 18 & 0,297 & 0 & +347 & +241 & +846 & 43 & 20 & +1\,211 & 7,3 & 5,8/8,2 & +3,1 & +8,5 & +8,1 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}{\raggedright\scriptsize Taux après capitalisation ($r$ = 3~\%). Paris app. : appartement parisien médian
+(€/an). Bâti : impôt sur le bâti des logements du champ, 14,3~Md€
+aujourd'hui. Sol/bâti : rapport effectif des taux, médiane et 9\textsuperscript{e} décile des logements. Net : table
+annuelle (taxe, droits, achats différés, report, déductibilité). Pour la seule substitution aux droits
+(8,1~Md€), le net reste négatif ($-$0,8~Md€ en 2040).\par}
+\end{table}
+
+\subsection{Capitalisation : ordres de grandeur}
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Baisse de la valeur des biens (et donc du sol), architecture B}\label{tab:fon3_cap}
 \begin{tabular}{@{}lrrrrrrrrr@{}}
 \toprule
-Enveloppe & \multicolumn{3}{c}{Taux national sur le sol (\%)} & Baisse du & Recette au & Payé par & \multicolumn{2}{c}{Perte de valeur (Md€)} & Net \\
-\cmidrule(lr){2-4}\cmidrule(lr){8-9}
-(Md€) & statique & $r$ = 3 \% & $r$ = 4 \% & sol (\%) & taux statique & logements & tous & logements & 2040 \\
+ & \multicolumn{3}{c}{$r$ = 3~\% (Md€)} & \multicolumn{3}{c}{$r$ = 4~\% (Md€)} & Sol privé & \multicolumn{2}{c}{Logements des ménages} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){9-10}
+$E$ (Md€) & $\kappa$ = 0 & 50~\% & 100~\% & 0 & 50~\% & 100~\% & (\%, $\kappa$ = 0) & $\kappa$ = 0 (\%) & 100~\% (\%) \\
 \midrule
-8,1 (substitution) & 0,097 & 0,106 & 0,103 & 9,8 & 7,4 & 5,2 & 269 & 173 & $-$0,8 \\
-10 & 0,121 & 0,132 & 0,129 & 10,6 & 9,2 & 6,4 & 333 & 215 & +1,0 \\
-15 (recommandée) & 0,181 & 0,201 & 0,196 & 12,4 & 13,5 & 9,7 & 500 & 322 & +5,5 \\
-20 & 0,241 & 0,272 & 0,264 & 14,3 & 17,7 & 12,9 & 667 & 430 & +10,0 \\
+9 & 300 & 165 & 31 & 225 & 124 & 23 & 4,5 & 2,1 & $-$0,4 \\
+10 & 333 & 199 & 64 & 250 & 149 & 48 & 5,0 & 2,3 & $-$0,1 \\
+12 & 400 & 265 & 131 & 300 & 199 & 98 & 6,0 & 2,8 & 0,3 \\
+15 & 500 & 365 & 231 & 375 & 274 & 173 & 7,5 & 3,5 & 1,0 \\
+18 & 600 & 465 & 331 & 450 & 349 & 248 & 9,0 & 4,2 & 1,7 \\
 \bottomrule
 \end{tabular}
-\par\vspace{2pt}{\raggedright\scriptsize Taux du bâti : un quart du taux du sol. « Recette au taux statique » : ce que
-rapporterait le taux calculé sans capitalisation, une fois les valeurs ajustées. Perte de valeur à $r$ = 3~\% (4~\% : un
-quart de moins). Si la baisse des droits se capitalise aussi, la perte nette de tous les propriétaires vaut
-231~Md€ pour 15~Md€. Sans les terrains non bâtis, tous les taux montent de 7~\%.\par}
+\par\vspace{2pt}{\raggedright\scriptsize $\kappa$ : part de la baisse des droits capitalisée dans les prix. Totaux
+identiques dans A ; pour les logements des ménages, A donne 0,1 point de plus. Repère : de fin 2022 à fin 2025, la valeur du
+sol bâti de toute l'économie a baissé de 881~Md€ (Insee, g10).\par}
 \end{table}
 
-\subsection{Résultats pour les logements}
+Dispersion (B, 12~Md€, $\kappa$ = 0) : 5\textsuperscript{e} centile des logements $-$6,9~\% ;
+25~\% des logements perdent plus de 5~\% (A :
+$-$6,4~\% et 23~\%). Effet sur la
+consommation, ordre de grandeur : propension marginale à consommer le patrimoine immobilier de 0,7 centime par euro en
+France (Arrondel, Lamarche et Savignac, 2015, Enquête Patrimoine 2010, coupe transversale ; 1,4 centime en bas de la
+distribution, 0,8 en haut), soit, pour une perte des ménages de 249~Md€
+($\kappa$ = 0), 1,7 à 3,5~Md€ de
+consommation annuelle en moins, avant tout recyclage de la recette ; 0,2
+à 0,4~Md€ si $\kappa$ = 100~\%. Les 5 à 7 centimes estimés aux États-Unis
+(Mian, Rao et Sufi, 2013) reposent sur le crédit hypothécaire rechargeable, absent en France (Chauvin et Muellbauer, 2018).
+
+\subsection{Trajectoire}
+
+Calendrier [C] : loi en 2027, premier avis à l'automne 2029 ; part nationale par tiers en 2029, 2030 et 2031 ; taux des
+droits baissé au 1\textsuperscript{er} janvier des mêmes années (5,81 → 4,84 → 3,87 → 2,90~\%) ; chaque palier de baisse
+est suspendu tant que le palier de taxe correspondant n'est pas mis en recouvrement. Achats différés [H, calé sur Bérard et
+Trannoy, 2018] : 3~\% des ventes annuelles décalées de décembre à janvier par point de baisse annoncée. Report de paiement
+[C, provision H] : 25~\% des hausses des propriétaires occupants dues par des ménages éligibles, recours de moitié,
+intérêt de 3~\%, remboursement de 1/15 du stock par an. Déductibilité [droit en vigueur, taux effectifs H] : 20~\% de la
+part des sociétés à l'IS hors HLM et 25~\% de la hausse des bailleurs, l'année suivante.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Taxe foncière des logements par dixième de prix au m² de la commune}\label{tab:fon8_dec}
-\begin{tabular}{@{}rrrrrrrrrr@{}}
-\toprule
- & Prix & Taxe/valeur & \multicolumn{4}{c}{Variation de taxe (€/an ; \% pour 15)} & Taxe $-$ droits & Taxe/valeur & Valeur \\
-\cmidrule(lr){4-7}
-Dixième & (€/m²) & 2025 (\%) & 10 & 15 & 15 (\%) & 20 & 15 (€/an) & 15 (\%) & 15 (\%) \\
-\midrule
-1 & 1\,035 & 0,54 & +36 & +60 & +13 & +84 & $-$21 & 0,61 & $-$2,4 \\
-2 & 1\,404 & 0,49 & +61 & +97 & +17 & +132 & $-$9 & 0,57 & $-$2,7 \\
-3 & 1\,693 & 0,49 & +79 & +124 & +18 & +169 & $-$6 & 0,58 & $-$2,9 \\
-4 & 2\,000 & 0,46 & +125 & +184 & +24 & +243 & +38 & 0,57 & $-$3,7 \\
-5 & 2\,356 & 0,43 & +161 & +235 & +28 & +310 & +70 & 0,56 & $-$4,1 \\
-6 & 2\,737 & 0,41 & +185 & +274 & +31 & +363 & +87 & 0,54 & $-$4,3 \\
-7 & 3\,176 & 0,39 & +233 & +340 & +37 & +448 & +131 & 0,54 & $-$4,8 \\
-8 & 3\,749 & 0,36 & +278 & +413 & +42 & +548 & +182 & 0,51 & $-$5,0 \\
-9 & 4\,746 & 0,31 & +331 & +496 & +49 & +662 & +202 & 0,46 & $-$5,0 \\
-10 & 6\,261 & 0,18 & +513 & +780 & +93 & +1\,047 & +310 & 0,35 & $-$5,6 \\
-\bottomrule
-\end{tabular}
-\par\vspace{2pt}{\raggedright\scriptsize Enveloppes de 10, 15 et 20~Md€ en régime permanent ; « taxe $-$ droits » :
-hausse de taxe moins la baisse des droits rapportée à l'ensemble des logements de la commune ; valeur : perte de valeur
-capitalisée ($r$ = 3~\%). Avec 15~Md€ : hausse médiane +237~€, 9\textsuperscript{e}
-décile +655~€, 99\textsuperscript{e} centile +975~€ ;
-40~\% des logements au-delà de +300~€, 12~\% au-delà de +600~€ ;
-baisse pour 5~\% ; Paris +156~\% ; maisons
-+263~€, appartements +351~€. Impôt sur le bâti des logements :
-14,3~Md€ aujourd'hui, 7,3 avec la seule part communale à la nouvelle base, 9,4 avec 15~Md€.\par}
-\end{table}
-
-\subsection{Trajectoire 2027-2040}
-
-Calendrier (choix) : loi en 2027, valeurs de référence au 1\textsuperscript{er}~janvier 2028, premier avis à l'automne
-2029 ; part nationale et passage de la part communale à la nouvelle base par tiers en 2029, 2030 et 2031 ; taux des droits
-abaissé au 1\textsuperscript{er}~janvier des mêmes années. Une clause suspend chaque palier de baisse tant que le palier
-de taxe n'est pas mis en recouvrement. Hypothèses : 3~\% des ventes annuelles décalées de décembre à
-janvier par point de baisse annoncée (les +26~\% de ventes du mois précédant la hausse de 0,7~point de 2014 représentent
-environ 2~\% des ventes de l'année, soit 3~\% par point) ; report ouvert aux propriétaires occupants modestes, qui doivent
-25~\% des hausses des occupants, utilisé par la moitié d'entre eux, avec un intérêt de 3~\% et un
-remboursement de 1/15 du stock par an ; déductibilité l'année suivante au taux effectif de 20~\% pour
-la part des sociétés soumises à l'IS (hors HLM, 18,7~\% de la base) et de
-25~\% pour la hausse des bailleurs. Aucune reprise durable des ventes n'est comptée : à
-6~\% de ventes par point, le coût des droits tomberait de 8,1 à 6,6~Md€.
-
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Trajectoire budgétaire (Md€ ; + = recette publique)}\label{tab:fon8_traj}
+\caption{Table annuelle (Md€ de 2025, années de caisse ; + = recette)}\label{tab:fon3_traj}
+\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}lrrrrrrrrr@{}}
 \toprule
  & 2027 & 2028 & 2029 & 2030 & 2031 & 2032 & 2033 & 2035 & 2040 \\
 \midrule
-Taxe foncière nouvelle & 0 & 0 & +5,0 & +10,0 & +15,0 & +15,0 & +15,0 & +15,0 & +15,0 \\
+Taxe foncière nouvelle & 0 & 0 & +4,0 & +8,0 & +12,0 & +12,0 & +12,0 & +12,0 & +12,0 \\
 Droits de mutation & 0 & 0 & $-$2,7 & $-$5,4 & $-$8,1 & $-$8,1 & $-$8,1 & $-$8,1 & $-$8,1 \\
 Achats différés & 0 & $-$0,5 & 0 & 0 & +0,2 & 0 & 0 & 0 & 0 \\
-Report de paiement & 0 & 0 & $-$0,2 & $-$0,4 & $-$0,6 & $-$0,5 & $-$0,5 & $-$0,4 & $-$0,3 \\
-Déductibilité & 0 & 0 & 0 & $-$0,4 & $-$0,8 & $-$1,2 & $-$1,2 & $-$1,2 & $-$1,2 \\
-\textbf{Net, 15 Md€} & 0 & $-$0,5 & +2,1 & +3,8 & +5,8 & +5,2 & +5,2 & +5,3 & +5,5 \\
-Net, 10 Md€ & 0 & $-$0,5 & +0,5 & +0,8 & +1,2 & +0,8 & +0,8 & +0,8 & +1,0 \\
-Net, 20 Md€ & 0 & $-$0,5 & +3,7 & +6,9 & +10,3 & +9,6 & +9,7 & +9,8 & +10,0 \\
-Net, substitution & 0 & $-$0,5 & $-$0,1 & $-$0,4 & $-$0,5 & $-$0,9 & $-$0,9 & $-$0,9 & $-$0,8 \\
-Net, 15 Md€, baisse unique 2030 & 0 & 0 & +3,4 & +1,8 & +5,6 & +5,2 & +5,2 & +5,3 & +5,5 \\
-Net, 15 Md€, un an de retard & 0 & 0 & $-$0,5 & +2,1 & +3,8 & +5,8 & +5,2 & +5,3 & +5,4 \\
-Stock de report (15 Md€) & 0 & 0 & 0,2 & 0,6 & 1,2 & 1,8 & 2,3 & 3,4 & 5,6 \\
+Report de paiement & 0 & 0 & $-$0,2 & $-$0,3 & $-$0,4 & $-$0,4 & $-$0,4 & $-$0,3 & $-$0,2 \\
+Déductibilité & 0 & 0 & 0 & $-$0,3 & $-$0,7 & $-$1,0 & $-$1,0 & $-$1,0 & $-$1,0 \\
+\textbf{Net B, 12} & 0 & $-$0,5 & +1,1 & +2,0 & +3,0 & +2,5 & +2,5 & +2,6 & +2,7 \\
+Net B, 9 & 0 & $-$0,5 & +0,2 & +0,1 & +0,3 & $-$0,1 & $-$0,1 & $-$0,1 & 0 \\
+Net B, 10 & 0 & $-$0,5 & +0,5 & +0,7 & +1,2 & +0,7 & +0,8 & +0,8 & +0,9 \\
+Net B, 15 & 0 & $-$0,5 & +2,1 & +3,8 & +5,8 & +5,2 & +5,2 & +5,3 & +5,4 \\
+Net B, 18 & 0 & $-$0,5 & +3,1 & +5,7 & +8,5 & +7,8 & +7,8 & +7,9 & +8,1 \\
+Net A, 9 & 0 & $-$0,5 & +0,2 & +0,1 & +0,3 & $-$0,1 & $-$0,1 & 0 & +0,1 \\
+Net A, 10 & 0 & $-$0,5 & +0,5 & +0,8 & +1,2 & +0,8 & +0,8 & +0,8 & +1,0 \\
+Net A, 12 & 0 & $-$0,5 & +1,1 & +2,0 & +3,1 & +2,5 & +2,6 & +2,6 & +2,8 \\
+Net A, 15 & 0 & $-$0,5 & +2,1 & +3,8 & +5,8 & +5,2 & +5,2 & +5,3 & +5,5 \\
+Net A, 18 & 0 & $-$0,5 & +3,1 & +5,7 & +8,5 & +7,9 & +7,9 & +8,0 & +8,2 \\
+\midrule
+IS : taux réduit + déduction & 0 & $-$2,4 & $-$4,0 & $-$2,5 & $-$1,4 & $-$0,4 & +0,6 & +2,3 & +2,8 \\
 Taux des droits (\%) & 5,81 & 5,81 & 4,84 & 3,87 & 2,90 & 2,90 & 2,90 & 2,90 & 2,90 \\
 \bottomrule
 \end{tabular}
-\par\vspace{2pt}{\raggedright\scriptsize Années 2034, 2036-2039 : voir \texttt{note8p/sorties/foncier.json}, table
-\texttt{annuel} (15~Md€) et \texttt{annuel\_par\_scenario}. Le report est un prêt remboursable, compté ici en besoin de
-financement net.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Toutes les années : \texttt{annuel\_par\_scenario} de foncier3.json. Ligne IS :
+fin du taux réduit et déduction de 50~\% (bloc IS, en caisse), pour comparaison ; elle n'est pas comprise dans le net.\par}
 \end{table}
 
-\subsection{Cas-types}
+\subsection{Cas-types et construction}
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Achats et taxe foncière (prix médian DVF au m² de la commune × surface)}\label{tab:fon8_cas}
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lrrrrrrrrrr@{}}
+\caption{Achats types (prix = médiane DVF 2023-2024 au m² × surface)}\label{tab:fon3_cas}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
 \toprule
- & Prix & Taux & Droits & Droits & Droits & Taxe & \multicolumn{2}{c}{Hausse (€/an)} & Bilan & Perte du \\
-\cmidrule(lr){8-9}
- & (€) & 2026 (\%) & 2026 & permanents & après & actuelle & 15 & 10 & 7 ans & vendeur \\
+ & Prix & Droits & Économie & Taxe & \multicolumn{3}{c}{Hausse de taxe (€/an)} & Années & Perte de \\
+\cmidrule(lr){6-8}
+ & (€) & 5,81~\% & (€) & actuelle & B, 12 & A, 12 & B, 15 & équiv. & valeur (€) \\
 \midrule
-Orléans, app. 65 m² & 170\,000 & 5,81 & 9\,871 & 9\,871 & 4\,936 & 1\,102 & +298 & +223 & +3\,079 & $-$9\,934 \\
-Lyon, app. 80 m² & 372\,000 & 6,32 & 23\,505 & 21\,601 & 10\,800 & 1\,242 & +665 & +450 & +6\,660 & $-$22\,151 \\
-Massy, app. 65 m² & 269\,000 & 5,81 & 15\,620 & 15\,620 & 7\,810 & 925 & +475 & +326 & +4\,849 & $-$15\,844 \\
-Ste-Geneviève, maison 100 m² & 365\,000 & 6,32 & 23\,063 & 21\,194 & 10\,597 & 1\,357 & +562 & +379 & +7\,098 & $-$18\,722 \\
+Orléans, app. 65 m² & 170\,000 & 9\,871 & 4\,936 & 1\,102 & +243 & +253 & +285 & 20 & $-$8\,105 \\
+Lyon, app. 80 m² & 372\,000 & 21\,601 & 10\,800 & 1\,242 & +595 & +536 & +739 & 18 & $-$19\,841 \\
+Massy, app. 65 m² & 269\,000 & 15\,620 & 7\,810 & 925 & +419 & +386 & +518 & 19 & $-$13\,979 \\
+Ste-Geneviève, maison 100 m² & 365\,000 & 21\,194 & 10\,597 & 1\,357 & +466 & +452 & +579 & 23 & $-$15\,534 \\
 \bottomrule
 \end{tabular}
-\par\vspace{2pt}{\raggedright\scriptsize Orléans et Massy : primo-accédants (hors majoration) ; Lyon et
-Sainte-Geneviève-des-Bois : autres acheteurs, à 6,32~\% jusqu'au 31~mars 2028 (tableau DGFiP au 1\textsuperscript{er}~juin
-2026). Bilan à 7 ans : économie de droits moins valeur actuelle de sept ans de hausse, prix inchangés. Perte du vendeur :
-hausse capitalisée à 3~\%, qui revient à l'acheteur sous forme d'un prix plus bas si la taxe se capitalise. Mobilité : une
-famille qui quitte Orléans pour un poste en Essonne paie 21\,194~€ de droits au taux permanent
-(23\,063 en 2026), 10\,597~€ après réforme, soit l'équivalent de 294~€
-puis 147~€ d'augmentation nette par mois pendant six ans.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Années équiv. : économie de droits / hausse annuelle (B, 12). Perte de valeur :
+hausse capitalisée à 3~\%, supportée par le propriétaire en place au moment de l'annonce.\par}
 \end{table}
 
-\subsection{Gains, sensibilités et variantes écartées}
+Famille mutée d'Orléans (maison de 270\,000~€) à Sainte-Geneviève-des-Bois (achat de 365\,000~€) : droits de
+23\,063~€ en 2026 (6,32~\%), 21\,194~€ au taux permanent, 10\,597~€ après
+réforme ; taxe foncière de la nouvelle maison +466~€/an (B, 12). Construction (g6) : terrain de
+200\,000~€ et immeuble de 600\,000~€ ; l'impôt dû à cause de l'immeuble vaut 2\,149~€
+aujourd'hui, 1\,089~€ avec A et 861~€ avec B (12~Md€) ; garder le terrain
+nu coûte 716, 1\,452 et 1\,531~€.
 
-\textbf{Perte sèche} (indicateur d'efficacité, triangle de Harberger, méthode de l'annexe de la note fusionnée). Ventes de
-logements : $-$0,86, $-$1,71 et $-$2,29~Md€
-pour 3, 6 et 8~\% de ventes en moins par point (soit +9, +18 et
-+25~\% de ventes durables) ; zéro si la réaction n'est que temporaire. Autres immeubles :
-$-$0,40~Md€ (transposition). Bâti des logements (élasticité 1, coût d'usage 4,5~\%) :
-$-$0,41, $-$0,37 et $-$0,33~Md€ pour 10, 15 et 20~Md€. Le sol ne crée
-pas de perte sèche. Schéma g6 : un terrain de 200\,000~€ et un immeuble de 600\,000~€ ; au taux unique de
-0,358~\%, construire ajoute 2\,149~€ d'impôt par an ; avec
-0,651~\% sur le sol et 0,163~\% sur le bâti (même recette), 977~€,
-et le terrain nu paie 1\,302~€ au lieu de 716.
+\subsection{Hypothèses retirées et limites}
 
-\textbf{Variantes écartées.} \emph{Substitution pure} (8,1~Md€) : le solde est négatif ($-$0,8~Md€ par an) à cause de la
-déductibilité, et rien ne finance l'IS. \emph{Taux national sur le seul sol} : il évite les 20~\% de la part nationale
-qui portent sur le bâti, mais le rapport sol/bâti varierait alors entre communes et il faudrait deux bases dans l'avis.
-\emph{Baisse des droits en une fois} (2030) : aucune année négative dans le calcul, mais une incitation à différer les
-achats pendant plus de deux ans que l'hypothèse d'un mois de décalage ne capte pas. \emph{Taux départemental} : de 0,13
-à 0,79~\% du sol selon le département (ancien calcul). \emph{Suppression des droits} : 16,2~Md€ ; orientation de long
-terme seulement. \emph{Baisse immédiate avant la taxe} (ancienne trajectoire) : 8,1~Md€ de dette par année d'avance.
-
-\textbf{Expériences de référence.} \emph{Bade-Wurtemberg} (Landesgrundsteuergesetz du 4/11/2020, modifié en 2023 et
-le 18/11/2025) : valeur = surface × \emph{Bodenrichtwert} de la zone, fixé par les comités d'experts (§~38 al.~1-2) ;
-preuve d'une valeur inférieure de plus de 30~\% par expertise (§~38 al.~4) ; taux légal de 1,30~pour mille, réduit de 30~\% pour
-les terrains majoritairement résidentiels, de 25~\% pour le logement social, de 10~\% pour les monuments (§~40) ;
-\emph{Hebesatz} unique par commune (§~50 al.~4), taux distinct possible sur les terrains constructibles non bâtis
-(§~50a) ; valeurs au 1/1/2022, impôt dû en 2025 ; modèle validé par le Bundesfinanzhof (II~R~26/24 et II~R~27/24,
-communiqué du 20/05/2026), recours constitutionnels pendants (source associative). \emph{Pennsylvanie} : rapports
-municipaux sol/bâti de 1,4 à 17,5 dans 18 villes en 2000, dont Pittsburgh (1913-2001), Scranton (1913), Harrisburg (1975),
-Allentown (1997) (Banzhaf et Lavery, 2010, tableau~2) ; comté et district scolaire taxent au taux unique. Oates et Schwab
-(1997) : permis réels +70~\% à Pittsburgh entre 1960-79 et 1980-89 contre $-$14~\% en moyenne dans 15 villes, attribués
-surtout à la pénurie de bureaux (comparaison avant-après, un seul traité). Plassmann et Tideman (2000) : effet positif
-sur les permis dans 15 villes à deux taux contre 204 témoins, sensible à la spécification (résumé et thèse lus). Banzhaf
-et Lavery (2010) : différences premières avec effets fixes par secteur de recensement ; +5 à 6 points de croissance
-décennale du nombre de pièces, surtout par plus de logements ; environ +3 points (pièces) et +2 points (logements) pour un
-rapport de 4 (version de travail de 2008). Pittsburgh a abandonné le double taux en 2001 après une réévaluation qui avait
-relevé la valeur du sol de 81~\% (Hughes, 2006).
-
-\textbf{Limites.} Taux uniforme de la valeur dans chaque commune (la dispersion réelle multiplie les perdants) ; valeurs
-de l'Insee sans géographie pour les sociétés ; contenu des « autres terrains » ; droits sur les autres biens par
-différence de deux sources ; paramètres du report et de la déductibilité supposés ; capitalisation complète supposée
-(contestée par une étude danoise non publiée) ; premier avis en 2029 ambitieux (le Bade-Wurtemberg a mis plus de quatre
-ans en partant de valeurs de zone existantes).
+Retirés de cette version, faute de mécanisme établi ou de calibrage : le gain sur le nombre de ventes et la perte sèche
+évitée sur les ventes (la réaction durable n'est pas établie en France), l'extrapolation de la mobilité des propriétaires,
+le triangle de Harberger sur le bâti, la variante de baisse unique des droits en 2030. Limites : valeurs du sol par
+secteur sans géographie pour les sociétés ; contenu mal connu des terrains non bâtis (sans eux, taux +7~\%) ; même taux de
+la valeur dans une commune (les perdants réels seront plus dispersés) ; report et déductibilité paramétrés ; calendrier
+d'évaluation ambitieux (le Bade-Wurtemberg a mis plus de quatre ans).

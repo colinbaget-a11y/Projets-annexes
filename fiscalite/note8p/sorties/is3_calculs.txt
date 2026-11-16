@@ -1,0 +1,68 @@
+0. BASES : bénéfice 2027 au taux normal 267.2, au taux réduit 31.8 Md€ ; un point de taux normal 2.99 Md€
+
+1. TAUX RÉDUIT (supprimé : 20 % en 2027, 25 % dès 2028) — à plein en 2027 : statique 3.18 Md€ ; prudent 2.15 (chiffre officiel 2019 actualisé). Série prudente retenue pour le bouclage.
+   2027 1.08–1.59 ; 2028 2.22–3.28 ; 2030 2.35–3.48 ; 2035 2.73–4.03 ; 2040 3.16–4.68
+   perte par société = 10 % du bénéfice jusqu'à 42 500 € (au plus 4 250 €/an) : 10 000 € → +1 000 € ; 20 000 € → +2 000 € ; 30 000 € → +3 000 € ; 42 500 € → +4 250 € ; 60 000 € → +4 250 € ; 150 000 € → +4 250 €
+   bénéficiaires : 760 000 en 2019 (CPO 2023) ; au moins 720 000 sociétés en équivalent plafond (base 2025)
+
+2. DÉDUCTION IMMÉDIATE DE 50 % (à 25 %) — coûts bruts par exercice, selon l'année de départ (25 % la 1re année)
+[DEPART 2027] brut 2027 3.69 ; 2028 6.74 ; 2029 5.38 ; 2030 4.28 ; 2031 3.35 ; 2032 2.48 ; 2033 1.58 ; 2034 0.98 ; 2035 0.85 … 2040 0.99 ; pic 6.74 (2028) ; 50 % d'emblée : pic 7.38
+[DEPART 2028] brut 2028 3.80 ; 2029 6.95 ; 2030 5.54 ; 2031 4.41 ; 2032 3.45 ; 2033 2.55 ; 2034 1.62 ; 2035 1.01 ; 2036 0.88 … 2040 0.99 ; pic 6.95 (2029) ; 50 % d'emblée : pic 7.61
+[DEPART 2029] brut 2029 3.92 ; 2030 7.16 ; 2031 5.71 ; 2032 4.54 ; 2033 3.56 ; 2034 2.63 ; 2035 1.67 ; 2036 1.04 ; 2037 0.91 … 2040 0.99 ; pic 7.16 (2030) ; 50 % d'emblée : pic 7.83
+[PERMANENT] 50 % : 0.67 Md€ de 2027 (0.54–0.81) ; 100 % : 1.35
+[ACTUALISÉ] coût d'une année d'achats : 50 % 1.07 Md€ à 5 % (0.73 au taux de l'État) ; 100 % 2.14
+
+3. NICHES : paquet (Md€ 2026, statique) — exercices 2028+ (crédits culture : moitié en 2028 ; zonages : extinction sur 8 ans)
+[PAQ] cir_plafond_groupe_et_fin_tranche_5pc    0.97 Md€ (2026) [S (chiffres publiés, sans terme croisé)] : 2028 1.03 ; 2030 1.09 ; 2035 1.26
+[PAQ] mecenat_reduction_vers_deduction         1.01 Md€ (2026) [S (statique, dons inchangés)] : 2028 1.07 ; 2030 1.14 ; 2035 1.32
+[PAQ] credits_culture                          0.71 Md€ (2026) [S (statique)] : 2028 0.37 ; 2030 0.79 ; 2035 0.92
+[PAQ] zonages_fermes_aux_entrants              0.66 Md€ (2026) [S/H (extinction linéaire sur 8 ans)] : 2028 0.09 ; 2030 0.28 ; 2035 0.86
+[PAQ] credit_famille                           0.22 Md€ (2026) [S (statique)] : 2028 0.24 ; 2030 0.25 ; 2035 0.29
+[PAQ] boite_a_brevets                          1.26 Md€ (2026) [S statique, borne haute : base mobile, non comptée au bouclage prudent] : 2028 1.33 ; 2030 1.42 ; 2035 1.64
+[PAQ] noyau (hors brevets) : 2028 2.80 ; 2029 3.36 ; 2030 3.55 ; 2032 3.96 ; 2035 4.65 ; 2040 5.39
+[PAQ] culture : 0.71 ; zonages : 0.66 ; mécénat 1.01 (sur 1.73)
+
+4. TMEI (convention Devereux-Griffith : r 5 %, π 2 %, δ 14 % équipements, 33 % logiciels, 3,1 % bâtiments)
+[TEF] Aujourd'hui (25 %)                               équip. fp  18.0 ; dette  -23.8 ; 1/3 dette   7.6 ; logiciel  19.5 ; bâtiment  22.0 (dette  -19.3)
+[TEF] Taux normal à 22,5 % (comparaison)               équip. fp  16.0 ; dette  -20.8 ; 1/3 dette   6.5 ; logiciel  17.5 ; bâtiment  19.7 (dette  -16.7)
+[TEF] Déduction de 50 % (25 %)                         équip. fp   9.9 ; dette  -37.0 ; 1/3 dette  -1.7 ; logiciel  10.8 ; bâtiment  22.0 (dette  -19.3)
+[TEF] Déduction intégrale (long terme)                 équip. fp   0.0 ; dette  -53.4 ; 1/3 dette -13.1 ; logiciel   0.0 ; bâtiment  22.0 (dette  -19.3)
+[TEF] Petite société sous 42 500 €, aujourd'hui (15 %) équip. fp  10.4 ; dette  -12.8 ; 1/3 dette   3.8 ; logiciel  11.4 ; bâtiment  13.0 (dette  -10.0)
+[TEF] R&D passée en charges : TMEI 0 ; avec CIR à 30 % : TMEI -40 % ; à 5 % : -7 %
+
+5. EFFETS RÉELS DE LONG TERME (stock de capital, PIB potentiel Cobb-Douglas, niveau)
+[REEL ded50] coût d'usage équip. -2.07 %, bât. +0.00 % ; ΔK 8.4 (4.2–13.4) Md€ ; investissement en régime établi +1.4 Md€/an ; PIB 0.053 % (0.027–0.085), 1.6 Md€
+[REEL taux225] coût d'usage équip. -0.53 %, bât. -1.60 % ; ΔK 4.6 (2.3–8.3) Md€ ; investissement en régime établi +0.5 Md€/an ; PIB 0.020 % (0.010–0.035), 0.6 Md€
+[REEL ded100] coût d'usage équip. -4.18 %, bât. +0.00 % ; ΔK 17.0 (8.5–27.1) Md€ ; investissement en régime établi +2.9 Md€/an ; PIB 0.108 % (0.054–0.172), 3.2 Md€
+[PME sous 42 500 €] coût d'usage : équipements -0.1 % (taux réduit perdu, déduction gagnée), bâtiments +6.0 % ; non agrégé (part du capital de ces sociétés inconnue) ; effet de trésorerie non chiffré
+[RENDEMENT ded50] coût économique annuel 1.07 Md€ (actualisé, avance de trésorerie comprise) ; 7.8 Md€ de capital par Md€
+[RENDEMENT taux225] coût économique annuel 7.48 Md€ (actualisé, avance de trésorerie comprise) ; 0.6 Md€ de capital par Md€
+[RENDEMENT ded100] coût économique annuel 2.14 Md€ (actualisé, avance de trésorerie comprise) ; 7.9 Md€ de capital par Md€
+
+6. LONG TERME : passer de 50 à 100 % en 2035 coûte en plus 9.35 Md€ la 1re année (2035), 7.45 en 2036, puis 0.67 Md€ de 2027 par an ; d'un coup en 2027 : 14.8 Md€
+
+7. CAS TYPES
+[MACHINE lin] déduction an 1 35 714 → 267 857 € ; trésorerie +58 036 ; avantage actualisé 9 544 € (5 %), 14 155 € (8 %)
+[MACHINE deg] déduction an 1 80 357 → 290 179 € ; trésorerie +52 455 ; avantage actualisé 6 461 € (5 %), 9 695 € (8 %)
+[NICHE] machine de 500 000 € : déduction de 50 % = 8 003 € actualisés ; suramortissement 40 % = 43 598 ; 80 % = 87 195 ; 120 % = 130 793 €
+
+8. TABLE ANNUELLE (exercices, Md€ courants, + = recette)
+2027 : taux réduit +1.08 (stat. +1.59) ; déduction départ 27/28/29 -3.69/-0.00/-0.00 ; niches noyau +0.00 (+ brevets 0.00)
+2028 : taux réduit +2.22 (stat. +3.28) ; déduction départ 27/28/29 -6.74/-3.80/-0.00 ; niches noyau +2.80 (+ brevets 1.33)
+2029 : taux réduit +2.28 (stat. +3.38) ; déduction départ 27/28/29 -5.38/-6.95/-3.92 ; niches noyau +3.36 (+ brevets 1.37)
+2030 : taux réduit +2.35 (stat. +3.48) ; déduction départ 27/28/29 -4.28/-5.54/-7.16 ; niches noyau +3.55 (+ brevets 1.42)
+2031 : taux réduit +2.42 (stat. +3.58) ; déduction départ 27/28/29 -3.35/-4.41/-5.71 ; niches noyau +3.75 (+ brevets 1.46)
+2032 : taux réduit +2.50 (stat. +3.69) ; déduction départ 27/28/29 -2.48/-3.45/-4.54 ; niches noyau +3.96 (+ brevets 1.50)
+2033 : taux réduit +2.57 (stat. +3.80) ; déduction départ 27/28/29 -1.58/-2.55/-3.56 ; niches noyau +4.18 (+ brevets 1.55)
+2034 : taux réduit +2.65 (stat. +3.92) ; déduction départ 27/28/29 -0.98/-1.62/-2.63 ; niches noyau +4.41 (+ brevets 1.59)
+2035 : taux réduit +2.73 (stat. +4.03) ; déduction départ 27/28/29 -0.85/-1.01/-1.67 ; niches noyau +4.65 (+ brevets 1.64)
+2036 : taux réduit +2.81 (stat. +4.15) ; déduction départ 27/28/29 -0.88/-0.88/-1.04 ; niches noyau +4.79 (+ brevets 1.69)
+2037 : taux réduit +2.89 (stat. +4.28) ; déduction départ 27/28/29 -0.91/-0.91/-0.91 ; niches noyau +4.93 (+ brevets 1.74)
+2038 : taux réduit +2.98 (stat. +4.41) ; déduction départ 27/28/29 -0.93/-0.93/-0.93 ; niches noyau +5.08 (+ brevets 1.79)
+2039 : taux réduit +3.07 (stat. +4.54) ; déduction départ 27/28/29 -0.96/-0.96/-0.96 ; niches noyau +5.23 (+ brevets 1.85)
+2040 : taux réduit +3.16 (stat. +4.68) ; déduction départ 27/28/29 -0.99/-0.99/-0.99 ; niches noyau +5.39 (+ brevets 1.90)
+[SOLDE IS, départ 2027] 2027 -2.62 ; 2028 -1.73 ; 2029 +0.26 ; 2030 +1.62 ; 2031 +2.82 ; 2033 +5.18 ; 2035 +6.52 ; 2040 +7.56
+[SOLDE IS, départ 2028] 2027 +1.08 ; 2028 +1.21 ; 2029 -1.31 ; 2030 +0.36 ; 2031 +1.77 ; 2033 +4.20 ; 2035 +6.37 ; 2040 +7.56
+[SOLDE IS, départ 2029] 2027 +1.08 ; 2028 +5.02 ; 2029 +1.72 ; 2030 -1.25 ; 2031 +0.47 ; 2033 +3.19 ; 2035 +5.71 ; 2040 +7.56
+[MARGE] régime permanent (euros 2027) : taux réduit 2.15 + niches noyau 3.67 − déduction 0.67 = 5.15 Md€/an (+1.30 si brevets ; +1.03 si taux réduit statique)
+[MARGE] soit 1.7 point de taux normal ; une baisse à 22,5 % coûterait 7.48 Md€/an (2027)

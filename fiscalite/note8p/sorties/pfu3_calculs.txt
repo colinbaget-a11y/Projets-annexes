@@ -1,0 +1,121 @@
+==============================================================================================================
+BLOC CAPITAL v3 — neutralité vendre/transmettre (note8p/calculs/pfu3_neutralite.py)
+==============================================================================================================
+1. Charge totale (impôt sur la plus-value + droits), € ; écart B − A (transmettre puis vendre − vendre puis transmettre)
+
+   Exemple : 100 k€ devenus 1 M€, un enfant — taux moyen des droits 21,3 %, marginal 30,0 %
+     A vendre puis transmettre : 410 782 (41,1 %)
+     aujourdhui                                                                212 962  écart    −197 820 ( −48,2 %) ; s'il ne vend jamais : 212 962
+     sans_correction                                                           495 562  écart      84 780 (  20,6 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))               435 379  écart      24 597 (   6,0 %) ; s'il ne vend jamais : 212 962
+     (ii) même correction au taux marginal des droits                          410 782  écart           0 (   0,0 %) ; s'il ne vend jamais : 212 962
+     (iii) impôt latent déduit de l'assiette des droits                        410 782  écart           0 (   0,0 %) ; s'il ne vend jamais : 128 182
+     (iv) crédit à la vente des droits afférents à l'impôt latent              410 782  écart           0 (   0,0 %) ; s'il ne vend jamais : 212 962
+     (v) prix majoré forfaitairement de 30 % de la plus-value                  410 782  écart           0 (   0,0 %) ; s'il ne vend jamais : 212 962
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)         410 782  écart           0 (   0,0 %) ; s'il ne vend jamais : 410 782
+
+   Petite plus-value : 250 k€ devenus 400 k€, un enfant — taux moyen des droits 14,5 %, marginal 20,0 %
+     A vendre puis transmettre : 95 874 (24,0 %)
+     aujourdhui                                                                 58 194  écart     −37 680 ( −39,3 %) ; s'il ne vend jamais : 58 194
+     sans_correction                                                           105 294  écart       9 420 (   9,8 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))                98 442  écart       2 568 (   2,7 %) ; s'il ne vend jamais : 58 194
+     (ii) même correction au taux marginal des droits                           95 874  écart           0 (   0,0 %) ; s'il ne vend jamais : 58 194
+     (iii) impôt latent déduit de l'assiette des droits                         95 874  écart           0 (   0,0 %) ; s'il ne vend jamais : 48 774
+     (iv) crédit à la vente des droits afférents à l'impôt latent               95 874  écart           0 (   0,0 %) ; s'il ne vend jamais : 58 194
+     (v) prix majoré forfaitairement de 30 % de la plus-value                   91 164  écart      −4 710 (  −4,9 %) ; s'il ne vend jamais : 58 194
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)          95 874  écart           0 (   0,0 %) ; s'il ne vend jamais : 95 874
+
+   Très grande : 2 M€ devenus 40 M€, deux enfants — taux moyen des droits 43,6 %, marginal 45,0 %
+     A vendre puis transmettre : 23 997 389 (60,0 %)
+     aujourdhui                                                             17 434 789  écart  −6 562 600 ( −27,3 %) ; s'il ne vend jamais : 17 434 789
+     sans_correction                                                        29 366 789  écart   5 369 400 (  22,4 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))            24 165 991  écart     168 603 (   0,7 %) ; s'il ne vend jamais : 17 434 789
+     (ii) même correction au taux marginal des droits                       23 997 389  écart           0 (   0,0 %) ; s'il ne vend jamais : 17 434 789
+     (iii) impôt latent déduit de l'assiette des droits                     23 997 389  écart           0 (   0,0 %) ; s'il ne vend jamais : 12 065 389
+     (iv) crédit à la vente des droits afférents à l'impôt latent           23 997 389  écart           0 (   0,0 %) ; s'il ne vend jamais : 17 434 789
+     (v) prix majoré forfaitairement de 30 % de la plus-value               25 787 189  écart   1 789 800 (   7,5 %) ; s'il ne vend jamais : 17 434 789
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)      23 997 389  écart           0 (   0,0 %) ; s'il ne vend jamais : 23 997 389
+
+   Autre lien : 100 k€ devenus 1 M€, un neveu — taux moyen des droits 54,6 %, marginal 55,0 %
+     A vendre puis transmettre : 672 788 (67,3 %)
+     aujourdhui                                                                545 618  écart    −127 170 ( −18,9 %) ; s'il ne vend jamais : 545 618
+     sans_correction                                                           828 218  écart     155 430 (  23,1 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))               674 026  écart       1 238 (   0,2 %) ; s'il ne vend jamais : 545 618
+     (ii) même correction au taux marginal des droits                          672 788  écart          −0 (  −0,0 %) ; s'il ne vend jamais : 545 618
+     (iii) impôt latent déduit de l'assiette des droits                        672 788  écart           0 (   0,0 %) ; s'il ne vend jamais : 390 188
+     (iv) crédit à la vente des droits afférents à l'impôt latent              672 788  écart           0 (   0,0 %) ; s'il ne vend jamais : 545 618
+     (v) prix majoré forfaitairement de 30 % de la plus-value                  743 438  écart      70 650 (  10,5 %) ; s'il ne vend jamais : 545 618
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)         672 788  écart           0 (   0,0 %) ; s'il ne vend jamais : 672 788
+
+   Autre lien : 100 k€ devenus 1 M€, un frère — taux moyen des droits 44,0 %, marginal 45,0 %
+     A vendre puis transmettre : 595 818 (59,6 %)
+     aujourdhui                                                                440 388  écart    −155 430 ( −26,1 %) ; s'il ne vend jamais : 440 388
+     sans_correction                                                           722 988  écart     127 170 (  21,3 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))               598 534  écart       2 716 (   0,5 %) ; s'il ne vend jamais : 440 388
+     (ii) même correction au taux marginal des droits                          595 818  écart           0 (   0,0 %) ; s'il ne vend jamais : 440 388
+     (iii) impôt latent déduit de l'assiette des droits                        595 818  écart           0 (   0,0 %) ; s'il ne vend jamais : 313 218
+     (iv) crédit à la vente des droits afférents à l'impôt latent              595 818  écart           0 (   0,0 %) ; s'il ne vend jamais : 440 388
+     (v) prix majoré forfaitairement de 30 % de la plus-value                  638 208  écart      42 390 (   7,1 %) ; s'il ne vend jamais : 440 388
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)         595 818  écart           0 (   0,0 %) ; s'il ne vend jamais : 595 818
+
+   Conjoint : 100 k€ devenus 1 M€ (exonéré) — taux moyen des droits 0,0 %, marginal 0,0 %
+     A vendre puis transmettre : 282 600 (28,3 %)
+     aujourdhui                                                                      0  écart    −282 600 (−100,0 %) ; s'il ne vend jamais : 0
+     sans_correction                                                           282 600  écart           0 (   0,0 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))               282 600  écart           0 (   0,0 %) ; s'il ne vend jamais : 0
+     (ii) même correction au taux marginal des droits                          282 600  écart           0 (   0,0 %) ; s'il ne vend jamais : 0
+     (iii) impôt latent déduit de l'assiette des droits                        282 600  écart           0 (   0,0 %) ; s'il ne vend jamais : 0
+     (iv) crédit à la vente des droits afférents à l'impôt latent              282 600  écart           0 (   0,0 %) ; s'il ne vend jamais : 0
+     (v) prix majoré forfaitairement de 30 % de la plus-value                  197 820  écart     −84 780 ( −30,0 %) ; s'il ne vend jamais : 0
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)         282 600  écart           0 (   0,0 %) ; s'il ne vend jamais : 282 600
+
+   Pacte Dutreil : 100 k€ devenus 1 M€, un enfant — taux moyen des droits 2,8 %, marginal 5,0 %
+     A vendre puis transmettre : 410 782 (41,1 %)
+     aujourdhui                                                                 28 194  écart    −382 588 ( −93,1 %) ; s'il ne vend jamais : 28 194
+     sans_correction                                                           310 794  écart     −99 988 ( −24,3 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))               302 827  écart    −107 955 ( −26,3 %) ; s'il ne vend jamais : 28 194
+     (ii) même correction au taux marginal des droits                          296 664  écart    −114 118 ( −27,8 %) ; s'il ne vend jamais : 28 194
+     (iii) impôt latent déduit de l'assiette des droits                        296 664  écart    −114 118 ( −27,8 %) ; s'il ne vend jamais : 14 064
+     (iv) crédit à la vente des droits afférents à l'impôt latent              296 664  écart    −114 118 ( −27,8 %) ; s'il ne vend jamais : 28 194
+     (v) prix majoré forfaitairement de 30 % de la plus-value                  226 014  écart    −184 768 ( −45,0 %) ; s'il ne vend jamais : 28 194
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)         296 664  écart    −114 118 ( −27,8 %) ; s'il ne vend jamais : 296 664
+
+   Pacte Dutreil : entreprise de 10 M€ (prix 0,5 M€), deux enfants — taux moyen des droits 6,3 %, marginal 10,0 %
+     A vendre puis transmettre : 5 575 439 (55,8 %)
+     aujourdhui                                                                625 356  écart  −4 950 082 ( −88,8 %) ; s'il ne vend jamais : 625 356
+     sans_correction                                                         3 608 356  écart  −1 967 082 ( −35,3 %)
+     (i) droits au taux moyen ajoutés au prix (v2, § 1015(d)(6))             3 421 813  écart  −2 153 626 ( −38,6 %) ; s'il ne vend jamais : 625 356
+     (ii) même correction au taux marginal des droits                        3 310 056  écart  −2 265 382 ( −40,6 %) ; s'il ne vend jamais : 625 356
+     (iii) impôt latent déduit de l'assiette des droits                      3 335 199  écart  −2 240 240 ( −40,2 %) ; s'il ne vend jamais : 352 199
+     (iv) crédit à la vente des droits afférents à l'impôt latent            3 335 199  écart  −2 240 240 ( −40,2 %) ; s'il ne vend jamais : 625 356
+     (v) prix majoré forfaitairement de 30 % de la plus-value                2 713 456  écart  −2 861 982 ( −51,3 %) ; s'il ne vend jamais : 625 356
+     (vi) réalisation au décès, impôt déduit des droits (pour mémoire)       3 335 199  écart  −2 240 240 ( −40,2 %) ; s'il ne vend jamais : 3 335 199
+
+   rapport taux marginal / taux moyen des droits : exemple 1,41 ; petite 1,37 ; tres_grande 1,03 ; dutreil_ex 1,77 ; dutreil_pme 1,60
+
+2. Recettes par règle, Md€ (impôt encaissé l'année qui suit la vente) [S sur hypothèses H]
+   jeu bas : impôt latent transmis par an 3,65 ; τ = 15 % ; m = 21 % ; (iii) perte de droits 0,77 par an dès 2027
+   jeu central : impôt latent transmis par an 7,49 ; τ = 10 % ; m = 14 % ; (iii) perte de droits 1,05 par an dès 2027
+   jeu haut : impôt latent transmis par an 14,68 ; τ = 5 % ; m = 7 % ; (iii) perte de droits 1,03 par an dès 2027
+   année       2027  2028  2029  2030  2031  2032  2033  2034  2035  2036  2037  2038  2039  2040   cumul
+   cent sans_correction 0.00  0.95  2.12  2.34  2.54  2.74  2.93  3.11  3.29  3.46  3.62  3.77  3.92  4.06    38.9
+   cent i               0.00  0.86  1.91  2.10  2.29  2.47  2.64  2.80  2.96  3.11  3.26  3.40  3.53  3.66    35.0
+   cent iv              0.00  0.82  1.83  2.01  2.19  2.36  2.52  2.68  2.83  2.97  3.11  3.24  3.37  3.50    33.4
+   cent v               0.00  0.67  1.49  1.64  1.78  1.92  2.05  2.18  2.30  2.42  2.53  2.64  2.75  2.84    27.2
+   cent iii            -1.05 -0.10  1.08  1.29  1.50  1.69  1.88  2.07  2.24  2.41  2.57  2.72  2.87  3.02    24.2
+   cent vi              0.00  6.44  6.44  6.44  6.44  6.44  6.44  6.44  6.44  6.44  6.44  6.44  6.44  6.44    83.7
+   bas sans_correction 0.00  0.25  0.56  0.62  0.68  0.74  0.80  0.85  0.91  0.96  1.02  1.07  1.12  1.17    10.7
+   bas i               0.00  0.21  0.47  0.53  0.58  0.63  0.68  0.73  0.77  0.82  0.87  0.91  0.95  1.00     9.1
+   bas iv              0.00  0.19  0.44  0.49  0.54  0.58  0.63  0.67  0.72  0.76  0.80  0.85  0.89  0.93     8.5
+   bas v               0.00  0.17  0.39  0.43  0.48  0.52  0.56  0.60  0.64  0.68  0.71  0.75  0.79  0.82     7.5
+   bas iii            -0.77 -0.52 -0.21 -0.15 -0.09 -0.03  0.03  0.09  0.14  0.20  0.25  0.30  0.36  0.41     0.0
+   bas vi              0.00  2.88  2.88  2.88  2.88  2.88  2.88  2.88  2.88  2.88  2.88  2.88  2.88  2.88    37.5
+   haut sans_correction 0.00  2.70  5.95  6.47  6.96  7.43  7.86  8.27  8.65  9.02  9.36  9.67  9.97 10.26   102.6
+   haut i               0.00  2.56  5.65  6.15  6.62  7.06  7.47  7.86  8.22  8.57  8.89  9.19  9.48  9.74    97.4
+   haut iv              0.00  2.51  5.53  6.02  6.48  6.91  7.31  7.69  8.05  8.38  8.70  9.00  9.28  9.54    95.4
+   haut v               0.00  1.89  4.16  4.53  4.87  5.20  5.50  5.79  6.06  6.31  6.55  6.77  6.98  7.18    71.8
+   haut iii            -1.03  1.67  4.92  5.44  5.94  6.40  6.83  7.24  7.63  7.99  8.33  8.65  8.95  9.23    88.2
+   haut vi              0.00 13.65 13.65 13.65 13.65 13.65 13.65 13.65 13.65 13.65 13.65 13.65 13.65 13.65   177.4
+   prudent (iv)         0.00  0.00  0.00  0.19  0.44  0.49  0.54  0.58  0.63  0.67  0.72  0.76  0.80  0.85     6.7
+   coût cumulé 2027-2040 de (iv) par rapport à (i) : bas 0,6 ; central 1,6 ; haut 2,1
+   coût annuel en régime de croisière de (iv) par rapport à (i) : bas 0,22 ; central 0,30 ; haut 0,29

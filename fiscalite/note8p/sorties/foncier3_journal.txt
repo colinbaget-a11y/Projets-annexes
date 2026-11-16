@@ -1,0 +1,71 @@
+[DMTO] division par deux : 8.07 Md€ (France entière, taux permanent, ventes 2025) ; logements 6.56
+[PARTS A] recette nationale payée par : logements des ménages 64.5 % ; terrains nus 6.8 % ; sociétés 29.3 % (soumises à l'IS hors HLM 18.7 %) ; part qui porte sur le bâti 19.8 %
+[PARTS B] recette nationale payée par : logements des ménages 62.1 % ; terrains nus 8.5 % ; sociétés 30.3 % (soumises à l'IS hors HLM 21.2 %) ; part qui porte sur le bâti 0.0 %
+[A_E9] taux national 0.113 % du sol, 0.028 % du bâti (statique 0.108 ; r = 4 % 0.112 ; si droits capitalisés 0.109) ; communal moyen 0.57 % sol / 0.14 % bâti
+   logements : moyenne +180 € (+23 %), médiane +142, P90 +421, P99 +650 ; > 300 € 21 %, > 600 € 1 %, baisse 8 % ; Paris +94 % (appartement médian +514 €) ; maisons +151, appartements +221 ; impôt sur le bâti 8.6 Md€ ; rapport sol/bâti P10 4.0 médiane 4.0 P90 4.0 Paris 4.0
+   valeur : −300 Md€ (r 3 %, κ 0) ; −225 (r 4 %) ; κ 50 % −165 ; κ 100 % −31 ; logements des ménages −2.2 % ; P5 -5.3 % ; > 5 % 7 %
+   net : 2028 -0.47 ; 2029 +0.18 ; 2030 +0.14 ; 2031 +0.33 ; 2032 -0.12 ; 2035 -0.05 ; 2040 +0.05 ; cumul -0.1
+[A_E10] taux national 0.126 % du sol, 0.031 % du bâti (statique 0.121 ; r = 4 % 0.124 ; si droits capitalisés 0.121) ; communal moyen 0.57 % sol / 0.14 % bâti
+   logements : moyenne +200 € (+25 %), médiane +158, P90 +461, P99 +707 ; > 300 € 23 %, > 600 € 2 %, baisse 7 % ; Paris +104 % (appartement médian +570 €) ; maisons +169, appartements +242 ; impôt sur le bâti 8.7 Md€ ; rapport sol/bâti P10 4.0 médiane 4.0 P90 4.0 Paris 4.0
+   valeur : −333 Md€ (r 3 %, κ 0) ; −250 (r 4 %) ; κ 50 % −199 ; κ 100 % −64 ; logements des ménages −2.4 % ; P5 -5.7 % ; > 5 % 9 %
+   net : 2028 -0.47 ; 2029 +0.50 ; 2030 +0.75 ; 2031 +1.24 ; 2032 +0.77 ; 2035 +0.85 ; 2040 +0.96 ; cumul +9.8
+[A_E12] taux national 0.152 % du sol, 0.038 % du bâti (statique 0.145 ; r = 4 % 0.150 ; si droits capitalisés 0.147) ; communal moyen 0.57 % sol / 0.14 % bâti
+   logements : moyenne +240 € (+30 %), médiane +189, P90 +542, P99 +813 ; > 300 € 30 %, > 600 € 8 %, baisse 6 % ; Paris +125 % (appartement médian +682 €) ; maisons +207, appartements +286 ; impôt sur le bâti 9.0 Md€ ; rapport sol/bâti P10 4.0 médiane 4.0 P90 4.0 Paris 4.0
+   valeur : −400 Md€ (r 3 %, κ 0) ; −300 (r 4 %) ; κ 50 % −265 ; κ 100 % −131 ; logements des ménages −2.9 % ; P5 -6.4 % ; > 5 % 23 %
+   net : 2028 -0.47 ; 2029 +1.14 ; 2030 +1.98 ; 2031 +3.06 ; 2032 +2.54 ; 2035 +2.64 ; 2040 +2.77 ; cumul +29.7
+[A_E15] taux national 0.192 % du sol, 0.048 % du bâti (statique 0.181 ; r = 4 % 0.189 ; si droits capitalisés 0.186) ; communal moyen 0.58 % sol / 0.15 % bâti
+   logements : moyenne +301 € (+38 %), médiane +237, P90 +655, P99 +975 ; > 300 € 40 %, > 600 € 12 %, baisse 5 % ; Paris +156 % (appartement médian +850 €) ; maisons +263, appartements +351 ; impôt sur le bâti 9.4 Md€ ; rapport sol/bâti P10 4.0 médiane 4.0 P90 4.0 Paris 4.0
+   valeur : −500 Md€ (r 3 %, κ 0) ; −375 (r 4 %) ; κ 50 % −365 ; κ 100 % −231 ; logements des ménages −3.6 % ; P5 -7.5 % ; > 5 % 34 %
+   net : 2028 -0.47 ; 2029 +2.10 ; 2030 +3.82 ; 2031 +5.79 ; 2032 +5.20 ; 2035 +5.32 ; 2040 +5.48 ; cumul +59.4
+[A_E18] taux national 0.234 % du sol, 0.058 % du bâti (statique 0.217 ; r = 4 % 0.229 ; si droits capitalisés 0.226) ; communal moyen 0.59 % sol / 0.15 % bâti
+   logements : moyenne +361 € (+45 %), médiane +284, P90 +776, P99 +1158 ; > 300 € 48 %, > 600 € 17 %, baisse 3 % ; Paris +188 % (appartement médian +1018 €) ; maisons +320, appartements +416 ; impôt sur le bâti 9.8 Md€ ; rapport sol/bâti P10 4.0 médiane 4.0 P90 4.0 Paris 4.0
+   valeur : −600 Md€ (r 3 %, κ 0) ; −450 (r 4 %) ; κ 50 % −465 ; κ 100 % −331 ; logements des ménages −4.3 % ; P5 -8.6 % ; > 5 % 46 %
+   net : 2028 -0.47 ; 2029 +3.06 ; 2030 +5.67 ; 2031 +8.52 ; 2032 +7.86 ; 2035 +8.00 ; 2040 +8.19 ; cumul +89.1
+[A_substitution] taux national 0.101 % du sol, 0.025 % du bâti (statique 0.097 ; r = 4 % 0.100 ; si droits capitalisés 0.097) ; communal moyen 0.56 % sol / 0.14 % bâti
+   logements : moyenne +162 € (+20 %), médiane +128, P90 +388, P99 +592 ; > 300 € 17 %, > 600 € 1 %, baisse 8 % ; Paris +84 % (appartement médian +462 €) ; maisons +133, appartements +200 ; impôt sur le bâti 8.5 Md€ ; rapport sol/bâti P10 4.0 médiane 4.0 P90 4.0 Paris 4.0
+   valeur : −269 Md€ (r 3 %, κ 0) ; −202 (r 4 %) ; κ 50 % −134 ; κ 100 % −-0 ; logements des ménages −1.9 % ; P5 -5.0 % ; > 5 % 5 %
+   net : 2028 -0.47 ; 2029 -0.12 ; 2030 -0.44 ; 2031 -0.52 ; 2032 -0.94 ; 2035 -0.88 ; 2040 -0.79 ; cumul -9.3
+[B_E9] taux national 0.142 % du sol, 0.000 % du bâti (statique 0.135 ; r = 4 % 0.140 ; si droits capitalisés 0.136) ; communal moyen 0.57 % sol / 0.14 % bâti
+   logements : moyenne +174 € (+22 %), médiane +122, P90 +467, P99 +710 ; > 300 € 21 %, > 600 € 6 %, baisse 10 % ; Paris +111 % (appartement médian +611 €) ; maisons +128, appartements +235 ; impôt sur le bâti 7.3 Md€ ; rapport sol/bâti P10 4.4 médiane 4.9 P90 6.1 Paris 8.7
+   valeur : −300 Md€ (r 3 %, κ 0) ; −225 (r 4 %) ; κ 50 % −165 ; κ 100 % −31 ; logements des ménages −2.1 % ; P5 -5.6 % ; > 5 % 9 %
+   net : 2028 -0.47 ; 2029 +0.19 ; 2030 +0.13 ; 2031 +0.32 ; 2032 -0.15 ; 2035 -0.08 ; 2040 +0.02 ; cumul -0.4
+[B_E10] taux national 0.158 % du sol, 0.000 % du bâti (statique 0.150 ; r = 4 % 0.156 ; si droits capitalisés 0.152) ; communal moyen 0.57 % sol / 0.14 % bâti
+   logements : moyenne +193 € (+24 %), médiane +135, P90 +508, P99 +770 ; > 300 € 24 %, > 600 € 7 %, baisse 10 % ; Paris +123 % (appartement médian +677 €) ; maisons +144, appartements +259 ; impôt sur le bâti 7.3 Md€ ; rapport sol/bâti P10 4.5 médiane 5.0 P90 6.4 Paris 9.2
+   valeur : −333 Md€ (r 3 %, κ 0) ; −250 (r 4 %) ; κ 50 % −199 ; κ 100 % −64 ; logements des ménages −2.3 % ; P5 -6.0 % ; > 5 % 19 %
+   net : 2028 -0.47 ; 2029 +0.51 ; 2030 +0.74 ; 2031 +1.23 ; 2032 +0.74 ; 2035 +0.81 ; 2040 +0.92 ; cumul +9.5
+[B_E12] taux national 0.192 % du sol, 0.000 % du bâti (statique 0.180 ; r = 4 % 0.189 ; si droits capitalisés 0.184) ; communal moyen 0.57 % sol / 0.14 % bâti
+   logements : moyenne +232 € (+29 %), médiane +162, P90 +592, P99 +892 ; > 300 € 29 %, > 600 € 10 %, baisse 9 % ; Paris +148 % (appartement médian +811 €) ; maisons +177, appartements +306 ; impôt sur le bâti 7.3 Md€ ; rapport sol/bâti P10 4.6 médiane 5.2 P90 6.8 Paris 10.2
+   valeur : −400 Md€ (r 3 %, κ 0) ; −300 (r 4 %) ; κ 50 % −265 ; κ 100 % −131 ; logements des ménages −2.8 % ; P5 -6.9 % ; > 5 % 25 %
+   net : 2028 -0.47 ; 2029 +1.15 ; 2030 +1.97 ; 2031 +3.04 ; 2032 +2.50 ; 2035 +2.59 ; 2040 +2.72 ; cumul +29.2
+[B_E15] taux national 0.244 % du sol, 0.000 % du bâti (statique 0.225 ; r = 4 % 0.239 ; si droits capitalisés 0.233) ; communal moyen 0.58 % sol / 0.15 % bâti
+   logements : moyenne +290 € (+36 %), médiane +201, P90 +718, P99 +1093 ; > 300 € 38 %, > 600 € 14 %, baisse 8 % ; Paris +185 % (appartement médian +1011 €) ; maisons +226, appartements +376 ; impôt sur le bâti 7.3 Md€ ; rapport sol/bâti P10 4.7 médiane 5.5 P90 7.5 Paris 11.8
+   valeur : −500 Md€ (r 3 %, κ 0) ; −375 (r 4 %) ; κ 50 % −365 ; κ 100 % −231 ; logements des ménages −3.5 % ; P5 -8.2 % ; > 5 % 34 %
+   net : 2028 -0.47 ; 2029 +2.11 ; 2030 +3.82 ; 2031 +5.77 ; 2032 +5.16 ; 2035 +5.26 ; 2040 +5.42 ; cumul +58.9
+[B_E18] taux national 0.297 % du sol, 0.000 % du bâti (statique 0.270 ; r = 4 % 0.290 ; si droits capitalisés 0.285) ; communal moyen 0.59 % sol / 0.15 % bâti
+   logements : moyenne +347 € (+44 %), médiane +241, P90 +846, P99 +1301 ; > 300 € 43 %, > 600 € 20 %, baisse 7 % ; Paris +222 % (appartement médian +1211 €) ; maisons +275, appartements +446 ; impôt sur le bâti 7.3 Md€ ; rapport sol/bâti P10 4.9 médiane 5.8 P90 8.2 Paris 13.3
+   valeur : −600 Md€ (r 3 %, κ 0) ; −450 (r 4 %) ; κ 50 % −465 ; κ 100 % −331 ; logements des ménages −4.2 % ; P5 -9.7 % ; > 5 % 41 %
+   net : 2028 -0.47 ; 2029 +3.07 ; 2030 +5.66 ; 2031 +8.50 ; 2032 +7.80 ; 2035 +7.93 ; 2040 +8.12 ; cumul +88.5
+[B_substitution] taux national 0.126 % du sol, 0.000 % du bâti (statique 0.121 ; r = 4 % 0.125 ; si droits capitalisés 0.121) ; communal moyen 0.56 % sol / 0.14 % bâti
+   logements : moyenne +156 € (+20 %), médiane +110, P90 +425, P99 +653 ; > 300 € 19 %, > 600 € 2 %, baisse 11 % ; Paris +99 % (appartement médian +549 €) ; maisons +113, appartements +214 ; impôt sur le bâti 7.3 Md€ ; rapport sol/bâti P10 4.4 médiane 4.8 P90 5.9 Paris 8.2
+   valeur : −269 Md€ (r 3 %, κ 0) ; −202 (r 4 %) ; κ 50 % −134 ; κ 100 % −-0 ; logements des ménages −1.9 % ; P5 -5.2 % ; > 5 % 6 %
+   net : 2028 -0.47 ; 2029 -0.11 ; 2030 -0.44 ; 2031 -0.53 ; 2032 -0.97 ; 2035 -0.91 ; 2040 -0.82 ; cumul -9.6
+[IS] fin du taux réduit + déduction de 50 % (caisse, is.json) : 2027 +0.00 ; 2028 -2.36 ; 2029 -4.00 ; 2030 -2.55 ; 2031 -1.36 ; 2032 -0.35 ; 2033 +0.62 ; 2034 +1.61 ; 2035 +2.30 ; 2036 +2.53
+[FONCIER + IS B_E9] 2027 +0.00 ; 2028 -2.83 ; 2029 -3.81 ; 2030 -2.42 ; 2031 -1.05 ; 2032 -0.50 ; 2033 +0.49 ; 2034 +1.51 ; 2035 +2.22 ; 2040 +2.86 ; minimum 2029-2040 -3.81
+[FONCIER + IS B_E10] 2027 +0.00 ; 2028 -2.83 ; 2029 -3.49 ; 2030 -1.80 ; 2031 -0.14 ; 2032 +0.39 ; 2033 +1.38 ; 2034 +2.40 ; 2035 +3.11 ; 2040 +3.76 ; minimum 2029-2040 -3.49
+[FONCIER + IS B_E12] 2027 +0.00 ; 2028 -2.83 ; 2029 -2.85 ; 2030 -0.57 ; 2031 +1.68 ; 2032 +2.15 ; 2033 +3.15 ; 2034 +4.17 ; 2035 +4.89 ; 2040 +5.56 ; minimum 2029-2040 -2.85
+[FONCIER + IS B_E15] 2027 +0.00 ; 2028 -2.83 ; 2029 -1.88 ; 2030 +1.27 ; 2031 +4.41 ; 2032 +4.80 ; 2033 +5.81 ; 2034 +6.84 ; 2035 +7.57 ; 2040 +8.26 ; minimum 2029-2040 -1.88
+[FONCIER + IS B_E18] 2027 +0.00 ; 2028 -2.83 ; 2029 -0.92 ; 2030 +3.11 ; 2031 +7.13 ; 2032 +7.45 ; 2033 +8.46 ; 2034 +9.50 ; 2035 +10.24 ; 2040 +10.96 ; minimum 2029-2040 -0.92
+[FONCIER + IS A_E12] 2027 +0.00 ; 2028 -2.83 ; 2029 -2.85 ; 2030 -0.57 ; 2031 +1.70 ; 2032 +2.19 ; 2033 +3.19 ; 2034 +4.22 ; 2035 +4.94 ; 2040 +5.61 ; minimum 2029-2040 -2.85
+
+[CAS B_E12] orleans 170000 € : droits −4936, taxe +243/an (20 ans) ; lyon 372000 € : droits −10800, taxe +595/an (18 ans) ; massy 269000 € : droits −7810, taxe +419/an (19 ans) ; sgdb 365000 € : droits −10597, taxe +466/an (23 ans)
+[CAS A_E12] orleans 170000 € : droits −4936, taxe +253/an (19 ans) ; lyon 372000 € : droits −10800, taxe +536/an (20 ans) ; massy 269000 € : droits −7810, taxe +386/an (20 ans) ; sgdb 365000 € : droits −10597, taxe +452/an (23 ans)
+[CAS B_E15] orleans 170000 € : droits −4936, taxe +285/an (17 ans) ; lyon 372000 € : droits −10800, taxe +739/an (15 ans) ; massy 269000 € : droits −7810, taxe +518/an (15 ans) ; sgdb 365000 € : droits −10597, taxe +579/an (18 ans)
+[CAS A_E15] orleans 170000 € : droits −4936, taxe +298/an (17 ans) ; lyon 372000 € : droits −10800, taxe +665/an (16 ans) ; massy 269000 € : droits −7810, taxe +475/an (16 ans) ; sgdb 365000 € : droits −10597, taxe +562/an (19 ans)
+[CAS B_E10] orleans 170000 € : droits −4936, taxe +215/an (23 ans) ; lyon 372000 € : droits −10800, taxe +499/an (22 ans) ; massy 269000 € : droits −7810, taxe +354/an (22 ans) ; sgdb 365000 € : droits −10597, taxe +391/an (27 ans)
+[G6] terrain 200 000 €, immeuble 600 000 € : aujourdhui nu 716 €, construire +2149 € ; A_E12 nu 1452 €, construire +1089 € ; A_E15 nu 1547 €, construire +1160 € ; B_E12 nu 1531 €, construire +861 € ; B_E15 nu 1650 €, construire +872 €
+[G10] sol sous les bâtiments / PIB : 1998 53 % ; 2007 276 % ; 2022 298 % ; 2025 235 % ; baisse 2022-2025 -881 Md€
+[CONSO B_E12] perte des ménages (r 3 %) κ 0/50/100 : 249 Md€ → 1.7 à 3.5 Md€/an / 139 Md€ → 1.0 à 1.9 Md€/an / 30 Md€ → 0.2 à 0.4 Md€/an
+[CONSO B_E15] perte des ménages (r 3 %) κ 0/50/100 : 311 Md€ → 2.2 à 4.3 Md€/an / 201 Md€ → 1.4 à 2.8 Md€/an / 92 Md€ → 0.6 à 1.3 Md€/an
+[CONSO B_E18] perte des ménages (r 3 %) κ 0/50/100 : 373 Md€ → 2.6 à 5.2 Md€/an / 264 Md€ → 1.8 à 3.7 Md€/an / 154 Md€ → 1.1 à 2.2 Md€/an
+[CONSO B_E9] perte des ménages (r 3 %) κ 0/50/100 : 186 Md€ → 1.3 à 2.6 Md€/an / 77 Md€ → 0.5 à 1.1 Md€/an / -32 Md€ → -0.2 à -0.5 Md€/an
+[CONSO A_E12] perte des ménages (r 3 %) κ 0/50/100 : 258 Md€ → 1.8 à 3.6 Md€/an / 149 Md€ → 1.0 à 2.1 Md€/an / 39 Md€ → 0.3 à 0.6 Md€/an

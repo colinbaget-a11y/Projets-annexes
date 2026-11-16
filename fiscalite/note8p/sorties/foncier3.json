@@ -1,0 +1,5657 @@
+{
+ "conventions": "Md€ de 2025, assiettes 2025 non indexées ; années de caisse (taxe foncière recouvrée l'année de l'avis, droits à la vente, déductibilité l'année suivante) ; + = recette publique en plus par rapport au droit en vigueur (droits au taux permanent) ; − = coût",
+ "architectures": {
+  "A": "base unique sol + bâti/4 pour la part communale et la part nationale",
+  "B": "part communale à double taux (sol = 4 × bâti) + taxe nationale sur le seul sol"
+ },
+ "parts_recette_nationale": {
+  "A": {
+   "men_log": 0.6449549075170371,
+   "nus": 0.06809339664680798,
+   "societes": 0.2928381903072957,
+   "entr_is": 0.18738072859476348,
+   "bati": 0.1976826137598891
+  },
+  "B": {
+   "men_log": 0.6214249248107763,
+   "nus": 0.08487089749595625,
+   "societes": 0.30258896126939905,
+   "entr_is": 0.21199229432528324,
+   "bati": 0.0
+  }
+ },
+ "dmto_demi": 8.07478122150153,
+ "dmto_total": 16.14956244300306,
+ "assiette": {
+  "sol": 6655.874,
+  "nus": 564.8900000000003,
+  "bati": 6559.750999999999,
+  "base_A": 8295.81175
+ },
+ "annuel_par_scenario": {
+  "A_E9": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 3.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.127,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.182
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 6.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.244,
+    "deductibilite_is_ir": -0.237,
+    "net": 0.135
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.354,
+    "deductibilite_is_ir": -0.475,
+    "net": 0.331
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.329,
+    "deductibilite_is_ir": -0.712,
+    "net": -0.115
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.305,
+    "deductibilite_is_ir": -0.712,
+    "net": -0.091
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.281,
+    "deductibilite_is_ir": -0.712,
+    "net": -0.068
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.259,
+    "deductibilite_is_ir": -0.712,
+    "net": -0.046
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.238,
+    "deductibilite_is_ir": -0.712,
+    "net": -0.024
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.217,
+    "deductibilite_is_ir": -0.712,
+    "net": -0.004
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.197,
+    "deductibilite_is_ir": -0.712,
+    "net": 0.016
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.178,
+    "deductibilite_is_ir": -0.712,
+    "net": 0.035
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.16,
+    "deductibilite_is_ir": -0.712,
+    "net": 0.053
+   }
+  },
+  "A_E10": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 3.333,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.14,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.502
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 6.667,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.27,
+    "deductibilite_is_ir": -0.264,
+    "net": 0.75
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.391,
+    "deductibilite_is_ir": -0.527,
+    "net": 1.242
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.363,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.771
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.336,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.798
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.311,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.824
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.286,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.848
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.263,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.872
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.24,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.895
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.218,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.916
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.197,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.937
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.177,
+    "deductibilite_is_ir": -0.791,
+    "net": 0.958
+   }
+  },
+  "A_E12": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 4.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.166,
+    "deductibilite_is_ir": -0.0,
+    "net": 1.142
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 8.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.321,
+    "deductibilite_is_ir": -0.316,
+    "net": 1.98
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.465,
+    "deductibilite_is_ir": -0.633,
+    "net": 3.062
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.432,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.544
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.4,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.576
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.37,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.607
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.34,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.636
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.312,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.664
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.285,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.691
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.259,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.717
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.234,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.742
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.21,
+    "deductibilite_is_ir": -0.949,
+    "net": 2.766
+   }
+  },
+  "A_E15": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 5.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.206,
+    "deductibilite_is_ir": -0.0,
+    "net": 2.102
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.398,
+    "deductibilite_is_ir": -0.395,
+    "net": 3.823
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.577,
+    "deductibilite_is_ir": -0.791,
+    "net": 5.792
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.536,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.203
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.497,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.242
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.459,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.28
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.422,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.316
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.388,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.351
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.354,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.385
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.322,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.417
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.291,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.448
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.261,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.478
+   }
+  },
+  "A_E18": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 6.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.247,
+    "deductibilite_is_ir": -0.0,
+    "net": 3.062
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.476,
+    "deductibilite_is_ir": -0.475,
+    "net": 5.666
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.689,
+    "deductibilite_is_ir": -0.949,
+    "net": 8.521
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.641,
+    "deductibilite_is_ir": -1.424,
+    "net": 7.861
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.594,
+    "deductibilite_is_ir": -1.424,
+    "net": 7.908
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.549,
+    "deductibilite_is_ir": -1.424,
+    "net": 7.953
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.505,
+    "deductibilite_is_ir": -1.424,
+    "net": 7.997
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.463,
+    "deductibilite_is_ir": -1.424,
+    "net": 8.038
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.423,
+    "deductibilite_is_ir": -1.424,
+    "net": 8.078
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.385,
+    "deductibilite_is_ir": -1.424,
+    "net": 8.117
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.348,
+    "deductibilite_is_ir": -1.424,
+    "net": 8.154
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.312,
+    "deductibilite_is_ir": -1.424,
+    "net": 8.19
+   }
+  },
+  "A_substitution": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 2.69,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.114,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.116
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 5.38,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.221,
+    "deductibilite_is_ir": -0.213,
+    "net": -0.437
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.32,
+    "deductibilite_is_ir": -0.425,
+    "net": -0.516
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.297,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.94
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.275,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.918
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.254,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.897
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.234,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.877
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.215,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.858
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.196,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.839
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.178,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.821
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.161,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.804
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.145,
+    "deductibilite_is_ir": -0.638,
+    "net": -0.788
+   }
+  },
+  "B_E9": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 3.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.121,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.187
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 6.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.234,
+    "deductibilite_is_ir": -0.252,
+    "net": 0.13
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.339,
+    "deductibilite_is_ir": -0.504,
+    "net": 0.316
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.315,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.146
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.292,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.123
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.27,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.101
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.249,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.079
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.228,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.059
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.208,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.039
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.189,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.02
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.171,
+    "deductibilite_is_ir": -0.756,
+    "net": -0.002
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 9.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.154,
+    "deductibilite_is_ir": -0.756,
+    "net": 0.016
+   }
+  },
+  "B_E10": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 3.333,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.134,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.508
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 6.667,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.258,
+    "deductibilite_is_ir": -0.28,
+    "net": 0.745
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.374,
+    "deductibilite_is_ir": -0.56,
+    "net": 1.226
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.348,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.738
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.322,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.763
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.298,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.788
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.274,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.811
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.251,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.834
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.23,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.856
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.209,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.877
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.189,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.897
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.169,
+    "deductibilite_is_ir": -0.84,
+    "net": 0.916
+   }
+  },
+  "B_E12": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 4.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.159,
+    "deductibilite_is_ir": -0.0,
+    "net": 1.15
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 8.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.307,
+    "deductibilite_is_ir": -0.336,
+    "net": 1.974
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.444,
+    "deductibilite_is_ir": -0.672,
+    "net": 3.044
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.413,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.505
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.382,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.535
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.353,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.564
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.325,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.592
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.298,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.619
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.273,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.645
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.248,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.67
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.224,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.694
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.201,
+    "deductibilite_is_ir": -1.008,
+    "net": 2.717
+   }
+  },
+  "B_E15": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 5.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.196,
+    "deductibilite_is_ir": -0.0,
+    "net": 2.112
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.379,
+    "deductibilite_is_ir": -0.42,
+    "net": 3.817
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.55,
+    "deductibilite_is_ir": -0.84,
+    "net": 5.77
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.511,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.155
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.473,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.192
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.437,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.228
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.403,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.263
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.369,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.296
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.337,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.328
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.307,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.359
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.277,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.389
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.249,
+    "deductibilite_is_ir": -1.26,
+    "net": 5.417
+   }
+  },
+  "B_E18": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 6.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.234,
+    "deductibilite_is_ir": -0.0,
+    "net": 3.074
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 12.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.453,
+    "deductibilite_is_ir": -0.504,
+    "net": 5.66
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.655,
+    "deductibilite_is_ir": -1.008,
+    "net": 8.496
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.609,
+    "deductibilite_is_ir": -1.512,
+    "net": 7.805
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.564,
+    "deductibilite_is_ir": -1.512,
+    "net": 7.849
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.521,
+    "deductibilite_is_ir": -1.512,
+    "net": 7.892
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.48,
+    "deductibilite_is_ir": -1.512,
+    "net": 7.933
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.441,
+    "deductibilite_is_ir": -1.512,
+    "net": 7.973
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.402,
+    "deductibilite_is_ir": -1.512,
+    "net": 8.011
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.366,
+    "deductibilite_is_ir": -1.512,
+    "net": 8.048
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.331,
+    "deductibilite_is_ir": -1.512,
+    "net": 8.083
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 18.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.297,
+    "deductibilite_is_ir": -1.512,
+    "net": 8.117
+   }
+  },
+  "B_substitution": {
+   "2027": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   },
+   "2028": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   },
+   "2029": {
+    "taxe_fonciere_nouvelle": 2.69,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.11,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.111
+   },
+   "2030": {
+    "taxe_fonciere_nouvelle": 5.38,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.212,
+    "deductibilite_is_ir": -0.226,
+    "net": -0.441
+   },
+   "2031": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.307,
+    "deductibilite_is_ir": -0.452,
+    "net": -0.529
+   },
+   "2032": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.285,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.968
+   },
+   "2033": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.265,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.947
+   },
+   "2034": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.244,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.927
+   },
+   "2035": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.225,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.908
+   },
+   "2036": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.206,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.889
+   },
+   "2037": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.189,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.871
+   },
+   "2038": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.171,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.854
+   },
+   "2039": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.155,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.837
+   },
+   "2040": {
+    "taxe_fonciere_nouvelle": 8.07,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.139,
+    "deductibilite_is_ir": -0.678,
+    "net": -0.821
+   }
+  }
+ },
+ "indicateurs_annuels": {
+  "A_E9": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.127,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.375,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.74,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.091,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.428,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 1.752,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 2.064,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.364,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 2.652,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 2.929,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 3.195,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 3.451,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "A_E10": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.14,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.414,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.817,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.204,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.576,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 1.934,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 2.279,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.61,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 2.928,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 3.233,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 3.527,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 3.81,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "A_E12": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.166,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.492,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.971,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.432,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.875,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 2.301,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 2.711,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 3.104,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 3.483,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 3.847,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 4.196,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 4.533,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "A_E15": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.206,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.611,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 1.206,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.778,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 2.328,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 2.856,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 3.364,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 3.853,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 4.323,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 4.774,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 5.208,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 5.625,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "A_E18": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.247,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.73,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 1.441,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 2.125,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 2.783,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 3.415,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 4.022,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 4.606,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 5.168,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 5.708,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 6.227,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 6.725,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "A_substitution": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.114,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.339,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.668,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 0.986,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.29,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 1.584,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 1.865,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.136,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 2.396,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 2.647,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 2.887,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 3.119,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "B_E9": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.121,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.359,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.71,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.046,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.37,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 1.681,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 1.98,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.268,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 2.544,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 2.81,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 3.065,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 3.311,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "B_E10": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.134,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.396,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.782,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.153,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.51,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 1.853,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 2.183,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.5,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 2.805,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 3.098,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 3.379,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 3.65,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "B_E12": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.159,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.47,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.928,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.369,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.792,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 2.199,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 2.59,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.967,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 3.328,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 3.676,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 4.01,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 4.331,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "B_E15": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.196,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.582,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 1.149,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 1.694,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 2.218,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 2.722,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 3.206,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 3.671,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 4.119,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 4.549,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 4.963,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 5.36,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "B_E18": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.234,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.694,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 1.37,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 2.021,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 2.646,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 3.246,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 3.824,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 4.379,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 4.913,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 5.426,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 5.92,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 6.394,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  },
+  "B_substitution": {
+   "2027": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2028": {
+    "stock_report": 0.0,
+    "taux_dmto_pct": 5.81,
+    "part_taxe": 0.0
+   },
+   "2029": {
+    "stock_report": 0.11,
+    "taux_dmto_pct": 4.84,
+    "part_taxe": 0.333
+   },
+   "2030": {
+    "stock_report": 0.325,
+    "taux_dmto_pct": 3.87,
+    "part_taxe": 0.667
+   },
+   "2031": {
+    "stock_report": 0.642,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2032": {
+    "stock_report": 0.947,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2033": {
+    "stock_report": 1.24,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2034": {
+    "stock_report": 1.522,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2035": {
+    "stock_report": 1.792,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2036": {
+    "stock_report": 2.053,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2037": {
+    "stock_report": 2.303,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2038": {
+    "stock_report": 2.543,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2039": {
+    "stock_report": 2.774,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   },
+   "2040": {
+    "stock_report": 2.997,
+    "taux_dmto_pct": 2.9,
+    "part_taxe": 1.0
+   }
+  }
+ },
+ "scenarios": {
+  "A_E9": {
+   "E": 9.0,
+   "archi": "A",
+   "taux": {
+    "tn_sol": 0.1125589281163354,
+    "tn_bati": 0.02813973202908385,
+    "tc_sol": 0.566641300280457,
+    "tc_bati": 0.14166032507011425,
+    "sol_apres": 6355.874,
+    "baisse_sol_pct": 4.50729686289133,
+    "base": 7995.81175,
+    "tn_statique": 0.10848847914129682
+   },
+   "taux_r4": {
+    "tn_sol": 0.11151294663761671,
+    "tn_bati": 0.027878236659404178,
+    "tc_sol": 0.5613756468570533,
+    "tc_bati": 0.14034391171426333,
+    "sol_apres": 6430.874,
+    "baisse_sol_pct": 3.3804726471684976,
+    "base": 8070.81175,
+    "tn_statique": 0.10848847914129682
+   },
+   "taux_k100": {
+    "tn_sol": 0.10889330240744707,
+    "tn_bati": 0.02722332560186177,
+    "tc_sol": 0.5481879003344379,
+    "tc_bati": 0.13704697508360947,
+    "sol_apres": 6625.033374050051,
+    "baisse_sol_pct": 0.46335952197936736,
+    "base": 8264.971124050051,
+    "tn_statique": 0.10848847914129682
+   },
+   "logements": {
+    "paye_logements_fr": 5.804594167653334,
+    "moyenne": 180.3053536905653,
+    "moyenne_pct": 22.681027970030346,
+    "pctl": {
+     "10": 21.679292650483944,
+     "25": 69.71673076430727,
+     "50": 141.94429643805483,
+     "75": 264.5646867984058,
+     "90": 421.0323091855912,
+     "95": 513.9740689047471,
+     "99": 649.6833339769
+    },
+    "plus300": 20.55423158932454,
+    "plus600": 1.4739749448501667,
+    "baisse": 7.949147792933397,
+    "double": 0.6251556213645939,
+    "paris_pct": 93.76093399396485,
+    "paris_a": 513.9740689047471,
+    "dtf": [
+     31.45822148562024,
+     53.66566002691931,
+     69.83171365430948,
+     113.70443208713871,
+     146.02306894062735,
+     167.54177555663813,
+     211.57125353770255,
+     251.56927204407563,
+     297.3481141678107,
+     460.03063623758055
+    ],
+    "dtf_pct": [
+     7.002835355291938,
+     9.297946937537082,
+     10.142613827583718,
+     14.943287608676034,
+     17.505077225903477,
+     19.03566351487583,
+     22.858855044717146,
+     25.41734522038988,
+     29.467878621155645,
+     55.10326626742458
+    ],
+    "tfv": [
+     0.5729591568719088,
+     0.5336882330787642,
+     0.5384243679244922,
+     0.5311152193608716,
+     0.5086881061352454,
+     0.49348225608586765,
+     0.48199408295547236,
+     0.44757217370393276,
+     0.39571935181292484,
+     0.27940982173545836
+    ],
+    "net_parc": [
+     -49.71122789557974,
+     -51.3881441808442,
+     -59.92606125646835,
+     -32.566063967149724,
+     -19.35979690893142,
+     -19.852254894602165,
+     2.0129149655097756,
+     20.146232586768406,
+     2.921831763565022,
+     -9.995305241270273
+    ],
+    "maisons": 150.52171016163726,
+    "apparts": 220.52815272791912,
+    "hausse_po_fr": 3.0362333158035546,
+    "hausse_bailleurs_fr": 1.4978891717712455,
+    "impot_bati": 8.585218473552263,
+    "rapport_sol_bati": {
+     "p10": 4.0,
+     "p50": 4.0,
+     "p90": 4.0,
+     "paris": 4.0,
+     "moyenne": 4.0
+    },
+    "perte_valeur_pct": {
+     "p5": -5.301969657614961,
+     "plus5": 6.941281432057962,
+     "par_decile": [
+      -1.2499166112618432,
+      -1.513357146342415,
+      -1.6527149814959077,
+      -2.3016009724942834,
+      -2.526025482478208,
+      -2.630517583283889,
+      -2.9892928408729222,
+      -3.0235308707586115,
+      -3.0022916241095077,
+      -3.308847964185052
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 300.0,
+     "pct_sol_prive": 4.507296862891335,
+     "pct_immobilier_prive": 2.2700401986285175,
+     "menages_logements": 193.48647225511112,
+     "pct_logements_menages": 2.1624328887028184
+    },
+    "r3_k50": {
+     "tous": 165.4203129749745,
+     "pct_sol_prive": 2.485328192435351,
+     "pct_immobilier_prive": 1.2517025337430088,
+     "menages_logements": 84.16615892483837,
+     "pct_logements_menages": 0.9406532046069228
+    },
+    "r3_k100": {
+     "tous": 30.840625949949008,
+     "pct_sol_prive": 0.46335952197936753,
+     "pct_immobilier_prive": 0.23336486885750019,
+     "menages_logements": -25.154154405434397,
+     "pct_logements_menages": -0.28112647948897296
+    },
+    "r4_k0": {
+     "tous": 225.0,
+     "pct_sol_prive": 3.380472647168501,
+     "pct_immobilier_prive": 1.702530148971388,
+     "menages_logements": 145.11485419133334,
+     "pct_logements_menages": 1.6218246665271139
+    },
+    "r4_k50": {
+     "tous": 124.06523473123087,
+     "pct_sol_prive": 1.8639961443265132,
+     "pct_immobilier_prive": 0.9387769003072565,
+     "menages_logements": 63.124619193628774,
+     "pct_logements_menages": 0.7054899034551921
+    },
+    "r4_k100": {
+     "tous": 23.130469462461754,
+     "pct_sol_prive": 0.34751964148452563,
+     "pct_immobilier_prive": 0.17502365164312514,
+     "menages_logements": -18.865615804075798,
+     "pct_logements_menages": -0.21084485961672972
+    }
+   }
+  },
+  "A_E10": {
+   "E": 10.0,
+   "archi": "A",
+   "taux": {
+    "tn_sol": 0.12558903744176556,
+    "tn_bati": 0.03139725936044139,
+    "tc_sol": 0.5690134314630227,
+    "tc_bati": 0.1422533578657557,
+    "sol_apres": 6322.540666666667,
+    "baisse_sol_pct": 5.0081076254348105,
+    "base": 7962.478416666667,
+    "tn_statique": 0.12054275460144091
+   },
+   "taux_r4": {
+    "tn_sol": 0.1242882671223323,
+    "tn_bati": 0.031072066780583076,
+    "tc_sol": 0.5631199570158668,
+    "tc_bati": 0.1407799892539667,
+    "sol_apres": 6405.874,
+    "baisse_sol_pct": 3.756080719076116,
+    "base": 8045.81175,
+    "tn_statique": 0.12054275460144091
+   },
+   "taux_k100": {
+    "tn_sol": 0.12148250754275855,
+    "tn_bati": 0.030370626885689637,
+    "tc_sol": 0.5504077416923455,
+    "tc_bati": 0.13760193542308638,
+    "sol_apres": 6591.700040716717,
+    "baisse_sol_pct": 0.9641702845228584,
+    "base": 8231.637790716717,
+    "tn_statique": 0.12054275460144091
+   },
+   "logements": {
+    "paye_logements_fr": 6.449549075170371,
+    "moyenne": 200.33928187840593,
+    "moyenne_pct": 25.201142188922613,
+    "pctl": {
+     "10": 27.948907264738978,
+     "25": 78.5239556953236,
+     "50": 157.66236908111955,
+     "75": 290.3162978606532,
+     "90": 461.30752202994597,
+     "95": 569.9487958880802,
+     "99": 706.8294848291174
+    },
+    "plus300": 23.499241952362247,
+    "plus600": 2.4356052451041594,
+    "baisse": 7.49219258638819,
+    "double": 4.932561972849775,
+    "paris_pct": 104.17881554884981,
+    "paris_a": 569.9487958880802,
+    "dtf": [
+     36.19748900853432,
+     60.80563277481458,
+     78.84835150605828,
+     125.4900326101822,
+     160.93223837118703,
+     185.34254722927054,
+     233.02030696202746,
+     278.49765097268977,
+     330.5145029007392,
+     513.4023205422695
+    ],
+    "dtf_pct": [
+     8.057831747342268,
+     10.534996620930345,
+     11.452223329738882,
+     16.49217726076834,
+     19.29237127573709,
+     21.058141184934986,
+     25.176281419400244,
+     28.13805867594315,
+     32.754743648765775,
+     61.496219039951136
+    ],
+    "tfv": [
+     0.578608258050256,
+     0.539728592282749,
+     0.5448263012355139,
+     0.5382721302553769,
+     0.5164254332940436,
+     0.5018667755990416,
+     0.49108570113696726,
+     0.4572814817202018,
+     0.40576567459255763,
+     0.2909263670508552
+    ],
+    "net_parc": [
+     -44.97196037266567,
+     -44.24817143294894,
+     -50.90942340471955,
+     -20.780463444106232,
+     -4.450627478371756,
+     -2.0514832219697583,
+     23.461968389834706,
+     47.074611515382514,
+     36.08822049649357,
+     43.376379063418675
+    ],
+    "maisons": 169.32767928945265,
+    "apparts": 242.22043915018858,
+    "hausse_po_fr": 3.3519102414065998,
+    "hausse_bailleurs_fr": 1.66432130196805,
+    "impot_bati": 8.722722850435279,
+    "rapport_sol_bati": {
+     "p10": 4.0,
+     "p50": 4.0,
+     "p90": 4.0,
+     "paris": 4.0,
+     "moyenne": 4.0
+    },
+    "perte_valeur_pct": {
+     "p5": -5.67118292400074,
+     "plus5": 9.008618794943283,
+     "par_decile": [
+      -1.4382199838734138,
+      -1.7147024531419082,
+      -1.8661127585299628,
+      -2.5401646689777935,
+      -2.7839363877714782,
+      -2.9100015670563537,
+      -3.2923467802560884,
+      -3.3471744713009137,
+      -3.3371690500972684,
+      -3.6927328080316126
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 333.33333333333337,
+     "pct_sol_prive": 5.008107625434817,
+     "pct_immobilier_prive": 2.5222668873650194,
+     "menages_logements": 214.9849691723457,
+     "pct_logements_menages": 2.4027032096697982
+    },
+    "r3_k50": {
+     "tous": 198.75364630830785,
+     "pct_sol_prive": 2.986138954978833,
+     "pct_immobilier_prive": 1.5039292224795107,
+     "menages_logements": 105.66465584207293,
+     "pct_logements_menages": 1.1809235255739026
+    },
+    "r3_k100": {
+     "tous": 64.17395928328234,
+     "pct_sol_prive": 0.9641702845228493,
+     "pct_immobilier_prive": 0.48559155759400213,
+     "menages_logements": -3.6556574881998336,
+     "pct_logements_menages": -0.04085615852199318
+    },
+    "r4_k0": {
+     "tous": 250.0,
+     "pct_sol_prive": 3.7560807190761123,
+     "pct_immobilier_prive": 1.8917001655237644,
+     "menages_logements": 161.23872687925927,
+     "pct_logements_menages": 1.8020274072523486
+    },
+    "r4_k50": {
+     "tous": 149.06523473123087,
+     "pct_sol_prive": 2.2396042162341243,
+     "pct_immobilier_prive": 1.127946916859633,
+     "menages_logements": 79.2484918815547,
+     "pct_logements_menages": 0.8856926441804269
+    },
+    "r4_k100": {
+     "tous": 48.130469462461754,
+     "pct_sol_prive": 0.7231277133921368,
+     "pct_immobilier_prive": 0.36419366819550153,
+     "menages_logements": -2.741743116149875,
+     "pct_logements_menages": -0.030642118891494884
+    }
+   }
+  },
+  "A_E12": {
+   "E": 12.0,
+   "archi": "A",
+   "taux": {
+    "tn_sol": 0.15197930725742037,
+    "tn_bati": 0.03799482681435509,
+    "tc_sol": 0.5738177796371293,
+    "tc_bati": 0.14345444490928233,
+    "sol_apres": 6255.874,
+    "baisse_sol_pct": 6.009729150521781,
+    "base": 7895.81175,
+    "tn_statique": 0.1446513055217291
+   },
+   "taux_r4": {
+    "tn_sol": 0.15007857082178055,
+    "tn_bati": 0.03751964270544514,
+    "tc_sol": 0.566641300280457,
+    "tc_bati": 0.14166032507011425,
+    "sol_apres": 6355.874,
+    "baisse_sol_pct": 4.50729686289133,
+    "base": 7995.81175,
+    "tn_statique": 0.1446513055217291
+   },
+   "taux_k100": {
+    "tn_sol": 0.14696928890114272,
+    "tn_bati": 0.03674232222528568,
+    "tc_sol": 0.5549017991591348,
+    "tc_bati": 0.1387254497897837,
+    "sol_apres": 6525.033374050051,
+    "baisse_sol_pct": 1.965791809609807,
+    "base": 8164.971124050051,
+    "tn_statique": 0.1446513055217291
+   },
+   "logements": {
+    "paye_logements_fr": 7.739458890204445,
+    "moyenne": 240.4071382540871,
+    "moyenne_pct": 30.241370626707134,
+    "pctl": {
+     "10": 40.72395554495324,
+     "25": 96.35718111265732,
+     "50": 189.3873445039858,
+     "75": 335.56234930836035,
+     "90": 541.7360142842858,
+     "95": 681.8982498547468,
+     "99": 812.5182499481074
+    },
+    "plus300": 29.627120778816764,
+    "plus600": 7.966946679646789,
+    "baisse": 6.389864041692222,
+    "double": 5.7856962345411596,
+    "paris_pct": 125.01457865861981,
+    "paris_a": 681.8982498547468,
+    "dtf": [
+     45.67602405436248,
+     75.08557827060511,
+     96.88162720955587,
+     149.06123365626917,
+     190.75057723230637,
+     220.94409057453535,
+     275.9184138106773,
+     332.354408829918,
+     396.84728036659635,
+     620.1456891516475
+    ],
+    "dtf_pct": [
+     10.16782453144293,
+     13.00909598771687,
+     14.071442334049205,
+     19.589956564952953,
+     22.86695937540431,
+     25.1030965250533,
+     29.811134168766447,
+     33.57948558704969,
+     39.32847370398604,
+     74.28212458500428
+    ],
+    "tfv": [
+     0.5899064604069502,
+     0.5518093106907186,
+     0.5576301678575571,
+     0.5525859520443874,
+     0.5319000876116398,
+     0.5186358146253894,
+     0.5092689374999573,
+     0.47670009775273986,
+     0.42585832015182334,
+     0.3139594576816488
+    ],
+    "net_parc": [
+     -35.49342532683751,
+     -29.968225937158408,
+     -32.87614770122196,
+     2.790737601980748,
+     25.36771138274758,
+     33.550060123295054,
+     66.36007523848453,
+     100.93136937261075,
+     102.42099796235065,
+     150.11974767279673
+    ],
+    "maisons": 206.93961754508345,
+    "apparts": 285.6050119947275,
+    "hausse_po_fr": 3.9875893484470253,
+    "hausse_bailleurs_fr": 1.9971855623616612,
+    "impot_bati": 8.997731604201308,
+    "rapport_sol_bati": {
+     "p10": 4.0,
+     "p50": 4.0,
+     "p90": 4.0,
+     "paris": 4.0,
+     "moyenne": 4.0
+    },
+    "perte_valeur_pct": {
+     "p5": -6.363984445984096,
+     "plus5": 22.793365002562883,
+     "par_decile": [
+      -1.8148267290965552,
+      -2.1173930667408953,
+      -2.292908312598073,
+      -3.0172920619448136,
+      -3.2997581983580186,
+      -3.4689695346012823,
+      -3.89845465902242,
+      -3.9944616723855173,
+      -4.00692390207279,
+      -4.460502495724734
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 400.0,
+     "pct_sol_prive": 6.00972915052178,
+     "pct_immobilier_prive": 3.026720264838023,
+     "menages_logements": 257.98196300681485,
+     "pct_logements_menages": 2.883243851603758
+    },
+    "r3_k50": {
+     "tous": 265.42031297497454,
+     "pct_sol_prive": 3.987760480065797,
+     "pct_immobilier_prive": 2.008382599952515,
+     "menages_logements": 148.66164967654208,
+     "pct_logements_menages": 1.6614641675078623
+    },
+    "r3_k100": {
+     "tous": 130.84062594994901,
+     "pct_sol_prive": 1.9657918096098126,
+     "pct_immobilier_prive": 0.990044935067006,
+     "menages_logements": 39.34133634626932,
+     "pct_logements_menages": 0.43968448341196664
+    },
+    "r4_k0": {
+     "tous": 300.0,
+     "pct_sol_prive": 4.507296862891335,
+     "pct_immobilier_prive": 2.2700401986285175,
+     "menages_logements": 193.48647225511112,
+     "pct_logements_menages": 2.1624328887028184
+    },
+    "r4_k50": {
+     "tous": 199.06523473123087,
+     "pct_sol_prive": 2.990820360049347,
+     "pct_immobilier_prive": 1.506286949964386,
+     "menages_logements": 111.49623725740656,
+     "pct_logements_menages": 1.2460981256308967
+    },
+    "r4_k100": {
+     "tous": 98.13046946246175,
+     "pct_sol_prive": 1.4743438572073593,
+     "pct_immobilier_prive": 0.7425337013002544,
+     "menages_logements": 29.50600225970199,
+     "pct_logements_menages": 0.329763362558975
+    }
+   }
+  },
+  "A_E15": {
+   "E": 15.0,
+   "archi": "A",
+   "taux": {
+    "tn_sol": 0.19241100838536795,
+    "tn_bati": 0.04810275209634199,
+    "tc_sol": 0.5811783701444249,
+    "tc_bati": 0.14529459253610622,
+    "sol_apres": 6155.874,
+    "baisse_sol_pct": 7.512161438152221,
+    "base": 7795.81175,
+    "tn_statique": 0.18081413190216136
+   },
+   "taux_r4": {
+    "tn_sol": 0.1893745297001914,
+    "tn_bati": 0.04734363242504785,
+    "tc_sol": 0.5720066717679229,
+    "tc_bati": 0.14300166794198071,
+    "sol_apres": 6280.874,
+    "baisse_sol_pct": 5.634121078614173,
+    "base": 7920.81175,
+    "tn_statique": 0.18081413190216136
+   },
+   "taux_k100": {
+    "tn_sol": 0.1859895065869415,
+    "tn_bati": 0.046497376646735374,
+    "tc_sol": 0.5617821932811223,
+    "tc_bati": 0.14044554832028058,
+    "sol_apres": 6425.033374050051,
+    "baisse_sol_pct": 3.468224097240258,
+    "base": 8064.971124050051,
+    "tn_statique": 0.18081413190216136
+   },
+   "logements": {
+    "paye_logements_fr": 9.674323612755556,
+    "moyenne": 300.50892281760895,
+    "moyenne_pct": 37.80171328338392,
+    "pctl": {
+     "10": 56.50395598699606,
+     "25": 123.22574448995479,
+     "50": 237.148202705897,
+     "75": 414.4893372333886,
+     "90": 655.4796362398301,
+     "95": 849.8224308047463,
+     "99": 974.7230865595097
+    },
+    "plus300": 40.36219743441124,
+    "plus600": 12.2751529138505,
+    "baisse": 4.672355589125119,
+    "double": 7.910725394021802,
+    "paris_pct": 156.26822332327473,
+    "paris_a": 849.8224308047463,
+    "dtf": [
+     59.8938266231047,
+     96.5054965142909,
+     123.93154076480226,
+     184.41803522539962,
+     235.47808552398533,
+     274.3464055924326,
+     340.265574083652,
+     413.1395456157603,
+     496.34644656538194,
+     780.2607420657146
+    ],
+    "dtf_pct": [
+     13.332813707593921,
+     16.720245037896657,
+     18.00027084051469,
+     24.23662552122987,
+     28.228841524905135,
+     31.170529535230774,
+     36.76341329281574,
+     41.7416259537095,
+     49.18906878681645,
+     93.46098290258399
+    ],
+    "tfv": [
+     0.6068537639419915,
+     0.5699303883026731,
+     0.5768359677906221,
+     0.5740566847279033,
+     0.555112069088034,
+     0.5437893731649112,
+     0.5365437920444421,
+     0.5058280218015471,
+     0.45599728849072174,
+     0.3485090936278393
+    ],
+    "net_parc": [
+     -21.27562275809528,
+     -8.548307693472623,
+     -5.826234145975578,
+     38.1475391711112,
+     70.09521967442656,
+     86.95237514119225,
+     130.70723551145923,
+     181.71650615845303,
+     201.9201641611362,
+     310.2348005868637
+    ],
+    "maisons": 263.3575249285296,
+    "apparts": 350.6818712615358,
+    "hausse_po_fr": 4.948961732910665,
+    "hausse_bailleurs_fr": 2.496481952952076,
+    "impot_bati": 9.410244734850352,
+    "rapport_sol_bati": {
+     "p10": 4.0,
+     "p50": 4.0,
+     "p90": 4.0,
+     "paris": 4.0,
+     "moyenne": 4.0
+    },
+    "perte_valeur_pct": {
+     "p5": -7.514572602187232,
+     "plus5": 34.10443753140985,
+     "par_decile": [
+      -2.379736846931268,
+      -2.7214289871393755,
+      -2.9331016437002377,
+      -3.732983151395343,
+      -4.07349091423783,
+      -4.307421485918674,
+      -4.8076164771719165,
+      -4.965392474012422,
+      -5.011556180036073,
+      -5.612157027264415
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 500.0,
+     "pct_sol_prive": 7.512161438152225,
+     "pct_immobilier_prive": 3.783400331047529,
+     "menages_logements": 322.47745375851855,
+     "pct_logements_menages": 3.604054814504697
+    },
+    "r3_k50": {
+     "tous": 365.4203129749745,
+     "pct_sol_prive": 5.490192767696241,
+     "pct_immobilier_prive": 2.7650626661620206,
+     "menages_logements": 213.15714042824578,
+     "pct_logements_menages": 2.3822751304088015
+    },
+    "r3_k100": {
+     "tous": 230.84062594994901,
+     "pct_sol_prive": 3.468224097240258,
+     "pct_immobilier_prive": 1.7467250012765119,
+     "menages_logements": 103.83682709797301,
+     "pct_logements_menages": 1.160495446312906
+    },
+    "r4_k0": {
+     "tous": 375.0,
+     "pct_sol_prive": 5.634121078614169,
+     "pct_immobilier_prive": 2.8375502482856465,
+     "menages_logements": 241.85809031888888,
+     "pct_logements_menages": 2.703041110878523
+    },
+    "r4_k50": {
+     "tous": 274.0652347312309,
+     "pct_sol_prive": 4.117644575772181,
+     "pct_immobilier_prive": 2.0737969996215155,
+     "menages_logements": 159.86785532118432,
+     "pct_logements_menages": 1.7867063478066012
+    },
+    "r4_k100": {
+     "tous": 173.13046946246175,
+     "pct_sol_prive": 2.601168072930193,
+     "pct_immobilier_prive": 1.3100437509573837,
+     "menages_logements": 77.87762032347976,
+     "pct_logements_menages": 0.8703715847346795
+    }
+   }
+  },
+  "A_E18": {
+   "E": 18.0,
+   "archi": "A",
+   "taux": {
+    "tn_sol": 0.23389345509913234,
+    "tn_bati": 0.058473363774783085,
+    "tc_sol": 0.5887302488678672,
+    "tc_bati": 0.1471825622169668,
+    "sol_apres": 6055.874,
+    "baisse_sol_pct": 9.014593725782671,
+    "base": 7695.81175,
+    "tn_statique": 0.21697695828259364
+   },
+   "taux_r4": {
+    "tn_sol": 0.22942176760741168,
+    "tn_bati": 0.05735544190185292,
+    "tc_sol": 0.5774746210062657,
+    "tc_bati": 0.14436865525156642,
+    "sol_apres": 6205.874,
+    "baisse_sol_pct": 6.760945294337006,
+    "base": 7845.81175,
+    "tn_statique": 0.21697695828259364
+   },
+   "taux_k100": {
+    "tn_sol": 0.225989519857133,
+    "tn_bati": 0.05649737996428325,
+    "tc_sol": 0.5688353537324495,
+    "tc_bati": 0.14220883843311238,
+    "sol_apres": 6325.033374050051,
+    "baisse_sol_pct": 4.970656384870697,
+    "base": 7964.971124050051,
+    "tn_statique": 0.21697695828259364
+   },
+   "logements": {
+    "paye_logements_fr": 11.609188335306667,
+    "moyenne": 360.6107073811306,
+    "moyenne_pct": 45.36205594006069,
+    "pctl": {
+     "10": 73.84634533507739,
+     "25": 150.51799321365547,
+     "50": 283.76521159810795,
+     "75": 491.772156754276,
+     "90": 776.0515772438326,
+     "95": 1017.7466117547458,
+     "99": 1157.6902979687843
+    },
+    "plus300": 47.7274612194803,
+    "plus600": 16.943945017090385,
+    "baisse": 3.418333330611155,
+    "double": 9.956196648739908,
+    "paris_pct": 187.52186798792965,
+    "paris_a": 1017.7466117547458,
+    "dtf": [
+     74.11162919184692,
+     117.92541475797667,
+     150.9814543200486,
+     219.77483679453007,
+     280.2055938156643,
+     327.7487206103297,
+     404.6127343566267,
+     493.9246824016026,
+     595.8456127641674,
+     940.3757949797814
+    ],
+    "dtf_pct": [
+     16.497802883744907,
+     20.431394088076445,
+     21.929099346980177,
+     28.883294477506787,
+     33.590723674405965,
+     37.23796254540824,
+     43.71569241686504,
+     49.9037663203693,
+     59.04966386964684,
+     112.63984122016369
+    ],
+    "tfv": [
+     0.6238010674770329,
+     0.5880514659146274,
+     0.5960417677236871,
+     0.5955274174114191,
+     0.5783240505644284,
+     0.568942931704433,
+     0.5638186465889271,
+     0.5349559458503541,
+     0.4861362568296202,
+     0.3830587295740297
+    ],
+    "net_parc": [
+     -7.057820189353061,
+     12.871610550213152,
+     21.22367940927079,
+     73.50434074024164,
+     114.82272796610552,
+     140.35469015908944,
+     195.05439578443395,
+     262.5016429442953,
+     301.4193303599218,
+     470.34985350093046
+    ],
+    "maisons": 319.7754323119757,
+    "apparts": 415.75873052834413,
+    "hausse_po_fr": 5.916782111687232,
+    "hausse_bailleurs_fr": 2.995778343542491,
+    "impot_bati": 9.822757865499394,
+    "rapport_sol_bati": {
+     "p10": 4.0,
+     "p50": 4.0,
+     "p90": 4.0,
+     "paris": 4.0,
+     "moyenne": 4.0
+    },
+    "perte_valeur_pct": {
+     "p5": -8.623668473745473,
+     "plus5": 45.526945250941104,
+     "par_decile": [
+      -2.94464696476598,
+      -3.325464907537856,
+      -3.5732949748024025,
+      -4.448674240845872,
+      -4.84722363011764,
+      -5.145873437236067,
+      -5.716778295321413,
+      -5.936323275639327,
+      -6.016188457999353,
+      -6.763811558804096
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 600.0,
+     "pct_sol_prive": 9.01459372578267,
+     "pct_immobilier_prive": 4.540080397257035,
+     "menages_logements": 386.97294451022225,
+     "pct_logements_menages": 4.324865777405637
+    },
+    "r3_k50": {
+     "tous": 465.4203129749745,
+     "pct_sol_prive": 6.992625055326687,
+     "pct_immobilier_prive": 3.5217427323715262,
+     "menages_logements": 277.6526311799495,
+     "pct_logements_menages": 3.103086093309741
+    },
+    "r3_k100": {
+     "tous": 330.840625949949,
+     "pct_sol_prive": 4.970656384870702,
+     "pct_immobilier_prive": 2.5034050674860175,
+     "menages_logements": 168.33231784967674,
+     "pct_logements_menages": 1.8813064092138456
+    },
+    "r4_k0": {
+     "tous": 450.0,
+     "pct_sol_prive": 6.760945294337002,
+     "pct_immobilier_prive": 3.405060297942776,
+     "menages_logements": 290.2297083826667,
+     "pct_logements_menages": 3.2436493330542278
+    },
+    "r4_k50": {
+     "tous": 349.0652347312309,
+     "pct_sol_prive": 5.244468791495015,
+     "pct_immobilier_prive": 2.6413070492786446,
+     "menages_logements": 208.23947338496208,
+     "pct_logements_menages": 2.3273145699823052
+    },
+    "r4_k100": {
+     "tous": 248.13046946246175,
+     "pct_sol_prive": 3.7279922886530263,
+     "pct_immobilier_prive": 1.877553800614513,
+     "menages_logements": 126.24923838725755,
+     "pct_logements_menages": 1.4109798069103843
+    }
+   }
+  },
+  "A_substitution": {
+   "E": 8.07,
+   "archi": "A",
+   "taux": {
+    "tn_sol": 0.10053804986768253,
+    "tn_bati": 0.025134512466920632,
+    "tc_sol": 0.5644528995983688,
+    "tc_bati": 0.1411132248995922,
+    "sol_apres": 6386.874,
+    "baisse_sol_pct": 4.041542853725899,
+    "base": 8026.81175,
+    "tn_statique": 0.09727800296336282
+   },
+   "taux_r4": {
+    "tn_sol": 0.09970272341942535,
+    "tn_bati": 0.024925680854856337,
+    "tc_sol": 0.5597631086540397,
+    "tc_bati": 0.13994077716350992,
+    "sol_apres": 6454.124,
+    "baisse_sol_pct": 3.031157140294427,
+    "base": 8094.06175,
+    "tn_statique": 0.09727800296336282
+   },
+   "taux_k100": {
+    "tn_sol": 0.09727613415390321,
+    "tn_bati": 0.024319033538475802,
+    "tc_sol": 0.546139457221961,
+    "tc_bati": 0.13653486430549025,
+    "sol_apres": 6656.033374050051,
+    "baisse_sol_pct": -0.0023944871860637207,
+    "base": 8295.971124050051,
+    "tn_statique": 0.09727800296336282
+   },
+   "logements": {
+    "paye_logements_fr": 5.20478610366249,
+    "moyenne": 161.67380047587355,
+    "moyenne_pct": 20.337321746460542,
+    "pctl": {
+     "10": 15.308193045133578,
+     "25": 60.81270046337596,
+     "50": 128.49535147252755,
+     "75": 238.4003600881399,
+     "90": 387.5266956347309,
+     "95": 461.91757281024707,
+     "99": 591.9599240428956
+    },
+    "plus300": 16.95381675702445,
+    "plus600": 0.9492826580180006,
+    "baisse": 8.45381382048683,
+    "double": 0.5698383661494363,
+    "paris_pct": 84.07230414792178,
+    "paris_a": 461.91757281024707,
+    "dtf": [
+     27.05070268931015,
+     47.02548537137671,
+     61.4462404521831,
+     102.74382360070825,
+     132.15754137020687,
+     150.98705790109,
+     191.62363385308038,
+     226.52587964046455,
+     266.50337264618713,
+     410.39496983421964
+    ],
+    "dtf_pct": [
+     6.0216887106851305,
+     8.147490731981348,
+     8.924676990579417,
+     13.502820232230189,
+     15.842893759558219,
+     17.15475928172081,
+     20.70364851626186,
+     22.887081706725343,
+     26.411094145478213,
+     49.157820188974846
+    ],
+    "tfv": [
+     0.5677054927760461,
+     0.5280706990190583,
+     0.532470569945242,
+     0.5244592922289817,
+     0.5014923918775632,
+     0.48568465293861596,
+     0.473538878046682,
+     0.4385425172488025,
+     0.3863762716278663,
+     0.26869943459213935
+    ],
+    "net_parc": [
+     -54.11874669188984,
+     -58.0283188363868,
+     -68.31153445859474,
+     -43.52667245358017,
+     -33.22532447935192,
+     -36.4069725501503,
+     -17.934704719112403,
+     -4.897159816842722,
+     -27.922909758058534,
+     -59.63097164463112
+    ],
+    "maisons": 133.03215887276895,
+    "apparts": 200.3543263552085,
+    "hausse_po_fr": 2.7438039301219854,
+    "hausse_bailleurs_fr": 1.3431072906882167,
+    "impot_bati": 8.45733940305106,
+    "rapport_sol_bati": {
+     "p10": 4.0,
+     "p50": 4.0,
+     "p90": 4.0,
+     "paris": 4.0,
+     "moyenne": 4.0
+    },
+    "perte_valeur_pct": {
+     "p5": -4.958769730811325,
+     "plus5": 4.866069900546516,
+     "par_decile": [
+      -1.074794474733082,
+      -1.3261060110188856,
+      -1.4542550488542365,
+      -2.079736734764619,
+      -2.2861683405554665,
+      -2.3705974783754975,
+      -2.707452677246578,
+      -2.7225423222542706,
+      -2.6908556179408896,
+      -2.9518350594077507
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 269.0,
+     "pct_sol_prive": 4.041542853725897,
+     "pct_immobilier_prive": 2.0354693781035706,
+     "menages_logements": 173.492870122083,
+     "pct_logements_menages": 1.9389814902035276
+    },
+    "r3_k50": {
+     "tous": 134.4203129749745,
+     "pct_sol_prive": 2.0195741832699134,
+     "pct_immobilier_prive": 1.017131713218062,
+     "menages_logements": 64.17255679181024,
+     "pct_logements_menages": 0.7172018061076317
+    },
+    "r3_k100": {
+     "tous": -0.1593740500509829,
+     "pct_sol_prive": -0.0023944871860702727,
+     "pct_immobilier_prive": -0.0012059516674465484,
+     "menages_logements": -45.14775653846253,
+     "pct_logements_menages": -0.5045778779882639
+    },
+    "r4_k0": {
+     "tous": 201.75,
+     "pct_sol_prive": 3.0311571402944226,
+     "pct_immobilier_prive": 1.526602033577678,
+     "menages_logements": 130.11965259156224,
+     "pct_logements_menages": 1.4542361176526455
+    },
+    "r4_k50": {
+     "tous": 100.81523473123089,
+     "pct_sol_prive": 1.514680637452435,
+     "pct_immobilier_prive": 0.7628487849135466,
+     "menages_logements": 48.12941759385767,
+     "pct_logements_menages": 0.5379013545807237
+    },
+    "r4_k100": {
+     "tous": -0.11953053753823717,
+     "pct_sol_prive": -0.0017958653895527046,
+     "pct_immobilier_prive": -0.0009044637505849112,
+     "menages_logements": -33.8608174038469,
+     "pct_logements_menages": -0.378433408491198
+    }
+   }
+  },
+  "B_E9": {
+   "E": 9.0,
+   "archi": "B",
+   "taux": {
+    "tn_sol": 0.14160129669027421,
+    "tn_bati": 0.0,
+    "tc_sol": 0.566641300280457,
+    "tc_bati": 0.14166032507011425,
+    "sol_apres": 6355.874,
+    "baisse_sol_pct": 4.50729686289133,
+    "base": 6355.874,
+    "tn_statique": 0.13521890588674004
+   },
+   "taux_r4": {
+    "tn_sol": 0.13994987306546514,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5613756468570533,
+    "tc_bati": 0.14034391171426333,
+    "sol_apres": 6430.874,
+    "baisse_sol_pct": 3.3804726471684976,
+    "base": 6430.874,
+    "tn_statique": 0.13521890588674004
+   },
+   "taux_k100": {
+    "tn_sol": 0.13584837225503774,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5481879003344379,
+    "tc_bati": 0.13704697508360947,
+    "sol_apres": 6625.033374050051,
+    "baisse_sol_pct": 0.46335952197936736,
+    "base": 6625.033374050051,
+    "tn_statique": 0.13521890588674004
+   },
+   "logements": {
+    "paye_logements_fr": 5.592824323296987,
+    "moyenne": 173.7272475241692,
+    "moyenne_pct": 21.85355276257805,
+    "pctl": {
+     "10": -2.9387238646102105,
+     "25": 42.15117838962283,
+     "50": 121.9022979299425,
+     "75": 260.8044839507929,
+     "90": 466.590403981638,
+     "95": 610.7261109449037,
+     "99": 709.7808522382072
+    },
+    "plus300": 21.21652794249368,
+    "plus600": 6.41884846540304,
+    "baisse": 10.303406515739756,
+    "double": 5.201232377696176,
+    "paris_pct": 110.92209795332522,
+    "paris_a": 610.7261109449037,
+    "dtf": [
+     12.189135453086395,
+     29.256186210934654,
+     43.76462132187756,
+     90.59248542444509,
+     125.6052530511486,
+     153.18639851896714,
+     205.50267237189377,
+     254.58502689165178,
+     307.5297554237348,
+     514.6917509160214
+    ],
+    "dtf_pct": [
+     2.713392705316598,
+     5.068836698319277,
+     6.356533874789815,
+     11.905864529931542,
+     15.057412986803495,
+     17.404642678368685,
+     22.203185548617085,
+     25.72204253671187,
+     30.47690257119286,
+     61.65066924309254
+    ],
+    "tfv": [
+     0.5499908361164838,
+     0.5130380156290867,
+     0.5199163841872828,
+     0.5170802838868545,
+     0.4980919879449732,
+     0.486720586361382,
+     0.4794217912197273,
+     0.4486595355831715,
+     0.39880343960153253,
+     0.2912046004160529
+    ],
+    "net_parc": [
+     -68.98031392811359,
+     -75.79761799682886,
+     -85.99315358890027,
+     -55.67801062984335,
+     -39.77761279841018,
+     -34.20763193227317,
+     -4.055666200298993,
+     23.16198743434452,
+     13.103473019489112,
+     44.665809437170616
+    ],
+    "maisons": 127.99990793528028,
+    "apparts": 235.48200190840916,
+    "hausse_po_fr": 2.9127465577268112,
+    "hausse_bailleurs_fr": 1.4966931822721652,
+    "impot_bati": 7.347679081605131,
+    "rapport_sol_bati": {
+     "p10": 4.44457954418377,
+     "p50": 4.901835964211723,
+     "p90": 6.116995892302994,
+     "paris": 8.66452618998973,
+     "moyenne": 5.172684559161684
+    },
+    "perte_valeur_pct": {
+     "p5": -5.60587237442161,
+     "plus5": 9.014031228879436,
+     "par_decile": [
+      -0.48430591941434253,
+      -0.8250165646864958,
+      -1.035782190255596,
+      -1.8337697900270469,
+      -2.1728215428024678,
+      -2.405128592467699,
+      -2.903549783014754,
+      -3.0597762667332393,
+      -3.1050945503964296,
+      -3.702007253538203
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 300.0,
+     "pct_sol_prive": 4.507296862891335,
+     "pct_immobilier_prive": 2.2700401986285175,
+     "menages_logements": 186.4274774432329,
+     "pct_logements_menages": 2.0835405384290393
+    },
+    "r3_k50": {
+     "tous": 165.4203129749745,
+     "pct_sol_prive": 2.485328192435351,
+     "pct_immobilier_prive": 1.2517025337430088,
+     "menages_logements": 77.10716411296013,
+     "pct_logements_menages": 0.8617608543331438
+    },
+    "r3_k100": {
+     "tous": 30.840625949949008,
+     "pct_sol_prive": 0.46335952197936753,
+     "pct_immobilier_prive": 0.23336486885750019,
+     "menages_logements": -32.213149217312626,
+     "pct_logements_menages": -0.3600188297627519
+    },
+    "r4_k0": {
+     "tous": 225.0,
+     "pct_sol_prive": 3.380472647168501,
+     "pct_immobilier_prive": 1.702530148971388,
+     "menages_logements": 139.82060808242466,
+     "pct_logements_menages": 1.5626554038217795
+    },
+    "r4_k50": {
+     "tous": 124.06523473123087,
+     "pct_sol_prive": 1.8639961443265132,
+     "pct_immobilier_prive": 0.9387769003072565,
+     "menages_logements": 57.8303730847201,
+     "pct_logements_menages": 0.6463206407498578
+    },
+    "r4_k100": {
+     "tous": 23.130469462461754,
+     "pct_sol_prive": 0.34751964148452563,
+     "pct_immobilier_prive": 0.17502365164312514,
+     "menages_logements": -24.15986191298447,
+     "pct_logements_menages": -0.27001412232206395
+    }
+   }
+  },
+  "B_E10": {
+   "E": 10.0,
+   "archi": "B",
+   "taux": {
+    "tn_sol": 0.15816426539921558,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5690134314630227,
+    "tc_bati": 0.1422533578657557,
+    "sol_apres": 6322.540666666667,
+    "baisse_sol_pct": 5.0081076254348105,
+    "base": 6322.540666666667,
+    "tn_statique": 0.1502432287630445
+   },
+   "taux_r4": {
+    "tn_sol": 0.15610672329802303,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5631199570158668,
+    "tc_bati": 0.1407799892539667,
+    "sol_apres": 6405.874,
+    "baisse_sol_pct": 3.756080719076116,
+    "base": 6405.874,
+    "tn_statique": 0.1502432287630445
+   },
+   "taux_k100": {
+    "tn_sol": 0.15170593228196558,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5504077416923455,
+    "tc_bati": 0.13760193542308638,
+    "sol_apres": 6591.700040716717,
+    "baisse_sol_pct": 0.9641702845228584,
+    "base": 6591.700040716717,
+    "tn_statique": 0.1502432287630445
+   },
+   "logements": {
+    "paye_logements_fr": 6.2142492481077625,
+    "moyenne": 193.03027502685464,
+    "moyenne_pct": 24.28172529175339,
+    "pctl": {
+     "10": 2.132740381613985,
+     "25": 48.423931778393694,
+     "50": 135.2820084884845,
+     "75": 287.9705417739201,
+     "90": 508.4186798515891,
+     "95": 677.4510648215876,
+     "99": 770.3810411359041
+    },
+    "plus300": 23.53565413769598,
+    "plus600": 7.217695152169093,
+    "baisse": 9.807153239163776,
+    "double": 5.512739117469918,
+    "paris_pct": 123.24677550369468,
+    "paris_a": 677.4510648215876,
+    "dtf": [
+     14.787393416830042,
+     33.683995201498284,
+     49.884915581133924,
+     99.81009187385592,
+     138.24577627176615,
+     169.39212829852497,
+     226.2774390000177,
+     281.8484896922187,
+     341.82743762954374,
+     574.1368924072037
+    ],
+    "dtf_pct": [
+     3.291784358480778,
+     5.835985244021671,
+     7.245467826634543,
+     13.117262728830012,
+     16.572744343403773,
+     19.245895811038157,
+     24.447759757066844,
+     28.47661124963425,
+     33.87588137102935,
+     68.77111123513775
+    ],
+    "tfv": [
+     0.5530879016553393,
+     0.5167839062275518,
+     0.5242618748608368,
+     0.5226777575064689,
+     0.5046519686381855,
+     0.49435380923850186,
+     0.4882275992083617,
+     0.4584896615860226,
+     0.4091924388021217,
+     0.3040316766959602
+    ],
+    "net_parc": [
+     -66.38205596436994,
+     -71.36980900626523,
+     -79.87285932964392,
+     -46.460404180432505,
+     -27.137089577792622,
+     -18.001902152715346,
+     16.719100427824912,
+     50.42545023491149,
+     47.40115522529807,
+     104.11095092835295
+    ],
+    "maisons": 144.30345459350045,
+    "apparts": 258.8358271285108,
+    "hausse_po_fr": 3.211092346754819,
+    "hausse_bailleurs_fr": 1.66299242474685,
+    "impot_bati": 7.347679081605131,
+    "rapport_sol_bati": {
+     "p10": 4.4939772713153,
+     "p50": 5.002039960235248,
+     "p90": 6.352217658114438,
+     "paris": 9.182806877766364,
+     "moyenne": 5.302982843512983
+    },
+    "perte_valeur_pct": {
+     "p5": -6.010310388104923,
+     "plus5": 18.678012380952243,
+     "par_decile": [
+      -0.5875414373761909,
+      -0.9498795846353316,
+      -1.1806318793740607,
+      -2.020352244014197,
+      -2.391487565909544,
+      -2.6595693550383634,
+      -3.197076715969234,
+      -3.3874471334949434,
+      -3.451394523749403,
+      -4.129576462868446
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 333.33333333333337,
+     "pct_sol_prive": 5.008107625434817,
+     "pct_immobilier_prive": 2.5222668873650194,
+     "menages_logements": 207.1416416035921,
+     "pct_logements_menages": 2.315045042698933
+    },
+    "r3_k50": {
+     "tous": 198.75364630830785,
+     "pct_sol_prive": 2.986138954978833,
+     "pct_immobilier_prive": 1.5039292224795107,
+     "menages_logements": 97.82132827331932,
+     "pct_logements_menages": 1.0932653586030368
+    },
+    "r3_k100": {
+     "tous": 64.17395928328234,
+     "pct_sol_prive": 0.9641702845228493,
+     "pct_immobilier_prive": 0.48559155759400213,
+     "menages_logements": -11.498985056953437,
+     "pct_logements_menages": -0.12851432549285888
+    },
+    "r4_k0": {
+     "tous": 250.0,
+     "pct_sol_prive": 3.7560807190761123,
+     "pct_immobilier_prive": 1.8917001655237644,
+     "menages_logements": 155.35623120269406,
+     "pct_logements_menages": 1.7362837820241994
+    },
+    "r4_k50": {
+     "tous": 149.06523473123087,
+     "pct_sol_prive": 2.2396042162341243,
+     "pct_immobilier_prive": 1.127946916859633,
+     "menages_logements": 73.36599620498949,
+     "pct_logements_menages": 0.8199490189522776
+    },
+    "r4_k100": {
+     "tous": 48.130469462461754,
+     "pct_sol_prive": 0.7231277133921368,
+     "pct_immobilier_prive": 0.36419366819550153,
+     "menages_logements": -8.624238792715078,
+     "pct_logements_menages": -0.09638574411964418
+    }
+   }
+  },
+  "B_E12": {
+   "E": 12.0,
+   "archi": "B",
+   "taux": {
+    "tn_sol": 0.19181972015421025,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5738177796371293,
+    "tc_bati": 0.14345444490928233,
+    "sol_apres": 6255.874,
+    "baisse_sol_pct": 6.009729150521781,
+    "base": 6255.874,
+    "tn_statique": 0.1802918745156534
+   },
+   "taux_r4": {
+    "tn_sol": 0.18880172892036562,
+    "tn_bati": 0.0,
+    "tc_sol": 0.566641300280457,
+    "tc_bati": 0.14166032507011425,
+    "sol_apres": 6355.874,
+    "baisse_sol_pct": 4.50729686289133,
+    "base": 6355.874,
+    "tn_statique": 0.1802918745156534
+   },
+   "taux_k100": {
+    "tn_sol": 0.18390710532951143,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5549017991591348,
+    "tc_bati": 0.1387254497897837,
+    "sol_apres": 6525.033374050051,
+    "baisse_sol_pct": 1.965791809609807,
+    "base": 6525.033374050051,
+    "tn_statique": 0.1802918745156534
+   },
+   "logements": {
+    "paye_logements_fr": 7.457099097729316,
+    "moyenne": 231.63633003222557,
+    "moyenne_pct": 29.13807035010407,
+    "pctl": {
+     "10": 11.061807671701615,
+     "25": 59.49882618223904,
+     "50": 161.75108926691735,
+     "75": 335.51348285226743,
+     "90": 592.1396704436763,
+     "95": 810.9009725749554,
+     "99": 892.3304304031128
+    },
+    "plus300": 29.090841761240284,
+    "plus600": 9.629941790002244,
+    "baisse": 8.944621387402291,
+    "double": 6.689285407431243,
+    "paris_pct": 147.89613060443358,
+    "paris_a": 810.9009725749554,
+    "dtf": [
+     19.98390934431734,
+     42.53961318262555,
+     62.12550409964663,
+     118.24530477267764,
+     163.5268227130013,
+     201.80358785764065,
+     267.8269722562655,
+     336.3754152933527,
+     410.4228020411617,
+     693.0271753895686
+    ],
+    "dtf_pct": [
+     4.448567664809141,
+     7.37028233542646,
+     9.023335730323998,
+     15.540059126626957,
+     19.60340705660433,
+     22.928402076377104,
+     28.93690817396636,
+     33.985748675479,
+     40.67383897070233,
+     83.01199521922823
+    ],
+    "tfv": [
+     0.5592820327330501,
+     0.5242756874244819,
+     0.5329528562079445,
+     0.5338727047456979,
+     0.5177719300246101,
+     0.5096202549927418,
+     0.5058392151856305,
+     0.47814991359172493,
+     0.4299704372033002,
+     0.32968582925577483
+    ],
+    "net_parc": [
+     -61.18554003688265,
+     -62.514191025137976,
+     -67.6322708111312,
+     -28.02519128161079,
+     -1.8560431365574777,
+     14.409557406400332,
+     58.26863368407275,
+     104.95237583604548,
+     115.99651963691602,
+     223.0012339107178
+    ],
+    "maisons": 176.91054790994076,
+    "apparts": 305.5434775687142,
+    "hausse_po_fr": 3.8105004809956515,
+    "hausse_bailleurs_fr": 1.9955909096962199,
+    "impot_bati": 7.347679081605131,
+    "rapport_sol_bati": {
+     "p10": 4.59277272557836,
+     "p50": 5.202447952282298,
+     "p90": 6.8226611897373255,
+     "paris": 10.219368253319637,
+     "moyenne": 5.56357941221558
+    },
+    "perte_valeur_pct": {
+     "p5": -6.861384647221882,
+     "plus5": 25.440035974635855,
+     "par_decile": [
+      -0.794012473299888,
+      -1.1996056245330031,
+      -1.4703312576109901,
+      -2.393517151988498,
+      -2.828819612123698,
+      -3.168450880179694,
+      -3.7841305818781943,
+      -4.042788867018353,
+      -4.143994470455352,
+      -4.984714881528934
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 400.0,
+     "pct_sol_prive": 6.00972915052178,
+     "pct_immobilier_prive": 3.026720264838023,
+     "menages_logements": 248.56996992431053,
+     "pct_logements_menages": 2.7780540512387195
+    },
+    "r3_k50": {
+     "tous": 265.42031297497454,
+     "pct_sol_prive": 3.987760480065797,
+     "pct_immobilier_prive": 2.008382599952515,
+     "menages_logements": 139.24965659403776,
+     "pct_logements_menages": 1.5562743671428234
+    },
+    "r3_k100": {
+     "tous": 130.84062594994901,
+     "pct_sol_prive": 1.9657918096098126,
+     "pct_immobilier_prive": 0.990044935067006,
+     "menages_logements": 29.929343263765006,
+     "pct_logements_menages": 0.33449468304692787
+    },
+    "r4_k0": {
+     "tous": 300.0,
+     "pct_sol_prive": 4.507296862891335,
+     "pct_immobilier_prive": 2.2700401986285175,
+     "menages_logements": 186.42747744323287,
+     "pct_logements_menages": 2.083540538429039
+    },
+    "r4_k50": {
+     "tous": 199.06523473123087,
+     "pct_sol_prive": 2.990820360049347,
+     "pct_immobilier_prive": 1.506286949964386,
+     "menages_logements": 104.43724244552833,
+     "pct_logements_menages": 1.1672057753571177
+    },
+    "r4_k100": {
+     "tous": 98.13046946246175,
+     "pct_sol_prive": 1.4743438572073593,
+     "pct_immobilier_prive": 0.7425337013002544,
+     "menages_logements": 22.44700744782375,
+     "pct_logements_menages": 0.25087101228519587
+    }
+   }
+  },
+  "B_E15": {
+   "E": 15.0,
+   "archi": "B",
+   "taux": {
+    "tn_sol": 0.2436697047405454,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5811783701444249,
+    "tc_bati": 0.14529459253610622,
+    "sol_apres": 6155.874,
+    "baisse_sol_pct": 7.512161438152221,
+    "base": 6155.874,
+    "tn_statique": 0.22536484314456676
+   },
+   "taux_r4": {
+    "tn_sol": 0.23882026609672477,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5720066717679229,
+    "tc_bati": 0.14300166794198071,
+    "sol_apres": 6280.874,
+    "baisse_sol_pct": 5.634121078614173,
+    "base": 6280.874,
+    "tn_statique": 0.22536484314456676
+   },
+   "taux_k100": {
+    "tn_sol": 0.23346182232427343,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5617821932811223,
+    "tc_bati": 0.14044554832028058,
+    "sol_apres": 6425.033374050051,
+    "baisse_sol_pct": 3.468224097240258,
+    "base": 6425.033374050051,
+    "tn_statique": 0.22536484314456676
+   },
+   "logements": {
+    "paye_logements_fr": 9.321373872161644,
+    "moyenne": 289.545412540282,
+    "moyenne_pct": 36.42258793763009,
+    "pctl": {
+     "10": 19.976060835421492,
+     "25": 77.43739495846637,
+     "50": 200.8551028407278,
+     "75": 411.9728061159051,
+     "90": 717.9934209446883,
+     "95": 1011.0758342050074,
+     "99": 1093.2792803524355
+    },
+    "plus300": 37.63287856083093,
+    "plus600": 13.89034338649577,
+    "baisse": 7.898841109016471,
+    "double": 8.940307894024652,
+    "paris_pct": 184.870163255542,
+    "paris_a": 1011.0758342050074,
+    "dtf": [
+     27.778683235548286,
+     55.82304015431645,
+     80.48638687741571,
+     145.8981241209102,
+     201.44839237485405,
+     250.42077719631416,
+     330.15127214063733,
+     418.16580369505374,
+     513.3158486585886,
+     871.3625998631159
+    ],
+    "dtf_pct": [
+     6.183742624301685,
+     9.671727972533645,
+     11.690137585858182,
+     19.174253723322376,
+     24.149401126405166,
+     28.452161474385523,
+     35.67063079931564,
+     42.249454814246135,
+     50.870775370211796,
+     104.37332119536391
+    ],
+    "tfv": [
+     0.5685732293496165,
+     0.5355133592198772,
+     0.5459893282286065,
+     0.5506651256045414,
+     0.537451872104247,
+     0.5325199236241016,
+     0.5322566391515337,
+     0.5076402916002783,
+     0.4611374348050679,
+     0.36816705809549677
+    ],
+    "net_parc": [
+     -53.3907661456517,
+     -49.23076405344707,
+     -49.27138803336213,
+     -0.3723719333782044,
+     36.06552652529526,
+     63.02674674507387,
+     120.59293356844456,
+     186.74276423774648,
+     218.889566254343,
+     401.3366583842651
+    ],
+    "maisons": 225.82118788460127,
+    "apparts": 375.6049532290192,
+    "hausse_po_fr": 4.715859596447483,
+    "hausse_bailleurs_fr": 2.4944886371202752,
+    "impot_bati": 7.347679081605131,
+    "rapport_sol_bati": {
+     "p10": 4.74096590697295,
+     "p50": 5.503059940352872,
+     "p90": 7.5283264871716575,
+     "paris": 11.774210316649548,
+     "moyenne": 5.954474265269475
+    },
+    "perte_valeur_pct": {
+     "p5": -8.223794204224056,
+     "plus5": 33.92348510027429,
+     "par_decile": [
+      -1.1037190271854336,
+      -1.5741946843795107,
+      -1.9048803249663848,
+      -2.9532645139499483,
+      -3.4848176814449285,
+      -3.9317731678916896,
+      -4.664711380741635,
+      -5.0258014673034666,
+      -5.182894390514274,
+      -6.267422509519665
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 500.0,
+     "pct_sol_prive": 7.512161438152225,
+     "pct_immobilier_prive": 3.783400331047529,
+     "menages_logements": 310.7124624053881,
+     "pct_logements_menages": 3.472567564048399
+    },
+    "r3_k50": {
+     "tous": 365.4203129749745,
+     "pct_sol_prive": 5.490192767696241,
+     "pct_immobilier_prive": 2.7650626661620206,
+     "menages_logements": 201.39214907511538,
+     "pct_logements_menages": 2.250787879952503
+    },
+    "r3_k100": {
+     "tous": 230.84062594994901,
+     "pct_sol_prive": 3.468224097240258,
+     "pct_immobilier_prive": 1.7467250012765119,
+     "menages_logements": 92.0718357448426,
+     "pct_logements_menages": 1.0290081958566073
+    },
+    "r4_k0": {
+     "tous": 375.0,
+     "pct_sol_prive": 5.634121078614169,
+     "pct_immobilier_prive": 2.8375502482856465,
+     "menages_logements": 233.0343468040411,
+     "pct_logements_menages": 2.604425673036299
+    },
+    "r4_k50": {
+     "tous": 274.0652347312309,
+     "pct_sol_prive": 4.117644575772181,
+     "pct_immobilier_prive": 2.0737969996215155,
+     "menages_logements": 151.04411180633653,
+     "pct_logements_menages": 1.6880909099643773
+    },
+    "r4_k100": {
+     "tous": 173.13046946246175,
+     "pct_sol_prive": 2.601168072930193,
+     "pct_immobilier_prive": 1.3100437509573837,
+     "menages_logements": 69.05387680863195,
+     "pct_logements_menages": 0.7717561468924555
+    }
+   }
+  },
+  "B_E18": {
+   "E": 18.0,
+   "archi": "B",
+   "taux": {
+    "tn_sol": 0.29723207583248923,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5887302488678672,
+    "tc_bati": 0.1471825622169668,
+    "sol_apres": 6055.874,
+    "baisse_sol_pct": 9.014593725782671,
+    "base": 6055.874,
+    "tn_statique": 0.2704378117734801
+   },
+   "taux_r4": {
+    "tn_sol": 0.2900477837609981,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5774746210062657,
+    "tc_bati": 0.14436865525156642,
+    "sol_apres": 6205.874,
+    "baisse_sol_pct": 6.760945294337006,
+    "base": 6205.874,
+    "tn_statique": 0.2704378117734801
+   },
+   "taux_k100": {
+    "tn_sol": 0.28458347862399064,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5688353537324495,
+    "tc_bati": 0.14220883843311238,
+    "sol_apres": 6325.033374050051,
+    "baisse_sol_pct": 4.970656384870697,
+    "base": 6325.033374050051,
+    "tn_statique": 0.2704378117734801
+   },
+   "logements": {
+    "paye_logements_fr": 11.185648646593974,
+    "moyenne": 347.4544950483384,
+    "moyenne_pct": 43.7071055251561,
+    "pctl": {
+     "10": 26.94093269524376,
+     "25": 95.31773690474671,
+     "50": 240.6525257984597,
+     "75": 492.4108269975957,
+     "90": 845.6504830383902,
+     "95": 1211.250695835059,
+     "99": 1301.390217275406
+    },
+    "plus300": 43.060002785697144,
+    "plus600": 19.640353218931228,
+    "baisse": 7.045570608099312,
+    "double": 10.996583648064561,
+    "paris_pct": 221.84419590665038,
+    "paris_a": 1211.250695835059,
+    "dtf": [
+     35.57345712677923,
+     69.10646712600736,
+     98.84726965518479,
+     173.5509434691428,
+     239.3699620367068,
+     299.03796653498773,
+     392.4755720250092,
+     499.95619209675476,
+     616.2088952760157,
+     1049.6980243366631
+    ],
+    "dtf_pct": [
+     7.91891758379423,
+     11.973173609640831,
+     14.356939441392367,
+     22.808448320017796,
+     28.695395196206004,
+     33.97592087239395,
+     42.404353424664926,
+     50.51316095301327,
+     61.06771176972128,
+     125.7346471714996
+    ],
+    "tfv": [
+     0.5778644259661829,
+     0.5467510310152723,
+     0.5590258002492683,
+     0.567457546463385,
+     0.557131814183884,
+     0.5554195922554616,
+     0.558674063117437,
+     0.5371306696088317,
+     0.4923044324068355,
+     0.4066482869352187
+    ],
+    "net_parc": [
+     -45.59599225442074,
+     -35.94733708175616,
+     -30.91050525559304,
+     27.280447414854372,
+     73.987096187148,
+     111.64393608374742,
+     182.9172334528164,
+     268.5331526394475,
+     321.78261287177,
+     579.6720828578123
+    ],
+    "maisons": 274.7318278592618,
+    "apparts": 445.6664288893243,
+    "hausse_po_fr": 5.625231659332117,
+    "hausse_bailleurs_fr": 2.9933863645443304,
+    "impot_bati": 7.347679081605131,
+    "rapport_sol_bati": {
+     "p10": 4.88915908836754,
+     "p50": 5.803671928423447,
+     "p90": 8.233991784605989,
+     "paris": 13.329052379979457,
+     "moyenne": 6.34536911832337
+    },
+    "perte_valeur_pct": {
+     "p5": -9.701294354455571,
+     "plus5": 40.65473492566265,
+     "par_decile": [
+      -1.4134255810709795,
+      -1.948783744226018,
+      -2.339429392321779,
+      -3.513011875911399,
+      -4.140815750766159,
+      -4.695095455603685,
+      -5.545292179605077,
+      -6.008814067588581,
+      -6.221794310573197,
+      -7.550130137510397
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 600.0,
+     "pct_sol_prive": 9.01459372578267,
+     "pct_immobilier_prive": 4.540080397257035,
+     "menages_logements": 372.8549548864658,
+     "pct_logements_menages": 4.167081076858079
+    },
+    "r3_k50": {
+     "tous": 465.4203129749745,
+     "pct_sol_prive": 6.992625055326687,
+     "pct_immobilier_prive": 3.5217427323715262,
+     "menages_logements": 263.53464155619304,
+     "pct_logements_menages": 2.945301392762183
+    },
+    "r3_k100": {
+     "tous": 330.840625949949,
+     "pct_sol_prive": 4.970656384870702,
+     "pct_immobilier_prive": 2.5034050674860175,
+     "menages_logements": 154.21432822592027,
+     "pct_logements_menages": 1.7235217086662875
+    },
+    "r4_k0": {
+     "tous": 450.0,
+     "pct_sol_prive": 6.760945294337002,
+     "pct_immobilier_prive": 3.405060297942776,
+     "menages_logements": 279.6412161648493,
+     "pct_logements_menages": 3.125310807643559
+    },
+    "r4_k50": {
+     "tous": 349.0652347312309,
+     "pct_sol_prive": 5.244468791495015,
+     "pct_immobilier_prive": 2.6413070492786446,
+     "menages_logements": 197.65098116714478,
+     "pct_logements_menages": 2.2089760445716373
+    },
+    "r4_k100": {
+     "tous": 248.13046946246175,
+     "pct_sol_prive": 3.7279922886530263,
+     "pct_immobilier_prive": 1.877553800614513,
+     "menages_logements": 115.6607461694402,
+     "pct_logements_menages": 1.2926412814997157
+    }
+   }
+  },
+  "B_substitution": {
+   "E": 8.07,
+   "archi": "B",
+   "taux": {
+    "tn_sol": 0.12635289188419876,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5644528995983688,
+    "tc_bati": 0.1411132248995922,
+    "sol_apres": 6386.874,
+    "baisse_sol_pct": 4.041542853725899,
+    "base": 6386.874,
+    "tn_statique": 0.12124628561177692
+   },
+   "taux_r4": {
+    "tn_sol": 0.12503633335833028,
+    "tn_bati": 0.0,
+    "tc_sol": 0.5597631086540397,
+    "tc_bati": 0.13994077716350992,
+    "sol_apres": 6454.124,
+    "baisse_sol_pct": 3.031157140294427,
+    "base": 6454.124,
+    "tn_statique": 0.12124628561177692
+   },
+   "taux_k100": {
+    "tn_sol": 0.12124338245452007,
+    "tn_bati": 0.0,
+    "tc_sol": 0.546139457221961,
+    "tc_bati": 0.13653486430549025,
+    "sol_apres": 6656.033374050051,
+    "baisse_sol_pct": -0.0023944871860637207,
+    "base": 6656.033374050051,
+    "tn_statique": 0.12124628561177692
+   },
+   "logements": {
+    "paye_logements_fr": 5.014899143222965,
+    "moyenne": 155.77543194667174,
+    "moyenne_pct": 19.595352310444994,
+    "pctl": {
+     "10": -8.801952255750734,
+     "25": 36.45671824918395,
+     "50": 110.3967032588364,
+     "75": 238.79849324308543,
+     "90": 424.9583839242306,
+     "95": 548.6719038395877,
+     "99": 652.7988216351655
+    },
+    "plus300": 19.082156063424804,
+    "plus600": 1.5298267152169465,
+    "baisse": 10.937156619574804,
+    "double": 4.513055430234732,
+    "paris_pct": 99.46014783148163,
+    "paris_a": 548.6719038395877,
+    "dtf": [
+     9.772755546804804,
+     25.13832384971048,
+     38.07274766076916,
+     82.02011142649299,
+     113.84956645597427,
+     138.11506982397836,
+     186.18213940773856,
+     229.23000648712448,
+     275.63291097233247,
+     459.4077693292219
+    ],
+    "dtf_pct": [
+     2.1754884678739095,
+     4.355388550816051,
+     5.5298252995742185,
+     10.77926420495596,
+     13.648154825165241,
+     15.692277264986073,
+     20.115731534758815,
+     23.160293633694064,
+     27.31585228734493,
+     55.028658190490475
+    ],
+    "tfv": [
+     0.5471105651653483,
+     0.5095543373725142,
+     0.5158750778608776,
+     0.5118746334206129,
+     0.49199120590028583,
+     0.4796216890856604,
+     0.47123238979029725,
+     0.43951751840052,
+     0.3891416703449846,
+     0.2792754194757391
+    ],
+    "net_parc": [
+     -71.39669383439518,
+     -79.91548035805303,
+     -91.68502725000866,
+     -64.25038462779544,
+     -51.53329939358452,
+     -49.27896062726195,
+     -23.37619916445422,
+     -2.1930329701827675,
+     -18.7933714319132,
+     -10.618172149628979
+    ],
+    "maisons": 112.83760954313553,
+    "apparts": 213.76294445371468,
+    "hausse_po_fr": 2.6364820179425488,
+    "hausse_bailleurs_fr": 1.3420348867707084,
+    "impot_bati": 7.347679081605131,
+    "rapport_sol_bati": {
+     "p10": 4.398639657951447,
+     "p50": 4.808646247909845,
+     "p90": 5.898239650098352,
+     "paris": 8.182525150357456,
+     "moyenne": 5.051507154714977
+    },
+    "perte_valeur_pct": {
+     "p5": -5.212970127821827,
+     "plus5": 6.0934938314836,
+     "par_decile": [
+      -0.38829688770982357,
+      -0.7088939561340786,
+      -0.9010719793754239,
+      -1.6602481078189975,
+      -1.9694621413128863,
+      -2.16849868327698,
+      -2.630569735367088,
+      -2.755042360644854,
+      -2.7830355751781632,
+      -3.304367888861077
+     ]
+    }
+   },
+   "capitalisation": {
+    "r3_k0": {
+     "tous": 269.0,
+     "pct_sol_prive": 4.041542853725897,
+     "pct_immobilier_prive": 2.0354693781035706,
+     "menages_logements": 167.16330477409883,
+     "pct_logements_menages": 1.8682413494580388
+    },
+    "r3_k50": {
+     "tous": 134.4203129749745,
+     "pct_sol_prive": 2.0195741832699134,
+     "pct_immobilier_prive": 1.017131713218062,
+     "menages_logements": 57.84299144382607,
+     "pct_logements_menages": 0.6464616653621431
+    },
+    "r3_k100": {
+     "tous": -0.1593740500509829,
+     "pct_sol_prive": -0.0023944871860702727,
+     "pct_immobilier_prive": -0.0012059516674465484,
+     "menages_logements": -51.477321886446695,
+     "pct_logements_menages": -0.5753180187337528
+    },
+    "r4_k0": {
+     "tous": 201.75,
+     "pct_sol_prive": 3.0311571402944226,
+     "pct_immobilier_prive": 1.526602033577678,
+     "menages_logements": 125.37247858057412,
+     "pct_logements_menages": 1.401181012093529
+    },
+    "r4_k50": {
+     "tous": 100.81523473123089,
+     "pct_sol_prive": 1.514680637452435,
+     "pct_immobilier_prive": 0.7628487849135466,
+     "menages_logements": 43.38224358286955,
+     "pct_logements_menages": 0.4848462490216073
+    },
+    "r4_k100": {
+     "tous": -0.11953053753823717,
+     "pct_sol_prive": -0.0017958653895527046,
+     "pct_immobilier_prive": -0.0009044637505849112,
+     "menages_logements": -38.60799141483502,
+     "pct_logements_menages": -0.4314885140503145
+    }
+   }
+  }
+ },
+ "hypotheses_trajectoire": {
+  "phi": 0.03,
+  "interet_report": 0.03,
+  "remboursement": 0.06666666666666667,
+  "eligibles": 0.25,
+  "recours": 0.5,
+  "deduction_is": 0.2,
+  "deduction_bailleurs": 0.25,
+  "premier_avis": 2029,
+  "paliers": 3,
+  "r": 0.03,
+  "clause": "chaque palier de baisse des droits (1/1/2029, 2030, 2031) ne s'applique que si le palier de taxe correspondant est mis en recouvrement la même année"
+ },
+ "par_point": {
+  "md_par_point_dmto": 2.7812185068848754,
+  "net_permanent_par_md_enveloppe": {
+   "A": 0.904111111111111,
+   "B": 0.9001111111111112
+  }
+ },
+ "is_transition_caisse": {
+  "2027": 0.0,
+  "2028": -2.358,
+  "2029": -3.996,
+  "2030": -2.547,
+  "2031": -1.3649999999999998,
+  "2032": -0.351,
+  "2033": 0.6159999999999997,
+  "2034": 1.6099999999999999,
+  "2035": 2.303,
+  "2036": 2.526,
+  "2037": 2.6020000000000003,
+  "2038": 2.679,
+  "2039": 2.76,
+  "2040": 2.843
+ },
+ "foncier_plus_is_caisse": {
+  "A_E9": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -3.814,
+   "2030": -2.412,
+   "2031": -1.034,
+   "2032": -0.466,
+   "2033": 0.525,
+   "2034": 1.542,
+   "2035": 2.257,
+   "2036": 2.502,
+   "2037": 2.598,
+   "2038": 2.695,
+   "2039": 2.795,
+   "2040": 2.896
+  },
+  "A_E10": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -3.494,
+   "2030": -1.797,
+   "2031": -0.123,
+   "2032": 0.42,
+   "2033": 1.414,
+   "2034": 2.434,
+   "2035": 3.151,
+   "2036": 3.398,
+   "2037": 3.497,
+   "2038": 3.595,
+   "2039": 3.697,
+   "2040": 3.801
+  },
+  "A_E12": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -2.854,
+   "2030": -0.567,
+   "2031": 1.697,
+   "2032": 2.193,
+   "2033": 3.192,
+   "2034": 4.217,
+   "2035": 4.939,
+   "2036": 5.19,
+   "2037": 5.293,
+   "2038": 5.396,
+   "2039": 5.502,
+   "2040": 5.609
+  },
+  "A_E15": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -1.894,
+   "2030": 1.276,
+   "2031": 4.427,
+   "2032": 4.852,
+   "2033": 5.858,
+   "2034": 6.89,
+   "2035": 7.619,
+   "2036": 7.877,
+   "2037": 7.987,
+   "2038": 8.096,
+   "2039": 8.208,
+   "2040": 8.321
+  },
+  "A_E18": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -0.934,
+   "2030": 3.119,
+   "2031": 7.156,
+   "2032": 7.51,
+   "2033": 8.524,
+   "2034": 9.563,
+   "2035": 10.3,
+   "2036": 10.564,
+   "2037": 10.68,
+   "2038": 10.796,
+   "2039": 10.914,
+   "2040": 11.033
+  },
+  "A_substitution": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -4.112,
+   "2030": -2.984,
+   "2031": -1.881,
+   "2032": -1.291,
+   "2033": -0.302,
+   "2034": 0.713,
+   "2035": 1.426,
+   "2036": 1.668,
+   "2037": 1.763,
+   "2038": 1.858,
+   "2039": 1.956,
+   "2040": 2.055
+  },
+  "B_E9": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -3.809,
+   "2030": -2.417,
+   "2031": -1.049,
+   "2032": -0.497,
+   "2033": 0.493,
+   "2034": 1.509,
+   "2035": 2.224,
+   "2036": 2.467,
+   "2037": 2.563,
+   "2038": 2.659,
+   "2039": 2.758,
+   "2040": 2.859
+  },
+  "B_E10": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -3.488,
+   "2030": -1.802,
+   "2031": -0.139,
+   "2032": 0.387,
+   "2033": 1.379,
+   "2034": 2.398,
+   "2035": 3.114,
+   "2036": 3.36,
+   "2037": 3.458,
+   "2038": 3.556,
+   "2039": 3.657,
+   "2040": 3.759
+  },
+  "B_E12": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -2.846,
+   "2030": -0.573,
+   "2031": 1.679,
+   "2032": 2.154,
+   "2033": 3.151,
+   "2034": 4.174,
+   "2035": 4.895,
+   "2036": 5.145,
+   "2037": 5.247,
+   "2038": 5.349,
+   "2039": 5.454,
+   "2040": 5.56
+  },
+  "B_E15": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -1.884,
+   "2030": 1.27,
+   "2031": 4.405,
+   "2032": 4.804,
+   "2033": 5.808,
+   "2034": 6.838,
+   "2035": 7.566,
+   "2036": 7.822,
+   "2037": 7.93,
+   "2038": 8.038,
+   "2039": 8.149,
+   "2040": 8.26
+  },
+  "B_E18": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -0.922,
+   "2030": 3.113,
+   "2031": 7.131,
+   "2032": 7.454,
+   "2033": 8.465,
+   "2034": 9.502,
+   "2035": 10.236,
+   "2036": 10.499,
+   "2037": 10.613,
+   "2038": 10.727,
+   "2039": 10.843,
+   "2040": 10.96
+  },
+  "B_substitution": {
+   "2027": 0.0,
+   "2028": -2.827,
+   "2029": -4.107,
+   "2030": -2.988,
+   "2031": -1.894,
+   "2032": -1.319,
+   "2033": -0.331,
+   "2034": 0.683,
+   "2035": 1.395,
+   "2036": 1.637,
+   "2037": 1.731,
+   "2038": 1.825,
+   "2039": 1.923,
+   "2040": 2.022
+  }
+ },
+ "cas": {
+  "A_E9": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 208.57700965755575,
+     "dtf_nat": 134.18546044806635,
+     "annees_equivalentes": 23.663454127103524,
+     "net_7ans": 3636.1587118794496,
+     "perte_valeur": -6952.566988585192
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 406.61134230467445,
+     "dtf_nat": 386.8865264600649,
+     "annees_equivalentes": 26.561898000147934,
+     "net_7ans": 8267.065284639431,
+     "perte_valeur": -13553.711410155816
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 295.9512311594512,
+     "dtf_nat": 269.06081560665064,
+     "annees_equivalentes": 26.389294680082592,
+     "net_7ans": 5966.084338930437,
+     "perte_valeur": -9865.041038648373
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 342.39625070688436,
+     "dtf_nat": 328.8731660936625,
+     "annees_equivalentes": 30.9499190721919,
+     "net_7ans": 8463.910725289134,
+     "perte_valeur": -11413.208356896146
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": -33.40346935848757,
+    "dtf_sgdb": 342.39625070688436
+   }
+  },
+  "A_E10": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 223.48650526289637,
+     "dtf_nat": 149.09495605340706,
+     "annees_equivalentes": 22.084789836388502,
+     "net_7ans": 3543.268335538545,
+     "perte_valeur": -7449.550175429879
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 449.5987341335707,
+     "dtf_nat": 429.87391828896097,
+     "annees_equivalentes": 24.02224067826519,
+     "net_7ans": 7999.241670038429,
+     "perte_valeur": -14986.624471119025
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 325.8468773379682,
+     "dtf_nat": 298.95646178516745,
+     "annees_equivalentes": 23.96814207275502,
+     "net_7ans": 5779.826004109089,
+     "perte_valeur": -10861.562577932273
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 378.93771360618035,
+     "dtf_nat": 365.41462899295834,
+     "annees_equivalentes": 27.965377605601205,
+     "net_7ans": 8236.24707182879,
+     "perte_valeur": -12631.257120206012
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": -13.873271520582943,
+    "dtf_sgdb": 378.93771360618035
+   }
+  },
+  "A_E12": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 253.3054964735779,
+     "dtf_nat": 178.91394726408845,
+     "annees_equivalentes": 19.48497987099476,
+     "net_7ans": 3357.4875828567347,
+     "perte_valeur": -8443.516549119264
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 535.573517791363,
+     "dtf_nat": 515.8487019467532,
+     "annees_equivalentes": 20.16598775185776,
+     "net_7ans": 7463.594440836425,
+     "perte_valeur": -17852.450593045432
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 385.6381696950015,
+     "dtf_nat": 358.74775414220096,
+     "annees_equivalentes": 20.25200009681829,
+     "net_7ans": 5407.309334466396,
+     "perte_valeur": -12854.60565650005
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 452.020639404772,
+     "dtf_nat": 438.4975547915501,
+     "annees_equivalentes": 23.44392119783397,
+     "net_7ans": 7780.919764908103,
+     "perte_valeur": -15067.354646825734
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": 25.187124155226314,
+    "dtf_sgdb": 452.020639404772
+   }
+  },
+  "A_E15": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 298.03398328960003,
+     "dtf_nat": 223.64243408011058,
+     "annees_equivalentes": 16.56070373425845,
+     "net_7ans": 3078.8164538340206,
+     "perte_valeur": -9934.466109653335
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 664.5356932780512,
+     "dtf_nat": 644.8108774334415,
+     "annees_equivalentes": 16.25250398022032,
+     "net_7ans": 6660.123597033422,
+     "perte_valeur": -22151.18977593504
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 475.32510823055185,
+     "dtf_nat": 448.4346926777512,
+     "annees_equivalentes": 16.43074206425439,
+     "net_7ans": 4848.534330002354,
+     "perte_valeur": -15844.170274351729
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 561.6450281026595,
+     "dtf_nat": 548.1219434894376,
+     "annees_equivalentes": 18.86803179901562,
+     "net_7ans": 7097.928804527073,
+     "perte_valeur": -18721.500936755318
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": 83.77771766893997,
+    "dtf_sgdb": 561.6450281026595
+   }
+  },
+  "A_E18": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 342.7624701056222,
+     "dtf_nat": 268.3709208961327,
+     "annees_equivalentes": 14.399629278196878,
+     "net_7ans": 2800.1453248113057,
+     "perte_valeur": -11425.415670187407
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 793.4978687647393,
+     "dtf_nat": 773.7730529201298,
+     "annees_equivalentes": 13.611087597265056,
+     "net_7ans": 5856.652753230419,
+     "perte_valeur": -26449.928958824647
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 565.012046766102,
+     "dtf_nat": 538.1216312133013,
+     "annees_equivalentes": 13.822615455194144,
+     "net_7ans": 4289.759325538313,
+     "perte_valeur": -18833.7348922034
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 671.2694168005469,
+     "dtf_nat": 657.746332187325,
+     "annees_equivalentes": 15.786710946118834,
+     "net_7ans": 6414.937844146043,
+     "perte_valeur": -22375.647226684898
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": 142.36831118265385,
+    "dtf_sgdb": 671.2694168005469
+   }
+  },
+  "B_E9": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 200.9676913431383,
+     "dtf_nat": 126.57614213364882,
+     "annees_equivalentes": 24.55943274768837,
+     "net_7ans": 3683.5669180746195,
+     "perte_valeur": -6698.923044771277
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 451.3520028256231,
+     "dtf_nat": 431.6271869810135,
+     "annees_equivalentes": 23.928926718804547,
+     "net_7ans": 7988.318309990411,
+     "perte_valeur": -15045.066760854104
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 321.25758943870875,
+     "dtf_nat": 294.3671738859081,
+     "annees_equivalentes": 24.310536176422445,
+     "net_7ans": 5808.418566284449,
+     "perte_valeur": -10708.586314623626
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 352.8970835790717,
+     "dtf_nat": 339.37399896584975,
+     "annees_equivalentes": 30.02897089010813,
+     "net_7ans": 8398.487565229914,
+     "perte_valeur": -11763.23611930239
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": -70.07410803379993,
+    "dtf_sgdb": 352.8970835790717
+   }
+  },
+  "B_E10": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 215.03170713576586,
+     "dtf_nat": 140.64015792627643,
+     "annees_equivalentes": 22.953138240602566,
+     "net_7ans": 3595.944120199845,
+     "perte_valeur": -7167.723571192196
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 499.3105791568468,
+     "dtf_nat": 479.58576331223725,
+     "annees_equivalentes": 21.630563122131072,
+     "net_7ans": 7689.522809317296,
+     "perte_valeur": -16643.685971894894
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 353.96505320380953,
+     "dtf_nat": 327.0746376510089,
+     "annees_equivalentes": 22.064167576179084,
+     "net_7ans": 5604.641812280215,
+     "perte_valeur": -11798.835106793651
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 390.6053056863884,
+     "dtf_nat": 377.0822210731664,
+     "annees_equivalentes": 27.130036627071046,
+     "net_7ans": 8163.554671762991,
+     "perte_valeur": -13020.176856212947
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": -54.6184256042635,
+    "dtf_sgdb": 390.6053056863884
+   }
+  },
+  "B_E12": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 243.15973872102123,
+     "dtf_nat": 168.76818951153174,
+     "annees_equivalentes": 20.29798405756105,
+     "net_7ans": 3420.6985244502957,
+     "perte_valeur": -8105.324624034041
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 595.2277318192943,
+     "dtf_nat": 575.5029159746846,
+     "annees_equivalentes": 18.14493583319618,
+     "net_7ans": 7091.9318079710665,
+     "perte_valeur": -19840.924393976475
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 419.3799807340113,
+     "dtf_nat": 392.4895651812107,
+     "annees_equivalentes": 18.622596711294616,
+     "net_7ans": 5197.088304271747,
+     "perte_valeur": -13979.332691133712
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 466.02174990102145,
+     "dtf_nat": 452.49866528779967,
+     "annees_equivalentes": 22.739574391647448,
+     "net_7ans": 7693.6888848291455,
+     "perte_valeur": -15534.05833003405
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": -23.7070607451904,
+    "dtf_sgdb": 466.02174990102145
+   }
+  },
+  "B_E15": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 285.35178609890414,
+     "dtf_nat": 210.9602368894147,
+     "annees_equivalentes": 17.296728951573062,
+     "net_7ans": 3157.8301308259715,
+     "perte_valeur": -9511.726203296805
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 739.1034608129655,
+     "dtf_nat": 719.3786449683558,
+     "annees_equivalentes": 14.612797223436484,
+     "net_7ans": 6195.545305951722,
+     "perte_valeur": -24636.782027098852
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 517.502372029314,
+     "dtf_nat": 490.6119564765134,
+     "annees_equivalentes": 15.091610535763117,
+     "net_7ans": 4585.758042259044,
+     "perte_valeur": -17250.0790676438
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 579.1464162229714,
+     "dtf_nat": 565.6233316097496,
+     "annees_equivalentes": 18.29785344975717,
+     "net_7ans": 6988.890204428377,
+     "perte_valeur": -19304.880540765716
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": 22.659986543419368,
+    "dtf_sgdb": 579.1464162229714
+   }
+  },
+  "B_E18": {
+   "projets": [
+    {
+     "cle": "orleans",
+     "prix": 170000.0,
+     "dmto_permanent": 9871.304999999998,
+     "dmto_2026": 9871.304999999998,
+     "dmto_apres": 4935.652499999999,
+     "economie": 4935.652499999999,
+     "tf_actuelle": 1101.6943635038042,
+     "dtf": 327.54383347678703,
+     "dtf_nat": 253.15228426729763,
+     "annees_equivalentes": 15.068677824306492,
+     "net_7ans": 2894.961737201648,
+     "perte_valeur": -10918.127782559568
+    },
+    {
+     "cle": "lyon",
+     "prix": 372000.0,
+     "dmto_permanent": 21600.737999999998,
+     "dmto_2026": 23504.820000000003,
+     "dmto_apres": 10800.368999999999,
+     "economie": 10800.368999999999,
+     "tf_actuelle": 1242.388117889246,
+     "dtf": 882.9791898066367,
+     "dtf_nat": 863.254373962027,
+     "annees_equivalentes": 12.231736743835569,
+     "net_7ans": 5299.158803932378,
+     "perte_valeur": -29432.639660221223
+    },
+    {
+     "cle": "massy",
+     "prix": 269000.0,
+     "dmto_permanent": 15619.888499999997,
+     "dmto_2026": 15619.888499999997,
+     "dmto_apres": 7809.944249999999,
+     "economie": 7809.944249999999,
+     "tf_actuelle": 925.0986387518975,
+     "dtf": 615.6247633246168,
+     "dtf_nat": 588.7343477718161,
+     "annees_equivalentes": 12.686208735047005,
+     "net_7ans": 3974.427780246339,
+     "perte_valeur": -20520.825444153892
+    },
+    {
+     "cle": "sgdb",
+     "prix": 365000.0,
+     "dmto_permanent": 21194.2725,
+     "dmto_2026": 23062.525,
+     "dmto_apres": 10597.13625,
+     "economie": 10597.13625,
+     "tf_actuelle": 1357.0959861033175,
+     "dtf": 692.2710825449215,
+     "dtf_nat": 678.7479979316995,
+     "annees_equivalentes": 15.30778407071821,
+     "net_7ans": 6284.091524027606,
+     "perte_valeur": -23075.70275149738
+    }
+   ],
+   "mobilite": {
+    "vend": 270000.0,
+    "achete": 365000.0,
+    "droits_2026": 23062.525,
+    "droits_permanent": 21194.2725,
+    "droits_apres": 10597.13625,
+    "economie": 10597.13625,
+    "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+    "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+    "dtf_orleans_quittee": 69.0270338320289,
+    "dtf_sgdb": 692.2710825449215
+   }
+  }
+ },
+ "mobilite_base": {
+  "vend": 270000.0,
+  "achete": 365000.0,
+  "droits_2026": 23062.525,
+  "droits_permanent": 21194.2725,
+  "droits_apres": 10597.13625,
+  "economie": 10597.13625,
+  "hausse_mensuelle_equiv_6ans_avant": 294.3648958333333,
+  "hausse_mensuelle_equiv_6ans_apres": 147.18244791666666,
+  "dtf_orleans_quittee": 83.77771766893997
+ },
+ "g6": {
+  "sol": 200000,
+  "bati": 600000,
+  "aujourdhui": {
+   "t_sol": 0.35814181285259367,
+   "t_bati": 0.35814181285259367,
+   "nu": 716.2836257051873,
+   "construire": 2148.850877115562,
+   "bati": 2865.1345028207493
+  },
+  "A_E9": {
+   "t_sol": 0.6792002283967924,
+   "t_bati": 0.1698000570991981,
+   "nu": 1358.4004567935847,
+   "construire": 1018.8003425951886,
+   "bati": 2377.2007993887732
+  },
+  "A_E10": {
+   "t_sol": 0.6946024689047883,
+   "t_bati": 0.17365061722619707,
+   "nu": 1389.2049378095764,
+   "construire": 1041.9037033571824,
+   "bati": 2431.108641166759
+  },
+  "A_E12": {
+   "t_sol": 0.7257970868945497,
+   "t_bati": 0.18144927172363742,
+   "nu": 1451.5941737890994,
+   "construire": 1088.6956303418247,
+   "bati": 2540.289804130924
+  },
+  "A_E15": {
+   "t_sol": 0.7735893785297928,
+   "t_bati": 0.1933973446324482,
+   "nu": 1547.1787570595857,
+   "construire": 1160.3840677946891,
+   "bati": 2707.562824854275
+  },
+  "A_E18": {
+   "t_sol": 0.8226237039669995,
+   "t_bati": 0.20565592599174987,
+   "nu": 1645.2474079339988,
+   "construire": 1233.935555950499,
+   "bati": 2879.182963884498
+  },
+  "B_E9": {
+   "t_sol": 0.7082425969707312,
+   "t_bati": 0.14166032507011425,
+   "nu": 1416.4851939414625,
+   "construire": 849.9619504206855,
+   "bati": 2266.447144362148
+  },
+  "B_E10": {
+   "t_sol": 0.7271776968622383,
+   "t_bati": 0.1422533578657557,
+   "nu": 1454.3553937244767,
+   "construire": 853.5201471945342,
+   "bati": 2307.8755409190107
+  },
+  "B_E12": {
+   "t_sol": 0.7656374997913395,
+   "t_bati": 0.14345444490928233,
+   "nu": 1531.2749995826791,
+   "construire": 860.726669455694,
+   "bati": 2392.001669038373
+  },
+  "B_E15": {
+   "t_sol": 0.8248480748849703,
+   "t_bati": 0.14529459253610622,
+   "nu": 1649.6961497699403,
+   "construire": 871.7675552166372,
+   "bati": 2521.463704986578
+  },
+  "B_E18": {
+   "t_sol": 0.8859623247003564,
+   "t_bati": 0.1471825622169668,
+   "nu": 1771.9246494007127,
+   "construire": 883.0953733018008,
+   "bati": 2655.0200227025134
+  }
+ },
+ "g10": {
+  "annees": [
+   1978,
+   1979,
+   1980,
+   1981,
+   1982,
+   1983,
+   1984,
+   1985,
+   1986,
+   1987,
+   1988,
+   1989,
+   1990,
+   1991,
+   1992,
+   1993,
+   1994,
+   1995,
+   1996,
+   1997,
+   1998,
+   1999,
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "ensemble": [
+   57.061120671174386,
+   57.80638848541538,
+   58.424374631215684,
+   58.35271740207248,
+   52.84203221056158,
+   54.10353918297832,
+   49.640315538769016,
+   50.320244722732504,
+   52.783744600455364,
+   57.99622520582289,
+   65.74096366510409,
+   73.85436512270397,
+   76.17184319547883,
+   70.97908911161738,
+   61.411216469988176,
+   56.882782491613355,
+   57.897711771927426,
+   50.92206142352707,
+   48.85346446678119,
+   46.388181773772956,
+   52.99074958516487,
+   71.17897169332574,
+   85.28045485732436,
+   98.66431034899688,
+   122.77033320028131,
+   156.92588298312347,
+   199.22475455572405,
+   244.83992490556443,
+   270.1124743434663,
+   275.79948355828753,
+   240.1969849246231,
+   241.93905488056865,
+   267.2878524103553,
+   270.09171535797014,
+   257.7778820631455,
+   245.03544694465825,
+   230.27594413977963,
+   227.0661151393521,
+   233.4579551477965,
+   240.65016029717924,
+   247.58502192655655,
+   258.187646035062,
+   296.052195683344,
+   293.5050488377267,
+   298.1731328256965,
+   252.342874968329,
+   239.9823387284702,
+   235.1135184362981
+  ],
+  "menages": [
+   37.268313315140254,
+   38.30936573964932,
+   39.2511666994475,
+   39.51853539656437,
+   35.84197524043981,
+   35.868075807417426,
+   32.82306555235011,
+   33.30278301402247,
+   34.81076677557579,
+   38.3328934904829,
+   43.29324689274708,
+   48.345508674424906,
+   49.7010943748653,
+   45.8390167274178,
+   39.365540216396866,
+   36.12071844552399,
+   36.653850088664576,
+   31.99549844208529,
+   30.595104629286574,
+   28.8302657503592,
+   32.85999295857294,
+   44.020275985056784,
+   52.92711247986959,
+   61.44675639235042,
+   76.78837758897062,
+   98.58788039052882,
+   125.66729241298313,
+   154.94702754976026,
+   171.52323835969364,
+   175.78183537027138,
+   152.39663316582917,
+   151.21735267377468,
+   166.39510038450462,
+   167.3677503138728,
+   159.23544033937864,
+   151.3280813751679,
+   142.16172571066144,
+   139.80799508676742,
+   143.34347901868387,
+   147.3652310247369,
+   151.2671719815587,
+   156.718280968684,
+   178.42633922794354,
+   175.80501111996242,
+   178.34763942837918,
+   150.25933137743812,
+   141.988310309631,
+   138.28313478584153
+  ],
+  "sol_2022": 7913.506,
+  "sol_2025": 7032.377
+ },
+ "consommation": {
+  "B_E12": {
+   "0": {
+    "perte_menages": 248.56996992431053,
+    "conso_07": 1.7399897894701737,
+    "conso_14": 3.4799795789403474,
+    "conso_us_6": 14.914198195458631
+   },
+   "50": {
+    "perte_menages": 139.24965659403776,
+    "conso_07": 0.9747475961582643,
+    "conso_14": 1.9494951923165287,
+    "conso_us_6": 8.354979395642266
+   },
+   "100": {
+    "perte_menages": 29.929343263765006,
+    "conso_07": 0.20950540284635505,
+    "conso_14": 0.4190108056927101,
+    "conso_us_6": 1.7957605958259002
+   }
+  },
+  "B_E15": {
+   "0": {
+    "perte_menages": 310.7124624053881,
+    "conso_07": 2.1749872368377168,
+    "conso_14": 4.3499744736754336,
+    "conso_us_6": 18.642747744323287
+   },
+   "50": {
+    "perte_menages": 201.39214907511538,
+    "conso_07": 1.4097450435258077,
+    "conso_14": 2.8194900870516153,
+    "conso_us_6": 12.083528944506922
+   },
+   "100": {
+    "perte_menages": 92.0718357448426,
+    "conso_07": 0.6445028502138982,
+    "conso_14": 1.2890057004277964,
+    "conso_us_6": 5.524310144690556
+   }
+  },
+  "B_E18": {
+   "0": {
+    "perte_menages": 372.8549548864658,
+    "conso_07": 2.6099846842052608,
+    "conso_14": 5.2199693684105215,
+    "conso_us_6": 22.371297293187947
+   },
+   "50": {
+    "perte_menages": 263.53464155619304,
+    "conso_07": 1.8447424908933514,
+    "conso_14": 3.689484981786703,
+    "conso_us_6": 15.812078493371581
+   },
+   "100": {
+    "perte_menages": 154.21432822592027,
+    "conso_07": 1.0795002975814418,
+    "conso_14": 2.1590005951628837,
+    "conso_us_6": 9.252859693555216
+   }
+  },
+  "B_E9": {
+   "0": {
+    "perte_menages": 186.4274774432329,
+    "conso_07": 1.3049923421026304,
+    "conso_14": 2.6099846842052608,
+    "conso_us_6": 11.185648646593974
+   },
+   "50": {
+    "perte_menages": 77.10716411296013,
+    "conso_07": 0.5397501487907209,
+    "conso_14": 1.0795002975814418,
+    "conso_us_6": 4.626429846777608
+   },
+   "100": {
+    "perte_menages": -32.213149217312626,
+    "conso_07": -0.2254920445211884,
+    "conso_14": -0.4509840890423768,
+    "conso_us_6": -1.9327889530387574
+   }
+  },
+  "A_E12": {
+   "0": {
+    "perte_menages": 257.98196300681485,
+    "conso_07": 1.805873741047704,
+    "conso_14": 3.611747482095408,
+    "conso_us_6": 15.47891778040889
+   },
+   "50": {
+    "perte_menages": 148.66164967654208,
+    "conso_07": 1.0406315477357946,
+    "conso_14": 2.081263095471589,
+    "conso_us_6": 8.919698980592525
+   },
+   "100": {
+    "perte_menages": 39.34133634626932,
+    "conso_07": 0.2753893544238853,
+    "conso_14": 0.5507787088477706,
+    "conso_us_6": 2.3604801807761593
+   }
+  }
+ }
+}

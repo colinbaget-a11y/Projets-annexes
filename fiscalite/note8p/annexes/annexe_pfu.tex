@@ -1,180 +1,143 @@
-% Annexe du bloc « fiscalité du capital » (note de 8 pages, note8p/CADRE.md). Chiffres : note8p/sorties/pfu.json et
-% pfu_calculs.txt (programme note8p/calculs/pfu_transmission.py, qui lit pfu/sorties/calculs_pfu.json et copie les
-% jeux d'hypothèses de pfu/calculs_pfu.py). Figure facultative : note8p/figures/g9_exemple_pv.
+% Annexe du bloc « fiscalité du capital », révision v3 (note8p/CONSIGNES_V3.md). Chiffres : note8p/sorties/pfu3.json et
+% pfu3_calculs.txt (programme note8p/calculs/pfu3_neutralite.py) ; coût d'un point de PFU, CEHR et CDHR :
+% note8p/sorties/pfu.json (programme note8p/calculs/pfu_transmission.py). Figure : note8p/figures/g9_exemple_pv.
 
-\subsection{Le taux du PFU : coût d'un point et ce que dit la littérature}
+\subsection{La règle : reprise du prix, correction à la marge}
 
-En 2026, le PFU est de 31,4~\% : 12,8~\% d'impôt sur le revenu (CGI, art.~200~A) et 18,6~\% de prélèvements sociaux,
-la CSG du capital ayant été relevée de 1,4 point par la LFSS pour 2026 (art.~12). L'assiette des revenus de 2025 est
-estimée à 67,0~Md€ : cases de la déclaration de 2024 corrigées de l'évolution des revenus déclarés en 2025 (DGFiP,
-Statistiques n°~53, provisoire). Celle de 2024 (79,6~Md€) est gonflée par les distributions avancées avant la CDHR.
-L'assiette réagit selon $\Delta B = e\,B\,\Delta\ln(1-t)$, avec $e = 0{,}77$ (Lefebvre, Lehmann et Sicsic). La recette
-des premières années compte toute la réaction. En régime permanent, seule compte la part $\pi$ de la réaction qui
-aurait échappé pour toujours à l'impôt.
-
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Coût d'une baisse d'un point du PFU (31,4 $\to$ 30,4~\%), Md€ par an}\label{tab:cap_point}
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Assiette & Mécanique & Premières années ($e$ = 0,65 / 0,77 / 1) & Permanent ($\pi$ = 0 / 0,5 / 1) \\
-\midrule
-Revenus de 2025 (67,0~Md€) & $-$0,67 & $-$0,48 / $-$0,44 / $-$0,38 & $-$0,67 / $-$0,56 / $-$0,44 \\
-Revenus de 2024 (79,6~Md€) & $-$0,80 & $-$0,57 / $-$0,53 / $-$0,45 & $-$0,80 / $-$0,66 / $-$0,53 \\
-\bottomrule
-\end{tabular}
-\par\vspace{3pt}\parbox{0.92\linewidth}{\raggedright\scriptsize Note : une baisse passée par la part d'IR est reprise
-par la CDHR, tant qu'elle existe, à hauteur de 0,10 à 0,17~Md€ par point. Une baisse à 25~\% coûte 4,3~Md€ en
-mécanique et 3,1~Md€ les premières années. La CRDS (0,5 point) s'éteint fin 2033 : le PFU passera alors à 30,9~\% sans
-mesure nouvelle (0,33~Md€ sur l'assiette du PFU).}
-\end{table}
-
-Trois résultats publiés justifient de ne pas baisser le taux.
-\begin{itemize}
-\item \textbf{IPP, note n°~46 (Bach et al., 2019).} Après le PFU de 2018, les dividendes versés augmentent de 15~\%, et
-la réforme coûte 0,4~Md€ au lieu de 0,9. En 2013, la mise au barème avait fait baisser de 40~\% les dividendes
-déclarés par les foyers qui avaient choisi le prélèvement libératoire. La réaction mesurée est surtout un déplacement
-des distributions dans le temps.
-\item \textbf{France Stratégie (2023).} Aucun effet n'a été détecté sur l'investissement ni sur les salaires des
-entreprises détenues par des personnes physiques, mais le comité juge l'identification « imprécise ». La création
-d'entreprises est un peu plus rapide dans les secteurs exposés, sans qu'on puisse séparer le PFU de la baisse de
-l'IS. Aux États-Unis, la baisse de 2003 n'a pas non plus modifié l'investissement (Yagan, 2015, \emph{AER}).
-\item \textbf{Boissel et Matray (2022, \emph{AER}).} L'article concluait que la hausse de 2013 avait accru
-l'investissement des entreprises riches en trésorerie. Il a été \emph{rétracté} par ses auteurs (\emph{AER} 113(7),
-2023), après le commentaire de Bach, Bozio, Guillouzouic et Malgouyres (2023) : sans les contrôles en cause, l'étude
-d'événement ne montre plus d'effet net. Il ne peut pas servir d'argument dans un sens ou dans l'autre.
-\end{itemize}
-
-\subsection{L'exemple : 100\,000~€ devenus 1\,000\,000~€}
-
-Un enfant unique, droit de 2026. Droits en ligne directe : abattement de 100\,000~€ (art.~779), puis barème de 5 à
-45~\% (art.~777). Les seuils proviennent de sources secondaires concordantes avec service-public.fr. Le calcul est
-fait hors CEHR et CDHR l'année de la vente. Réforme retenue : $\text{prix repris} = \text{prix historique} +
-\text{droits}\times G/V$, comme le prévoit la règle américaine des donations (26 U.S.C. §~1015(d)(6)).
+Le PFU reste à 31,4~\% : 12,8~\% d'IR (CGI, art.~200~A) et 18,6~\% de prélèvements sociaux (LFSS pour 2026,
+art.~12). À la donation et au décès, la plus-value des titres de l'art.~150-0~A n'est plus effacée : le bénéficiaire
+reprend le prix d'acquisition historique et n'est imposé que s'il vend [C]. Reste à éviter que l'impôt latent paie
+aussi des droits de mutation. Notons $V$ la valeur transmise, $G$ la plus-value, $t$ le PFU et $D(\cdot)$ les droits
+du bénéficiaire sur sa part. Le parent qui vend paie $tG + D(V-tG)$ ; l'héritier qui reçoit puis vend paie $D(V) +
+t(G-a)$, où $a$ est la majoration du prix repris. Les deux charges sont égales si et seulement si
+\[
+t\,a \;=\; D(V) - D(V - tG),
+\]
+c'est-à-dire si l'héritier récupère, à la vente, les droits qu'il a payés sur l'impôt latent. Les droits ne doivent
+pas frapper la part de l'héritage qui reviendra au fisc. D'où la règle retenue [C], dite « correction à la marge » :
+\emph{le prix repris est majoré de $a = [D(V) - D(V - tG)]/t$}. Le notaire calcule deux fois les droits du bénéficiaire,
+une fois sur sa part, une fois sur sa part diminuée de l'impôt latent. Il inscrit la différence dans la déclaration,
+qui doit de toute façon porter le prix historique. La majoration s'attache aux titres : elle suit les ventes
+partielles au prorata et se cumule si les titres sont transmis à nouveau. Elle équivaut à un crédit d'impôt à la vente,
+mais sous la forme d'un prix, plus simple à suivre.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Titres acquis 100\,000~€, valant 1\,000\,000~€ (€)}\label{tab:cap_exemple}
-\begin{tabular}{@{}lrrr@{}}
+\caption{Règles comparées}\label{tab:cap_regles}
+\begin{tabular}{@{}p{4.4cm}p{3.1cm}p{3.2cm}p{3.2cm}@{}}
 \toprule
-Situation & Impôt sur la plus-value & Droits & Total \\
+Règle & Neutralité vendre / transmettre & Si l'héritier ne vend jamais & Coût et simplicité \\
 \midrule
-Il vend, puis transmet le produit & 282\,600 & 128\,182 & 410\,782 \\
-\quad dirigeant partant à la retraite (art.~150-0~D~ter, abattement sur la part d'IR) & 218\,600 & 147\,382 & 365\,982 \\
-Il transmet, droit actuel (plus-value effacée) & 0 & 212\,962 & 212\,962 \\
-Réforme sans correction & 282\,600 & 212\,962 & 495\,562 \\
-\textbf{Réforme retenue} (191\,666~€ de droits ajoutés au prix) & 222\,417 & 212\,962 & \textbf{435\,379} \\
-Variante neutre : impôt latent déduit de l'assiette des droits & 282\,600 & 128\,182 & 410\,782 \\
-Pacte Dutreil (75~\% exonérés) : aujourd'hui / réforme & 0 / 274\,632 & 28\,194 & 28\,194 / 302\,827 \\
+(i) Taux moyen des droits $\times G$ ajouté au prix (v2 ; 26 U.S.C. §~1015(d)(6)) & Double imposition résiduelle
+de $tG(m-\bar\tau)$ : 6~\% de la charge à 1~M€ & Droits inchangés & Simple ; recette de référence \\
+(ii) Même correction au taux marginal $m$ & Exacte tant que $V$ et $V-tG$ sont dans la même tranche & Droits inchangés
+& Simple ; 0,2 à 0,3~Md€/an de moins que (i) \\
+(iii) Impôt latent déduit de l'assiette des droits & Exacte & Droits \emph{réduits} pour un impôt jamais payé &
+Coûte 0,8 à 1,1~Md€/an dès 2027 \\
+\textbf{(iv) Crédit à la vente des droits afférents à l'impôt latent (retenue, sous forme de prix)} & Exacte & Droits
+inchangés & Un second calcul de droits ; comme (ii) \\
+(v) Prix majoré de 30~\% de $G$ & Juste si $m = 30~\%$ ; sinon jusqu'à $-30~\%$ (conjoint) ou $+10~\%$ (neveu) &
+Droits inchangés & Simple mais arbitraire \\
+(vi) Réalisation au décès, impôt déduit des droits (Canada) & Exacte & Impôt dû quand même & Contraire à
+l'imposition à la vente seule (non retenue) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-La variante neutre déduit l'impôt latent au taux marginal des droits (30~\%) : elle rend transmettre et vendre
-exactement équivalents. Elle n'est pas retenue pour deux raisons. Elle réduit les droits dès le décès, même si les
-titres ne sont jamais vendus (0,7 à 3~Md€ par an selon le chiffrage de \texttt{pfu/}). Elle oblige aussi à calculer
-l'impôt latent de chaque succession. La règle retenue laisse 24\,600~€ de double imposition dans l'exemple (6~\% de
-la charge), ne coûte rien avant la vente et se calcule à partir de la seule déclaration de succession.
-
-\subsection{Recette de la fin de l'effacement}
-
-\emph{Méthode} (reprise de \texttt{pfu/}, calendrier modifié). L'impôt latent transmis chaque année vaut
-$L = 31{,}4~\%\,E\,b\,\lambda + 30~\%\,S/T$, multiplié par $(1-\tau)$ pour tenir compte de la correction des droits.
-La cohorte transmise l'année $c$ vend une part $a$ dans les douze mois, moitié l'année $c$ et moitié l'année $c+1$,
-puis $(1-a)\,h\,(1-h)^{k-2}$ l'année $c+k-1$ ; pour les reports, $a = 0{,}1$. L'impôt est encaissé l'année qui suit
-la vente : les plus-values sont hors prélèvement à la source et se paient au solde de l'IR. Les valeurs sont
-supposées constantes après la transmission. Les montants sont en Md€ au niveau du PIB de 2025.
-
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Hypothèses (toutes non mesurées)}\label{tab:cap_hyp}
-\begin{tabular}{@{}lrrr@{}}
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\caption{Charge totale (plus-value + droits) et écart avec « vendre puis transmettre »}\label{tab:cap_cas}
+\begin{tabular}{@{}lrrrrrr@{}}
 \toprule
- & Bas & Central & Haut \\
+ & Vendre, puis & Transmettre & \multicolumn{4}{c}{Réforme : écart (transmettre puis vendre)} \\
+\cmidrule(l){4-7}
+Cas (droit de 2026) & transmettre & aujourd'hui & (i) moyen & (iv) retenue & (iii) & (v) 30~\% \\
 \midrule
-Titres couverts $E$ (Md€, sur 1\,969 détenus fin 2025, Banque de France) & 1\,200 & 1\,450 & 1\,700 \\
-Part transmise par an $b$ ; plus-value latente $\lambda$ & 1,7~\% ; 40~\% & 2,3~\% ; 55~\% & 3,0~\% ; 70~\% \\
-Ventes dans l'année $a$ ; ensuite $h$ par an & 15~\% ; 2~\% & 30~\% ; 4~\% & 45~\% ; 6~\% \\
-Stock de reports $S$ (Md€) ; délai $T$ (ans) & 127 ; 35 & 144 ; 25 & 173 ; 15 \\
-Taux moyen des droits sur ces titres $\tau$ & 15~\% & 10~\% & 5~\% \\
-Impôt latent transmis par an, brut / net de la correction (Md€) & 3,65 / 3,10 & 7,49 / 6,74 & 14,68 / 13,94 \\
+100~k€ devenus 1~M€, un enfant ($\bar\tau$ 21~\%, $m$ 30~\%) & 410\,782 & 212\,962 & +24\,597 & 0 & 0 & 0 \\
+250~k€ devenus 400~k€, un enfant (15~\%, 20~\%) & 95\,874 & 58\,194 & +2\,568 & 0 & 0 & $-$4\,710 \\
+2~M€ devenus 40~M€, deux enfants (44~\%, 45~\%) & 23\,997\,389 & 17\,434\,789 & +168\,603 & 0 & 0 & +1\,789\,800 \\
+100~k€ devenus 1~M€, un frère (44~\%, 45~\%) & 595\,818 & 440\,388 & +2\,716 & 0 & 0 & +42\,390 \\
+100~k€ devenus 1~M€, un neveu (55~\%, 55~\%) & 672\,788 & 545\,618 & +1\,238 & 0 & 0 & +70\,650 \\
+100~k€ devenus 1~M€, conjoint (exonéré) & 282\,600 & 0 & 0 & 0 & 0 & $-$84\,780 \\
 \bottomrule
 \end{tabular}
-\par\vspace{3pt}\parbox{0.92\linewidth}{\raggedright\scriptsize Repères : 300~Md€ de transmissions par an (CAE, 2021) ;
-21,2~Md€ de droits de mutation à titre gratuit en 2025 (DGFiP n°~43) ; 44~\% de plus-value latente dans les actifs
-non monétaires des successions américaines de 2010 qui ont opté pour la reprise du prix (Gordon, Joulfaian et
-Poterba, 2016).}
+\par\vspace{3pt}\parbox{0.95\linewidth}{\raggedright\scriptsize Lecture : aujourd'hui, transmettre avant de vendre
+divise la charge par deux dans l'exemple ; avec la règle (iv), les deux chemins coûtent autant. L'écart de la règle (i)
+vient de la progressivité et de l'abattement : il disparaît presque aux taux plats (neveu) ou au taux maximal
+(très grande fortune). Si l'héritier ne vend jamais, il paie avec (i), (ii), (iv) et (v) les droits d'aujourd'hui ;
+avec (iii), moins qu'aujourd'hui (128\,182~€ au lieu de 212\,962~€ dans l'exemple).}
 \end{table}
+
+\subsection{Recettes 2027-2040 de la règle retenue}
+
+Méthode, jeux d'hypothèses et calendrier sont ceux de la version 2 (\texttt{pfu\_transmission.py}) : impôt latent
+transmis par an $L = 31{,}4~\%\,E\,b\,\lambda + 30~\%\,S/T$ (3,65 / 7,49 / 14,68~Md€ dans les jeux bas, central,
+haut), part $a$ vendue dans les douze mois puis $h$ par an, impôt encaissé l'année qui suit la vente. Seul change le
+facteur de correction : $(1-m)$ au lieu de $(1-\bar\tau)$, avec $\bar\tau$ = 15 / 10 / 5~\% [H] et
+$m = 1{,}4\,\bar\tau$ [H]. Le rapport 1,4 est celui des cas-types en ligne directe (1,0 au taux maximal, 1,4 à 1~M€, 1,6
+à 1,8 sous pacte Dutreil). Unités : Md€ au niveau du PIB de 2025.
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}
-\caption{Recette encaissée par année (Md€ au niveau du PIB de 2025)}\label{tab:cap_annuel}
-\begin{tabular}{@{}l*{14}{r}@{}}
+\caption{Recette encaissée par année (Md€)}\label{tab:cap_annuel}
+\begin{tabular}{@{}l*{14}{r}r@{}}
 \toprule
- & 27 & 28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36 & 37 & 38 & 39 & 40 \\
+ & 27 & 28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36 & 37 & 38 & 39 & 40 & Cumul \\
 \midrule
-\multicolumn{15}{@{}l}{\emph{Option 1 : prix historique pour tout (retenue)}} \\
-Bas & 0 & 0,21 & 0,47 & 0,53 & 0,58 & 0,63 & 0,68 & 0,73 & 0,77 & 0,82 & 0,87 & 0,91 & 0,95 & 1,00 \\
-Central & 0 & 0,86 & 1,91 & 2,10 & 2,29 & 2,47 & 2,64 & 2,80 & 2,96 & 3,11 & 3,26 & 3,40 & 3,53 & 3,66 \\
-Haut & 0 & 2,56 & 5,65 & 6,15 & 6,62 & 7,06 & 7,47 & 7,86 & 8,22 & 8,57 & 8,89 & 9,19 & 9,48 & 9,74 \\
-\quad dont reports, central & 0 & 0,08 & 0,21 & 0,27 & 0,32 & 0,37 & 0,41 & 0,46 & 0,50 & 0,55 & 0,59 & 0,62 & 0,66 & 0,70 \\
-\multicolumn{15}{@{}l}{\emph{Option 2 : valeur au jour de l'annonce pour les titres détenus à cette date}} \\
-Bas & 0 & 0,06 & 0,16 & 0,21 & 0,27 & 0,32 & 0,38 & 0,44 & 0,50 & 0,56 & 0,62 & 0,68 & 0,75 & 0,81 \\
-Central & 0 & 0,13 & 0,38 & 0,56 & 0,74 & 0,92 & 1,10 & 1,28 & 1,47 & 1,65 & 1,84 & 2,02 & 2,20 & 2,39 \\
-Haut & 0 & 0,30 & 0,92 & 1,37 & 1,82 & 2,26 & 2,70 & 3,13 & 3,56 & 3,98 & 4,39 & 4,80 & 5,20 & 5,59 \\
+\multicolumn{16}{@{}l}{\emph{Règle retenue (iv)}} \\
+Bas & 0 & 0,19 & 0,44 & 0,49 & 0,54 & 0,58 & 0,63 & 0,67 & 0,72 & 0,76 & 0,80 & 0,85 & 0,89 & 0,93 & 8,5 \\
+Central & 0 & 0,82 & 1,83 & 2,01 & 2,19 & 2,36 & 2,52 & 2,68 & 2,83 & 2,97 & 3,11 & 3,24 & 3,37 & 3,50 & 33,4 \\
+Haut & 0 & 2,51 & 5,53 & 6,02 & 6,48 & 6,91 & 7,31 & 7,69 & 8,05 & 8,38 & 8,70 & 9,00 & 9,28 & 9,54 & 95,4 \\
+\textbf{Prudent} (bas, deux ans plus tard) & 0 & 0 & 0 & 0,19 & 0,44 & 0,49 & 0,54 & 0,58 & 0,63 & 0,67 & 0,72 & 0,76 & 0,80 & 0,85 & 6,7 \\
+\multicolumn{16}{@{}l}{\emph{Pour comparaison, jeu central}} \\
+(i) taux moyen (v2) & 0 & 0,86 & 1,91 & 2,10 & 2,29 & 2,47 & 2,64 & 2,80 & 2,96 & 3,11 & 3,26 & 3,40 & 3,53 & 3,66 & 35,0 \\
+(iii) déduction des droits & $-$1,05 & $-$0,10 & 1,08 & 1,29 & 1,50 & 1,69 & 1,88 & 2,07 & 2,24 & 2,41 & 2,57 & 2,72 & 2,87 & 3,02 & 24,2 \\
 \bottomrule
 \end{tabular}
-\par\vspace{3pt}\parbox{0.92\linewidth}{\raggedright\scriptsize Cumul 2027-2040 : option 1, 35,0~Md€ au centre (9,1
-à 97,4) ; option 2, 16,7 (5,8 à 40,0). L'option 2 coûte donc 18,3~Md€ (3,4 à 57,4). Dans l'option 2, les valeurs
-progressent de 4~\% par an depuis l'annonce et les reports passent aux héritiers dans les deux options. Le régime de
-croisière, de l'ordre de 6,7~Md€ par an au centre, n'est pas atteint en 2040. Sans la correction des droits, la
-recette centrale de 2040 serait de 4,06~Md€. Une date d'effet postérieure d'un an à l'annonce ferait perdre une
-cohorte : environ 6,7~Md€ d'impôt latent au centre.}
+\par\vspace{3pt}\parbox{0.95\linewidth}{\raggedright\scriptsize La neutralité coûte 1,6~Md€ cumulés sur 2027-2040 au
+centre (0,6 à 2,1), soit 0,3~Md€ par an en régime de croisière. La règle (iii) coûte dès 2027, avant toute recette, et
+donne aux héritiers qui ne vendent pas une baisse des droits ; sur le jeu bas, elle ne rapporte rien en cumul. La
+règle (vi) rapporterait 6,4~Md€ par an dès 2028 au centre, mais taxe à la transmission. Le scénario prudent ne sert
+qu'au bouclage : il reprend le jeu bas, avec deux ans de décalage, pour n'engager que des recettes constatées.}
 \end{table}
 
-\subsection{Interactions et verrouillage}
+\subsection{Pacte Dutreil, localisation des grands patrimoines, exit tax}
 
-\emph{Droits de succession.} Leur barème et leurs abattements sont inchangés ; seule s'applique la correction du prix.
-\emph{Pacte Dutreil} (art.~787~B ; la LF 2026 a porté l'engagement individuel de 4 à 6 ans et exclu les biens
-somptuaires, sources secondaires). La plus-value latente suit les titres. Rien n'étant dû à la transmission, l'objectif
-du pacte, la continuité de l'entreprise, n'est pas touché. Le cumul d'une exonération de 75~\% des droits et de
-l'effacement prend fin quand l'héritier vend.
-\emph{Apport-cession} (art.~150-0~B~ter). Le report est transmis sans effacement. L'article~5 du PLF 2027, adopté en
-première lecture à l'Assemblée le 16 octobre 2026 sous une forme amendée (successions exclues), est tombé avec le rejet
-de la première partie le 4 novembre (scrutin n°~9759), sous réserve de l'examen au Sénat. Si la version du
-Gouvernement (expiration à toute transmission, environ 1,7~Md€ par an au centre avant étalement) était votée, la ligne
-« reports » serait déjà dans le droit et se retrancherait de notre recette.
-\emph{Exit tax} (art.~167~bis). La plus-value reprise entre dans la base. Le dégrèvement après deux ans (cinq au-delà
-de 2,57~M€ ; sources secondaires) devient la principale sortie restante. Les amendements de l'Assemblée qui le
-portaient à quinze ans (30 octobre 2026) ont disparu avec le rejet de la première partie. Un héritier non résident
-qui vend des titres de portefeuille échapperait en général à l'impôt français (non vérifié sur les conventions).
+\emph{Pacte Dutreil} (art.~787~B : 75~\% de la valeur exonérée ; engagement individuel porté de 4 à 6~ans par la
+LF 2026, sources secondaires [S]). La plus-value latente suit les titres et la correction porte sur les droits
+réellement payés, qui sont faibles : $m$ vaut 5 à 10~\%. Entreprise de 10~M€ (prix 0,5~M€) transmise à deux enfants,
+qui la cèdent après l'engagement : charge totale de 0,63~M€ aujourd'hui (6~\%), 3,34~M€ avec la réforme (33~\%), contre
+5,58~M€ (56~\%) si le fondateur avait vendu avant de transmettre. Dans l'exemple à 1~M€ : 3~\% aujourd'hui, 30~\% avec
+la réforme, 41~\% en vendant avant. L'écart restant n'est pas une interaction des deux impôts : c'est l'exonération
+Dutreil elle-même, conservée par l'héritier qui vend après l'engagement. Si les héritiers gardent l'entreprise, rien ne
+change. La hausse de charge pour les familles qui cèdent est forte, et elle est voulue [C] : le cumul « 75~\%
+d'exonération + effacement » est supprimé, pas le pacte.
 
-\emph{Verrouillage} (calcul mécanique). On cherche le rendement supplémentaire $x$ qui égalise vendre aujourd'hui et
-réinvestir à $r + x$, et garder jusqu'au terme $D$. Les droits proportionnels s'annulent dans la comparaison.
-Aujourd'hui, la plus-value s'efface au terme ; avec la réforme, elle est imposée au terme.
+\emph{Localisation.} Une fois l'effacement fermé, la sortie qui reste est le départ. L'exit tax (art.~167~bis) impose
+la plus-value latente au départ (participation d'au moins 50~\% ou titres de plus de 800\,000~€), avec sursis, puis
+dégrève l'impôt si les titres sont encore détenus deux ans après le départ, cinq ans au-delà de 2,57~M€ [S : sources
+secondaires, texte non relu]. La plus-value reprise entre dans sa base. Un héritier déjà non résident qui vend des
+titres de portefeuille échappe en général à l'impôt français (conventions non vérifiées). La littérature dit trois
+choses [E]. (1) Les très riches bougent : un point d'impôt sur la fortune en plus réduit de 2~\% environ le nombre de
+contribuables fortunés en Scandinavie (Jakobsen, Kleven, Kolsrud, Landais et Muñoz, NBER WP 32153, \emph{AER} 2026) ;
+après 2011, Madrid, seule région espagnole sans impôt sur la fortune, gagne 7,5~\% de contribuables fortunés en six ans
+(Agrawal, Foremny et Martínez-Toledano, \emph{AEJ: Applied} 2025) ; 35~\% des milliardaires du Forbes 400 quittent
+les États américains qui ont gardé un impôt successoral après 2001 (Moretti et Wilson, \emph{AEJ: Policy} 2023).
+(2) Les recettes résistent : à Madrid comme aux États-Unis, l'impôt rapporte plus qu'il ne fait perdre, et en
+Scandinavie 0,22~\$ seulement sur chaque dollar levé est perdu par départs. (3) En France, la réaction mesurée est
+faible au niveau du dernier centile (0,02 à 0,23~\% des foyers de plus par point d'imposition effective, CAE,
+Focus n°~118, 2025) ; les retours de redevables de l'IFI dépassent les départs depuis 2018 (France Stratégie, 2023).
+Rien ne mesure le comportement du dernier dix-millième, qui porte l'essentiel de l'impôt latent. Ces élasticités
+portent sur des impôts annuels sur le stock et ne se transposent pas telles quelles à un impôt payé une fois, à la
+vente. Nous ne les appliquons pas [choix de méthode] : la prudence passe par le scénario de recettes prudent et par
+deux mesures de garde [C] : délai de dégrèvement de l'exit tax porté à quinze ans pour les participations de plus de
+2,57~M€ (durée en vigueur de 2014 à 2018, sources secondaires), et imposition, dans les limites des conventions, de
+la plus-value transmise à un bénéficiaire non résident (à expertiser).
 
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Rendement supplémentaire exigé pour vendre (points par an, $r$ = 5~\%)}\label{tab:cap_verrou}
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Plus-value / valeur ; années jusqu'au terme & 5 & 10 & 20 \\
-\midrule
-90~\% : droit actuel (détenteur âgé) / réforme & 7,2 / 1,7 & 3,6 / 1,5 & 1,8 / 1,2 \\
-55~\% : droit actuel / réforme & 4,1 / 0,9 & 2,0 / 0,8 & 1,0 / 0,6 \\
-\bottomrule
-\end{tabular}
-\par\vspace{3pt}\parbox{0.92\linewidth}{\raggedright\scriptsize Note : l'héritier, aujourd'hui sans plus-value, n'a
-aucun verrouillage ; avec la réforme, il a celui de la ligne « réforme ». Le sens de l'effet (l'effacement accroît
-le verrouillage aux âges élevés) est établi par Auten et Joulfaian (2001) ; aucune étude ne mesure l'effet net d'une
-reprise du prix sur la réallocation du capital.}
-\end{table}
+\subsection{Taux du PFU, CEHR et CDHR (inchangés depuis la version 2)}
 
-\subsection{CEHR, CDHR et long terme}
-
-Sur les revenus de 2025, la CEHR rapporte 1,39~Md€, dont 0,7 à 1,1 sur le capital (part de 50 à 80~\%, hypothèse).
-La CDHR rapporte 0,62~Md€, dont 0,5 à 0,6 sur le capital (part de 80 à 100~\%, hypothèse). Les maintenir sur le
-capital, sous forme d'une majoration du PFU appréciée sur le même revenu de référence, ne coûte rien et laisse le
-taux supérieur sur le capital à 35,4~\%. Supprimer la CEHR sur le capital coûterait 0,7 à 1,1~Md€, moins la reprise
-par la CDHR tant qu'elle existe. La fin de la CDHR est déjà prévue par le droit, au retour du déficit sous 3~\% du PIB.
-
-\emph{Indexation, non retenue.} À 2~\% d'inflation et pour une détention de 5 à 15 ans, 16 à 23~\% des plus-values
-imposées en 2025 (13,0~Md€) sont inflationnistes. Les indexer coûterait 0,6 à 0,9~Md€ par an (hypothèse sur le prix
-de revient), davantage avec la réforme. S'y ajoute la complexité qui a fait supprimer les abattements pour durée de
-détention. Les distorsions entre titres en direct, assurance-vie (IR effacé au décès), PEA et immobilier (exonéré
-après 22 ou 30 ans) restent une orientation de long terme.
+Un point de PFU vaut 0,67~Md€ à comportements inchangés sur l'assiette des revenus de 2025 (67,0~Md€), 0,44~Md€ les
+premières années avec l'élasticité de 0,77 de Lefebvre, Lehmann et Sicsic (2025) [S]. Une baisse à 25~\% coûterait
+4,3~Md€ en mécanique, 3,1~Md€ après réaction. Les évaluations du PFU de 2018 ne trouvent d'effet que sur les dividendes
+distribués (+15~\%, note IPP n°~46, 2019), aucun sur l'investissement (France Stratégie, 2023 ; Yagan, 2015, \emph{AER}) ;
+Boissel et Matray (2022) ont été rétractés (\emph{AER} 113(7), 2023). CEHR et CDHR sont maintenues sur le capital
+(coût nul) ; les supprimer coûterait 0,7 à 1,1 et 0,6~Md€. La CRDS s'éteint fin 2033 : le PFU passera à 30,9~\% sans
+mesure nouvelle. L'indexation des plus-values sur l'inflation (0,6 à 0,9~Md€ par an) reste une orientation de long
+terme.
