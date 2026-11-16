@@ -607,6 +607,12 @@ def t(x, d=1):
     return fr(x, d).replace("−", "$-$")
 
 
+def _ecrire_tab(chemin, lig):
+    """Écrit un tableau de la note, sauf s'il a été retouché à la main (première ligne « % table éditée »)."""
+    if chemin.exists() and chemin.read_text(encoding="utf-8").startswith("% table éditée"):
+        return
+    chemin.write_text("\n".join(lig) + "\n", encoding="utf-8")
+
 # Tableau de transition (corps) : 2027-2035, puis années choisies
 NUM = r">{\raggedleft\arraybackslash}p{1.5cm}"
 lig = [r"\begin{table}[!htbp]\centering\footnotesize", r"\setlength{\tabcolsep}{4pt}",
@@ -634,7 +640,7 @@ lig += [r"\bottomrule", r"\end{tabular}",
         f"la contribution exceptionnelle perçus en 2026, qui s'éteint dans le droit en vigueur. La dette s'éteint en {AN1+ext} ; "
         f"la baisse finale du taux ({t(bx, 1)} point) vient ensuite. Années d'exercice : en caisse, coûts et ressources "
         r"arrivent environ un an plus tard. Source : \texttt{is/calculs\_note\_is.py}.}", r"\end{table}"]
-(TAB / "tab_is_transition.tex").write_text("\n".join(lig) + "\n", encoding="utf-8")
+_ecrire_tab(TAB / "tab_is_transition.tex", lig)
 
 # Tableau complet (annexe) : 2027-2056, bornes
 NUMS = r">{\raggedleft\arraybackslash}p{1.3cm}"
@@ -657,7 +663,7 @@ lig += [r"\bottomrule", r"\end{tabular}",
         r"négative est un excédent cumulé : dans la proposition, il n'apparaît pas, car l'excédent est rendu par la baisse "
         r"du taux normal dès l'année qui suit l'extinction (le tableau montre ce qui se passerait sans cette baisse). "
         r"Part imposable : 75~\%. Source : \texttt{is/calculs\_note\_is.py}.}", r"\end{table}"]
-(TAB / "tab_is_transition_complet.tex").write_text("\n".join(lig) + "\n", encoding="utf-8")
+_ecrire_tab(TAB / "tab_is_transition_complet.tex", lig)
 
 # Tableau des calendriers (annexe)
 PCT_TEX = "~" + chr(92) + "%"
@@ -687,7 +693,7 @@ lig += [r"\bottomrule", r"\end{tabularx}",
         r"groupe, couvrant 20~\% de l'investissement éligible (hypothèse). Amortissement neutre : plans actuels, "
         r"annuités revalorisées au taux d'emprunt de l'État. Source : \texttt{is/calculs\_note\_is.py}.}",
         r"\end{table}"]
-(TAB / "tab_is_options.tex").write_text("\n".join(lig) + "\n", encoding="utf-8")
+_ecrire_tab(TAB / "tab_is_options.tex", lig)
 
 (OUT / "calculs_note_is.txt").write_text("\n".join(L) + "\n", encoding="utf-8")
 
