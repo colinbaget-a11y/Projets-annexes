@@ -1,15 +1,11 @@
 % Annexe de la partie « Revenus du capital » (refonte du 16/11/2026). Chiffres : ../pfu/sorties/calculs_pfu.txt
 % (programme ../pfu/calculs_pfu.py) ; données : ../pfu/donnees/ ; vérifications : ../revue/hypotheses_pfu.md.
+% Coupe du 17/11/2026 : reçoit du corps les figures pfu_n02, n04 et n09, le détail de la charge du 1 % et des
+% variantes du report d'apport-cession.
 
-Tous les chiffres de cette annexe sont produits par \texttt{pfu/calculs\_pfu.py}, qui lit les totaux des
-déclarations 2042 des revenus de 2024 (DGFiP), les bulletins DGFiP Statistiques n°~43 (recettes de 2025) et n°~53
-(impôt sur les revenus de 2025, novembre 2026, données provisoires), les comptes nationaux de l'Insee (base 2020,
-publication de mai 2026), le patrimoine financier des ménages publié par la Banque de France (mai 2026) et le
-tableau des taux intégrés de la Tax Foundation (2025). Les montants sont en euros courants. Base 2025 : les
-chiffrages portent sur les revenus de 2025 ; le détail par case de la déclaration n'existant que pour 2024,
-l'assiette de 2025 est estimée en appliquant aux cases de 2024 l'évolution des revenus déclarés mesurée par la DGFiP
-(revenus de capitaux mobiliers $-$12,9~\% pour les dividendes et les intérêts, revenus divers $-$26,4~\% pour les
-plus-values).
+Chiffres produits par \texttt{pfu/calculs\_pfu.py} (DGFiP, Insee, Banque de France, Tax Foundation). L'assiette de
+2025 applique aux cases de la déclaration de 2024 l'évolution des revenus déclarés mesurée par la DGFiP ($-$12,9~\%
+pour les dividendes et les intérêts, $-$26,4~\% pour les plus-values).
 
 \subsection{Assiette, recettes et taux cumulés}
 
@@ -17,57 +13,51 @@ plus-values).
 \caption{Assiette et recettes des prélèvements sur les revenus du capital (Md€)}\label{tab:pfu_a_assiette}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{6.2cm}@{}}
 \toprule
-Poste & Montant & Source, statut \\
+Poste & Montant & Précisions \\
 \midrule
-Dividendes (case 2DC), revenus de 2024 & 50,1 & DGFiP, totaux 2042 \\
-Intérêts (2TR) et autres distributions (2TS), revenus de 2024 & 11,8 & idem \\
-Plus-values (3VG) et actifs numériques (3AN), moins les pertes (3VH), revenus de 2024 & 17,7 & idem \\
-\textbf{Assiette du PFU, revenus de 2024} & \textbf{79,6} & y compris les 2,54~M de foyers au barème (majorant) \\
-\textbf{Assiette du PFU, revenus de 2025 (estimée)} & \textbf{67,0} & dividendes 43,7, intérêts 10,3, plus-values 13,0 ;
-contrôles : 65,5 avec l'évolution de l'impôt hors barème ($-$17,7~\%) ; 72,5 avec les seuls dividendes reçus par les
-ménages (Insee), approximation de la version précédente \\
-Plus-values placées en report d'apport-cession (3WH) & 22,2 & DGFiP ; 33,6 en 2023 (rapport n°~3056) \\
-Stock de reports (8UT) & 173,3 & majorant (la case contient d'autres reports) ; 127 en 2023 selon l'évaluation
-préalable du PLF 2027 \\
+Dividendes (case 2DC), revenus de 2024 & 50,1 & \\
+Intérêts et autres distributions (2TR, 2TS) & 11,8 & \\
+Plus-values et actifs numériques, moins les pertes (3VG, 3AN, 3VH) & 17,7 & \\
+\textbf{Assiette du PFU, revenus de 2024} & \textbf{79,6} & y compris les 2,54~M de foyers au barème (majorant
+d'écart faible) \\
+\textbf{Assiette du PFU, revenus de 2025 (estimée)} & \textbf{67,0} & dividendes 43,7, intérêts 10,3, plus-values
+13,0 ; contrôles : 65,5 et 72,5 \\
+Plus-values placées en report d'apport-cession (3WH) & 22,2 & 33,6 en 2023 \\
+Stock de reports (8UT) & 173,3 & majorant ; 127 en 2023 (évaluation préalable du PLF 2027) \\
 Plus-values en sursis d'\emph{exit tax} (3WA) & 4,7 & 358 foyers \\
 \midrule
-IR au PFU (impôt « hors barème »), revenus de 2025 & 8,4 & DGFiP n°~53 ; 10,2 sur les revenus de 2024 (12,8~\% de
-l'assiette de 2024 : 10,2 ; acompte prélevé en 2024, case 2CK : 7,7) \\
-Prélèvements sociaux sur l'assiette du PFU de 2025 & 12,5 & calcul au taux de 2026 (18,6~\%) ; 11,5 au taux de
-2025 (17,2~\%) ; 14,8 sur les revenus de 2024 au taux de 2026 \\
-Prélèvements sociaux sur tous les revenus du capital, encaissés en 2025 & 36,2 & DGFiP n°~43, au taux de 17,2~\%
-(assiette implicite de 210~Md€) ; aux taux de 2026 : 36,6 sur l'assiette de 204~Md€ déduite du prélèvement de
-solidarité (PLF 2027, état A) \\
-CEHR (tous revenus), revenus de 2025 & 1,4 & DGFiP n°~53 ; 1,9 sur les revenus de 2024 (DGFiP n°~41 et 53), 1,4 sur
-ceux de 2023 (rapport n°~3056) ; part payée sur le capital inconnue \\
-CDHR, revenus de 2025 & 0,62 & DGFiP n°~53 (environ 14\,000 foyers, provisoire) ; acompte encaissé en 2025 : 0,37
-(DGFiP n°~43 ; 7\,203 foyers, rapport n°~2847) ; 0,6 prévus en 2027 \\
+IR au PFU (impôt « hors barème »), revenus de 2025 & 8,4 & 10,2 sur les revenus de 2024 (acompte de 2024 : 7,7) \\
+Prélèvements sociaux sur l'assiette du PFU de 2025 & 12,5 & au taux de 2026 ; 11,5 au taux de 2025 \\
+Prélèvements sociaux sur tous les revenus du capital, encaissés en 2025 & 36,2 & au taux de 17,2~\% (assiette de
+210~Md€) \\
+CEHR (tous revenus), revenus de 2025 & 1,4 & 1,9 sur ceux de 2024 ; part payée sur le capital inconnue \\
+CDHR, revenus de 2025 & 0,62 & environ 14\,000 foyers ; acompte de 2025 : 0,37 (7\,203 foyers) \\
 \bottomrule
 \end{tabularx}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Sources : DGFiP (totaux 2042 ; Statistiques n°~41, 43
+et 53) ; Assemblée nationale, rapports n°~2847 et 3056.}
 \end{table}
 
-Taux cumulés sur 100~€ de bénéfice avant IS (droit de 2026) : avec l'IS de 25~\%, 48,6~\% au PFU ; avec l'IS de
-25,8~\% (contribution sociale), 49,1~\% au PFU, 52,1~\% avec la CEHR de 4~\%, 54,5~\% au plancher de la CDHR
-(20~\% d'IR et de CEHR plus 18,6~\% de prélèvements sociaux) ; pour une société à 36,1~\% (contribution
-exceptionnelle, chiffre d'affaires de plus de 3~Md€), 56,2, 58,7 et 60,8~\%. Bénéfice remonté en holding :
-26,8~\% (quote-part de 5~\%), 26,0~\% en intégration fiscale (quote-part de 1~\%). Salaire : 9,7~\% de CSG-CRDS
-plus 49~\% d'IR et de CEHR sur un revenu diminué de la CSG déductible (6,8~\%), soit 55,4~\% hors cotisations ;
-la comparaison n'est pas homogène, puisque les 100~€ de bénéfice correspondent à un coût du travail cotisations
-patronales comprises, et elle est donc favorable au capital. Comparaison européenne : la Tax Foundation (2025)
-retient pour la France l'IS de 36,1~\% et un taux personnel de 34~\% (PFU de 30~\% et CEHR), soit 57,9~\% ; avec
-l'IS de 25,8~\%, 51,0~\% en 2025 (5\textsuperscript{e} sur 31) et 52,1~\% en 2026 (4\textsuperscript{e}, comparé
-aux taux 2025 des autres pays) ; la moyenne des 31 pays passe de 39,2 à 39,0~\%.
+Taux cumulés sur 100~€ de bénéfice (droit de 2026) : 48,6~\% au PFU avec l'IS de 25~\% ; avec l'IS de 25,8~\%
+(contribution sociale de 3,3~\% sur l'impôt qui dépasse 763\,000~€), 49,1~\%, 52,1~\% avec la CEHR et 54,5~\% au
+plancher de la CDHR ; avec l'IS de 36,1~\%, 56,2, 58,7 et 60,8~\%. Holding : 26,8~\%, 26,0~\% en intégration
+fiscale. Salaire : 55,4~\% hors cotisations, comparaison favorable au capital (le bénéfice répond à un coût du travail
+cotisations patronales comprises). La Tax Foundation retient pour la France l'IS
+de 36,1~\% et un taux personnel de 34~\%, soit 57,9~\% ; avec l'IS de 25,8~\%, 51,0~\% en 2025 (5\textsuperscript{e}
+sur 31) et 52,1~\% en 2026 (4\textsuperscript{e}, face aux taux 2025 des autres pays).
+
+\figbloc{pfu_n04_europe}{Avec l'IS de droit commun, la France reste parmi les cinq pays européens qui taxent le plus le bénéfice distribué}{fig:pfu_europe}
+
+\figbloc{pfu_n02_concentration}{Quatre mille foyers reçoivent un tiers des dividendes et 70~\% des plus-values imposées}{fig:pfu_concentration}
 
 \subsection{Changer le taux : méthode et résultats}
 
-\emph{Méthode.} Le coût mécanique est l'écart de taux multiplié par l'assiette. L'assiette réagit de
-$\Delta Q = e\,B\,\Delta\ln(1-t)$, où $e$ est l'élasticité des revenus déclarés au taux net (0,77 chez Lefebvre,
-Lehmann et Sicsic ; 0,65 au CAE ; 1 en hypothèse haute). Les premières années, toute la réaction compte comme
-recette, rattrapage compris : recette $= t_1(B+\Delta Q) - t_0 B$. La même formule reproduit le chiffrage du CAE
-(30 à 33~\%, assiette de 57~Md€, $e = 0{,}65$ : 1,16~Md€ recalculé, 1,2 publié). En régime permanent, si le
-nouveau taux est durable, la date de la distribution ne change pas la valeur actualisée de l'impôt : seule la part
-$\pi$ de la réaction qui aurait sinon échappé pour toujours à l'impôt (purge au décès, holding jamais vidée)
-rapporte durablement, d'où une recette $(t_1-t_0)B + \pi\,t_1\,\Delta Q$. Personne ne mesure $\pi$.
+\emph{Méthode.} L'assiette $B$ réagit de $\Delta Q = e\,B\,\Delta\ln(1-t)$, $e$ étant l'élasticité des revenus
+déclarés au taux net (0,77 chez Lefebvre, Lehmann et Sicsic ; 0,65 au CAE ; 1 en hypothèse haute). Premières années :
+toute la réaction compte comme recette, $t_1(B+\Delta Q) - t_0 B$ (ce qui redonne le chiffrage du CAE : 1,16~Md€
+recalculé, 1,2 publié). Régime permanent : seule rapporte la part $\pi$ de la réaction qui aurait sinon échappé pour
+toujours à l'impôt (purge au décès, holding jamais vidée), d'où $(t_1-t_0)B + \pi\,t_1\,\Delta Q$ ; $\pi$ n'est
+mesuré nulle part.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Recette (+) ou coût (--) d'un changement du taux du PFU (Md€ par an)}\label{tab:pfu_a_taux}
@@ -79,63 +69,48 @@ PFU à 25~\%, revenus de 2025 & $-$4,29 & $-$3,32 / $-$3,14 / $-$2,79 & $-$4,29 
 PFU à 25~\%, revenus de 2024 & $-$5,10 & $-$3,94 / $-$3,73 / $-$3,32 & $-$5,10 / $-$4,41 / $-$3,73 \\
 PFU à 33~\%, revenus de 2025 & 1,07 & 0,73 / 0,67 / 0,55 & 1,07 / 0,87 / 0,67 \\
 PFU à 33~\%, revenus de 2024 & 1,27 & 0,87 / 0,80 / 0,65 & 1,27 / 1,04 / 0,80 \\
-PFU à 34,4~\%, revenus de 2025 & 2,01 & 1,34 / 1,22 / 0,98 & 2,01 / 1,61 / 1,22 \\
-PFU à 34,4~\%, revenus de 2024 & 2,39 & 1,59 / 1,45 / 1,16 & 2,39 / 1,92 / 1,45 \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\emph{Taux qui maximise la recette, sans réaction croisée} : $1/(1+e)$, soit 60,6 / 56,5 / 50,0~\% pour
-$e$ = 0,65 / 0,77 / 1 ; lever un euro de plus à 31,4~\% demande d'alourdir de 1,42 / 1,54 / 1,84~€ l'impôt calculé
-à comportements inchangés. Ces chiffres ne sont pas des pertes sèches.
+\emph{Taux qui maximise la recette}, sans réaction croisée : $1/(1+e)$, soit 60,6 / 56,5 / 50,0~\% pour $e$ = 0,65 /
+0,77 / 1 ; lever un euro de plus à 31,4~\% demande d'alourdir de 1,42 / 1,54 / 1,84~€ l'impôt calculé à comportements
+inchangés (ce ne sont pas des pertes sèches). Avec la réaction des revenus du travail : 43~\% (Lefebvre, Lehmann et
+Sicsic ; 57~\% sans elle).
 
-\emph{Perte sèche d'un PFU à 25~\%.} Formule de Harberger appliquée au seul volet réel : la part $\pi$ de la
-réaction compte comme perte sèche évitée, au coin moyen ; la recette perdue en régime permanent doit être levée
-ailleurs au « prix d'un milliard » $\mu-1$ = 0,04 / 0,08 / 0,17 (perte sèche d'un point de taux pour tous du
-barème fusionné ; fichier \texttt{synthese/sorties/} \texttt{architectures\_ircsg.txt}). Résultat ($e$ = 0,77,
-revenus de 2025) : +0,17 / +0,34 / +0,73~Md€ si $\pi = 0$ ; $-$0,50 / $-$0,35 / $-$0,02 si $\pi = 0{,}5$ ; $-$1,17 /
-$-$1,05 / $-$0,76 si $\pi = 1$ (revenus de 2024 : +0,20 / +0,41 / +0,87 ; $-$0,59 / $-$0,42 / $-$0,02 ; $-$1,39 /
-$-$1,24 / $-$0,91).
-Le chiffre de la version précédente (+0,3, de 0,15 à 0,6) comptait comme recette une réaction supposée purement
-temporelle ; il est corrigé (\texttt{revue/hypotheses\_pfu.md}, E1).
+\emph{Perte sèche d'un PFU à 25~\%.} Formule de Harberger appliquée au seul volet réel : la part $\pi$ de la réaction
+compte comme perte sèche évitée, au coin moyen ; la recette perdue en régime permanent est levée ailleurs au « prix
+d'un milliard » $\mu-1$ = 0,04 / 0,08 / 0,17 (barème fusionné, \texttt{synthese/sorties/architectures\_ircsg.txt}).
+Avec $e$ = 0,77, revenus de 2025 : +0,17 / +0,34 / +0,73~Md€ si $\pi = 0$ ; $-$0,50 / $-$0,35 / $-$0,02 si
+$\pi = 0{,}5$ ; $-$1,17 / $-$1,05 / $-$0,76 si $\pi = 1$. La baisse allège la perte sèche si la moitié au moins de
+la réaction est une évasion définitive.
 
-\emph{Bloc épargne.} Si l'épargne réagissait au rendement net avec une élasticité réelle $\varepsilon_s$, la perte
-sèche sur l'assiette du PFU vaudrait $\tfrac12\,\varepsilon_s\,t^2/(1-t)\,B$. Passer de 31,4 à 25~\% la réduirait
-de 0,20 / 0,40 / 1,01~Md€ pour $\varepsilon_s$ = 0,1 / 0,2 / 0,5 (revenus de 2025 ; 0,24 / 0,48 / 1,20 sur ceux de
-2024). Aucune de ces valeurs n'est estimée sur données
-françaises ; elles indiquent seulement que la conclusion « une baisse n'achète rien » dépend de l'hypothèse
-d'une épargne insensible au rendement (avis Cochrane).
+\emph{Bloc épargne.} Avec une élasticité réelle de l'épargne au rendement net $\varepsilon_s$, la perte sèche sur
+l'assiette du PFU vaut $\tfrac12\,\varepsilon_s\,t^2/(1-t)\,B$ ; passer de 31,4 à 25~\% la réduirait de 0,20 / 0,40 /
+1,01~Md€ pour $\varepsilon_s$ = 0,1 / 0,2 / 0,5 (revenus de 2025). Aucune de ces valeurs n'est estimée sur données
+françaises.
 
-\emph{Retour au barème.} Ordre de grandeur statique sous hypothèses fortes : 96~\% des dividendes imposés au taux
-marginal de 45~\% et 4~\% à 30~\%, les intérêts à 30~\%, les plus-values à 45~\%, abattement de 40~\% sur les
-dividendes, CSG déductible de 6,8~\%. Sur les revenus de 2025, gain statique de 10,1~Md€, avant les foyers déjà au
-barème, la CDHR perdue (0,4 à 0,6) et les foyers à 41~\%. Après réaction : 5,1 / 4,2 / 2,4~Md€ ($e$ = 0,65 / 0,77 /
-1) ; 2,8~Md€ si les dividendes déclarés baissaient de 40~\% comme en 2013 (revenus de 2024 : 12,5 ; 6,2 / 5,0 /
-2,8 ; 4,0). L'Institut Montaigne, cité par le CAE (2025), donne 3,2 à
-3,6~Md€ en statique et $-$0,7 si l'assiette revenait à son niveau de 2017. Un chiffrage propre demande les
-fichiers POTE (taux marginal et ancienneté des titres).
+\emph{Retour au barème.} Hypothèses fortes : 96~\% des dividendes au taux marginal de 45~\% et 4~\% à 30~\%, intérêts
+à 30~\%, plus-values à 45~\%, abattement de 40~\% sur les dividendes. Revenus de 2025 : 10,1~Md€ en statique, avant
+les foyers déjà au barème, la CDHR perdue (0,4 à 0,6) et les foyers à 41~\% ; 5,1 / 4,2 / 2,4~Md€ après réaction
+($e$ = 0,65 / 0,77 / 1) ; 2,8 si les dividendes déclarés baissaient de 40~\%. L'Institut Montaigne, cité par le CAE
+(2025), donne 3,2 à 3,6~Md€ en statique. Un chiffrage propre demande les fichiers POTE.
 
-\emph{CDHR et composante baissée.} Pour un rentier qui ne touche que des dividendes, personne seule : à
-400\,000~€, 38,6~\% aujourd'hui, au barème, avec un PFU à 25~\% obtenu par la part d'IR et sans la majoration de
-la CEHR (la CDHR reprend chaque fois l'écart au plancher de 20~\%) ; 32,2~\% avec un PFU à 25~\% obtenu par les
-prélèvements sociaux. À 3~M€ : mêmes chiffres, sauf le barème (45,3~\%). Baisser la part d'IR de 12,8 à 6,4~\%
-multiplie la CDHR payée par 2,05 pour le rentier à 400\,000~€ et par 2,77 pour celui à 3~M€ : la reprise par la CDHR
-est de l'ordre de 0,7 à 1,1~Md€ si ses redevables étaient des rentiers purs (1,05 à 1,77 fois son rendement de
-0,62~Md€ sur les revenus de 2025) ; la base de ses redevables n'est pas publiée.
+\emph{CDHR.} Rentier qui ne vit que de dividendes, à 400\,000~€ comme à 3~M€ : 38,6~\% aujourd'hui, avec un PFU à
+25~\% obtenu par la part d'IR et sans la majoration de la CEHR (la CDHR reprend l'écart) ; 32,2~\% si le PFU baisse
+par les prélèvements sociaux ; au barème, 38,6 et 45,3~\%. Baisser la part d'IR de 12,8 à 6,4~\% multiplie la CDHR payée par 2,05 et 2,77 : la reprise serait de l'ordre de 0,7 à 1,1~Md€ si ses
+redevables étaient des rentiers purs (1,05 à 1,77 fois son rendement de 0,62~Md€), base non publiée.
 
 \emph{Exil.} Avec 0,02 à 0,23~\% du centile aux plus hauts revenus du capital qui part à long terme par point
-d'imposition effective (Bach et al., 2025, CAE), un PFU à 25~\% en retiendrait 0,13 à 1,5~\%, soit 0,02 à
-0,17~Md€ de recette gardée (assiette du PFU du centile de 47~Md€ sur les revenus de 2025, déduite de l'impôt hors
-barème qu'il acquitte, 6,0~Md€ ; 63~Md€ en 2024).
+d'imposition effective (Bach et al., 2025, CAE), un PFU à 25~\% en retiendrait 0,13 à 1,5~\%, soit 0,02 à 0,17~Md€
+de recette gardée (assiette du PFU du centile : 47~Md€ en 2025).
 
 \subsection{La capitalisation dans une holding}
 
-On suit 100~€ de bénéfice d'une filiale avant IS. A : distribution immédiate au PFU. B : remontée en holding,
-placement pendant $N$ ans au rendement $R$, revenus de la holding imposés à 1,25~\% (dividendes de participations),
-puis distribution au PFU. C : comme B, puis transmission ; aujourd'hui, les héritiers sortent la valeur sans impôt
-sur la plus-value. C avec la proposition : les héritiers paient le PFU dix ans après la transmission. D :
-distribution immédiate, puis placement personnel dont les revenus paient le PFU chaque année. Impôt total en valeur
-actualisée au taux $R$.
+100~€ de bénéfice d'une filiale avant IS. A : distribués au PFU. B : remontés en holding, placés $N$ ans à $R$
+(revenus imposés à 1,25~\%), puis distribués. C : comme B, puis transmis, les héritiers sortant la valeur sans impôt
+(avec la proposition : au PFU, dix ans après). D : distribués, puis placés personnellement, revenus au PFU chaque année.
+Actualisation au taux $R$.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Impôt total en valeur actualisée selon le chemin du bénéfice (\%)}\label{tab:pfu_a_holding}
@@ -152,20 +127,17 @@ $R$, $N$ & A & B & C & C proposition & D & Richesse B/D \\
 \end{tabularx}
 \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Note : si la holding place en titres de portefeuille,
 dont les revenus paient l'IS de 25~\%, B vaut 62,3~\% et C 45,0~\% ($R$ = 5~\%, $N$ = 25) : l'avantage de
-capitalisation disparaît. L'avis Catherine trouvait +46~\% de richesse finale (5~\%, 25 ans).}
+capitalisation disparaît.}
 \end{table}
 
 \subsection{L'effacement à la transmission : chiffrage}
 
-\emph{Méthode.} Plus-values effacées chaque année : $G = E\,b\,\lambda$, où $E$ est la valeur des titres concernés,
-$b$ la part transmise chaque année par décès ou donation et $\lambda$ la part de plus-value latente dans la valeur
-transmise ; s'y ajoute le flux de reports d'apport-cession transmis, $S/T$ (stock divisé par le délai moyen
-jusqu'à la transmission). L'impôt effacé est $L = 31{,}4~\%\times G + 30~\%\times S/T$ (le report expire à
-l'impôt sur le revenu de l'année d'apport, 12,8~\%, et à des prélèvements sociaux de 17,2~\% ; point non tranché).
-Avec la reprise du prix d'acquisition, une cohorte de transmissions paie une part $a$ de son impôt latent dans
-l'année, puis $(1-a)\,h\,(1-h)^{k-2}$ la $k$-ième année ($a$ = 0,1 pour les reports). La valeur des titres est
-supposée constante après la transmission, ce qui sous-estime l'impôt finalement payé si elle croît. Valeur
-actualisée d'une cohorte : $L\,[a/(1+r) + (1-a)\,h/((1+r)(r+h))]$.
+\emph{Méthode.} Plus-values effacées par an : $G = E\,b\,\lambda$ (titres concernés, part transmise chaque année,
+part de plus-value latente), plus les reports transmis $S/T$ (stock sur délai moyen avant transmission). Impôt
+effacé : $L = 31{,}4~\%\times G + 30~\%\times S/T$ (taux d'expiration du report non tranché). Une cohorte paie une
+part $a$ de son impôt latent dans l'année, puis $(1-a)\,h\,(1-h)^{k-2}$ la $k$-ième année ($a$ = 0,1 pour les
+reports) ; valeur actualisée : $L\,[a/(1+r) + (1-a)\,h/((1+r)(r+h))]$. Valeur des titres supposée constante après la
+transmission (prudent).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Effacement à la transmission : hypothèses et résultats}\label{tab:pfu_a_effacement}
@@ -193,39 +165,39 @@ Sans clause : cumul ans 1-10 & 7,6 & 28,1 & 75,4 \\
 Charge du 1~\% le plus aisé : moyenne ans 1-10 ; an 10 & 0,69 ; 0,92 & 2,53 ; 3,26 & 6,78 ; 8,42 \\
 \bottomrule
 \end{tabularx}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Note : les jeux bas et haut combinent toutes les
-hypothèses basses ou toutes les hautes ; ce sont des bornes, pas des scénarios probables. $E$ part des 1\,969~Md€
-d'actions cotées (263), non cotées et autres participations (1\,507) et de fonds en actions (199) détenus par les
-ménages fin 2025 (Banque de France) et en retire les parts de sociétés immobilières et autres participations hors
-du régime des valeurs mobilières, les titres en PEA et l'épargne salariale, que les statistiques ne séparent pas.
-Repère de $b$ : flux de transmissions de 300~Md€ (CAE, 2021) pour un patrimoine net de 15\,300~Md€ (Insee), soit
-2,0~\%. Droits acquis : seule la plus-value acquise après la réforme est imposée (croissance des valeurs de 4~\% par
-an), reports existants exclus. Charge du haut : 90~\% de la recette (hypothèse).}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Note : jeux bas et haut = toutes les hypothèses basses
+ou toutes les hautes (des bornes). $E$ part des 1\,969~Md€ d'actions et de fonds en actions des ménages fin 2025
+(Banque de France), moins les parts de sociétés immobilières, le PEA et l'épargne salariale. Repère de $b$ : 300~Md€
+de transmissions par an (CAE, 2021) pour 15\,300~Md€ de patrimoine net (Insee). Droits acquis : valeurs en hausse de
+4~\% par an, reports existants exclus.}
 \end{table}
 
-\emph{Repères extérieurs.} Le Trésor américain évalue la dépense fiscale de l'effacement au décès à 33,6~Md\$ en
-2024 et 37,8~Md\$ en 2025 (\emph{Tax Expenditures} FY2026), environ 0,13~\% du PIB ; transposé au PIB français et
-au taux de 31,4~\% (contre 23,8~\% aux États-Unis), cela fait 5,0~Md€, sans les donations, qui gardent déjà le prix
-d'acquisition du donateur aux États-Unis (PIB américain de 30\,000~Md\$ en 2025, non vérifié). La Tax Foundation
-(Li, 2020) chiffre la suppression de l'effacement à 11 à 12~Md\$ par an, réactions comprises, 0,05~\% du PIB,
-soit 2,0~Md€ transposés (le CAE en tirait 1,3~Md€). Le chiffre central de cette annexe, 7,5~Md€ d'impôt effacé,
-est cohérent avec le premier repère une fois les donations ajoutées ; la recette des premières années,
-1,9 à 3,6~Md€, avec le second.
+\emph{Repères.} Le Trésor américain évalue l'effacement au décès à 37,8~Md\$ en 2025 (\emph{Tax Expenditures}
+FY2026), soit 5,0~Md€ transposés au PIB et au taux français, sans les donations ; la Tax Foundation (Li, 2020) chiffre
+sa suppression à 11 à 12~Md\$ par an, réactions comprises, soit 2,0~Md€. Le premier repère encadre l'impôt effacé, le
+second la recette des premières années.
 
 \figbloc{pfu_n10_sensibilite}{La recette de la dixième année dépend d'abord de la part transmise, de la plus-value latente et du rythme des ventes}{fig:pfu_sensibilite}
 
-\emph{Variantes non retenues.} Une franchise de plus-value par transmission (100\,000~€) coûterait 5 à 15~\% de
-l'impôt latent (0,4 à 1,1~Md€ par an au centre ; hypothèse, la distribution des plus-values latentes n'étant pas
-connue). La déduction de l'impôt latent de l'assiette des droits de succession coûterait 10 à 40~\% de l'impôt
-latent transmis (0,7 à 3,0~Md€ par an au centre), selon le taux de droits effectivement payé sur ces titres.
+\emph{Variantes.} Une franchise de 100\,000~€ par transmission coûterait 0,4 à 1,1~Md€ par an. Déduire l'impôt latent
+de l'assiette des droits de succession, exactement neutre entre vendre avant de mourir et transmettre, coûterait 0,7
+à 3,0~Md€ par an selon le taux de droits effectivement payé, pacte Dutreil compris.
+
+\subsection{La charge du 1~\% le plus aisé}
+
+La fin de l'effacement coûterait au 1~\% 3,3~Md€ la dixième année, et 0,7~Md€ par an en moyenne avec la clause de
+droits acquis. Le bilan d'ensemble (section~\ref{sec:ens_haut})
+compte aussi la suppression de la majoration ex-CEHR sur le capital (0,7 à 1,1~Md€ rendus au haut) ; selon la façon
+dont on répartit les revenus au PFU, la fusion peut alléger de 2,8~Md€ la charge du 1~\% ; et la fin de la
+contribution exceptionnelle sur l'IS rend 5 à 7~Md€ aux quelque 450 entreprises qui la paient, dont une part
+inconnue revient aux mêmes ménages.
 
 \subsection{Le stock de reports d'apport-cession}
 
-Valeur actualisée, au taux $r$, de l'impôt sur le stock selon le traitement, avec trois taux de sortie annuels :
-expiration du vivant $e$ (reports expirés rapportés au stock, environ 0,9~\% en 2024), transmission $m = 1/T$,
-vente par les héritiers $h$. Droit actuel : $\mathrm{VA} = I\,e/(r+e+m)$ ; expiration à la transmission (PLF 2027,
-art.~5) : $I\,(e+m)/(r+e+m)$ ; report transmis : $I\,[e+m\,h/(r+h)]/(r+e+m)$ ; report transmis avec intérêt au taux
-$r$ : comme l'expiration à la transmission.
+Valeur actualisée au taux $r$ de l'impôt sur le stock, avec trois taux de sortie annuels : expiration du vivant $e$
+(environ 0,9~\% du stock en 2024), transmission $m = 1/T$, vente par les héritiers $h$. Droit actuel :
+$I\,e/(r+e+m)$ ; expiration à la transmission (PLF 2027, art.~5), ou report transmis avec intérêt au taux $r$ :
+$I\,(e+m)/(r+e+m)$ ; report transmis : $I\,[e+m\,h/(r+h)]/(r+e+m)$.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Impôt sur le stock de reports d'apport-cession, en valeur actualisée ($r$ = 3,5~\%, Md€)}\label{tab:pfu_a_reports}
@@ -241,144 +213,108 @@ Report transmis, avec intérêt sur l'impôt différé & 19,7 & 25,1 & 35,5 \\
 Recette annuelle de l'art.~5 en régime de croisière (Md€) & 1,09 & 1,73 & 3,47 \\
 \bottomrule
 \end{tabularx}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Note : la lecture de l'évaluation préalable de
-l'article~5 (0,5~Md€ en 2027, dont 0,2 d'IR et 0,3 de prélèvements sociaux, « en tenant compte de l'étalement »)
-est compatible avec une année pleine de 2 à 2,5~Md€ (\texttt{revue/hypotheses\_pfu.md}, H11). Borne de très long
-terme si toutes les entrées étaient transmises : 24,7~Md€ d'entrées par an (2022-2024) $\times$ 30~\% = 7,4~Md€.
-L'avis Catherine estimait la valeur actualisée du report transmis à 8 à 15~Md€.}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Note : l'évaluation préalable de l'article~5 (0,5~Md€ en
+2027, « en tenant compte de l'étalement ») est compatible avec une année pleine de 2 à 2,5~Md€. Borne de très long
+terme : 24,7~Md€ d'entrées par an (2022-2024) $\times$ 30~\% = 7,4~Md€.}
 \end{table}
 
-\emph{L'entrepreneur qui cède} (plus-value de 7,5~M€, PFU de 31,4~\%, $h$ = 4~\%) : impôt en valeur actualisée selon
-le taux $r$ et le délai $D$ jusqu'au décès. Art.~5 / report transmis : $r$ = 2,5~\% : 1,63 / 1,00 (D = 15),
-1,44 / 0,88 (20), 1,12 / 0,69 (30) ; $r$ = 3,5~\% : 1,41 / 0,75, 1,18 / 0,63, 0,84 / 0,45 ; $r$ = 5~\% :
-1,13 / 0,50, 0,89 / 0,39, 0,54 / 0,24~M€. Cession directe : 2,35~M€ ; droit actuel avec apport-cession : 0 s'il
-garde ses titres jusqu'au décès. Les 84 plus gros apporteurs (280~M€ de plus-value chacun en moyenne)
-devraient 84 à 99~M€ chacun à la transmission avec l'article~5, selon le taux appliqué (30, 31,4 ou 35,4~\%).
+\emph{L'entrepreneur qui cède} (7,5~M€ de plus-value, $h$ = 4~\% ; figure~\ref{fig:pfu_entrepreneur}) : impôt
+actualisé à 3,5~\%, article~5 / report transmis, pour un décès 15, 20 ou 30 ans après : 1,41 / 0,75, 1,18 / 0,63,
+0,84 / 0,45~M€ ; de 1,63 / 1,00 à 0,54 / 0,24~M€ avec un taux de 2,5 ou 5~\%. Faire expirer le report quand la
+holding vend ses actifs ou devient une simple société de placement serait plus ciblé, mais difficile à contrôler et
+non chiffrable. Les reports déjà transmis par donation, dont le délai de
+conservation court encore, garderaient l'ancienne règle.
+
+\figbloc{pfu_n09_entrepreneur}{Pour un entrepreneur qui cède, le report transmis vaut la moitié de l'impôt dû au décès, l'intérêt sur l'impôt différé le rétablit}{fig:pfu_entrepreneur}
 
 \subsection{Expériences étrangères}
 
-Le tableau~\ref{tab:pfu_a_etranger} résume les règles citées dans le corps de la partie et le statut de lecture de
-chaque source. D'autres pays reportent la plus-value sur l'héritier (une contribution annexée au rapport n°~3056
-parle de la moitié des pays de l'OCDE, d'après une étude de l'OCDE de 2021 non lue ici) ; ils ne sont pas cités
-faute de vérification.
+D'autres pays reportent la plus-value sur l'héritier (la moitié des pays de l'OCDE selon une étude citée par le
+rapport n°~3056, non lue). L'évaluation des titres à la date de la réforme a compté parmi les difficultés américaines
+de 1976 (non vérifié).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Le sort de la plus-value latente à la donation et au décès}\label{tab:pfu_a_etranger}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.6cm}@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.2cm}@{}}
 \toprule
 Pays & Règle & Source, statut \\
 \midrule
-France & Donation et décès : prix d'acquisition = valeur retenue pour les droits de mutation (CGI, art.~150-0~D) ;
-report d'apport-cession effacé au décès, et après donation si le donataire conserve six ou onze ans & Rapport
-n°~3056 ; évaluation préalable du PLF 2027, art.~5 (lus) \\
-Canada & Depuis 1972 : vente réputée faite à la valeur de marché juste avant le décès, impôt dû sur la dernière
-déclaration ; transfert au conjoint au prix d'acquisition ; impôt fédéral sur les successions supprimé en 1972 ;
-plus-values antérieures à 1972 exonérées (« jour V » : 22 et 31 décembre 1971) & Agence du revenu du Canada (page
-lue) ; Vaillancourt et Kerkhoff (2019) (lu) ; jour V : textes canadiens lus par résumé \\
-États-Unis & Donation : le donataire reprend le prix du donateur (IRC §~1015) ; décès : valeur au décès
-(§~1014). Reprise du prix au décès votée en 1976 (Tax Reform Act), reportée en 1978, abrogée en 1980 (loi
-96-223, §~401) ; facultative en 2010. Proposition de 2015 : imposition à la donation et au décès, franchise de
-100\,000~\$ par personne, report pour les entreprises familiales, paiement sur quinze ans & Notes du
-\emph{U.S. Code} §~1015 (lues) ; Trésor, \emph{General Explanations} FY2016, p.~156-157 (lu) \\
-Allemagne & Participations d'au moins 1~\% reçues à titre gratuit : prix d'acquisition du dernier acquéreur à titre
-onéreux (EStG, §~17, al.~2) & Texte de la loi (lu) ; régime des autres titres non vérifié \\
-Australie & Depuis 1985 : l'héritier reprend le prix d'acquisition du défunt pour les biens acquis après le
-20 septembre 1985 ; valeur au décès pour les biens plus anciens et la résidence principale & Pages de
-l'administration fiscale australienne, lues par résumé \\
+France & Prix d'acquisition = valeur retenue pour les droits de mutation (CGI, art.~150-0~D) ; report effacé au
+décès, et après donation si le donataire conserve six ou onze ans & Rapport n°~3056 ; évaluation préalable du PLF
+2027 (lus) \\
+Canada & Depuis 1972 (et la fin de l'impôt fédéral sur les successions), vente réputée faite juste avant le décès ;
+conjoint au prix d'acquisition ; plus-values antérieures exonérées (« jour V ») & Agence du revenu du Canada ;
+Vaillancourt et Kerkhoff (2019) (lus) ; jour V lu par résumé \\
+États-Unis & Donataire : prix du donateur (IRC §~1015) ; héritier : valeur au décès (§~1014). Reprise du prix au décès
+votée en 1976, abrogée en 1980. Proposition de 2015 : imposition à la donation et au décès, franchise de
+100\,000~\$, report pour les entreprises familiales, paiement sur quinze ans &
+\emph{U.S. Code} §~1015 ; Trésor, \emph{General Explanations} FY2016, p.~156-157 (lus) \\
+Allemagne & Participations d'au moins 1~\% reçues à titre gratuit : prix du dernier acquéreur à titre onéreux (EStG,
+§~17) & Loi (lue) ; autres titres non vérifiés \\
+Australie & Biens acquis depuis le 20 septembre 1985 : l'héritier reprend le prix du défunt & Administration fiscale,
+lue par résumé \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \subsection{Hypothèses fortes et chiffres non vérifiés}
 
-Les deux tableaux suivants reprennent le registre \texttt{revue/hypotheses\_pfu.md} et les hypothèses propres au
-chiffrage de l'effacement. Une hypothèse est dite forte quand aucune donnée publiée ne permet de la vérifier et
-qu'elle change un chiffre du corps de la partie.
-
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Hypothèses fortes de la partie « Revenus du capital »}\label{tab:pfu_a_hyp}
+\caption{Hypothèses fortes (registre \texttt{revue/hypotheses\_pfu.md})}\label{tab:pfu_a_hyp}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Hypothèse ou chiffre & Où elle joue & Ce qu'elle change si elle est fausse \\
+Hypothèse & Où elle joue & Si elle est fausse \\
 \midrule
-Élasticité des revenus déclarés de 0,77 (0,65 à 1), appliquée aux dividendes, intérêts et plus-values & Coût ou
-recette d'un changement de taux & À 0,5, un PFU à 25~\% coûte 3,5~Md€ les premières années ; à 1,2, 2,5 (revenus
-de 2025). Mesurée sur des foyers qui ont aussi des revenus d'activité \\
-La réaction des dividendes est surtout un calendrier (part $\pi$ qui échappe pour toujours à l'impôt faible) &
-Coût permanent d'une baisse ; signe de la perte sèche ; rendement durable d'une hausse & Si $\pi = 1$, le coût
-permanent d'un PFU à 25~\% tombe à 3,1~Md€ et la baisse réduit la perte sèche ; si $\pi = 0$, une hausse
-rapporte durablement presque son rendement mécanique. $\pi$ n'est mesuré nulle part \\
-L'épargne ne réagit pas au rendement (aucune réaction réelle) & « Une baisse n'achète rien » & Avec une élasticité
-de 0,2 à 0,5, la baisse à 25~\% gagne 0,4 à 1,0~Md€ de perte sèche, autant ou plus que son coût de financement \\
-Les revenus de 2025 sont représentatifs ; leur assiette est estimée (67~Md€) en faisant évoluer les cases de 2024
-comme les revenus déclarés & Tous les chiffrages de taux & Ceux de 2024 sont gonflés par l'anticipation de la CDHR
-(assiette de 79,6~Md€, chiffrages plus élevés d'un cinquième) ; ceux de 2025 sont peut-être déprimés par la CDHR
-elle-même, à laquelle la DGFiP lie la « baisse marquée » des revenus de capitaux mobiliers déclarés \\
-Les foyers au barème ne sont pas retirés de l'assiette & Coût mécanique (4,3~Md€) & Majorant, d'un écart faible :
-12,8~\% de l'assiette estimée de 2025 donnent 8,6~Md€, contre 8,4 d'impôt hors barème mesuré \\
-La réaction dépend du taux attendu & Argument de la stabilité & Documentée en 2024-2025 (Insee) ; seulement
-« suggérée » pour 2013 (Bach et al.) \\
-Le bénéfice gardé en holding finit par être distribué ou vendu & « Report, pas exonération » ; chemin C avec la
-proposition & Si les héritiers ne sortent jamais la valeur, l'impôt reste de 27~\% pour cette part ; aucune donnée
-ne dit quelle part finit distribuée \\
-Assiette des titres concernés $E$ = 1\,450~Md€ (1\,200 à 1\,700) & Recette de la fin de l'effacement &
-Proportionnelle. Les parts de sociétés immobilières et le PEA ne sont pas séparés dans les statistiques \\
-Part transmise par an $b$ = 2,3~\% (1,7 à 3) ; part de plus-value latente $\lambda$ = 55~\% (40 à 70) &
-Recette de la fin de l'effacement & Proportionnelles ; ensemble, recette de l'an 10 de 2,3 à 5,6~Md€ (autres
-hypothèses au centre). Aucune statistique publique sur la composition des successions depuis 2006 \\
-Rythme des ventes des héritiers : $a$ = 30~\%, puis $h$ = 4~\% par an & Profil de la recette ; valeur actualisée &
-Les héritiers garderont davantage leurs titres une fois l'impôt dû à la vente (verrouillage) : le jeu bas ($a$ =
-15~\%, $h$ = 2~\%) ramène la recette de l'an 10 de 3,6 à 2,1~Md€, les autres paramètres au centre. À l'inverse, les donateurs
-n'auront plus de raison d'attendre le décès pour vendre (non chiffré, en faveur de la recette) \\
-90~\% de la recette payée par le 1~\% le plus aisé & Neutralité du haut & Si la part était de 75~\%, la hausse pour
-le haut serait de 2,1~Md€ en moyenne sur dix ans au lieu de 2,5. Repère : le dernier centile de revenu par part paie
-72~\% de l'impôt hors barème sur les revenus de 2025 (78~\% sur ceux de 2024) \\
-Impôt personnel du 1~\% sur ses revenus du capital : environ 16~Md€ (revenus de 2025, droit de 2026) & « 20~\% de
-plus » & Assiette du centile déduite de l'impôt hors barème qu'il acquitte (DGFiP n°~41 et 53) : 47~Md€ en 2025,
-63 en 2024 (impôt de 21~Md€ ; l'ancienne hypothèse de 66~Md€ donnait 22) ; 65~\% de la CEHR et la CDHR ajoutées \\
-Taux d'actualisation de 3,5~\% (2,5 à 5) & Valeurs actualisées & Voir les tableaux ; ordre de grandeur du taux
-d'emprunt de l'État, non vérifié \\
-Stock de reports 144~Md€ (127 à 173), transmis en 25 ans (15 à 35), imposé à 30~\% & Art.~5, report transmis &
-Le taux appliqué à l'expiration (prélèvements sociaux de l'année d'apport ou de l'expiration) n'est pas tranché ;
-de nombreuses entrées de 2013-2017 ont des abattements (non résolu) \\
-Part de la CEHR payée sur le capital : 50 à 80~\% & Coût de la suppression de la majoration (0,7 à 1,1~Md€ sur la
-CEHR des revenus de 2025 ; 1,0 à 1,6 sur ceux de 2024) & Inconnue (DGFiP) ; la CDHR reprend une partie pour les
-rentiers \\
-Franchise : 5 à 15~\% de l'impôt latent sous 100\,000~€ par transmission & Coût de la franchise & Distribution
-des plus-values latentes inconnue \\
-Constitutionnalité : application aux plus-values acquises avant la réforme, et dès l'annonce & Transition &
-Non expertisée. L'administration juge l'imposition des plus-values latentes à la transmission « impossible en
-l'état de la jurisprudence » mais l'expiration des reports sans difficulté ; la reprise du prix d'acquisition
-n'impose que des plus-values réalisées \\
+Élasticité des revenus déclarés de 0,77 (0,65 à 1) & Changement de taux & À 0,5, un PFU à 25~\% coûte 3,5~Md€ les
+premières années ; à 1,2, 2,5. Mesurée sur des foyers qui ont aussi des revenus d'activité \\
+Réaction des dividendes surtout temporelle ($\pi$ faible) & Coût permanent d'une baisse ; perte sèche & Si
+$\pi = 1$, coût permanent de 3,1~Md€ et perte sèche réduite par la baisse ; si $\pi = 0$, une hausse rapporte
+durablement presque son rendement mécanique \\
+Épargne insensible au rendement & « Une baisse n'achète rien » & Élasticité de 0,2 à 0,5 : la baisse gagne 0,4 à
+1,0~Md€ de perte sèche, autant ou plus que son financement \\
+Assiette de 2025 estimée (67~Md€) et représentative & Tous les chiffrages de taux & Celle de 2024, gonflée par la
+CDHR, donne des chiffres plus élevés d'un cinquième ; celle de 2025 est peut-être déprimée par la CDHR elle-même \\
+Réaction au taux attendu & Stabilité du taux & Documentée en 2024-2025 ; « suggérée » pour 2013 \\
+Le bénéfice gardé en holding finit par sortir & « Report, pas exonération » & Sinon, 27~\% pour cette part ; aucune
+donnée \\
+$E$ = 1\,450~Md€ (1\,200 à 1\,700) ; $b$ = 2,3~\% (1,7 à 3) ; $\lambda$ = 55~\% (40 à 70) & Recette de la fin de
+l'effacement & Proportionnelle à chacun ; $b$ et $\lambda$ ensemble : recette de l'an 10 de 2,3 à 5,6~Md€. Pas de
+statistique sur la composition des successions depuis 2006 \\
+Ventes des héritiers : $a$ = 30~\%, puis $h$ = 4~\% & Profil de la recette & Les héritiers garderont plus leurs
+titres : le jeu bas ramène l'an 10 de 3,6 à 2,1~Md€ ; les donateurs n'attendront plus le décès pour vendre (non
+chiffré) \\
+90~\% de la recette payée par le 1~\% & Charge du 1~\% & À 75~\%, 2,1~Md€ au lieu de 2,5. Le dernier centile paie
+72~\% de l'impôt hors barème de 2025 (78~\% en 2024) \\
+Impôt personnel du 1~\% sur le capital : 16~Md€ (21 en 2024, année gonflée par la CDHR) & « 20~\% » & Assiette du
+centile déduite de son impôt hors barème (47~Md€ en 2025, 63 en 2024), plus 65~\% de la CEHR et la CDHR \\
+Stock de reports de 144~Md€ (127 à 173), transmis en 25 ans (15 à 35), imposé à 30~\% & Report & Taux non
+tranché ; abattements sur les entrées de 2013-2017 \\
+CEHR payée à 50 à 80~\% sur le capital & Majoration (0,7 à 1,1~Md€ ; 1,0 à 1,6 en 2024) & Inconnue \\
+Constitutionnalité (plus-values acquises avant la réforme ; effet dès l'annonce) & Transition & Non expertisée \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Chiffres non vérifiés sur une source primaire, ou vérifiés seulement par une source secondaire}\label{tab:pfu_a_nonverif}
+\caption{Chiffres non vérifiés sur une source primaire}\label{tab:pfu_a_nonverif}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 Chiffre ou fait & Où il joue & Statut \\
 \midrule
-CDHR : 0,37~Md€ d'acompte en 2025 au lieu de 1,9 ; 0,62~Md€ sur les revenus de 2025 & Situation & Vérifiés (DGFiP
-n°~43 et 53) ; le second est provisoire (déclarations connues au 15 septembre 2026) \\
-Revenus de 2025 : impôt hors barème, CEHR, revenus déclarés & Situation ; assiette de 2025 & DGFiP n°~53, données
-provisoires (troisième émission) ; l'assiette du PFU de 2025 par nature de revenu est une estimation de l'auteur \\
+Revenus de 2025 (impôt hors barème, CEHR, CDHR, revenus déclarés) & Situation & DGFiP n°~53, provisoire ; assiette
+par nature de revenu estimée par l'auteur \\
 Taux total de 46~\% à l'entrée du top 0,1~\%, 26~\% pour le top 0,0002~\% (2016) & Diagnostic & IPP, note n°~92,
-non lue (via le rapport n°~3056) ; concept de revenu économique discuté \\
-84 foyers, 23,5~Md€ de plus-values mises en report en 2023 & Concentration & CPO via le rapport n°~3056 ;
-incohérence non résolue avec les 18,8~Md€ du top 0,01~\% \\
-\emph{Exit tax} dégrevée après deux ou cinq ans (2,57~M€), quinze ans avant 2019 & Transition & Sources
-secondaires ; article~167~bis non relu \\
-Paiement différé et fractionné des droits de succession sur les entreprises, avec intérêt & Arbitrage sur
-l'intérêt & impots.gouv.fr et sources secondaires ; taux non vérifié \\
-Rôle de l'évaluation au 31 décembre 1976 dans l'abandon américain & Transition & Non vérifié sur les débats du
-Congrès \\
-Régime des titres reçus à titre gratuit hors participations de 1~\% en Allemagne ; règles australiennes & Exemples
-étrangers & Non vérifiés sur les textes \\
-PIB américain de 2025 (30\,000~Md\$) & Repère du Trésor & Non vérifié ; sert seulement à la transposition \\
-CSG déductible de 6,8~\% en cas d'option ; barème de l'IR des revenus de 2024 ; IS de 15~\% jusqu'à 42\,500~€ &
-Cas types & Sources secondaires ou non revérifiés pour 2026 ; effets de second ordre \\
+non lue (via le rapport n°~3056) \\
+84 foyers, 23,5~Md€ mis en report en 2023 & Diagnostic & Via le rapport n°~3056 ; incohérent avec les 18,8~Md€
+du top 0,01~\% \\
+\emph{Exit tax} dégrevée après deux ou cinq ans, quinze avant 2019 & Transition & Sources secondaires \\
+Droits de succession sur les entreprises différés avec intérêt & Intérêt sur l'impôt différé & Sources
+secondaires ; taux non vérifié \\
+Rôle de l'évaluation au 31 décembre 1976 dans l'abandon américain & Clause de droits acquis & Non vérifié \\
+Régime allemand hors participations de 1~\% ; règles australiennes ; PIB américain & Exemples ; repères &
+Non vérifiés sur les textes \\
+CSG déductible de 6,8~\% ; barème des revenus de 2024 ; IS de 15~\% jusqu'à 42\,500~€ & Cas types & Non
+revérifiés pour 2026 ; effets de second ordre \\
 \bottomrule
 \end{tabularx}
 \end{table}

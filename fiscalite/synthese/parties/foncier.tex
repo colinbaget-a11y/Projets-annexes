@@ -1,368 +1,225 @@
 % TITRE_SECTION: Immobilier : taxer le sol plutôt que les ventes
-% Partie Immobilier, refonte du 16/11/2026 (synthese/CHARTE_NOTE.md, synthese/DECISIONS.md).
+% Partie Immobilier, refonte du 16/11/2026 (synthese/CHARTE_NOTE.md, synthese/DECISIONS.md), coupée le 17/11/2026
+% (synthese/CONSIGNES_COUPE.md : le tableau de synthèse « Aujourd'hui, la réforme naïve et la proposition » et celui des
+% cinq choix sont retirés du corps ; figures n02 gardée, n04, n05 et n10 passées en annexe, n06 retirée car redite par n08).
 % Chiffres : sorties/calculs_foncier.txt (synthese/calculs_foncier.py, qui importe ../foncier/simulation.py) ;
 % figures : ../foncier/figures_note.py (foncier_n01 à n14) ; hypothèses : ../revue/hypotheses_foncier.md ;
 % calibrage, variantes et tableau des hypothèses : parties/annexe_foncier.tex.
 % Base 2025 (décision 5 du 17/11/2026) : taxe foncière 2025 (REI), ventes de 2025 (DVF), droits au taux permanent,
 % comptes de patrimoine fin 2025 ; prix des logements des ventes 2023-2024 ; années antérieures dites dans le texte.
 
-Un ménage qui achète l'appartement parisien médian, environ 416\,000~€ aux prix de 2023-2024, verse 24\,000~€ de
-droits de mutation le jour de la signature (au taux permanent de 5,81~\%). Son voisin de palier, propriétaire depuis vingt
-ans d'un logement identique, paie 527~€ de taxe foncière en 2025, soit 0,13~\% de sa valeur ; un propriétaire de Guéret
-en paie 0,89~\%. La France
-taxe beaucoup l'immobilier, mais elle le taxe lourdement au moment où l'on achète et, le reste du temps, sur des
+Un ménage qui achète l'appartement parisien médian, environ 416\,000~€, verse 24\,000~€ de droits de mutation le jour
+de la signature. Son voisin de palier, propriétaire d'un logement identique, paie 527~€ de taxe foncière par an, 0,13~\%
+de sa valeur ; un propriétaire de Guéret en paie 0,89~\%. La France taxe lourdement l'achat et, le reste du temps, des
 valeurs qui datent de 1970.
 
 \subsection{Cent dix-neuf milliards, dont vingt-sept sur les ventes, et une taxe foncière figée en 1970}
 
-Les impôts assis sur l'immobilier rapportent environ 119~Md€ en 2025, 4~\% du PIB (figure~\ref{fig:fon_inv}).
-La détention en fournit 70 : la taxe foncière sur les propriétés bâties (43,1~Md€, dont 31,6 sur les logements), la
-taxe d'enlèvement des ordures ménagères (9,2~Md€), assise sur la même base, la cotisation foncière des
-entreprises (8,4~Md€) et un peu plus de 9~milliards d'autres prélèvements (taxe d'habitation restante, impôt sur la
-fortune immobilière, taxe sur le foncier non bâti, etc.). Les ventes en fournissent 27 : droits de mutation (16,7~Md€),
-TVA du neuf et des terrains (6,2~Md€), impôt sur les plus-values (2,8~Md€ en 2024, dernier chiffre trouvé). S'y
-ajoutent la part immobilière des successions (environ 12,7~Md€, une estimation sans ventilation officielle),
-l'impôt sur les loyers (8,7~Md€) et la taxe d'aménagement. Quelques petits prélèvements ne sont connus que pour 2024
-ou avant ; la note de la figure les signale. Cette partie porte sur les deux principaux : les droits de mutation et
-la taxe foncière.
+Les impôts assis sur l'immobilier rapportent environ 119~Md€ en 2025, 4~\% du PIB : 70 sur la détention, 27 sur les
+ventes, le reste sur les successions et les loyers (figure~\ref{fig:fon_inv}). Cette partie traite des deux principaux,
+la taxe foncière sur les propriétés bâties (43,1~Md€, dont 31,6 sur les logements) et les droits de mutation
+(16,7~Md€). En 2023, la France prélevait 1,90~\% du PIB en impôts annuels sur l'immobilier, le double de la moyenne de l'OCDE, et
+0,72~\% sur les transactions, contre 0,37~\% (figure~\ref{fig:fon_ocde}). L'argument n'est donc pas que la détention
+serait peu taxée, mais qu'un euro prélevé sur une vente coûte beaucoup plus cher qu'un euro prélevé chaque année sur le
+sol.
 
 \figbloc{foncier_n01_inventaire}{L'immobilier rapporte 119 milliards d'euros par an, dont 27 prélevés sur les ventes}{fig:fon_inv}
 
-La France taxe lourdement la détention comme les ventes. En 2023, dernière année pour laquelle l'OCDE publie sa
-moyenne, elle prélevait 1,90~\% du PIB en impôts annuels sur l'immobilier,
-le double de la moyenne de l'OCDE, et 0,72~\% en impôts sur les transactions, contre 0,37~\% en moyenne
-(figure~\ref{fig:fon_ocde}). Le Royaume-Uni et les États-Unis taxent davantage la détention ; les États-Unis ne
-taxent presque pas les ventes ; l'Allemagne taxe peu l'une et l'autre. L'argument de cette partie n'est donc pas que la détention serait
-peu taxée en France. Il est qu'un euro prélevé sur une vente coûte beaucoup plus cher à l'économie qu'un euro
-prélevé chaque année sur la valeur du sol.
-
 \figbloc{foncier_n02_ocde}{La France taxe deux fois plus que la moyenne de l'OCDE la détention comme les ventes}{fig:fon_ocde}
 
-\textbf{Les droits de mutation} sont payés par l'acheteur, chez le notaire, le jour de la vente. Sur un logement
-ancien, ils cumulent une part départementale de 4,50~\%, une taxe communale de 1,20~\% et des frais d'assiette de
-l'État, soit 5,81~\% du prix. La loi de finances pour 2025 a permis aux départements de monter à 5~\% du 1\textsuperscript{er}~avril
-2025 au 31~mars 2028, sauf pour les primo-accédants ; 88 l'ont fait, ce qui porte le total à 6,32~\%. En 2025,
-840\,000 logements anciens se sont vendus en France métropolitaine hors Alsace-Moselle, pour 212~Md€ ; au taux
-permanent de 5,81~\%, ils rapportent 12,3~Md€ de droits, et le relèvement temporaire y a ajouté de l'ordre de
-0,4~Md€ en France entière (notre calcul, non vérifié). Nous chiffrons la réforme au taux permanent, qui s'appliquera
-de nouveau après mars 2028, avant toute entrée en vigueur réaliste de la réforme. Pour le logement médian, les droits représentent près de 40~\% d'un apport moyen de
-15~\% du prix\footnote{Quotité moyenne financée de 84,7~\% (CCSF, 2026, d'après la note de lecture
-\texttt{foncier/notes/droits\_mutation.md} ; chiffre non relu sur la source).}. Rapportés à l'ensemble du parc, ils
-valent 404~€ par logement et par an, 0,18~\% de la valeur : c'est aussi un impôt sur la détention, mais payé d'un
-coup par ceux qui déménagent.
+\textbf{Les droits de mutation}, payés par l'acheteur chez le notaire, atteignent 5,81~\% du prix d'un logement ancien :
+4,50~\% pour le département, 1,20~\% pour la commune et des frais d'assiette pour l'État. Du 1\textsuperscript{er}~avril
+2025 au 31~mars 2028, 88 départements les ont portés à 6,32~\%, sauf pour les primo-accédants ; nous chiffrons la
+réforme au taux permanent, rétabli avant toute entrée en vigueur réaliste. À ce taux, les 840\,000 ventes de logements
+anciens de 2025 (212~Md€, métropole hors Alsace-Moselle) ont rapporté 12,3~Md€. Pour le logement médian,
+ils absorbent près de 40~\% d'un apport de 15~\% du prix\footnote{Quotité moyenne financée de 84,7~\% (CCSF, 2026),
+chiffre non relu sur la source.}.
 
-\textbf{La taxe foncière} repose sur la moitié de la valeur locative cadastrale, fixée au 1\textsuperscript{er}~janvier 1970 par
-des commissions qui classaient chaque logement dans l'une de huit catégories, par comparaison avec des locaux de
-référence. Après une actualisation en 1980, ces valeurs ne suivent plus qu'un coefficient national. Chaque commune
-vote son taux. Une révision générale a été menée en 1990, mais jamais appliquée ; la révision des logements prévue
-pour 2026 a été reportée à 2028, puis à 2031 par la loi de finances pour 2026. Les valeurs de 1970 ont figé une
-géographie disparue : le Paris ancien, souvent dégradé en 1970, a été rénové sans être réévalué, tandis que les
-grands ensembles de Seine-Saint-Denis, alors modernes, ont été bien classés (Conseil des prélèvements obligatoires, CPO, 2023).
+\textbf{La taxe foncière} repose sur la moitié de valeurs locatives fixées en 1970 en classant chaque logement dans
+l'une de huit catégories ; depuis 1980, elles ne suivent qu'un coefficient national, et chaque commune vote son taux. La révision de 1990 n'a jamais été appliquée ; celle des logements, prévue pour 2026, est
+reportée à 2031. La base fige une géographie disparue : le Paris ancien, souvent dégradé en 1970, a été rénové sans être
+réévalué, tandis que les grands ensembles de Seine-Saint-Denis, alors modernes, ont été bien classés (Conseil des
+prélèvements obligatoires, CPO, 2023).
 
-Le résultat est une taxe régressive selon la valeur (figure~\ref{fig:fon_tv}). Rapportée à la valeur de marché,
-elle pèse, en 2025, 0,54~\% dans le dixième des logements situés dans les communes les moins chères, 0,18~\% dans le
-dixième le plus cher, 0,13~\% à Paris malgré la hausse du taux communal de 13,5 à 20,5~\% en 2023, mais 0,84~\% à
-Saint-Étienne et plus de 1~\% à Ussel (valeurs aux prix de 2023-2024, qui dépassent de 1,5~\% en moyenne ceux de
-2025). Rapportée au revenu des propriétaires, elle représente 2,5~\% du revenu
-disponible pour les trois quarts d'entre eux, plus de 4~\% pour les 20~\% les plus modestes et 1,6~\% pour le 1~\%
-le plus aisé (André et Meslin, 2023, données de 2017).
+La taxe est donc régressive selon la valeur (figure~\ref{fig:fon_tv}). En 2025, elle pèse 0,54~\% de la valeur de
+marché dans le dixième des logements situés dans les communes les moins chères et 0,18~\% dans le plus cher, 0,84~\% à
+Saint-Étienne et plus de 1~\% à Ussel.
+Elle prend plus de 4~\% du revenu disponible des 20~\% de propriétaires les plus modestes, 1,6~\% de celui du 1~\% le
+plus aisé (André et Meslin, 2023, données de 2017). Les
+propriétaires occupants paient un peu plus de la moitié des 24,2~Md€ dus en 2025 sur les logements des particuliers
+(figure~\ref{fig:fon_qui}, en annexe).
 
 \figbloc{foncier_n03_taux_valeur}{Rapportée à la valeur du logement, la taxe foncière pèse trois fois plus dans les communes bon marché que dans les plus chères}{fig:fon_tv}
 
-Ces chiffres, et tous ceux qui suivent, reposent sur une hypothèse forte que nos données ne permettent pas
-d'éviter : à l'intérieur d'une commune, chaque logement paierait le même pourcentage de sa valeur. Ce n'est pas le
-cas. L'Insee mesure pour 2017 des taux de 0,074~\% à 0,121~\% entre quartiers parisiens (premier et neuvième
-dixièmes) et de 0,25 à 0,52~\% dans l'agglomération lyonnaise. Le modèle ne voit donc pas une partie des
-transferts qu'entraînerait l'abandon des valeurs de 1970 : les gagnants et les perdants individuels seront plus
-nombreux et plus marqués que ce qui est simulé ici.
-
-Les 24,2~Md€ de taxe foncière de 2025 des 30,5~millions de logements des particuliers sont payés pour un peu plus de la
-moitié par des propriétaires occupants (figure~\ref{fig:fon_qui}). Les bailleurs en paient un quart, et les
-résidences secondaires et les logements vacants près d'un cinquième.
-
-\figbloc{foncier_n04_qui_paie}{Les propriétaires occupants paient un peu plus de la moitié de la taxe foncière des logements des particuliers}{fig:fon_qui}
+Ces chiffres, comme tous ceux qui suivent, supposent que dans une commune chaque logement paie le même pourcentage de sa
+valeur. Or ce taux allait en 2017 de 0,074 à 0,121~\% entre quartiers parisiens (du premier au neuvième dixième) et de
+0,25 à 0,52~\% dans l'agglomération lyonnaise (Insee) : les gagnants et les perdants individuels seront plus nombreux et
+plus marqués que ce qui est simulé ici.
 
 \subsection{Un impôt qui bloque les ventes, une taxe qui rate le sol}
 
-\textbf{Le droit sur les ventes décourage des échanges utiles.} Un ménage change de logement quand le gain qu'il
-en attend dépasse ce que le déménagement lui coûte. En ajoutant 5,8~\% du prix à ce coût, les droits suppriment les
-déménagements qui valaient un peu moins : le couple qui voudrait une pièce de plus, le salarié qui se rapprocherait
-d'un nouvel emploi, le retraité qui prendrait plus petit. Ces échanges manqués ne rapportent rien à personne, et
-leur coût croît avec le carré du taux. Avec notre convention centrale (6~\% de ventes en moins par point de droits,
-une médiane construite sur la littérature et non une estimation française), le dernier euro de droits coûte environ
-0,5~€ de perte sèche, entre 0,2 et 0,9~€ selon la réaction retenue, contre presque rien pour un impôt sur le sol.
+\textbf{Les droits suppriment des déménagements utiles} : ceux du couple qui voudrait une pièce de plus, du salarié qui
+se rapprocherait d'un emploi, du retraité qui prendrait plus petit (première partie du rapport). Avec notre convention centrale, 6~\% de ventes en moins par point de droits (une médiane tirée de la
+littérature, pas une estimation française), le dernier euro de droits coûte environ 0,5~€ de perte sèche, entre 0,2 et
+0,9~€ selon la réaction retenue.
 
-Les études confirment le mécanisme mais divergent sur son ampleur. En France, la hausse de 0,7~point de 2014 a fait bondir les ventes de 26~\% le mois précédent, puis les a
-réduites de 6~\% sur trois mois, sans effet durable démontré (Bérard et Trannoy, 2018) ; Bachelet et Poulhès (2017)
-trouvent une baisse durable d'environ 10~\%, mais seulement dans les marchés détendus, et un acheteur qui a supporté
-toute la hausse. En Finlande, une hausse d'un demi-point a réduit de 5,6 à 7,2~\% la mobilité des propriétaires, et
-ce sont les déménagements vers plus grand qui ont disparu, pas ceux vers plus petit (Eerola et al., 2021) : la taxe
-frappe d'abord le ménage qui veut une pièce de plus, souvent une famille qui s'agrandit, ce que l'étude n'observe pas
-directement. En Allemagne, à l'inverse, un point de droits réduit d'environ 3~\% les prix demandés au bout d'un an, sans effet
-significatif sur le nombre de ventes : ce sont les vendeurs qui paient (Dolls, Fuest, Krolage et Neumeier, 2025). La réaction
-des ventes, dont dépend presque tout le gain d'une baisse des droits, est donc l'hypothèse la plus incertaine de cette
-partie.
+L'ampleur de l'effet reste discutée. En France, la hausse de 0,7~point de 2014 a fait
+bondir les ventes de 26~\% le mois précédent, puis les a réduites de 6~\% sur trois mois, sans effet durable démontré
+(Bérard et Trannoy, 2018) ; Bachelet et Poulhès (2017) trouvent une baisse durable d'environ 10~\% dans les seuls marchés
+détendus, et une hausse supportée par l'acheteur. En Finlande, un demi-point de plus a réduit de 5,6 à 7,2~\% la mobilité
+des propriétaires, en supprimant les déménagements vers plus grand (Eerola et al., 2021). En Allemagne, un point de droits
+réduit d'environ 3~\% les prix demandés, sans effet significatif sur le nombre de ventes : ce sont les vendeurs qui paient
+(Dolls, Fuest, Krolage et Neumeier, 2025). Que les ventes réagissent durablement aux droits, hypothèse dont dépend presque
+tout le gain d'une baisse, est le point le plus fragile de cette partie.
 
-Les droits ont pour eux leur commodité : l'assiette est un prix constaté devant notaire, la collecte se fait à
-l'acte, sans aucune évaluation. Ils sont aussi la principale ressource fiscale à taux voté des départements
-(13,5~Md€ en 2025). Mais c'est une ressource instable : les droits sur les logements sont tombés de 16,8~Md€ en
-2022 à 11,2~Md€ en 2024, un tiers de moins en deux ans, avant de remonter à 13,6~Md€ en 2025 avec la reprise des
-ventes et le relèvement du taux (figure~\ref{fig:fon_cycle}), alors que les dépenses sociales des départements
-tendent, elles, à monter quand l'activité ralentit. La réponse de 2025, relever le taux à 5~\%, aggrave le
-défaut au lieu de le corriger.
+Les droits sont commodes, un prix constaté devant notaire et perçu à l'acte, et forment la principale ressource fiscale
+à taux voté des départements (13,5~Md€ en 2025). Mais ceux perçus sur les logements sont tombés de 16,8~Md€ en 2022 à
+11,2~Md€ en 2024 avant de remonter à 13,6~Md€ en 2025 (figure~\ref{fig:fon_cycle}, en annexe), quand les dépenses
+sociales des départements montent avec le ralentissement : les relever, comme en 2025, aggrave ce défaut.
 
-\figbloc{foncier_n05_cycle}{Les droits sur les ventes de logements ont perdu un tiers de leur produit entre 2022 et 2024, avant de se redresser en partie en 2025}{fig:fon_cycle}
-
-\textbf{La taxe foncière est un bon impôt mal assis.} Un impôt annuel sur le sol ne change aucune décision : le
-terrain existe de toute façon, sa quantité ne dépend pas de l'impôt, et son propriétaire ne peut ni le déplacer ni
-le soustraire. Il ne crée donc pas de perte sèche ; il réduit seulement, une fois pour toutes, la valeur du terrain
-(on y revient plus bas). La partie de la taxe qui porte sur les constructions est, elle, un impôt sur le capital :
-elle renchérit la construction, l'entretien, la densification. Or la valeur du logement est de plus en plus celle de
-son sol. La valeur des terrains bâtis est passée de 53~\% du PIB en 1998 à 235~\% en 2025, et la part du sol dans la
-valeur des logements des ménages de 22 à 46~\% (figure~\ref{fig:fon_sol}). La hausse des prix immobiliers depuis
-vingt-cinq ans est d'abord une hausse du prix du sol, une rente que la base de 1970 ne voit pas.
+\textbf{La taxe foncière est un bon impôt mal assis.} Sur le sol, assiette immobile, un impôt annuel ne crée pas de perte
+sèche : il réduit une fois pour toutes la valeur du terrain. Sur les constructions, il renchérit la construction,
+l'entretien et la densification. Or la valeur des logements est de plus en plus celle de leur sol : les terrains bâtis
+sont passés de 53~\% du PIB en 1998 à 235~\% en 2025, et le sol de 22 à 46~\% de la valeur des logements des ménages
+(figure~\ref{fig:fon_sol}). La hausse des prix depuis vingt-cinq ans est d'abord celle d'une rente foncière que la base de
+1970 ne voit pas.
 
 \figbloc{foncier_n14_sol_pib}{La valeur du sol bâti est passée de la moitié à plus du double du PIB depuis 1998}{fig:fon_sol}
 
-Si la base n'a pas été révisée, c'est que toute révision désigne des perdants. Simulée sur les vingt plus grandes
-villes hors Paris, la révision prévue des valeurs locatives augmenterait de plus de 15~\% celles des logements
-d'avant 1950 et de plus de 9~\% celles du dixième le plus aisé, et baisserait de 5,6~\% celles du dixième le plus modeste
-(Chapelle, Fabre et Lallemand, 2020) : elle est progressive, mais ses perdants sont visibles et ses gagnants
-dispersés. Les expériences étrangères montrent les deux pièges. Aux États-Unis, les évaluations de masse sont
-souvent régressives, parce qu'elles captent mal ce qui fait la valeur d'un quartier (Berry, 2021 ;
-Avenancio-León et Howard, 2022). Pittsburgh a abandonné en 2001 son impôt à deux taux, plus lourd sur le sol, après
-une réévaluation qui avait relevé d'un coup la valeur du sol de 81~\% (Hughes, 2006). Le double taux a pourtant un
-effet mesurable : en Pennsylvanie, un taux sur le sol quatre fois plus élevé que sur le bâti a accru d'environ trois
-points la croissance décennale du nombre de pièces construites (Banzhaf et Lavery, 2010, chiffre lu dans la version
-de travail).
+Si cette base n'a pas été révisée, c'est que toute révision désigne des perdants. Simulée sur les vingt plus grandes
+villes hors Paris, celle qui est prévue relèverait de plus de 9~\% les valeurs du dixième le plus aisé et baisserait de
+5,6~\% celles du plus modeste (Chapelle, Fabre et Lallemand, 2020) : progressive, elle a des perdants visibles et des
+gagnants dispersés. Les évaluations de masse américaines sont souvent régressives (Berry, 2021 ; Avenancio-León et Howard, 2022), et Pittsburgh a abandonné en 2001 son impôt à deux
+taux, plus lourd sur le sol, après une réévaluation qui avait relevé d'un coup la valeur du sol de 81~\% (Hughes, 2006).
+Le double taux a pourtant un effet mesuré : en Pennsylvanie, un taux sur le sol quatre fois plus élevé que sur le bâti a
+accru d'environ trois points la croissance décennale du nombre de pièces construites (Banzhaf et Lavery, 2010, chiffre
+lu dans la version de travail).
 
 \subsection{La réforme naïve baisse les droits mais aggrave l'injustice de la taxe foncière}
 
-La réforme qui vient spontanément à l'esprit consiste à diviser par deux les droits sur les logements (de 5,81 à
-2,9~\%) et à relever d'autant la taxe foncière actuelle. Sur les ventes de 2025, la baisse coûte 6,2~Md€ si les
-ventes ne réagissent pas, 5,0~Md€ si elles augmentent de 6~\% par point ; il faut donc relever la taxe foncière de 21
-à 25~\% dans toutes les communes.
+Diviser par deux les droits sur les logements (de 5,81 à 2,9~\%) et relever d'autant la taxe foncière actuelle coûte
+6,2~Md€ sur les ventes de 2025, 5,0~Md€ si elles augmentent de 6~\% par point : la taxe foncière monte de 21 à 25~\% dans
+toutes les communes. La perte sèche sur les ventes baisse d'environ 1,6~Md€ par an, mais la hausse porte aussi sur les
+constructions, dont l'impôt passe de 14,3 à 17,9~Md€ et recrée 0,4~Md€ de perte sèche : le gain net est de 1,3~Md€.
 
-Le gain d'efficacité est réel. Moins taxées, les ventes se font : la perte sèche baisse d'environ 1,6~Md€ par an
-avec notre convention centrale. Mais la hausse de taxe foncière porte aussi sur les constructions, dont l'impôt
-passe de 14,3 à 17,9~Md€ et recrée 0,4~Md€ de perte sèche. Le gain net est de 1,3~Md€.
+Surtout, la réforme relève un impôt régressif sans toucher à sa base. La hausse de taxe atteint 114~€ par an dans le
+dixième des logements le moins cher et 147 à 256~€ ailleurs, alors que la baisse des droits profite surtout aux communes
+où l'on vend souvent et cher : en moyenne sur le parc, les huit premiers dixièmes paient 20 à 47~€ de plus par an, le
+plus cher 258~€ de moins (figure~\ref{fig:fon_var}, en rouge). Rapportée à la valeur, la taxe monte à 0,67~\% dans les
+communes les moins chères, contre 0,23~\% dans les plus chères (figure~\ref{fig:fon_tv3}). Les grands perdants sont les
+propriétaires qui ne vendent pas dans les zones détendues (tableau~\ref{tab:fon_cas}), et la base de 1970 sort renforcée.
 
-Le défaut est ailleurs : la réforme naïve relève un impôt régressif sans toucher à sa base
-(figure~\ref{fig:fon_naif}). La hausse de taxe foncière atteint 114~€ par an dans le dixième des logements des
-communes les moins chères et 147 à 256~€ ailleurs. La baisse des droits, elle, profite surtout aux communes où l'on
-vend souvent et cher. En moyenne sur le parc, les huit premiers dixièmes paient 20 à 47~€ de plus par an, le
-neuvième 38~€ de moins et le plus cher 258~€ de moins. Rapportée à la valeur, la taxe monte à 0,67~\% dans les communes les moins chères contre
-0,23~\% dans les plus chères (figure~\ref{fig:fon_tv3}). Une maison de Guéret paie 249~€ de plus par an, une maison
-d'Ussel 278~€ ; un appartement parisien, 134~€. Les grands perdants sont les propriétaires qui ne vendent pas dans les
-zones détendues ; et la base de 1970 sort renforcée au moment où l'on demande davantage à cet impôt.
-
-\figbloc{foncier_n06_naif}{La réforme naïve fait payer les communes bon marché pour alléger les plus chères}{fig:fon_naif}
+\figbloc{foncier_n08_variation}{La réforme naïve fait payer les communes bon marché ; avec la proposition, la baisse des droits compense la hausse de taxe foncière dans tous les dixièmes}{fig:fon_var}
 
 \subsection{Taxer le sol, tout le sol, à sa valeur de marché}
 
-La réforme naïve bute sur deux défauts de la taxe foncière : sa base, qui date de 1970, et le fait qu'elle frappe
-autant les constructions que le sol. Une troisième erreur guette toute réforme qui ne viserait que le sol des
-logements. Si seul le terrain qui porte un logement est taxé, construire un logement sur une parcelle nue ou la
-céder à une entreprise déclenche un impôt dont la valeur actuelle atteint près de 7~\% de celle du terrain : on récompense
-l'attente, à l'inverse de l'effet recherché. Le Bade-Wurtemberg applique sa valeur du sol à toutes les parcelles et
-une loi de 2021 permet à ses communes de taxer plus lourdement les terrains constructibles laissés nus.
-
-La proposition tient en cinq mesures.
+Il faut donc changer la base et alléger les constructions. Une troisième erreur guette toute réforme qui ne taxerait
+que le sol des logements : bâtir un logement sur une parcelle nue ou la céder à une entreprise déclencherait un impôt
+dont la valeur actuelle atteint près de 7~\% de celle du terrain, ce qui récompense l'attente. La proposition tient en
+cinq mesures.
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Diviser par deux les droits sur toutes les ventes d'immeubles}, de 5,81 à 2,9~\% pour un logement
-ancien, dès l'annonce de la réforme, comme la Finlande l'a fait en 2023 (les taux réduits ont valu pour les actes
-signés dès la publication du projet). Coût, sur les ventes de 2025 : 6,2~Md€ sur les logements et environ 1,4~Md€
-sur les autres biens (locaux, terrains), ce second montant n'étant qu'une différence entre deux sources.
-\item \emph{Remplacer ces droits par un taux national sur la valeur de tous les terrains privés}, bâtis ou non,
-quels que soient le propriétaire et l'usage, hors terres agricoles et terrains publics : environ 6\,660~Md€ fin 2025
-selon l'Insee. Il faut un taux d'environ 0,12~\% de la valeur du sol, reversé aux départements et aux communes à
-hauteur de leurs pertes.
-\item \emph{Asseoir la taxe foncière communale des logements sur la valeur de marché}, avec un taux sur le sol
-quatre fois plus élevé que sur le bâti. Chaque commune garde sa recette et son pouvoir de taux. Cette nouvelle base
-remplace la révision prévue pour 2031.
-\item \emph{Établir des valeurs du sol par zone} à partir des ventes enregistrées par l'administration (base publique « Demandes de valeurs
-foncières », DVF) et du cadastre, sur le modèle
-des valeurs de référence allemandes, révisées tous les trois ans et lissées, contestables au-delà de 30~\% d'écart.
-\item \emph{Reporter par défaut la hausse des propriétaires occupants de 65 ans et plus}, sous forme d'un prêt de
-l'État remboursé à la vente ou à la succession, avec possibilité de refuser (section suivante).
+\item \emph{Diviser par deux les droits sur toutes les ventes d'immeubles} dès l'annonce, comme la Finlande en 2023 :
+6,2~Md€ sur les logements, environ 1,4~Md€ sur les autres biens (différence entre deux sources).
+\item \emph{Les remplacer par un taux national d'environ 0,12~\% sur la valeur de tous les terrains privés}, bâtis ou
+non (6\,660~Md€ fin 2025 selon l'Insee, hors terres agricoles et terrains publics), reversé aux collectivités à hauteur
+de leurs pertes.
+\item \emph{Asseoir la taxe foncière communale des logements sur la valeur de marché}, le sol étant taxé quatre fois
+plus que le bâti ; chaque commune garde sa recette et son taux. Cette base remplace la révision prévue pour 2031.
+\item \emph{Établir des valeurs du sol par zone} à partir des ventes (DVF) et du cadastre, révisées tous les trois ans,
+lissées et contestables au-delà de 30~\% d'écart.
+\item \emph{Reporter par défaut la hausse des propriétaires occupants de 65~ans et plus}, par un prêt de l'État
+remboursé à la vente ou à la succession, que le propriétaire peut refuser.
 \end{itemize}
 
-Ces mécanismes sont conventionnels. Le Bade-Wurtemberg taxe depuis 2025 la surface de chaque parcelle multipliée par
-la valeur du sol de sa zone, sans regarder les bâtiments ; la plus haute juridiction fiscale allemande a validé ce
-modèle en mai 2026, des recours constitutionnels restant pendants. À Karlsruhe, à recette constante, les maisons
-individuelles paient 76~\% de plus et les copropriétés 20~\% de moins, selon les calculs de la ville. Le Danemark taxe depuis longtemps la valeur
-du sol au profit des communes ; sa réforme de 2024 a assis l'impôt sur 80~\% seulement de la valeur estimée, par
-précaution, et transforme automatiquement les hausses des propriétaires occupants en un prêt de l'État portant intérêt,
-remboursable à la vente, dont le propriétaire peut sortir s'il le souhaite. La Pennsylvanie pratique le double taux depuis des décennies.
+Ces mécanismes existent. Le Bade-Wurtemberg taxe depuis 2025 la surface de chaque parcelle multipliée par la valeur du
+sol de sa zone, sans regarder les bâtiments, modèle validé en mai 2026 par la plus haute juridiction fiscale allemande
+(des recours constitutionnels restent pendants) ; à Karlsruhe, à recette constante, les maisons y paient 76~\% de plus
+et les copropriétés 20~\% de moins (calculs de la ville).
 
-\textbf{Ce que paie chacun.} Le taux national lève 7,6~Md€. Les logements des particuliers en paient 4,7, contre
-6,2~Md€ de droits en moins ; le sol des locaux d'entreprise et des autres immeubles privés en paie 2,2, contre
-1,4~Md€ de droits en moins ; les terrains nus, 0,6 (figure~\ref{fig:fon_assiette}). Élargir l'assiette au-delà du
-sol des logements fait donc baisser le taux de près d'un quart et déplace environ 1,4~Md€ de charge des logements vers
-les entreprises et les terrains nus. Les comptes de l'Insee donnent le total par secteur, mais pas sa répartition
-entre communes : la géographie du taux national n'est calculée que pour les logements.
+\textbf{Ce que paie chacun.} Le taux national lève 7,6~Md€ : 4,7 sur les logements des particuliers, qui gagnent 6,2~Md€
+de droits ; 2,2 sur le sol des locaux d'entreprise et des autres immeubles, qui en gagnent 1,4 ; 0,6 sur les terrains nus
+(figure~\ref{fig:fon_assiette}). L'assiette large abaisse le taux de près d'un quart et déplace environ 1,4~Md€ de charge
+des logements vers les entreprises et les terrains nus, dont l'Insee ne donne pas la géographie.
 
 \figbloc{foncier_n09_assiette}{Avec tous les terrains dans l'assiette, les logements paient 4,7 milliards de taux national pour 6,2 milliards de droits en moins}{fig:fon_assiette}
 
-\textbf{Aujourd'hui et demain} (tableau~\ref{tab:fon_comp}). La taxe foncière augmente de 10~€ par an dans le
-dixième des logements le moins cher et de 456~€ dans le plus cher (de 2 à 55~\%). Mais si l'on compte la baisse
-des droits, rapportée à l'ensemble des logements de chaque commune, la bascule allège un peu chaque dixième :
-de 4 à 92~€ de moins par an (figure~\ref{fig:fon_var}), parce que les logements paient moins de taux national
-qu'ils ne gagnent de droits. Rapportée à la valeur, la taxe va de 0,55~\% dans
-les communes les moins chères à 0,28~\% dans les plus chères : l'écart se resserre sans s'inverser
-(figure~\ref{fig:fon_tv3}). L'impôt qui porte sur les constructions des logements passe de 14,3 à 7,3~Md€.
+Pour les logements, la taxe foncière augmente de 10~€ par an dans le dixième le moins cher et de 456~€ dans le plus cher
+(de 2 à 55~\%). Mais la baisse des droits, rapportée à l'ensemble des logements de chaque commune, l'emporte partout : la
+bascule allège chaque dixième de 4 à 92~€ par an (figure~\ref{fig:fon_var}). Rapportée à la valeur, la taxe va de
+0,55~\% dans les communes les moins chères à 0,28~\% dans les plus chères : l'écart se resserre sans s'inverser
+(figure~\ref{fig:fon_tv3}). L'impôt sur les constructions des logements tombe de 14,3 à 7,3~Md€.
 
 \figbloc{foncier_n07_taux_trois}{La proposition resserre l'écart de taux entre communes chères et bon marché ; la réforme naïve le creuse}{fig:fon_tv3}
 
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Aujourd'hui, la réforme naïve et la proposition}\label{tab:fon_comp}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.3cm}@{}}
-\toprule
-& Aujourd'hui & Réforme naïve & Proposition \\
-\midrule
-Droits sur un logement ancien & 5,81~\% (6,32~\% jusqu'en 2028 dans 88 départements) & 2,9~\% & 2,9~\% ; droits divisés par deux aussi sur les autres immeubles \\
-Base de la taxe foncière des logements & valeurs locatives de 1970 & valeurs de 1970, +25~\% & valeur de marché, sol taxé quatre fois plus que le bâti \\
-Impôt national sur le sol & aucun & aucun & 0,12~\% de la valeur de tous les terrains privés (7,6~Md€) \\
-Taxe foncière des logements des particuliers & 24,2~Md€ & 30,4~Md€ & 28,9~Md€ \\
-Taxe / valeur, dixième le moins cher et le plus cher & 0,54 et 0,18~\% & 0,67 et 0,23~\% & 0,55 et 0,28~\% \\
-Impôt sur les constructions des logements & 14,3~Md€ & 17,9~Md€ & 7,3~Md€ \\
-Logements dont la taxe augmente de plus de 300~€ & --- & 14~\% & 19~\% \\
-Perte sèche évitée (convention centrale) & --- & 1,3~Md€ & 2,1~Md€ (2,4 avec les autres immeubles) \\
-\bottomrule
-\end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Logements des particuliers de France métropolitaine hors Alsace-Moselle ;
-taxe foncière de 2025, droits au taux permanent sur les ventes de 2025, valeurs aux prix de 2023-2024 ; sans réaction
-des ventes. Le taux national vaut 0,15~\% sur les valeurs du modèle, qui sont inférieures de 20~\% à celles de
-l'Insee. Détail par dixième : annexe.\par}
-\end{table}
+Les hausses se concentrent là où le sol vaut cher : près d'un logement sur cinq voit sa taxe augmenter de plus de 300~€
+par an, un sur vingt d'au moins 545~€. La taxe double pour 4,5~\% des logements, dont 84~\% à Paris, où l'appartement
+médian passe de 527 à 1\,072~€ (+99~\% en moyenne) ; les plus fortes hausses touchent les maisons des communes de
+villégiature les plus chères (2\,600~€ par an à Saint-Tropez ; détail en annexe). Deux résultats sont fragiles : corriger
+un double comptage de la hausse des prix dans la taxe actuelle ramène la hausse parisienne à 88~\%, et le modèle ne
+permet pas de dire qui, des maisons ou des appartements, paierait davantage.
 
-\figbloc{foncier_n08_variation}{Avec la proposition, la baisse des droits compense la hausse de taxe foncière dans tous les dixièmes}{fig:fon_var}
+\textbf{Le gain.} La perte sèche baisse d'environ 2,1~Md€ par an pour les logements (1,6~Md€ sur les ventes, 0,5~Md€ sur
+les constructions), et de l'ordre de 0,4~Md€ de plus pour les autres immeubles si leurs ventes réagissaient comme celles
+des logements, ce que personne n'a mesuré. Ce gain statique dépend presque entièrement de la réaction des ventes : si
+elles ne réagissent pas durablement, comme le trouvent Bérard et Trannoy, il ne reste que le gain sur les constructions ;
+avec 15~\% de ventes en moins par point, le gain sur les ventes monte à 4,0~Md€. Dans le premier cas, la réforme se
+défend par la justice de sa base et par la liquidité qu'elle rend aux acheteurs.
 
-Les hausses se concentrent là où le sol vaut cher. Près d'un logement sur cinq voit sa taxe augmenter de plus de
-300~€ par an, un sur vingt d'au moins 545~€, deux sur mille de plus de 1\,000~€ ; un sur neuf voit sa taxe baisser.
-La taxe double pour 4,5~\% des logements, dont 84~\% à Paris. L'appartement parisien médian passe de 527 à
-1\,072~€ (+99~\% en moyenne à Paris), le dixième le plus cher hors Paris de 40~\%. Les plus fortes hausses touchent
-les maisons des communes de villégiature les plus chères : 2\,600~€ de plus par an à Saint-Tropez, 1\,900~€ à Megève.
-Deux résultats sont fragiles. Si l'on corrige un double comptage de la hausse des prix dans la taxe actuelle, la
-hausse parisienne tombe de 99 à 88~\%. Et le partage entre maisons (+112~€) et appartements (+212~€) s'inverse si
-l'on mesure le sol des maisons comme celui des appartements (+197 et +97~€) : le modèle ne permet pas de dire qui,
-des maisons ou des appartements, paierait davantage.
+\textbf{La taxe sur le sol est un prélèvement en capital.} Un impôt annuel et durable sur un bien immobile se reporte dans
+son prix. Le taux national vaut, en valeur actuelle, 253~Md€ à 3~\% (189~Md€ à 4~\%), dont 157~Md€ pour les logements des
+particuliers. Qui le supporte dépend de ce qui passe dans les prix. Si la hausse de taxe et la baisse des droits y passent toutes deux, la valeur
+moyenne des logements ne baisse pas (elle monte même de 48~Md€) mais se déplace : l'appartement parisien médian perd
+3\,000~€, 0,7~\%. Si seule la hausse de taxe y passe, comme le suggèrent la capitalisation des impôts locaux en Angleterre
+(Koster et Pinchbeck, 2022) et au Danemark (Høj, Jørgensen et Schou, 2018) et l'incidence de la hausse française de 2014
+(Bachelet et Poulhès, 2017), les propriétaires actuels de logements perdent 157~Md€ à l'annonce, 2,3~\% de la valeur du
+parc ; l'appartement parisien médian perd 18\,200~€ (4,4~\%), et 6~\% des logements plus de 5~\% de leur valeur. Une étude
+danoise non publiée ne trouve, elle, aucun effet sur les prix (Nielsson, Wroblewski et Yding, 2024).
 
-\textbf{Le gain.} La perte sèche baisse d'environ 2,1~Md€ par an pour les logements : 1,6~Md€ sur les ventes et
-0,5~Md€ sur les constructions. La baisse des droits sur les autres immeubles ajouterait de l'ordre de 0,4~Md€, si
-leurs ventes réagissaient comme celles des logements, ce que personne n'a mesuré. Ce gain est une perte sèche
-statique, et il dépend presque entièrement de la réaction des ventes. Si celles-ci ne réagissent pas durablement,
-comme le trouvent Bérard et Trannoy pour la France, il ne reste que le gain sur les constructions ; avec 15~\% de
-ventes en moins par point, le gain sur les ventes monte à 4,0~Md€. La réforme se défend alors surtout par la justice
-de sa base et par la liquidité qu'elle rend aux acheteurs.
-
-\textbf{La taxe sur le sol est un prélèvement en capital.} Un impôt annuel et durable sur un bien qui ne bouge pas
-se reporte dans son prix. Le taux national vaut, en valeur actuelle, 253~Md€ à 3~\% (189~Md€ à 4~\%) pour l'ensemble
-des propriétaires de terrains, dont 157~Md€ pour les logements des particuliers. Qui le supporte dépend de ce qui passe
-dans les prix, et les études ne tranchent pas :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{si les prix ne bougent pas}, le propriétaire paie la hausse chaque année et l'acheteur garde la baisse
-des droits ;
-\item \emph{si la hausse de taxe et la baisse des droits passent toutes deux dans les prix}, la valeur des logements
-ne baisse pas en moyenne (elle monte même de 48~Md€, puisque les logements paient moins de taux national qu'ils ne
-gagnent de droits), mais elle se déplace : l'appartement parisien médian perd 3\,000~€, 0,7~\% de sa valeur ;
-\item \emph{si la hausse de taxe passe dans les prix mais que la baisse des droits profite à l'acheteur}, comme le
-suggèrent la capitalisation des impôts locaux en Angleterre (Koster et Pinchbeck, 2022) et au Danemark (Høj,
-Jørgensen et Schou, 2018) et l'incidence de la hausse française de 2014 (Bachelet et Poulhès, 2017), les
-propriétaires actuels de logements perdent 157~Md€, 2,3~\% de la valeur du parc ; l'appartement parisien médian
-perd 18\,200~€ (4,4~\%), et 6~\% des logements plus de 5~\% de leur valeur.
-\end{itemize}
-Une étude danoise non publiée ne trouve, à l'inverse, aucun effet de l'impôt sur le sol sur les prix (Nielsson,
-Wroblewski et Yding, 2024). Nous retenons le troisième cas comme central : c'est celui que suggèrent les études les plus proches, et le plus
-dur pour les propriétaires actuels, puisqu'il transfère de la valeur des propriétaires d'aujourd'hui, en moyenne plus
-âgés, vers les acheteurs futurs. Nos données ne permettent pas de chiffrer ce
-transfert par âge ; le seul modèle français trouvé, qui simule une baisse plus forte des coûts de transaction financée
-par un impôt sur la valeur des logements, conclut aussi que les jeunes ménages y gagnent et les plus âgés y perdent,
-quel que soit leur revenu (Bontemps, Cherbonnier et Magnac, 2023). L'étalement de la réforme n'y change presque rien : avec une montée sur cinq ans, 94~\% de la
-perte actualisée reste supportée à l'annonce. Il protège la trésorerie des ménages, pas leur patrimoine.
+Nous retenons ce dernier cas, le plus dur, comme central : il transfère de la valeur des propriétaires actuels, en
+moyenne plus âgés, vers les acheteurs futurs. Nos données ne chiffrent pas ce transfert par âge, mais le seul modèle
+français trouvé conclut aussi qu'une baisse des coûts de transaction financée par un impôt sur la valeur des logements
+fait gagner les jeunes ménages et perdre les plus âgés, quel que soit leur revenu (Bontemps, Cherbonnier et Magnac,
+2023). Étaler la réforme n'y change presque rien : avec une montée sur cinq ans, 94~\% de
+la perte actualisée reste supportée à l'annonce. Il protège la trésorerie des ménages, pas leur patrimoine.
 
 \subsection{Cinq choix pour le décideur : les premiers points de baisse des droits sont les plus rentables}
 
-\textbf{Jusqu'où baisser les droits ?} Diviser les droits par deux coûte 7,6~Md€ et évite 1,6~Md€ de perte sèche
-sur les ventes de logements. Une baisse de 30~\% coûte 4,5~Md€, garde 68~\% de ce gain pour 60~\% du coût, et ne
-porte la hausse de l'appartement parisien médian qu'à 331~€ par an : parce que le coût d'un impôt sur les ventes croît
-avec le carré du taux, les premiers points de baisse sont les plus rentables. Supprimer les droits doublerait la
-facture (15,2~Md€) pour un gain sur les ventes de 2,1~Md€ seulement, et ferait monter de plus de 300~€ la taxe de
-40~\% des logements. La baisse de 30~\% est une variante prudente qui garde l'essentiel ; la moitié est un bon
-point d'arrivée.
+\textbf{Jusqu'où baisser les droits ?} Le coût d'un impôt sur les ventes croissant comme le carré du taux, une baisse
+de 30~\% coûte 4,5~Md€ au lieu de 7,6, garde 68~\% du gain de la
+division par deux et limite à 331~€ par an la hausse de l'appartement parisien médian. Supprimer les droits coûterait
+15,2~Md€ pour 2,1~Md€ de gain sur les ventes, et ferait monter de plus de 300~€ la taxe de 40~\% des logements. La baisse
+de 30~\% est une variante prudente ; la moitié, un bon point d'arrivée.
 
-\textbf{Quelle assiette pour le taux national ?} Taxer le seul sol des logements des particuliers est plus simple :
-nos données le chiffrent commune par commune. Mais il faut alors 0,16~\% de la valeur des terrains au lieu de
-0,12~\%, la taxe parisienne augmente de 129~\% au lieu de 99, un logement sur quatre voit sa taxe monter de
-plus de 300~€, et construire un logement sur une parcelle nue reste pénalisé. Étendre l'assiette à tous les
-terrains privés supprime cette distorsion et allège les logements de 1,4~Md€, au prix d'une hausse nette de 0,8~Md€
-sur les immeubles d'entreprise et de 0,6~Md€ sur les terrains nus, dont la répartition géographique est inconnue. Y
-ajouter les terres agricoles abaisserait encore le taux (0,11~\%) mais toucherait les exploitants, déjà soumis à la
-taxe sur le foncier non bâti ; exonérer le sol des HLM le relèverait à 0,13~\%.
+\textbf{Quelle assiette pour le taux national ?} Taxer le seul sol des logements, plus simple à chiffrer commune par
+commune, demanderait 0,16~\% au lieu de 0,12~\%, porterait la hausse parisienne à 129~\% au lieu de 99, ferait monter de
+plus de 300~€ la taxe d'un logement sur quatre et continuerait de pénaliser la construction sur une parcelle nue.
+Inclure les terres agricoles ou exonérer le sol des HLM ferait varier le taux de 0,11 à 0,13~\% (annexe).
 
-\textbf{Le sol seul ou deux taux ?} Dans la part communale, plus le sol est taxé par rapport au bâti, plus les
-constructions sont allégées et plus la perte sèche baisse : 0,3~Md€ avec un rapport de deux, 0,5 avec quatre,
-0,6~Md€ avec le sol seul. Mais plus le rapport est élevé, plus les hausses se concentrent : le sol seul porte à 23~\%
-la part des logements dont la taxe monte de plus de 300~€, contre 19~\% avec un rapport de quatre. Le rapport de
-quatre, celui de la Pennsylvanie, garde près des trois quarts du gain ; le sol seul peut être annoncé comme point d'arrivée,
-une fois les valeurs de zone éprouvées.
+\textbf{Le sol seul ou deux taux ?} Plus la part communale taxe le sol par rapport au bâti, plus la perte sèche baisse
+(0,3~Md€ avec un rapport de deux, 0,5 avec quatre, 0,6 avec le sol seul) et plus les hausses se concentrent (15, 19 puis
+23~\% des logements au-delà de 300~€). Le rapport de quatre, celui de la Pennsylvanie, garde près des trois quarts du gain
+du sol seul, qui peut devenir le point d'arrivée une fois les valeurs de zone éprouvées.
 
-\textbf{Un taux national ou départemental ?} Si chaque département remplaçait ses propres droits par un taux sur le
-sol des logements de son territoire, il lui faudrait 0,13~\% de la valeur du sol à Paris et 0,79~\% dans la Creuse (valeurs du modèle), où le sol vaut peu et
-où l'on vend relativement beaucoup ; une maison de Guéret paierait 103~€ de plus par an, contre une trentaine
-d'euros avec un taux national. Le taux national
-crée au contraire une péréquation implicite : sur la seule part des logements, Paris paie 83~M€ de plus qu'il ne
-perd de droits et les Hauts-de-Seine 45~M€, pour 204~M€ de transferts entre départements. Le prix est l'autonomie :
-les départements échangent un impôt à taux voté contre une part d'impôt national. Une modulation départementale dans
-une fourchette étroite est un compromis possible.
+\textbf{Un taux national ou départemental ?} Un taux propre à chaque département devrait atteindre 0,79~\% de la valeur
+du sol dans la Creuse, où le sol vaut peu et où l'on vend relativement beaucoup, contre 0,13~\% à Paris (valeurs du
+modèle) : une maison de Guéret paierait 103~€ de plus par an, contre une trentaine d'euros avec le taux national. Celui-ci
+opère une péréquation de 204~M€ entre départements (Paris paie 83~M€ de plus qu'il ne perd de droits), au prix de leur
+autonomie fiscale ; une modulation dans une fourchette étroite est un compromis possible.
 
-\textbf{Qui protéger, et comment ?} La perte de patrimoine ne se compense pas sans annuler la réforme ; le problème
-de trésorerie, si. Un propriétaire âgé, riche de son logement mais pas de ses revenus, peut payer sa hausse plus tard,
-sur sa succession. Proposé sur demande, ce report n'est presque jamais utilisé : moins de 1~\% des ayants droit y
-recouraient aux États-Unis dans les années 1990 (Baer, 1998, cité par Shan, 2010). Il faut donc qu'il soit
-automatique, comme au Danemark, et facturé au taux d'emprunt de l'État pour ne pas devenir une niche : il est alors
-neutre en valeur actuelle pour les finances publiques. Si tous les propriétaires occupants reportaient leur hausse,
-l'avance de trésorerie atteindrait 2,5~Md€ par an ; elle sera bien moindre avec un report réservé aux plus de 65~ans.
-L'exonération actuelle des plus de 75~ans aux revenus modestes peut être gardée.
+\textbf{Qui protéger ?} La perte de patrimoine ne se compense pas sans annuler la réforme ; le problème de trésorerie,
+si. Un propriétaire âgé, riche de son logement mais pas de ses revenus, peut payer sa hausse sur sa succession. Proposé
+sur demande, ce report n'est presque jamais utilisé (moins de 1~\% des ayants droit aux États-Unis dans les années 1990 :
+Baer, 1998, cité par Shan, 2010). Il doit donc être automatique, comme au Danemark depuis 2024, et facturé au taux
+d'emprunt de l'État, ce qui le rend neutre en valeur actuelle. L'avance atteindrait 2,5~Md€ par an si tous les propriétaires occupants reportaient
+leur hausse, bien moins avec un report réservé aux plus de 65~ans. L'exonération actuelle des plus de 75~ans aux revenus modestes peut être gardée.
 
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Les cinq choix : ce que l'on gagne, ce que cela coûte, qui le supporte}\label{tab:fon_arb}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.9cm}@{}}
-\toprule
-Choix & Gain d'efficacité & Coût, qui paie, pertes fortes & Variante prudente \\
-\midrule
-Baisse des droits : 30, 50 ou 100~\% & ventes : 1,1 / 1,6 / 2,1~Md€ & 4,5 / 7,6 / 15,2~Md€ ; appartement parisien +331 / +545 / +1\,079~€ par an & 30~\% : 68~\% du gain pour 60~\% du coût \\
-Assiette du taux national & tous les terrains : aucune incitation à laisser un terrain nu & sol des logements seul : 0,16~\%, Paris +129~\% ; tous les terrains : 0,12~\%, Paris +99~\%, entreprises +0,8~Md€ net & terrains bâtis seuls : 0,13~\%, Paris +108~\% \\
-Sol seul ou deux taux (part communale) & constructions : 0,3 / 0,5 / 0,6~Md€ (rapport 2, 4, sol seul) & hausses de plus de 300~€ : 15 / 19 / 23~\% des logements & rapport 4, sol seul à terme \\
-Taux national ou départemental & identique & départemental : 0,13~\% à Paris, 0,79~\% dans la Creuse (valeurs du modèle) ; national : 204~M€ de péréquation & modulation dans une fourchette \\
-Report de paiement & aucun ; protège la trésorerie & avance de 2,5~Md€ par an au plus ; neutre au taux de l'État & par défaut dès 65~ans, refus possible \\
-\bottomrule
-\end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Perte sèche évitée par an, convention centrale ; taux en part de la valeur des
-terrains selon l'Insee (fin 2025) ; droits et ventes de 2025. Source : \texttt{sorties/calculs\_foncier.txt}.\par}
-\end{table}
-
-\textbf{Cinq ménages} (tableau~\ref{tab:fon_cas} et figure~\ref{fig:fon_primo}).
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Un jeune couple achète un appartement de 280\,000~€ à Lyon.} Il paie 8\,100~€ de droits en moins, de
-quoi réduire son emprunt ou son apport. Sa taxe foncière augmente ensuite de 303~€ par an : s'il revend
-au bout de sept ans, il garde 6\,200~€ en valeur actuelle. À Paris, l'économie est de 12\,100~€ pour une hausse de
-545~€ ; à Saint-Étienne, de 2\,300~€, et sa taxe baisse.
-\item \emph{Une retraitée vit seule dans l'appartement parisien médian.} Elle ne déménagera plus, ne profite pas de
-la baisse des droits, et sa taxe passe de 527 à 1\,072~€ en cinq ans. Avec le report par défaut, elle ne paie rien de
-plus ; si elle reporte la hausse pleine pendant quinze ans, sa dette envers l'État atteint 10\,100~€ (avec un intérêt
-de 3~\%), 2,4~\% de la valeur de son logement, remboursés sur sa succession. Si elle a plus de 75~ans et un revenu modeste, elle reste exonérée.
-\item \emph{Un retraité possède une maison à Guéret.} La réforme naïve lui aurait coûté 249~€ par an ; la
-proposition, 27~€.
-\item \emph{Une bailleuse loue un appartement à Lyon.} Elle paie 303~€ de plus par an, qu'elle ne peut pas répercuter
-dans les charges du locataire\footnote{La taxe foncière n'est pas une charge récupérable sur le locataire, et
-elle est déductible des revenus fonciers au régime réel : règles non relues sur le décret n°~87-713 et l'article~31
-du CGI.} ; si elle achète un second logement, elle économise 8\,100~€. En théorie, la part de l'impôt qui porte sur
-le sol ne se reporte pas sur les loyers, puisque l'offre de sol ne change pas ; celle qui porte sur le bâti baisse.
-\item \emph{Une famille de Nantes vend son appartement pour une maison de 450\,000~€.} Les droits passent de 26\,100 à
-13\,050~€ ; sa taxe foncière augmente ensuite de 143~€ par an. C'est exactement le déménagement que les droits
-découragent le plus.
-\end{itemize}
+\textbf{Quatre ménages} (tableau~\ref{tab:fon_cas}). Un jeune couple qui achète l'appartement médian de Lyon et le revend
+au bout de sept ans garde 6\,200~€ en valeur actuelle, hausse de taxe déduite (figure~\ref{fig:fon_primo}, en annexe).
+Une retraitée seule dans l'appartement parisien médian ne profite pas de la baisse des droits ; avec le report, elle ne
+paie rien de plus, et quinze ans de report forment une dette de 10\,100~€ (intérêt de 3~\%), 2,4~\% de la valeur du
+logement, réglée sur sa succession. Le retraité propriétaire d'une maison à Guéret, perdant de la réforme naïve, ne paie
+presque rien de plus. Une bailleuse supporte sa hausse : la taxe foncière n'est pas récupérable sur le locataire
+(règle non relue sur le décret n°~87-713) et, en théorie, la part qui porte sur le sol ne se reporte pas sur les loyers.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Cas-types : le logement médian de la commune}\label{tab:fon_cas}
@@ -383,67 +240,42 @@ Guéret, maison & 110\,000 & 979 & 3\,190 & +249 & +27 \\
 Ussel, maison & 102\,700 & 1\,092 & 2\,980 & +278 & +15 \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Valeur : prix médian au m² des ventes 2023-2024 de la commune × surface
-médiane. Taxe foncière de 2025 ; droits au taux permanent de 5,81~\%. Sans effet sur les prix ni reprise des ventes. Source : \texttt{sorties/calculs\_foncier.txt}.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Valeur : prix médian au m² des ventes 2023-2024 × surface médiane ; taxe
+de 2025 ; droits au taux permanent ; sans effet sur les prix ni reprise des ventes.\par}
 \end{table}
-
-\figbloc{foncier_n10_primo}{Un ménage qui achète le logement médian gagne 2\,000 à 13\,000~€ de droits ; la hausse de taxe foncière en reprend moins de la moitié en dix ans}{fig:fon_primo}
 
 \subsection{Cinq ans de transition, financés par l'emprunt plutôt que par les valeurs de 1970}
 
-La transition doit résoudre une contradiction. La baisse des droits ne peut pas attendre : annoncée pour plus tard,
-elle gèlerait les ventes jusqu'à sa date d'effet, comme l'a montré le bond de 26~\% des ventes avant la hausse de
-2014. Les nouvelles valeurs, elles, prennent du temps : le Bade-Wurtemberg, qui disposait déjà de valeurs du sol par
-zone, a mis plus de quatre ans entre sa loi (novembre 2020) et le premier impôt (2025). Financer l'attente par une
-hausse temporaire de la taxe actuelle, comme le prévoyait une version antérieure de ce projet, reviendrait à
-appliquer la réforme naïve pendant au moins quatre ans, sans garantie qu'elle cesse ; et appliquer le taux national
-en entier dès la première année ferait monter d'un coup de plus de 500~€ la taxe de l'appartement parisien médian.
+La baisse des droits ne peut pas attendre : annoncée pour plus tard, elle gèlerait les ventes jusqu'à sa date d'effet,
+comme avant la hausse de 2014. Les nouvelles valeurs prennent du temps : le Bade-Wurtemberg, qui avait déjà des valeurs
+du sol par zone, a mis plus de quatre ans entre sa loi (novembre 2020) et le premier impôt (2025). Financer l'attente par
+une hausse de la taxe actuelle reviendrait à appliquer la réforme naïve pendant au moins quatre ans ; appliquer d'emblée
+le taux national plein ferait monter d'un coup de plus de 500~€ la taxe de l'appartement parisien médian.
 
-Le calendrier proposé est le suivant.
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Année 0.} La réforme est annoncée avec le projet de loi ; les droits sont divisés par deux pour les actes
-signés dès cette date, le trop-perçu étant remboursé après le vote, comme en Finlande. L'État compense aux
-départements et aux communes, à l'euro, les droits perdus.
-\item \emph{Années 1 à 5.} Le taux national monte d'un cinquième par an, jusqu'à 0,12~\% de la valeur du sol. Il
-s'applique d'abord à des valeurs provisoires, calculées par commune comme dans notre modèle (prix des terrains de la
-commune tiré des ventes, multiplié par la surface cadastrale de la parcelle), puis aux valeurs de zone dès qu'elles
-existent. La nouvelle répartition de la taxe communale avance au même rythme ; le report par défaut s'applique dès
-la première hausse.
-\item \emph{Ensuite.} Les valeurs sont révisées tous les trois ans et lissées. Aucune révision n'a lieu à la vente :
-réévaluer un bien quand il change de mains, comme le prévoyait un amendement adopté en commission le 9~octobre 2026
-puis tombé avec la première partie du projet de loi de finances, recréerait le verrou de la Proposition~13
-californienne, qui retient chez eux les propriétaires anciens (Ferreira, 2010).
-\end{itemize}
-
-Sur cinq ans, la hausse annuelle reste sous 85~€ pour neuf logements sur dix et sous 130~€ pour 99 sur 100 ;
-l'appartement parisien médian prend 109~€ par an (figure~\ref{fig:fon_trans}). Sur trois ans, ces hausses montent à
-141 et 216~€ ; sur dix ans, elles tombent à 42 et 65~€.
+Dès l'annonce du projet de loi, les droits sont divisés par deux pour les actes signés, le
+trop-perçu étant remboursé après le vote, comme en Finlande ; l'État compense à l'euro les collectivités. Le taux national
+monte ensuite d'un cinquième par an pendant cinq ans, d'abord sur des valeurs provisoires par commune, puis sur les valeurs de zone ; la part communale
+suit le même rythme, et le report joue dès la première hausse. Les valeurs sont ensuite révisées tous les trois ans,
+jamais à la vente : réévaluer un bien quand il change de mains, comme le voulait un amendement adopté en commission le
+9~octobre 2026 puis tombé, recréerait le verrou de la Proposition~13 californienne, qui retient chez eux les
+propriétaires anciens (Ferreira, 2010). La hausse annuelle reste
+alors sous 85~€ pour neuf logements sur dix ; l'appartement parisien médian prend 109~€ par an
+(figure~\ref{fig:fon_trans}).
 
 \figbloc{foncier_n11_transition}{Sur cinq ans, la hausse annuelle reste sous 130~€ pour 99 logements sur 100, au prix d'un déficit transitoire de 15 milliards}{fig:fon_trans}
 
-\textbf{Le coût de transition n'est pas un coût permanent.} À terme, la réforme est à recette constante : son coût
-permanent est nul. Pendant la montée en charge, les droits perdus ne sont pas encore remplacés. Le déficit cumulé
-atteint 15~Md€ sur cinq ans (12~Md€ si les ventes reprennent), 8~Md€ sur trois ans et 34~Md€ sur dix ans. C'est
-l'arbitrage du calendrier : dix ans divisent par deux la hausse annuelle mais font plus que doubler la dette, et les transitions
-très longues s'enlisent ; le territoire de la capitale australienne, qui a entrepris en 2012 de remplacer en vingt ans
-ses droits de mutation par un impôt sur la valeur du sol, a ralenti le mouvement en chemin (sources de presse et
-d'organismes favorables à la réforme). Le risque principal est administratif : si les valeurs provisoires ne sont
-prêtes qu'au bout de trois ans, le déficit augmente de 23~Md€. Baisser les droits en deux temps (un quart à
-l'annonce, un quart au démarrage du taux national) le limiterait, mais recréerait l'attente que la baisse immédiate
-veut éviter.
+\textbf{Le coût de transition n'est pas un coût permanent.} À terme, la réforme est à recette constante. Pendant la
+montée en charge, l'État avance les droits non encore remplacés : 15~Md€ cumulés sur cinq ans (12~Md€ si les ventes
+reprennent), financés par l'emprunt. Dix ans diviseraient par deux la hausse annuelle mais feraient plus que doubler la
+dette, et les transitions longues s'enlisent : le territoire de la capitale australienne, engagé en 2012 dans une bascule
+des droits vers le sol en vingt ans, a ralenti en chemin (selon la presse et des organismes favorables à la réforme). Le risque principal est administratif : si les valeurs provisoires ne sont prêtes
+qu'au bout de trois ans, le déficit augmente de 23~Md€.
 
-\textbf{Les collectivités.} Sur les ventes de 2025, les départements perdent 4,8~Md€ de droits sur les logements, les
-communes 1,3~Md€ et l'État 0,1~Md€ de frais d'assiette, auxquels s'ajoutent environ 1,4~Md€ sur les autres immeubles. Le Conseil
-constitutionnel n'exige pas qu'une recette locale supprimée soit compensée à l'euro près, et il a jugé qu'une fraction
-d'un impôt national attribuée aux départements constituait une ressource propre (décision 2019-796 DC, à propos de la
-TVA). La taxe d'enlèvement des ordures ménagères, assise sur la base de la taxe foncière, devra en être découplée, et
-le seuil de revenu de l'exonération des plus de 75~ans redéfini si l'impôt sur le revenu et la CSG fusionnent.
-
-\textbf{Le droit et la faisabilité.} Le taux national et le report se gèrent sur l'avis de taxe foncière, que la
-DGFiP établit et recouvre déjà : aucun circuit de collecte nouveau n'est nécessaire. L'administration dispose des
-ventes (DVF), du cadastre et de la surface des parcelles, et des déclarations d'occupation des logements recueillies
-depuis 2023. Les valeurs provisoires par commune,
-qui donnent le même prix au m² à toutes les parcelles d'une commune, sont le point juridiquement le plus fragile : il
-faudra vérifier qu'elles respectent l'égalité devant les charges publiques, ce qu'aucune expertise juridique n'a encore
-examiné. Les valeurs par zone, elles, ont été validées par la plus haute juridiction fiscale allemande. Les détails du calibrage, les variantes et la
-liste des hypothèses fortes et des chiffres non vérifiés figurent dans l'\ref{ann:foncier}.
+\textbf{Les collectivités et le droit.} Le Conseil constitutionnel
+n'exige pas qu'une recette locale supprimée soit compensée à l'euro près, et il a jugé qu'une fraction d'impôt national
+attribuée aux départements constituait une ressource propre (décision 2019-796 DC, à propos de la TVA). La taxe
+d'enlèvement des ordures ménagères devra être découplée de la base foncière, et le seuil de l'exonération des plus de
+75~ans redéfini si l'impôt sur le revenu et la CSG fusionnent. La DGFiP, qui établit et recouvre déjà la taxe foncière,
+dispose des ventes, du cadastre et des déclarations d'occupation : aucun circuit de collecte nouveau n'est nécessaire.
+Le point juridique le plus fragile, encore jamais expertisé, est l'égalité devant les charges publiques de valeurs
+provisoires qui appliquent le même prix au m² de terrain, tiré des ventes, à toute la surface cadastrale d'une commune. Calibrage, variantes et hypothèses : \ref{ann:foncier}.

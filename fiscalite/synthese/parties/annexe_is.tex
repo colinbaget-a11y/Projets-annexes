@@ -1,14 +1,12 @@
-% Annexe de la partie IS (refonte du 16/11/2026). Chiffres : ../is/sorties/calculs_note_is.txt ; registre des
-% hypothèses : ../revue/hypotheses_is.md ; tableaux générés par ../is/calculs_note_is.py (parties/tab_is_*.tex).
+% Annexe de la partie IS (refonte du 16/11/2026 ; coupée le 17/11/2026 selon synthese/CONSIGNES_COUPE.md : figures
+% is_n02 et is_n06 reçues du corps ; tableaux d'hypothèses fusionnés). Chiffres : ../is/sorties/calculs_note_is.txt ;
+% registre des hypothèses : ../revue/hypotheses_is.md ; tableaux générés par ../is/calculs_note_is.py (parties/tab_is_*.tex).
 
 \subsection{Calibrage}\label{ann:is_calibrage}
 
-Tous les chiffres de la partie viennent de \texttt{is/calculs\_note\_is.py}, qui importe sans la modifier la mécanique de
-\texttt{is/simulation\_is.py}, corrigée le 16 novembre 2026 après un recalcul indépendant
-(\texttt{revue/hypotheses\_is.md}), puis recalée le 17 novembre 2026 sur 2025 : bénéfices imposables de l'exercice
-2025 (DGFiP, Statistiques n°~51, septembre 2026, données provisoires), recette de 2025 (exécution budgétaire et
-comptes nationaux) et investissement de 2025 (Insee). Les montants sont en euros courants, l'année 1 étant 2027,
-sauf mention.
+Chiffres : \texttt{is/calculs\_note\_is.py}, sur la mécanique de \texttt{is/simulation\_is.py} corrigée le 16 novembre
+2026, recalée sur 2025 ; euros courants, l'année 1 étant 2027. Faute de données de 2025, la comparaison de l'OCDE
+(2023), les taux implicites de l'Insee (2022) et la répartition des bénéfices par taille (2024) restent antérieurs.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Données et paramètres de la partie IS}\label{tab:is_calibrage}
@@ -16,65 +14,66 @@ sauf mention.
 \toprule
 Grandeur & Valeur & Source ou statut \\
 \midrule
-Recette de 2025 & IS net 59,9~Md€ au budget ; en prélèvements obligatoires, 59,3 (69,5 avant 10,1 de crédits
-d'impôt), contribution exceptionnelle 7,5, contribution sociale 1,15 : 68,0~Md€ (2,27~\% du PIB) & PLF 2027 et rapport
-AN n°~2847 (exécution) ; Insee, comptes de la Nation 2025, tableau 3.217 \\
+Recette de 2025 (2,8 millions de redevables) & IS net 59,9~Md€ au budget ; en prélèvements obligatoires, 59,3 (69,5
+avant 10,1 de crédits d'impôt), contribution exceptionnelle 7,5, contribution sociale 1,15 : 68,0~Md€ (2,27~\% du PIB) ;
+minimum mondial : 0,5~Md€ en 2026 & PLF 2027, rapport AN n°~2847 ; Insee 3.217 \\
 Investissement éligible des sociétés non financières (autres machines et équipements, TIC) & 84,1~Md€ (2025) ; 89,2~Md€
-(2027) & Insee, comptes nationaux base 2020, tableau 8.212 (juillet 2026) ; +3~\% par an (3,2~\% de 2022 à 2025) \\
-Stock correspondant ; usure & 541~Md€ (fin 2025) ; 14~\% par an & Insee, 8.212 (consommation de capital fixe : 14,5~\% du
-stock) \\
-Bénéfices imposés en 2025 & 30,6~Md€ à 15~\% ; 256,8~Md€ à 25~\% ; déficits 111,3~Md€ & DGFiP, Statistiques n°~51
-(2022 : 26,6 et 250,7 ; DGFiP n°~21) \\
-Croissance du bénéfice fiscal & +2~\% par an en 2026 et 2027 & hypothèse (tome I du PLF 2027 non publié en ligne) ; de
-2022 à 2025, la base au taux normal a crû de 2,4~\%, celle à 15~\% de 15~\% \\
+(2027) & Insee 8.212 ; +3~\% par an (3,2~\% de 2022 à 2025) \\
+Stock correspondant ; usure & 541~Md€ (fin 2025) ; 14~\% par an & Insee 8.212 \\
+Bénéfices imposés en 2025 & 30,6~Md€ à 15~\% ; 256,8~Md€ à 25~\% ; déficits 111,3~Md€ & DGFiP n°~51 (provisoire) \\
+Croissance du bénéfice fiscal & +2~\% par an en 2026 et 2027 & hypothèse ; de 2022 à 2025, la base au taux normal a crû
+de 2,4~\%, celle à 15~\% de 15~\% \\
 Un point de taux normal en 2027 & 2,99~Md€ (2,67 si le taux réduit est gardé) & bénéfices de 2025 $\times$ 1,040 \\
 Fin du taux réduit & 2,15 à 3,18~Md€ & haut : 10 points sur 30,6~Md€ ; bas : coût officiel de 2019 ramené à 10 points,
-porté à 3~\% par an (68~\% du statique) \\
-CIR apprécié au niveau du groupe & 0,59~Md€ & CPO (2025), estimation de 2021 vieillie \\
-Fin des exonérations zonées hors outre-mer & 0,54~Md€ (IR et IS) & CPO (2025) ; part de l'IS non publiée \\
-Boîte à brevets à 17,5~\% & 0,21 à 0,62~Md€ & moitié de la dépense fiscale (1,26~Md€ en 2025) ; bas : la base fuit \\
-Ressources de l'assiette & 3,50 / 4,22 / 4,94~Md€ & bas, central (milieu), haut, en 2027, puis +3~\% par an \\
-Part de l'investissement faite par des sociétés imposables & 75~\% (60 à 90~\%) & hypothèse, aucune statistique \\
-Part de l'investissement couverte par un plafond de 1~M€ & 20~\% (15 à 30~\%) & hypothèse, d'après Insee (2023) \\
-Taux d'actualisation des entreprises ; taux d'emprunt de l'État & 5~\% ; 3,25~\% & hypothèses \\
+porté à 3~\% par an \\
+CIR apprécié au niveau du groupe ; fin des zones hors outre-mer & 0,59 ; 0,54~Md€ (IR et IS) & CPO (2025) ; estimation
+de 2021 vieillie ; part de l'IS non publiée \\
+Boîte à brevets à 17,5~\% & 0,21 à 0,62~Md€ & moitié de la dépense fiscale (1,26~Md€ en 2025, estimée par le PLF 2026) \\
+Ressources de l'assiette & 3,50 / 4,22 / 4,94~Md€ & bas, central, haut, en 2027, puis +3~\% par an \\
 Durée d'amortissement des équipements & 7 ans, linéaire ou dégressif (coefficient 2,25) & BOFiP, BOI-BIC-AMT-20-20-30 \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\textbf{Le plafond de 1~M€.} L'Insee (2023, données Ésane de 2021) indique que, parmi les 1,2 million d'entreprises qui ont
-investi, les 2~\% qui ont investi au moins 500\,000~€ chacune réalisent 87~\% des 248,7~Md€ d'investissements corporels,
-et que les 59~\% qui ont investi moins de 10\,000~€ n'en font que 1~\%. Une interpolation de Pareto sur le nombre
-d'entreprises entre ces deux seuils, prolongée jusqu'à 1~M€, donne une part de l'investissement couverte par le plafond
-de 18~\% pour un plafond de 0,5~M€ et de 21~\% pour 1~M€. Le champ de l'Insee est plus large que celui de la mesure
-(bâtiments, entreprises individuelles) et la composition des achats par taille n'est pas connue : nous retenons 20~\%,
-entre 15 et 30~\%. Au Royaume-Uni, 23~Md£ d'investissement ont été déduits en 2019-2020 sous le plafond équivalent, et
-la mesure générale n'y concerne que 7\,000 sociétés (IFS, 2023 ; HM Treasury, 2023).
+\figbloc{is_n02_qui_paie}{370 grandes entreprises paient 29~\% de l'IS, 2,6 millions de très petites
+sociétés 21~\% (2025)}{fig:is_qui}
+
+\textbf{Le plafond de 1~M€.} Parmi les 1,2 million d'entreprises qui ont investi en 2021, les 2~\% qui ont investi au
+moins 500\,000~€ chacune réalisent 87~\% des 248,7~Md€ d'investissements corporels, et les 59~\% qui ont investi moins
+de 10\,000~€ n'en font que 1~\% (Insee, 2023). Une interpolation de Pareto entre ces seuils, prolongée jusqu'à 1~M€,
+donne une part couverte de 21~\% (18~\% pour un plafond de 0,5~M€). Le champ de l'Insee est plus large que celui de la
+mesure, et l'on ignore la composition des achats par taille : nous retenons 20~\% (15 à 30~\%). Au
+Royaume-Uni, 23~Md£ d'investissement ont été déduits en 2019-2020 sous le plafond équivalent (IFS, 2023).
+
+\textbf{Expériences étrangères.} La déduction totale britannique exclut voitures et biens loués ; elle coûte de
+l'ordre de 10 à 11~Md£ par an au début (IFS, 2023). La déduction américaine de 100~\% de 2017, réduite de
+20 points par an dès 2023, a été rétablie pour les biens acquis après le 19 janvier 2025, occasion comprise sauf entre
+entreprises liées (EY, 2026).
 
 \subsection{Méthode}\label{ann:is_methode}
 
 \textbf{Coût annuel.} Les achats de l'année $v$ sont $I_v = I_{2027}(1+g)^{v}$. Avec une fraction $b_v$ déduite
-immédiatement et le reste amorti selon le plan actuel $d_k$ (linéaire, ou dégressif selon le BOFiP), le coût pour l'État
-l'année $t$ est $\tau\, s \sum_{v \le t} b_v I_v\,(\mathbf{1}_{t=v} - d_{t-v})$, où $\tau = 25~\%$ et $s$ est la part
-imposable. Le plafond est traité comme une fraction $\theta$ des achats déduite à 100~\% : $b_v = \theta + (1-\theta)\,p_v$,
-où $p_v$ est le palier de l'année (50~\% en 2027, puis +10 points). Le cas central est la moyenne des deux plans actuels.
+immédiatement et le reste amorti selon le plan actuel $d_k$, le coût pour l'État l'année $t$ est
+$\tau\, s \sum_{v \le t} b_v I_v\,(\mathbf{1}_{t=v} - d_{t-v})$, où $\tau = 25~\%$ et $s$ est la part imposable. Le
+plafond est une fraction $\theta$ des achats déduite à 100~\% : $b_v = \theta + (1-\theta)\,p_v$, où $p_v$ est le
+palier de l'année. Le cas central est la moyenne des plans linéaire et dégressif.
 
-\textbf{Coût actualisé et coût permanent.} Une année d'achats coûte $\tau\, s\, I\,(1 - z)$ en valeur actualisée, $z$ étant
-la valeur actuelle des déductions pour 1~€ (0,847 en linéaire, 0,897 en dégressif à 5~\% ; 0,896 et 0,930 à 3,25~\%). Une
-fois la transition passée, le coût annuel vaut $\tau\, s\, I_t\,(1 - z(g))$, où $z(g)$ est actualisé au taux de croissance
-de l'investissement : 1,08 à 1,61~Md€ aux prix de 2027. Il serait nul si l'investissement ne croissait pas.
+\textbf{Coût actualisé et coût permanent.} Une année d'achats coûte $\tau\, s\, I\,(1 - z)$ en valeur actualisée ($z$ :
+valeur actuelle des déductions pour 1~€ (0,847 en linéaire, 0,897 en dégressif à 5~\% ; 0,896 et 0,930 à
+3,25~\%)). En régime permanent, le coût annuel vaut $\tau\, s\, I_t\,(1 - z(g))$, où $z(g)$ est actualisé au taux de
+croissance de l'investissement : il serait nul sans croissance.
 
-\textbf{Dette et baisse finale.} La dette vaut celle de l'année précédente, intérêts à 3,25~\% compris, moins le solde de
-l'année (ressources moins coût). L'année qui suit l'extinction, le taux normal baisse de
-$x = (F - C)/(P - C/25)$ points, où $F$, $C$ et $P$ sont les ressources, le coût de la déduction et la valeur d'un point
-une fois le régime permanent atteint (2040) : la division par $P - C/25$ tient compte de ce que la déduction coûte moins
-quand le taux baisse.
+\textbf{Dette et baisse finale.} La dette vaut celle de l'année précédente, intérêts à 3,25~\% compris, moins le solde
+de l'année. L'année qui suit l'extinction, le taux normal baisse de $x = (F - C)/(P - C/25)$ points, où $F$, $C$ et $P$
+sont les ressources, le coût de la déduction et la valeur d'un point en régime permanent (2040) ; $C/25$ traduit la
+baisse du coût de la déduction avec le taux.
 
 \textbf{Taux effectifs.} Méthode de Devereux et Griffith (2003) : financement par fonds propres, sans impôt personnel,
-rendement réel exigé de 5~\%, inflation de 2~\%, usure de 14~\% (équipements) ou 3,1~\% (bâtiments, amortis sur 25 ans),
-déductions actualisées au taux nominal ; taux moyen effectif pour un projet rapportant 20~\%. L'OCDE retient d'autres
-conventions (dont, semble-t-il, une part de financement par emprunt ; note de méthode non lue) : ses niveaux ne se
-comparent pas à ceux-ci, seuls les écarts entre variantes comptent (tableau~\ref{tab:is_tef}).
+rendement réel exigé de 5~\%, inflation de 2~\%, usure de 14~\% (équipements) ou 3,1~\% (bâtiments, amortis sur 25 ans) ;
+taux moyen effectif pour un projet rapportant 20~\% (tableau~\ref{tab:is_tef}). L'OCDE (2025), dont les conventions
+diffèrent (note de méthode non lue), donne pour la France un taux moyen effectif de 23,6~\% contre 22,2~\% en moyenne
+(13\up{e} sur 38) et un taux marginal effectif de 15,0~\% contre 16,5~\% (9,8~\% contre 10,4~\% pour les équipements),
+sans semble-t-il la contribution exceptionnelle. Seuls les écarts entre variantes se comparent.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Taux effectifs d'imposition d'un investissement, aujourd'hui et selon les réformes}\label{tab:is_tef}
@@ -100,16 +99,21 @@ Bâtiment, taux à 22~\% & 22~\% & 19,2~\% & 21,1~\% \\
 \end{table}
 
 \textbf{Part d'une baisse du taux qui touche l'investissement en équipements.} L'impôt actualisé sur le rendement normal
-d'une année d'achats d'équipements est égal au coût actualisé de leur déduction immédiate, 1,73 à 2,55~Md€. Un point de
-taux en retire un vingt-cinquième, 0,07 à 0,10~Md€, pour un coût de 2,67~Md€ par an : 2,6 à 3,8~\% du coût. Le reste
-allège l'impôt sur le capital déjà installé, sur les surplus, sur les autres actifs (bâtiments, logiciels, stocks) et sur
-les bénéfices qui pourraient être déclarés ailleurs ; le calcul ne compte pas les autres actifs neufs, qui relèveraient un
-peu cette part.
+d'une année d'achats d'équipements égale le coût actualisé de leur déduction immédiate, 1,73 à 2,55~Md€. Un point de taux
+en retire un vingt-cinquième, 0,07 à 0,10~Md€, pour un coût de 2,67~Md€ par an : 2,6 à 3,8~\% du coût, un peu plus si
+l'on comptait les autres actifs neufs. Par taille, la baisse irait pour 30~\% aux grandes entreprises, 25~\% aux
+entreprises de taille intermédiaire, 28 à 31~\% aux PME et 14 à 17~\% aux très petites sociétés (bénéfices de 2024).
+
+\textbf{Production et bien-être.} Perte sèche : \texttt{synthese/sorties/perte\_seche\_autres.txt} ; élasticité :
+H18-H19. Avec 50~\% sans montée, les gains de production et de bien-être sont divisés par deux ;
+avec le plafond seul, le gain de production n'est que de 0,02~\% environ. Le suramortissement français de 2015 n'a pas
+d'évaluation causale connue ; la seule étude du suramortissement robotique de 2019-2020 trouve un effet de 12 à 14~\%
+sur l'ensemble des PME industrielles, difficile à concilier avec ses 2\,400 utilisateurs (DGE, 2026).
 
 \textbf{Cas types.} Bénéfice et achats constants ; valeur de la déduction immédiate égale à l'avance d'impôt actualisée à
-5~\% par année d'achats, $\tau\, I\,(1 - z)$, soit 3,8~\% des achats en linéaire ; avance de trésorerie de la première année,
-$\tau\, I\,(1 - d_0)$. Le grand groupe n'utilise ni le CIR ni la boîte à brevets ; sa contribution exceptionnelle est
-calculée sur un impôt supposé stable d'une année sur l'autre (tableau~\ref{tab:is_cas}).
+5~\% par année d'achats, $\tau\, I\,(1 - z)$, soit 3,8~\% des achats en linéaire ; avance de trésorerie de la première
+année, $\tau\, I\,(1 - d_0)$ ; contribution exceptionnelle du grand groupe calculée sur un impôt supposé stable
+(tableau~\ref{tab:is_cas}).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Quatre sociétés types : ce que change la proposition (€ par an)}\label{tab:is_cas}
@@ -125,27 +129,27 @@ Grand groupe : fin de la contribution exceptionnelle & 180,6~M (2026) & & & $-$5
 \bottomrule
 \end{tabularx}
 \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Signe positif : la société paie davantage. Régime permanent,
-avant la baisse finale du taux (0,6 à 1,3 point, soit 3 à 6,5~M€ par an pour le grand groupe). Les PME achètent sous le
-plafond et déduisent 100~\% dès 2027 ; le grand groupe déduit 50~\% de ses achats au-delà de 1~M€ en 2027. Achats annuels
-qui compensent la perte maximale de 4\,250~€ : 111\,000~€ (actualisation à 5~\%), 75\,000~€ (8~\%), 63\,000~€ (10~\%) ;
-164\,000~€ pour une société qui amortit aujourd'hui en dégressif. Pour l'associé qui se fait distribuer le bénéfice, le
-taux cumulé de l'IS et du PFU sur 42\,500~€ passe de 41,7 à 48,6~\%.}
+avant la baisse finale du taux (3 à 6,5~M€ par an pour le grand groupe). Les PME achètent sous le plafond et déduisent
+100~\% dès 2027 ; le grand groupe déduit 50~\% de ses achats au-delà de 1~M€ en 2027. Une société qui amortit
+aujourd'hui en dégressif doit acheter 164\,000~€ par an pour compenser la perte de 4\,250~€.}
 \end{table}
 
 \subsection{Variantes}\label{ann:is_variantes}
 
-\textbf{Calendriers.} Le tableau~\ref{tab:is_options} compare sept calendriers de déduction et la
-figure~\ref{fig:is_dette_cal} la dette de ceux qui en créent une. Tous ont le même coût en régime permanent, sauf le
-50~\% sans montée, le plafond seul et l'amortissement neutre. L'amortissement neutre coûte à l'État, en valeur actualisée
-à son propre taux, autant que la déduction immédiate (1,2 à 1,7~Md€ par année d'achats), mais ne vaut pour les
-entreprises que 1,1 à 1,6~Md€, contre 1,7 à 2,6 : il évite la bosse budgétaire au prix d'un tiers de l'incitation.
+\textbf{Calendriers.} Le tableau~\ref{tab:is_options} compare sept calendriers, la figure~\ref{fig:is_calendriers} le
+coût annuel de trois d'entre eux, la figure~\ref{fig:is_dette_cal} la dette de ceux qui en créent une. L'amortissement
+neutre coûte à l'État, à son taux, autant que la déduction immédiate (1,2 à 1,7~Md€ par année d'achats), mais ne vaut
+pour les entreprises que 1,1 à 1,6~Md€, contre 1,7 à 2,6. Une marche unique en 2033 ferait bondir le coût de 2 à 10~Md€ ; le
+gain d'attente qu'elle crée vaut un mois de rendement d'une machine rapportant 15 à 20~\% par an, contre une semaine
+avec des paliers (H28). Le tableau~\ref{tab:is_fin} donne la dette selon le financement.
 
 \input{parties/tab_is_options}
 
+\figbloc{is_n06_calendriers}{Le calendrier proposé évite la marche de 2033 : son coût décroît dès 2027 au lieu de
+bondir de 8~Md€}{fig:is_calendriers}
+
 \figbloc{is_n09_dette_calendriers}{La dette de transition selon le calendrier : 29~Md€ au plus pour 100~\% dès 2027,
 22~Md€ pour la proposition, 9~Md€ pour l'ancien calendrier}{fig:is_dette_cal}
-
-\textbf{Financement.} Le tableau~\ref{tab:is_fin} donne, pour la proposition, la dette selon le financement.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{La dette de transition selon le financement (proposition, cas central pour le coût)}\label{tab:is_fin}
@@ -164,155 +168,81 @@ Assiette et une dernière année de contribution exceptionnelle (5,0 en 2027, 0,
 (central 15) & 2036 à 2043 (central 2039) \\
 \bottomrule
 \end{tabularx}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Coût de la proposition dans le cas central (régime actuel
-moitié linéaire, moitié dégressif ; part imposable 75~\%). « Jamais » : la dette n'est pas éteinte en 2066. Le rendement
-du taux réduit retiré aux seules sociétés immobilières et financières suppose que la base imposée à 15~\% se répartit
-entre secteurs comme le nombre de sociétés (31~\% en 2025) ou comme l'IS brut (24~\%) : aucune donnée ne permet de le
-vérifier.
-Source : \texttt{is/calculs\_note\_is.py}.}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Régime actuel moitié linéaire, moitié dégressif ; part
+imposable 75~\%. « Jamais » : dette non éteinte en 2066. Sociétés immobilières et financières : base à 15~\% supposée
+répartie comme le nombre de sociétés (31~\% en 2025) ou l'IS brut (24~\%), invérifiable (H25). Source :
+\texttt{is/calculs\_note\_is.py}.}
 \end{table}
-
-\textbf{Production et bien-être.} En régime permanent, la proposition supprime le coin des équipements comme la déduction
-totale : PIB plus élevé de 0,04 à 0,2~\% à long terme (0,1~\% au centre), pour une élasticité du stock d'équipements au
-coût d'usage de 0,5 à 1,6 ; perte sèche statique évitée sur le capital de 0,02 à 0,16~Md€ par an
-(\texttt{synthese/sorties/perte\_seche\_autres.txt}). Avec 50~\% sans montée, ces chiffres sont divisés par deux ; avec le
-plafond seul, le gain de production n'est que de 0,02~\% environ. Un IS à 28~\% coûterait 0,05 à 0,3~Md€ de perte sèche
-sur le capital non déduit (bâtiments) et de zéro à 3,2~Md€ par le transfert de bénéfices. La fin du taux réduit
-alourdit le coût du capital des petites sociétés sous le plafond ; le chiffre de « jusqu'à 0,8~Md€ » de perte sèche
-avancé dans une version antérieure appliquait à la France le coût marginal mesuré au seuil britannique (Devereux, Liu
-et Loretz, 2014, résumé seulement lu) : il n'est pas repris, faute de fondement solide.
 
 \subsection{La transition, année par année}\label{ann:is_transition}
 
 \input{parties/tab_is_transition_complet}
 
-\textbf{Sensibilités.} Pour la proposition, cas central sauf mention : part imposable de 60~\% : dette maximale 11~Md€,
-éteinte en 2037 ; de 90~\% : 33~Md€, éteinte en 2046 (de 16 à 57~Md€ et de 2038 à 2066 selon le plan actuel et le
-financement) ; part couverte par le plafond de 15 à 30~\% : coût 2027 de 8,5 à 9,6~Md€, dette de 21,2 à 22,3~Md€,
-extinction inchangée (2041) ; taux d'emprunt de 2,5 à 5~\% : 20,9 à 23,1~Md€, extinction de 2041 à 2042 ; croissance de
-l'investissement de 2 à 4~\% : 20,2 à 22,9~Md€, extinction de 2040 à 2042. Pour une déduction totale, une durée
-d'amortissement de 5 ou 10 ans au lieu de 7 donne un coût la première année de 15,0 ou 15,9~Md€ (au lieu de 15,5) et un
-coût actualisé de 1,9 ou 3,5~Md€ (au lieu de 2,6) ; inclure les matériels de transport porterait la première année à
-23,3~Md€.
-
 \subsection{Corrections apportées à la version précédente}\label{ann:is_corrections}
 
-La version précédente de cette partie reposait sur un calibrage qui portait les bénéfices de 2022 à 2027 à 3~\% par an,
-alors que le bénéfice fiscal n'a crû que de 1~\% par an de 2023 à 2025 (\texttt{revue/hypotheses\_is.md}). Corrigés le
-16 novembre 2026, avant le recalage sur 2025 décrit plus bas :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item un point de taux vaut 2,95~Md€ en 2027 (2,66 si le taux réduit est gardé), non 3,2 ; le coût actualisé d'une année
-d'achats représente 0,6 à 0,9 point de taux au taux des entreprises, non « 0,5 à 0,8 » ;
-\item l'assiette rapporte 3,5 à 4,6~Md€ (non 3,5 à 4,9), dont 2,2 à 2,9 pour la fin du taux réduit (non 2,2 à 3,1) ; les
-exonérations zonées sont d'IR et d'IS ;
-\item un IS à 28~\% rapporte 4,6 à 8,0~Md€ (non 5,1 à 8,7) ; sa perte sèche est de 0,05 à 0,3~Md€ sur le capital et de
-zéro à 3,2 par le transfert de bénéfices (non +0,04 et 0 à 3,8) ;
-\item le coût permanent de la déduction totale est de 1,3 à 2,0~Md€ en euros de 2034, soit 1,1 à 1,6 aux prix de 2027 ;
-le plan dégressif s'achève au septième exercice (BOFiP) ;
-\item le triangle évité est de 0,02 à 0,16~Md€ (non 0,05 à 0,16) ;
-\item l'ancien calendrier (50~\% jusqu'en 2032 puis 100~\%) créait une marche de 9 à 11~Md€ en 2033, que le texte ne disait
-pas ; il est remplacé par des paliers annuels et un plafond à 100~\% ;
-\item la baisse finale du taux est datée : pas avant l'extinction de la dette, de 2037 à 2054 selon les cas ; avec le
-taux réduit maintenu, la dette n'est « pas éteinte en quarante ans » plutôt que « jamais remboursée » ;
-\item la fin de la contribution exceptionnelle est comptée dans la recette (7~Md€ de moins qu'en 2026, 5 de moins que
-le projet de loi de finances pour 2027), au lieu d'être rangée dans la référence ;
-\item le seuil d'investissement qui compense la fin du taux réduit est donné selon le taux d'actualisation de la société.
-\end{itemize}
-
-\textbf{Recalage sur 2025 (17 novembre 2026).} Les bénéfices imposables de l'exercice 2025, publiés par la DGFiP en
-septembre 2026, remplacent ceux de 2022 portés en 2027. La base au taux normal est celle qu'annonçait l'ancien
-calibrage (256,8~Md€ contre 256,0), mais la base à 15~\% est plus forte (30,6 contre 27,5) ; dans le même temps, le
-nombre de sociétés à l'IS a augmenté de 16~\%. Changent : un point de taux vaut 2,99~Md€ (au lieu de 2,95) ; la fin du
-taux réduit rapporte 2,2 à 3,2~Md€ (au lieu de 2,2 à 2,9) et l'assiette 3,5 à 4,9 (au lieu de 3,5 à 4,6) ; dans le cas
-central, la dette de transition culmine à 21,5~Md€ au lieu de 22,9, s'éteint en 2041 au lieu de 2042, et la baisse
-finale du taux est de 1,0 point (0,6 à 1,3) au lieu de 0,9 (0,6 à 1,2) ; une baisse du taux profiterait pour 30~\% aux
-grandes entreprises (32~\% avec les bénéfices de 2022). La borne basse de la fin du taux réduit, tirée du coût officiel
-de 2019, ne représente plus que 68~\% du rendement statique (75~\% auparavant) : elle n'a pas été relevée, ce qui
-laisse inchangés la dette et l'extinction du cas défavorable. Ne changent pas : le coût de la déduction
-(l'investissement retenu était déjà celui de 2025), les taux effectifs, les cas types. Restent sur des années
-antérieures, faute de données de 2025 : la comparaison de l'OCDE (2023), les taux implicites de l'Insee (2022), la
-répartition des bénéfices par taille (2024), la boîte à brevets (montant de 2025 estimé par le PLF 2026).
+La version précédente portait les bénéfices de 2022 à 2027 à 3~\% par an, quand le bénéfice fiscal n'a crû que de
+1~\% par an de 2023 à 2025 (\texttt{revue/hypotheses\_is.md}). Après correction et recalage sur 2025, un point de taux
+vaut 2,99~Md€, non 3,2 ; la marche de 9 à 11~Md€ que l'ancien calendrier créait en 2033
+disparaît ; la fin de la contribution exceptionnelle est comptée dans la recette ; la baisse finale du taux attend
+l'extinction de la dette ; la dette maximale du cas central passe de 22,9 à 21,5~Md€, éteinte en 2041 au lieu de 2042.
+La perte sèche de « jusqu'à 0,8~Md€ » prêtée à la fin du taux réduit, transposée du seuil britannique (Devereux, Liu
+et Loretz, 2014), est abandonnée.
 
 \subsection{Hypothèses fortes et chiffres non vérifiés}\label{ann:is_hypotheses}
 
-Source : \texttt{revue/hypotheses\_is.md} (H1 à H22), complété pour cette version (H23 à H28). Les effets sont calculés
-sur la proposition, cas central, sauf mention.
+Registre : \texttt{revue/hypotheses\_is.md} (H1 à H22 ; H23 à H28 ajoutées ici). Effets sur la proposition, cas
+central, sauf mention.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Hypothèses fortes de la partie IS (1/2) : coût et transition}\label{tab:is_hyp1}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
+\caption{Hypothèses fortes de la partie IS}\label{tab:is_hyp1}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 Hypothèse & Où elle joue & Ce qu'elle change si elle est fausse \\
 \midrule
-H1. 75~\% de l'investissement éligible est fait par des sociétés imposables (60 à 90~\%) ; aucune statistique publiée &
-tous les coûts, la dette, le PIB & L'hypothèse qui pèse le plus. À 60~\% : dette de 11~Md€, éteinte en 2037 ; à 90~\% :
-33~Md€, éteinte en 2046 ; 57~Md€ et 2066 dans le cas défavorable. \\
-H2. Les sociétés imposables utilisent toute la déduction l'année de l'achat ; les autres ne coûtent rien & profil du
-coût & Avec l'imputation hors plafond des déficits issus de la déduction, la première hypothèse est plus proche de la
-réalité. Si les sociétés non imposables imputaient un jour tous leurs déficits, le coût actualisé augmenterait au plus
-d'un tiers (0,6 à 0,85~Md€ par année d'achats), étalé dans le temps. Non chiffrable sans microdonnées. \\
-H3. Champ : machines hors transport et matériel informatique des sociétés non financières (84~Md€) & tous les coûts &
-Avec les matériels de transport, la déduction totale coûterait 23,3~Md€ la première année au lieu de 15,5. Ouvrir la mesure
-aux entreprises à l'IR ajouterait au plus 14,5~Md€ d'assiette. \\
-H4. Durée d'amortissement type de 7 ans & coût, coin, seuils & À 10 ans : coût actualisé de 3,5~Md€ au lieu de 2,6, coin de
-7,0~\% au lieu de 5,1. \\
-H5. Plan actuel entièrement linéaire ou entièrement dégressif ; cas central : moitié-moitié (mélange réel non publié)
-& toutes les fourchettes & Principale source des fourchettes : dette de 13 à 32~Md€ avec les ressources centrales. \\
-H6. Croissance nominale de l'investissement de 3~\% & coût permanent, dette & À 2 ou 4~\% : dette de 20,2 ou 22,9~Md€. Le
-coût permanent est nul à croissance nulle. \\
-H7. Bénéfice fiscal +2~\% par an en 2026 et 2027 (bénéfices de 2025 observés, données provisoires) & point de taux,
-ressources & De 0 à 2,5~\% : point de 2,87 à 3,02~Md€. Effet faible. \\
-H8. Taux d'actualisation des entreprises de 5~\% & valeur pour les entreprises, coins, seuils & À 8~\% : la déduction vaut
-plus ; le seuil de compensation d'une petite société tombe à 75\,000~€. \\
-H9. Taux d'emprunt de l'État de 3,25~\% & dette & De 2,5 à 5~\% : dette de 20,9 à 23,1~Md€. \\
-H10. Aucun investissement supplémentaire suscité dans le chiffrage budgétaire & coût des premières années & +10~\%
-d'investissement : +0,9~Md€ en 2027, récupérés ensuite. \\
-H11. Coûts et ressources comptés l'année de l'exercice & calendrier & En caisse, tout arrive environ un an plus tard ;
-le profil ne change pas. \\
-H23. Le plafond de 1~M€ couvre 20~\% de l'investissement éligible (15 à 30~\%) & coût des premières années & De 15 à 30~\% :
-coût 2027 de 8,5 à 9,6~Md€, dette de 21,2 à 22,3~Md€. \\
-H24. Cas central : ressources au milieu de la fourchette (4,22~Md€) & tableau de transition & Bornes : 3,5 et 4,9~Md€,
-dette de 8 à 40~Md€ avec les bornes de H5. \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{table}[!htbp]\centering\scriptsize
-\caption{Hypothèses fortes de la partie IS (2/2) : financement, effets, cas types}\label{tab:is_hyp2}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
-\toprule
-Hypothèse & Où elle joue & Ce qu'elle change si elle est fausse \\
-\midrule
-H12. Bénéfices déclarés : 0 à 1,5~\% de moins par point de taux, appliqué à tous les bénéfices & rendement d'un IS à
-28~\%, coût d'une baisse & Mesuré sur les filiales de multinationales ; les PME ne transfèrent pas : la borne basse du
-28~\% est pessimiste. Les choix d'implantation ne sont pas comptés. \\
-H13. Coût réel du transfert de bénéfices : de 0 à 100~\% de l'impôt perdu & perte sèche du 28~\% & Avec un pays d'accueil
-à 12,5-15~\%, la borne haute serait environ moitié moindre (1,5 au lieu de 3,2~Md€). \\
-H14. Fin du taux réduit : borne basse au coût officiel de 2019 porté en 2027, 68~\% du rendement statique sur la base
-de 2025 & ressources & Réactions (passage à l'IR, rémunération en salaire) non chiffrées. \\
-H15. Boîte à brevets : 0,62~Md€ si la base reste, 0,2 si elle fuit (borne arbitraire) & ressources & Quelques Md€ de
-dette. \\
-H16-H17. CIR au niveau du groupe (0,59) et zones (0,54, IR et IS) : chiffrages du CPO & ressources & Le CIR vient
-d'une estimation de 2021 sur les liasses de 2016 ; la part de l'IS dans les zones n'est pas publiée ; les ZRR sont en
-extinction. Au plus 0,5~Md€ d'écart. \\
-H18-H19. $r+\delta = 19~\%$ ; élasticité du stock d'équipements au coût d'usage de 0,5 à 1,6 (0,5 sans source) & PIB,
-perte sèche & Effet proportionnel. Si la déduction agit surtout par la trésorerie (Zwick et Mahon), l'effet dépend de
-la taille et de la rentabilité. \\
-H20. Le gain de PIB ne compte pas le financement & PIB & La fin du taux réduit renchérit les bâtiments, stocks et fonds
-de roulement des petites sociétés sous le plafond (bâtiment : 13 à 22~\%). L'effet net peut être nettement inférieur à
-0,1~\% du PIB. \\
-H21. Taux de 25~\% pour tous dans le coût (contributions sociale et exceptionnelle ignorées) & coûts & Négligeable. \\
-H22. Référence : droit en vigueur, la contribution exceptionnelle s'éteint & recette & Par rapport à 2026, 7~Md€ de
-moins ; par rapport au PLF 2027, 5~Md€. Affiché dans le texte. \\
-H25. Taux réservé : la base à 15~\% se répartit entre secteurs comme le nombre de sociétés ou l'IS brut & variante de
-financement & Rendement de 0,5 à 1,0~Md€ : ordre de grandeur indicatif, invérifiable. \\
-H26. Taux effectifs : conventions de Devereux et Griffith, financement par fonds propres & figures~\ref{fig:is_cout_egal} et \ref{fig:is_avant_apres} &
-Niveaux non comparables à ceux de l'OCDE ; seuls les écarts comptent. Avec emprunt, l'équipement déduit immédiatement
-est subventionné. \\
-H27. Cas types : bénéfice et achats constants, déduction valorisée à 5~\% ; grand groupe sans CIR ni brevets & cas types
-& À 8-10~\%, la déduction vaut 50 à 80~\% de plus pour les PME. \\
-H28. Gain d'attente au passage d'un palier comparé à un rendement brut de 15 à 20~\% par an & choix du calendrier &
-Ordre de grandeur, non mesuré. \\
+H1. 75~\% de l'investissement éligible fait par des sociétés imposables (60 à 90~\%), sans statistique publiée & coûts,
+dette, PIB & L'hypothèse qui pèse le plus (§~\ref{sec:is_transition}). \\
+H2. Les sociétés imposables utilisent toute la déduction l'année de l'achat, les autres ne coûtent rien & profil du
+coût & Si les autres imputaient un jour tous leurs déficits : coût actualisé majoré d'un tiers au plus (0,6 à
+0,85~Md€ par année d'achats). Revalorisation des déficits non chiffrable. \\
+H3. Champ : machines hors transport et informatique des sociétés non financières & coûts & Avec le transport,
+déduction totale à 23,3~Md€ la première année au lieu de 15,5 ; entreprises à l'IR : au plus 14,5~Md€ d'assiette. \\
+H4. Amortissement type sur 7 ans & coût, coin & À 5 ou 10 ans, coût actualisé de 1,9 ou 3,5~Md€ au lieu de 2,6 ; à 10
+ans, coin de 7,0~\% au lieu de 5,1. \\
+H5. Plan actuel moitié linéaire, moitié dégressif (mélange réel non publié) & fourchettes & Dette de 13 à 32~Md€ avec
+les ressources centrales. \\
+H6. Investissement +3~\% par an & coût permanent, dette & À 2 ou 4~\% : dette de 20,2 ou 22,9~Md€. \\
+H7. Bénéfice fiscal +2~\% par an en 2026 et 2027 & point de taux & De 0 à 2,5~\% : point de 2,87 à 3,02~Md€. \\
+H8-H9. Actualisation à 5~\% pour les entreprises, emprunt de l'État à 3,25~\% & valeurs, seuils, dette & À 8~\%, la
+déduction vaut plus pour les entreprises ; de 2,5 à 5~\%, dette de 20,9 à 23,1~Md€. \\
+H10-H11. Aucun investissement suscité ; coûts comptés l'année de l'exercice & premières années, calendrier & Surcoût
+temporaire, récupéré ensuite ; en caisse, un an plus tard. \\
+H12. Bénéfices déclarés : 0 à 1,5~\% de moins par point de taux, sur tous les bénéfices & IS à 28~\%, baisse du taux &
+Mesuré sur les multinationales : borne basse du 28~\% pessimiste. \\
+H13. Coût réel du transfert de bénéfices : 0 à 100~\% de l'impôt perdu & perte sèche du 28~\% & Avec un pays d'accueil
+à 12,5-15~\%, borne haute de 1,5 au lieu de 3,2~Md€. \\
+H14. Fin du taux réduit : borne basse au coût officiel de 2019, non relevée au recalage (68~\% du rendement statique,
+contre 75~\% auparavant) & ressources & Réactions (passage à l'IR, rémunération en
+salaire) non chiffrées. \\
+H15. Boîte à brevets : 0,62~Md€, 0,2 si la base fuit (borne arbitraire) & ressources & Quelques Md€ de dette. \\
+H16-H17. CIR au niveau du groupe et zones : chiffrages du CPO & ressources & CIR estimé en 2021 (liasses de 2016) ;
+part de l'IS des zones non publiée. Au plus 0,5~Md€ d'écart. \\
+H18-H19. $r+\delta = 19~\%$ ; élasticité du stock d'équipements de 0,5 à 1,6 (0,5 sans source) & PIB, perte sèche &
+Effet proportionnel ; dépend de la taille si la déduction agit par la trésorerie. \\
+H20. Gain de PIB hors effet du financement & PIB & Voir §~\ref{sec:is_prop} (petites sociétés). \\
+H21-H22. Taux de 25~\% pour tous dans le coût ; référence : droit en vigueur & coûts, recette & Négligeable ; fin de la
+contribution exceptionnelle affichée (§~\ref{sec:is_arbitrages}). \\
+H23. Plafond couvrant 20~\% de l'investissement éligible (15 à 30~\%) & premières années & Coût 2027 de 8,5 à
+9,6~Md€, dette de 21,2 à 22,3~Md€. \\
+H24. Ressources au milieu de la fourchette (4,22~Md€) & transition & Bornes de 3,5 et 4,9~Md€ : dette de 8 à 40~Md€
+avec les bornes de H5. \\
+H25. Taux réservé aux sociétés opérationnelles : base à 15~\% répartie comme le nombre de sociétés ou l'IS brut &
+variante de financement & Rendement de 0,5 à 1,0~Md€ : ordre de grandeur indicatif, invérifiable. \\
+H26. Taux effectifs : conventions de Devereux et Griffith, fonds propres & figures~\ref{fig:is_cout_egal} et
+\ref{fig:is_avant_apres} & Avec emprunt, l'équipement est subventionné ; nous ne durcissons pas le plafonnement des
+charges financières (3~M€ ou 30~\% du résultat avant intérêts et amortissements), qui épargne la plupart des PME. \\
+H27. Cas types : déduction valorisée à 5~\% ; grand groupe sans CIR ni brevets & cas types & À 8-10~\%, la déduction
+vaut 50 à 80~\% de plus pour les PME. \\
+H28. Gain d'attente comparé à un rendement brut de 15 à 20~\% par an & calendrier & Ordre de grandeur, non mesuré. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -324,24 +254,18 @@ Ordre de grandeur, non mesuré. \\
 Chiffre ou fait & Statut \\
 \midrule
 Environ 450 redevables de la contribution exceptionnelle & Source : le cours ; ni la DGFiP ni le PLF 2027 ne le donnent \\
-Contribution exceptionnelle de 2026 : environ 7,0~Md€ & Déduite du PLF 2027 (5,0~Md€ en 2027, « en diminution de 2,0~Md€ par
-rapport à 2026 ») \\
+Contribution exceptionnelle de 2026 : environ 7,0~Md€ & Déduite du PLF 2027 (5,0~Md€ en 2027, « en diminution de
+2,0~Md€ ») \\
 Suppression de l'article 15 du PLF 2027 en première lecture & Source secondaire (Légifiscal) \\
-Croissance du bénéfice fiscal en 2026 et 2027 & Tome I des Voies et moyens du PLF 2027 non publié en ligne \\
-Bénéfices imposables et IS brut de 2025, par taux et par taille & Données provisoires (DGFiP n°~51, déclarations
-connues à mi-2026, extrapolées) \\
-Contribution sociale de 2025 : 1,15~Md€ & Comptabilité nationale (Insee 3.217) ; le budget de l'État en inscrit
-davantage (1,5~Md€ en 2026), concept différent non rapproché \\
-Prise en compte de la contribution exceptionnelle dans les taux effectifs de l'OCDE & Déduite des données \\
+Bénéfices de 2025 ; croissance en 2026 et 2027 & DGFiP n°~51 provisoire ; tome I des Voies et moyens non publié \\
+Contribution sociale de 2025 : 1,15~Md€ & Insee 3.217 ; le budget de l'État inscrit 1,5~Md€ en 2026, concept non rapproché \\
+Contribution exceptionnelle dans les taux effectifs de l'OCDE & Déduite des données \\
 Maffini, Xing et Devereux (2019) : +11~\% & Version de travail ; le résumé publié donne +2,1 à 2,5 points de taux
 d'investissement \\
-Bernini et Treibich (2016) : +29~\% de capital & Résumé seulement lu \\
-Règles américaines (biens d'occasion, entreprises liées, date du 19 janvier 2025) & Source secondaire (EY, 2026) ; texte
-de loi non lu \\
-CIR calculé société par société, au profit des groupes qui fractionnent leur recherche & D'après la recommandation du CPO
-(2025) ; règle du CGI non relue \\
+Bernini et Treibich (2016) ; Devereux, Liu et Loretz (2014) & Résumés seulement lus \\
+Règles américaines (biens d'occasion, entreprises liées, 19 janvier 2025) & Source secondaire (EY, 2026) \\
+CIR calculé société par société & D'après le CPO (2025) ; CGI non relu \\
 Répartition de la base à 15~\% par type de société & Aucune statistique \\
-Bénéfice moyen au taux réduit & Non repris : nombre de bénéficiaires de 2022 inconnu \\
 \bottomrule
 \end{tabularx}
 \end{table}
