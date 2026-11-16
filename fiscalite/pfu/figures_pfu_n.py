@@ -149,7 +149,7 @@ def n04_europe():
         "supérieur, en %. La Tax Foundation retient pour la France l'IS de 36,1 % que paient, avec la contribution "
         "exceptionnelle, les seuls groupes de plus de 3 Md€ de chiffre d'affaires (57,9 %) ; avec l'IS de droit commun "
         "(25,8 %), la France passe "
-        "au 5e rang sur 31 en 2025 (PFU de 30 % et CEHR) et au 4e en 2026 (PFU de 31,4 %). Douze pays représentés ; "
+        "au 5e rang sur 31 en 2025 (PFU de 30 % et CEHR) et au 4e en 2026 (PFU de 31,4 %). Treize pays représentés ; "
         "la moyenne porte sur les 31 pays, France recalculée.")
 
 

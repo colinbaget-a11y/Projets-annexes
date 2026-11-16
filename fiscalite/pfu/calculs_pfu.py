@@ -405,12 +405,14 @@ for k in NOMS_P:
     p(f"   {NOMS_P[k]:38s} : an 10 {fr(SENS[k]['bas'][0], 2)} à {fr(SENS[k]['haut'][0], 2)} ; VA "
       f"{fr(SENS[k]['bas'][1], 2)} à {fr(SENS[k]['haut'][1], 2)} (centre {fr(ref10, 2)} ; {fr(refva, 2)})")
 J["sensibilite"] = dict(ref=[ref10, refva], par=SENS)
+SENS_J = {}
+J["sensibilite_jointe"] = SENS_J
 for nom, chg in (("b et λ bas ensemble", dict(b=JEUX["bas"]["b"], lam=JEUX["bas"]["lam"])),
                  ("b et λ hauts ensemble", dict(b=JEUX["haut"]["b"], lam=JEUX["haut"]["lam"])),
                  ("verrouillage : a et h bas ensemble", dict(a=JEUX["bas"]["a"], h=JEUX["bas"]["h"]))):
     q = dict(c0, **chg)
     v = evalue(q)
-    SENS[nom] = dict(nom=nom, val=v)
+    SENS_J[nom] = dict(nom=nom, val=v)
     p(f"   {nom:38s} : an 10 {fr(v[0], 2)} ({fr(100 * (v[0] / ref10 - 1), 0)} %) ; VA {fr(v[1], 2)}")
 
 p("3e. Le haut de la distribution [H : 90 % de la recette payée par le top 1 %]")
