@@ -1,0 +1,10 @@
+# Insee, comptes nationaux annuels base 2020, tableau 8.200 « Comptes de patrimoine des secteurs institutionnels de l'année 2025 » (Md€, fin 2025)
+# https://www.insee.fr/fr/statistiques/fichier/8988859/T_8200_2025_fr.xlsx (page https://www.insee.fr/fr/statistiques/8988859), lu le 16/11/2026 ; actifs non financiers identiques à ceux de l'Insee Première n° 2135 (12/11/2026)
+# N2111 terrains supportant des bâtiments et des ouvrages de génie civil ; N2112 terrains cultivés ; N2119 autres terrains et plans d'eau ; N2113 terrains de loisirs ; N111 logements ; N1121 bâtiments non résidentiels
+secteur,libelle,N2111,N2112,N2113,N2119,N111,N1121
+S11,Sociétés non financières,1700.671,709.596,0.000,113.036,1087.421,399.869
+S12,Sociétés financières,200.287,0.000,0.000,0.000,57.776,116.280
+S13,Administrations publiques,941.393,0.000,5.443,147.093,88.281,389.978
+S14,Ménages,4136.126,192.504,0.000,451.854,4811.503,45.691
+S15,ISBLSM,53.900,0.000,0.000,0.000,0.000,41.211
+S1,Économie totale,7032.377,902.100,5.443,711.983,6044.982,993.027

@@ -2,5 +2,6 @@
  "tfpb_2017": 31938113553.0,
  "tfpb_2024": 41403361661.0,
  "logements_metro_particuliers": 32193132.64327695,
- "source": "REI 2017 et 2024 (DGFiP), sommes des parts commune, syndicats, groupement, d\u00e9partement (2017), TSE, GEMAPI, TASA ; m\u00e9tropole. Logements : recensement 2022, logements moins HLM, m\u00e9tropole."
+ "source": "REI 2017, 2024 et 2025 (DGFiP), sommes des parts commune, syndicats, groupement, d\u00e9partement (2017), TSE, GEMAPI, TASA ; m\u00e9tropole. Logements : recensement 2022, logements moins HLM, m\u00e9tropole.",
+ "tfpb_2025": 42571324162.0
 }

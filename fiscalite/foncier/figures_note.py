@@ -25,8 +25,11 @@ J = json.loads((RACINE / "synthese/sorties/calculs_foncier.json").read_text(enco
 TXT = 10.3                     # taille des textes que graphiques met à l'échelle (≈ 8 pt imprimés en mode nu)
 plt.rcParams.update({k: TXT * ECH_TXT for k in ("xtick.labelsize", "ytick.labelsize", "axes.labelsize",
                                                  "legend.fontsize")})
-SRC = ("DGFiP, REI 2024 et DVF 2023-2024 ; Insee, recensement 2022, comptes de patrimoine 2024 et Insee Analyses "
-       "n° 91 ; calculs de l'auteur (synthese/calculs_foncier.py, foncier/simulation.py).")
+SRC = ("DGFiP, REI 2017 et 2025, DVF 2023 à 2025 ; Insee, recensement 2022, comptes de patrimoine 2025 et Insee "
+       "Analyses n° 91 ; calculs de l'auteur (synthese/calculs_foncier.py, foncier/simulation.py).")
+TN = J["taux_national"]
+CUT = TN["cut_log"] + TN["cut_aut"]
+REPRISE = 1 - J["volumes"]["facteur"]              # baisse du taux national si les ventes reprennent (σ = 6)
 XT = [_fr(u / 1e3, 1) for u in J["dec_pm2"]]
 XLAB = "Prix médian au m² du dixième de logements (milliers d'euros), du moins cher au plus cher"
 X = np.arange(10)
@@ -76,20 +79,22 @@ def n01_inventaire():
     ax.set_yticklabels(fam)
     ax.invert_yaxis()
     ax.set_xlim(0, 76)
-    ax.set_xlabel("milliards d'euros, 2024", fontsize=TXT, color=ENCRE2)
+    ax.set_xlabel("milliards d'euros, 2025", fontsize=TXT, color=ENCRE2)
     axes_propres(ax, grille="x")
     ax.spines["left"].set_visible(False)
     ax.tick_params(axis="y", length=0)
     fin(fig, "foncier_n01_inventaire",
         "DGCL-DGFiP, note REI 2025 ; OFGL ; SDES, Compte du logement 2025 ; DGFiP Statistiques n° 43 ; calculs de "
         "l'auteur (foncier/notes/inventaire.md).",
-        "Note : rendements 2024, périmètres hétérogènes. TF : taxe foncière sur les propriétés bâties (42 Md€, dont "
-        "30,5 sur les logements selon le Compte du logement ; le reste par différence, non vérifié) ; TEOM : taxe "
+        "Note : rendements 2025, périmètres hétérogènes. TF : taxe foncière sur les propriétés bâties (43,1 Md€, dont "
+        "31,6 sur les logements selon le Compte du logement ; le reste par différence, non vérifié) ; TEOM : taxe "
         "d'enlèvement des ordures ménagères ; CFE : cotisation foncière des entreprises. Autres de la détention : "
-        "taxes d'habitation restantes, IFI, foncier non bâti, taxe sur les bureaux d'Île-de-France, GEMAPI, taxes "
-        "spéciales d'équipement. Ventes : droits de mutation, TVA du neuf et des terrains, impôt sur les "
-        "plus-values immobilières et contribution de sécurité immobilière. Transmissions : part immobilière des "
-        "droits de succession et de donation, estimée à 60 % (clé du CPO, aucune ventilation officielle).")
+        "taxes d'habitation restantes, IFI, foncier non bâti, GEMAPI (2025), taxe sur les bureaux d'Île-de-France "
+        "(2024), taxes spéciales d'équipement (prévision 2027), taxe sur les logements vacants (2022). Ventes : droits "
+        "de mutation et TVA du neuf et des terrains (2025), impôt sur les plus-values immobilières et contribution de "
+        "sécurité immobilière (2024, derniers chiffres publiés). Transmissions : part immobilière des droits de "
+        "succession et de donation, estimée à 60 % (clé du CPO, aucune ventilation officielle). Construction : taxe "
+        "d'aménagement encaissée (2025) et redevance d'archéologie préventive (2024).")
 
 
 # ---------------------------------------------------------------------------------------------------------- n02
@@ -124,8 +129,8 @@ def n02_ocde():
         "Note : catégorie 4100 (impôts périodiques sur la propriété immobilière ; en France, taxes foncières, taxe "
         "d'enlèvement des ordures ménagères et taxes d'habitation restantes, mais pas la CFE) et catégorie 4400 "
         "(impôts sur les transactions mobilières et immobilières ; en France, les droits sur l'immobilier en "
-        "représentent environ 86 % en 2024). La moyenne de l'OCDE n'est pas encore publiée pour 2024 ; la France "
-        "est alors à 1,95 % et 0,62 % du PIB.")
+        "représentent environ 86 % en 2024). La moyenne de l'OCDE n'est pas encore publiée pour 2024 (la France est "
+        "alors à 1,95 % et 0,62 % du PIB), ni aucune donnée pour 2025.")
 
 
 # ---------------------------------------------------------------------------------------------------------- n03
@@ -163,7 +168,7 @@ def n03_taux_valeur():
     fin(fig, "foncier_n03_taux_valeur", SRC,
         "Note : logements des particuliers de France métropolitaine hors Alsace-Moselle (30,5 millions). Valeur : prix "
         "médian au m² des ventes 2023-2024 de la commune × surface médiane ; taxe : rapport taxe/valeur de chaque "
-        "commune en 2017 (Insee Analyses n° 91) vieilli selon la croissance de sa taxe foncière de 2017 à 2024. Hypothèse "
+        "commune en 2017 (Insee Analyses n° 91) vieilli selon la croissance de sa taxe foncière de 2017 à 2025. Hypothèse "
         "forte : à l'intérieur d'une commune, tous les logements paient le même pourcentage de leur valeur ; en réalité "
         "ce pourcentage varie aussi d'un quartier à l'autre (à Paris, de 0,074 à 0,121 % entre le premier et le "
         "neuvième dixième des quartiers en 2017).")
@@ -183,7 +188,9 @@ def n04_qui_paie():
     ax.set_yticklabels(noms)
     ax.invert_yaxis()
     ax.set_xlim(0, 16)
-    ax.set_xlabel("milliards d'euros par an (logements des particuliers, 23,6 Md€ au total)", fontsize=TXT, color=ENCRE2)
+    ax.set_xlabel(f"milliards d'euros en 2025 (logements des particuliers, {_fr(tot, 1)} Md€ au total)",
+                  fontsize=TXT, color=ENCRE2)
+    fig.subplots_adjust(bottom=0.24)
     axes_propres(ax, grille="x")
     ax.spines["left"].set_visible(False)
     ax.tick_params(axis="y", length=0)
@@ -207,9 +214,12 @@ def n05_cycle():
     ax.set_ylabel("milliards d'euros", fontsize=TXT, color=ENCRE2)
     axes_propres(ax)
     fin(fig, "foncier_n05_cycle", "SDES, Compte du logement 2025, série T321 (droits de mutation bruts sur les logements).",
-        "Note : France entière, logements seuls. Les droits sur les autres biens (locaux, terrains) ajoutent environ "
-        "3 Md€ par an (différence entre le total des collectivités et les logements, non vérifiée). Sur la même "
-        "période, la taxe foncière sur les logements rapporte 30,5 Md€ en 2024 et 31,6 Md€ en 2025.")
+        "Note : France entière, logements seuls, droits perçus. En 2025, le relèvement temporaire de la part "
+        f"départementale (5 % au lieu de 4,5 % à partir du printemps dans la plupart des départements) en apporte "
+        f"environ {_fr(J['droits2025']['hausse_temp'], 1)} Md€ (calcul de l'auteur, non vérifié). Les droits sur les "
+        "autres biens (locaux, terrains) ajoutent environ 3 Md€ par an (différence entre le total des collectivités et "
+        "les logements, non vérifiée). Sur la même période, la taxe foncière sur les logements rapporte 30,5 Md€ en "
+        "2024 et 31,6 Md€ en 2025.")
 
 
 # ---------------------------------------------------------------------------------------------------------- n06
@@ -230,8 +240,9 @@ def n06_naif():
     axes_propres(ax)
     ax.legend(loc="lower left", frameon=False, handlelength=1.2)
     fin(fig, "foncier_n06_naif", SRC,
-        "Note : réforme naïve : droits de mutation sur les logements divisés par deux (5,7 Md€), compensés par une "
-        "hausse de 24 % de la taxe foncière actuelle dans toutes les communes, sans réaction des ventes. La baisse des "
+        f"Note : réforme naïve : droits de mutation sur les logements divisés par deux ({_fr(TN['cut_log'], 1)} Md€ au "
+        f"taux permanent, ventes de 2025), compensés par une hausse de {_fr(J['naif_hausse'], 0)} % de la taxe foncière "
+        "actuelle dans toutes les communes, sans réaction des ventes. La baisse des "
         "droits est rapportée à l'ensemble des logements de la commune : c'est ce que paie en moyenne chaque année un "
         "logement au fil des ventes. Un ménage qui ne vend ni n'achète paie la seule hausse de taxe foncière (barres "
         "grises).")
@@ -254,9 +265,9 @@ def n07_taux_trois():
     fin(fig, "foncier_n07_taux_trois", SRC,
         "Note : proposition : droits divisés par deux sur toutes les ventes d'immeubles ; chaque commune garde sa "
         "recette de taxe foncière, répartie sur la valeur de marché avec un taux sur le terrain quatre fois plus élevé "
-        "que sur le bâti ; un taux national sur la valeur de tous les terrains privés (environ 0,12 % de la valeur "
-        "des terrains, 0,15 % sur les valeurs du modèle) remplace les droits perdus. Réforme naïve : figure "
-        "précédente. Sans réaction des ventes.")
+        f"que sur le bâti ; un taux national sur la valeur de tous les terrains privés (environ {_fr(TN['prop_insee'], 2)} % "
+        f"de la valeur des terrains, {_fr(TN['prop'], 2)} % sur les valeurs du modèle) remplace les droits perdus. "
+        "Réforme naïve : figure précédente. Sans réaction des ventes.")
 
 
 # ---------------------------------------------------------------------------------------------------------- n08
@@ -281,7 +292,7 @@ def n08_variation():
         "Note : variation moyenne par logement des particuliers. À droite, la baisse des droits est rapportée à "
         "l'ensemble des logements de la commune (droits annuels divisés par le nombre de logements). Proposition et "
         "réforme naïve : figures précédentes. Sans réaction des ventes ; avec la reprise des ventes (+6 % par point), "
-        "le taux national et les hausses baissent d'environ 18 %.")
+        f"le taux national et les hausses baissent d'environ {_fr(100 * REPRISE, 0)} %.")
 
 
 # ---------------------------------------------------------------------------------------------------------- n09
@@ -303,7 +314,7 @@ def n09_assiette():
     ax.set_yticks(range(len(barres)))
     ax.set_yticklabels([b[0] for b in barres])
     ax.invert_yaxis()
-    ax.set_xlim(0, 7.6)
+    ax.set_xlim(0, 1.06 * CUT)
     ax.set_xlabel("milliards d'euros par an", fontsize=TXT, color=ENCRE2)
     axes_propres(ax, grille="x")
     ax.spines["left"].set_visible(False)
@@ -313,14 +324,16 @@ def n09_assiette():
               frameon=False, handlelength=1.1, columnspacing=1.2)
     fig.subplots_adjust(bottom=0.33)
     fin(fig, "foncier_n09_assiette",
-        "Insee, comptes de patrimoine 2024 (tableau 8.200) ; OFGL ; SDES, Compte du logement 2025 ; calculs de l'auteur.",
-        "Note : droits divisés par deux sur toutes les ventes d'immeubles (7,1 Md€ à l'échelle du champ du modèle, "
-        "dont 1,45 Md€ sur les biens autres que les logements, montant obtenu par différence entre deux sources et non "
-        "vérifié). Assiette de la proposition : sol sous les bâtiments et terrains non bâtis des ménages, des sociétés et "
-        "des associations (6 350 Md€ en 2024), hors terres agricoles et terrains publics. La répartition suit les "
-        "valeurs de l'Insee par secteur ; la répartition du taux national entre communes ne peut être calculée que pour "
-        "les logements. Variante : seuls les droits sur les logements baissent (5,7 Md€), remplacés par un taux national "
-        "sur le seul sol des logements des particuliers.")
+        "Insee, comptes de patrimoine 2025 (tableau 8.200) ; OFGL ; SDES, Compte du logement 2025 ; DVF 2025 ; calculs "
+        "de l'auteur.",
+        f"Note : droits divisés par deux sur toutes les ventes d'immeubles ({_fr(CUT, 1)} Md€ à l'échelle du champ du "
+        f"modèle, au taux permanent et sur les ventes de 2025, dont {_fr(TN['cut_aut'], 2)} Md€ sur les biens autres que "
+        "les logements, montant obtenu par différence entre deux sources et non vérifié). Assiette de la proposition : "
+        "sol sous les bâtiments et terrains non bâtis des ménages, des sociétés et des associations "
+        f"({_fr(round(J['insee']['base_p'], -1))} Md€ fin 2025), hors terres agricoles et terrains publics. La "
+        "répartition suit les valeurs de l'Insee par secteur ; la répartition du taux national entre communes ne peut "
+        f"être calculée que pour les logements. Variante : seuls les droits sur les logements baissent "
+        f"({_fr(TN['cut_log'], 1)} Md€), remplacés par un taux national sur le seul sol des logements des particuliers.")
 
 
 # ---------------------------------------------------------------------------------------------------------- n10
@@ -388,15 +401,16 @@ def n11_transition():
         ax.text(x, u + 0.6, f"{_fr(u, 0)}", ha="center", va="bottom", fontsize=TXT * 0.9, color=ENCRE)
     ax.set_xticks(range(3))
     ax.set_xticklabels([f"{n} ans" for n in ns])
-    ax.set_ylim(0, 37)
+    ax.set_ylim(0, 1.15 * max(v))
     ax.set_title("Déficit transitoire cumulé (Md€)", fontsize=TXT, color=ENCRE, loc="left")
     axes_propres(ax)
     fin(fig, "foncier_n11_transition", SRC,
         "Note : proposition, toutes les composantes (taux national et nouvelle répartition communale) montant en ligne "
         "droite à partir de la première année, les droits étant divisés par deux dès l'annonce. Hausse annuelle : "
         "90e et 99e centiles des logements classés selon leur hausse. Déficit : droits "
-        "perdus non encore remplacés, sans reprise des ventes (avec une reprise de 6 % par point : 18 % de moins). "
-        "Si les valeurs provisoires du sol n'existaient qu'au bout de trois ans, il faudrait ajouter 21 Md€.")
+        f"perdus non encore remplacés, sans reprise des ventes (avec une reprise de 6 % par point : {_fr(100 * REPRISE, 0)} % "
+        "de moins). Si les valeurs provisoires du sol n'existaient qu'au bout de trois ans, il faudrait ajouter "
+        f"{_fr(3 * CUT, 0)} Md€.")
 
 
 # ---------------------------------------------------------------------------------------------------------- annexe
@@ -410,6 +424,7 @@ def n12_variantes():
     K4 = sm.deux_taux(0.5, 4)[0]
     Kinf = sm.deux_taux(0.5, np.inf)[0]
     L4 = sm.deux_taux_local(0.5, 4)[0]
+    TD = sm.TAUX["dep4"]
     sc = [("Aujourd'hui", J["tfv_auj"], AUJ, "-"), ("Réforme naïve", J["tfv_naif"], NAIF, "-"),
           ("Deux taux nationaux (terrain = 4 × bâti)", r(K4), VAR, "--"), ("Sol seul, taux national unique", r(Kinf), VAR, ":"),
           ("Deux taux par commune, taux départemental sur le sol", r(L4), SEC, "-"),
@@ -429,8 +444,8 @@ def n12_variantes():
         "Note : toutes les variantes remplacent la moitié des droits de mutation par de la taxe foncière, à recette "
         "constante et sans réaction des ventes ; la proposition remplace aussi la moitié des droits sur les autres "
         "immeubles, et son taux national porte sur tous les terrains privés. Taux départemental : chaque département "
-        "remplace ses propres droits par un taux sur le sol des logements de son territoire (de 0,11 % à Paris à "
-        "0,85 % dans la Creuse).")
+        f"remplace ses propres droits par un taux sur le sol des logements de son territoire (de {_fr(100 * TD.min(), 2)} % "
+        f"à {_fr(100 * TD.max(), 2)} % dans la Creuse, en part de la valeur du sol dans le modèle).")
 
 
 def n13_distribution():
@@ -465,33 +480,36 @@ def n13_distribution():
 
 
 def n14_sol_pib():
-    """Valeur du sol sous les bâtiments et des logements (bâti), en % du PIB, 1978-2024 (Insee)."""
+    """Valeur du sol sous les bâtiments et des logements (bâti), en % du PIB, 1978-2025 (Insee, millésime 2026)."""
     import pandas as pd
-    pt = pd.read_csv(RACINE / "lvt/donnees/patrimoine.csv", index_col=0)
-    sol = 100 * pt.terrains_batis * 1e3 / pt.pib
-    bati = 100 * pt.logements * 1e3 / pt.pib
+    pt = pd.read_csv(HERE / "donnees/patrimoine_2025.csv", comment="#", index_col=0)
+    sol = 100 * pt.terrains_batis / pt.pib
+    bati = 100 * pt.logements / pt.pib
+    part_men = 100 * pt.terrains_batis_men / (pt.terrains_batis_men + pt.logements_men)
     fig, ax = plt.subplots(figsize=(9.0, 3.6))
     ax.plot(pt.index, sol, color=NUANCES_BLEU[1], lw=2.2, zorder=4)
     ax.plot(pt.index, bati, color=AUJ, lw=1.5, zorder=3)
-    ax.annotate(f"Sol sous les bâtiments : {_fr(sol[2024])} %", (2024, sol[2024]), xytext=(6, 0), textcoords="offset points",
+    ax.annotate(f"Sol sous les bâtiments : {_fr(sol[2025])} %", (2025, sol[2025]), xytext=(6, 0), textcoords="offset points",
                 va="center", fontsize=TXT, color=ENCRE, annotation_clip=False)
-    ax.annotate(f"Logements, bâti seul : {_fr(bati[2024])} %", (2024, bati[2024]), xytext=(6, 0), textcoords="offset points",
+    ax.annotate(f"Logements, bâti seul : {_fr(bati[2025])} %", (2025, bati[2025]), xytext=(6, 0), textcoords="offset points",
                 va="center", fontsize=TXT, color=ENCRE, annotation_clip=False)
     for a_, dxy, ha in ((1998, (0, 8), "center"),):
         ax.plot([a_], [sol[a_]], "o", color=NUANCES_BLEU[1], ms=5, mec="white", mew=0.8, zorder=5)
         ax.annotate(_fr(sol[a_]) + " %", (a_, sol[a_]), xytext=dxy, textcoords="offset points", ha=ha,
                     fontsize=TXT, color=ENCRE)
-    ax.set_xlim(1978, 2024)
+    ax.set_xlim(1978, 2025)
     ax.set_ylim(0, 320)
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: _fr(v) + " %"))
     ax.set_ylabel("en % du PIB", fontsize=TXT, color=ENCRE2)
     axes_propres(ax)
     fin(fig, "foncier_n14_sol_pib",
-        "Insee, comptes de patrimoine (base 2020, tableau 8.201) et PIB à prix courants ; lvt/donnees/patrimoine.csv.",
+        "Insee, comptes de patrimoine (base 2020, tableau 8.200) et PIB à prix courants (tableau 1.101), millésime des "
+        "comptes de la Nation 2025 (juin 2026) ; foncier/donnees/patrimoine_2025.csv.",
         "Note : valeur de fin d'année, toute l'économie. La valeur du sol est un résidu (valeur de marché des biens "
         "moins valeur du bâti à son coût de remplacement) : l'Insee ne publie pas de marge d'incertitude, et le niveau "
-        "de 2023 a été révisé de 9 % entre deux publications. Pour les seuls logements des ménages, la part du sol dans "
-        "la valeur est passée de 22 % en 1998 à 45 % en 2024.")
+        "de 2024 a été relevé de 5 % entre les publications de 2025 et de 2026 (celui de 2023 avait déjà été révisé de "
+        "9 % entre deux publications). Pour les seuls logements des ménages, la part du sol dans la valeur est passée de "
+        f"{_fr(part_men[1998])} % en 1998 à {_fr(part_men[2025])} % en 2025.")
 
 
 if __name__ == "__main__":

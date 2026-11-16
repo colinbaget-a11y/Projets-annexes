@@ -69,12 +69,12 @@ for k in CAS_CORPS:
     c = P["cas"][k]
     L.append(f"{c['libelle']} & {n(c['auj'], 0, False)} & {n(NQ['cas'][k]['delta'])} & {n(c['delta'])} \\\\")
 L += [r"\bottomrule", r"\end{tabular}"]
-L += note(r"Cas-types OpenFisca-France (législation des revenus 2024) : salariés du privé et retraités de plus de 65 ans, "
+L += note(r"Cas-types OpenFisca-France (législation des revenus 2025) : salariés du privé et retraités de plus de 65 ans, "
           r"sans autre revenu ni niche ; revenus bruts ; couples mariés ou pacsés, revenus partagés 60/40 sauf « un seul "
-          r"revenu » ; Smic 2024 de 21\,270~€ par an. Réforme naïve : barème de l'IR du foyer (quotient conjugal et familial) "
+          r"revenu » ; Smic 2025 de 21\,622~€ par an. Réforme naïve : barème de l'IR du foyer (quotient conjugal et familial) "
           r"et taux proportionnel de " + n(100 * NQ["tau"], 2, False) + r"~\% sur l'assiette large. Proposition : sous-partie "
-          r"\ref{sec:ircsg}.4. Retraité seul : sa charge d'aujourd'hui dépend du revenu fiscal de l'avant-dernière année (régime "
-          r"stable supposé).")
+          r"\ref{sec:ircsg}.4. Retraités : leur taux de CSG dépend du revenu fiscal de l'avant-dernière année, pris en régime "
+          r"stable (même pension chaque année).")
 L.append(r"\end{table}")
 ecrire("tab_ircsg_cas", L)
 
@@ -118,7 +118,7 @@ L = [r"\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}",
      r"\bottomrule", r"\end{tabular}}"]
 L += note(r"Gain d'efficacité : baisse de la perte sèche statique sur l'activité, à court terme, par rapport à aujourd'hui "
           r"(hypothèses centrales ; basses et hautes entre parenthèses). Sauf « points pour tous », chaque variante garde les "
-          r"contraintes de la proposition (recette de 220~Md€, aucun décile au-delà de $\pm$500~€, charge du 1~\% inchangée ; "
+          r"contraintes de la proposition (recette de " + n(PROP["cible"], 1, False) + r"~Md€, aucun décile au-delà de $\pm$500~€, charge du 1~\% inchangée ; "
           r"sous-partie 5 : 1~\% libre de baisser) et le barème est recherché de nouveau ; « points pour tous » : la recette est "
           r"rétablie en ajoutant ce nombre de points à tous les taux sous 50~\%, sans respecter les contraintes. Optimum "
           r"d'efficacité (sans contrainte de répartition) : " + n(-A["atteignable"]["v2_central"], 1, False) + r"~Md€, le "
@@ -181,7 +181,7 @@ for lib, r in (("Réforme naïve (quotient, " + n(100 * NQ["tau"], 2, False) + r
                (r"Ancienne proposition (1~\% en baisse)", E["ancienne"])):
     L.append(lib + " & " + " & ".join(n(u) for u in r["dec_eur"]) + f" & {n(r['top1_Md'], 1)} & {n(r['groupes']['retraites']['Md'], 1)} \\\\")
 L += [r"\bottomrule", r"\end{tabular}}"]
-L += note(r"Déciles de foyers fiscaux classés par revenu fiscal de référence (IRCOM, revenus 2024). Moyennes de foyers "
+L += note(r"Déciles de foyers fiscaux classés par revenu fiscal de référence (IRCOM, revenus 2024 ; montants de 2025). Moyennes de foyers "
           r"représentatifs : elles cachent les écarts à l'intérieur de chaque décile (sous-partie~\ref{sec:ircsg}.5).")
 L.append(r"\end{table}")
 ecrire("tab_ircsg_dec", L)
@@ -230,7 +230,7 @@ L = [r"\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}",
      f"CSG perçue à moitié aujourd'hui & {n(sal['0.5']['gain']['central'], 2, False)} & intensif {n(sal['0.5']['intensif'], 2)}~Md€ \\\\",
      f"CSG non perçue aujourd'hui & {n(sal['0.0']['gain']['central'], 2)} & intensif {n(sal['0.0']['intensif'], 2)}~Md€ \\\\",
      f"Régime permanent : impôt futur sur les pensions vu à moitié par les actifs & {n(perm['0.5']['central'], 2, False)} & \\\\",
-     f"Régime permanent : vu en entier & {n(perm['1.0']['central'], 2, False)} & coin $+${n(100 * TR['permanent']['kappa'], 2, False)}~point \\\\"]
+     f"Régime permanent : vu en entier & {n(perm['1.0']['central'], 2, False)} & prélèvement implicite $+${n(100 * TR['permanent']['kappa'], 2, False)}~point \\\\"]
 for conv, lib in (("haut", "revenus au PFU logés en haut (convention « haut »)"), ("prorata", "revenus au PFU au prorata")):
     if conv in HP:
         u = HP[conv]
@@ -238,10 +238,10 @@ for conv, lib in (("haut", "revenus au PFU logés en haut (convention « haut »
                  f"{n(u['z2'], 0, False)}~k€ \\\\")
 L += [r"\bottomrule", r"\end{tabular}}"]
 L += note(r"Gain : baisse de la perte sèche sur l'activité (jeu central sauf mention). CSG non perçue : le revenu d'activité "
-          r"ne réagit aujourd'hui qu'à l'IR (comme aux cotisations chez Lehmann, Marical et Rioux, 2013) et réagit après la "
-          r"fusion à tout l'impôt fusionné ; la marge de participation est gardée. Régime permanent : la hausse de l'impôt sur "
-          r"les pensions réduit la valeur des droits acquis par les cotisations contributives (27,4~\% du salaire brut) ; "
-          r"borne haute, le lien entre cotisation et pension étant faible au bas de l'échelle et nul au-delà de 8 plafonds. "
+          r"ne réagit aujourd'hui qu'à l'IR et réagit après la fusion à tout l'impôt fusionné ; la marge de participation est "
+          r"gardée. Régime permanent : la hausse de l'impôt sur les pensions réduit la valeur des droits à pension qu'ouvre "
+          r"chaque euro de salaire ; borne haute, ce lien étant faible au bas de l'échelle et nul au-delà de huit fois le "
+          r"plafond de la Sécurité sociale. "
           r"Convention centrale de répartition des revenus au PFU : « mixte » (controle\_hauts\_purs.py).")
 L.append(r"\end{table}")
 ecrire("tab_ircsg_sens", L)
@@ -270,14 +270,17 @@ HYP = [
     ("Enfants : un par parent isolé, deux par couple « avec enfants », aucun chez les retraités et les concubins.",
      "Coût de la franchise par enfant, familles nombreuses", "Familles de trois enfants absentes des agrégats (cas-types seulement)."),
     ("Charge actuelle par type de foyer répartie selon des cas-types sans niche.",
-     "Qui paie entre types de foyers", "Charge actuelle des retraités (47,6~Md€) non observable ; niches réparties au prorata."),
+     "Qui paie entre types de foyers", f"Charge actuelle des retraités ({n(SIT['charge_groupes']['retraites'], 1, False)}~Md€) non observable ; niches réparties au prorata."),
+    ("Base 2025 : l'IR de 2025 est l'impôt encaissé dans l'année (comptes nationaux), gonflé par les régularisations sur les revenus de 2024 ; chaque agrégat de 2024 est porté en 2025 avec la même croissance dans toutes les tranches.",
+     "Recette à remplacer, charge actuelle par tranche",
+     f"Si la hausse de l'IR (+{n(100 * (SIT['recettes']['facteurs']['ir'] - 1), 1, False)}~\\%) est passagère, la recette est surestimée d'environ {n(SIT['recettes']['base_2024']['ir'] * (SIT['recettes']['facteurs']['ir'] - SIT['recettes']['facteurs']['csg_activite']), 1, False)}~Md€ (IR porté en 2025 comme les revenus), soit environ 0,4 point de taux."),
     ("Épargne retraite : déduction de 10,6~Md€ (cases 2042) supposée proportionnelle aux revenus d'activité de la moitié haute.",
      "Barème, haut de la distribution", f"Coût de la déduction {n(PROP['cout_per'], 1, False)}~Md€ ({n(PROP['points_per'], 2, False)}~point) ; répartition non vérifiée."),
-    ("Cas-types : législation 2024, Smic de 21\\,270~€ (sources secondaires), RFR de l'avant-dernière année égal à celui de l'année.",
-     "Tous les cas-types", "Le taux de CSG d'un retraité alterne aux seuils ; les cas-types évitent ces points."),
+    ("Cas-types : législation des revenus 2025 d'OpenFisca, Smic de 21\\,622~€ (sources secondaires) ; retraités en régime stable (taux de CSG le plus élevé dont le seuil est dépassé par le revenu fiscal calculé à ce taux).",
+     "Tous les cas-types, courbes de taux marginaux", "Dans une bande de quelques centaines d'euros autour de chaque seuil de CSG, aucun taux n'est cohérent avec son propre revenu fiscal ; le taux inférieur est retenu, ce qui déplace le saut de moins de 1~000~€."),
     ("Valeur actualisée : table de Gompertz calée sur l'espérance de vie à 65 ans (21,8 ans) ; cohortes de retraités de même taille.",
      "Valeur actualisée de la hausse des retraités", "Ordre de grandeur ; 1 à 3~\\% réel donne la fourchette."),
-    ("Chiffres non vérifiés sur une source primaire : CSG des pensions (CCSS) ; Smic 2024 ; part des familles au plafond du quotient familial ; partage des niches par tranche ; l'IRCOM inclut l'IR au PFU et exclut la CEHR.",
+    ("Chiffres non vérifiés sur une source primaire : CSG des pensions de 2024 (CCSS) ; croissance de la CSG par assiette en 2025 (régimes de base et FSV, appliquée à tous les affectataires) ; paramètres 2025 d'OpenFisca (seuils de CSG des pensions, abattement des plus de 65 ans) ; Smic 2025 ; part des familles au plafond du quotient familial ; partage des niches par tranche ; l'IRCOM inclut l'IR au PFU et exclut la CEHR.",
      "Calage, cas-types, récit", "Registre revue/hypotheses\\_ircsg.md, section 4."),
 ]
 L = [r"\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}",
@@ -316,7 +319,7 @@ for lib, deb in (("\\quad + franchise d'activité 4\\,000~€", "Neutre + franch
                  ("\\quad + franchise d'activité 8\\,000~€", "Neutre + franchise d'activité 8 000 €"),
                  ("\\quad + franchise de 8\\,000~€ sur tous les revenus", "Neutre + franchise de 8"),
                  ("\\quad + franchise de 6\\,000~€ par enfant", "Neutre + franchise de 6"),
-                 ("\\quad + chèque de 742~€ par enfant", "Neutre + chèque"),
+                 ("\\quad + chèque de " + n(SIT["qf_agregat"]["cheque"], 0, False) + "~€ par enfant", "Neutre + chèque"),
                  ("\\quad + quotient conjugal et familial", "Neutre + quotient"),
                  ("\\quad + abattement de 10~\\% sur les pensions", "Neutre + abattement"),
                  ("\\quad + petites pensions exonérées", "Neutre + petites")):
@@ -324,7 +327,10 @@ for lib, deb in (("\\quad + franchise d'activité 4\\,000~€", "Neutre + franch
     L.append(ligne_v2(lib, r, r["d"]))
 L += [ligne_v2("Optimum d'efficacité, sans franchise", ARCH["optimum_r"]),
       ligne_v2("Gain atteignable (optimum, franchise de 4\\,000~€)", AT), r"\bottomrule", r"\end{tabular}}"]
-L += note(r"Barème neutre : 2~\% au premier euro, 14~\% à 20\,000~€, 23~\% à 30\,000~€, 50~\% à 250\,000~€, le plus proche de "
+_bn = ARCH["neutre"]
+L += note(r"Barème neutre : " + n(100 * _bn[0], 0, False) + r"~\% au premier euro, " + n(100 * _bn[1], 0, False) + r"~\% à 20\,000~€, "
+          + n(100 * _bn[3], 1, False) + r"~\% à " + n(_bn[2] / 1e3, 0, False) + r"\,000~€, 50~\% à " + n(_bn[4] / 1e3, 0, False)
+          + r"\,000~€, le plus proche de "
           r"ce que chaque foyer paie aujourd'hui ; sans déduction de l'épargne retraite. Chaque dispositif est financé par des "
           r"points ajoutés à tous les taux sous 50~\% (architectures\_ircsg.py).")
 L.append(r"\end{table}")

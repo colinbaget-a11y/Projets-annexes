@@ -5,7 +5,7 @@ Règles fixées d'avance (décisions de l'auteur) :
   (fin de l'abattement de 10 % et des taux réduits de CSG), pensions exonérées jusqu'à 12 500 € par retraité puis de
   moins en moins jusqu'à 25 000 € ; franchise de 6 000 € par enfant, déduite du revenu du parent qui gagne le plus ;
   versements d'épargne retraite toujours déductibles (modele_purs.DED_PER, répartition supposée) ;
-- recette inchangée (220,1 Md€ avant réaction) ; aucun décile ne voit sa charge moyenne bouger de plus de 500 € ;
+- recette inchangée (base 2025 : 229,9 Md€ avant réaction) ; aucun décile ne voit sa charge moyenne bouger de plus de 500 € ;
   charge du 1 % le plus aisé inchangée (|Δ| < 0,05 Md€ : le seuil z2 du taux de 50 % est calé pour cela) ;
 - aucune prime d'activité ajoutée ni modifiée.
 Paramètres cherchés : franchise d'activité F (0 à 8 000 € par adulte) et taux d'entrée t0 (taux au premier euro
@@ -131,13 +131,13 @@ if __name__ == "__main__":
     p(f"\n[ÉPARGNE RETRAITE] garder la déduction des versements coûte {cout_per:.2f} Md€ au barème retenu, soit"
       f" {-100 * d_per:.2f} point de taux pour tous (sous le taux de 50 %)")
     # taux marginaux de la proposition (cas-types)
-    mg = {}
-    for prof, niv in (("seul", (U.SMIC / 2, U.SMIC, 30e3, 50e3, 80e3, 120e3, 200e3, 300e3)),
-                      ("retraite_seul", (12e3, 15e3, 18e3, 20e3, 24e3, 30e3, 50e3))):
-        mg[prof] = {f"{b:.0f}": dict(auj=U.marginal_cas(None, None, prof, round(b / 500) * 500),
-                                     prop=U.marginal_cas(s_c, o_c, prof, round(b / 500) * 500)) for b in niv}
-        p(f"[TAUX MARGINAL {prof}] " + " ; ".join(f"{float(b) / 1e3:.1f} k€ : {u['auj']:.0f} → {u['prop']:.0f} %"
-                                                  for b, u in mg[prof].items()))
+    mg = {}       # prélèvement sur 1 000 € de revenu après cotisations en plus (grille de 100 €)
+    for prof, niv in (("seul", (5e3, 9e3, 10e3, 15e3, 19e3, 20e3, 25e3, 30e3, 40e3, 45e3, 50e3, 80e3, 100e3, 120e3, 150e3)),
+                      ("retraite_seul", (12e3, 13e3, 15e3, 18e3, 20e3, 22e3, 23e3, 24e3, 24.5e3, 25e3, 26e3, 30e3, 50e3))):
+        mg[prof] = {f"{b:.0f}": dict(auj=U.marginal_base(None, None, prof, b), prop=U.marginal_base(s_c, o_c, prof, b))
+                    for b in niv}
+        p(f"[TAUX MARGINAL {prof}, revenu après cotisations] " + " ; ".join(
+            f"{float(b) / 1e3:.1f} k€ : {u['auj']:.1f} → {u['prop']:.1f} %" for b, u in mg[prof].items()))
     # taux marginal du barème sur le revenu imposé, aux revenus repères
     tm, T = s_c
     reperes = {f"{z:.0f}": float(100 * tm(z)) for z in (0, 10e3, 20e3, 30e3, 45e3, 60e3, 100e3, 150e3, 250e3)}
@@ -146,5 +146,6 @@ if __name__ == "__main__":
     out = dict(choix=choix, meilleur_gain=best_gain, par_design=[dict(r) for r in par_design.values()],
                par_franchise={str(int(F)): r for F, r in par_F.items()}, evaluations=res, cout_per=cout_per,
                points_per=-d_per, marginaux=mg, bareme_reperes=reperes, base=BASE, n_essais=len(combos), n_ok=len(ok),
+               cible=M.CIBLE, base_annee=M.BASE,
                admissibles=ok)
     U.ecrire("proposition_ircsg", L, out)

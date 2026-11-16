@@ -1,10 +1,12 @@
 """Situation actuelle de l'IR, de la CSG et de la CRDS (sous-partie 1 de la partie IR-CSG).
 
 Chiffres produits (sorties/situation_ircsg.txt et .json) :
-1. Recettes : dans le champ de la fusion (revenus imposés au barème, modèle calé sur l'IRCOM des revenus 2024 et sur
-   les comptes de la Sécurité sociale) et au niveau national (comptes nationaux, ir_csg/sorties/series_ir_csg.csv) ;
-   CSG par type de revenu ; foyers imposables à l'IR.
-2. Taux moyens et marginaux d'aujourd'hui par cas-type (OpenFisca, revenus 2024, sorties/cas_types_openfisca.csv).
+1. Recettes, base 2025 (décision 5 du 17/11/2026) : dans le champ de la fusion (revenus imposés au barème ; répartition
+   de l'IRCOM des revenus 2024, agrégats recalés en 2025, modele_purs.RECETTES) et au niveau national (Insee, comptes
+   nationaux 2025 publiés en 2026 : « Impôts, données annuelles de 1995 à 2025 », econ-fin-pub-impots-categ.xlsx,
+   28/08/2026 ; PIB : tableau 1.101, 04/06/2026) ; CSG par type de revenu ; foyers imposables à l'IR (IRCOM 2024).
+2. Taux moyens et marginaux d'aujourd'hui par cas-type (OpenFisca, revenus 2025, sorties/cas_types_openfisca.csv et
+   courbes_marginales_openfisca.csv : taux marginal par 1 000 € de revenu après cotisations, grille de 100 €).
 3. Même revenu, actifs contre retraités : charge rapportée au revenu après cotisations (cas-types et agrégats du
    modèle, ces derniers non observables).
 4. Ce que vaut le quotient familial : cas-types (couples avec deux ou trois enfants, parents isolés) et coût
@@ -13,7 +15,7 @@ Chiffres produits (sorties/situation_ircsg.txt et .json) :
 6. Décomposition approchée du passage de l'IR actuel (80 Md€) au barème de l'IR appliqué à chaque adulte sur
    l'assiette large (197 Md€) (repris de revue/calculs_verif/ircsg/v8_decomp_ir.py ; écart non bouclé).
 7. Comparaison internationale : OCDE, Revenue Statistics (impôts sur le revenu des personnes, en % du PIB, dont la
-   CSG et la CRDS pour la France) et Taxing Wages 2025 (coin fiscal au salaire moyen) ; fichiers du dépôt.
+   CSG et la CRDS pour la France) ; fichiers du dépôt.
 
 Lancer depuis fiscalite/ : python3 synthese/situation_ircsg.py
 """
@@ -36,30 +38,35 @@ def p(s=""):
 
 
 # ------------------------------------------------------------------ 1. recettes
-ir, csg, crds = x.ir_trav.sum(), x.csg.sum(), x.crds.sum()
-csg_pens = (x.t_pens * m.F_PENS * x.pens).sum()
-csg_cho = m.CSG_CHO_CCSS
-csg_act = csg - csg_pens - csg_cho
-crds_pens = (v.T_CRDS * m.F_PENS * x.pens * (x.t_pens > 0)).sum()
-nat = pd.read_csv(ROOT / "ir_csg/sorties/series_ir_csg.csv", index_col=0).loc[2024]
-D["recettes"] = dict(ir=ir, csg=csg, crds=crds, total=ir + csg + crds, csg_activite=csg_act, csg_pensions=csg_pens,
-                     csg_chomage=csg_cho, crds_pensions=crds_pens, ir_ircom=x.ir.sum(), ir_pfu=x.ir.sum() - ir,
-                     nat_ir=nat.ir, nat_csg=nat.csg, nat_crds=nat.crds, pib=nat.pib,
+# Comptes nationaux de l'Insee (base 2020), Md€ : IR avant crédits d'impôt, CSG et CRDS (hors jeux), PIB en valeur
+# (fichiers lus dans le scratchpad ircsg2025/ ; 2024 semi-définitif, 2025 provisoire)
+NAT = {2024: dict(ir=96.018, csg=153.148, crds=9.070, pib=2935.236),
+       2025: dict(ir=103.626, csg=156.583, crds=9.270, pib=2991.056)}
+R5, R4 = M.RECETTES["2025"], M.RECETTES["2024"]
+nat = NAT[2025]
+D["recettes"] = dict(**R5, base_2024=R4, nat=NAT[2025], nat_2024=NAT[2024],
+                     nat_ir=nat["ir"], nat_csg=nat["csg"], nat_crds=nat["crds"], pib=nat["pib"],
+                     facteurs=dict(ir=M.F_IR, csg_activite=M.G_ACT, csg_remplacement=M.G_REMP, crds=M.F_CRDS),
                      foyers_M=x.foyers.sum() / 1e6, foyers_imposes_M=x.foyers_imposes.sum() / 1e6,
-                     assiette_brute=x.assiette.sum(), assiette_nette=x.assiette3.sum(), pensions=(m.F_PENS * x.pens).sum(),
-                     chomage=(m.F_CHO * x.cho).sum())
+                     assiette_nette=float((M.W_A * M.ZNA).sum() + (M.W_R * M.ZNR).sum()) / 1e9,
+                     assiette_nette_2024=x.assiette3.sum(), pensions=float((M.W_R * M.ZNR).sum()) / 1e9)
 r = D["recettes"]
-p(f"[RECETTES champ] IR {ir:.1f} + CSG {csg:.1f} + CRDS {crds:.1f} = {r['total']:.1f} Md€ ; CSG : activité {csg_act:.1f},"
-  f" pensions {csg_pens:.1f}, chômage {csg_cho:.2f} ; CRDS sur les pensions {crds_pens:.2f}")
-p(f"[RECETTES champ] IR de l'IRCOM {x.ir.sum():.1f} Md€, dont {r['ir_pfu']:.1f} imputés aux revenus au PFU (12,8 %)")
-p(f"[RECETTES nationales 2024, comptes nationaux] IR {nat.ir:.1f} ; CSG {nat.csg:.1f} ; CRDS {nat.crds:.1f} Md€ ;"
-  f" ensemble {nat.ir + nat.csg + nat.crds:.1f} Md€, {100 * (nat.ir + nat.csg + nat.crds) / nat.pib:.1f} % du PIB")
-p(f"[FOYERS] {r['foyers_M']:.1f} M de foyers fiscaux, dont {r['foyers_imposes_M']:.1f} M imposés à l'IR"
-  f" ({100 * r['foyers_imposes_M'] / r['foyers_M']:.0f} %) ; assiette brute {r['assiette_brute']:.0f} Md€, après cotisations"
-  f" {r['assiette_nette']:.0f} ; pensions {r['pensions']:.0f} ; chômage {r['chomage']:.0f}")
+p(f"[RECETTES champ, base 2025] IR {R5['ir']:.1f} + CSG {R5['csg']:.1f} + CRDS {R5['crds']:.1f} = {R5['total']:.1f} Md€ ;"
+  f" CSG : activité {R5['csg_activite']:.1f}, pensions {R5['csg_pensions']:.1f}, chômage {R5['csg_chomage']:.2f}")
+p(f"[RECETTES champ, base 2024] IR {R4['ir']:.1f} + CSG {R4['csg']:.1f} + CRDS {R4['crds']:.1f} = {R4['total']:.1f} Md€ ;"
+  f" CSG : activité {R4['csg_activite']:.1f}, pensions {R4['csg_pensions']:.1f}, chômage {R4['csg_chomage']:.2f}")
+p(f"[RECETTES champ] IR « IRCOM » porté en 2025 {R5['ir_ircom']:.1f} Md€ (2024 : {R4['ir_ircom']:.1f}), dont"
+  f" {R5['ir_pfu']:.1f} imputés aux revenus au PFU (12,8 % en 2024, même croissance)")
+for an, u in NAT.items():
+    p(f"[RECETTES nationales {an}, comptes nationaux] IR {u['ir']:.1f} ; CSG {u['csg']:.1f} ; CRDS {u['crds']:.1f} Md€ ;"
+      f" ensemble {u['ir'] + u['csg'] + u['crds']:.1f} Md€, {100 * (u['ir'] + u['csg'] + u['crds']) / u['pib']:.1f} % du PIB")
+p(f"[FACTEURS 2025/2024] IR {M.F_IR:.4f} ; CSG d'activité {M.G_ACT} ; CSG de remplacement {M.G_REMP} ; CRDS {M.F_CRDS:.4f}")
+p(f"[FOYERS, IRCOM 2024] {r['foyers_M']:.1f} M de foyers fiscaux, dont {r['foyers_imposes_M']:.1f} M imposés à l'IR"
+  f" ({100 * r['foyers_imposes_M'] / r['foyers_M']:.0f} %) ; assiette après cotisations {r['assiette_nette']:.0f} Md€"
+  f" en 2025 ({r['assiette_nette_2024']:.0f} en 2024) ; pensions {r['pensions']:.0f}")
 cur_r = sum((w * M.CURT[nom]).sum() for nom, g_, _, w, _, _ in M.TYPES if g_ == "R") / 1e9
 cur_a = sum((w * M.CURT[nom]).sum() for nom, g_, _, w, _, _ in M.TYPES if g_ == "A") / 1e9
-pen_n, act_n = (M.W_R * M.ZN).sum() / 1e9, (M.W_A * M.ZN).sum() / 1e9
+pen_n, act_n = (M.W_R * M.ZNR).sum() / 1e9, (M.W_A * M.ZNA).sum() / 1e9
 D["charge_groupes"] = dict(retraites=cur_r, actifs=cur_a, taux_retraites=100 * cur_r / pen_n, taux_actifs=100 * cur_a / act_n)
 p(f"[MODÈLE, non observable] charge actuelle des retraités {cur_r:.1f} Md€ ({100 * cur_r / pen_n:.1f} % de leurs pensions) ;"
   f" des actifs {cur_a:.1f} Md€ ({100 * cur_a / act_n:.1f} % de leur revenu après cotisations)")
@@ -88,19 +95,27 @@ def charge_par_base(prof, base):
     return float(np.interp(base, bz, g.charge.values))
 
 
+def charge_seul_base(prof, base):
+    """Charge d'aujourd'hui d'un salarié seul ou d'un retraité seul au revenu après cotisations base (grille de 100 €,
+    OpenFisca, sans interpolation)."""
+    g = U.MGN[U.MGN.profil == prof]
+    i = np.argmin(np.abs(g.base.values - base))
+    return float(g.charge.values[i]), float(g.base_eff.values[i])
+
+
 D["meme_revenu"] = {}
 p("\n[MÊME REVENU après cotisations] charge d'aujourd'hui (€ et % du revenu) : salarié seul / retraité seul ;"
   " couple de salariés sans enfant / couple de retraités")
 for base in (15e3, 20e3, 25e3, 30e3, 40e3, 60e3):
-    a, rr = charge_par_base("seul", base), charge_par_base("retraite_seul", base)
+    a, rr = charge_seul_base("seul", base)[0], charge_seul_base("retraite_seul", base)[0]
     c, rc = charge_par_base("couple_0enf", base), charge_par_base("retraite_couple", base)
     D["meme_revenu"][f"{base:.0f}"] = dict(seul=a, retraite=rr, couple=c, couple_retraites=rc)
     p(f"  {base / 1e3:.0f} k€ : seul {a:,.0f} € ({100 * a / base:.1f} %) / retraité {rr:,.0f} € ({100 * rr / base:.1f} %) ;"
       f" couple {c:,.0f} € ({100 * c / base:.1f} %) / couple de retraités {rc:,.0f} € ({100 * rc / base:.1f} %)")
-grille_b = np.arange(8e3, 80001, 500)
+grille_b = np.arange(8e3, 80001, 100)
 D["meme_revenu_courbe"] = dict(base=list(grille_b),
-                               seul=[100 * charge_par_base("seul", b) / b for b in grille_b],
-                               retraite=[100 * charge_par_base("retraite_seul", b) / b for b in grille_b])
+                               seul=[100 * (lambda c, b_: c / b_)(*charge_seul_base("seul", b)) for b in grille_b],
+                               retraite=[100 * (lambda c, b_: c / b_)(*charge_seul_base("retraite_seul", b)) for b in grille_b])
 
 # ------------------------------------------------------------------ 4. quotient familial
 D["qf_cas"] = {}
@@ -128,27 +143,44 @@ p(f"[QUOTIENT FAMILIAL, modèle] coût {M.QF_COUT:.2f} Md€ (couples {M.QF_COUP
   f" {M.CHEQUE:,.0f} € par enfant ; couples avec deux enfants au plafond : {au_plafond / 1e6:.2f} M sur {n_c2.sum() / 1e6:.2f} M ;"
   f" parents isolés au plafond {pi_plafond / 1e6:.2f} M sur {n_pi.sum() / 1e6:.2f} M (hypothèses H13 du registre)")
 
-# ------------------------------------------------------------------ 5. marches
-g = U.CTN[U.CTN.profil == "retraite_seul"].sort_values("brut")
-g = g[(g.brut >= 5e3) & (g.brut <= 60e3) & (g.brut % 500 == 0)]
-sauts = []
-for b0, b1, c0, c1 in zip(g.brut.values[:-1], g.brut.values[1:], g.charge.values[:-1], g.charge.values[1:]):
-    if c1 - c0 > 250 and b1 - b0 == 500:
-        sauts.append(dict(de=b0, a=b1, hausse=c1 - c0))
-D["marches_retraite"] = sauts
-p("\n[MARCHES, retraité seul] hausse de charge pour 500 € de pension en plus aux seuils de CSG : "
-  + " ; ".join(f"{s['de'] / 1e3:.1f} → {s['a'] / 1e3:.1f} k€ : +{s['hausse']:,.0f} €" for s in sauts))
-mg_seul = [(b, U.marginal_cas(None, None, "seul", b)) for b in np.arange(5e3, 150001, 500)]
-D["marginal_seul"] = mg_seul
-paliers = []
-for b, t in mg_seul:
-    if not paliers or abs(t - paliers[-1][1]) > 2.0:
-        paliers.append((b, t))
-p("[MARCHES, salarié seul] taux marginal (IR + CSG + CRDS, sur 1 000 € brut) : "
-  + " ; ".join(f"dès {b / 1e3:.1f} k€ : {t:.1f} %" for b, t in paliers[:14]))
+# ------------------------------------------------------------------ 5. marches (grille de 100 € de revenu après cotisations)
+def sauts(prof, seuil=60.0):
+    """Hausses de charge de plus de « seuil » euros pour 100 € de revenu en plus : vrais sauts du droit."""
+    g = U.MGN[U.MGN.profil == prof].sort_values("base")
+    b, c = g.base_eff.values, g.charge.values
+    out = []
+    for k in range(len(b) - 1):
+        d = c[k + 1] - c[k] - 0.25 * (b[k + 1] - b[k])          # au-delà d'un taux marginal ordinaire de 25 %
+        if d > seuil:
+            out.append(dict(de=float(g.base.values[k]), a=float(g.base.values[k + 1]), hausse=float(c[k + 1] - c[k]),
+                            taux_avant=int(g.taux_csg.values[k]) if prof == "retraite_seul" else None,
+                            taux_apres=int(g.taux_csg.values[k + 1]) if prof == "retraite_seul" else None,
+                            rfr_avant=float(g.rfr.values[k]), rfr_apres=float(g.rfr.values[k + 1])))
+    return out
+
+
+D["marches_retraite"] = sauts("retraite_seul")
+p("\n[MARCHES, retraité seul, droit 2025] hausses de charge pour 100 € de pension en plus (taux de CSG 0 à 3 = exonéré,"
+  " 3,8, 6,6, 8,3 %) : " + " ; ".join(f"{u['de'] / 1e3:.1f} → {u['a'] / 1e3:.1f} k€ : +{u['hausse']:,.0f} € (CSG {u['taux_avant']}"
+                                      f" → {u['taux_apres']}, RFR {u['rfr_avant']:,.0f} → {u['rfr_apres']:,.0f})"
+                                      for u in D["marches_retraite"]))
+D["marches_salarie"] = sauts("seul", seuil=30.0)
+p("[MARCHES, salarié seul, droit 2025] " + " ; ".join(f"{u['de'] / 1e3:.1f} → {u['a'] / 1e3:.1f} k€ : +{u['hausse']:,.0f} €"
+                                                       for u in D["marches_salarie"]))
+for prof in ("seul", "retraite_seul"):
+    xs, ys = U.courbe_marginale(None, None, prof)
+    D[f"marginal_{prof}"] = [(float(a), float(b)) for a, b in zip(xs, ys) if a % 500 == 0]
+    paliers = []
+    for a, b in zip(xs, ys):
+        if not paliers or abs(b - paliers[-1][1]) > 2.0:
+            paliers.append((a, b))
+    p(f"[TAUX MARGINAL {prof}, par 1 000 € de revenu après cotisations] " +
+      " ; ".join(f"dès {a / 1e3:.1f} k€ : {b:.1f} %" for a, b in paliers[:30]))
 
 # ------------------------------------------------------------------ 6. décomposition de l'IR (approchée)
-IRS, IRT = [0, 11497, 29315, 83823, 180294], [0, .11, .30, .41, .45]
+IRS, IRT = list(M.ex.IR_SEUILS), [0, .11, .30, .41, .45]          # barème des revenus 2025 (base 2025)
+PLAF, PLAF_I, DECS, DECC = M.P.PLAF, M.P.PLAF_ISOL, M.P.DEC_S, M.P.DEC_C
+ABP = (2822, 17670, 1411, 28430, 4439) if M.BASE == "2025" else (2796, 17510, 1398, 28170, 4399)
 
 
 def bar(q):
@@ -160,25 +192,25 @@ def ir_regles(r_, couple, n, isole=False, decote=True, qf=True):
     n = n if qf else 0
     if couple:
         pp = 2 + 0.5 * min(n, 2) + max(n - 2, 0)
-        cap = 1791 * 2 * (pp - p0)
+        cap = PLAF * 2 * (pp - p0)
     elif isole and n >= 1:
-        pp, cap = 2.0, 4224.0
+        pp, cap = 2.0, PLAF_I
     else:
         pp, cap = 1.0, 0.0
     i0 = p0 * bar(r_ / p0)
     i1 = np.maximum(pp * bar(r_ / pp), i0 - cap)
     if decote:
-        i1 = i1 - np.clip((1470 if couple else 889) - 0.4525 * i1, 0, None)
+        i1 = i1 - np.clip((DECC if couple else DECS) - 0.4525 * i1, 0, None)
     return np.clip(i1, 0, None)
 
 
 def rfr(g_, parts):
     if g_ == "A":
         return M.RFR_A
-    r_ = M.ZN * 0.95 - np.minimum(0.10 * M.ZN * 0.95, 4399)
+    r_ = M.ZNR * 0.95 - np.minimum(0.10 * M.ZNR * 0.95, ABP[4])
     n = len(parts)
     pers = r_ / n
-    return np.clip(r_ - n * np.where(pers <= 17510, 2796, np.where(pers <= 28170, 1398, 0)), 0, None)
+    return np.clip(r_ - n * np.where(pers <= ABP[1], ABP[0], np.where(pers <= ABP[3], ABP[2], 0)), 0, None)
 
 
 def total(f):
@@ -188,14 +220,14 @@ def total(f):
 etapes = [("règles actuelles sans niche, sur le revenu imposable, imposition commune",
            lambda g_, parts, k: ir_regles(rfr(g_, parts), len(parts) == 2, k, isole=(k > 0 and len(parts) == 1))),
           ("assiette large (revenu après cotisations, sans abattement)",
-           lambda g_, parts, k: ir_regles(M.ZN, len(parts) == 2, k, isole=(k > 0 and len(parts) == 1))),
-          ("sans quotient familial des enfants", lambda g_, parts, k: ir_regles(M.ZN, len(parts) == 2, k, qf=False)),
-          ("sans décote", lambda g_, parts, k: ir_regles(M.ZN, len(parts) == 2, k, qf=False, decote=False)),
+           lambda g_, parts, k: ir_regles(M.ZNG[g_], len(parts) == 2, k, isole=(k > 0 and len(parts) == 1))),
+          ("sans quotient familial des enfants", lambda g_, parts, k: ir_regles(M.ZNG[g_], len(parts) == 2, k, qf=False)),
+          ("sans décote", lambda g_, parts, k: ir_regles(M.ZNG[g_], len(parts) == 2, k, qf=False, decote=False)),
           ("sans quotient conjugal (barème appliqué à chaque adulte)",
-           lambda g_, parts, k: sum(bar(sh * M.ZN) for sh in parts))]
+           lambda g_, parts, k: sum(bar(sh * M.ZNG[g_]) for sh in parts))]
 D["decomposition_ir"] = []
 prev = None
-p(f"\n[DÉCOMPOSITION approchée] IR des revenus au barème aujourd'hui : {ir:.1f} Md€ (après niches)")
+p(f"\n[DÉCOMPOSITION approchée] IR des revenus au barème aujourd'hui : {R5['ir']:.1f} Md€ (après niches ; base 2025)")
 for lab, f in etapes:
     t = total(f)
     D["decomposition_ir"].append(dict(etape=lab, Md=t, ecart=None if prev is None else t - prev))
@@ -216,28 +248,8 @@ D["ocde_1100"]["france_csg_crds_pct"] = float(natp.csg_pct_pib + natp.crds_pct_p
 p(f"\n[OCDE, Revenue Statistics {an}] impôts sur le revenu des personnes (1100), % du PIB : "
   + " ; ".join(f"{k} {t11[k]:.1f}" for k in pays if k in t11)
   + f" | France : IR seul {natp.ir_pct_pib:.1f} %, CSG + CRDS {natp.csg_pct_pib + natp.crds_pct_pib:.1f} % (comptes nationaux)")
-cf = pd.read_csv(ROOT / "donnees/coin_fiscal.csv").set_index("pays")
-D["ocde_coin"] = {k: dict(impot=float(cf.loc[k, "impot_revenu_pct_cout"]), total=float(cf.loc[k, "coin_total_pct_cout"]))
-                  for k in ("France", "Allemagne", "Royaume-Uni", "Moyenne OCDE", "Moyenne UE de l'OCDE") if k in cf.index}
-p("[OCDE, Taxing Wages 2025] personne seule au salaire moyen, % du coût du travail : impôt sur le revenu (CSG et CRDS"
-  " comprises pour la France) / coin total : " + " ; ".join(f"{k} {u['impot']:.1f} / {u['total']:.1f}" for k, u in D["ocde_coin"].items()))
 
 # ------------------------------------------------------------------ premier salaire aujourd'hui
 D["ptr_auj"] = U.ptrs(None, None)
 p("\n[PREMIER SALAIRE aujourd'hui] taux de prélèvement IR + CSG + CRDS : " + " ; ".join(f"{k} {u:.1f} %" for k, u in D["ptr_auj"].items()))
-coin = {}
-for f in (0.5, 1.0, 1.25, 1.5, 2.0, 2.5, 3.0):
-    gg = f * M.ps.SMIC
-    er, ee, pa = M.ps.coin(np.array([gg]), 1.0, "nc")
-    er_tout = M.ps.coin(np.array([gg]), 1.0, "tout")[0]
-    tau = U.marginal_cas(None, None, "seul", round(f * U.SMIC / 500) * 500) / 100
-    cout = 1 + float(er_tout[0])            # coût marginal du travail par euro brut
-    coin[f] = dict(cotis_nc=float(er[0] + ee[0]) / cout, prime=float(pa[0]) / cout, ircsg=tau / cout,
-                   total=float(er[0] + ee[0] + pa[0] + tau) / cout)
-D["coin_marginal"] = coin
-p("[COIN MARGINAL, personne seule, droit 2025] en % d'un euro de coût du travail en plus : cotisations non"
-  " contributives + retrait de la prime d'activité + IR-CSG = total : "
-  + " ; ".join(f"{f:g} Smic : {100 * u['cotis_nc']:.0f} + {100 * u['prime']:.0f} + {100 * u['ircsg']:.0f} = {100 * u['total']:.0f}"
-               for f, u in coin.items()))
-
 U.ecrire("situation_ircsg", L, D)

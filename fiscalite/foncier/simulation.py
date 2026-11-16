@@ -1,21 +1,27 @@
 """Simulations de la note foncière : moins de droits de mutation, plus de taxe foncière, deux taux terrain/bâti.
 
-Lancer depuis fiscalite/foncier/ après donnees_foncier.py : python3 simulation.py  ->  sorties/simulation.txt
+Lancer depuis fiscalite/foncier/ après donnees_foncier.py et donnees_2025.py : python3 simulation.py
+  ->  sorties/simulation.txt
 
 Champ : logements des particuliers (parc du recensement 2022 moins les HLM), France métropolitaine hors
 Alsace-Moselle (pas de DVF). Unité : la commune, avec deux types de logements (maison, appartement).
 
+Base 2025 (décision 5 du 17/11/2026, synthese/DECISIONS.md) ; BASE_FONCIER=2024 redonne le millésime précédent.
 Hypothèses (toutes réglables en tête de fichier) :
 - valeur d'un logement = prix médian au m² des ventes 2023-2024 (commune, sinon intercommunalité, sinon
-  département) × surface médiane des logements vendus du même type ;
+  département) × surface médiane des logements vendus du même type : la structure des prix n'est pas recalée sur
+  2025 (prix des logements anciens inférieurs de 1,5 % en 2025 à leur moyenne 2023-2024, indice Notaires-Insee) ;
 - part du terrain, bornée entre 10 et 90 % : maisons, prix au m² des terrains à bâtir (commune, sinon département
   ajusté par l'écart de prix des maisons) × parcelle médiane plafonnée, rapporté à la valeur ; appartements,
   1 − coût de reconstruction du bâti / prix au m², le coût étant calé pour que la part du terrain de l'ensemble
-  égale celle des comptes de patrimoine des ménages (3 993 Md€ de terrains pour 4 807 Md€ de logements ; Insee
-  Première n° 2081 publie 4 043 Md€ de terrains bâtis, écart de 0,3 point non expliqué) ;
+  égale celle des comptes de patrimoine des ménages (fin 2025 : 4 136 Md€ de terrains bâtis pour 4 812 Md€ de
+  logements, Insee, millésime 2026 ; base 2024 : 3 993 et 4 807 Md€, millésime 2025) ;
 - taxe foncière actuelle d'un logement = (taxe foncière / valeur des logements de la commune, Insee IA 91, 2017)
-  × valeur 2024 × facteur national calé sur le total ;
-- droits de mutation = taux × valeur des ventes de logements anciens de la commune (moyenne annuelle 2023-2024).
+  × valeur × croissance de la taxe foncière bâtie de la commune de 2017 à 2025 (REI) × facteur national calé sur
+  le total (19,2 Md€ en 2017 × croissance nationale 2017-2025 × part du champ) ;
+- droits de mutation = taux permanent de 5,81 % × valeur des ventes de logements anciens de la commune en 2025
+  (DVF ; base 2024 : moyenne annuelle 2023-2024). Le relèvement temporaire à 6,32 % (1/4/2025-31/3/2028, 88
+  départements sur 100 au 1/6/2026) n'est pas compté.
 """
 import json
 import os
@@ -29,14 +35,16 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "sorties"
 OUT.mkdir(exist_ok=True)
 
-LAMBDA_MENAGES = 3993 / (3993 + 4807)        # Insee, comptes de patrimoine 2024, ménages (S14)
+BASE = os.environ.get("BASE_FONCIER", "2025")  # « 2024 » : millésime précédent (comparaison)
+# part du sol dans les logements des ménages (S14), Insee, comptes de patrimoine : terrains bâtis / (terrains + logements)
+LAMBDA_MENAGES = 4136.126 / (4136.126 + 4811.503) if BASE == "2025" else 3993 / (3993 + 4807)
 LMIN, LMAX = 0.10, 0.90
 RATIO_COUT_APPART = 1.25                     # coût de reconstruction au m² habitable : appartement / maison
-TAUX_DMTO = 0.045 + 0.012 + 0.0237 * 0.045   # 2024 : département 4,5 %, commune 1,2 %, frais d'assiette de l'État
+TAUX_DMTO = 0.045 + 0.012 + 0.0237 * 0.045   # taux permanent : département 4,5 %, commune 1,2 %, frais d'assiette
 PART_DEP_DMTO = (0.045 + 0.0237 * 0.045) / TAUX_DMTO
 TF_2017_MENAGES = 19.2e9                     # Insee IA 91 : TFPB nette sur les logements et dépendances des ménages
 CROISS_COMMUNE = os.environ.get("CROISS_COMMUNE", "1") == "1"   # croissance de la TF par commune
-CROISSANCE_TF = None                         # TFPB 2024 / 2017 (REI) : lu dans donnees/croissance_tf.json
+CROISSANCE_TF = None                         # TFPB 2025 (ou 2024) / 2017 (REI) : lu dans donnees/croissance_tf.json
 
 c = pd.read_csv(HERE / "donnees/communes.csv.gz", dtype={"codgeo": str, "dep": str, "epci": str}).set_index("codgeo")
 c = c[c.log.fillna(0) > 0].copy()
@@ -93,20 +101,38 @@ r = c.tf_valeur_2017 / 100
 r = r.fillna(c.epci.map(r.groupby(c.epci).median())).fillna(c.dep.map(r.groupby(c.dep).median()))
 c["r2017"] = r
 cr = json.loads((HERE / "donnees/croissance_tf.json").read_text())
-CROISSANCE_TF = cr["tfpb_2024"] / cr["tfpb_2017"]
+CROISSANCE_TF = cr[f"tfpb_{BASE}"] / cr["tfpb_2017"]
 part_champ = (c.n_m + c.n_a).sum() / cr["logements_metro_particuliers"]
 CIBLE_TF = TF_2017_MENAGES * CROISSANCE_TF * part_champ
-# croissance propre à chaque commune de la taxe foncière bâtie 2017-2024 (taux et bases, REI), relative à la
+# croissance propre à chaque commune de la taxe foncière bâtie 2017-2025 (taux et bases, REI), relative à la
 # croissance nationale : corrige par exemple la hausse du taux parisien de 13,5 à 20,5 % en 2023. Communes
-# fusionnées ou absentes : croissance nationale ; bornée à [0,7 ; 2].
+# fusionnées ou absentes : croissance nationale ; bornée à [0,7 ; 2]. La géographie est celle du REI 2024
+# (communes.csv.gz) ; une commune dont la taxe varie de moins de −20 % ou de plus de +30 % entre 2024 et 2025
+# (fusions de communes, pour l'essentiel : 0,3 % des logements) garde sa croissance 2017-2024, prolongée de la
+# croissance nationale de 2025.
+tfpb_ref = c.tfpb
+if BASE == "2025":
+    t25 = pd.read_csv(HERE / "donnees/tfpb2025_communes.csv", dtype={"codgeo": str}).set_index("codgeo").tfpb_2025
+    r25 = pd.Series(c.index.map(t25), index=c.index, dtype=float) / c.tfpb
+    R25_NAT = cr["tfpb_2025"] / cr["tfpb_2024"]
+    R25_HORS = float(c.log.where(~r25.between(0.8, 1.3), 0).sum() / c.log.sum())
+    tfpb_ref = c.tfpb * r25.where(r25.between(0.8, 1.3), R25_NAT)
 t17 = pd.read_csv(HERE / "donnees/tfpb2017_communes.csv", dtype={"codgeo": str}).set_index("codgeo").tfpb_2017
-g = (c.tfpb / c.index.map(t17)) / CROISSANCE_TF
+g = (tfpb_ref / c.index.map(t17)) / CROISSANCE_TF
 c["g_rel"] = g.where(np.isfinite(g) & (g > 0), 1.0).clip(0.7, 2.0) if CROISS_COMMUNE else 1.0
 brut = (c.r2017 * c.g_rel * (c.n_m * c.v_m + c.n_a * c.v_a)).sum()
 KAPPA = CIBLE_TF / brut
 c["tf_m"], c["tf_a"] = KAPPA * c.r2017 * c.g_rel * c.v_m, KAPPA * c.r2017 * c.g_rel * c.v_a
 
 # ---------------------------------------------------------------- droits de mutation annuels, par logement du parc
+# base 2025 : ventes de 2025 (DVF, donnees_2025.py) ; les moyennes 2023-2024 sont gardées pour comparaison
+c["valeur_ventes_an_2324"] = c.valeur_ventes_an
+if BASE == "2025":
+    v25 = pd.read_csv(HERE / "donnees/ventes_logements_2025.csv", dtype={"codgeo": str}).set_index("codgeo")
+    for col, src in (("ventes_an", "ventes"), ("valeur_ventes_an", "valeur"), ("valeur_ventes_m_an", "valeur_m"),
+                     ("valeur_ventes_a_an", "valeur_a")):
+        c[col] = c.index.map(v25[src]).astype(float)
+        c[col] = c[col].fillna(0.0)
 c["dmto"] = TAUX_DMTO * c.valeur_ventes_an
 c["dmto_m"] = np.where(c.n_m > 0, TAUX_DMTO * c.valeur_ventes_m_an / c.n_m.replace(0, np.nan), 0)
 c["dmto_a"] = np.where(c.n_a > 0, TAUX_DMTO * c.valeur_ventes_a_an / c.n_a.replace(0, np.nan), 0)
@@ -271,9 +297,15 @@ if __name__ == "__main__":
         lignes.append(s)
     p(f"champ : {L.n.sum()/1e6:.1f} M logements de particuliers, valeur {VAL/1e9:,.0f} Md€, terrain {TERRE/1e9:,.0f} Md€"
       f" ({100*TERRE/VAL:.1f} %) ; coût de reconstruction calé pour les appartements {B_APPART:,.0f} €/m²")
-    p(f"taxe foncière des particuliers {TF0/1e9:.1f} Md€ (croissance TFPB 2017-2024 {CROISSANCE_TF:.3f}, part du champ"
+    p(f"base {BASE} ; taxe foncière des particuliers {TF0/1e9:.1f} Md€ (croissance TFPB 2017-{BASE} {CROISSANCE_TF:.3f}, part du champ"
       f" {part_champ:.3f}) ; DMTO sur les logements anciens {D0/1e9:.1f} Md€ (taux {100*TAUX_DMTO:.2f} %) ;"
       f" TF moyenne {TF0/L.n.sum():,.0f} € par logement ; TF / valeur {100*TF0/VAL:.3f} %")
+    if BASE == "2025":
+        p(f"taxe foncière 2025 par commune (REI 2025) : {100*R25_HORS:.1f} % des logements dans des communes dont la taxe"
+          f" varie de moins de −20 % ou de plus de +30 % entre 2024 et 2025 (surtout des fusions de communes), qui gardent leur croissance"
+          f" 2017-2024 prolongée de la croissance nationale ({100*(R25_NAT-1):+.1f} %) ; ventes de logements anciens"
+          f" 2025 : {c.ventes_an.sum():,.0f}, {c.valeur_ventes_an.sum()/1e9:.1f} Md€ (moyenne 2023-2024 :"
+          f" {c.valeur_ventes_an_2324.sum()/1e9:.1f} Md€)")
     lm = (L.n * L.v * L.lam).groupby(L.type).sum() / (L.n * L.v).groupby(L.type).sum()
     p(f"prix des terrains imputé : élasticité au prix des maisons {ELAST_TERRAIN:.2f} (constante {CONST_TERRAIN:.2f},"
       f" {N_REG_TERRAIN} communes)")
@@ -351,7 +383,7 @@ if __name__ == "__main__":
         tck = L.codgeo.map(gk.groupby("codgeo").t0.sum() / gk.groupby("codgeo").b.sum())
         bat[f"commune {k}x"] = (L.n * tck * L.v * (1 - L.lam)).sum() / 1e9
         bat[f"national {k}x"] = TAUX[k][1] * (L.n * L.v * (1 - L.lam)).sum() / 1e9
-    p("[CONTROLE] impôt sur le bâti après réforme (Md€) : taxe actuelle relevée de 24 % " + f"{bat['R50']:.1f} ; "
+    p(f"[CONTROLE] impôt sur le bâti après réforme (Md€) : taxe actuelle relevée de {50*D0/TF0:.0f} % {bat['R50']:.1f} ; "
       + " ; ".join(f"{k_} {v_:.1f}" for k_, v_ in bat.items() if k_ != "R50") + " ; sol seul 0,0")
     dtf = scen["N4"][0] - L.tf0
     paris = (L.codgeo == "75056") & (L.type == "a")

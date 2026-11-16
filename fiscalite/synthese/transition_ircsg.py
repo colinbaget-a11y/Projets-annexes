@@ -7,15 +7,15 @@
    des 20,0 ans des hommes, Insee 2025 provisoire) ; stock de retraités supposé formé de cohortes de même taille
    entrées à 62 ans (hypothèse) ; taux d'actualisation réel de 1, 2 et 3 % ; avec et sans montée en charge.
 3. Gain de transition contre gain permanent : en régime permanent, la hausse de l'impôt sur les pensions futures
-   réduit la valeur des droits acquis par les cotisations contributives (27,4 % du salaire brut sous le plafond,
-   convention de ps_ircsg_methode.coin) ; elle ajoute au coin des actifs κ = 0,274 × (hausse du taux moyen d'impôt
-   sur les pensions). On calcule le gain si les actifs ne le voient pas (θ = 0), le voient à moitié ou en entier.
+   réduit la valeur des droits à pension qu'ouvre chaque euro de salaire (27,4 centimes par euro brut sous le plafond,
+   part contributive de la convention de ps_ircsg_methode.coin) ; elle ajoute au prélèvement sur le salaire des actifs
+   κ = 0,274 × (hausse du taux moyen d'impôt sur les pensions). On calcule le gain si les actifs ne le voient pas (θ = 0), le voient à moitié ou en entier.
    C'est une borne : le lien entre un euro cotisé et la pension est faible au bas (minimum contributif) et nul
    au-delà de 8 plafonds.
 4. Perception de la CSG (hypothèse H1 du registre) : gain si la CSG d'aujourd'hui ne fait pas réagir le revenu
    d'activité, ou à moitié seulement.
 5. Extinction de la CRDS avec la CADES fin 2033 : baisse de taux permise si la recette de la CRDS du champ
-   (7,4 Md€) n'est plus à lever.
+   (base 2025 : 7,6 Md€) n'est plus à lever.
 6. Jeu d'élasticités de long terme (avis Cochrane) : déjà dans evalue_complet (gain_long).
 
 Lancer depuis fiscalite/, après proposition_ircsg.py : python3 synthese/transition_ircsg.py
@@ -89,7 +89,7 @@ xs62, S62 = survie(A, 62)
 poids = S62 / S62.sum()
 age_moyen = float((poids * xs62).sum())
 d_ret = R0["groupes"]["retraites"]["Md"]
-pens = float((M.W_R * M.ZN).sum() / 1e9)
+pens = float((M.W_R * M.ZNR).sum() / 1e9)
 D["va"] = dict(gompertz_A=A, B=B, e65=esperance(A, 65), e75=esperance(A, 75), age_moyen_stock=age_moyen,
                hausse_Md=d_ret, pensions_Md=pens, hausse_pct_pensions=100 * d_ret / pens, par_taux={})
 p(f"\n[VALEUR ACTUALISÉE] Gompertz : e(65) {esperance(A, 65):.1f} ans, e(75) {esperance(A, 75):.1f} ans ; âge moyen du stock"
@@ -135,7 +135,7 @@ for vue in (1.0, 0.5, 0.0):
       f" dont intensif {-r['central']['v2_reel']:+.2f}, participation {-r['central']['v2_ext']:+.2f}")
 
 # ------------------------------------------------------------------ 5. extinction de la CRDS fin 2033
-crds = float(M.x.crds.sum())
+crds = float(M.CRDS_CHAMP)
 lo, hi = -0.10, 0.05
 for _ in range(40):
     d = (lo + hi) / 2

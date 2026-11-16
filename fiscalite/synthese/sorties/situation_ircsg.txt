@@ -1,49 +1,52 @@
-[RECETTES champ] IR 80.2 + CSG 132.4 + CRDS 7.4 = 220.1 Md€ ; CSG : activité 106.1, pensions 25.8, chômage 0.56 ; CRDS sur les pensions 1.64
-[RECETTES champ] IR de l'IRCOM 91.7 Md€, dont 11.5 imputés aux revenus au PFU (12,8 %)
-[RECETTES nationales 2024, comptes nationaux] IR 96.2 ; CSG 153.1 ; CRDS 9.1 Md€ ; ensemble 258.4 Md€, 8.8 % du PIB
-[FOYERS] 41.6 M de foyers fiscaux, dont 19.7 M imposés à l'IR (47 %) ; assiette brute 1598 Md€, après cotisations 1481 ; pensions 406 ; chômage 39
-[MODÈLE, non observable] charge actuelle des retraités 47.6 Md€ (11.7 % de leurs pensions) ; des actifs 172.4 Md€ (16.0 % de leur revenu après cotisations)
+[RECETTES champ, base 2025] IR 86.6 + CSG 135.8 + CRDS 7.6 = 229.9 Md€ ; CSG : activité 108.5, pensions 26.7, chômage 0.58
+[RECETTES champ, base 2024] IR 80.2 + CSG 132.4 + CRDS 7.4 = 220.1 Md€ ; CSG : activité 106.1, pensions 25.8, chômage 0.56
+[RECETTES champ] IR « IRCOM » porté en 2025 99.0 Md€ (2024 : 91.7), dont 12.4 imputés aux revenus au PFU (12,8 % en 2024, même croissance)
+[RECETTES nationales 2024, comptes nationaux] IR 96.0 ; CSG 153.1 ; CRDS 9.1 Md€ ; ensemble 258.2 Md€, 8.8 % du PIB
+[RECETTES nationales 2025, comptes nationaux] IR 103.6 ; CSG 156.6 ; CRDS 9.3 Md€ ; ensemble 269.5 Md€, 9.0 % du PIB
+[FACTEURS 2025/2024] IR 1.0792 ; CSG d'activité 1.023 ; CSG de remplacement 1.033 ; CRDS 1.0221
+[FOYERS, IRCOM 2024] 41.6 M de foyers fiscaux, dont 19.7 M imposés à l'IR (47 %) ; assiette après cotisations 1520 Md€ en 2025 (1481 en 2024) ; pensions 420
+[MODÈLE, non observable] charge actuelle des retraités 50.2 Md€ (12.0 % de leurs pensions) ; des actifs 179.7 Md€ (16.3 % de leur revenu après cotisations)
 
 [TAUX par cas-type, revenu brut du ménage] taux moyen (IR + CSG + CRDS / revenu brut) ; taux marginal (sur 1 000 €)
-  Salarié seul                       21 k€ : 9.5 % / 10 % (2,027 €) | 30 k€ : 12.2 % / 21 % (3,671 €) | 50 k€ : 18.0 % / 32 % (8,995 €) | 80 k€ : 23.2 % / 32 % (18,582 €) | 120 k€ : 26.6 % / 40 % (31,956 €)
-  Couple sans enfant (60/40)         21 k€ : 9.5 % / 10 % (2,027 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 11.0 % / 21 % (5,517 €) | 80 k€ : 14.6 % / 32 % (11,656 €) | 120 k€ : 20.3 % / 32 % (24,381 €)
-  Couple, deux enfants (60/40)       21 k€ : 9.5 % / 10 % (2,027 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 9.5 % / 10 % (4,765 €) | 80 k€ : 12.6 % / 21 % (10,071 €) | 120 k€ : 17.3 % / 32 % (20,799 €)
-  Couple, trois enfants (60/40)      21 k€ : 9.5 % / 10 % (2,027 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 9.5 % / 10 % (4,765 €) | 80 k€ : 10.3 % / 21 % (8,234 €) | 120 k€ : 14.3 % / 32 % (17,217 €)
-  Couple, deux enfants, un revenu    21 k€ : 9.5 % / 10 % (2,027 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 9.5 % / 10 % (4,765 €) | 80 k€ : 12.6 % / 21 % (10,119 €) | 120 k€ : 17.5 % / 32 % (20,947 €)
-  Parent isolé, deux enfants         21 k€ : 9.5 % / 10 % (2,027 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 10.4 % / 21 % (5,176 €) | 80 k€ : 15.7 % / 32 % (12,567 €) | 120 k€ : 21.6 % / 40 % (25,941 €)
-  Retraité seul                      21 k€ : 7.1 % / 19 % (1,510 €) | 30 k€ : 11.0 % / 66 % (3,314 €) | 50 k€ : 20.7 % / 37 % (10,361 €) | 80 k€ : 26.8 % / 37 % (21,470 €) | 120 k€ : 32.5 % / 47 % (38,999 €)
-  Couple de retraités (60/40)        21 k€ : 0.0 % / 0 % (0 €) | 30 k€ : 5.7 % / 49 % (1,710 €) | 50 k€ : 12.1 % / 24 % (6,070 €) | 80 k€ : 18.3 % / 37 % (14,635 €) | 120 k€ : 24.5 % / 37 % (29,447 €)
+  Salarié seul                       22 k€ : 9.5 % / 10 % (2,061 €) | 30 k€ : 12.2 % / 21 % (3,647 €) | 50 k€ : 17.9 % / 32 % (8,931 €) | 80 k€ : 23.1 % / 32 % (18,518 €) | 120 k€ : 26.5 % / 40 % (31,809 €)
+  Couple sans enfant (60/40)         22 k€ : 9.5 % / 10 % (2,061 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 10.9 % / 21 % (5,471 €) | 80 k€ : 14.5 % / 29 % (11,562 €) | 120 k€ : 20.2 % / 32 % (24,254 €)
+  Couple, deux enfants (60/40)       22 k€ : 9.5 % / 10 % (2,061 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 9.5 % / 10 % (4,765 €) | 80 k€ : 12.5 % / 21 % (10,007 €) | 120 k€ : 17.2 % / 32 % (20,640 €)
+  Couple, trois enfants (60/40)      22 k€ : 9.5 % / 10 % (2,061 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 9.5 % / 10 % (4,765 €) | 80 k€ : 10.2 % / 21 % (8,154 €) | 120 k€ : 14.2 % / 32 % (17,026 €)
+  Couple, deux enfants, un revenu    22 k€ : 9.5 % / 10 % (2,061 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 9.5 % / 10 % (4,765 €) | 80 k€ : 12.6 % / 21 % (10,056 €) | 120 k€ : 17.3 % / 32 % (20,791 €)
+  Parent isolé, deux enfants         22 k€ : 9.5 % / 10 % (2,061 €) | 30 k€ : 9.5 % / 10 % (2,859 €) | 50 k€ : 10.3 % / 21 % (5,126 €) | 80 k€ : 15.6 % / 32 % (12,449 €) | 120 k€ : 21.5 % / 40 % (25,740 €)
+  Retraité seul                      22 k€ : 7.1 % / 21 % (1,535 €) | 30 k€ : 11.0 % / 21 % (3,287 €) | 50 k€ : 20.6 % / 37 % (10,287 €) | 80 k€ : 26.7 % / 37 % (21,396 €) | 120 k€ : 32.4 % / 47 % (38,838 €)
+  Couple de retraités (60/40)        22 k€ : 0.0 % / 0 % (0 €) | 30 k€ : 4.3 % / 4 % (1,290 €) | 50 k€ : 12.0 % / 24 % (6,018 €) | 80 k€ : 18.1 % / 37 % (14,500 €) | 120 k€ : 24.4 % / 37 % (29,312 €)
 
 [MÊME REVENU après cotisations] charge d'aujourd'hui (€ et % du revenu) : salarié seul / retraité seul ; couple de salariés sans enfant / couple de retraités
   15 k€ : seul 1,612 € (10.7 %) / retraité 0 € (0.0 %) ; couple 1,612 € (10.7 %) / couple de retraités 0 € (0.0 %)
   20 k€ : seul 2,149 € (10.7 %) / retraité 860 € (4.3 %) ; couple 2,149 € (10.7 %) / couple de retraités 0 € (0.0 %)
-  25 k€ : seul 3,285 € (13.1 %) / retraité 2,270 € (9.1 %) ; couple 2,686 € (10.7 %) / couple de retraités 1,075 € (4.3 %)
-  30 k€ : seul 4,487 € (15.0 %) / retraité 3,314 € (11.0 %) ; couple 3,224 € (10.7 %) / couple de retraités 1,710 € (5.7 %)
-  40 k€ : seul 7,450 € (18.6 %) / retraité 6,848 € (17.1 %) ; couple 4,473 € (11.2 %) / couple de retraités 3,206 € (8.0 %)
-  60 k€ : seul 14,579 € (24.3 %) / retraité 14,064 € (23.4 %) ; couple 9,281 € (15.5 %) / couple de retraités 8,454 € (14.1 %)
+  25 k€ : seul 3,260 € (13.0 %) / retraité 2,243 € (9.0 %) ; couple 2,686 € (10.7 %) / couple de retraités 1,075 € (4.3 %)
+  30 k€ : seul 4,462 € (14.9 %) / retraité 3,287 € (11.0 %) ; couple 3,224 € (10.7 %) / couple de retraités 1,290 € (4.3 %)
+  40 k€ : seul 7,389 € (18.5 %) / retraité 6,787 € (17.0 %) ; couple 4,427 € (11.1 %) / couple de retraités 3,161 € (7.9 %)
+  60 k€ : seul 14,518 € (24.2 %) / retraité 13,990 € (23.3 %) ; couple 9,235 € (15.4 %) / couple de retraités 8,402 € (14.0 %)
 
 [QUOTIENT FAMILIAL, cas-types] baisse de charge due aux enfants (couple 60/40, même revenu brut) : deux enfants / trois enfants ; parent isolé avec deux enfants contre salarié seul
-  30 k€ : deux enfants 0 € ; trois enfants 0 € ; parent isolé (deux enfants) 812 €
-  40 k€ : deux enfants 0 € ; trois enfants 0 € ; parent isolé (deux enfants) 2,023 €
-  50 k€ : deux enfants 752 € ; trois enfants 752 € ; parent isolé (deux enfants) 3,819 €
-  60 k€ : deux enfants 1,837 € ; trois enfants 1,932 € ; parent isolé (deux enfants) 4,867 €
-  80 k€ : deux enfants 1,585 € ; trois enfants 3,422 € ; parent isolé (deux enfants) 6,015 €
-  100 k€ : deux enfants 3,582 € ; trois enfants 5,509 € ; parent isolé (deux enfants) 6,015 €
-  150 k€ : deux enfants 3,582 € ; trois enfants 7,164 € ; parent isolé (deux enfants) 6,015 €
-[QUOTIENT FAMILIAL, modèle] coût 13.36 Md€ (couples 11.20, parents isolés 2.16) ; 742 € par enfant ; couples avec deux enfants au plafond : 1.58 M sur 8.02 M ; parents isolés au plafond 0.19 M sur 1.97 M (hypothèses H13 du registre)
+  30 k€ : deux enfants 0 € ; trois enfants 0 € ; parent isolé (deux enfants) 788 €
+  40 k€ : deux enfants 0 € ; trois enfants 0 € ; parent isolé (deux enfants) 1,967 €
+  50 k€ : deux enfants 706 € ; trois enfants 706 € ; parent isolé (deux enfants) 3,805 €
+  60 k€ : deux enfants 1,886 € ; trois enfants 1,886 € ; parent isolé (deux enfants) 4,854 €
+  80 k€ : deux enfants 1,555 € ; trois enfants 3,408 € ; parent isolé (deux enfants) 6,069 €
+  100 k€ : deux enfants 3,614 € ; trois enfants 5,464 € ; parent isolé (deux enfants) 6,069 €
+  150 k€ : deux enfants 3,614 € ; trois enfants 7,228 € ; parent isolé (deux enfants) 6,069 €
+[QUOTIENT FAMILIAL, modèle] coût 13.76 Md€ (couples 11.53, parents isolés 2.24) ; 765 € par enfant ; couples avec deux enfants au plafond : 1.66 M sur 8.02 M ; parents isolés au plafond 0.20 M sur 1.97 M (hypothèses H13 du registre)
 
-[MARCHES, retraité seul] hausse de charge pour 500 € de pension en plus aux seuils de CSG : 16.5 → 17.0 k€ : +366 € ; 17.0 → 17.5 k€ : +387 € ; 20.0 → 20.5 k€ : +596 € ; 30.0 → 30.5 k€ : +326 € ; 30.5 → 31.0 k€ : +333 € ; 33.0 → 33.5 k€ : +335 €
-[MARCHES, salarié seul] taux marginal (IR + CSG + CRDS, sur 1 000 € brut) : dès 5.0 k€ : 9.5 % ; dès 23.0 k€ : 19.9 % ; dès 23.5 k€ : 25.8 % ; dès 24.0 k€ : 21.3 % ; dès 39.0 k€ : 24.4 % ; dès 39.5 k€ : 29.6 % ; dès 40.5 k€ : 31.7 % ; dès 112.5 k€ : 37.7 % ; dès 113.0 k€ : 40.1 %
+[MARCHES, retraité seul, droit 2025] hausses de charge pour 100 € de pension en plus (taux de CSG 0 à 3 = exonéré, 3,8, 6,6, 8,3 %) : 18.0 → 18.1 k€ : +778 € (CSG 0 → 1, RFR 13,378 → 12,849) ; 21.0 → 21.1 k€ : +595 € (CSG 1 → 2, RFR 16,771 → 16,782) ; 32.3 → 32.4 k€ : +492 € (CSG 2 → 3, RFR 26,438 → 26,028) ; 33.5 → 33.6 k€ : +247 € (CSG 3 → 3, RFR 26,961 → 28,456)
+[MARCHES, salarié seul, droit 2025] 21.1 → 21.2 k€ : +80 €
+[TAUX MARGINAL seul, par 1 000 € de revenu après cotisations] dès 1.0 k€ : 10.7 % ; dès 20.2 k€ : 17.6 % ; dès 20.4 k€ : 20.2 % ; dès 20.6 k€ : 22.8 % ; dès 20.8 k€ : 25.6 % ; dès 21.0 k€ : 28.2 % ; dès 21.2 k€ : 23.9 % ; dès 34.7 k€ : 26.1 % ; dès 34.9 k€ : 28.4 % ; dès 35.1 k€ : 30.7 % ; dès 35.3 k€ : 33.1 % ; dès 35.5 k€ : 35.4 % ; dès 100.8 k€ : 37.6 % ; dès 101.1 k€ : 40.3 % ; dès 101.3 k€ : 42.3 % ; dès 101.6 k€ : 44.7 %
+[TAUX MARGINAL retraite_seul, par 1 000 € de revenu après cotisations] dès 1.0 k€ : 0.0 % ; dès 17.1 k€ : 77.8 % ; dès 17.6 k€ : 80.0 % ; dès 18.1 k€ : 4.3 % ; dès 20.1 k€ : 63.4 % ; dès 20.9 k€ : 65.6 % ; dès 21.1 k€ : 14.0 % ; dès 21.3 k€ : 16.7 % ; dès 21.5 k€ : 19.5 % ; dès 21.7 k€ : 22.3 % ; dès 21.9 k€ : 25.0 % ; dès 22.1 k€ : 20.9 % ; dès 31.4 k€ : 68.0 % ; dès 32.4 k€ : 22.3 % ; dès 32.6 k€ : 44.8 % ; dès 33.6 k€ : 22.3 % ; dès 34.1 k€ : 24.6 % ; dès 34.3 k€ : 27.1 % ; dès 34.5 k€ : 29.3 % ; dès 34.7 k€ : 31.7 % ; dès 34.9 k€ : 34.1 % ; dès 46.9 k€ : 36.2 %
 
-[DÉCOMPOSITION approchée] IR des revenus au barème aujourd'hui : 80.2 Md€ (après niches)
-  règles actuelles sans niche, sur le revenu imposable, imposition commune  109.9 Md€
-  assiette large (revenu après cotisations, sans abattement)                155.6 Md€ (+45.7)
-  sans quotient familial des enfants                                        172.5 Md€ (+16.9)
-  sans décote                                                               179.5 Md€ (+7.0)
-  sans quotient conjugal (barème appliqué à chaque adulte)                  197.1 Md€ (+17.6)
+[DÉCOMPOSITION approchée] IR des revenus au barème aujourd'hui : 86.6 Md€ (après niches ; base 2025)
+  règles actuelles sans niche, sur le revenu imposable, imposition commune  115.1 Md€
+  assiette large (revenu après cotisations, sans abattement)                162.6 Md€ (+47.5)
+  sans quotient familial des enfants                                        180.0 Md€ (+17.4)
+  sans décote                                                               187.0 Md€ (+7.0)
+  sans quotient conjugal (barème appliqué à chaque adulte)                  205.0 Md€ (+18.0)
 
 [OCDE, Revenue Statistics 2023] impôts sur le revenu des personnes (1100), % du PIB : Danemark 25.2 ; Belgique 11.7 ; Suède 11.2 ; Italie 11.2 ; Royaume-Uni 10.5 ; États-Unis 10.2 ; Allemagne 9.8 ; France 9.4 ; Pays-Bas 9.1 ; Espagne 8.9 ; Moyenne OCDE 8.2 ; Japon 6.2 | France : IR seul 3.4 %, CSG + CRDS 5.5 % (comptes nationaux)
-[OCDE, Taxing Wages 2025] personne seule au salaire moyen, % du coût du travail : impôt sur le revenu (CSG et CRDS comprises pour la France) / coin total : France 12.2 / 47.2 ; Allemagne 14.2 / 49.3 ; Royaume-Uni 15.4 / 32.4 ; Moyenne OCDE 13.3 / 35.1 ; Moyenne UE de l'OCDE 14.1 / 41.7
 
-[PREMIER SALAIRE aujourd'hui] taux de prélèvement IR + CSG + CRDS : seul_mi 9.5 % ; seul_smic 9.5 % ; conjoint_mi 9.5 % ; conjoint_smic 13.8 %
-[COIN MARGINAL, personne seule, droit 2025] en % d'un euro de coût du travail en plus : cotisations non contributives + retrait de la prime d'activité + IR-CSG = total : 0.5 Smic : -11 + 11 + 9 = 9 ; 1 Smic : 39 + 17 + 5 = 61 ; 1.25 Smic : 39 + 17 + 11 = 67 ; 1.5 Smic : 39 + 0 + 11 = 50 ; 2 Smic : 15 + 0 + 23 = 38 ; 2.5 Smic : 19 + 0 + 22 = 41 ; 3 Smic : 19 + 0 + 22 = 42
+[PREMIER SALAIRE aujourd'hui] taux de prélèvement IR + CSG + CRDS : seul_mi 9.5 % ; seul_smic 9.5 % ; conjoint_mi 9.5 % ; conjoint_smic 13.7 %

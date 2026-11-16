@@ -1,127 +1,131 @@
-10332 barèmes essayés ; 3376 tiennent la recette et la neutralité du 1 % ; 1047 respectent aussi la contrainte des déciles (±500 €)
+10332 barèmes essayés ; 3743 tiennent la recette et la neutralité du 1 % ; 1119 respectent aussi la contrainte des déciles (±500 €)
 
 [ARBITRAGE franchise / taux d'entrée] meilleur barème (gain total) pour chaque franchise F et taux d'entrée t0 :
-  F     0 t0  0.0 % | gain 3.26 dont participation 0.88 | retraités +6.9 Md€ | premier salaire mi-temps 4.6 %, Smic 9.2 % | 0 % au premier euro imposé, 22 % à 20 k€, 22.5 % à 30 k€, 50 % à 212 k€
-  F     0 t0  1.0 % | gain 3.35 dont participation 0.90 | retraités +6.8 Md€ | premier salaire mi-temps 5.1 %, Smic 9.3 % | 1 % au premier euro imposé, 21 % à 20 k€, 27.2 % à 60 k€, 50 % à 213 k€
-  F     0 t0  2.0 % | gain 3.49 dont participation 0.78 | retraités +6.7 Md€ | premier salaire mi-temps 5.7 %, Smic 9.7 % | 2 % au premier euro imposé, 21 % à 20 k€, 21.2 % à 30 k€, 50 % à 194 k€
-  F     0 t0  3.0 % | gain 3.59 dont participation 0.79 | retraités +6.6 Md€ | premier salaire mi-temps 6.2 %, Smic 9.8 % | 3 % au premier euro imposé, 20 % à 20 k€, 20.6 % à 25 k€, 50 % à 198 k€
-  F     0 t0  4.0 % | gain 3.69 dont participation 0.82 | retraités +6.6 Md€ | premier salaire mi-temps 6.7 %, Smic 9.8 % | 4 % au premier euro imposé, 19 % à 20 k€, 24.4 % à 45 k€, 50 % à 201 k€
-  F     0 t0  5.0 % | gain 3.81 dont participation 0.69 | retraités +6.5 Md€ | premier salaire mi-temps 7.4 %, Smic 10.3 % | 5 % au premier euro imposé, 19 % à 20 k€, 19.2 % à 25 k€, 50 % à 184 k€
-  F     0 t0  6.0 % | gain 3.89 dont participation 0.69 | retraités +6.4 Md€ | premier salaire mi-temps 7.8 %, Smic 10.3 % | 6 % au premier euro imposé, 18 % à 20 k€, 21.7 % à 38 k€, 50 % à 184 k€
-  F     0 t0  7.0 % | gain 3.98 dont participation 0.73 | retraités +6.3 Md€ | premier salaire mi-temps 8.3 %, Smic 10.4 % | 7 % au premier euro imposé, 17 % à 20 k€, 27.4 % à 60 k€, 50 % à 199 k€
-  F     0 t0  8.0 % | gain 4.07 dont participation 0.76 | retraités +6.2 Md€ | premier salaire mi-temps 8.8 %, Smic 10.4 % | 8 % au premier euro imposé, 16 % à 20 k€, 24.5 % à 45 k€, 50 % à 194 k€
-  F     0 t0  9.0 % | gain 4.16 dont participation 0.79 | retraités +6.2 Md€ | premier salaire mi-temps 9.2 %, Smic 10.5 % | 9 % au premier euro imposé, 15 % à 20 k€, 25.1 % à 45 k€, 50 % à 201 k€
-  F     0 t0 10.0 % | gain 4.20 dont participation 0.96 | retraités +6.2 Md€ | premier salaire mi-temps 9.5 %, Smic 10.1 % | 10 % au premier euro imposé, 13 % à 20 k€, 25.2 % à 38 k€, 50 % à 219 k€
-  F     0 t0 11.0 % | gain 4.27 dont participation 0.98 | retraités +6.1 Md€ | premier salaire mi-temps 10.0 %, Smic 10.2 % | 11 % au premier euro imposé, 12 % à 20 k€, 25.5 % à 38 k€, 50 % à 223 k€
-  F  2000 t0  0.0 % | gain 3.26 dont participation 1.22 | retraités +10.6 Md€ | premier salaire mi-temps 3.1 %, Smic 8.0 % | 0 % au premier euro imposé, 24 % à 20 k€, 28.8 % à 90 k€, 50 % à 176 k€
-  F  2000 t0  1.0 % | gain 3.38 dont participation 1.25 | retraités +10.4 Md€ | premier salaire mi-temps 3.6 %, Smic 8.1 % | 1 % au premier euro imposé, 23 % à 20 k€, 25.8 % à 45 k€, 50 % à 223 k€
-  F  2000 t0  2.0 % | gain 3.51 dont participation 1.28 | retraités +10.3 Md€ | premier salaire mi-temps 4.0 %, Smic 8.3 % | 2 % au premier euro imposé, 22 % à 20 k€, 26.3 % à 45 k€, 50 % à 231 k€
-  F  2000 t0  3.0 % | gain 3.63 dont participation 1.15 | retraités +10.2 Md€ | premier salaire mi-temps 4.6 %, Smic 8.7 % | 3 % au premier euro imposé, 22 % à 20 k€, 22.6 % à 30 k€, 50 % à 205 k€
-  F  2000 t0  4.0 % | gain 3.74 dont participation 1.16 | retraités +10.1 Md€ | premier salaire mi-temps 5.0 %, Smic 8.9 % | 4 % au premier euro imposé, 21 % à 20 k€, 32.3 % à 90 k€, 50 % à 212 k€
-  F  2000 t0  5.0 % | gain 3.85 dont participation 1.18 | retraités +10.0 Md€ | premier salaire mi-temps 5.4 %, Smic 9.0 % | 5 % au premier euro imposé, 20 % à 20 k€, 24.2 % à 38 k€, 50 % à 208 k€
-  F  2000 t0  6.0 % | gain 3.96 dont participation 1.20 | retraités +9.9 Md€ | premier salaire mi-temps 5.9 %, Smic 9.1 % | 6 % au premier euro imposé, 19 % à 20 k€, 24.6 % à 38 k€, 50 % à 212 k€
-  F  2000 t0  7.0 % | gain 4.07 dont participation 1.23 | retraités +9.8 Md€ | premier salaire mi-temps 6.3 %, Smic 9.2 % | 7 % au premier euro imposé, 18 % à 20 k€, 26.9 % à 45 k€, 50 % à 231 k€
-  F  2000 t0  8.0 % | gain 4.17 dont participation 1.23 | retraités +9.8 Md€ | premier salaire mi-temps 6.8 %, Smic 9.4 % | 8 % au premier euro imposé, 17 % à 20 k€, 25.3 % à 38 k€, 50 % à 219 k€
-  F  2000 t0  9.0 % | gain 4.27 dont participation 1.25 | retraités +9.7 Md€ | premier salaire mi-temps 7.2 %, Smic 9.5 % | 9 % au premier euro imposé, 16 % à 20 k€, 25.6 % à 38 k€, 50 % à 223 k€
-  F  2000 t0 10.0 % | gain 4.36 dont participation 1.26 | retraités +9.6 Md€ | premier salaire mi-temps 7.6 %, Smic 9.6 % | 10 % au premier euro imposé, 15 % à 20 k€, 26.0 % à 38 k€, 50 % à 227 k€
-  F  2000 t0 11.0 % | gain 4.46 dont participation 1.11 | retraités +9.4 Md€ | premier salaire mi-temps 8.2 %, Smic 10.1 % | 11 % au premier euro imposé, 15 % à 20 k€, 24.3 % à 38 k€, 50 % à 201 k€
-  F  2000 t0 12.0 % | gain 4.56 dont participation 1.13 | retraités +9.3 Md€ | premier salaire mi-temps 8.6 %, Smic 10.2 % | 12 % au premier euro imposé, 14 % à 20 k€, 24.7 % à 38 k€, 50 % à 205 k€
-  F  4000 t0  0.0 % | gain 3.30 dont participation 1.62 | retraités +14.4 Md€ | premier salaire mi-temps 1.8 %, Smic 6.8 % | 0 % au premier euro imposé, 26 % à 20 k€, 28.8 % à 90 k€, 50 % à 182 k€
-  F  4000 t0  2.0 % | gain 3.52 dont participation 1.50 | retraités +14.2 Md€ | premier salaire mi-temps 2.6 %, Smic 7.4 % | 2 % au premier euro imposé, 25 % à 20 k€, 27.4 % à 90 k€, 50 % à 156 k€
-  F  4000 t0  3.0 % | gain 3.66 dont participation 1.54 | retraités +13.9 Md€ | premier salaire mi-temps 3.0 %, Smic 7.6 % | 3 % au premier euro imposé, 24 % à 20 k€, 24.1 % à 30 k€, 50 % à 219 k€
-  F  4000 t0  4.0 % | gain 3.78 dont participation 1.54 | retraités +13.9 Md€ | premier salaire mi-temps 3.4 %, Smic 7.7 % | 4 % au premier euro imposé, 23 % à 20 k€, 32.0 % à 90 k€, 50 % à 212 k€
-  F  4000 t0  5.0 % | gain 3.90 dont participation 1.55 | retraités +13.7 Md€ | premier salaire mi-temps 3.7 %, Smic 7.9 % | 5 % au premier euro imposé, 22 % à 20 k€, 25.5 % à 38 k€, 50 % à 223 k€
-  F  4000 t0  6.0 % | gain 4.01 dont participation 1.67 | retraités +13.8 Md€ | premier salaire mi-temps 4.0 %, Smic 7.8 % | 6 % au premier euro imposé, 20 % à 20 k€, 25.9 % à 30 k€, 50 % à 247 k€
-  F  4000 t0  7.0 % | gain 4.14 dont participation 1.56 | retraités +13.5 Md€ | premier salaire mi-temps 4.5 %, Smic 8.3 % | 7 % au premier euro imposé, 20 % à 20 k€, 26.1 % à 38 k€, 50 % à 231 k€
-  F  4000 t0  8.0 % | gain 4.23 dont participation 1.57 | retraités +13.4 Md€ | premier salaire mi-temps 4.8 %, Smic 8.4 % | 8 % au premier euro imposé, 19 % à 20 k€, 26.4 % à 38 k€, 50 % à 231 k€
-  F  4000 t0  9.0 % | gain 4.35 dont participation 1.58 | retraités +13.3 Md€ | premier salaire mi-temps 5.2 %, Smic 8.6 % | 9 % au premier euro imposé, 18 % à 20 k€, 26.8 % à 38 k€, 50 % à 239 k€
-  F  4000 t0 10.0 % | gain 4.44 dont participation 1.58 | retraités +13.2 Md€ | premier salaire mi-temps 5.6 %, Smic 8.8 % | 10 % au premier euro imposé, 17 % à 20 k€, 27.0 % à 38 k€, 50 % à 239 k€
-  F  4000 t0 11.0 % | gain 4.55 dont participation 1.59 | retraités +13.1 Md€ | premier salaire mi-temps 6.0 %, Smic 9.0 % | 11 % au premier euro imposé, 16 % à 20 k€, 27.4 % à 38 k€, 50 % à 247 k€
-  F  4000 t0 12.0 % | gain 4.64 dont participation 1.45 | retraités +12.9 Md€ | premier salaire mi-temps 6.4 %, Smic 9.4 % | 12 % au premier euro imposé, 16 % à 20 k€, 25.7 % à 38 k€, 50 % à 215 k€
-  F  4000 t0 13.0 % | gain 4.73 dont participation 1.59 | retraités +12.9 Md€ | premier salaire mi-temps 6.7 %, Smic 9.3 % | 13 % au premier euro imposé, 14 % à 20 k€, 28.0 % à 38 k€, 50 % à 256 k€
-  F  4000 t0 14.0 % | gain 4.83 dont participation 1.45 | retraités +12.7 Md€ | premier salaire mi-temps 7.2 %, Smic 9.8 % | 14 % au premier euro imposé, 14 % à 20 k€, 26.4 % à 38 k€, 50 % à 223 k€
-  F  6000 t0  3.0 % | gain 3.72 dont participation 1.94 | retraités +18.0 Md€ | premier salaire mi-temps 1.6 %, Smic 6.3 % | 3 % au premier euro imposé, 26 % à 20 k€, 30.2 % à 90 k€, 50 % à 194 k€
-  F  6000 t0  5.0 % | gain 3.92 dont participation 1.81 | retraités +17.7 Md€ | premier salaire mi-temps 2.2 %, Smic 6.9 % | 5 % au premier euro imposé, 25 % à 20 k€, 26.7 % à 60 k€, 50 % à 192 k€
-  F  6000 t0  6.0 % | gain 4.05 dont participation 1.93 | retraités +17.6 Md€ | premier salaire mi-temps 2.4 %, Smic 6.9 % | 6 % au premier euro imposé, 23 % à 20 k€, 25.2 % à 25 k€, 50 % à 239 k€
-  F  6000 t0  7.0 % | gain 4.17 dont participation 1.93 | retraités +17.4 Md€ | premier salaire mi-temps 2.7 %, Smic 7.2 % | 7 % au premier euro imposé, 22 % à 20 k€, 26.0 % à 30 k€, 50 % à 239 k€
-  F  6000 t0  8.0 % | gain 4.28 dont participation 1.92 | retraités +17.3 Md€ | premier salaire mi-temps 2.9 %, Smic 7.4 % | 8 % au premier euro imposé, 21 % à 20 k€, 26.1 % à 30 k€, 50 % à 239 k€
-  F  6000 t0  9.0 % | gain 4.39 dont participation 1.91 | retraités +17.2 Md€ | premier salaire mi-temps 3.2 %, Smic 7.6 % | 9 % au premier euro imposé, 20 % à 20 k€, 26.1 % à 30 k€, 50 % à 239 k€
-  F  6000 t0 10.0 % | gain 4.50 dont participation 1.91 | retraités +17.1 Md€ | premier salaire mi-temps 3.5 %, Smic 7.8 % | 10 % au premier euro imposé, 19 % à 20 k€, 26.2 % à 30 k€, 50 % à 239 k€
-  F  6000 t0 11.0 % | gain 4.60 dont participation 1.90 | retraités +17.0 Md€ | premier salaire mi-temps 3.7 %, Smic 8.0 % | 11 % au premier euro imposé, 18 % à 20 k€, 26.2 % à 30 k€, 50 % à 239 k€
-  F  6000 t0 12.0 % | gain 4.71 dont participation 2.00 | retraités +17.0 Md€ | premier salaire mi-temps 4.0 %, Smic 8.0 % | 12 % au premier euro imposé, 16 % à 20 k€, 27.8 % à 30 k€, 50 % à 274 k€
-  F  6000 t0 13.0 % | gain 4.80 dont participation 1.99 | retraités +16.9 Md€ | premier salaire mi-temps 4.3 %, Smic 8.3 % | 13 % au premier euro imposé, 15 % à 20 k€, 27.9 % à 30 k€, 50 % à 274 k€
-  F  6000 t0 14.0 % | gain 4.89 dont participation 1.87 | retraités +16.6 Md€ | premier salaire mi-temps 4.5 %, Smic 8.7 % | 14 % au premier euro imposé, 15 % à 20 k€, 26.4 % à 30 k€, 50 % à 239 k€
-  F  6000 t0 15.0 % | gain 4.96 dont participation 1.74 | retraités +16.4 Md€ | premier salaire mi-temps 4.8 %, Smic 9.1 % | 15 % au premier euro imposé, 15 % à 20 k€, 24.9 % à 30 k€, 50 % à 212 k€
-  F  7000 t0  5.0 % | gain 3.95 dont participation 2.03 | retraités +19.7 Md€ | premier salaire mi-temps 1.4 %, Smic 6.3 % | 5 % au premier euro imposé, 26 % à 20 k€, 27.3 % à 60 k€, 50 % à 199 k€
-  F  7000 t0  6.0 % | gain 4.08 dont participation 2.03 | retraités +19.6 Md€ | premier salaire mi-temps 1.6 %, Smic 6.5 % | 6 % au premier euro imposé, 25 % à 20 k€, 31.3 % à 90 k€, 50 % à 200 k€
-  F  7000 t0  7.0 % | gain 4.18 dont participation 2.02 | retraités +19.4 Md€ | premier salaire mi-temps 1.8 %, Smic 6.7 % | 7 % au premier euro imposé, 24 % à 20 k€, 25.5 % à 30 k€, 50 % à 231 k€
-  F  7000 t0  8.0 % | gain 4.28 dont participation 2.01 | retraités +19.3 Md€ | premier salaire mi-temps 2.0 %, Smic 6.9 % | 8 % au premier euro imposé, 23 % à 20 k€, 25.5 % à 30 k€, 50 % à 227 k€
-  F  7000 t0  9.0 % | gain 4.40 dont participation 2.09 | retraités +19.3 Md€ | premier salaire mi-temps 2.2 %, Smic 7.0 % | 9 % au premier euro imposé, 21 % à 20 k€, 25.8 % à 25 k€, 50 % à 243 k€
-  F  7000 t0 10.0 % | gain 4.53 dont participation 2.09 | retraités +19.1 Md€ | premier salaire mi-temps 2.4 %, Smic 7.2 % | 10 % au premier euro imposé, 20 % à 20 k€, 27.1 % à 30 k€, 50 % à 256 k€
-  F  7000 t0 11.0 % | gain 4.63 dont participation 2.08 | retraités +19.0 Md€ | premier salaire mi-temps 2.6 %, Smic 7.5 % | 11 % au premier euro imposé, 19 % à 20 k€, 27.2 % à 30 k€, 50 % à 256 k€
-  F  7000 t0 12.0 % | gain 4.73 dont participation 2.07 | retraités +18.9 Md€ | premier salaire mi-temps 2.8 %, Smic 7.7 % | 12 % au premier euro imposé, 18 % à 20 k€, 27.2 % à 30 k€, 50 % à 256 k€
-  F  7000 t0 13.0 % | gain 4.81 dont participation 2.05 | retraités +18.7 Md€ | premier salaire mi-temps 3.0 %, Smic 7.9 % | 13 % au premier euro imposé, 17 % à 20 k€, 27.2 % à 30 k€, 50 % à 252 k€
-  F  7000 t0 14.0 % | gain 4.89 dont participation 2.04 | retraités +18.6 Md€ | premier salaire mi-temps 3.2 %, Smic 8.1 % | 14 % au premier euro imposé, 16 % à 20 k€, 27.2 % à 30 k€, 50 % à 247 k€
-  F  7000 t0 15.0 % | gain 4.98 dont participation 2.03 | retraités +18.5 Md€ | premier salaire mi-temps 3.4 %, Smic 8.4 % | 15 % au premier euro imposé, 15 % à 20 k€, 27.2 % à 30 k€, 50 % à 247 k€
-  F  7000 t0 16.0 % | gain 5.02 dont participation 1.80 | retraités +18.2 Md€ | premier salaire mi-temps 3.7 %, Smic 8.9 % | 16 % au premier euro imposé, 16 % à 20 k€, 24.3 % à 30 k€, 50 % à 201 k€
-  F  8000 t0  8.0 % | gain 4.31 dont participation 2.21 | retraités +21.4 Md€ | premier salaire mi-temps 1.2 %, Smic 6.3 % | 8 % au premier euro imposé, 24 % à 20 k€, 25.8 % à 25 k€, 50 % à 239 k€
-  F  8000 t0  9.0 % | gain 4.42 dont participation 2.19 | retraités +21.3 Md€ | premier salaire mi-temps 1.3 %, Smic 6.5 % | 9 % au premier euro imposé, 23 % à 20 k€, 25.7 % à 25 k€, 50 % à 239 k€
-  F  8000 t0 10.0 % | gain 4.51 dont participation 2.19 | retraités +21.1 Md€ | premier salaire mi-temps 1.4 %, Smic 6.8 % | 10 % au premier euro imposé, 22 % à 20 k€, 26.5 % à 30 k€, 50 % à 239 k€
-  F  8000 t0 11.0 % | gain 4.63 dont participation 2.25 | retraités +21.1 Md€ | premier salaire mi-temps 1.5 %, Smic 6.9 % | 11 % au premier euro imposé, 20 % à 20 k€, 26.6 % à 25 k€, 50 % à 252 k€
-  F  8000 t0 12.0 % | gain 4.72 dont participation 2.23 | retraités +21.0 Md€ | premier salaire mi-temps 1.6 %, Smic 7.1 % | 12 % au premier euro imposé, 19 % à 20 k€, 26.4 % à 25 k€, 50 % à 247 k€
-  F  8000 t0 13.0 % | gain 4.83 dont participation 2.24 | retraités +20.8 Md€ | premier salaire mi-temps 1.8 %, Smic 7.3 % | 13 % au premier euro imposé, 18 % à 20 k€, 28.2 % à 30 k€, 50 % à 274 k€
-  F  8000 t0 14.0 % | gain 4.91 dont participation 2.27 | retraités +20.8 Md€ | premier salaire mi-temps 1.9 %, Smic 7.4 % | 14 % au premier euro imposé, 16 % à 20 k€, 27.4 % à 25 k€, 50 % à 265 k€
-  F  8000 t0 15.0 % | gain 5.00 dont participation 2.25 | retraités +20.7 Md€ | premier salaire mi-temps 2.0 %, Smic 7.7 % | 15 % au premier euro imposé, 15 % à 20 k€, 27.3 % à 25 k€, 50 % à 265 k€
-  F  8000 t0 16.0 % | gain 5.04 dont participation 2.06 | retraités +20.3 Md€ | premier salaire mi-temps 2.2 %, Smic 8.2 % | 16 % au premier euro imposé, 16 % à 20 k€, 24.7 % à 25 k€, 50 % à 215 k€
+  F     0 t0  0.0 % | gain 2.88 dont participation 0.84 | retraités +7.5 Md€ | premier salaire mi-temps 4.7 %, Smic 9.4 % | 0 % au premier euro imposé, 22 % à 20 k€, 22.7 % à 38 k€, 50 % à 175 k€
+  F     0 t0  1.0 % | gain 3.03 dont participation 0.90 | retraités +7.4 Md€ | premier salaire mi-temps 5.1 %, Smic 9.4 % | 1 % au premier euro imposé, 21 % à 20 k€, 21.1 % à 25 k€, 50 % à 181 k€
+  F     0 t0  2.0 % | gain 3.10 dont participation 0.91 | retraités +7.4 Md€ | premier salaire mi-temps 5.6 %, Smic 9.4 % | 2 % au premier euro imposé, 20 % à 20 k€, 33.6 % à 90 k€, 50 % à 188 k€
+  F     0 t0  3.0 % | gain 3.23 dont participation 0.78 | retraités +7.2 Md€ | premier salaire mi-temps 6.3 %, Smic 9.9 % | 3 % au premier euro imposé, 20 % à 20 k€, 20.7 % à 30 k€, 50 % à 169 k€
+  F     0 t0  4.0 % | gain 3.31 dont participation 0.80 | retraités +7.2 Md€ | premier salaire mi-temps 6.7 %, Smic 9.9 % | 4 % au premier euro imposé, 19 % à 20 k€, 26.8 % à 60 k€, 50 % à 168 k€
+  F     0 t0  5.0 % | gain 3.44 dont participation 0.67 | retraités +7.1 Md€ | premier salaire mi-temps 7.4 %, Smic 10.4 % | 5 % au premier euro imposé, 19 % à 20 k€, 19.4 % à 30 k€, 50 % à 161 k€
+  F     0 t0  6.0 % | gain 3.50 dont participation 0.88 | retraités +7.0 Md€ | premier salaire mi-temps 7.7 %, Smic 10.0 % | 6 % au premier euro imposé, 17 % à 20 k€, 29.2 % à 60 k€, 50 % à 192 k€
+  F     0 t0  7.0 % | gain 3.58 dont participation 0.90 | retraités +6.9 Md€ | premier salaire mi-temps 8.1 %, Smic 10.0 % | 7 % au premier euro imposé, 16 % à 20 k€, 25.7 % à 45 k€, 50 % à 181 k€
+  F     0 t0  8.0 % | gain 3.66 dont participation 0.93 | retraités +6.9 Md€ | premier salaire mi-temps 8.6 %, Smic 10.1 % | 8 % au premier euro imposé, 15 % à 20 k€, 26.4 % à 45 k€, 50 % à 188 k€
+  F     0 t0  9.0 % | gain 3.74 dont participation 0.96 | retraités +6.8 Md€ | premier salaire mi-temps 9.0 %, Smic 10.1 % | 9 % au premier euro imposé, 14 % à 20 k€, 27.1 % à 45 k€, 50 % à 194 k€
+  F     0 t0 10.0 % | gain 3.82 dont participation 0.95 | retraités +6.8 Md€ | premier salaire mi-temps 9.5 %, Smic 10.1 % | 10 % au premier euro imposé, 13 % à 20 k€, 24.7 % à 38 k€, 50 % à 184 k€
+  F     0 t0 11.0 % | gain 3.89 dont participation 0.97 | retraités +6.7 Md€ | premier salaire mi-temps 10.0 %, Smic 10.2 % | 11 % au premier euro imposé, 12 % à 20 k€, 25.1 % à 38 k€, 50 % à 188 k€
+  F  2000 t0  0.0 % | gain 2.92 dont participation 1.36 | retraités +11.3 Md€ | premier salaire mi-temps 3.1 %, Smic 7.8 % | 0 % au premier euro imposé, 23 % à 20 k€, 24.5 % à 30 k€, 50 % à 201 k€
+  F  2000 t0  1.0 % | gain 3.05 dont participation 1.24 | retraités +11.1 Md€ | premier salaire mi-temps 3.6 %, Smic 8.3 % | 1 % au premier euro imposé, 23 % à 20 k€, 23.1 % à 30 k€, 50 % à 184 k€
+  F  2000 t0  2.0 % | gain 3.18 dont participation 1.25 | retraités +11.0 Md€ | premier salaire mi-temps 4.1 %, Smic 8.4 % | 2 % au premier euro imposé, 22 % à 20 k€, 22.5 % à 25 k€, 50 % à 188 k€
+  F  2000 t0  3.0 % | gain 3.27 dont participation 1.27 | retraités +10.9 Md€ | premier salaire mi-temps 4.5 %, Smic 8.5 % | 3 % au premier euro imposé, 21 % à 20 k€, 24.8 % à 38 k€, 50 % à 188 k€
+  F  2000 t0  4.0 % | gain 3.40 dont participation 1.15 | retraités +10.8 Md€ | premier salaire mi-temps 5.1 %, Smic 9.0 % | 4 % au premier euro imposé, 21 % à 20 k€, 21.1 % à 25 k€, 50 % à 175 k€
+  F  2000 t0  5.0 % | gain 3.50 dont participation 1.31 | retraités +10.8 Md€ | premier salaire mi-temps 5.4 %, Smic 8.7 % | 5 % au premier euro imposé, 19 % à 20 k€, 25.5 % à 38 k€, 50 % à 194 k€
+  F  2000 t0  6.0 % | gain 3.59 dont participation 1.03 | retraités +10.5 Md€ | premier salaire mi-temps 6.1 %, Smic 9.5 % | 6 % au premier euro imposé, 20 % à 20 k€, 20.6 % à 30 k€, 50 % à 163 k€
+  F  2000 t0  7.0 % | gain 3.71 dont participation 1.35 | retraités +10.6 Md€ | premier salaire mi-temps 6.2 %, Smic 9.0 % | 7 % au premier euro imposé, 17 % à 20 k€, 26.2 % à 38 k€, 50 % à 201 k€
+  F  2000 t0  8.0 % | gain 3.80 dont participation 1.21 | retraités +10.5 Md€ | premier salaire mi-temps 6.8 %, Smic 9.4 % | 8 % au premier euro imposé, 17 % à 20 k€, 24.6 % à 38 k€, 50 % à 181 k€
+  F  2000 t0  9.0 % | gain 3.89 dont participation 1.39 | retraités +10.4 Md€ | premier salaire mi-temps 7.1 %, Smic 9.2 % | 9 % au premier euro imposé, 15 % à 20 k€, 27.0 % à 38 k€, 50 % à 208 k€
+  F  2000 t0 10.0 % | gain 4.00 dont participation 1.24 | retraités +10.3 Md€ | premier salaire mi-temps 7.7 %, Smic 9.6 % | 10 % au premier euro imposé, 15 % à 20 k€, 25.4 % à 38 k€, 50 % à 188 k€
+  F  2000 t0 11.0 % | gain 4.07 dont participation 1.26 | retraités +10.2 Md€ | premier salaire mi-temps 8.1 %, Smic 9.8 % | 11 % au premier euro imposé, 14 % à 20 k€, 25.7 % à 38 k€, 50 % à 188 k€
+  F  2000 t0 12.0 % | gain 4.15 dont participation 1.27 | retraités +10.1 Md€ | premier salaire mi-temps 8.6 %, Smic 9.9 % | 12 % au premier euro imposé, 13 % à 20 k€, 26.1 % à 38 k€, 50 % à 191 k€
+  F  4000 t0  0.0 % | gain 2.97 dont participation 1.57 | retraités +15.3 Md€ | premier salaire mi-temps 1.9 %, Smic 6.9 % | 0 % au premier euro imposé, 26 % à 20 k€, 27.4 % à 90 k€, 50 % à 134 k€
+  F  4000 t0  1.0 % | gain 3.09 dont participation 1.59 | retraités +15.1 Md€ | premier salaire mi-temps 2.3 %, Smic 7.1 % | 1 % au premier euro imposé, 25 % à 20 k€, 29.7 % à 90 k€, 50 % à 147 k€
+  F  4000 t0  2.0 % | gain 3.24 dont participation 1.63 | retraités +14.9 Md€ | premier salaire mi-temps 2.6 %, Smic 7.3 % | 2 % au premier euro imposé, 24 % à 20 k€, 24.0 % à 25 k€, 50 % à 198 k€
+  F  4000 t0  3.0 % | gain 3.34 dont participation 1.63 | retraités +14.8 Md€ | premier salaire mi-temps 3.0 %, Smic 7.4 % | 3 % au premier euro imposé, 23 % à 20 k€, 29.5 % à 60 k€, 50 % à 199 k€
+  F  4000 t0  4.0 % | gain 3.45 dont participation 1.65 | retraités +14.7 Md€ | premier salaire mi-temps 3.4 %, Smic 7.6 % | 4 % au premier euro imposé, 22 % à 20 k€, 26.2 % à 38 k€, 50 % à 198 k€
+  F  4000 t0  5.0 % | gain 3.57 dont participation 1.66 | retraités +14.6 Md€ | premier salaire mi-temps 3.7 %, Smic 7.8 % | 5 % au premier euro imposé, 21 % à 20 k€, 26.6 % à 38 k€, 50 % à 201 k€
+  F  4000 t0  6.0 % | gain 3.68 dont participation 1.67 | retraités +14.5 Md€ | premier salaire mi-temps 4.1 %, Smic 7.9 % | 6 % au premier euro imposé, 20 % à 20 k€, 26.9 % à 38 k€, 50 % à 205 k€
+  F  4000 t0  7.0 % | gain 3.79 dont participation 1.68 | retraités +14.4 Md€ | premier salaire mi-temps 4.5 %, Smic 8.1 % | 7 % au premier euro imposé, 19 % à 20 k€, 27.3 % à 38 k€, 50 % à 208 k€
+  F  4000 t0  8.0 % | gain 3.89 dont participation 1.69 | retraités +14.3 Md€ | premier salaire mi-temps 4.9 %, Smic 8.3 % | 8 % au premier euro imposé, 18 % à 20 k€, 27.6 % à 38 k€, 50 % à 212 k€
+  F  4000 t0  9.0 % | gain 3.99 dont participation 1.69 | retraités +14.1 Md€ | premier salaire mi-temps 5.2 %, Smic 8.4 % | 9 % au premier euro imposé, 17 % à 20 k€, 27.9 % à 38 k€, 50 % à 215 k€
+  F  4000 t0 10.0 % | gain 4.09 dont participation 1.70 | retraités +14.0 Md€ | premier salaire mi-temps 5.6 %, Smic 8.6 % | 10 % au premier euro imposé, 16 % à 20 k€, 28.3 % à 38 k€, 50 % à 219 k€
+  F  4000 t0 11.0 % | gain 4.18 dont participation 1.57 | retraités +13.9 Md€ | premier salaire mi-temps 6.0 %, Smic 9.1 % | 11 % au premier euro imposé, 16 % à 20 k€, 26.6 % à 38 k€, 50 % à 194 k€
+  F  4000 t0 12.0 % | gain 4.28 dont participation 1.57 | retraités +13.8 Md€ | premier salaire mi-temps 6.4 %, Smic 9.2 % | 12 % au premier euro imposé, 15 % à 20 k€, 27.0 % à 38 k€, 50 % à 198 k€
+  F  4000 t0 13.0 % | gain 4.37 dont participation 1.58 | retraités +13.7 Md€ | premier salaire mi-temps 6.8 %, Smic 9.4 % | 13 % au premier euro imposé, 14 % à 20 k€, 27.3 % à 38 k€, 50 % à 201 k€
+  F  6000 t0  3.0 % | gain 3.38 dont participation 1.89 | retraités +18.9 Md€ | premier salaire mi-temps 1.7 %, Smic 6.4 % | 3 % au premier euro imposé, 26 % à 20 k€, 26.9 % à 60 k€, 50 % à 165 k€
+  F  6000 t0  4.0 % | gain 3.51 dont participation 1.89 | retraités +18.7 Md€ | premier salaire mi-temps 2.0 %, Smic 6.7 % | 4 % au premier euro imposé, 25 % à 20 k€, 30.9 % à 90 k€, 50 % à 151 k€
+  F  6000 t0  5.0 % | gain 3.63 dont participation 1.90 | retraités +18.5 Md€ | premier salaire mi-temps 2.2 %, Smic 6.9 % | 5 % au premier euro imposé, 24 % à 20 k€, 24.4 % à 25 k€, 50 % à 194 k€
+  F  6000 t0  6.0 % | gain 3.74 dont participation 1.90 | retraités +18.4 Md€ | premier salaire mi-temps 2.5 %, Smic 7.1 % | 6 % au premier euro imposé, 23 % à 20 k€, 26.4 % à 38 k€, 50 % à 194 k€
+  F  6000 t0  7.0 % | gain 3.84 dont participation 1.90 | retraités +18.3 Md€ | premier salaire mi-temps 2.8 %, Smic 7.3 % | 7 % au premier euro imposé, 22 % à 20 k€, 28.2 % à 45 k€, 50 % à 201 k€
+  F  6000 t0  8.0 % | gain 3.96 dont participation 2.00 | retraités +18.3 Md€ | premier salaire mi-temps 3.0 %, Smic 7.3 % | 8 % au premier euro imposé, 20 % à 20 k€, 26.7 % à 30 k€, 50 % à 208 k€
+  F  6000 t0  9.0 % | gain 4.07 dont participation 2.00 | retraités +18.2 Md€ | premier salaire mi-temps 3.3 %, Smic 7.5 % | 9 % au premier euro imposé, 19 % à 20 k€, 26.7 % à 30 k€, 50 % à 208 k€
+  F  6000 t0 10.0 % | gain 4.17 dont participation 1.99 | retraités +18.0 Md€ | premier salaire mi-temps 3.6 %, Smic 7.7 % | 10 % au premier euro imposé, 18 % à 20 k€, 26.8 % à 30 k€, 50 % à 208 k€
+  F  6000 t0 11.0 % | gain 4.26 dont participation 1.99 | retraités +17.9 Md€ | premier salaire mi-temps 3.8 %, Smic 7.9 % | 11 % au premier euro imposé, 17 % à 20 k€, 26.9 % à 30 k€, 50 % à 208 k€
+  F  6000 t0 12.0 % | gain 4.36 dont participation 1.98 | retraités +17.8 Md€ | premier salaire mi-temps 4.1 %, Smic 8.1 % | 12 % au premier euro imposé, 16 % à 20 k€, 26.9 % à 30 k€, 50 % à 208 k€
+  F  6000 t0 13.0 % | gain 4.45 dont participation 1.97 | retraités +17.7 Md€ | premier salaire mi-temps 4.4 %, Smic 8.3 % | 13 % au premier euro imposé, 15 % à 20 k€, 27.0 % à 30 k€, 50 % à 208 k€
+  F  6000 t0 14.0 % | gain 4.53 dont participation 1.96 | retraités +17.6 Md€ | premier salaire mi-temps 4.6 %, Smic 8.5 % | 14 % au premier euro imposé, 14 % à 20 k€, 27.1 % à 30 k€, 50 % à 208 k€
+  F  6000 t0 15.0 % | gain 4.58 dont participation 1.73 | retraités +17.3 Md€ | premier salaire mi-temps 5.0 %, Smic 9.1 % | 15 % au premier euro imposé, 15 % à 20 k€, 24.1 % à 30 k€, 50 % à 175 k€
+  F  7000 t0  4.0 % | gain 3.55 dont participation 2.10 | retraités +20.8 Md€ | premier salaire mi-temps 1.3 %, Smic 6.0 % | 4 % au premier euro imposé, 26 % à 20 k€, 31.2 % à 90 k€, 50 % à 156 k€
+  F  7000 t0  5.0 % | gain 3.67 dont participation 2.10 | retraités +20.7 Md€ | premier salaire mi-temps 1.5 %, Smic 6.2 % | 5 % au premier euro imposé, 25 % à 20 k€, 33.4 % à 90 k€, 50 % à 182 k€
+  F  7000 t0  6.0 % | gain 3.78 dont participation 2.10 | retraités +20.5 Md€ | premier salaire mi-temps 1.7 %, Smic 6.5 % | 6 % au premier euro imposé, 24 % à 20 k€, 26.0 % à 30 k€, 50 % à 201 k€
+  F  7000 t0  7.0 % | gain 3.89 dont participation 2.09 | retraités +20.4 Md€ | premier salaire mi-temps 1.9 %, Smic 6.7 % | 7 % au premier euro imposé, 23 % à 20 k€, 26.0 % à 30 k€, 50 % à 201 k€
+  F  7000 t0  8.0 % | gain 3.99 dont participation 2.09 | retraités +20.2 Md€ | premier salaire mi-temps 2.1 %, Smic 6.9 % | 8 % au premier euro imposé, 22 % à 20 k€, 27.8 % à 38 k€, 50 % à 208 k€
+  F  7000 t0  9.0 % | gain 4.08 dont participation 2.07 | retraités +20.1 Md€ | premier salaire mi-temps 2.3 %, Smic 7.1 % | 9 % au premier euro imposé, 21 % à 20 k€, 26.1 % à 30 k€, 50 % à 198 k€
+  F  7000 t0 10.0 % | gain 4.18 dont participation 2.06 | retraités +20.0 Md€ | premier salaire mi-temps 2.5 %, Smic 7.3 % | 10 % au premier euro imposé, 20 % à 20 k€, 26.2 % à 30 k€, 50 % à 198 k€
+  F  7000 t0 11.0 % | gain 4.31 dont participation 2.16 | retraités +20.0 Md€ | premier salaire mi-temps 2.7 %, Smic 7.4 % | 11 % au premier euro imposé, 18 % à 20 k€, 27.7 % à 30 k€, 50 % à 219 k€
+  F  7000 t0 12.0 % | gain 4.38 dont participation 2.15 | retraités +19.8 Md€ | premier salaire mi-temps 3.0 %, Smic 7.6 % | 12 % au premier euro imposé, 17 % à 20 k€, 27.7 % à 30 k€, 50 % à 215 k€
+  F  7000 t0 13.0 % | gain 4.47 dont participation 2.14 | retraités +19.7 Md€ | premier salaire mi-temps 3.2 %, Smic 7.8 % | 13 % au premier euro imposé, 16 % à 20 k€, 27.8 % à 30 k€, 50 % à 215 k€
+  F  7000 t0 14.0 % | gain 4.56 dont participation 2.12 | retraités +19.6 Md€ | premier salaire mi-temps 3.4 %, Smic 8.1 % | 14 % au premier euro imposé, 15 % à 20 k€, 27.8 % à 30 k€, 50 % à 215 k€
+  F  7000 t0 15.0 % | gain 4.63 dont participation 2.01 | retraités +19.3 Md€ | premier salaire mi-temps 3.6 %, Smic 8.4 % | 15 % au premier euro imposé, 15 % à 20 k€, 26.4 % à 30 k€, 50 % à 194 k€
+  F  7000 t0 16.0 % | gain 4.64 dont participation 1.78 | retraités +19.0 Md€ | premier salaire mi-temps 3.8 %, Smic 9.0 % | 16 % au premier euro imposé, 16 % à 20 k€, 23.4 % à 30 k€, 50 % à 166 k€
+  F  8000 t0  6.0 % | gain 3.78 dont participation 2.19 | retraités +22.6 Md€ | premier salaire mi-temps 1.0 %, Smic 6.0 % | 6 % au premier euro imposé, 26 % à 20 k€, 26.7 % à 45 k€, 50 % à 181 k€
+  F  8000 t0  7.0 % | gain 3.89 dont participation 2.18 | retraités +22.5 Md€ | premier salaire mi-temps 1.1 %, Smic 6.2 % | 7 % au premier euro imposé, 25 % à 20 k€, 29.0 % à 60 k€, 50 % à 180 k€
+  F  8000 t0  8.0 % | gain 4.02 dont participation 2.27 | retraités +22.4 Md€ | premier salaire mi-temps 1.3 %, Smic 6.3 % | 8 % au premier euro imposé, 23 % à 20 k€, 26.0 % à 25 k€, 50 % à 205 k€
+  F  8000 t0  9.0 % | gain 4.12 dont participation 2.26 | retraités +22.2 Md€ | premier salaire mi-temps 1.4 %, Smic 6.5 % | 9 % au premier euro imposé, 22 % à 20 k€, 27.0 % à 30 k€, 50 % à 208 k€
+  F  8000 t0 10.0 % | gain 4.22 dont participation 2.25 | retraités +22.1 Md€ | premier salaire mi-temps 1.5 %, Smic 6.8 % | 10 % au premier euro imposé, 21 % à 20 k€, 27.1 % à 30 k€, 50 % à 208 k€
+  F  8000 t0 11.0 % | gain 4.32 dont participation 2.23 | retraités +22.0 Md€ | premier salaire mi-temps 1.7 %, Smic 7.0 % | 11 % au premier euro imposé, 20 % à 20 k€, 27.1 % à 30 k€, 50 % à 208 k€
+  F  8000 t0 12.0 % | gain 4.41 dont participation 2.22 | retraités +21.8 Md€ | premier salaire mi-temps 1.8 %, Smic 7.2 % | 12 % au premier euro imposé, 19 % à 20 k€, 27.2 % à 30 k€, 50 % à 208 k€
+  F  8000 t0 13.0 % | gain 4.49 dont participation 2.27 | retraités +21.9 Md€ | premier salaire mi-temps 1.9 %, Smic 7.3 % | 13 % au premier euro imposé, 17 % à 20 k€, 26.6 % à 25 k€, 50 % à 208 k€
+  F  8000 t0 14.0 % | gain 4.59 dont participation 2.29 | retraités +21.7 Md€ | premier salaire mi-temps 2.1 %, Smic 7.5 % | 14 % au premier euro imposé, 16 % à 20 k€, 28.7 % à 30 k€, 50 % à 231 k€
+  F  8000 t0 15.0 % | gain 4.67 dont participation 2.27 | retraités +21.5 Md€ | premier salaire mi-temps 2.2 %, Smic 7.8 % | 15 % au premier euro imposé, 15 % à 20 k€, 28.8 % à 30 k€, 50 % à 231 k€
+  F  8000 t0 16.0 % | gain 4.69 dont participation 2.06 | retraités +21.2 Md€ | premier salaire mi-temps 2.4 %, Smic 8.3 % | 16 % au premier euro imposé, 16 % à 20 k€, 25.8 % à 30 k€, 50 % à 184 k€
 
-[CHOIX] participation maximale 2.27 Md€ ; 1 barèmes à 0,02 près ; retenu : F 8000 €, 14 % au premier euro imposé, 16 % à 20 k€, 27.4 % à 25 k€, 50 % à 265 k€ ; gain 4.91
-[POUR MÉMOIRE] barème le plus efficace sous les mêmes contraintes : F 8000 €, 16 % au premier euro imposé, 16 % à 20 k€, 24.7 % à 25 k€, 50 % à 215 k€ ; gain 5.04 dont participation 2.06
+[CHOIX] participation maximale 2.29 Md€ ; 4 barèmes à 0,02 près ; retenu : F 8000 €, 15 % au premier euro imposé, 15 % à 20 k€, 28.8 % à 30 k€, 50 % à 231 k€ ; gain 4.67
+[POUR MÉMOIRE] barème le plus efficace sous les mêmes contraintes : F 8000 €, 16 % au premier euro imposé, 16 % à 20 k€, 25.8 % à 30 k€, 50 % à 184 k€ ; gain 4.69 dont participation 2.06
 
 [PAR FRANCHISE] barème qui maximise la participation à franchise donnée :
-  F     0 : participation 1.30 ; gain 4.04 ; retraités +6.3 Md€ ; 10 % au premier euro imposé, 11 % à 20 k€, 29.0 % à 38 k€, 50 % à 315 k€
-  F  2000 : participation 1.50 ; gain 4.07 ; retraités +10.0 Md€ ; 11 % au premier euro imposé, 11 % à 20 k€, 25.1 % à 25 k€, 50 % à 247 k€
-  F  4000 : participation 1.82 ; gain 4.38 ; retraités +13.5 Md€ ; 12 % au premier euro imposé, 12 % à 20 k€, 26.5 % à 25 k€, 50 % à 265 k€
-  F  6000 : participation 2.04 ; gain 4.70 ; retraités +17.1 Md€ ; 13 % au premier euro imposé, 14 % à 20 k€, 26.9 % à 25 k€, 50 % à 265 k€
-  F  7000 : participation 2.12 ; gain 4.78 ; retraités +18.9 Md€ ; 13 % au premier euro imposé, 16 % à 20 k€, 26.5 % à 25 k€, 50 % à 252 k€
-  F  8000 : participation 2.27 ; gain 4.91 ; retraités +20.8 Md€ ; 14 % au premier euro imposé, 16 % à 20 k€, 27.4 % à 25 k€, 50 % à 265 k€
+  F     0 : participation 1.29 ; gain 3.69 ; retraités +6.9 Md€ ; 10 % au premier euro imposé, 11 % à 20 k€, 28.5 % à 38 k€, 50 % à 239 k€
+  F  2000 : participation 1.61 ; gain 3.86 ; retraités +10.6 Md€ ; 11 % au premier euro imposé, 11 % à 20 k€, 27.2 % à 30 k€, 50 % à 231 k€
+  F  4000 : participation 1.82 ; gain 4.04 ; retraités +14.3 Md€ ; 12 % au premier euro imposé, 12 % à 20 k€, 25.7 % à 25 k€, 50 % à 208 k€
+  F  6000 : participation 2.05 ; gain 4.17 ; retraités +18.1 Md€ ; 11 % au premier euro imposé, 16 % à 20 k€, 26.1 % à 25 k€, 50 % à 208 k€
+  F  7000 : participation 2.17 ; gain 4.51 ; retraités +19.8 Md€ ; 14 % au premier euro imposé, 14 % à 20 k€, 26.7 % à 25 k€, 50 % à 212 k€
+  F  8000 : participation 2.27 ; gain 4.67 ; retraités +21.5 Md€ ; 15 % au premier euro imposé, 15 % à 20 k€, 28.8 % à 30 k€, 50 % à 231 k€
 
-[Proposition] gain 4.91 Md€ (2.25 à 10.94 ; long terme 7.30) dont intensif 2.63 [bas -0.25, 50-90 +0.64, 90-99 +1.50, 1 % +0.74], participation 2.27 ; revenu déclaré +3.0 ; perdants > 500 € 26 %
-    déciles € -82 -283 -22 +161 -254 -139 -254 +389 -5 +487 ; 1 % +0.01 Md€ ; 10 % +2.1 Md€ ; retraités +20.8 Md€ ; actifs -20.8
-    € par foyer : seul actif -500 ; parent isolé -457 ; couple actif sans enfant -236 ; couple avec enfants -1,457 ; retraité seul +1,086 ; couple de retraités +2,439
-    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.4, conjoint mi-temps 1.9, conjoint Smic 7.4
-    cas-types : ret12 +0 ; ret16 +1,005 ; ret18 +827 ; ret20 +1,352 ; ret25 +1,815 ; ret35 +1,732 ; rc30 -109 ; rc45 +1,330 ; smic_mi -812 ; smic -447 ; cadre60 -2,354 ; cadre100 -4,015 ; cadre200 -10,917 ; pi_smic -2,027 ; pi35 -1,729 ; c0_50 -1,328 ; c0m_50 +1,731 ; c0m_80 +3,498 ; c2_50 -2,408 ; c2m_50 -862 ; c3_40 -2,926 ; c3_60 -2,922 ; c3_80 -2,722 ; c3m_60 -1,003
+[Proposition] gain 4.67 Md€ (2.13 à 10.29 ; long terme 6.66) dont intensif 2.40 [bas -0.24, 50-90 +0.74, 90-99 +1.29, 1 % +0.61], participation 2.27 ; revenu déclaré +2.6 ; perdants > 500 € 27 %
+    déciles € -84 -279 +80 +251 -215 -155 -320 +354 -71 +436 ; 1 % -0.05 Md€ ; 10 % +1.9 Md€ ; retraités +21.5 Md€ ; actifs -21.5
+    € par foyer : seul actif -515 ; parent isolé -407 ; couple actif sans enfant -305 ; couple avec enfants -1,516 ; retraité seul +1,122 ; couple de retraités +2,524
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.2, seul Smic 7.8, conjoint mi-temps 2.2, conjoint Smic 7.8
+    cas-types : ret12 +0 ; ret16 +1,050 ; ret18 +1,650 ; ret20 +1,390 ; ret25 +1,679 ; ret35 +1,565 ; rc30 +360 ; rc45 +1,834 ; smic_mi -792 ; smic -384 ; cadre60 -2,415 ; cadre100 -3,606 ; cadre200 -8,553 ; pi_smic -2,061 ; pi35 -1,679 ; c0_50 -1,219 ; c0m_50 +1,560 ; c0m_80 +3,715 ; c2_50 -2,313 ; c2m_50 -990 ; c3_40 -2,884 ; c3_60 -2,836 ; c3_80 -2,618 ; c3m_60 -1,259
 
-[Barème le plus efficace sous les mêmes contraintes] gain 5.04 Md€ (2.34 à 11.26 ; long terme 7.97) dont intensif 2.99 [bas -0.28, 50-90 +0.92, 90-99 +1.69, 1 % +0.66], participation 2.06 ; revenu déclaré +3.1 ; perdants > 500 € 25 %
-    déciles € -82 -275 +70 +306 -103 -9 -182 +361 -120 +43 ; 1 % -0.04 Md€ ; 10 % +0.2 Md€ ; retraités +20.3 Md€ ; actifs -20.3
-    € par foyer : seul actif -480 ; parent isolé -434 ; couple actif sans enfant -254 ; couple avec enfants -1,441 ; retraité seul +1,064 ; couple de retraités +2,377
-    premier salaire (taux de prélèvement, %) : seul mi-temps 2.2, seul Smic 8.2, conjoint mi-temps 2.2, conjoint Smic 8.2
-    cas-types : ret12 +0 ; ret16 +1,120 ; ret18 +986 ; ret20 +1,540 ; ret25 +1,948 ; ret35 +1,617 ; rc30 +50 ; rc45 +1,570 ; smic_mi -784 ; smic -289 ; cadre60 -2,684 ; cadre100 -4,774 ; cadre200 -10,575 ; pi_smic -2,027 ; pi35 -1,569 ; c0_50 -982 ; c0m_50 +1,586 ; c0m_80 +2,892 ; c2_50 -2,150 ; c2m_50 -711 ; c3_40 -2,822 ; c3_60 -2,644 ; c3_80 -2,328 ; c3m_60 -930
+[Barème le plus efficace sous les mêmes contraintes] gain 4.69 Md€ (2.17 à 10.35 ; long terme 7.05) dont intensif 2.63 [bas -0.30, 50-90 +0.97, 90-99 +1.45, 1 % +0.50], participation 2.06 ; revenu déclaré +2.5 ; perdants > 500 € 26 %
+    déciles € -83 -274 +142 +368 -73 -12 -228 +329 -193 +33 ; 1 % +0.00 Md€ ; 10 % +0.1 Md€ ; retraités +21.2 Md€ ; actifs -21.2
+    € par foyer : seul actif -498 ; parent isolé -391 ; couple actif sans enfant -322 ; couple avec enfants -1,505 ; retraité seul +1,105 ; couple de retraités +2,474
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.4, seul Smic 8.3, conjoint mi-temps 2.4, conjoint Smic 8.3
+    cas-types : ret12 +0 ; ret16 +1,120 ; ret18 +1,760 ; ret20 +1,540 ; ret25 +1,879 ; ret35 +1,519 ; rc30 +470 ; rc45 +2,115 ; smic_mi -776 ; smic -272 ; cadre60 -2,719 ; cadre100 -4,383 ; cadre200 -7,618 ; pi_smic -2,061 ; pi35 -1,569 ; c0_50 -936 ; c0m_50 +1,478 ; c0m_80 +3,093 ; c2_50 -2,150 ; c2m_50 -784 ; c3_40 -2,822 ; c3_60 -2,644 ; c3_80 -2,250 ; c3m_60 -1,093
 
-[Variante : franchise de 4 000 €] gain 4.38 Md€ (2.02 à 9.89 ; long terme 6.97) dont intensif 2.55 [bas -0.12, 50-90 +0.41, 90-99 +1.53, 1 % +0.74], participation 1.82 ; revenu déclaré +3.1 ; perdants > 500 € 26 %
-    déciles € -83 -153 +96 +188 -327 -170 -242 +312 -83 +457 ; 1 % -0.01 Md€ ; 10 % +1.9 Md€ ; retraités +13.5 Md€ ; actifs -13.5
-    € par foyer : seul actif -313 ; parent isolé -262 ; couple actif sans enfant +201 ; couple avec enfants -1,031 ; retraité seul +697 ; couple de retraités +1,600
-    premier salaire (taux de prélèvement, %) : seul mi-temps 6.1, seul Smic 8.4, conjoint mi-temps 6.1, conjoint Smic 8.4
-    cas-types : ret12 +0 ; ret16 +840 ; ret18 +546 ; ret20 +940 ; ret25 +1,092 ; ret35 +922 ; rc30 -390 ; rc45 +309 ; smic_mi -362 ; smic -243 ; cadre60 -2,104 ; cadre100 -3,894 ; cadre200 -10,911 ; pi_smic -1,683 ; pi35 -1,531 ; c0_50 -1,057 ; c0m_50 +2,021 ; c0m_80 +3,677 ; c2_50 -1,844 ; c2m_50 -518 ; c3_40 -2,589 ; c3_60 -2,452 ; c3_80 -2,563 ; c3m_60 -670
+[Variante : franchise de 4 000 €] gain 4.04 Md€ (1.85 à 9.03 ; long terme 6.13) dont intensif 2.22 [bas -0.14, 50-90 +0.45, 90-99 +1.35, 1 % +0.57], participation 1.82 ; revenu déclaré +2.5 ; perdants > 500 € 27 %
+    déciles € -85 -149 +147 +225 -286 -129 -237 +304 -158 +367 ; 1 % +0.03 Md€ ; 10 % +1.6 Md€ ; retraités +14.3 Md€ ; actifs -14.3
+    € par foyer : seul actif -330 ; parent isolé -221 ; couple actif sans enfant +132 ; couple avec enfants -1,091 ; retraité seul +739 ; couple de retraités +1,685
+    premier salaire (taux de prélèvement, %) : seul mi-temps 6.2, seul Smic 8.4, conjoint mi-temps 6.2, conjoint Smic 8.4
+    cas-types : ret12 +0 ; ret16 +840 ; ret18 +1,320 ; ret20 +940 ; ret25 +1,099 ; ret35 +899 ; rc30 +30 ; rc45 +974 ; smic_mi -360 ; smic -239 ; cadre60 -2,160 ; cadre100 -3,715 ; cadre200 -8,037 ; pi_smic -1,679 ; pi35 -1,531 ; c0_50 -1,017 ; c0m_50 +1,960 ; c0m_80 +3,744 ; c2_50 -1,844 ; c2m_50 -566 ; c3_40 -2,589 ; c3_60 -2,452 ; c3_80 -2,500 ; c3m_60 -737
 
-[Variante : taux d'entrée bas, sans franchise] gain 4.04 Md€ (1.91 à 9.20 ; long terme 7.12) dont intensif 2.74 [bas -0.15, 50-90 +0.68, 90-99 +1.43, 1 % +0.79], participation 1.30 ; revenu déclaré +3.0 ; perdants > 500 € 22 %
-    déciles € +1 +16 +201 +285 -249 -229 -430 +100 -201 +496 ; 1 % -0.01 Md€ ; 10 % +2.1 Md€ ; retraités +6.3 Md€ ; actifs -6.3
-    € par foyer : seul actif -114 ; parent isolé -86 ; couple actif sans enfant +587 ; couple avec enfants -629 ; retraité seul +312 ; couple de retraités +778
+[Variante : taux d'entrée bas, sans franchise] gain 3.69 Md€ (1.73 à 8.34 ; long terme 6.27) dont intensif 2.40 [bas -0.17, 50-90 +0.67, 90-99 +1.28, 1 % +0.62], participation 1.29 ; revenu déclaré +2.6 ; perdants > 500 € 24 %
+    déciles € +2 +19 +243 +318 -225 -202 -414 +113 -259 +399 ; 1 % +0.00 Md€ ; 10 % +1.7 Md€ ; retraités +6.9 Md€ ; actifs -6.9
+    € par foyer : seul actif -127 ; parent isolé -43 ; couple actif sans enfant +524 ; couple avec enfants -683 ; retraité seul +347 ; couple de retraités +846
     premier salaire (taux de prélèvement, %) : seul mi-temps 9.1, seul Smic 9.3, conjoint mi-temps 9.1, conjoint Smic 9.3
-    cas-types : ret12 +0 ; ret16 +712 ; ret18 +356 ; ret20 +696 ; ret25 +509 ; ret35 -229 ; rc30 -580 ; rc45 -652 ; smic_mi -48 ; smic -52 ; cadre60 -1,908 ; cadre100 -3,354 ; cadre200 -10,774 ; pi_smic -1,329 ; pi35 -1,341 ; c0_50 -613 ; c0m_50 +2,086 ; c0m_80 +4,082 ; c2_50 -1,399 ; c2m_50 -528 ; c3_40 -2,011 ; c3_60 -2,027 ; c3_80 -2,147 ; c3m_60 -731
+    cas-types : ret12 +0 ; ret16 +712 ; ret18 +1,130 ; ret20 +696 ; ret25 +532 ; ret35 -201 ; rc30 -160 ; rc45 +41 ; smic_mi -48 ; smic -51 ; cadre60 -1,940 ; cadre100 -3,201 ; cadre200 -8,262 ; pi_smic -1,330 ; pi35 -1,341 ; c0_50 -574 ; c0m_50 +2,055 ; c0m_80 +4,154 ; c2_50 -1,399 ; c2m_50 -553 ; c3_40 -2,011 ; c3_60 -2,027 ; c3_80 -2,082 ; c3m_60 -769
 
-[Ancienne proposition (1 % en baisse, sans déduction de l'épargne retraite)] gain 5.25 Md€ (2.50 à 11.99 ; long terme 9.73) dont intensif 3.84 [bas -0.18, 50-90 +1.06, 90-99 +1.81, 1 % +1.16], participation 1.41 ; revenu déclaré +4.1 ; perdants > 500 € 29 %
-    déciles € -82 -122 +251 +461 -26 +19 -239 +228 -68 -411 ; 1 % -2.66 Md€ ; 10 % -1.7 Md€ ; retraités +12.6 Md€ ; actifs -12.6
-    € par foyer : seul actif -231 ; parent isolé -169 ; couple actif sans enfant +68 ; couple avec enfants -1,085 ; retraité seul +662 ; couple de retraités +1,468
-    premier salaire (taux de prélèvement, %) : seul mi-temps 7.2, seul Smic 9.8, conjoint mi-temps 7.2, conjoint Smic 9.8
-    cas-types : ret12 +0 ; ret16 +980 ; ret18 +766 ; ret20 +1,240 ; ret25 +1,311 ; ret35 +494 ; rc30 -170 ; rc45 +574 ; smic_mi -253 ; smic +54 ; cadre60 -2,554 ; cadre100 -4,306 ; cadre200 -15,581 ; pi_smic -1,626 ; pi35 -1,230 ; c0_50 -407 ; c0m_50 +1,474 ; c0m_80 +3,371 ; c2_50 -1,357 ; c2m_50 -575 ; c3_40 -2,385 ; c3_60 -1,908 ; c3_80 -1,884 ; c3m_60 -922
+[Ancienne proposition (1 % en baisse, sans déduction de l'épargne retraite)] gain 4.86 Md€ (2.30 à 11.13 ; long terme 8.62) dont intensif 3.29 [bas -0.20, 50-90 +0.69, 90-99 +1.82, 1 % +0.99], participation 1.57 ; revenu déclaré +3.8 ; perdants > 500 € 28 %
+    déciles € -85 -145 +190 +342 -150 -12 -121 +450 -0 -453 ; 1 % -2.46 Md€ ; 10 % -1.9 Md€ ; retraités +13.9 Md€ ; actifs -13.9
+    € par foyer : seul actif -270 ; parent isolé -163 ; couple actif sans enfant +2 ; couple avec enfants -1,162 ; retraité seul +737 ; couple de retraités +1,599
+    premier salaire (taux de prélèvement, %) : seul mi-temps 6.3, seul Smic 9.0, conjoint mi-temps 6.3, conjoint Smic 9.0
+    cas-types : ret12 +0 ; ret16 +864 ; ret18 +1,380 ; ret20 +1,052 ; ret25 +1,218 ; ret35 +917 ; rc30 +90 ; rc45 +1,071 ; smic_mi -344 ; smic -124 ; cadre60 -2,189 ; cadre100 -4,495 ; cadre200 -14,659 ; pi_smic -1,674 ; pi35 -1,417 ; c0_50 -720 ; c0m_50 +1,978 ; c0m_80 +3,453 ; c2_50 -1,693 ; c2m_50 -557 ; c3_40 -2,537 ; c3_60 -2,254 ; c3_80 -2,143 ; c3m_60 -729
 
-[Barème neutre (architectures_ircsg.py)] gain 4.41 Md€ (2.06 à 10.09 ; long terme 7.19) dont intensif 2.60 [bas -0.31, 50-90 +0.39, 90-99 +1.80, 1 % +0.73], participation 1.81 ; revenu déclaré +3.3 ; perdants > 500 € 23 %
-    déciles € -34 -13 +164 +121 -370 -235 -333 +111 -1 +578 ; 1 % +0.31 Md€ ; 10 % +2.5 Md€ ; retraités +4.4 Md€ ; actifs -4.4
-    € par foyer : seul actif -618 ; parent isolé +351 ; couple actif sans enfant -546 ; couple avec enfants +679 ; retraité seul +215 ; couple de retraités +549
-    premier salaire (taux de prélèvement, %) : seul mi-temps 4.3, seul Smic 6.8, conjoint mi-temps 4.3, conjoint Smic 6.8
-    cas-types : ret12 +672 ; ret16 +1,088 ; ret18 +558 ; ret20 +740 ; ret25 +143 ; ret35 -520 ; rc30 +294 ; rc45 -772 ; smic_mi -558 ; smic -582 ; cadre60 -3,043 ; cadre100 -5,746 ; cadre200 -13,652 ; pi_smic -582 ; pi35 +356 ; c0_50 -1,497 ; c0m_50 +1,360 ; c0m_80 +2,242 ; c2_50 -745 ; c2m_50 +2,109 ; c3_40 -1,137 ; c3_60 -33 ; c3_80 +1,287 ; c3m_60 +3,429
+[Barème neutre (architectures_ircsg.py)] gain 4.31 Md€ (2.00 à 9.85 ; long terme 6.95) dont intensif 2.50 [bas -0.28, 50-90 +0.34, 90-99 +1.73, 1 % +0.71], participation 1.81 ; revenu déclaré +3.2 ; perdants > 500 € 25 %
+    déciles € -0 +83 +265 +165 -365 -221 -324 +130 -27 +290 ; 1 % -0.49 Md€ ; 10 % +1.2 Md€ ; retraités +5.0 Md€ ; actifs -5.0
+    € par foyer : seul actif -626 ; parent isolé +412 ; couple actif sans enfant -660 ; couple avec enfants +621 ; retraité seul +253 ; couple de retraités +606
+    premier salaire (taux de prélèvement, %) : seul mi-temps 5.2, seul Smic 6.9, conjoint mi-temps 5.2, conjoint Smic 6.9
+    cas-types : ret12 +768 ; ret16 +1,152 ; ret18 +1,368 ; ret20 +740 ; ret25 +100 ; ret35 -517 ; rc30 +846 ; rc45 -116 ; smic_mi -463 ; smic -558 ; cadre60 -2,970 ; cadre100 -5,551 ; cadre200 -13,123 ; pi_smic -558 ; pi35 +281 ; c0_50 -1,490 ; c0m_50 +1,383 ; c0m_80 +2,441 ; c2_50 -784 ; c2m_50 +2,085 ; c3_40 -1,078 ; c3_60 -128 ; c3_80 +1,254 ; c3m_60 +3,439
 
-[ÉPARGNE RETRAITE] garder la déduction des versements coûte 2.86 Md€ au barème retenu, soit 0.29 point de taux pour tous (sous le taux de 50 %)
-[TAUX MARGINAL seul] 10.6 k€ : 10 → 13 % ; 21.3 k€ : 10 → 13 % ; 30.0 k€ : 21 → 14 % ; 50.0 k€ : 32 → 26 % ; 80.0 k€ : 32 → 28 % ; 120.0 k€ : 40 → 31 % ; 200.0 k€ : 44 → 37 % ; 300.0 k€ : 47 → 45 %
-[TAUX MARGINAL retraite_seul] 12.0 k€ : 0 → 14 % ; 15.0 k€ : 0 → 29 % ; 18.0 k€ : 4 → 30 % ; 20.0 k€ : 63 → 31 % ; 24.0 k€ : 21 → 50 % ; 30.0 k€ : 66 → 28 % ; 50.0 k€ : 37 → 30 %
-[BARÈME] taux marginal sur le revenu imposé (après franchise) : 0 k€ 14.0 % ; 10 k€ 15.0 % ; 20 k€ 16.0 % ; 30 k€ 27.9 % ; 45 k€ 29.3 % ; 60 k€ 30.7 % ; 100 k€ 34.4 % ; 150 k€ 39.2 % ; 250 k€ 48.6 %
+[ÉPARGNE RETRAITE] garder la déduction des versements coûte 2.98 Md€ au barème retenu, soit 0.29 point de taux pour tous (sous le taux de 50 %)
+[TAUX MARGINAL seul, revenu après cotisations] 5.0 k€ : 10.7 → 0.0 % ; 9.0 k€ : 10.7 → 15.0 % ; 10.0 k€ : 10.7 → 15.0 % ; 15.0 k€ : 10.7 → 15.0 % ; 19.0 k€ : 10.7 → 15.0 % ; 20.0 k€ : 10.7 → 15.0 % ; 25.0 k€ : 24.0 → 15.0 % ; 30.0 k€ : 24.1 → 18.4 % ; 40.0 k€ : 35.7 → 29.0 % ; 45.0 k€ : 35.6 → 29.6 % ; 50.0 k€ : 35.6 → 30.1 % ; 80.0 k€ : 35.6 → 33.3 % ; 100.0 k€ : 35.6 → 35.4 % ; 120.0 k€ : 44.7 → 37.5 % ; 150.0 k€ : 44.7 → 40.7 %
+[TAUX MARGINAL retraite_seul, revenu après cotisations] 12.0 k€ : 0.0 → 15.0 % ; 13.0 k€ : 0.0 → 30.0 % ; 15.0 k€ : 0.0 → 30.0 % ; 18.0 k€ : 81.7 → 30.0 % ; 20.0 k€ : 4.3 → 30.0 % ; 22.0 k€ : 26.3 → 30.7 % ; 23.0 k€ : 20.9 → 35.5 % ; 24.0 k€ : 20.9 → 41.0 % ; 24.5 k€ : 20.9 → 32.3 % ; 25.0 k€ : 20.9 → 22.6 % ; 26.0 k€ : 20.8 → 24.0 % ; 30.0 k€ : 20.9 → 28.8 % ; 50.0 k€ : 37.1 → 30.9 %
+[BARÈME] taux marginal sur le revenu imposé (après franchise) : 0 k€ 15.0 % ; 10 k€ 15.0 % ; 20 k€ 15.0 % ; 30 k€ 28.8 % ; 45 k€ 30.4 % ; 60 k€ 31.9 % ; 100 k€ 36.2 % ; 150 k€ 41.5 % ; 250 k€ 50.0 %

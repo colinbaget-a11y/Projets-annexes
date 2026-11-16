@@ -2,34 +2,46 @@
 % (programme ../pfu/calculs_pfu.py) ; données : ../pfu/donnees/ ; vérifications : ../revue/hypotheses_pfu.md.
 
 Tous les chiffres de cette annexe sont produits par \texttt{pfu/calculs\_pfu.py}, qui lit les totaux des
-déclarations 2042 des revenus de 2024 (DGFiP), les comptes nationaux de l'Insee (base 2020, publication de mai
-2026), le patrimoine financier des ménages publié par la Banque de France (mai 2026) et le tableau des taux
-intégrés de la Tax Foundation (2025). Les montants sont en euros courants.
+déclarations 2042 des revenus de 2024 (DGFiP), les bulletins DGFiP Statistiques n°~43 (recettes de 2025) et n°~53
+(impôt sur les revenus de 2025, novembre 2026, données provisoires), les comptes nationaux de l'Insee (base 2020,
+publication de mai 2026), le patrimoine financier des ménages publié par la Banque de France (mai 2026) et le
+tableau des taux intégrés de la Tax Foundation (2025). Les montants sont en euros courants. Base 2025 : les
+chiffrages portent sur les revenus de 2025 ; le détail par case de la déclaration n'existant que pour 2024,
+l'assiette de 2025 est estimée en appliquant aux cases de 2024 l'évolution des revenus déclarés mesurée par la DGFiP
+(revenus de capitaux mobiliers $-$12,9~\% pour les dividendes et les intérêts, revenus divers $-$26,4~\% pour les
+plus-values).
 
 \subsection{Assiette, recettes et taux cumulés}
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Assiette et recettes des prélèvements sur les revenus du capital (revenus de 2024, Md€)}\label{tab:pfu_a_assiette}
+\caption{Assiette et recettes des prélèvements sur les revenus du capital (Md€)}\label{tab:pfu_a_assiette}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{6.2cm}@{}}
 \toprule
 Poste & Montant & Source, statut \\
 \midrule
-Dividendes (case 2DC) & 50,1 & DGFiP, totaux 2042 \\
-Intérêts (2TR) et autres distributions (2TS) & 11,8 & idem \\
-Plus-values (3VG) et actifs numériques (3AN), moins les pertes (3VH) & 17,7 & idem \\
-\textbf{Assiette du PFU} & \textbf{79,6} & y compris les 2,54~M de foyers au barème (majorant) \\
-Base 2025 approchée (dividendes $\times$ 64,3/74,9) & 72,5 & Insee, dividendes reçus par les ménages \\
+Dividendes (case 2DC), revenus de 2024 & 50,1 & DGFiP, totaux 2042 \\
+Intérêts (2TR) et autres distributions (2TS), revenus de 2024 & 11,8 & idem \\
+Plus-values (3VG) et actifs numériques (3AN), moins les pertes (3VH), revenus de 2024 & 17,7 & idem \\
+\textbf{Assiette du PFU, revenus de 2024} & \textbf{79,6} & y compris les 2,54~M de foyers au barème (majorant) \\
+\textbf{Assiette du PFU, revenus de 2025 (estimée)} & \textbf{67,0} & dividendes 43,7, intérêts 10,3, plus-values 13,0 ;
+contrôles : 65,5 avec l'évolution de l'impôt hors barème ($-$17,7~\%) ; 72,5 avec les seuls dividendes reçus par les
+ménages (Insee), approximation de la version précédente \\
 Plus-values placées en report d'apport-cession (3WH) & 22,2 & DGFiP ; 33,6 en 2023 (rapport n°~3056) \\
 Stock de reports (8UT) & 173,3 & majorant (la case contient d'autres reports) ; 127 en 2023 selon l'évaluation
 préalable du PLF 2027 \\
 Plus-values en sursis d'\emph{exit tax} (3WA) & 4,7 & 358 foyers \\
 \midrule
-IR au PFU (12,8~\% de l'assiette) & 10,2 & calcul, majorant ; acompte prélevé (2CK) : 7,7 \\
-Prélèvements sociaux sur l'assiette du PFU (18,6~\%) & 14,8 & calcul \\
-Prélèvements sociaux sur tous les revenus du capital & 36,6 & calcul : 107~Md€ à 18,6~\% et 97~Md€ à 17,2~\%
-(assiette de 204~Md€ déduite du prélèvement de solidarité, PLF 2027, état A) \\
-CEHR (tous revenus, revenus de 2023) & 1,4 & rapport n°~3056 (DLF) ; part payée sur le capital inconnue \\
-CDHR & 0,37 & acompte 2025 (rapport n°~3056, DGFiP, provisoire) ; 0,6 prévus en 2027 \\
+IR au PFU (impôt « hors barème »), revenus de 2025 & 8,4 & DGFiP n°~53 ; 10,2 sur les revenus de 2024 (12,8~\% de
+l'assiette de 2024 : 10,2 ; acompte prélevé en 2024, case 2CK : 7,7) \\
+Prélèvements sociaux sur l'assiette du PFU de 2025 & 12,5 & calcul au taux de 2026 (18,6~\%) ; 11,5 au taux de
+2025 (17,2~\%) ; 14,8 sur les revenus de 2024 au taux de 2026 \\
+Prélèvements sociaux sur tous les revenus du capital, encaissés en 2025 & 36,2 & DGFiP n°~43, au taux de 17,2~\%
+(assiette implicite de 210~Md€) ; aux taux de 2026 : 36,6 sur l'assiette de 204~Md€ déduite du prélèvement de
+solidarité (PLF 2027, état A) \\
+CEHR (tous revenus), revenus de 2025 & 1,4 & DGFiP n°~53 ; 1,9 sur les revenus de 2024 (DGFiP n°~41 et 53), 1,4 sur
+ceux de 2023 (rapport n°~3056) ; part payée sur le capital inconnue \\
+CDHR, revenus de 2025 & 0,62 & DGFiP n°~53 (environ 14\,000 foyers, provisoire) ; acompte encaissé en 2025 : 0,37
+(DGFiP n°~43 ; 7\,203 foyers, rapport n°~2847) ; 0,6 prévus en 2027 \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -63,11 +75,12 @@ rapporte durablement, d'où une recette $(t_1-t_0)B + \pi\,t_1\,\Delta Q$. Perso
 \toprule
 Réforme, base & Mécanique & Premières années ($e$ = 0,65 / 0,77 / 1) & Permanent ($e$ = 0,77 ; $\pi$ = 0 / 0,5 / 1) \\
 \midrule
-PFU à 25~\%, base 2024 & $-$5,10 & $-$3,94 / $-$3,73 / $-$3,32 & $-$5,10 / $-$4,41 / $-$3,73 \\
-PFU à 25~\%, base 2025 & $-$4,64 & $-$3,59 / $-$3,40 / $-$3,02 & $-$4,64 / $-$4,02 / $-$3,40 \\
-PFU à 33~\%, base 2024 & 1,27 & 0,87 / 0,80 / 0,65 & 1,27 / 1,04 / 0,80 \\
-PFU à 33~\%, base 2025 & 1,16 & 0,79 / 0,73 / 0,60 & 1,16 / 0,94 / 0,73 \\
-PFU à 34,4~\%, base 2024 & 2,39 & 1,59 / 1,45 / 1,16 & 2,39 / 1,92 / 1,45 \\
+PFU à 25~\%, revenus de 2025 & $-$4,29 & $-$3,32 / $-$3,14 / $-$2,79 & $-$4,29 / $-$3,71 / $-$3,14 \\
+PFU à 25~\%, revenus de 2024 & $-$5,10 & $-$3,94 / $-$3,73 / $-$3,32 & $-$5,10 / $-$4,41 / $-$3,73 \\
+PFU à 33~\%, revenus de 2025 & 1,07 & 0,73 / 0,67 / 0,55 & 1,07 / 0,87 / 0,67 \\
+PFU à 33~\%, revenus de 2024 & 1,27 & 0,87 / 0,80 / 0,65 & 1,27 / 1,04 / 0,80 \\
+PFU à 34,4~\%, revenus de 2025 & 2,01 & 1,34 / 1,22 / 0,98 & 2,01 / 1,61 / 1,22 \\
+PFU à 34,4~\%, revenus de 2024 & 2,39 & 1,59 / 1,45 / 1,16 & 2,39 / 1,92 / 1,45 \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -79,35 +92,41 @@ $e$ = 0,65 / 0,77 / 1 ; lever un euro de plus à 31,4~\% demande d'alourdir de 1
 \emph{Perte sèche d'un PFU à 25~\%.} Formule de Harberger appliquée au seul volet réel : la part $\pi$ de la
 réaction compte comme perte sèche évitée, au coin moyen ; la recette perdue en régime permanent doit être levée
 ailleurs au « prix d'un milliard » $\mu-1$ = 0,04 / 0,08 / 0,17 (perte sèche d'un point de taux pour tous du
-barème fusionné ; fichier \texttt{synthese/sorties/} \texttt{architectures\_ircsg.txt}). Résultat ($e$ = 0,77) : +0,20 / +0,41 /
-+0,87~Md€ si $\pi = 0$ ; $-$0,59 / $-$0,42 / $-$0,02 si $\pi = 0{,}5$ ; $-$1,39 / $-$1,24 / $-$0,91 si $\pi = 1$.
+barème fusionné ; fichier \texttt{synthese/sorties/} \texttt{architectures\_ircsg.txt}). Résultat ($e$ = 0,77,
+revenus de 2025) : +0,17 / +0,34 / +0,73~Md€ si $\pi = 0$ ; $-$0,50 / $-$0,35 / $-$0,02 si $\pi = 0{,}5$ ; $-$1,17 /
+$-$1,05 / $-$0,76 si $\pi = 1$ (revenus de 2024 : +0,20 / +0,41 / +0,87 ; $-$0,59 / $-$0,42 / $-$0,02 ; $-$1,39 /
+$-$1,24 / $-$0,91).
 Le chiffre de la version précédente (+0,3, de 0,15 à 0,6) comptait comme recette une réaction supposée purement
 temporelle ; il est corrigé (\texttt{revue/hypotheses\_pfu.md}, E1).
 
 \emph{Bloc épargne.} Si l'épargne réagissait au rendement net avec une élasticité réelle $\varepsilon_s$, la perte
 sèche sur l'assiette du PFU vaudrait $\tfrac12\,\varepsilon_s\,t^2/(1-t)\,B$. Passer de 31,4 à 25~\% la réduirait
-de 0,24 / 0,48 / 1,20~Md€ pour $\varepsilon_s$ = 0,1 / 0,2 / 0,5. Aucune de ces valeurs n'est estimée sur données
+de 0,20 / 0,40 / 1,01~Md€ pour $\varepsilon_s$ = 0,1 / 0,2 / 0,5 (revenus de 2025 ; 0,24 / 0,48 / 1,20 sur ceux de
+2024). Aucune de ces valeurs n'est estimée sur données
 françaises ; elles indiquent seulement que la conclusion « une baisse n'achète rien » dépend de l'hypothèse
 d'une épargne insensible au rendement (avis Cochrane).
 
 \emph{Retour au barème.} Ordre de grandeur statique sous hypothèses fortes : 96~\% des dividendes imposés au taux
 marginal de 45~\% et 4~\% à 30~\%, les intérêts à 30~\%, les plus-values à 45~\%, abattement de 40~\% sur les
-dividendes, CSG déductible de 6,8~\%. Gain statique de 12,5~Md€, avant les foyers déjà au barème, la CDHR perdue
-(0,4 à 0,6) et les foyers à 41~\%. Après réaction : 6,2 / 5,0 / 2,8~Md€ ($e$ = 0,65 / 0,77 / 1) ; 4,0~Md€ si les
-dividendes déclarés baissaient de 40~\% comme en 2013. L'Institut Montaigne, cité par le CAE (2025), donne 3,2 à
+dividendes, CSG déductible de 6,8~\%. Sur les revenus de 2025, gain statique de 10,1~Md€, avant les foyers déjà au
+barème, la CDHR perdue (0,4 à 0,6) et les foyers à 41~\%. Après réaction : 5,1 / 4,2 / 2,4~Md€ ($e$ = 0,65 / 0,77 /
+1) ; 2,8~Md€ si les dividendes déclarés baissaient de 40~\% comme en 2013 (revenus de 2024 : 12,5 ; 6,2 / 5,0 /
+2,8 ; 4,0). L'Institut Montaigne, cité par le CAE (2025), donne 3,2 à
 3,6~Md€ en statique et $-$0,7 si l'assiette revenait à son niveau de 2017. Un chiffrage propre demande les
 fichiers POTE (taux marginal et ancienneté des titres).
 
 \emph{CDHR et composante baissée.} Pour un rentier qui ne touche que des dividendes, personne seule : à
 400\,000~€, 38,6~\% aujourd'hui, au barème, avec un PFU à 25~\% obtenu par la part d'IR et sans la majoration de
 la CEHR (la CDHR reprend chaque fois l'écart au plancher de 20~\%) ; 32,2~\% avec un PFU à 25~\% obtenu par les
-prélèvements sociaux. À 3~M€ : mêmes chiffres, sauf le barème (45,3~\%). La reprise par la CDHR d'une baisse de la
-part d'IR est de l'ordre de 0,7 à 1,2~Md€ si ses redevables étaient des rentiers purs (deux fois son rendement de
-0,37 à 0,6~Md€) ; la base de ses redevables n'est pas publiée.
+prélèvements sociaux. À 3~M€ : mêmes chiffres, sauf le barème (45,3~\%). Baisser la part d'IR de 12,8 à 6,4~\%
+multiplie la CDHR payée par 2,05 pour le rentier à 400\,000~€ et par 2,77 pour celui à 3~M€ : la reprise par la CDHR
+est de l'ordre de 0,7 à 1,1~Md€ si ses redevables étaient des rentiers purs (1,05 à 1,77 fois son rendement de
+0,62~Md€ sur les revenus de 2025) ; la base de ses redevables n'est pas publiée.
 
 \emph{Exil.} Avec 0,02 à 0,23~\% du centile aux plus hauts revenus du capital qui part à long terme par point
 d'imposition effective (Bach et al., 2025, CAE), un PFU à 25~\% en retiendrait 0,13 à 1,5~\%, soit 0,02 à
-0,24~Md€ de recette gardée (assiette du PFU du centile supposée de 66~Md€).
+0,17~Md€ de recette gardée (assiette du PFU du centile de 47~Md€ sur les revenus de 2025, déduite de l'impôt hors
+barème qu'il acquitte, 6,0~Md€ ; 63~Md€ en 2024).
 
 \subsection{La capitalisation dans une holding}
 
@@ -283,18 +302,20 @@ qu'elle change un chiffre du corps de la partie.
 Hypothèse ou chiffre & Où elle joue & Ce qu'elle change si elle est fausse \\
 \midrule
 Élasticité des revenus déclarés de 0,77 (0,65 à 1), appliquée aux dividendes, intérêts et plus-values & Coût ou
-recette d'un changement de taux & À 0,5, un PFU à 25~\% coûte 4,2~Md€ les premières années ; à 1,2, 3,0. Mesurée
-sur des foyers qui ont aussi des revenus d'activité \\
+recette d'un changement de taux & À 0,5, un PFU à 25~\% coûte 3,5~Md€ les premières années ; à 1,2, 2,5 (revenus
+de 2025). Mesurée sur des foyers qui ont aussi des revenus d'activité \\
 La réaction des dividendes est surtout un calendrier (part $\pi$ qui échappe pour toujours à l'impôt faible) &
 Coût permanent d'une baisse ; signe de la perte sèche ; rendement durable d'une hausse & Si $\pi = 1$, le coût
-permanent d'un PFU à 25~\% tombe à 3,7~Md€ et la baisse réduit la perte sèche ; si $\pi = 0$, une hausse
+permanent d'un PFU à 25~\% tombe à 3,1~Md€ et la baisse réduit la perte sèche ; si $\pi = 0$, une hausse
 rapporte durablement presque son rendement mécanique. $\pi$ n'est mesuré nulle part \\
 L'épargne ne réagit pas au rendement (aucune réaction réelle) & « Une baisse n'achète rien » & Avec une élasticité
-de 0,2 à 0,5, la baisse à 25~\% gagne 0,5 à 1,2~Md€ de perte sèche, autant ou plus que son coût de financement \\
-L'année 2024 est représentative & Tous les chiffrages de taux & Gonflée par l'anticipation de la CDHR : $-$9~\% sur
-la base de 2025 \\
-Les foyers au barème ne sont pas retirés de l'assiette & 10,2~Md€ d'IR ; 5,1~Md€ de coût mécanique & Majorants ;
-l'acompte prélevé (7,7~Md€) donne la borne basse \\
+de 0,2 à 0,5, la baisse à 25~\% gagne 0,4 à 1,0~Md€ de perte sèche, autant ou plus que son coût de financement \\
+Les revenus de 2025 sont représentatifs ; leur assiette est estimée (67~Md€) en faisant évoluer les cases de 2024
+comme les revenus déclarés & Tous les chiffrages de taux & Ceux de 2024 sont gonflés par l'anticipation de la CDHR
+(assiette de 79,6~Md€, chiffrages plus élevés d'un cinquième) ; ceux de 2025 sont peut-être déprimés par la CDHR
+elle-même, à laquelle la DGFiP lie la « baisse marquée » des revenus de capitaux mobiliers déclarés \\
+Les foyers au barème ne sont pas retirés de l'assiette & Coût mécanique (4,3~Md€) & Majorant, d'un écart faible :
+12,8~\% de l'assiette estimée de 2025 donnent 8,6~Md€, contre 8,4 d'impôt hors barème mesuré \\
 La réaction dépend du taux attendu & Argument de la stabilité & Documentée en 2024-2025 (Insee) ; seulement
 « suggérée » pour 2013 (Bach et al.) \\
 Le bénéfice gardé en holding finit par être distribué ou vendu & « Report, pas exonération » ; chemin C avec la
@@ -310,16 +331,19 @@ Les héritiers garderont davantage leurs titres une fois l'impôt dû à la vent
 15~\%, $h$ = 2~\%) ramène la recette de l'an 10 de 3,6 à 2,1~Md€, les autres paramètres au centre. À l'inverse, les donateurs
 n'auront plus de raison d'attendre le décès pour vendre (non chiffré, en faveur de la recette) \\
 90~\% de la recette payée par le 1~\% le plus aisé & Neutralité du haut & Si la part était de 75~\%, la hausse pour
-le haut serait de 2,1~Md€ en moyenne sur dix ans au lieu de 2,5 \\
-Impôt personnel du 1~\% sur ses revenus du capital : environ 22~Md€ & « 15~\% de plus » & Assiette du centile
-supposée de 66~Md€ (96~\% des dividendes, 80~\% des plus-values, 30~\% des intérêts) \\
+le haut serait de 2,1~Md€ en moyenne sur dix ans au lieu de 2,5. Repère : le dernier centile de revenu par part paie
+72~\% de l'impôt hors barème sur les revenus de 2025 (78~\% sur ceux de 2024) \\
+Impôt personnel du 1~\% sur ses revenus du capital : environ 16~Md€ (revenus de 2025, droit de 2026) & « 20~\% de
+plus » & Assiette du centile déduite de l'impôt hors barème qu'il acquitte (DGFiP n°~41 et 53) : 47~Md€ en 2025,
+63 en 2024 (impôt de 21~Md€ ; l'ancienne hypothèse de 66~Md€ donnait 22) ; 65~\% de la CEHR et la CDHR ajoutées \\
 Taux d'actualisation de 3,5~\% (2,5 à 5) & Valeurs actualisées & Voir les tableaux ; ordre de grandeur du taux
 d'emprunt de l'État, non vérifié \\
 Stock de reports 144~Md€ (127 à 173), transmis en 25 ans (15 à 35), imposé à 30~\% & Art.~5, report transmis &
 Le taux appliqué à l'expiration (prélèvements sociaux de l'année d'apport ou de l'expiration) n'est pas tranché ;
 de nombreuses entrées de 2013-2017 ont des abattements (non résolu) \\
-Part de la CEHR payée sur le capital : 50 à 80~\% & Coût de la suppression de la majoration (0,7 à 1,1~Md€) &
-Inconnue (DGFiP) ; la CDHR reprend une partie pour les rentiers \\
+Part de la CEHR payée sur le capital : 50 à 80~\% & Coût de la suppression de la majoration (0,7 à 1,1~Md€ sur la
+CEHR des revenus de 2025 ; 1,0 à 1,6 sur ceux de 2024) & Inconnue (DGFiP) ; la CDHR reprend une partie pour les
+rentiers \\
 Franchise : 5 à 15~\% de l'impôt latent sous 100\,000~€ par transmission & Coût de la franchise & Distribution
 des plus-values latentes inconnue \\
 Constitutionnalité : application aux plus-values acquises avant la réforme, et dès l'annonce & Transition &
@@ -336,8 +360,10 @@ n'impose que des plus-values réalisées \\
 \toprule
 Chiffre ou fait & Où il joue & Statut \\
 \midrule
-CDHR : 0,37~Md€ d'acompte en 2025 au lieu de 1,9 & Situation & Chiffre provisoire de la DGFiP, cité par le rapport
-n°~3056 \\
+CDHR : 0,37~Md€ d'acompte en 2025 au lieu de 1,9 ; 0,62~Md€ sur les revenus de 2025 & Situation & Vérifiés (DGFiP
+n°~43 et 53) ; le second est provisoire (déclarations connues au 15 septembre 2026) \\
+Revenus de 2025 : impôt hors barème, CEHR, revenus déclarés & Situation ; assiette de 2025 & DGFiP n°~53, données
+provisoires (troisième émission) ; l'assiette du PFU de 2025 par nature de revenu est une estimation de l'auteur \\
 Taux total de 46~\% à l'entrée du top 0,1~\%, 26~\% pour le top 0,0002~\% (2016) & Diagnostic & IPP, note n°~92,
 non lue (via le rapport n°~3056) ; concept de revenu économique discuté \\
 84 foyers, 23,5~Md€ de plus-values mises en report en 2023 & Concentration & CPO via le rapport n°~3056 ;

@@ -28,8 +28,25 @@ Construction (lecture seule de ir_csg/ ; rien n'y est modifié) :
 - Perte sèche : l'élasticité ne porte que sur le revenu du travail des actifs (salaires, gérants, 70 % des revenus
   des indépendants et loyers, comme dans le modèle d'origine) ; les pensions et le chômage ne réagissent pas.
 
+Base 2025 (décision 5 du 17/11/2026 ; variable d'environnement BASE_IRCSG=2024 pour retrouver l'ancienne base) :
+- la répartition reste celle de l'IRCOM des revenus 2024 (nombre de foyers par tranche, composition des revenus, partage
+  entre foyers d'actifs et de retraités, poids des types de foyers) ;
+- les revenus sont portés en 2025 avec la croissance de l'assiette de la CSG : +2,3 % pour les revenus d'activité,
+  +3,3 % pour les revenus de remplacement (pensions, chômage) (CSG des régimes de base et du FSV, PLACSS 2025, annexe 1,
+  « Rapport d'évaluation des politiques de sécurité sociale - Financement ») ;
+- la charge actuelle est recalée composante par composante : IR × 103,626 / 96,018 (comptes nationaux 2025 et 2024 de
+  l'Insee, IR avant crédits d'impôt, c'est-à-dire l'impôt encaissé dans l'année : retenue à la source sur les revenus de
+  l'année et solde de l'impôt sur les revenus de l'année précédente) ; CSG des revenus d'activité × 1,023 ; CSG des
+  pensions et du chômage × 1,033 ; CRDS × 9,270 / 9,070 (comptes nationaux). Dans chaque tranche, l'IR et la CSG des
+  retraités sont séparés de ceux des actifs (CSG des pensions de la tranche ; IR des retraités = leur charge moins cette
+  CSG), si bien que les tranches où l'IR pèse plus voient leur charge monter davantage ;
+- le droit de l'IR actuel (P.ir_actuel : quotient familial, taux de prélèvement sur le premier salaire) est celui des
+  revenus 2025 (barème, décote et plafonds revalorisés de 0,9 %, OpenFisca-France 176.1) ; le taux marginal actuel par
+  tranche (bl.TAU_CUR) et le partage de la charge entre types de foyers restent ceux du droit et des revenus de 2024.
+
 Utilisé par synthese/perte_seche_ircsg_purs.py.
 """
+import os
 import sys
 from pathlib import Path
 
@@ -46,8 +63,22 @@ v, ex = P.v, P.ex
 m, x = v.m, v.x
 W, Z, ZN, Q, DEC, S = P.W, P.Z, P.ZN, P.Q, P.DEC, P.S
 TR = v.f.tranche
-CUR = v.CUR                                   # charge actuelle IR + CSG + CRDS du foyer représentatif
-CIBLE = v.CIBLE
+CUR = v.CUR                                   # charge actuelle IR + CSG + CRDS du foyer représentatif (2024)
+CIBLE = v.CIBLE                               # recette à remplacer, base 2024 (recalée en 2025 plus bas)
+
+# ------------------------------------------------------------------ base 2025 : facteurs de recalage
+BASE = os.environ.get("BASE_IRCSG", "2025")
+if BASE == "2025":
+    G_ACT, G_REMP = 1.023, 1.033              # assiette de la CSG : revenus d'activité, de remplacement (2025 / 2024)
+    F_IR = 103.626 / 96.018                   # IR des comptes nationaux (Insee, comptes de la Nation 2025)
+    F_CRDS = 9.270 / 9.070                    # CRDS des comptes nationaux
+    # droit de l'IR des revenus 2025 (OpenFisca-France 176.1) : barème, décote, plafonds du quotient familial
+    ex.IR_SEUILS = [0.0, 11600.0, 29579.0, 84577.0, 181917.0]
+    P._S = np.array(ex.IR_SEUILS)
+    P._H = np.r_[P._S[1:], np.inf]
+    P.PLAF, P.PLAF_ISOL, P.DEC_S, P.DEC_C = 1807.0, 4262.0, 897.0, 1483.0
+else:
+    G_ACT = G_REMP = F_IR = F_CRDS = 1.0
 # taux marginal actuel IR + CSG + CRDS des actifs, par euro d'assiette de la CSG (Z). bl.TAU_CUR vient de
 # ir_csg/sorties/marges_openfisca.csv, qui ne compte que l'IR et la CSG : on ajoute la CRDS (0,5 % de la même assiette),
 # comprise dans la charge actuelle et remplacée par l'impôt fusionné (correction du 16/11/2026, revue/hypotheses_ircsg.md)
@@ -67,21 +98,29 @@ ACT_N = v.F_SAL_N * x.sal + v.F_GER_N * x.ger + v.F_AUT_N * x.ind + v.F_CHO_N * 
 PEN_N = v.F_PENS_N * x.pens                                                              # pensions (brut = net)
 PI = par_tranche(PEN_N / x.assiette3)          # part des foyers de retraités dans le point (masse des pensions)
 W_A, W_R = W * (1 - PI), W * PI
-Z_A = ZN * par_tranche(ACT_B / ACT_N)          # revenu brut d'un foyer d'actifs
-Z_R = ZN.copy()                                # pension : brut = net (assiette du modèle)
-R_A = ZN / Z_A                                 # rapport net / brut des actifs (0,90 ; défaut 3 de la vérification)
+# revenus de 2025 : chaque composante grandit comme l'assiette de la CSG qui la frappe (en-tête) ; les foyers d'actifs
+# et de retraités d'un même point n'ont donc plus exactement le même revenu (2,3 % contre 3,3 % de hausse)
+ZN_2024 = ZN
+ZNA = ZN * par_tranche((G_ACT * (ACT_N - v.F_CHO_N * x.cho) + G_REMP * v.F_CHO_N * x.cho) / ACT_N)  # actifs
+ZNR = ZN * G_REMP                                                                                   # retraités
+ZN = (W_A * ZNA + W_R * ZNR) / W               # revenu moyen du point (contrôles, très hauts revenus)
+ZNG = {"A": ZNA, "R": ZNR}
+Z_A = ZNA * par_tranche(ACT_B / ACT_N)         # revenu brut d'un foyer d'actifs
+Z_R = ZNR.copy()                               # pension : brut = net (assiette du modèle)
+R_A = ZNA / Z_A                                # rapport net / brut des actifs (0,90 ; défaut 3 de la vérification)
 LAB_A = par_tranche((m.F_SAL * x.sal + m.F_GER * x.ger + 0.7 * m.F_AUT * x.ind) / ACT_B)  # part qui réagit
-ACTIV_A = ZN * par_tranche((ACT_N - v.F_CHO_N * x.cho) / ACT_N)   # revenus d'activité nets (sans le chômage)
-SAL_A = ZN * par_tranche((v.F_SAL_N * x.sal + v.F_GER_N * x.ger) / ACT_N)  # salaires et gérants seuls
+ACTIV_A = ZN_2024 * par_tranche(G_ACT * (ACT_N - v.F_CHO_N * x.cho) / ACT_N)   # revenus d'activité nets (sans le chômage)
+SAL_A = ACTIV_A * par_tranche((v.F_SAL_N * x.sal + v.F_GER_N * x.ger) / (ACT_N - v.F_CHO_N * x.cho))  # salaires et gérants
 # Épargne retraite (option « per ») : versements déduits du revenu en 2024, cases 6NS à 6NU, 6RS à 6RU, 6QS à 6QU
 # (9,64 Md€) et 6OS, 6OT (0,94 Md€), donnees/ir_2042_cases_revenus2024.csv. Leur répartition par tranche n'est pas
 # publiée : on suppose la déduction proportionnelle aux revenus d'activité des actifs de la moitié haute de la
 # distribution (hypothèse, revue/hypotheses_ircsg.md), calée sur le total. Ajout du 16/11/2026 (DECISIONS.md).
-PER_TOTAL = 10.58e9
+# Base 2025 : montant de 2024 porté en 2025 comme les revenus d'activité (hypothèse).
+PER_TOTAL = 10.58e9 * G_ACT
 _PER_BASE = ACTIV_A * (Q >= 0.5)
 DED_PER = _PER_BASE * PER_TOTAL / (W_A * _PER_BASE).sum()
 # RFR d'un foyer d'actifs : 90 % des salaires, gérants et chômage (frais professionnels), indépendants et loyers
-RFR_A = ZN * par_tranche((0.9 * (x.sal + x.ger + x.cho) + x.ind) / ACT_N)
+RFR_A = ZNA * par_tranche((0.9 * (x.sal + x.ger + x.cho) + x.ind) / ACT_N)
 
 # ------------------------------------------------------------------ enfants et parents isolés
 ENFANTS = v.bl.ENFANTS                         # 18,0 M (0CF + 0DJ + 0CH / 2)
@@ -135,10 +174,12 @@ def r_rc(z):
     return np.interp(z, _CRC.pension_totale.values, (_CRC.charge / _CRC.pension_totale).values)
 
 
-_U = {"seul": ZN * r_seul(ZN), "parent_isole": np.maximum(ZN * r_seul(ZN) - GAIN_S, 0.0),
-      "couple0": ZN * r_c0(ZN), "couple2": ZN * r_c2(ZN), "retraite_seul": ZN * r_ret(ZN),
-      "retraite_couple": ZN * r_rc(ZN)}
-_U_ANCIEN = dict(_U, retraite_couple=ZN * r_c0(ZN) * rho(ZN / 2))     # approximation abandonnée, pour contrôle
+# partage de la charge entre types : cas-types de 2024 au revenu de 2024 (structure de la répartition la plus récente)
+_Z4 = ZN_2024
+_U = {"seul": _Z4 * r_seul(_Z4), "parent_isole": np.maximum(_Z4 * r_seul(_Z4) - GAIN_S, 0.0),
+      "couple0": _Z4 * r_c0(_Z4), "couple2": _Z4 * r_c2(_Z4), "retraite_seul": _Z4 * r_ret(_Z4),
+      "retraite_couple": _Z4 * r_rc(_Z4)}
+_U_ANCIEN = dict(_U, retraite_couple=_Z4 * r_c0(_Z4) * rho(_Z4 / 2))     # approximation abandonnée, pour contrôle
 
 
 def _cle(nom):
@@ -146,7 +187,54 @@ def _cle(nom):
 
 
 _NORM = sum(w * _U[_cle(nom)] for nom, _, _, w, _, _ in TYPES) / W
-CURT = {nom: np.where(_NORM > 0, CUR * _U[_cle(nom)] / np.where(_NORM > 0, _NORM, 1), CUR) for nom, *_ in TYPES}
+CURT_2024 = {nom: np.where(_NORM > 0, CUR * _U[_cle(nom)] / np.where(_NORM > 0, _NORM, 1), CUR) for nom, *_ in TYPES}
+
+
+# ------------------------------------------------------------------ charge actuelle de 2025 (recalage par composante)
+def _recalage_2025():
+    """Facteur de passage 2024 -> 2025 de la charge des actifs et des retraités, tranche par tranche. Dans chaque
+    tranche : CSG et CRDS des retraités = celles des pensions de la tranche ; IR des retraités = leur charge moins cette
+    CSG (au moins zéro) ; le reste de l'IR et de la CSG-CRDS revient aux actifs. L'IR est porté par F_IR, la CSG des
+    pensions par G_REMP ; la CSG-CRDS des actifs est recalée pour que le total égale la cible 2025."""
+    k = x.set_index("tranche")
+    tr = TR.values
+    som = lambda grp: pd.Series(sum(w * CURT_2024[nom] for nom, g_, _, w, _, _ in TYPES if g_ == grp),  # noqa: E731
+                                index=tr).groupby(level=0).sum() / 1e9
+    c_r, c_a = som("R").reindex(k.index), som("A").reindex(k.index)
+    s_r = (k.t_pens * m.F_PENS * k.pens + v.T_CRDS * m.F_PENS * k.pens * (k.t_pens > 0)).clip(upper=c_r)
+    ir_r = c_r - s_r
+    ir_a = (k.ir_trav - ir_r).clip(lower=0.0)
+    s_a = c_a - ir_a
+    csg_pens = (k.t_pens * m.F_PENS * k.pens).sum()
+    crds_pens = (v.T_CRDS * m.F_PENS * k.pens * (k.t_pens > 0)).sum()
+    cible = (x.ir_trav.sum() * F_IR + (x.csg.sum() - csg_pens - m.CSG_CHO_CCSS) * G_ACT
+             + (csg_pens + m.CSG_CHO_CCSS) * G_REMP + x.crds.sum() * F_CRDS)
+    reste = cible - ((ir_r + ir_a) * F_IR).sum() - (s_r * G_REMP).sum()
+    g_sa = reste / s_a.sum()                     # croissance de la CSG-CRDS des actifs qui boucle la cible
+    phi_r = ((ir_r * F_IR + s_r * G_REMP) / c_r).fillna(1.0)
+    phi_a = ((ir_a * F_IR + s_a * g_sa) / c_a).fillna(1.0)
+    return cible, g_sa, par_tranche(phi_a.values), par_tranche(phi_r.values), dict(
+        ir_retraites=float(ir_r.sum()), csg_retraites=float(s_r.sum()), ir_actifs=float(ir_a.sum()),
+        csg_actifs=float(s_a.sum()))
+
+
+CIBLE_2024 = CIBLE
+CIBLE, G_SA, PHI_A, PHI_R, PARTAGE_2024 = _recalage_2025()
+CURT = {nom: CURT_2024[nom] * (PHI_A if g_ == "A" else PHI_R) for nom, g_, _, _, _, _ in TYPES}
+# recettes du champ (Md€), 2024 et 2025, pour les textes et figures
+_CSG_PENS = float((x.t_pens * m.F_PENS * x.pens).sum())
+RECETTES = {"2024": dict(ir=float(x.ir_trav.sum()), csg_activite=float(x.csg.sum()) - _CSG_PENS - m.CSG_CHO_CCSS,
+                         csg_pensions=_CSG_PENS, csg_chomage=m.CSG_CHO_CCSS, crds=float(x.crds.sum()),
+                         ir_ircom=float(x.ir.sum()))}
+_r4 = RECETTES["2024"]
+RECETTES["2025"] = dict(ir=_r4["ir"] * F_IR, csg_activite=_r4["csg_activite"] * G_ACT,
+                        csg_pensions=_r4["csg_pensions"] * G_REMP, csg_chomage=_r4["csg_chomage"] * G_REMP,
+                        crds=_r4["crds"] * F_CRDS, ir_ircom=_r4["ir_ircom"] * F_IR)
+for _a in RECETTES.values():
+    _a["csg"] = _a["csg_activite"] + _a["csg_pensions"] + _a["csg_chomage"]
+    _a["total"] = _a["ir"] + _a["csg"] + _a["crds"]
+    _a["ir_pfu"] = _a["ir_ircom"] - _a["ir"]
+CRDS_CHAMP = RECETTES[BASE if BASE in RECETTES else "2025"]["crds"]
 
 # ------------------------------------------------------------------ options et impôt fusionné
 # sur : revenus couverts par la franchise F ("activite" : salaires, gérants, indépendants, loyers ; "salaires" :
@@ -193,18 +281,19 @@ def impot_adultes(tm, T, o, zs, ls, ps_, kids):
 def adultes(grp, parts, o, sans=None):
     """Revenus des adultes d'un type (listes zs, ls, ps). sans = k : l'adulte k perd son revenu d'activité.
     Option o["per"] : les versements d'épargne retraite des actifs restent déductibles (DED_PER)."""
-    ded = DED_PER if (grp == "A" and o.get("per")) else 0.0 * ZN
+    zn = ZNG[grp]                                    # revenu de 2025 du foyer (actifs ou retraités)
+    ded = DED_PER if (grp == "A" and o.get("per")) else 0.0 * zn
     if grp == "A":
-        lab = {"activite": ACTIV_A, "salaires": SAL_A, "tout": ZN}[o["sur"]]
-        pens = 0.0 * ZN
+        lab = {"activite": ACTIV_A, "salaires": SAL_A, "tout": zn}[o["sur"]]
+        pens = 0.0 * zn
     else:
-        lab = ZN if o["sur"] == "tout" else 0.0 * ZN
-        pens = ZN
-    zs = [sh * (ZN - ded) for sh in parts]
+        lab = zn if o["sur"] == "tout" else 0.0 * zn
+        pens = zn
+    zs = [sh * (zn - ded) for sh in parts]
     ls, ps_ = [sh * lab for sh in parts], [sh * pens for sh in parts]
     if sans is not None:
-        zs[sans] = np.clip(parts[sans] * (ZN - ACTIV_A), 0, None)   # sans activité, plus de versement déduit
-        ls[sans] = 0.0 * ZN
+        zs[sans] = np.clip(parts[sans] * (zn - ACTIV_A), 0, None)   # sans activité, plus de versement déduit
+        ls[sans] = 0.0 * zn
     return zs, ls, ps_
 
 
@@ -387,8 +476,10 @@ def controles():
     cur_tot = sum((w * CURT[nom]).sum() for nom, _, _, w, _, _ in TYPES) / 1e9
     L.append(f"Calage : charge actuelle des foyers purs {cur_tot:.2f} Md€ ; cible (IR + CSG + CRDS du modèle) "
              f"{CIBLE:.2f} Md€ ; écart {cur_tot - CIBLE:+.3f}")
-    L.append(f"Masses : pensions nettes {(W_R * ZN).sum() / 1e9:.1f} Md€ (tranches : {PEN_N.sum():.1f}) ; revenus nets"
-             f" des actifs {(W_A * ZN).sum() / 1e9:.1f} (tranches : {ACT_N.sum():.1f}) ; revenu brut total"
+    L.append(f"Base {BASE} : IR × {F_IR:.4f}, CSG d'activité × {G_ACT}, CSG des pensions × {G_REMP}, CRDS × {F_CRDS:.4f} ;"
+             f" cible {CIBLE:.2f} Md€ (base 2024 : {CIBLE_2024:.2f}) ; CSG-CRDS des actifs × {G_SA:.4f} pour boucler")
+    L.append(f"Masses : pensions nettes {(W_R * ZNR).sum() / 1e9:.1f} Md€ (tranches, 2024 : {PEN_N.sum():.1f}) ; revenus nets"
+             f" des actifs {(W_A * ZNA).sum() / 1e9:.1f} (tranches, 2024 : {ACT_N.sum():.1f}) ; revenu brut total"
              f" {((W_A * Z_A).sum() + (W_R * Z_R).sum()) / 1e9:.1f} (modèle : {(W * Z).sum() / 1e9:.1f}) ; revenu du"
              f" travail qui réagit {(W_A * Z_A * LAB_A).sum() / 1e9:.1f} (modèle : {(W * Z * v.bl.LAB).sum() / 1e9:.1f})")
     L.append(f"Perte sèche quadratique d'aujourd'hui : {QUAD0:.2f} Md€ (modèle d'origine : {v.cout_actuel():.2f})")
@@ -426,8 +517,8 @@ def controles():
     ir_p = (k.ir_trav * m.F_PENS * k.pens / k.assiette).sum()
     cur_r = sum((w * CURT[nom]).sum() for nom, g_, _, w, _, _ in TYPES if g_ == "R") / 1e9
     cur_a = sum((w * CURT[nom]).sum() for nom, g_, _, w, _, _ in TYPES if g_ == "A") / 1e9
-    L.append(f"Charge actuelle des retraités {cur_r:.1f} Md€ ({100 * cur_r / (W_R * ZN).sum() * 1e9:.1f} % de leurs"
-             f" pensions) ; des actifs {cur_a:.1f} Md€ ({100 * cur_a / (W_A * ZN).sum() * 1e9:.1f} % de leur revenu net)")
+    L.append(f"Charge actuelle des retraités {cur_r:.1f} Md€ ({100 * cur_r / (W_R * ZNR).sum() * 1e9:.1f} % de leurs"
+             f" pensions) ; des actifs {cur_a:.1f} Md€ ({100 * cur_a / (W_A * ZNA).sum() * 1e9:.1f} % de leur revenu net)")
     L.append(f"   repère, pensions dans le modèle d'origine (par_type) : CSG {csg_p:.1f} + CRDS {crds_p:.1f} + IR au prorata"
              f" de l'assiette {ir_p:.1f} = {csg_p + crds_p + ir_p:.1f} Md€ (vérification : environ 41)")
     for z_ in (20e3, 30e3, 50e3, 100e3):

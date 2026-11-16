@@ -6,8 +6,12 @@ arbitrages_prop_ircsg, transition_ircsg, tables_ircsg, figures_ircsg_n).
 - Calage de la recette (220,1 Md€) et de la neutralité du 1 % le plus aisé.
 - Évaluation complète d'un système : perte sèche (jeux bas, central, haut et long terme), répartition par décile et
   par type de foyer, distribution des hausses individuelles entre foyers représentatifs.
-- Cas-types OpenFisca (sorties/cas_types_openfisca.csv, openfisca_cas_ircsg.py) : charge d'aujourd'hui, impôt de la
-  réforme, taux moyen et marginal, taux de prélèvement sur un salaire de reprise d'emploi.
+- Cas-types OpenFisca (sorties/cas_types_openfisca.csv, openfisca_cas_ircsg.py ; législation des revenus 2025) :
+  charge d'aujourd'hui, impôt de la réforme, taux moyen et marginal, taux de prélèvement sur un salaire de reprise
+  d'emploi.
+- Taux marginaux (sorties/courbes_marginales_openfisca.csv) : prélèvement sur 1 000 € de revenu après cotisations en
+  plus, grille de 100 €, aujourd'hui (OpenFisca) et pour toute réforme (calcul direct sur le revenu après cotisations,
+  sans interpolation ni lissage).
 """
 import json
 import sys
@@ -24,8 +28,11 @@ ex = M.ex
 P = M.P
 OUT = HERE / "sorties"
 JEUX = ("bas", "central", "haut", "long")
-SMIC = 21270.0                      # Smic 2024 brut annuel (cas-types, openfisca_cas_ircsg.py)
+SMIC = 11.88 * 151.67 * 12          # Smic 2025 brut annuel, 21 622 € (cas-types, openfisca_cas_ircsg.py)
 CTN = pd.read_csv(OUT / "cas_types_openfisca.csv")
+MGN = pd.read_csv(OUT / "courbes_marginales_openfisca.csv")
+MGN["charge"] = MGN.ir + MGN.csg + MGN.crds
+MGN["charge_plus"] = MGN.ir_plus + MGN.csg_plus + MGN.crds_plus
 CTN["charge"] = CTN.ir + CTN.csg + CTN.crds
 CTN["charge_plus"] = CTN.ir_plus + CTN.csg_plus + CTN.crds_plus
 ENF = {"seul": 0, "couple_0enf": 0, "couple_0enf_mono": 0, "couple_2enf": 2, "couple_2enf_mono": 2, "couple_3enf": 3,
@@ -208,6 +215,36 @@ def marginal_cas(sched, o, profil, brut):
     if sched is None:
         return 100 * (charge_auj(profil, brut, True) - charge_auj(profil, brut)) / 1000
     return 100 * (impot_cas(sched, o, profil, brut, True) - impot_cas(sched, o, profil, brut)) / 1000
+
+
+def impot_base(sched, o, profil, base):
+    """Impôt fusionné d'une personne seule (salarié « seul » ou « retraite_seul ») dont le revenu après cotisations
+    vaut base (tableau)."""
+    a = np.asarray(base, float)
+    if profil == "retraite_seul":
+        zs, ps_, ls = [a], [a], [a if o["sur"] == "tout" else 0 * a]
+    else:
+        zs, ps_, ls = [a], [0 * a], [a]
+    if o["fam"] == "quotient":
+        o = dict(o, fam="rien")              # personne seule sans enfant : le quotient ne change rien
+    return M.impot_adultes(*sched, o, zs, ls, ps_, 0)[0]
+
+
+def courbe_marginale(sched, o, profil, bmin=1000.0, bmax=None):
+    """(revenus après cotisations, prélèvement en % sur 1 000 € de plus). Aujourd'hui (sched None) : OpenFisca,
+    chaque point calculé ; réforme : calcul direct, mêmes revenus que les points d'OpenFisca."""
+    g = MGN[MGN.profil == profil].sort_values("base")
+    g = g[(g.base >= bmin) & ((g.base <= bmax) if bmax else True)]
+    b, bp = g.base_eff.values, g.base_eff_plus.values
+    if sched is None:
+        return g.base.values, 100 * (g.charge_plus.values - g.charge.values) / (bp - b)
+    return g.base.values, 100 * (impot_base(sched, o, profil, bp) - impot_base(sched, o, profil, b)) / (bp - b)
+
+
+def marginal_base(sched, o, profil, base):
+    """Prélèvement sur 1 000 € de revenu après cotisations en plus, au revenu base (point de la grille de 100 €), en %."""
+    xs, ys = courbe_marginale(sched, o, profil)
+    return float(ys[np.argmin(np.abs(xs - base))])
 
 
 def ptr_cas(sched, o, profil, brut):

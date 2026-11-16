@@ -1,105 +1,105 @@
 Très hauts revenus selon la convention de répartition des revenus au PFU (modèle à foyers purs)
 pts : variation de la charge IR + CSG + CRDS en points du revenu du barème après cotisations ; taux_auj : charge actuelle attribuée à ce revenu, en % ; une hausse de cette charge actuelle signale une convention plus proche du barème légal (un salaire de plusieurs millions paie environ 50 % aujourd'hui).
 
-[mixte / neutre] t1 23.0 % ; perte sèche réelle -4.4 Md€ ; 1 % du haut +0.3 Md€ ; déciles € -34 -13 +164 +121 -370 -235 -333 +111 -1 +578
-    900 001 à 1 000 000        foyers    2,993  €       +4,766  pts   +0.9  taux_auj  35.5
-    1 000 001 à 2 000 000      foyers   11,478  €      +27,096  pts   +3.8  taux_auj  35.9
-    2 000 001 à 3 000 000      foyers    2,999  €      +83,500  pts   +7.1  taux_auj  36.4
-    3 000 001 à 4 000 000      foyers    1,338  €     +142,464  pts   +8.9  taux_auj  36.4
-    4 000 001 à 5 000 000      foyers      681  €     +176,014  pts   +8.9  taux_auj  37.3
-    5 000 001 à 6 000 000      foyers      455  €     +257,307  pts  +10.7  taux_auj  36.2
-    6 000 001 à 7 000 000      foyers      298  €     +347,302  pts  +12.9  taux_auj  34.2
-    7 000 001 à 8 000 000      foyers      180  €     +412,541  pts  +12.7  taux_auj  34.9
-    8 000 001 à 9 000 000      foyers      157  €     +472,458  pts  +13.6  taux_auj  34.2
-    Plus de 9 000 000          foyers      695  €   +1,581,268  pts  +17.2  taux_auj  31.9
-[mixte / proposition] t1 30.3 % ; perte sèche réelle -5.3 Md€ ; 1 % du haut -2.7 Md€ ; déciles € -82 -122 +251 +461 -26 +19 -239 +228 -68 -411
-    900 001 à 1 000 000        foyers    2,993  €      -29,651  pts   -5.6  taux_auj  35.5
-    1 000 001 à 2 000 000      foyers   11,478  €      -27,971  pts   -3.9  taux_auj  35.9
-    2 000 001 à 3 000 000      foyers    2,999  €       -9,363  pts   -0.8  taux_auj  36.4
-    3 000 001 à 4 000 000      foyers    1,338  €      +30,862  pts   +1.9  taux_auj  36.4
-    4 000 001 à 5 000 000      foyers      681  €      +56,549  pts   +2.8  taux_auj  37.3
-    5 000 001 à 6 000 000      foyers      455  €     +133,322  pts   +5.5  taux_auj  36.2
-    6 000 001 à 7 000 000      foyers      298  €     +221,419  pts   +8.2  taux_auj  34.2
-    7 000 001 à 8 000 000      foyers      180  €     +284,345  pts   +8.8  taux_auj  34.9
-    8 000 001 à 9 000 000      foyers      157  €     +343,737  pts   +9.9  taux_auj  34.2
-    Plus de 9 000 000          foyers      695  €   +1,448,223  pts  +15.8  taux_auj  31.9
-[mixte / proposition_n] t1 27.4 % ; perte sèche réelle -4.9 Md€ ; 1 % du haut +0.0 Md€ ; déciles € -82 -283 -22 +161 -254 -139 -254 +389 -5 +487 ; neutralité du 1 % dans cette convention : 50 % atteint à 265 k€ (t1 27.4 %)
-    900 001 à 1 000 000        foyers    2,993  €         +710  pts   +0.1  taux_auj  35.5
-    1 000 001 à 2 000 000      foyers   11,478  €      +21,638  pts   +3.0  taux_auj  35.9
-    2 000 001 à 3 000 000      foyers    2,999  €      +74,944  pts   +6.4  taux_auj  36.4
-    3 000 001 à 4 000 000      foyers    1,338  €     +131,136  pts   +8.2  taux_auj  36.4
-    4 000 001 à 5 000 000      foyers      681  €     +162,338  pts   +8.2  taux_auj  37.3
-    5 000 001 à 6 000 000      foyers      455  €     +240,916  pts  +10.0  taux_auj  36.2
-    6 000 001 à 7 000 000      foyers      298  €     +329,136  pts  +12.2  taux_auj  34.2
-    7 000 001 à 8 000 000      foyers      180  €     +391,140  pts  +12.1  taux_auj  34.9
-    8 000 001 à 9 000 000      foyers      157  €     +449,482  pts  +13.0  taux_auj  34.2
-    Plus de 9 000 000          foyers      695  €   +1,523,414  pts  +16.6  taux_auj  31.9
+[mixte / neutre] t1 23.4 % ; perte sèche réelle -4.3 Md€ ; 1 % du haut -0.5 Md€ ; déciles € -0 +83 +265 +165 -365 -221 -324 +130 -27 +290
+    900 001 à 1 000 000        foyers    2,993  €         -288  pts   -0.1  taux_auj  36.9
+    1 000 001 à 2 000 000      foyers   11,478  €      +20,008  pts   +2.7  taux_auj  37.3
+    2 000 001 à 3 000 000      foyers    2,999  €      +71,094  pts   +5.9  taux_auj  37.8
+    3 000 001 à 4 000 000      foyers    1,338  €     +125,113  pts   +7.6  taux_auj  37.8
+    4 000 001 à 5 000 000      foyers      681  €     +153,078  pts   +7.5  taux_auj  38.7
+    5 000 001 à 6 000 000      foyers      455  €     +231,400  pts   +9.4  taux_auj  37.6
+    6 000 001 à 7 000 000      foyers      298  €     +322,463  pts  +11.7  taux_auj  35.5
+    7 000 001 à 8 000 000      foyers      180  €     +380,821  pts  +11.5  taux_auj  36.2
+    8 000 001 à 9 000 000      foyers      157  €     +440,360  pts  +12.4  taux_auj  35.5
+    Plus de 9 000 000          foyers      695  €   +1,511,373  pts  +16.1  taux_auj  33.1
+[mixte / proposition] t1 26.9 % ; perte sèche réelle -4.9 Md€ ; 1 % du haut -2.5 Md€ ; déciles € -85 -145 +190 +342 -150 -12 -121 +450 -0 -453
+    900 001 à 1 000 000        foyers    2,993  €      -20,238  pts   -3.7  taux_auj  36.9
+    1 000 001 à 2 000 000      foyers   11,478  €       -4,795  pts   -0.7  taux_auj  37.3
+    2 000 001 à 3 000 000      foyers    2,999  €      +41,716  pts   +3.5  taux_auj  37.8
+    3 000 001 à 4 000 000      foyers    1,338  €      +94,981  pts   +5.8  taux_auj  37.8
+    4 000 001 à 5 000 000      foyers      681  €     +122,505  pts   +6.0  taux_auj  38.7
+    5 000 001 à 6 000 000      foyers      455  €     +200,282  pts   +8.1  taux_auj  37.6
+    6 000 001 à 7 000 000      foyers      298  €     +291,087  pts  +10.6  taux_auj  35.5
+    7 000 001 à 8 000 000      foyers      180  €     +349,248  pts  +10.5  taux_auj  36.2
+    8 000 001 à 9 000 000      foyers      157  €     +408,741  pts  +11.5  taux_auj  35.5
+    Plus de 9 000 000          foyers      695  €   +1,479,723  pts  +15.8  taux_auj  33.1
+[mixte / proposition_n] t1 28.8 % ; perte sèche réelle -4.7 Md€ ; 1 % du haut -0.0 Md€ ; déciles € -84 -279 +80 +251 -215 -155 -320 +354 -71 +436 ; neutralité du 1 % dans cette convention : 50 % atteint à 231 k€ (t1 28.8 %)
+    900 001 à 1 000 000        foyers    2,993  €       +1,511  pts   +0.3  taux_auj  36.9
+    1 000 001 à 2 000 000      foyers   11,478  €      +21,058  pts   +2.9  taux_auj  37.3
+    2 000 001 à 3 000 000      foyers    2,999  €      +69,539  pts   +5.8  taux_auj  37.8
+    3 000 001 à 4 000 000      foyers    1,338  €     +120,863  pts   +7.3  taux_auj  37.8
+    4 000 001 à 5 000 000      foyers      681  €     +146,572  pts   +7.2  taux_auj  38.7
+    5 000 001 à 6 000 000      foyers      455  €     +222,195  pts   +9.0  taux_auj  37.6
+    6 000 001 à 7 000 000      foyers      298  €     +311,444  pts  +11.3  taux_auj  35.5
+    7 000 001 à 8 000 000      foyers      180  €     +366,492  pts  +11.1  taux_auj  36.2
+    8 000 001 à 9 000 000      foyers      157  €     +424,422  pts  +12.0  taux_auj  35.5
+    Plus de 9 000 000          foyers      695  €   +1,459,755  pts  +15.6  taux_auj  33.1
 
-[haut / neutre] t1 23.8 % ; perte sèche réelle -4.0 Md€ ; 1 % du haut -2.8 Md€ ; déciles € -34 -13 +164 +122 -365 -210 -279 +219 +209 +182
-    900 001 à 1 000 000        foyers    2,993  €      -32,049  pts   -8.6  taux_auj  41.0
-    1 000 001 à 2 000 000      foyers   11,478  €      -32,714  pts   -6.8  taux_auj  42.4
-    2 000 001 à 3 000 000      foyers    2,999  €      -36,715  pts   -5.1  taux_auj  45.0
-    3 000 001 à 4 000 000      foyers    1,338  €      -33,611  pts   -3.5  taux_auj  45.9
-    4 000 001 à 5 000 000      foyers      681  €      -61,054  pts   -5.5  taux_auj  48.9
-    5 000 001 à 6 000 000      foyers      455  €      -35,911  pts   -2.7  taux_auj  47.1
-    6 000 001 à 7 000 000      foyers      298  €      -15,803  pts   -1.2  taux_auj  45.7
-    8 000 001 à 9 000 000      foyers      157  €       -5,751  pts   -0.3  taux_auj  46.0
-    7 000 001 à 8 000 000      foyers      180  €       +6,752  pts   +0.4  taux_auj  45.4
-    Plus de 9 000 000          foyers      695  €     +165,576  pts   +4.1  taux_auj  44.0
-[haut / proposition] t1 31.1 % ; perte sèche réelle -4.8 Md€ ; 1 % du haut -4.5 Md€ ; déciles € -82 -122 +251 +462 -25 +24 -227 +282 +56 -603
-    900 001 à 1 000 000        foyers    2,993  €      -46,944  pts  -12.6  taux_auj  41.0
-    1 000 001 à 2 000 000      foyers   11,478  €      -59,528  pts  -12.5  taux_auj  42.4
-    2 000 001 à 3 000 000      foyers    2,999  €      -90,272  pts  -12.6  taux_auj  45.0
-    3 000 001 à 4 000 000      foyers    1,338  €     -108,784  pts  -11.4  taux_auj  45.9
-    4 000 001 à 5 000 000      foyers      681  €     -146,937  pts  -13.2  taux_auj  48.9
-    5 000 001 à 6 000 000      foyers      455  €     -133,471  pts  -10.0  taux_auj  47.1
-    6 000 001 à 7 000 000      foyers      298  €     -114,221  pts   -8.4  taux_auj  45.7
-    8 000 001 à 9 000 000      foyers      157  €     -115,460  pts   -6.7  taux_auj  46.0
-    7 000 001 à 8 000 000      foyers      180  €     -103,634  pts   -5.9  taux_auj  45.4
-    Plus de 9 000 000          foyers      695  €      +41,584  pts   +1.0  taux_auj  44.0
-[haut / proposition_n] t1 28.3 % ; perte sèche réelle -4.5 Md€ ; 1 % du haut -2.8 Md€ ; déciles € -82 -283 -22 +161 -250 -123 -212 +490 +173 +151 ; neutralité du 1 % dans cette convention : 50 % atteint à 110 k€ (t1 23.6 %)
-    900 001 à 1 000 000        foyers    2,993  €      -33,767  pts   -9.1  taux_auj  41.0
-    1 000 001 à 2 000 000      foyers   11,478  €      -35,541  pts   -7.4  taux_auj  42.4
-    2 000 001 à 3 000 000      foyers    2,999  €      -41,690  pts   -5.8  taux_auj  45.0
-    3 000 001 à 4 000 000      foyers    1,338  €      -40,340  pts   -4.2  taux_auj  45.9
-    4 000 001 à 5 000 000      foyers      681  €      -68,647  pts   -6.2  taux_auj  48.9
-    5 000 001 à 6 000 000      foyers      455  €      -44,901  pts   -3.4  taux_auj  47.1
-    6 000 001 à 7 000 000      foyers      298  €      -25,005  pts   -1.8  taux_auj  45.7
-    8 000 001 à 9 000 000      foyers      157  €      -17,234  pts   -1.0  taux_auj  46.0
-    7 000 001 à 8 000 000      foyers      180  €       -4,761  pts   -0.3  taux_auj  45.4
-    Plus de 9 000 000          foyers      695  €     +140,112  pts   +3.5  taux_auj  44.0
+[haut / neutre] t1 24.2 % ; perte sèche réelle -3.9 Md€ ; 1 % du haut -3.5 Md€ ; déciles € -0 +83 +265 +165 -359 -193 -269 +239 +183 -114
+    900 001 à 1 000 000        foyers    2,993  €      -37,401  pts   -9.8  taux_auj  42.6
+    1 000 001 à 2 000 000      foyers   11,478  €      -39,988  pts   -8.2  taux_auj  44.2
+    2 000 001 à 3 000 000      foyers    2,999  €      -49,096  pts   -6.7  taux_auj  46.9
+    3 000 001 à 4 000 000      foyers    1,338  €      -50,824  pts   -5.2  taux_auj  47.8
+    4 000 001 à 5 000 000      foyers      681  €      -83,798  pts   -7.4  taux_auj  50.9
+    5 000 001 à 6 000 000      foyers      455  €      -61,553  pts   -4.5  taux_auj  49.1
+    6 000 001 à 7 000 000      foyers      298  €      -40,286  pts   -2.9  taux_auj  47.6
+    8 000 001 à 9 000 000      foyers      157  €      -37,320  pts   -2.1  taux_auj  47.9
+    7 000 001 à 8 000 000      foyers      180  €      -24,531  pts   -1.4  taux_auj  47.2
+    Plus de 9 000 000          foyers      695  €      +97,452  pts   +2.4  taux_auj  45.8
+[haut / proposition] t1 27.6 % ; perte sèche réelle -4.5 Md€ ; 1 % du haut -4.9 Md€ ; déciles € -85 -145 +191 +342 -147 +4 -80 +541 +164 -764
+    900 001 à 1 000 000        foyers    2,993  €      -48,683  pts  -12.8  taux_auj  42.6
+    1 000 001 à 2 000 000      foyers   11,478  €      -56,388  pts  -11.5  taux_auj  44.2
+    2 000 001 à 3 000 000      foyers    2,999  €      -73,448  pts  -10.0  taux_auj  46.9
+    3 000 001 à 4 000 000      foyers    1,338  €      -78,096  pts   -8.0  taux_auj  47.8
+    4 000 001 à 5 000 000      foyers      681  €     -111,919  pts   -9.8  taux_auj  50.9
+    5 000 001 à 6 000 000      foyers      455  €      -90,259  pts   -6.6  taux_auj  49.1
+    6 000 001 à 7 000 000      foyers      298  €      -69,045  pts   -5.0  taux_auj  47.6
+    8 000 001 à 9 000 000      foyers      157  €      -66,444  pts   -3.8  taux_auj  47.9
+    7 000 001 à 8 000 000      foyers      180  €      -53,634  pts   -3.0  taux_auj  47.2
+    Plus de 9 000 000          foyers      695  €      +67,033  pts   +1.6  taux_auj  45.8
+[haut / proposition_n] t1 29.8 % ; perte sèche réelle -4.2 Md€ ; 1 % du haut -3.0 Md€ ; déciles € -84 -279 +80 +252 -212 -141 -283 +455 +112 +104 ; neutralité du 1 % dans cette convention : 50 % atteint à 91 k€ (t1 23.9 %)
+    900 001 à 1 000 000        foyers    2,993  €      -35,095  pts   -9.2  taux_auj  42.6
+    1 000 001 à 2 000 000      foyers   11,478  €      -37,622  pts   -7.7  taux_auj  44.2
+    2 000 001 à 3 000 000      foyers    2,999  €      -47,544  pts   -6.5  taux_auj  46.9
+    3 000 001 à 4 000 000      foyers    1,338  €      -50,640  pts   -5.2  taux_auj  47.8
+    4 000 001 à 5 000 000      foyers      681  €      -84,449  pts   -7.4  taux_auj  50.9
+    5 000 001 à 6 000 000      foyers      455  €      -63,570  pts   -4.7  taux_auj  49.1
+    6 000 001 à 7 000 000      foyers      298  €      -42,512  pts   -3.1  taux_auj  47.6
+    8 000 001 à 9 000 000      foyers      157  €      -41,758  pts   -2.4  taux_auj  47.9
+    7 000 001 à 8 000 000      foyers      180  €      -28,988  pts   -1.6  taux_auj  47.2
+    Plus de 9 000 000          foyers      695  €      +78,892  pts   +1.9  taux_auj  45.8
 
-[prorata / neutre] t1 22.1 % ; perte sèche réelle -4.9 Md€ ; 1 % du haut +4.3 Md€ ; déciles € -34 -13 +164 +121 -376 -264 -394 -11 -226 +1014
-    900 001 à 1 000 000        foyers    2,993  €      +44,172  pts   +6.4  taux_auj  32.6
-    1 000 001 à 2 000 000      foyers   11,478  €      +88,738  pts   +9.3  taux_auj  32.6
-    2 000 001 à 3 000 000      foyers    2,999  €     +204,131  pts  +12.6  taux_auj  32.6
-    3 000 001 à 4 000 000      foyers    1,338  €     +319,043  pts  +14.1  taux_auj  32.4
-    4 000 001 à 5 000 000      foyers      681  €     +413,711  pts  +14.5  taux_auj  32.8
-    5 000 001 à 6 000 000      foyers      455  €     +550,807  pts  +15.8  taux_auj  32.0
-    6 000 001 à 7 000 000      foyers      298  €     +710,660  pts  +17.7  taux_auj  30.4
-    7 000 001 à 8 000 000      foyers      180  €     +818,150  pts  +17.3  taux_auj  31.0
-    8 000 001 à 9 000 000      foyers      157  €     +950,510  pts  +18.2  taux_auj  30.3
-    Plus de 9 000 000          foyers      695  €   +2,996,662  pts  +20.9  taux_auj  28.6
-[prorata / proposition] t1 29.3 % ; perte sèche réelle -5.7 Md€ ; 1 % du haut -0.1 Md€ ; déciles € -82 -122 +250 +461 -26 +13 -251 +170 -194 -209
-    900 001 à 1 000 000        foyers    2,993  €      -11,555  pts   -1.7  taux_auj  32.6
-    1 000 001 à 2 000 000      foyers   11,478  €       +7,971  pts   +0.8  taux_auj  32.6
-    2 000 001 à 3 000 000      foyers    2,999  €      +86,948  pts   +5.4  taux_auj  32.6
-    3 000 001 à 4 000 000      foyers    1,338  €     +190,192  pts   +8.4  taux_auj  32.4
-    4 000 001 à 5 000 000      foyers      681  €     +280,513  pts   +9.8  taux_auj  32.8
-    5 000 001 à 6 000 000      foyers      455  €     +415,524  pts  +11.9  taux_auj  32.0
-    6 000 001 à 7 000 000      foyers      298  €     +574,434  pts  +14.3  taux_auj  30.4
-    7 000 001 à 8 000 000      foyers      180  €     +680,878  pts  +14.4  taux_auj  31.0
-    8 000 001 à 9 000 000      foyers      157  €     +812,580  pts  +15.6  taux_auj  30.3
-    Plus de 9 000 000          foyers      695  €   +2,856,844  pts  +19.9  taux_auj  28.6
-[prorata / proposition_n] t1 26.3 % ; perte sèche réelle -5.3 Md€ ; 1 % du haut +3.7 Md€ ; déciles € -82 -283 -22 +160 -258 -157 -303 +275 -195 +856 ; neutralité du 1 % dans cette convention : 50 % atteint à 858 k€ (t1 28.7 %)
-    900 001 à 1 000 000        foyers    2,993  €      +38,278  pts   +5.6  taux_auj  32.6
-    1 000 001 à 2 000 000      foyers   11,478  €      +81,005  pts   +8.5  taux_auj  32.6
-    2 000 001 à 3 000 000      foyers    2,999  €     +192,143  pts  +11.9  taux_auj  32.6
-    3 000 001 à 4 000 000      foyers    1,338  €     +302,922  pts  +13.4  taux_auj  32.4
-    4 000 001 à 5 000 000      foyers      681  €     +393,927  pts  +13.8  taux_auj  32.8
-    5 000 001 à 6 000 000      foyers      455  €     +527,134  pts  +15.1  taux_auj  32.0
-    6 000 001 à 7 000 000      foyers      298  €     +683,653  pts  +17.0  taux_auj  30.4
-    7 000 001 à 8 000 000      foyers      180  €     +786,958  pts  +16.7  taux_auj  31.0
-    8 000 001 à 9 000 000      foyers      157  €     +916,132  pts  +17.6  taux_auj  30.3
-    Plus de 9 000 000          foyers      695  €   +2,906,373  pts  +20.3  taux_auj  28.6
+[prorata / neutre] t1 22.6 % ; perte sèche réelle -4.8 Md€ ; 1 % du haut +3.5 Md€ ; déciles € -0 +83 +265 +164 -373 -254 -387 +7 -252 +734
+    900 001 à 1 000 000        foyers    2,993  €      +39,230  pts   +5.6  taux_auj  33.7
+    1 000 001 à 2 000 000      foyers   11,478  €      +81,709  pts   +8.4  taux_auj  33.8
+    2 000 001 à 3 000 000      foyers    2,999  €     +191,669  pts  +11.6  taux_auj  33.8
+    3 000 001 à 4 000 000      foyers    1,338  €     +301,576  pts  +13.0  taux_auj  33.6
+    4 000 001 à 5 000 000      foyers      681  €     +390,553  pts  +13.3  taux_auj  34.0
+    5 000 001 à 6 000 000      foyers      455  €     +524,595  pts  +14.7  taux_auj  33.1
+    6 000 001 à 7 000 000      foyers      298  €     +685,426  pts  +16.7  taux_auj  31.5
+    7 000 001 à 8 000 000      foyers      180  €     +785,980  pts  +16.3  taux_auj  32.1
+    8 000 001 à 9 000 000      foyers      157  €     +917,869  pts  +17.2  taux_auj  31.4
+    Plus de 9 000 000          foyers      695  €   +2,925,010  pts  +19.9  taux_auj  29.5
+[prorata / proposition] t1 25.9 % ; perte sèche réelle -5.3 Md€ ; 1 % du haut +0.9 Md€ ; déciles € -85 -145 +190 +341 -153 -31 -168 +347 -175 -111
+    900 001 à 1 000 000        foyers    2,993  €      +13,141  pts   +1.9  taux_auj  33.7
+    1 000 001 à 2 000 000      foyers   11,478  €      +52,473  pts   +5.4  taux_auj  33.8
+    2 000 001 à 3 000 000      foyers    2,999  €     +160,165  pts   +9.7  taux_auj  33.8
+    3 000 001 à 4 000 000      foyers    1,338  €     +269,224  pts  +11.6  taux_auj  33.6
+    4 000 001 à 5 000 000      foyers      681  €     +357,678  pts  +12.2  taux_auj  34.0
+    5 000 001 à 6 000 000      foyers      455  €     +491,570  pts  +13.8  taux_auj  33.1
+    6 000 001 à 7 000 000      foyers      298  €     +652,378  pts  +15.9  taux_auj  31.5
+    7 000 001 à 8 000 000      foyers      180  €     +752,940  pts  +15.6  taux_auj  32.1
+    8 000 001 à 9 000 000      foyers      157  €     +884,800  pts  +16.6  taux_auj  31.4
+    Plus de 9 000 000          foyers      695  €   +2,891,919  pts  +19.7  taux_auj  29.5
+[prorata / proposition_n] t1 27.6 % ; perte sèche réelle -5.2 Md€ ; 1 % du haut +3.8 Md€ ; déciles € -84 -279 +80 +251 -218 -170 -362 +241 -265 +799 ; neutralité du 1 % dans cette convention : 50 % atteint à 774 k€ (t1 30.1 %)
+    900 001 à 1 000 000        foyers    2,993  €      +39,843  pts   +5.7  taux_auj  33.7
+    1 000 001 à 2 000 000      foyers   11,478  €      +80,914  pts   +8.3  taux_auj  33.8
+    2 000 001 à 3 000 000      foyers    2,999  €     +186,825  pts  +11.3  taux_auj  33.8
+    3 000 001 à 4 000 000      foyers    1,338  €     +292,718  pts  +12.7  taux_auj  33.6
+    4 000 001 à 5 000 000      foyers      681  €     +377,967  pts  +12.9  taux_auj  34.0
+    5 000 001 à 6 000 000      foyers      455  €     +508,031  pts  +14.2  taux_auj  33.1
+    6 000 001 à 7 000 000      foyers      298  €     +665,453  pts  +16.2  taux_auj  31.5
+    7 000 001 à 8 000 000      foyers      180  €     +761,726  pts  +15.8  taux_auj  32.1
+    8 000 001 à 9 000 000      foyers      157  €     +890,356  pts  +16.7  taux_auj  31.4
+    Plus de 9 000 000          foyers      695  €   +2,840,301  pts  +19.4  taux_auj  29.5
 

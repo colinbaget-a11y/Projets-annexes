@@ -1,4 +1,8 @@
-"""Figures de la partie IR-CSG réécrite (ircsg_n01 à ircsg_n17), d'après les sorties des programmes de la partie.
+"""Figures de la partie IR-CSG réécrite (ircsg_n01 à ircsg_n18, sans n06), d'après les sorties des programmes de la partie.
+
+Base 2025 (décision 5 du 17/11/2026) ; taux marginaux par 1 000 € de revenu après cotisations, grille de 100 €, chaque
+point calculé (aucun lissage, aucune interpolation de l'impôt ; décision 6) ; pas de figure sur les cotisations
+sociales (décision 7 : l'ancienne figure n06 du coin au Smic est retirée).
 
 Couleurs de la note (style_note.py) : aujourd'hui en encre grise, réforme naïve en brique, proposition en bleu,
 variantes en ocre ; composantes d'une décomposition en nuances de bleu. Titres : dans le document (\\figbloc) ;
@@ -32,14 +36,15 @@ O_P = U.options(F=C["F"], **PJ["base"])
 S_P = U.bareme(C["t0"], C["tb"], C["z1"], C["t1"], C["z2"])
 O_N = U.options(fam="quotient")
 S_N = U.empile(NQ["tau"])
-SRC_OF = "OpenFisca-France 176.1 (législation des revenus 2024), cas-types sans niche ; calculs de l'auteur"
-SRC_M = ("DGFiP, IRCOM et totaux des déclarations 2042 des revenus 2024 ; OpenFisca-France ; calculs de l'auteur "
-         "(synthese/modele_purs.py, proposition_ircsg.py)")
+SRC_OF = "OpenFisca-France 176.1 (législation des revenus 2025), cas-types sans niche ; calculs de l'auteur"
+SRC_M = ("DGFiP, IRCOM et totaux des déclarations 2042 des revenus 2024 (répartition) ; Insee, comptes nationaux 2025, "
+         "et rapport d'évaluation « Financement » annexé au projet de loi d'approbation des comptes de la Sécurité "
+         "sociale 2025 (agrégats de 2025) ; OpenFisca-France ; calculs de l'auteur (synthese/modele_purs.py, "
+         "proposition_ircsg.py)")
+CIB = U.M.CIBLE
+NOTE_MG = ("chaque point est le supplément d'IR, de CSG et de CRDS dû pour 1 000 € de revenu après cotisations en plus "
+           "(salaire net de cotisations, ou pension brute), calculé tous les 100 € sans lissage")
 FS = 9 * ECH_TXT
-
-
-def mg_courbe(prof, sched, o, xs):
-    return np.array([U.marginal_cas(sched, o, prof, x) for x in xs])
 
 
 def k_euros(ax, axe="x"):
@@ -70,16 +75,22 @@ def n01():
         ax.text(v + 2, yy, f"{_fr(v)} Md€", va="center", fontsize=9.5, color=ENCRE, fontweight="bold")
     ax.set_yticks(y)
     ax.set_yticklabels(["Impôt sur le revenu", "CSG", "CRDS"], fontsize=FS * 1.05)
-    ax.set_xlim(0, 150)
-    ax.set_xlabel("Md€ en 2024, revenus imposés au barème")
+    ax.set_xlim(0, 155)
+    ax.set_xlabel("Md€ en 2025, revenus imposés au barème")
     axes_propres(ax, grille="x")
-    fin(fig, "ircsg_n01_recettes", "DGFiP, IRCOM des revenus 2024 ; Commission des comptes de la Sécurité sociale (CSG des "
-        "pensions et du chômage) ; calculs de l'auteur (synthese/situation_ircsg.py).",
+    f = r["facteurs"]
+    fin(fig, "ircsg_n01_recettes", "DGFiP, IRCOM des revenus 2024 (répartition) ; Insee, comptes nationaux 2025 (IR, CSG, "
+        "CRDS) ; rapport d'évaluation « Financement » annexé au projet de loi d'approbation des comptes de la Sécurité "
+        "sociale 2025 (CSG par assiette) ; calculs de l'auteur (synthese/modele_purs.py, situation_ircsg.py).",
         f"Note : champ de la fusion, c'est-à-dire les revenus imposés au barème (salaires, pensions, revenus des "
         f"indépendants, loyers, allocations chômage) ; l'IR des revenus du capital au prélèvement forfaitaire unique "
-        f"({_fr(r['ir_pfu'], 1)} Md€ imputés à 12,8 %) n'y est pas. Au niveau national (comptes nationaux 2024) : IR "
-        f"{_fr(r['nat_ir'], 1)} Md€, CSG {_fr(r['nat_csg'], 1)} Md€, CRDS {_fr(r['nat_crds'], 1)} Md€. Lecture : la CSG prélevée "
-        f"sur les pensions ({_fr(r['csg_pensions'], 1)} Md€) est un chiffre de la CCSS repris par le modèle, non relu à la source.")
+        f"(environ {_fr(r['ir_pfu'], 1)} Md€) n'y est pas. Montants de 2024 (IRCOM, Sécurité sociale) portés en 2025 avec "
+        f"la croissance de l'IR des comptes nationaux (+{_fr(100 * (f['ir'] - 1), 1)} %, impôt encaissé en 2025), de la CSG "
+        f"sur les revenus d'activité (+{_fr(100 * (f['csg_activite'] - 1), 1)} %) et de remplacement "
+        f"(+{_fr(100 * (f['csg_remplacement'] - 1), 1)} %) et de la CRDS (+{_fr(100 * (f['crds'] - 1), 1)} %). Au niveau "
+        f"national (comptes nationaux 2025) : IR {_fr(r['nat_ir'], 1)} Md€, CSG {_fr(r['nat_csg'], 1)} Md€, CRDS "
+        f"{_fr(r['nat_crds'], 1)} Md€. La CSG des pensions de 2024 ({_fr(r['base_2024']['csg_pensions'], 1)} Md€) est un "
+        f"chiffre de la CCSS repris par le modèle, non relu à la source.")
 
 
 def n02():
@@ -110,26 +121,48 @@ def n02():
         "du capital notamment, non détaillés ici). Les autres pays ne sont pas décomposés.")
 
 
-def n03():
-    fig, axs = plt.subplots(1, 2, figsize=(9, 3.6), sharey=True)
-    xs = np.arange(5000, 120001, 500.0)
-    axs[0].plot(xs, mg_courbe("seul", None, None, xs), color=AUJ, lw=1.4)
-    xr = np.arange(5000, 60001, 500.0)
-    axs[1].plot(xr, mg_courbe("retraite_seul", None, None, xr), color=AUJ, lw=1.4)
-    for ax, t, xl in ((axs[0], "Salarié seul", "Salaire brut annuel"), (axs[1], "Retraité seul", "Pension brute annuelle")):
+REPERES_RET = [(17_600, "CSG : exonération\n→ 3,8 %"), (20_600, "3,8 → 6,6 %"), (31_900, "6,6 → 8,3 %"),
+               (33_100, "abattement\ndes plus de 65 ans")]
+
+
+def panneaux(series, titre_note, nom, src, reperes=True, xmax_s=120e3, xmax_r=60e3):
+    """Deux panneaux de taux marginaux (salarié seul, retraité seul) ; series : [(sched, o, couleur, épaisseur,
+    libellé)], sched None pour aujourd'hui."""
+    fig, axs = plt.subplots(1, 2, figsize=(9, 3.8), sharey=True)
+    for ax, prof, xmax, t, xl in ((axs[0], "seul", xmax_s, "Salarié seul", "Salaire net de cotisations, par an"),
+                                  (axs[1], "retraite_seul", xmax_r, "Retraité seul", "Pension brute, par an")):
+        for sched, o, col, lw, lab in series:
+            xs, ys = U.courbe_marginale(sched, o, prof, bmin=2000.0, bmax=xmax)
+            ax.plot(xs, ys, color=col, lw=lw, label=lab, drawstyle="steps-post")
         ax.set_title(t, fontsize=10, loc="left", color=ENCRE)
         ax.set_xlabel(xl)
+        ax.set_xlim(0, xmax)
         k_euros(ax)
         ax.yaxis.set_major_formatter(pct)
         axes_propres(ax)
+    if reperes:
+        xs, ys = U.courbe_marginale(None, None, "retraite_seul", bmin=2000.0, bmax=xmax_r)
+        for xr, lab in REPERES_RET:
+            yr = float(ys[np.argmin(np.abs(xs - xr))])
+            axs[1].annotate(lab, (xr, yr), xytext=(4, -2), textcoords="offset points", fontsize=7.2, color=ENCRE2,
+                            va="top", ha="left")
     axs[0].set_ylabel("Prélèvement sur 1 000 € de plus")
-    axs[0].set_ylim(0, 80)
-    fig.subplots_adjust(wspace=0.08)
-    fin(fig, "ircsg_n03_marches", SRC_OF + " (synthese/openfisca_cas_ircsg.py).",
-        "Note : IR + CSG + CRDS supplémentaires pour 1 000 € de revenu brut en plus, grille de 500 €. Retraité de plus de "
-        "65 ans ; son taux de CSG dépend du revenu fiscal de l'avant-dernière année, supposé égal à celui de l'année. "
-        "Lecture : quand la pension franchit un seuil de CSG, le nouveau taux s'applique à toute la pension, et 1 000 € de "
-        "plus coûtent jusqu'à 60 à 75 % d'impôt.")
+    axs[0].set_ylim(0, 90)
+    if len(series) > 1:
+        legende(axs[0], loc="upper left")
+    fig.subplots_adjust(wspace=0.15)
+    fin(fig, nom, src, titre_note)
+
+
+def n03():
+    panneaux([(None, None, AUJ, 1.4, "Aujourd'hui")],
+             f"Note : droit des revenus 2025 ; {NOTE_MG}. Retraité de plus de 65 ans, dont le taux de CSG dépend du revenu "
+             "fiscal de l'avant-dernière année, pris en régime stable. Les pics sont de vrais sauts du droit, larges de "
+             "1 000 € parce que c'est l'écart mesuré : quand le revenu fiscal du retraité franchit un seuil de CSG, le "
+             "nouveau taux s'applique à toute sa pension ; quand il franchit l'un des deux seuils de l'abattement des plus "
+             "de 65 ans, cet abattement baisse d'un coup de 1 411 € ; le petit pic du salarié à l'entrée dans l'impôt vient "
+             "de ce que l'IR n'est pas recouvré sous 61 €.",
+             "ircsg_n03_marches", SRC_OF + " (synthese/openfisca_cas_ircsg.py, outils_ircsg.py).")
 
 
 def n04():
@@ -162,65 +195,18 @@ def n05():
     legende(ax, loc="upper left")
     fin(fig, "ircsg_n05_quotient", SRC_OF + " (synthese/situation_ircsg.py).",
         "Note : écart d'IR entre le couple avec enfants et le même couple sans enfant, au même revenu ; salariés mariés ou "
-        "pacsés, enfants à charge nés en 2015. Plafond : 1 791 € par demi-part (revenus 2024). Au total, le quotient familial "
+        "pacsés, enfants à charge nés en 2015. Plafond : 1 807 € par demi-part (revenus 2025). Au total, le quotient familial "
         f"des enfants réduit l'IR d'environ {_fr(SIT['qf_agregat']['cout'], 1)} Md€ dans le modèle.")
 
 
-def n06():
-    c = SIT["coin_marginal"]
-    ks = ["1.0", "1.25", "1.5", "2.0", "2.5", "3.0"]
-    fig, ax = plt.subplots(figsize=(9, 3.6))
-    x = np.arange(len(ks))
-    bas = np.zeros(len(ks))
-    for cle, lab, col in (("cotis_nc", "Cotisations sans contrepartie de droits", NUANCES_BLEU[0]),
-                          ("prime", "Baisse de la prime d'activité", NUANCES_BLEU[2]),
-                          ("ircsg", "IR + CSG + CRDS", NUANCES_BLEU[4])):
-        v = np.array([100 * c[k][cle] for k in ks])
-        ax.bar(x, v, bottom=bas, color=col, width=0.6, label=lab, zorder=2)
-        bas += v
-    for i, k in enumerate(ks):
-        ax.text(i, bas[i] + 1.5, f"{100 * c[k]['total']:.0f} %", ha="center", fontsize=9.5, color=ENCRE, fontweight="bold")
-    ax.set_xticks(x)
-    ax.set_xticklabels([f"{_fr(float(k), 2).rstrip('0').rstrip(',')} Smic" for k in ks], fontsize=FS)
-    ax.yaxis.set_major_formatter(pct)
-    ax.set_ylim(0, 80)
-    ax.set_ylabel("Part d'un euro de coût du travail en plus")
-    axes_propres(ax)
-    legende(ax, loc="upper right")
-    fin(fig, "ircsg_n06_coin", "OCDE, Taxing Wages 2025 (barèmes de cotisations) ; OpenFisca-France ; calculs de l'auteur "
-        "(synthese/ps_ircsg_methode.py, situation_ircsg.py).",
-        "Note : personne seule sans enfant, droit de 2025 (réduction générale des cotisations patronales jusqu'à 1,6 Smic), "
-        "sans aide au logement. Cotisations sans contrepartie : cotisations patronales et salariales hors vieillesse, "
-        "retraite complémentaire et chômage, nettes des allègements, dont la baisse rapide au-dessus du Smic. Depuis 2026, "
-        "les allègements s'éteignent à 3 Smic : le coin est plus faible à 1,5 Smic et plus fort entre 1,6 et 3 Smic.")
-
-
 # ------------------------------------------------------------------ 3. réforme naïve
-def marges(nom, sched, o, coul, lab, titre_note):
-    fig, axs = plt.subplots(1, 2, figsize=(9, 3.6), sharey=True)
-    xs = np.arange(5000, 120001, 500.0)
-    xr = np.arange(5000, 60001, 500.0)
-    for ax, prof, x, t, xl in ((axs[0], "seul", xs, "Salarié seul", "Salaire brut annuel"),
-                               (axs[1], "retraite_seul", xr, "Retraité seul", "Pension brute annuelle")):
-        ax.plot(x, mg_courbe(prof, None, None, x), color=AUJ, lw=1.1, label="Aujourd'hui")
-        ax.plot(x, mg_courbe(prof, sched, o, x), color=coul, lw=2.0, label=lab)
-        ax.set_title(t, fontsize=10, loc="left", color=ENCRE)
-        ax.set_xlabel(xl)
-        k_euros(ax)
-        ax.yaxis.set_major_formatter(pct)
-        axes_propres(ax)
-    axs[0].set_ylabel("Prélèvement sur 1 000 € de plus")
-    axs[0].set_ylim(0, 80)
-    legende(axs[0], loc="upper left")
-    fig.subplots_adjust(wspace=0.08)
-    fin(fig, nom, SRC_OF + " (synthese/naive_ircsg.py, proposition_ircsg.py).", titre_note)
-
-
 def n07():
-    marges("ircsg_n07_naive_marges", S_N, O_N, NAIF, "Réforme naïve",
-           f"Note : réforme naïve : barème de l'IR des revenus 2024 avec quotient conjugal et familial, appliqué au revenu "
-           f"après cotisations sans abattement ni décote, plus un taux proportionnel de {_fr(100 * NQ['tau'], 2)} % qui remplace "
-           f"la CSG et la CRDS. IR + CSG + CRDS supplémentaires pour 1 000 € de revenu brut en plus.")
+    panneaux([(None, None, AUJ, 1.0, "Aujourd'hui"), (S_N, O_N, NAIF, 2.0, "Réforme naïve")],
+             f"Note : réforme naïve : barème de l'IR des revenus 2025 avec quotient conjugal et familial, appliqué au revenu "
+             f"après cotisations sans abattement ni décote, plus un taux proportionnel de {_fr(100 * NQ['tau'], 2)} % qui "
+             f"remplace la CSG et la CRDS ; {NOTE_MG}. Les marches de la réforme naïve sont celles des tranches de l'IR "
+             f"(11, 30 et 41 %).",
+             "ircsg_n07_naive_marges", SRC_OF + " (synthese/naive_ircsg.py, outils_ircsg.py).", reperes=False)
 
 
 def n08():
@@ -240,17 +226,21 @@ def n08():
     axes_propres(ax)
     fin(fig, "ircsg_n08_naive_deciles", SRC_M + " (naive_ircsg.py).",
         f"Note : réforme naïve (barème de l'IR du foyer et taux proportionnel de {_fr(100 * NQ['tau'], 2)} %), à recette égale "
-        f"(220 Md€) avant réaction des contribuables. Le 1 % le plus aisé paierait {_fr(NQ['top1_Md'], 1)} Md€ de plus, le "
+        f"({_fr(CIB)} Md€, base 2025) avant réaction des contribuables. Le 1 % le plus aisé paierait {_fr(NQ['top1_Md'], 1)} Md€ de plus, le "
         f"dixième le plus aisé {_fr(NQ['top10_Md'], 1)} Md€.")
 
 
 # ------------------------------------------------------------------ 4. proposition
 def n09():
-    marges("ircsg_n09_prop_marges", S_P, O_P, PROP, "Proposition",
-           f"Note : proposition : franchise de {_fr(C['F'])} € par adulte sur les revenus d'activité, puis taux marginal de "
-           f"{_fr(100 * C['t0'])} % au premier euro imposé, {_fr(100 * C['tb'])} % à 20 000 €, {_fr(100 * C['t1'], 1)} % à "
-           f"{_fr(C['z1'] / 1e3)} 000 €, 50 % à {_fr(C['z2'] / 1e3)} 000 €, en ligne droite entre ces points ; pensions exonérées "
-           f"jusqu'à 12 500 €, puis de moins en moins jusqu'à 25 000 € (d'où le taux marginal élevé du retraité dans cette zone).")
+    panneaux([(None, None, AUJ, 1.0, "Aujourd'hui"), (S_P, O_P, PROP, 2.0, "Proposition")],
+             f"Note : proposition : franchise de {_fr(C['F'])} € par adulte sur les revenus d'activité, puis taux marginal de "
+             f"{_fr(100 * C['t0'])} % au premier euro imposé, {_fr(100 * C['tb'])} % à 20 000 €, {_fr(100 * C['t1'], 1)} % à "
+             f"{_fr(C['z1'] / 1e3, 1 if C['z1'] % 1000 else 0)} 000 €, 50 % à {_fr(C['z2'] / 1e3)} 000 €, en ligne droite "
+             f"entre ces points ; pensions exonérées jusqu'à 12 500 €, puis de moins en moins jusqu'à 25 000 € ; {NOTE_MG}. "
+             "Le seul saut qui reste est un vrai effet de la règle : entre 12 500 et 25 000 € de pension, chaque euro de "
+             "pension en plus retire un euro d'exonération, si bien que le retraité paie deux fois le taux du barème, et ce "
+             "taux monte vite entre 20 000 et 25 000 €.",
+             "ircsg_n09_prop_marges", SRC_OF + " (synthese/proposition_ircsg.py, outils_ircsg.py).", reperes=False)
 
 
 def n10():
@@ -323,9 +313,9 @@ def n12():
     axes_propres(ax)
     legende(ax, loc="upper left", ncol=3)
     fin(fig, "ircsg_n12_premier_salaire", SRC_OF + " (synthese/outils_ircsg.py).",
-        "Note : impôt du ménage avec ce salaire moins impôt sans ce salaire, rapporté au salaire brut ; Smic 2024 de 21 270 € "
-        "brut par an. Conjoint : marié ou pacsé à un salarié qui gagne 30 000 € brut, sans enfant. Hors cotisations et "
-        "prime d'activité, que la réforme ne change pas.")
+        "Note : impôt du ménage avec ce salaire moins impôt sans ce salaire, rapporté au salaire brut ; Smic 2025 de 21 622 € "
+        "brut par an. Conjoint : marié ou pacsé à un salarié qui gagne 30 000 € brut, sans enfant. Hors prime d'activité, "
+        "que la réforme ne change pas.")
 
 
 # ------------------------------------------------------------------ 5. arbitrages
@@ -348,8 +338,8 @@ def n13():
     fig.subplots_adjust(wspace=0.25)
     fin(fig, "ircsg_n13_franchise", SRC_M + ".",
         "Note : pour chaque franchise, le barème qui maximise le gain sur la participation (marge extensive) sous les "
-        "contraintes de la proposition : recette de 220 Md€, aucun décile au-delà de plus ou moins 500 €, charge du 1 % le plus aisé "
-        "inchangée. Participation : hypothèse centrale (élasticité de 0,25 sous 2 Smic).")
+        f"contraintes de la proposition : recette de {_fr(CIB)} Md€ (base 2025), aucun décile au-delà de plus ou moins 500 €, "
+        "charge du 1 % le plus aisé inchangée. Participation : hypothèse centrale (élasticité de 0,25 sous 2 Smic).")
 
 
 def n14():
@@ -443,6 +433,40 @@ def n17():
         "essayés) ; hypothèses centrales. Le gain total comprend la participation et la marge intensive.")
 
 
+def n18():
+    r4 = PJ["par_franchise"]["4000"]
+    s4 = U.bareme(r4["t0"], r4["tb"], r4["z1"], r4["t1"], r4["z2"])
+    o4 = dict(O_P, F=4000.0)
+    se = ARB["sortie_etalee_c"]
+    s_e = U.bareme(*se["bareme"])
+    o_e = dict(O_P, Fp_pente=0.5)
+    fig, axs = plt.subplots(1, 2, figsize=(9, 3.8), sharey=True)
+    for ax, prof, xmax, t, xl, var in ((axs[0], "seul", 120e3, "Salarié seul", "Salaire net de cotisations, par an",
+                                        (s4, o4, "Franchise de 4 000 €")),
+                                       (axs[1], "retraite_seul", 60e3, "Retraité seul", "Pension brute, par an",
+                                        (s_e, o_e, "Sortie de l'exonération étalée"))):
+        for sched, o, col, lw, lab in ((None, None, AUJ, 1.0, "Aujourd'hui"), (S_P, O_P, PROP, 2.0, "Proposition"),
+                                       (var[0], var[1], VAR, 1.6, var[2])):
+            xs, ys = U.courbe_marginale(sched, o, prof, bmin=2000.0, bmax=xmax)
+            ax.plot(xs, ys, color=col, lw=lw, label=lab, drawstyle="steps-post")
+        ax.set_title(t, fontsize=10, loc="left", color=ENCRE)
+        ax.set_xlabel(xl)
+        ax.set_xlim(0, xmax)
+        k_euros(ax)
+        ax.yaxis.set_major_formatter(pct)
+        axes_propres(ax)
+        legende(ax, loc="upper left")
+    axs[0].set_ylabel("Prélèvement sur 1 000 € de plus")
+    axs[0].set_ylim(0, 90)
+    fig.subplots_adjust(wspace=0.15)
+    fin(fig, "ircsg_n18_variantes_marges", SRC_OF + " (synthese/arbitrages_prop_ircsg.py, outils_ircsg.py).",
+        f"Note : {NOTE_MG}. Chaque variante a son propre barème, recherché sous les mêmes contraintes que la proposition. "
+        "Franchise de 4 000 € : barème qui maximise le gain sur la participation à cette franchise. Sortie étalée : "
+        "l'exonération des pensions baisse d'un demi-euro, et non d'un euro, par euro de pension au-delà de 12 500 €, et "
+        "s'éteint à 37 500 € ; le taux marginal est alors 1,5 fois celui du barème, mais sur une bande deux fois plus "
+        "large.")
+
+
 if __name__ == "__main__":
-    for f in (n01, n02, n03, n04, n05, n06, n07, n08, n09, n10, n11, n12, n13, n14, n15, n16, n17):
+    for f in (n01, n02, n03, n04, n05, n07, n08, n09, n10, n11, n12, n13, n14, n15, n16, n17, n18):
         f()

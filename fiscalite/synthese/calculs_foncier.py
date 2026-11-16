@@ -9,7 +9,12 @@ revue/hypotheses_foncier.md (H1 à H19) ; les quatre erreurs du texte précéden
 Lancer depuis fiscalite/ : python3 synthese/calculs_foncier.py
   -> synthese/sorties/calculs_foncier.txt (journal lisible) et calculs_foncier.json (séries pour les figures)
 
-Conventions : euros de 2024 ; « Md€ » = milliards par an ; σ = baisse des ventes par point de droits (6 = 6 %) ;
+Base 2025 (décision 5 du 17/11/2026) : taxe foncière 2025 (REI), ventes de 2025 (DVF), comptes de patrimoine de fin 2025 et
+PIB 2025 (Insee, millésime 2026), inventaire des prélèvements de 2025 quand la source primaire existe (sinon l'année
+disponible, dite dans INV) ; les prix des logements restent ceux des ventes 2023-2024 (foncier/simulation.py).
+Ne pas lancer avec BASE_FONCIER=2024 : l'assiette Insee et l'inventaire sont ceux de 2025 (la version en base 2024 est
+dans l'historique git, avant le 17/11/2026).
+Conventions : euros courants ; « Md€ » = milliards par an ; σ = baisse des ventes par point de droits (6 = 6 %) ;
 r = taux d'actualisation réel (3 %, 4 % en variante) ; perte sèche négative = perte sèche évitée (gain).
 """
 import json
@@ -78,23 +83,40 @@ p(f"[CHAMP] {NLOG/1e6:.1f} M logements des particuliers (métropole hors Alsace-
   f" logement, {100*TF0/VAL:.3f} % de la valeur) ; droits {D0/1e9:.2f} Md€ (taux {100*T:.2f} %)")
 V_VENTES = c.valeur_ventes_an.sum()
 N_VENTES = c.ventes_an.sum()
-p(f"[DROITS] ventes de logements anciens {V_VENTES/1e9:.0f} Md€ par an, {N_VENTES/1e3:.0f} 000 ventes ; rotation"
+p(f"[DROITS] ventes de logements anciens en 2025 : {V_VENTES/1e9:.0f} Md€, {N_VENTES/1e3:.0f} 000 ventes ; rotation"
   f" {100*N_VENTES/NLOG:.1f} % du parc par an ; droits rapportés au parc : {D0/NLOG:.0f} € par logement et par an,"
   f" soit {100*D0/VAL:.3f} % de la valeur par an (coin implicite sur la détention)")
 
-# Inventaire 2024 (foncier/notes/inventaire.md, valeurs [TEXTE LU] ; successions : clé de 60 % [NON VÉRIFIÉ])
-INV = {"Détention": [("Taxe foncière bâtie : logements", 30.5), ("Taxe foncière bâtie : autres locaux", 11.5),
-                     ("Ordures ménagères (TEOM)", 9.0), ("Cotisation foncière des entreprises", 8.0),
-                     ("Autres (TH résiduelles, IFI, foncier non bâti…)", 10.0)],
-       "Ventes": [("Droits de mutation", 14.1), ("TVA du neuf et des terrains", 7.1),
-                  ("Plus-values, sécurité immobilière", 3.8)],
-       "Transmissions": [("Successions et donations, part immobilière (estimation)", 12.5)],
-       "Loyers": [("Impôts sur les revenus locatifs", 8.4)],
-       "Construction": [("Taxe d'aménagement", 1.5)]}
+# Inventaire 2025 (foncier/notes/inventaire.md et foncier/donnees/inventaire.csv, valeurs [TEXTE LU] ; Md€). Quand la
+# source primaire ne donne pas 2025, l'année disponible est gardée et dite ici, dans la figure n01 et dans le texte.
+AUTRES_DET = {"taxes d'habitation restantes (REI 2025)": 3.141, "IFI, encaissements (DGFiP Statistiques n° 43, 2025)": 2.770,
+              "foncier non bâti (REI 2025)": 1.196, "GEMAPI (OFGL, 2025)": 0.588, "TASA (OFGL, 2025)": 0.077,
+              "taxes spéciales d'équipement (PLF 2027, prévision 2027)": 0.390,
+              "taxe sur les bureaux d'Île-de-France (comptabilité nationale, 2024)": 1.055,
+              "taxe sur les logements vacants (CPO, 2022)": 0.080}
+PV_CSI = {"plus-values immobilières des particuliers (Cour des comptes, 2024)": 2.8,
+          "contribution de sécurité immobilière (comptabilité nationale, 2024)": 0.692,
+          "frais d'assiette sur les droits (2,37 % × 13,5 Md€, 2025, calcul)": 0.32}
+CONSTR = {"taxe d'aménagement encaissée (OFGL, 2025)": 0.782, "redevance d'archéologie préventive (AN, 2024)": 0.0965}
+INV = {"Détention": [("Taxe foncière bâtie : logements", 31.590),                 # Compte du logement 2025
+                     ("Taxe foncière bâtie : autres locaux", 43.131 - 31.590),    # REI 2025 − CSL 2025 [NON VÉRIFIÉ]
+                     ("Ordures ménagères (TEOM)", 9.234),                         # REI 2025
+                     ("Cotisation foncière des entreprises", 8.381),              # REI 2025
+                     ("Autres (TH résiduelles, IFI, foncier non bâti…)", sum(AUTRES_DET.values()))],
+       "Ventes": [("Droits de mutation", 16.703),                                 # OFGL, comptes de gestion 2025
+                  ("TVA du neuf et des terrains", 5.369 + 0.789),                 # Compte du logement 2025
+                  ("Plus-values, sécurité immobilière", sum(PV_CSI.values()))],
+       "Transmissions": [("Successions et donations, part immobilière (estimation)", 0.60 * 21.18)],   # clé CPO [NV]
+       "Loyers": [("Impôts sur les revenus locatifs", 8.678)],                    # Compte du logement 2025
+       "Construction": [("Taxe d'aménagement", sum(CONSTR.values()))]}
 tot_inv = sum(v for f in INV.values() for _, v in f)
-PIB24 = pd.read_csv(RACINE / "lvt/donnees/patrimoine.csv", index_col=0).loc[2024, "pib"] / 1e3   # Md€ (Insee)
-p(f"[INVENTAIRE 2024] total {tot_inv:.1f} Md€ = {100*tot_inv/PIB24:.2f} % du PIB ({fr(PIB24)} Md€, Insee) ; "
+PAT = pd.read_csv(RACINE / "foncier/donnees/patrimoine_2025.csv", comment="#", index_col=0)
+PIB25 = PAT.loc[2025, "pib"]                                                    # Md€ (Insee, comptes de la Nation 2025)
+p(f"[INVENTAIRE 2025] total {tot_inv:.1f} Md€ = {100*tot_inv/PIB25:.2f} % du PIB ({fr(PIB25)} Md€, Insee) ; "
   + " ; ".join(f"{k} {sum(v for _, v in f):.1f}" for k, f in INV.items()))
+p("[INVENTAIRE 2025] détail : " + " ; ".join(f"{k} {v:.2f}" for d_ in (AUTRES_DET, PV_CSI, CONSTR) for k, v in d_.items()))
+p("[INVENTAIRE 2024, pour mémoire] 116,4 Md€ (TF logements 30,5, autres locaux 11,5, TEOM 9,0, CFE 8,0, autres 10,0 ;"
+  " droits 14,1, TVA 7,1, plus-values et CSI 3,8 ; successions 12,5 ; loyers 8,4 ; construction 1,5)")
 J["inventaire"] = INV
 
 # Qui paie la taxe foncière : statut d'occupation (prorata communal, même taxe par logement dans la commune)
@@ -156,10 +178,20 @@ J["ocde"] = ocd
 # Cycle des droits sur les logements (Compte du logement 2025, série T321 [TEXTE LU] : foncier/notes/inventaire.md § 3)
 CYCLE = {2021: 16.418, 2022: 16.818, 2023: 13.002, 2024: 11.239, 2025: 13.568}
 TF_LOG = {2024: 30.489, 2025: 31.590}
-p("[CYCLE] droits sur les logements (Md€) : " + " ; ".join(f"{a} {v:.1f}" for a, v in CYCLE.items())
+p("[CYCLE] droits sur les logements, France entière (Md€) : " + " ; ".join(f"{a} {v:.1f}" for a, v in CYCLE.items())
   + f" ; de 2022 à 2024 : {100*(CYCLE[2024]/CYCLE[2022]-1):+.0f} % ; taxe foncière sur les logements 2024 {TF_LOG[2024]:.1f},"
   f" 2025 {TF_LOG[2025]:.1f}")
 J["cycle"] = CYCLE
+# 2025 : part du relèvement temporaire (5 % au lieu de 4,5 %) dans les droits perçus, en supposant que le champ du modèle
+# pèse en 2025 la même part des droits sur les logements qu'en 2023-2024 [calcul, NON VÉRIFIÉ]
+F_2324 = T * c.valeur_ventes_an_2324.sum() / 1e9 / np.mean([CYCLE[2023], CYCLE[2024]])
+D_FR = D0 / 1e9 / F_2324
+p(f"[DROITS 2025] au taux permanent, le champ du modèle rapporte {D0/1e9:.2f} Md€ en 2025 (moyenne 2023-2024 :"
+  f" {T*c.valeur_ventes_an_2324.sum()/1e9:.2f}) ; à part du champ constante ({F_2324:.3f}), France entière {D_FR:.1f} Md€ au"
+  f" taux permanent contre {CYCLE[2025]:.1f} perçus : relèvement temporaire ≈ {CYCLE[2025]-D_FR:.1f} Md€, taux moyen"
+  f" effectif ≈ {100*T*CYCLE[2025]/D_FR:.2f} % [calcul non vérifié]")
+J["droits2025"] = dict(d0=float(D0 / 1e9), d0_2324=float(T * c.valeur_ventes_an_2324.sum() / 1e9), d_fr=float(D_FR),
+                       hausse_temp=float(CYCLE[2025] - D_FR), taux_eff=float(100 * T * CYCLE[2025] / D_FR))
 
 # Coût marginal d'un euro de droits (réaction exponentielle des ventes, σ par point) : dPS/dR = σ'τ / (1 − σ'τ)
 for sig in (3, 6, 8):
@@ -179,8 +211,9 @@ d1 = (1 - S) * L.d0
 naif_tf, _ = sm.report_tf(S)
 d_naif = naif_tf - L.tf0
 hausse_naif = S * D0 / TF0
-p(f"[NAÏF] taxe foncière relevée de {100*hausse_naif:.1f} % partout ({S*D0/1e9:.2f} Md€) ; 19,7 % si les ventes"
-  f" augmentent de 6 % par point")
+p(f"[NAÏF] taxe foncière relevée de {100*hausse_naif:.1f} % partout ({S*D0/1e9:.2f} Md€) ;"
+  f" {100*sm.cout_baisse(S)[0]*1e9/TF0:.1f} % si les ventes augmentent de 6 % par point")
+J["naif_hausse"] = float(100 * hausse_naif)
 J["naif_dtf"] = [float(u) for u in par_decile(d_naif)]
 J["naif_tot"] = [float(u) for u in par_decile(d_naif + d1 - L.d0)]
 J["tfv_naif"] = [float(u) for u in 100 * ratio_decile(naif_tf, L.v)]
@@ -199,7 +232,7 @@ p()
 p("=" * 100)
 p("4. PROPOSITION")
 p("=" * 100)
-ter = pd.read_csv(RACINE / "foncier/donnees/terrains_secteurs_2024.csv", comment="#").set_index("secteur")
+ter = pd.read_csv(RACINE / "foncier/donnees/terrains_secteurs_2025.csv", comment="#").set_index("secteur")
 BATI_MEN = ter.loc["S14", "N2111"]                                   # sol sous les bâtiments des ménages
 BATI_AUT = ter.loc[["S11", "S12", "S15"], "N2111"].sum()            # sol des entreprises, sociétés financières, ISBLSM
 NU_PRIV = ter.loc[["S11", "S14"], "N2119"].sum()                     # terrains non bâtis privés (à bâtir, naturels)
@@ -208,7 +241,7 @@ PUBLIC = ter.loc["S13", ["N2111", "N2113", "N2119"]].sum()
 BASES = {"sol des logements seul": BATI_MEN, "terrains bâtis privés": BATI_MEN + BATI_AUT,
          "tous terrains privés hors terres agricoles": BATI_MEN + BATI_AUT + NU_PRIV,
          "tous terrains privés, terres agricoles comprises": BATI_MEN + BATI_AUT + NU_PRIV + AGRI}
-p(f"[INSEE 2024] sol sous les bâtiments des ménages {fr(BATI_MEN)} Md€ ; des entreprises et autres privés {fr(BATI_AUT)} ;"
+p(f"[INSEE 2025] sol sous les bâtiments des ménages {fr(BATI_MEN)} Md€ ; des entreprises et autres privés {fr(BATI_AUT)} ;"
   f" terrains non bâtis privés {fr(NU_PRIV)} ; terres cultivées {fr(AGRI)} ; terrains publics {fr(PUBLIC)} (exclus)")
 # Logements HLM : sol estimé dans le modèle (valeur médiane des logements de la commune : majorant)
 hlm = c.rp_lochlmv.fillna(0)
@@ -219,13 +252,16 @@ hlm_terre = hlm_terre_mod / 1e9 * RATIO_INSEE / sm.part_champ
 p(f"[HLM] sol des {hlm.sum()/1e6:.1f} M logements HLM loués, estimé (valeur médiane de la commune, majorant) :"
   f" {fr(hlm_terre)} Md€ en valeurs Insee ; rapport valeurs Insee / modèle : {RATIO_INSEE:.2f}")
 
-# Droits sur les autres biens (locaux, terrains) : total des collectivités (OFGL) − logements (Compte du logement)
-DMTO_TOT = {2023: 16.311, 2024: 14.093}
-DMTO_AUT = np.mean([DMTO_TOT[a] - CYCLE[a] for a in (2023, 2024)])
-F_CHAMP = (D0 / 1e9) / np.mean([CYCLE[2023], CYCLE[2024]])      # droits du modèle / droits France entière (logements)
+# Droits sur les autres biens (locaux, terrains) : total des collectivités (OFGL) − logements (Compte du logement), 2025.
+# F_CHAMP = droits du modèle (taux permanent) / droits perçus sur les logements en France entière (taux de 2025) : il
+# ramène les droits perçus sur les autres biens au champ du modèle et au taux permanent.
+DMTO_TOT = {2023: 16.311, 2024: 14.093, 2025: 16.703}
+DMTO_AUT = DMTO_TOT[2025] - CYCLE[2025]
+F_CHAMP = (D0 / 1e9) / CYCLE[2025]
 CUT_LOG = S * D0 / 1e9
 CUT_AUT = S * DMTO_AUT * F_CHAMP
-p(f"[DROITS AUTRES BIENS] {DMTO_AUT:.2f} Md€ par an en 2023-2024 (différence de deux sources, non vérifiée) ; à l'échelle"
+p(f"[DROITS AUTRES BIENS] {DMTO_AUT:.2f} Md€ en 2025 (différence de deux sources, non vérifiée ; moyenne 2023-2024"
+  f" {np.mean([DMTO_TOT[a] - CYCLE[a] for a in (2023, 2024)]):.2f}) ; à l'échelle"
   f" du champ ({F_CHAMP:.3f}) : moitié = {CUT_AUT:.2f} Md€ ; logements : moitié = {CUT_LOG:.2f} Md€")
 
 
@@ -340,10 +376,14 @@ for k_, v in sens.items():
     p(f"[SENSIBILITÉ ASSIETTE] {k_} : taux {v[0]:.3f} % (modèle), {v[1]:.3f} % (Insee) ; Paris {v[2]:+.0f} % ;"
       f" dernier décile {v[3]:+.0f} €/an ; hausses > 300 € {100*v[4]:.1f} %")
 J["sens_assiette"] = sens
+J["insee"] = dict(bati_men=float(BATI_MEN), bati_aut=float(BATI_AUT), nu_priv=float(NU_PRIV), agri=float(AGRI),
+                  public=float(PUBLIC), base_p=float(BASE_P), part_men=float(part_menages(BASE_P)),
+                  hlm=float(hlm_terre), ratio_insee=float(RATIO_INSEE))
 
 # Volumes : si les ventes augmentent de 6 % par point, la baisse coûte moins
 c_vol = sm.cout_baisse(S)[0]
 F_VOL = c_vol / CUT_LOG
+J["volumes"] = dict(cout_vol=float(c_vol), facteur=float(F_VOL))
 p(f"[VOLUMES] avec +6 % de ventes par point, la baisse des droits des logements coûte {c_vol:.2f} Md€ au lieu de"
   f" {CUT_LOG:.2f} (×{F_VOL:.2f}) ; taux national {100*TN_P*F_VOL:.3f} % (modèle)")
 
@@ -386,7 +426,7 @@ TOT_NAIF = ps["ventes"] + ps["bati_naif"]
 TOT_LOG = ps["ventes"] + ps["bati_prop"]
 TOT_PROP = TOT_LOG + ps["ventes_autres"]
 p(f"[PERTE SÈCHE] total : réforme naïve {TOT_NAIF:+.2f} ; proposition, logements {TOT_LOG:+.2f} ; avec les autres immeubles"
-  f" {TOT_PROP:+.2f} Md€ ({100*-TOT_LOG/PIB24:.3f} % du PIB pour les logements)")
+  f" {TOT_PROP:+.2f} Md€ ({100*-TOT_LOG/PIB25:.3f} % du PIB pour les logements)")
 # Määttänen et Terviö : coût d'appariement qui REMPLACE le triangle sur les ventes (H18)
 mt = (173 - 64) * NLOG / 1e9
 p(f"[PERTE SÈCHE] variante Määttänen-Terviö (remplace le triangle sur les ventes) : environ {mt:.1f} Md€ (euros 2004),"
