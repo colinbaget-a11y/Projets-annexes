@@ -1,0 +1,48 @@
+% foncier
+André et Meslin (2023), \emph{Insee Analyses} n°~91. Avenancio-León et Howard
+(2022), « The Assessment Gap », \emph{QJE} 137(3). Banzhaf et Lavery (2010), « Can the Land Tax Help Curb Urban
+Sprawl? », \emph{Journal of Urban Economics} 67(2). Bérard et Trannoy (2018), \emph{Économie et Statistique}
+n°~500-501-502. Berry (2021), « Reassessing the Property Tax », Harris School. Best et Kleven (2018),
+\emph{Review of Economic Studies} 85(1). Bontemps, Cherbonnier et Magnac (2023), « Reducing Transaction Taxes on
+Housing in Highly Regulated Economies », TSE WP 23-1486. Buettner (2017), CESifo WP 6321. Dachis, Duranton et
+Turner (2012), \emph{Journal of Economic Geography} 12(2). Dolls, Fuest, Krolage et Neumeier (2025), « Who
+Bears the Burden of Real Estate Transfer Taxes? », \emph{Journal of Urban Economics} 145. Eerola, Harjunen, Lyytikäinen et Saarimaa (2021),
+« Revisiting the Effects of Housing Transfer Taxes », \emph{Journal of Urban Economics} 124. Ferreira (2010),
+\emph{Journal of Public Economics} 94(9-10). Fritzsche et Vandrei (2019), \emph{Regional Science and Urban
+Economics} 74. HMRC (2023), évaluation de l'allègement pour primo-accédants. Høj, Jørgensen et Schou (2018),
+\emph{Fiscal Studies} 39(2). Koster et Pinchbeck (2022), \emph{American Economic Journal: Economic Policy} 14(1).
+Lutz (2015), \emph{American Economic Journal: Economic Policy} 7(1). Määttänen et Terviö (2022), \emph{Economic
+Journal} 132(644). Nielsson, Wroblewski et Yding (2024), document de travail. Bachelet et Poulhès (2017), CGDD. OCDE, \emph{Revenue Statistics}. DGCL-DGFiP, note d'analyse du REI 2025. SDES, rapport du compte du
+logement 2025. Conseil constitutionnel, décision 2019-796 DC. Détail des sources et statut de lecture :
+\texttt{foncier/notes/}.
+
+% is
+Beer, de Mooij et Liu (2020), « International Corporate Tax Avoidance: A
+Review of the Channels, Magnitudes, and Blind Spots », \emph{Journal of Economic Surveys} 34(3). Bernini et
+Treibich (2016), « Killing a Second Bird with One Stone? Promoting Firm Capital Growth and Exports
+through Tax Policy », \emph{Industrial and Corporate Change} 25(5). Chodorow-Reich, Smith, Zidar et Zwick (2026), « Tax
+Policy and Investment in a Global Economy », NBER WP 32180 (version de janvier 2026). Conseil des
+prélèvements obligatoires (2016, 2023, 2025), rapports sur l'IS, sur les PME et grandes entreprises, et sur
+le cadre fiscal de l'industrie. Conseil d'État, 13 mars 2025, n°~481538. DGE (2026), « Le suramortissement :
+un levier efficace pour la modernisation industrielle des PME françaises ? », document de travail n°~1.
+DGFiP, \emph{Statistiques} n°~21 (2024). IFS (2023), \emph{Green Budget}, ch.~10. Insee, comptes nationaux
+annuels, base 2020 (2026). Maffini, Xing et Devereux (2019), « The Impact of Investment Incentives: Evidence
+from UK Corporation Tax Returns », \emph{AEJ: Economic Policy} 11(3). OCDE, \emph{Corporate Tax Statistics}
+(2025). Sénat (2026), mission d'information sur le poids des prélèvements obligatoires sur les entreprises.
+Tax Foundation, \emph{International Tax Competitiveness Index} 2025 et 2026. Zwick et Mahon (2017), « Tax
+Policy and Heterogeneous Investment Behavior », \emph{American Economic Review} 107(1). Détail et statut de
+lecture : \texttt{is/notes/is\_recherche.md}.
+
+% pfu
+Assemblée nationale (2026), commission d'enquête sur l'imposition des plus
+hauts patrimoines et des revenus les plus élevés, rapport n°~3056 (J.-P. Mattei, président ; C. de Courson,
+rapporteur). Bach, Bozio, Fabre, Guillouzouic, Leroy et Malgouyres (2019), note IPP n°~46. Bach, Bozio, Grimprel, Guillouzouic, Landais et Malgouyres
+(2025), Focus du CAE n°~118. CAE (2025, 2026), Focus n°~124 et n°~147. France Stratégie (2023), Comité
+d'évaluation des réformes de la fiscalité du capital, quatrième rapport. Hourani, Millar-Powell, Perret et
+Ramm (2023), OCDE, \emph{Taxation Working Paper} n°~65. IPP (2023), rapport n°~47 sur le réinvestissement des
+plus-values et les créations d'entreprises ; note n°~92, « Quels impôts les milliardaires paient-ils ? ». Lefebvre, Lehmann et Sicsic (2025), « Estimating the Laffer Tax
+Rate on Capital Income: Cross-Base Responses Matter! », \emph{Scandinavian Journal of Economics} (IZA DP
+16112, 2023). Paquier et Sicsic (2021), \emph{Économie et Statistique} n°~530-31. Tax Foundation (2026),
+\emph{Dividend Tax Rates in Europe}. Yagan (2015), « Capital Tax Reform and the Real Economy: The Effects of
+the 2003 Dividend Tax Cut », \emph{American Economic Review} 105(12). LFSS 2026 (loi n°~2025-1403), art.~12 ;
+LF 2026 (loi n°~2026-103) ; PLF 2027, art.~5.

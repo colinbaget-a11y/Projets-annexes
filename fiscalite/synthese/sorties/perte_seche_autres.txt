@@ -1,0 +1,26 @@
+[FONCIER] ventes 196 Md€ ; bâti 3694 Md€ ; taxe sur le bâti 0.38 % -> 0.20 % de la valeur
+  DMTO −50 % : σ = 3 / 6 / 8 / 15 -> -0.75 / -1.49 / -1.99 / -3.73 Md€
+  DMTO −30 % : σ = 3 / 6 / 8 / 15 -> -0.51 / -1.01 / -1.35 / -2.53 Md€
+  bâti (terrain = 4 × bâti, recette constante par commune) : ε_K = 0,5 / 1 -> -0.22 / -0.44 Md€
+  central (DMTO −50 %, σ = 6, ε_K = 1) : -1.93 Md€
+  coût d'appariement (Määttänen et Terviö, interpolé, non calibré sur la France) : de l'ordre de −3,5 Md€
+
+[IS] triangle sur les équipements imposables ; m = coin sur le coût d'usage
+  100 %, régime actuel linéaire : ε = 0,5 / 1 / 1,6 -> -0.050 / -0.100 / -0.160 Md€
+  100 %, dégressif : ε = 0,5 / 1 / 1,6 -> -0.024 / -0.047 / -0.076 Md€
+  50 %, linéaire : ε = 0,5 / 1 / 1,6 -> -0.038 / -0.076 / -0.122 Md€
+  IS à 28 %, linéaire : ε = 0,5 / 1 / 1,6 -> +0.019 / +0.039 / +0.062 Md€
+  IS à 28 %, coût réel du transfert de bénéfices κ = 0.0 : +0.0 à +0.0 Md€
+  IS à 28 %, coût réel du transfert de bénéfices κ = 0.5 : +1.3 à +1.9 Md€
+  IS à 28 %, coût réel du transfert de bénéfices κ = 1.0 : +2.6 à +3.8 Md€
+
+[PFU] baisse à 25 % ; π = part de la réaction qui échappe définitivement à l'impôt
+  e = 0.65 ; π = 0.0 : ΔPS = +0.63 / +1.50 / +2.36 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.9 Md€ ; réaction +4.6 Md€
+  e = 0.65 ; π = 0.5 : ΔPS = -0.02 / +0.85 / +1.71 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.9 Md€ ; réaction +4.6 Md€
+  e = 0.65 ; π = 1.0 : ΔPS = -0.67 / +0.20 / +1.06 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.9 Md€ ; réaction +4.6 Md€
+  e = 0.77 ; π = 0.0 : ΔPS = +0.60 / +1.42 / +2.24 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.7 Md€ ; réaction +5.5 Md€
+  e = 0.77 ; π = 0.5 : ΔPS = -0.17 / +0.65 / +1.47 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.7 Md€ ; réaction +5.5 Md€
+  e = 0.77 ; π = 1.0 : ΔPS = -0.95 / -0.13 / +0.69 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.7 Md€ ; réaction +5.5 Md€
+  e = 1.0 ; π = 0.0 : ΔPS = +0.53 / +1.26 / +1.99 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.3 Md€ ; réaction +7.1 Md€
+  e = 1.0 ; π = 0.5 : ΔPS = -0.47 / +0.26 / +0.99 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.3 Md€ ; réaction +7.1 Md€
+  e = 1.0 ; π = 1.0 : ΔPS = -1.47 / -0.74 / -0.01 Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue 3.3 Md€ ; réaction +7.1 Md€
