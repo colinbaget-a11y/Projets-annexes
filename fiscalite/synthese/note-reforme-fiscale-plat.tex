@@ -74,29 +74,37 @@ mais de combien une réforme réduit cette perte par rapport à aujourd'hui, à 
 d'efficacité » des tableaux.
 
 \textbf{Le coin total.} La variation de perte sèche est la somme, sur chaque marge touchée, du prélèvement
-total qui frappe cette marge multiplié par la variation de la quantité taxée (Harberger ; Hines, 1999). Un
+total qui frappe cette marge multiplié par la variation de la quantité taxée (Harberger, 1964 ; Hines, 1999). Un
 euro de salaire en moins ne coûte pas seulement l'impôt réformé : il fait aussi perdre les cotisations sans
 contrepartie de droits et augmente les prestations sous condition de ressources. On compte ces trois
 éléments.
 
 \textbf{La réaction réelle, pas la réaction déclarative.} Un revenu déclaré peut baisser parce qu'on
 travaille ou investit moins, ou parce qu'on le déclare plus tard, sous une autre forme, dans une société.
-Seule la première réaction est un gain ou une perte d'activité. La seconde est un effet sur la recette, net de
-ce qui est récupéré sur une autre assiette (Chetty, 2009) ; elle est donnée à part et n'entre jamais dans le
-gain d'efficacité.
+Seule la première réaction est un gain ou une perte d'activité. La seconde ne coûte à la collectivité que les
+ressources qu'elle consomme (conseils, montages) ; le reste est un transfert, notamment vers une autre assiette
+taxée (Chetty, 2009). Faute de mesure de ce coût, la note la traite comme un effet sur la recette, net de ce qui
+est récupéré sur une autre assiette : elle est donnée à part et n'entre pas dans le gain d'efficacité, ce qui
+minore ce gain si l'optimisation consomme des ressources réelles.
 
-\textbf{Des comportements réalistes.} Les salariés réagissent à l'impôt qu'ils voient : leur salaire suit le
-taux de l'impôt sur le revenu, pas celui des cotisations (Lehmann, Marical et Rioux, 2013), et trois fois moins
-le retrait des prestations (Sicsic, 2022). On fait donc réagir les quantités au taux de l'impôt réformé, et on
+\textbf{Des comportements réalistes.} Les salariés réagissent d'abord à l'impôt sur le revenu : à court terme,
+leur revenu d'activité suit le taux de l'impôt sur le revenu, pas celui des cotisations patronales (Lehmann,
+Marical et Rioux, 2013, sur les salariés sous deux Smic), et réagit deux à trois fois moins au retrait des
+prestations (Sicsic, 2022). On fait donc réagir les quantités au taux de l'impôt réformé, et on
 compte le coût au coin total. On sépare deux décisions :
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item ajuster ses heures ou son effort, qui réagit peu à l'impôt (élasticité de 0,05 à 0,10 au centre) ;
+\item ajuster ses heures ou son effort, qui réagit peu à l'impôt à court terme (hypothèse centrale de 0,05 à
+0,10 ; à long terme, une fois levées les rigidités d'horaires, la réaction pourrait être nettement plus forte,
+de l'ordre de 0,3 selon Chetty, Guren, Manoli et Weber, 2013) ;
 \item prendre un emploi, qui dépend de ce que l'impôt prélève sur tout le premier salaire (élasticité de 0,25
-sous deux Smic).
+sous deux Smic : moyenne des études quasi expérimentales, surtout américaines, recensées par Chetty, Guren,
+Manoli et Weber, 2013).
 \end{itemize}
 
 \textbf{Trois jeux d'hypothèses.} Chaque résultat est donné avec des hypothèses basses, centrales et hautes.
-Le jeu central est prudent, calé sur les études françaises (\texttt{cours/elasticites-france.tex}).
+Le jeu central est prudent, calé autant que possible sur les études françaises
+(\texttt{cours/elasticites-france.tex}) ; l'élasticité de participation vient d'une synthèse surtout
+américaine.
 
 \textbf{Le prix d'un milliard.} Quand deux variantes ne lèvent pas la même recette, la différence est levée
 par un point de taux de l'impôt fusionné pour tous. Chaque milliard ainsi levé coûte 0,07~Md€ de perte sèche
@@ -104,101 +112,153 @@ par un point de taux de l'impôt fusionné pour tous. Chaque milliard ainsi lev�
 
 \textbf{Ce qui reste fragile.}
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item Toutes les élasticités françaises sont de court terme.
-\item Aucune ne mesure le revenu d'activité du 1~\% le plus aisé.
+\item Presque toutes les élasticités françaises du revenu sont de court terme.
+\item Aucune étude française récente ne mesure le revenu d'activité du 1~\% le plus aisé.
 \item La part réelle des réactions n'est séparée de la part déclarative que par des indices.
 \end{itemize}
 \end{encadre}
 
 
 \section{Fusionner l'impôt sur le revenu, la CSG et la CRDS}\label{sec:ircsg}
-% Partie IR-CSG (méthode v2 : revue/methode_v2.md ; chiffres : sorties/architectures_ircsg.txt,
-% sorties/controle_hauts_purs.txt ; tableaux générés par tables_ircsg.py)
+% Partie IR-CSG (méthode v2 : revue/methode_v2.md ; chiffres : sorties/etapes_ircsg.txt,
+% sorties/architectures_ircsg.txt, sorties/controle_hauts_purs.txt ; tableaux générés par tables_ircsg.py ;
+% figures : figures_ircsg_purs.py)
 
 L'impôt sur le revenu, la CSG et la CRDS prélèvent 220~Md€ sur les revenus soumis au barème : salaires,
 pensions, bénéfices des indépendants, loyers, allocations chômage. Cette somme se décompose en 80~Md€ d'IR,
 132~Md€ de CSG et 7~Md€ de CRDS. L'IR des revenus du capital au prélèvement forfaitaire n'y est pas compté :
-ces revenus gardent leur régime (section~\ref{sec:pfu}). Les trois impôts se superposent sans se coordonner,
-et la charge varie selon le profil :
+ces revenus gardent leur régime (section~\ref{sec:pfu}). Les trois impôts se superposent sans se coordonner :
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item Pour une personne seule salariée, ils prélèvent 9,5~\% du salaire brut jusqu'à 23\,000~€ environ. Le
+\item pour une personne seule salariée, ils prélèvent 9,5~\% du salaire brut jusqu'à 23\,000~€ environ ; le
 taux marginal saute alors à 21~\%, puis à 32~\% vers 40\,000~€ et à 40~\% au-delà de 110\,000~€
-(figure~\ref{fig:baremes}).
-\item Les retraités paient moins à revenu égal, du fait de l'abattement de 10~\% (5,3~Md€) et des taux
-réduits de CSG. Ces taux réduits créent cependant des marches : quand le revenu fiscal franchit un seuil, le
-nouveau taux s'applique à toute la pension, et 1\,000~€ de pension en plus peuvent coûter 620 à 770~€.
-\item Le quotient familial des enfants réduit l'IR d'environ 13~Md€.
+(figure~\ref{fig:marches}) ;
+\item les retraités paient moins à revenu égal (abattement de 10~\%, qui coûte 5,3~Md€, et taux réduits de
+CSG), mais avec des marches : quand le revenu fiscal franchit un seuil, le nouveau taux de CSG s'applique à
+toute la pension, et 1\,000~€ de pension en plus peuvent coûter 620 à 770~€ ;
+\item le quotient familial des enfants réduit l'IR d'environ 13~Md€.
 \end{itemize}
+La réforme se construit en quatre étapes. Chacune garde la recette de 220~Md€ et part d'une même assiette :
+le revenu après cotisations, le même pour un salarié, un indépendant, un retraité ou un chômeur, sans
+réduction, abattement ni taux réduit (au moins 24~Md€ de niches), avec un impôt individuel.
 
-\subsection{Ce que dit la théorie}
+\subsection{Étape 1 : la fusion la plus simple}
 
-Un taux marginal coûte par ce qu'il fait renoncer à gagner. Ce coût est d'autant plus élevé que l'euro en
-question est déjà lourdement prélevé, et que les revenus concernés sont nombreux et capables de réagir.
+\textbf{La règle.} On garde le barème de l'IR (0, 11, 30, 41 et 45~\%, seuils des revenus de 2024), appliqué
+à chaque adulte, et on remplace la CSG et la CRDS par un taux proportionnel unique.
+
+\textbf{Le résultat.} Sur l'assiette large, le barème de l'IR rapporte à lui seul 197~Md€, contre 80
+aujourd'hui. Il ne reste que 23~Md€ à lever, et le taux proportionnel tombe à 1,55~\%.
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item Une assiette large permet des taux plus bas là où ils coûtent. Les pensions déjà liquidées et les revenus
-aujourd'hui exonérés par des niches (au moins 24~Md€) ne réagissent presque pas ; les taxer comme les salaires
-permet, à recette égale, d'abaisser les taux qui pèsent sur le travail. C'est le mécanisme principal de la
-fusion, et il fait des retraités les premiers contributeurs de la réforme.
-\item L'élasticité des hauts revenus dépend des règles. Leur revenu déclaré réagit fortement au taux, mais
-surtout par la forme, la date ou le lieu de la déclaration ; une assiette sans niche réduit ces possibilités.
-Ce gain va à la recette, non à l'activité.
-\item Les marches et les hauts taux du milieu coûtent plus que leur rendement ne le laisse croire. Entre 1 et
-1,5~Smic, les cotisations non contributives et la sortie de la prime d'activité prélèvent déjà près de 60~\%
-d'un euro de salaire en plus ; y ajouter un saut d'IR coûte beaucoup plus que ne le dit le seul taux de
-l'impôt.
-\item La décision de travailler dépend de l'impôt sur tout le premier salaire. Peu de salariés ajustent leurs
-heures au taux marginal ; beaucoup plus choisissent de prendre un emploi, de reprendre après une interruption
-ou d'ajouter un second revenu au foyer. Une franchise sur les premiers euros d'activité baisse l'impôt sur ce
-premier salaire sans toucher au taux marginal des autres : c'est la logique du crédit d'impôt sur les revenus
-d'activité introduit en Suède en 2007, dont les effets sur l'emploi restent d'ailleurs discutés.
+\item \emph{L'impôt devient beaucoup plus progressif.} Les déciles 5 à 7 paient 850 à 980~€ de moins par an ; le
+dernier décile 3\,200~€ de plus, soit 13,7~Md€ pour les 10~\% les plus aisés et 3,6~Md€ pour le 1~\%.
+\item \emph{Les marches restent} (figure~\ref{fig:marches}). Le taux marginal d'une personne seule saute de
+1,5~\% à 11~\% vers 13\,000~€ brut, à 28~\% vers 33\,000~€ et à 38~\% vers 95\,000~€.
+\item \emph{Le gain d'efficacité est de 2,4~Md€} (0,9 à 5,2). Il vient tout entier de la reprise d'emploi : le
+premier salaire n'est plus prélevé qu'à 1,55~\% au lieu des 9,7~\% de CSG et de CRDS.
 \end{itemize}
+Cette fusion est simple, mais elle garde les effets de seuil et alourdit nettement la charge du haut de la
+distribution, ce que la note s'interdit.
 
-\subsection{Ce qu'on peut chiffrer}
+\subsection{Étape 2 : un barème logique, sans effets de seuil}
 
-On mesure chaque architecture avec la méthode de l'encadré. Toutes partagent la même base :
+\textbf{La règle.} Le taux marginal monte en ligne droite entre quelques seuils, jusqu'à 50~\%. Parmi ces
+barèmes, on retient celui qui s'écarte le moins de ce que chaque foyer paie aujourd'hui : 2~\% au premier
+euro, 14~\% à 20\,000~€, 23~\% à 30\,000~€ et 50~\% à 250\,000~€ par adulte. C'est le « barème neutre ».
+
+\textbf{Pourquoi supprimer les marches.} Entre 1 et 1,5~Smic, les cotisations non contributives et la sortie
+de la prime d'activité prélèvent déjà près de 60~\% d'un euro de salaire en plus (calcul de l'auteur sur les
+barèmes de l'OCDE, \emph{Taxing Wages}). Un saut d'impôt à cet
+endroit coûte bien plus que ne le dit son seul taux.
+
+\figbloc{ircsg_p01_marches}{Taux marginal aujourd'hui, à chaque étape et avec la proposition}{fig:marches}
+
+\textbf{Le résultat.}
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item l'assiette est le revenu après cotisations, le même pour un salarié, un indépendant, un retraité ou un
-chômeur, sans réduction, abattement ni taux réduit ;
-\item l'impôt est individuel, et le même barème vaut pour tous ;
-\item le taux marginal monte en ligne droite entre quelques seuils, jusqu'à 50~\% ;
-\item la recette est toujours de 220~Md€.
+\item \emph{La répartition bouge peu.} Aucun décile ne voit sa charge moyenne varier de plus de 600~€
+(tableau~\ref{tab:ircsg_dec}). Un foyer sur quatre paie pourtant plus de 500~€ de plus, à cause des niches
+supprimées, de l'imposition individuelle et de l'alignement des retraités (7~Md€ de plus).
+\item \emph{Le gain d'efficacité est de 4,0~Md€} (1,9 à 9,2). Un peu moins de la moitié (1,8~Md€) vient de la
+reprise d'emploi, grâce au taux d'entrée de 2~\%. Le reste vient du dixième le plus aisé, dont le taux marginal
+baisse alors que l'impôt moyen monte un peu avec la fin des niches.
+\item \emph{La recette pourrait être meilleure que prévu.} La moindre optimisation des hauts revenus
+rapporterait 1,5 à 4,5~Md€ de plus. Ce supplément est trop incertain pour financer quoi que ce soit, et il
+n'entre pas dans le gain.
 \end{itemize}
 
-\textbf{Le barème neutre.} Parmi ces barèmes, on retient d'abord celui qui s'écarte le moins de ce que chaque
-foyer paie aujourd'hui : 2~\% au premier euro, 14~\% à 20\,000~€, 23~\% à 30\,000~€ et 50~\% à 250\,000~€ par
-adulte (figure~\ref{fig:baremes}).
+\subsection{Étape 3 : la direction qui réduit la perte sèche}
+
+\textbf{Ce que dit la théorie.} Un taux marginal coûte d'autant plus que l'euro est déjà lourdement prélevé et
+que les revenus concernés sont nombreux et capables de réagir. Trois directions s'en déduisent.
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Qui paie plus ou moins.} Aucun décile ne voit sa charge moyenne bouger de plus de 600~€
-(tableau~\ref{tab:ircsg_dec}). Il reste qu'un foyer sur quatre paie plus de 500~€ de plus, à cause des niches
-supprimées, de l'imposition individuelle et de l'alignement des retraités, qui paient 7~Md€ de plus.
-\item \emph{Gain d'efficacité.} Le gain est de 4,0~Md€ par an, entre 1,9 et 9,2~Md€ selon les hypothèses.
-\item \emph{D'où il vient.} Pour un peu moins de la moitié (1,8~Md€), de la participation : le taux d'entrée de
-2~\% remplace les 9,7~\% de CSG et de CRDS prélevés dès le premier euro. Pour le reste, du dixième le plus
-aisé : son taux marginal baisse, alors que son impôt moyen monte un peu avec la fin des niches.
-\item \emph{Effet sur la recette.} La moindre optimisation des hauts revenus rapporterait en plus 1,5 à
-4,5~Md€. Ce supplément est trop incertain pour financer quoi que ce soit, et il n'entre pas dans le gain.
+\item \emph{Taxer ce qui ne réagit pas pour alléger ce qui réagit.} Les pensions déjà liquidées et les revenus
+exonérés par des niches ne réagissent presque pas. Les taxer comme les salaires permet, à recette égale,
+d'abaisser les taux qui pèsent sur le travail.
+\item \emph{Alléger le premier salaire.} À court terme, peu de salariés ajustent leurs heures au taux marginal ;
+la décision de prendre un emploi, de reprendre après une interruption ou d'ajouter un second revenu au foyer
+réagit davantage, surtout chez les femmes et les personnes peu attachées à l'emploi (Lehmann, Marical et Rioux,
+2013).
+Une franchise sur les premiers euros d'activité baisse l'impôt sur ce premier salaire sans toucher au taux
+marginal des autres. C'est l'esprit du crédit d'impôt sur les revenus d'activité introduit en Suède en 2007,
+dont l'effet sur l'emploi n'a pas pu être mesuré de façon convaincante (Edmark, Liang, Mörk et Selin, 2016).
+\item \emph{Ne pas confondre activité et déclaration.} Le revenu déclaré des hauts revenus réagit fortement au
+taux, mais surtout par la forme, la date ou le lieu de la déclaration. Une assiette sans niche réduit ces
+possibilités ; le gain va surtout à la recette, non à l'activité (Chetty, 2009).
 \end{itemize}
 
-\textbf{Ce qu'on peut obtenir au mieux.} Le barème simple qui minimise la perte sèche, franchise d'activité
-comprise, montre ce que dirait la seule efficacité. Il sert ici d'étalon, non de proposition.
+\textbf{Ce qu'on peut chiffrer} (figure~\ref{fig:frontiere}).
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item Il gagne 7,8~Md€ (3,8 à 18,2).
-\item Il est presque proportionnel : 16~\% jusqu'à 60\,000~€, et le taux de 50~\% n'est atteint qu'à 2~M€.
-\item Le dernier décile y gagne 25~Md€, et la moitié des foyers perdent plus de 500~€ par an.
+\item \emph{La franchise d'activité est le seul dispositif qui ajoute du gain.} Avec 4\,000~€ par adulte, le
+gain passe de 4,0 à 4,6~Md€ ; avec 8\,000~€, à 5,0~Md€.
+\item \emph{Aplatir le barème rapporte de moins en moins.} Le barème simple le plus efficace gagne 7,8~Md€
+(3,8 à 18,2). Il est presque proportionnel : 16~\% jusqu'à 60\,000~€, et 50~\% seulement à 2~M€. Le dernier
+décile y gagne 25~Md€, et la moitié des foyers perdent plus de 500~€.
+\item \emph{Les rendements sont décroissants.} Le barème neutre capte la moitié de ce gain atteignable, et
+59 à 64~\% avec une franchise. Faire 30~\% du chemin vers l'optimum porte la part à 69~\%, mais le dernier
+décile passe de +2,5 à $-$6~Md€. Le dernier tiers du gain exige de lui rendre 20 à 25~Md€, et fait perdre plus
+de 500~€ à la moitié des foyers.
 \end{itemize}
+On obtient donc environ deux tiers du gain atteignable sans bouleverser la répartition par décile. L'optimum
+reste un étalon, pas une proposition : il repose sur des élasticités que personne n'a mesurées pour un
+changement de cette ampleur.
 
-\figbloc{ircsg_p02_frontiere}{Gain d'efficacité et nombre de perdants : rendements décroissants}{fig:frontiere}
+\figbloc{ircsg_p02_frontiere}{Gain d'efficacité et nombre de perdants, étape par étape}{fig:frontiere}
 
-\textbf{Les rendements sont décroissants} (figure~\ref{fig:frontiere}).
+\subsection{Étape 4 : les redistributions implicites}
+
+À recette égale, et même quand la moyenne de chaque décile bouge peu, chaque étape déplace la charge entre
+des groupes que les déciles ne montrent pas (figure~\ref{fig:quipaie}). Quatre transferts comptent.
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item La fusion à répartition inchangée capte la moitié du gain atteignable.
-\item Une franchise sur les revenus d'activité porte cette part à 59~\% avec 4\,000~€ par adulte, à 64~\% avec
-8\,000~€. C'est le seul dispositif qui ajoute du gain, par la marge extensive.
-\item Aller plus loin demande d'aplatir le barème au-dessus de 45\,000~€. Les 30 premiers pour cent du chemin
-vers l'optimum portent la part de 52 à 69~\%, mais le dernier décile passe de +2,5 à $-$6~Md€. Le dernier tiers
-du gain exige de lui rendre 20 à 25~Md€, et fait perdre plus de 500~€ à la moitié des foyers.
+\item \emph{Des actifs vers les retraités.} Les retraités paient 4,7~Md€ de plus à l'étape 1, 7~Md€ à
+l'étape 2, 14~Md€ avec une franchise d'activité de 4\,000~€. C'est le mécanisme même du gain : leurs pensions
+sont taxées comme des salaires. Un retraité seul à 17\,000~€, aujourd'hui exonéré, paierait de 870 à 1\,510~€.
+\item \emph{Des familles vers les personnes seules.} L'impôt individuel sans quotient familial fait payer aux
+couples avec deux enfants 900~€ de plus en moyenne à l'étape 1, 570~€ à l'étape 2.
+\item \emph{Des couples à un revenu vers les couples à deux revenus.} Sans quotient conjugal, un couple avec
+deux enfants dont un seul conjoint travaille paie 2\,100 à 2\,400~€ de plus à 50\,000~€ de revenu, 3\,900 à
+5\,500~€ de plus à 80\,000~€. Le même couple aux revenus partagés 60/40 paie moins qu'aujourd'hui.
+\item \emph{Vers ou depuis le haut de la distribution.} Le dernier décile paie 13,7~Md€ de plus à l'étape 1,
+2,5~Md€ à l'étape 2, et gagne 25~Md€ à l'optimum. Pour les 3\,800 foyers au-delà de 3~M€, le sens même de
+l'effet est incertain (voir la proposition).
 \end{itemize}
-On obtient donc environ deux tiers du gain atteignable sans bouleverser la répartition par décile.
+
+\figbloc{ircsg_p03_qui_paie}{Qui paie plus, qui paie moins : variation moyenne par type de foyer}{fig:quipaie}
+
+\textbf{Chaque correction a un prix} (tableau~\ref{tab:ircsg_arch}). Les dispositifs qui ne touchent pas à
+l'activité se financent par des taux un peu plus élevés pour tous, et chacun réduit le gain de 0,1 à 0,9~Md€.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \emph{Pensions.} Garder l'abattement de 10~\% ramène la hausse des retraités de 7 à 1~Md€, pour
+0,6~point de taux pour tous. Exonérer les petites pensions la ramène à 3~Md€, pour 0,4~point.
+\item \emph{Enfants.} Une franchise de 6\,000~€ par enfant est l'option la plus favorable aux familles :
+1\,000~€ de moins en moyenne pour un couple avec deux enfants. Le chèque de 742~€ par enfant, qui reverse à
+parts égales le coût actuel du quotient, l'est moins (360~€). Le quotient conjugal et familial protège les
+couples à un revenu, mais profite surtout aux couples aisés : le dixième le plus aisé y gagne 3~Md€.
+\item \emph{Franchise sur l'activité ou sur tous les revenus.} Étendue à tous les revenus, une franchise de
+8\,000~€ coûte deux points de plus et fait perdre un tiers du gain : elle donne aux retraités ce que la
+franchise d'activité réserve aux actifs, sans effet sur l'emploi.
+\item \emph{Ce que couvre la franchise d'activité.} Le modèle ne sépare pas les salaires des loyers et des
+bénéfices ; il ne peut donc pas chiffrer une franchise réservée aux salaires. Une franchise sur les loyers ne
+rend pourtant aucun travail plus payant.
+\end{itemize}
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}
 \caption{Architectures comparées, à recette égale (220~Md€)}\label{tab:ircsg_arch}
@@ -232,59 +292,36 @@ Gain d'efficacité : baisse de la perte sèche sur l'activité réelle par rappo
 \end{table}
 
 
-\textbf{Chaque dispositif a un prix} (tableau~\ref{tab:ircsg_arch}). Les dispositifs qui ne touchent pas à
-l'activité, aide aux enfants ou ménagement des pensions, se financent par des taux un peu plus élevés pour
-tous. Chacun réduit le gain de 0,1 à 0,9~Md€. Quatre arbitrages ressortent.
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Activité ou tous les revenus.} Une même franchise de 8\,000~€ étendue à tous les revenus coûte
-deux points de plus et fait perdre un tiers du gain. Elle donne aux retraités ce que la franchise d'activité
-réserve aux actifs, sans aucun effet sur l'emploi.
-\item \emph{Ce que couvre la franchise d'activité.} Le modèle ne distingue pas, dans les revenus d'activité,
-les salaires des loyers et des bénéfices. Il ne peut donc pas chiffrer une franchise réservée aux salaires.
-Une franchise sur les loyers ne rend pourtant aucun travail plus payant.
-\item \emph{Pensions.} Garder l'abattement de 10~\% ramène la hausse des retraités de 7 à 1~Md€, pour
-0,6~point de taux pour tous. Exonérer les petites pensions la ramène à 3~Md€, pour 0,4~point.
-\item \emph{Enfants.} Une franchise de 6\,000~€ par enfant est l'option la plus favorable aux familles :
-1\,000~€ de moins en moyenne pour un couple avec deux enfants. Le chèque de 742~€ par enfant, qui reverse à
-parts égales le coût actuel du quotient, l'est moins (360~€). Le quotient conjugal et familial profite surtout
-aux couples aisés : le dixième le plus aisé y gagne 3~Md€.
-\end{itemize}
-
 \subsection{Ce que nous proposons}
 
-\figbloc{ircsg_p01_baremes}{Taux moyen et taux marginal : aujourd'hui, barème neutre et proposition}{fig:baremes}
-
-\textbf{La proposition} retient les trois dispositifs que la note défend, et fixe la répartition avant de
-choisir le barème.
+\textbf{La proposition} retient trois corrections, et fixe la répartition avant de choisir le barème.
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Les dispositifs.} Une franchise de 4\,000~€ par adulte sur les revenus d'activité, pour l'emploi.
+\item \emph{Les corrections.} Une franchise de 4\,000~€ par adulte sur les revenus d'activité, pour l'emploi.
 Une franchise de 6\,000~€ par enfant, déduite du revenu du parent qui gagne le plus, pour les familles.
 L'exonération des pensions jusqu'à 12\,500~€, à peu près le minimum vieillesse, puis de moins en moins
-jusqu'à 25\,000~€, pour que le minimum vieillesse ne soit pas imposé.
+jusqu'à 25\,000~€.
 \item \emph{La contrainte de répartition.} La charge moyenne d'aucun décile ne doit bouger de plus de 500~€, et
 celle du 1~\% le plus aisé ne doit pas monter.
 \item \emph{Le barème.} Parmi ceux qui respectent la contrainte, on prend le plus efficace : 14~\% jusqu'à
-20\,000~€ imposés, puis une montée en ligne droite jusqu'à 30~\% à 45\,000~€, puis une montée lente jusqu'à
-50~\% à 1~M€.
+20\,000~€ imposés, une montée en ligne droite jusqu'à 30~\% à 45\,000~€, puis une montée lente jusqu'à 50~\%
+à 1~M€.
 \end{itemize}
 Le gain d'efficacité est de 4,9~Md€ par an (2,3 à 11,1), soit 63~\% du gain atteignable ; 29~\% des foyers
 perdent plus de 500~€.
 
-\textbf{Qui paie.} Les actifs paient 15~Md€ de moins, les retraités 15~Md€ de plus. Le tableau~\ref{tab:ircsg_dec}
-donne la variation par décile.
+\textbf{Qui paie.} Les actifs paient 15~Md€ de moins, les retraités 15~Md€ de plus
+(tableau~\ref{tab:ircsg_dec}).
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Familles.} Un couple avec deux enfants paie 1\,200~€ de moins en moyenne (1\,360~€ à 50\,000~€ de
-revenu), un parent isolé 230~€ de moins.
+\item \emph{Familles.} Un couple avec deux enfants paie 1\,200~€ de moins en moyenne (1\,360~€ à 50\,000~€), un
+parent isolé 230~€ de moins. Un couple à un seul revenu avec deux enfants paie 580~€ de moins à 50\,000~€,
+mais 1\,330~€ de plus à 80\,000~€ : c'est le coût de l'imposition individuelle.
 \item \emph{Salariés.} Un salarié au Smic paie à peu près ce qu'il paie aujourd'hui (+60~€) ; une personne
 seule active, 320~€ de moins en moyenne.
 \item \emph{Retraités.} Un retraité seul paie 600~€ de plus en moyenne, un couple de retraités 2\,300~€. Un
-retraité seul à 17\,000~€ de pension, aujourd'hui exonéré, paierait 1\,260~€.
+retraité seul à 17\,000~€ de pension paierait 1\,260~€. Entre 12\,500 et 25\,000~€ de pension, la sortie de
+l'exonération porte le taux marginal à 28~\% : c'est sans effet sur l'activité, mais visible.
 \end{itemize}
-Entre 12\,500 et 25\,000~€ de pension, la sortie de l'exonération fait monter le taux marginal à 28~\%. C'est
-sans effet sur l'activité, mais visible ; une sortie plus lente l'adoucirait, au prix d'un peu plus de taux pour
-tous.
-
-Avec une franchise de 8\,000~€, le gain monte à 5,2~Md€ (67~\%). Les retraités paient alors 23~Md€ de plus, et un
+Avec une franchise de 8\,000~€, le gain monte à 5,2~Md€ (67~\%), mais les retraités paient 23~Md€ de plus, un
 couple de retraités 3\,200~€. C'est l'arbitrage central de la réforme : l'emploi et les familles se financent
 pour l'essentiel sur les pensions.
 
@@ -307,11 +344,11 @@ Optimum d'efficacité & +179 & +698 & +1\,327 & +1\,401 & +924 & +902 & +591 & +
 \textbf{Les très hauts revenus.} Pour les 3\,800 foyers qui déclarent plus de 3~M€, le résultat dépend d'une
 donnée que la DGFiP ne publie pas : la part de leurs revenus imposée au prélèvement forfaitaire.
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{Si leurs revenus du barème paient aujourd'hui ce que dit le barème légal}, 44 à 49~\% : la
+\item \emph{Si leurs revenus du barème paient aujourd'hui ce que dit le barème légal}, 44 à 49~\%, la
 proposition baisse leur impôt de 6 à 13~points de ce revenu. Seuls les 700 foyers au-delà de 9~M€ paient
 1~point de plus.
 \item \emph{Dans la convention centrale du modèle}, qui leur prête un taux actuel de 32 à 37~\%, difficile à
-concilier avec le barème : ils paieraient 2 à 16~points de plus.
+concilier avec le barème, ils paieraient 2 à 16~points de plus.
 \end{itemize}
 Dans les deux cas, la comparaison omet la CEHR, qui disparaîtrait sur les revenus du barème et leur retirerait
 3 à 4~points. Leurs revenus du capital restent au prélèvement forfaitaire, majoration comprise
@@ -333,11 +370,13 @@ la source depuis le 1\textsuperscript{er}~septembre~2025 (loi de finances pour 2
 (décision 2000-437~DC) ;
 \item en 2012, une contribution assise sur chaque personne sans tenir compte du foyer (2012-662~DC).
 \end{itemize}
-Un impôt individuel avec une franchise réservée aux revenus d'activité réunit ces deux traits. La proposition
-s'en distingue parce qu'elle remplace l'impôt de foyer au lieu de s'y ajouter et qu'elle tient compte des
-enfants. L'argument reste à construire. La variante « quotient », qui rétablit l'imposition commune des
-couples, est la solution de repli : elle coûte peu en efficacité (3,9~Md€ de gain au lieu de 4,0 pour le
-barème neutre).
+Un impôt individuel avec une franchise réservée aux revenus d'activité réunit ces deux traits. Le motif de
+2012 (deux foyers de même revenu imposés différemment selon la répartition du revenu entre leurs membres) vaut
+pour tout impôt individuel progressif, qu'il remplace l'impôt de foyer ou s'y ajoute. La proposition ne s'en
+distingue qu'en partie, en tenant compte des enfants ; le risque est sérieux et l'argument reste à construire.
+La variante « quotient », qui rétablit l'imposition commune des couples, est la solution de repli : elle coûte peu en efficacité (3,9~Md€ de gain au lieu de 4,0 pour le
+barème neutre) et réduit fortement la perte des couples à un revenu (à 80\,000~€ avec deux enfants,
++1\,000~€ au lieu de +3\,900~€).
 
 
 \section{Immobilier : moins taxer les ventes, mieux taxer le sol}\label{sec:foncier}
@@ -369,9 +408,9 @@ contribution de sécurité immobilière (0,7~Md€).
 l'impôt sur les revenus locatifs (8,4~Md€) et la taxe d'aménagement (1,5~Md€).
 \end{itemize}
 Selon l'OCDE, la France prélevait en 2023 1,90~\% du PIB en impôts périodiques sur l'immobilier, le double de
-la moyenne (0,95~\%), et 0,72~\% sur les transactions, contre 0,37~\%. Elle taxe donc lourdement les deux.
-L'argument n'est pas que la détention serait peu taxée, mais qu'un euro de droits de mutation coûte davantage
-à l'économie qu'un euro de taxe foncière, surtout s'il porte sur le sol.
+la moyenne (0,95~\%), et 0,72~\% sur les transactions immobilières et financières, contre 0,37~\%. Elle taxe
+donc lourdement les deux. L'argument n'est pas que la détention serait peu taxée, mais qu'un euro de droits
+de mutation coûte davantage à l'économie qu'un euro de taxe foncière, surtout s'il porte sur le sol.
 
 \figbloc{fon_03_inventaire}{Les prélèvements assis sur l'immobilier en 2024}{fig:inv}
 
@@ -388,7 +427,9 @@ marché, elle pèse :
 \item 0,18~\% dans le dixième le plus cher (figure~\ref{fig:tfv}) ;
 \item 0,12~\% à Paris, malgré la hausse du taux de 13,5 à 20,5~\% en 2023.
 \end{itemize}
-Elle est régressive rapportée au patrimoine et progressive rapportée au revenu (André et Meslin, 2023).
+Elle est régressive rapportée au patrimoine immobilier. Rapportée au revenu des propriétaires, elle est stable
+(2,5~\%) pour les trois quarts d'entre eux, mais dépasse 4~\% pour les 20~\% les plus modestes ; elle n'est
+légèrement progressive que si l'on compte les locataires, qui ne la paient pas (André et Meslin, 2023, données 2017).
 
 \subsection{Ce que dit la recherche}
 
@@ -396,34 +437,41 @@ Elle est régressive rapportée au patrimoine et progressive rapportée au reven
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Les ventes réagissent d'abord au calendrier : le mois qui précède une hausse, elles bondissent de
 26~\% en France en 2014 (Bérard et Trannoy, 2018).
-\item Au-delà, la plupart des études étrangères trouvent qu'un point de droits supprime environ 8~\% des
-ventes, dans une fourchette de 0 à 18~\% et sur des horizons de quelques mois à quatre ans (Dachis, Duranton
-et Turner, 2012 ; Fritzsche et Vandrei, 2019 ; Best et Kleven, 2018). Selon ces études, la mobilité des
-propriétaires baisse de 8 à 14~\% par point.
-\item En Finlande, ce sont surtout les déménagements vers plus grand qui disparaissent (Eerola et al., 2021).
+\item Au-delà, la plupart des études étrangères trouvent que les droits réduisent le nombre de ventes : à
+Toronto, un droit de 1,1~\% a fait baisser de 15~\% les ventes de maisons dans les sept mois suivants (Dachis,
+Duranton et Turner, 2012) ; en Allemagne, chaque point en supprime 7~\% pour les maisons individuelles
+(Fritzsche et Vandrei, 2019) ; au Royaume-Uni, la suppression temporaire d'un droit de 1~\% a accru l'activité
+de 20~\%, et moins de la moitié de ce surcroît s'est effacée ensuite (Best et Kleven, 2018).
+\item En Finlande, une hausse d'un demi-point sur les appartements a réduit de 5,6 à 7,2~\% la mobilité de leurs
+propriétaires ; les déménagements vers plus grand ont reculé, pas ceux vers plus petit (Eerola et al., 2021).
 La taxe frappe le ménage qui veut une pièce de plus, souvent parce que la famille s'agrandit, ce que l'étude
 n'observe pas directement.
 \item En France, les preuves sont partagées. Après la hausse de 0,7~point de 2014, les ventes baissent de
-6~\% sur trois mois puis plus rien selon Bérard et Trannoy ; de 10 à 12~\% durablement selon Bachelet et
-Poulhès (2017).
+6~\% sur trois mois puis plus rien selon Bérard et Trannoy ; de 10 à 12~\% au-delà du deuxième mois selon
+Bachelet et Poulhès (2017), mais seulement dans les marchés détendus.
 \item Sur qui paie l'impôt, Bachelet et Poulhès trouvent que l'acheteur a supporté toute la hausse. En
-Allemagne, un point de droits réduit les prix d'environ 3~\%, et ce sont les vendeurs qui paient (Dolls,
-Fuest, Krolage et Neumeier, 2025).
-\item Le seul modèle français (Bontemps, Cherbonnier et Magnac, 2023) trouve un gain modeste à remplacer les
-droits par un impôt foncier, qui s'inverse si la baisse est financée par l'impôt sur le revenu. La baisse y
-profite surtout aux jeunes ménages aisés, dont l'accès à la propriété progresse, alors que celui des jeunes
-ménages modestes recule.
+Allemagne, un point de droits réduit d'environ 3~\% au bout d'un an les prix demandés dans les annonces, sans
+effet significatif sur le nombre de ventes : ce sont les vendeurs qui paient (Dolls, Fuest, Krolage et
+Neumeier, 2025).
+\item Le seul modèle français trouvé (Bontemps, Cherbonnier et Magnac, 2023) ramène les coûts de transaction de
+14 à 6~\% du prix, une baisse plus forte que celle proposée ici. Le gain pour les générations futures est modeste
+si un impôt foncier finance la baisse, et devient une perte si c'est un impôt proportionnel sur les revenus
+d'activité. Les jeunes ménages y gagnent et les plus âgés y perdent, quel que soit leur revenu ; l'accès à la
+propriété progresse chez les jeunes aisés (de 59 à 88~\%) et recule chez les jeunes modestes (de 11 à 6~\%).
 \end{itemize}
 
 \textbf{La taxe foncière : un bon impôt mal assis.}
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Une hausse permanente se capitalise dans les prix : le propriétaire présent à l'annonce perd la valeur
-actuelle des hausses futures, l'acheteur suivant paie moins cher (Koster et Pinchbeck, 2022). Pour un impôt
-sur le seul sol, l'ampleur de cette capitalisation reste discutée (Høj et al., 2018 ; Nielsson et al., 2024).
-\item Les évaluations de masse sont souvent régressives, parce qu'elles suivent mal les quartiers chers
-(Berry, 2021 ; Avenancio-León et Howard, 2022). Pittsburgh a abandonné son double taux en 2001 après une
-réévaluation brutale ; Philadelphie a réussi la sienne en 2014 avec un abattement pour les occupants de
-longue date.
+actuelle des hausses futures, l'acheteur suivant paie moins cher. En Angleterre, les écarts de taxe locale
+(\emph{council tax}) se retrouvent ainsi dans les prix, actualisés à 3 ou 4~\% (Koster et Pinchbeck, 2022). Pour
+un impôt sur le seul sol, l'ampleur de cette capitalisation reste discutée : sur la même réforme danoise, elle est
+complète selon Høj et al. (2018), nulle selon Nielsson et al. (2024, non publié).
+\item Aux États-Unis, les évaluations de masse sont souvent régressives : elles captent mal ce qui fait la
+valeur d'un bien et de son quartier, si bien que les logements bon marché sont surévalués par rapport à leur
+prix (Berry, 2021 ; Avenancio-León et Howard, 2022). Pittsburgh a abandonné son double taux en 2001 après une
+réévaluation brutale ; Philadelphie a réussi la sienne en 2014 avec un abattement pour les propriétaires
+occupants et un plafonnement de la valeur pour les occupants modestes de longue date.
 \item Un plafond de hausse attaché au propriétaire crée un verrou (Proposition~13 en Californie ; Ferreira,
 2010).
 \item Le double taux, plus lourd sur le terrain, a un effet positif mais modeste sur la construction : en
@@ -431,7 +479,7 @@ Pennsylvanie, un rapport de quatre pour un a accru d'environ 3~points la croissa
 pièces (Banzhaf et Lavery, 2010).
 \item Le Bade-Wurtemberg taxe depuis 2025 le seul sol, par des valeurs de zone. La plus haute juridiction
 fiscale allemande l'a validé en mai 2026, des recours constitutionnels restant pendants. À Karlsruhe, à
-recette constante, les maisons paient 76~\% de plus et les copropriétés 20~\% de moins.
+recette constante, les maisons individuelles paient 76~\% de plus et les copropriétés 20~\% de moins.
 \end{itemize}
 
 \subsection{La bascule et ses arbitrages}
@@ -447,7 +495,7 @@ l'Insee. Les recettes sont justes, mais les taux exprimés en part de la valeur 
 appartements : valeur moins coût de reconstruction, calé pour retrouver la part du terrain des comptes de
 patrimoine (45~\%). Elle va de 16~\% dans le dixième le moins cher à 67~\% dans le plus cher.
 
-\textbf{Charges actuelles.} Taxe foncière : rapport taxe/valeur de chaque commune (Insee, 2017), vieilli selon
+\textbf{Charges actuelles.} Taxe foncière : rapport taxe/valeur de chaque commune (André et Meslin, 2023, valeurs de 2017), vieilli selon
 la croissance de sa taxe foncière de 2017 à 2024 (REI), calé sur 23,6~Md€. Droits : 5,81~\% des ventes de
 logements anciens, 11,4~Md€ par an en 2023-2024, creux du cycle.
 
@@ -500,8 +548,9 @@ si le capital logement réagit proportionnellement au coût d'usage.
 Le gain central est donc d'environ 2~Md€ par an, 0,07~\% du PIB.
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Il pourrait doubler si l'on compte le coût des logements mal adaptés que la mobilité réduite laisse en
-place (de l'ordre de 3,5~Md€ selon le modèle finlandais de Määttänen et Terviö, 2022, non calibré sur la
-France).
+place (de l'ordre de 3,5~Md€ si l'on applique aux 30,5~millions de logements les gains par ménage du modèle
+d'Helsinki de Määttänen et Terviö, 2022, interpolés entre 30~€ par an pour un droit de 2~\% et 180~€ pour 6~\% ;
+ce modèle n'est pas calibré sur la France).
 \item Il pourrait aussi être plus faible, parce que le logement occupé par son propriétaire est déjà avantagé
 (le loyer qu'il se verse à lui-même n'est pas imposé), si bien qu'alléger l'impôt sur le bâti l'avantage
 davantage.
@@ -543,14 +592,14 @@ plutôt qu'entre générations : l'appartement médian parisien perdrait environ
 \end{itemize}
 Dans les deux cas, l'argument le plus solide pour les jeunes est la liquidité : si l'apport représente 10 à
 20~\% du prix, la baisse de 2,9~points en représente un septième à un tiers. Pour les familles, la baisse
-divise par deux le coût fiscal d'un agrandissement ; aucune étude ne la relie directement à la natalité.
+divise par deux le coût fiscal d'un agrandissement ; aucune étude trouvée ne la relie directement à la natalité.
 
 \subsection{Comment passer d'un système à l'autre}
 
 La France n'a pas de valeurs du sol par zone, comme les \emph{Bodenrichtwerte} allemandes. Les ventes
-publiées (DVF, DV3F) permettent de les établir, et le Bade-Wurtemberg a mis cinq ans à le faire. La baisse
-des droits ne peut pas attendre : annoncée pour plus tard, elle gèlerait les ventes. Elle s'applique donc
-dès son annonce.
+publiées (DVF, DV3F) permettent de les établir. Le Bade-Wurtemberg, qui en disposait déjà, a mis plus de
+quatre ans entre sa loi (novembre 2020) et le premier impôt (2025). La baisse des droits ne peut pas
+attendre : annoncée pour plus tard, elle gèlerait les ventes. Elle s'applique donc dès son annonce.
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Le temps d'établir les valeurs, la baisse est financée par une hausse uniforme et temporaire de la taxe
 foncière actuelle (20 à 24~\%), remplacée ensuite par la nouvelle assiette. Celle-ci se substitue à la
@@ -603,9 +652,10 @@ prix en valeur actuelle, contre 86~\% en moyenne. Les taux effectifs de l'OCDE v
 \end{itemize}
 Ces chiffres datent de 2025 et semblent ignorer la contribution exceptionnelle.
 
-Le Conseil des prélèvements obligatoires (2023, 2025) et le Sénat (2026) font de l'instabilité le premier
-grief : la contribution exceptionnelle, présentée comme temporaire, a été prorogée une fois, et son assiette
-est la moyenne de l'IS de deux exercices, dont l'un était clos quand elle a été votée.
+Le Sénat (2026) fait de l'instabilité le premier grief ; le Conseil des prélèvements obligatoires la relevait
+parmi d'autres constats (2023) et en a fait le sujet de son rapport de 2025 sur l'industrie. La contribution
+exceptionnelle, présentée comme temporaire, a été prorogée une fois, et son assiette est la moyenne de l'IS
+de deux exercices, dont l'un était clos quand elle a été votée.
 
 \subsection{Déduire l'investissement plutôt que baisser le taux}
 
@@ -624,9 +674,9 @@ installé ;
 \item une baisse du taux allège au contraire tous les profits, y compris ceux des machines achetées il y a
 dix ans et ceux des rentes, qui ne dépendent pas de la décision d'investir.
 \end{itemize}
-Sur la réforme américaine de 2017, un point de capital supplémentaire au bout de dix ans coûte environ 10~\%
-de la recette de l'IS par an avec une baisse du taux, et 2,5~\% avec la déduction immédiate
-(Chodorow-Reich, Smith, Zidar et Zwick, 2026).
+Dans un modèle calé sur la réforme américaine de 2017, un point de capital supplémentaire au bout de dix ans
+coûte environ 10~\% de la recette de l'IS par an avec une baisse du taux, et 2,5~\% avec la déduction
+immédiate (Chodorow-Reich, Smith, Zidar et Zwick, 2026).
 
 L'effet sur l'investissement est établi :
 \begin{itemize}\setlength{\itemsep}{0pt}
@@ -634,10 +684,10 @@ L'effet sur l'investissement est établi :
 éligible de 10 et de 17~\%, deux fois plus dans les petites entreprises et seulement chez celles qui payaient
 l'impôt (Zwick et Mahon, 2017). Au Royaume-Uni, l'effet est de +11~\% pour les entreprises moyennes
 (Maffini, Xing et Devereux, 2019).
-\item Ces mesures étaient temporaires et ont en partie avancé des achats, d'où l'importance d'une mesure
-permanente.
+\item La mesure américaine était temporaire, mais Zwick et Mahon y trouvent peu d'achats simplement avancés ;
+la mesure britannique, permanente, produit un effet du même ordre.
 \end{itemize}
-Il n'existe aucune évaluation causale du suramortissement français de 2015.
+On ne connaît aucune évaluation causale du suramortissement français de 2015.
 
 Le coût d'usage du capital est ce que doit rapporter une machine pour couvrir son financement, son usure et
 l'impôt. Il s'écrit $c = (r+\delta)(1-\tau z)/(1-\tau)$, où $z$ est la valeur actuelle des déductions pour
@@ -689,9 +739,10 @@ Contribution exceptionnelle & s'éteint (référence) : $-$7 par rapport à 2026
 \end{table}
 
 \textbf{Le taux ou l'assiette.} Une hausse du taux normal de 25 à 28~\% rapporterait 8,7~Md€ à bénéfices
-inchangés. Elle rapporterait 5,1~Md€ si les bénéfices déclarés baissent de 1,5~\% par point, l'ordre de
-grandeur trouvé sur les filiales de multinationales (Beer, de Mooij et Liu, 2020). L'objection n'est pas son
-montant, mais ce qu'elle frappe :
+inchangés. Elle rapporterait 5,1~Md€ si les bénéfices déclarés baissent de 1,5~\% par point : c'est la
+réaction aux écarts de taux estimée sur les filiales de multinationales pour les années récentes, 1~\% en
+moyenne sur la littérature (Beer, de Mooij et Liu, 2020), appliquée ici à tous les bénéfices. L'objection
+n'est pas son montant, mais ce qu'elle frappe :
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item la déduction immédiate cesse d'imposer le rendement normal des investissements nouveaux, alors que le
 taux porte d'abord sur les profits exceptionnels, qui sont aussi les plus mobiles ;
@@ -719,13 +770,14 @@ d'un groupe s'apprécie au niveau du groupe. Le dispositif coûte environ 2,7~Md
 distinguer deux cas :
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Pour une société au-dessus du plafond, le taux réduit revient à verser chaque année 4\,250~€, quoi
-qu'elle fasse. La somme ne dépend d'aucune décision, sauf celle de rester petite ou de se découper (on
-observe un pic de sociétés juste sous le plafond).
+qu'elle fasse. La somme ne dépend d'aucune décision, sauf celle de rester petite, de se découper ou de
+piloter son bénéfice (on observe un pic de sociétés juste sous le plafond).
 \item Beaucoup de bénéficiaires sont toutefois sous le plafond (environ 24\,000~€ de bénéfice imposé à 15~\%
 en moyenne en 2018). Pour eux, la suppression relève l'impôt de chaque euro supplémentaire, de deux tiers en
-tout (3\,000~€ pour 30\,000~€ de bénéfice), et renchérit tout leur capital. Bernini et Treibich (2016)
-trouvent que l'introduction du taux réduit en 2001-2003 a accru de 29~\% le capital des petites sociétés et
-leurs exportations, mais ralenti leur emploi (résumé seulement lu).
+tout (3\,000~€ pour 30\,000~€ de bénéfice), et renchérit tout leur capital. Sur l'introduction du taux
+réduit en 2001-2003, Bernini et Treibich (2016) estiment qu'une division par deux du taux accroît de 29~\%
+le capital des PME et de 6~\% leur probabilité d'exporter, mais ralentit la croissance de leur emploi
+(résumé seulement lu).
 \end{itemize}
 La déduction immédiate ne compense qu'une partie. Pendant la phase à 50~\%, elle avance 2\,300~€ d'impôt la
 première année pour 20\,000~€ d'équipements, et ne compense durablement la perte qu'au-delà de
@@ -756,8 +808,8 @@ est :
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Quand le taux a monté en 2013, les actionnaires qui contrôlent leur société ont laissé les bénéfices
 dedans. Quand il a baissé en 2018, ils les ont distribués.
-\item Cette réaction porte sur le moment où l'on se verse le revenu plus que sur l'activité. Elle dépend du
-taux qu'on attend pour demain : le principal service à rendre est de ne plus le changer.
+\item Cette réaction porte sur le moment où l'on se verse le revenu plus que sur l'activité. Elle dépend sans
+doute du taux qu'on attend pour demain : le principal service à rendre est de ne plus le changer.
 \item La faiblesse du système n'est pas dans le taux du PFU, mais dans le circuit des holdings.
 \end{itemize}
 
@@ -783,15 +835,15 @@ d'IS (25,8~€ si son impôt dépasse 763\,000~€, avec la contribution sociale
 49,1~\% au total, et jusqu'à 54,5~\% pour un foyer à la CDHR (figure~\ref{fig:taux}). C'est proche du taux
 marginal supérieur sur un salaire (55,4~\% hors cotisations sociales).
 \item Ce niveau est élevé en Europe. La France est sixième sur 35 pour le taux personnel supérieur sur les
-dividendes (Tax Foundation) ; à cinq fois le salaire moyen, l'OCDE trouve un taux intégré de 49~\% que seuls
-le Danemark et l'Espagne dépassent.
+dividendes (Tax Foundation, 2026, avec le taux de 34~\% de 2025) ; à cinq fois le salaire moyen, l'OCDE
+trouvait en 2023 un taux moyen intégré de 49~\% que seuls le Danemark et l'Espagne dépassent.
 \item Si la société verse son dividende à une holding de l'actionnaire qui le garde, la holding ne paie que
 1,25~\% (régime mère-fille) et le bénéfice n'a supporté que 26,8~\%. C'est un report, pas un taux final :
 distribué un jour, il paiera le PFU.
 \end{itemize}
-Imposer le bénéfice quand il sort des sociétés est d'ailleurs ce qui gêne le moins la croissance, puisque le
-capital circule d'une entreprise à l'autre sans impôt. Le report ne devient une exonération que si la sortie
-n'a jamais lieu, ce que permet l'effacement au décès.
+Imposer le bénéfice quand il sort des sociétés est d'ailleurs, en principe, ce qui gêne le moins la
+croissance, puisque le capital circule d'une entreprise à l'autre sans impôt. Le report ne devient une
+exonération que si la sortie n'a jamais lieu, ce que permet l'effacement au décès.
 
 \figbloc{pfu_01_taux_cumule}{Impôt total sur 100~€ de bénéfice, selon ce qu'en fait l'actionnaire (2026)}{fig:taux}
 
@@ -800,16 +852,17 @@ n'a jamais lieu, ce que permet l'effacement au décès.
 Les dividendes ont suivi les deux réformes, en sens inverse :
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item En 2013, l'option pour un prélèvement libératoire disparaît et tous les dividendes passent au barème.
-Les foyers les plus touchés déclarent 40~\% de dividendes en moins, sans hausse de leurs salaires ; les
-entreprises qu'ils détiennent distribuent moins, accumulent des actifs financiers et n'investissent pas
-moins (Bach et al., 2019).
+Les foyers qui avaient opté pour le prélèvement libératoire déclarent 40~\% de dividendes en moins, sans
+hausse de leurs salaires ; les entreprises contrôlées par des particuliers distribuent moins, accumulent des
+actifs financiers et n'investissent pas moins (Bach et al., 2019).
 \item Le taux marginal supérieur intégré n'était pourtant passé que de 57,6 à 60,1~\% : les actionnaires ont
-jugé la hausse provisoire et attendu.
+pu juger la hausse provisoire et attendre, ou garder le bénéfice dans la société pour le sortir plus tard en
+plus-value ou le transmettre (Bach et al., 2024).
 \item En 2018, les dividendes remontent (+15~\% dès la première année). Le coût de la réforme tombe de 0,9 à
-0,4~Md€ selon l'IPP (0,74~Md€, voire un gain dans l'hypothèse haute, selon l'Insee).
+0,4~Md€ selon l'IPP (de 1,05 à 0,74~Md€, voire un gain dans l'hypothèse haute, selon l'Insee).
 \item Mais 2013 et 2018 forment un seul épisode : les bénéfices retenus de 2013 à 2017 ont été distribués à
-partir de 2018. L'« autofinancement » (France Stratégie, 2023) ne vaut que pour les premières années,
-rattrapage compris.
+partir de 2018. L'« autofinancement » que France Stratégie (2023) déduit d'une part causale supposée, faute
+de pouvoir la mesurer, ne vaut que pour les premières années, rattrapage compris.
 \end{itemize}
 
 Pour une société qui investit ses bénéfices, l'impôt sur le dividende ne change pas le choix d'investir :
@@ -818,22 +871,22 @@ soit 72,0~€ nets. Le PFU prend la même fraction dans les deux cas : il change
 du revenu. Le raisonnement ne vaut pas pour une jeune entreprise qui lève des fonds propres à l'extérieur.
 Les effets réels mesurés sont minces :
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item après 2018, le seul effet trouvé est une création d'entreprises un peu plus rapide dans les secteurs
-exposés (IPP, 2023) ;
+\item après 2018, l'effet le plus net est une création d'entreprises un peu plus rapide dans les secteurs
+exposés, qu'on ne sait pas séparer de celui de la baisse de l'IS (IPP, 2023) ;
 \item la baisse américaine de 2003 n'a pas davantage modifié l'investissement (Yagan, 2015).
 \end{itemize}
 
 Sur le niveau du taux :
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Le taux qui maximise les recettes sur les revenus du capital, prélèvements sociaux compris, est estimé
-entre 43~\% et 57~\% (Lefebvre, Lehmann et Sicsic, 2025). Le PFU est en dessous, mais la marge est mince :
-avec l'élasticité estimée (0,77), un passage de 31,4 à 33~\% ne garde qu'un peu moins des deux tiers de son
-rendement mécanique.
-\item Cette élasticité ne mesure pas une perte sèche : la réaction consiste surtout à laisser le bénéfice dans
-la société, ce qui reporte l'impôt sans détruire d'activité.
-\item Les dividendes sont concentrés : 1~\% des foyers en déclarent 96~\%. L'exil est faible (un point
-d'imposition effective en plus fait partir à long terme 0,02 à 0,23~\% du centile le plus riche ; Bach et
-al., 2025) et non mesuré au-delà.
+à 43~\% en comptant la réaction des revenus du travail, à 57~\% sans elle (Lefebvre, Lehmann et Sicsic,
+2025). Le PFU est en dessous, mais la marge est mince : avec l'élasticité estimée (0,77), un passage de 31,4
+à 33~\% ne garde qu'un peu moins des deux tiers de son rendement mécanique.
+\item Cette élasticité ne mesure pas une perte sèche : la réaction des dividendes consiste surtout à laisser le
+bénéfice dans la société, ce qui reporte l'impôt sans détruire d'activité.
+\item Les dividendes sont concentrés : 1~\% des foyers en déclarent 96~\% (2021). L'exil est faible (un point
+d'imposition effective en plus fait partir à long terme 0,02 à 0,23~\% du centile aux plus hauts revenus du
+capital ; Bach et al., 2025) et non mesuré au-delà.
 \item La commission d'enquête de l'Assemblée sur les plus hauts patrimoines recommande de « maintenir la
 stabilité » des taux (rapport n°~3056, 2026).
 \end{itemize}
@@ -844,31 +897,33 @@ stabilité » des taux (rapport n°~3056, 2026).
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item Un PFU à 25~\% coûterait au plus 5,1~Md€ à comportements inchangés (un majorant, à cause des foyers qui
 optent pour le barème) et 3,2 à 3,9~Md€ après réaction. Le gain irait d'abord au centile le plus aisé
-(44~\% du gain du PFU en 2018 selon le Gouvernement).
-\item Cette baisse ne rapporterait rien en activité : aucune réaction réelle n'a été mesurée après 2018, ni
-sur l'investissement ni sur les salaires (France Stratégie, 2023). Elle coûterait le prix des 3,7~Md€ à
-lever ailleurs, environ +0,3~Md€ de perte sèche (0,15 à 0,6).
+(44~\% du gain du PFU selon l'estimation du Gouvernement en 2017).
+\item Cette baisse ne rapporterait rien en activité : après 2018, aucun effet n'a été détecté sur
+l'investissement ni sur les salaires des entreprises les plus exposées (France Stratégie, 2023). Elle
+coûterait le prix des 3,7~Md€ à lever ailleurs, environ +0,3~Md€ de perte sèche (0,15 à 0,6).
 \item La réaction des dividendes est une affaire de recette, pas d'efficacité : si une partie était une
 évasion définitive que la baisse ferait cesser, la recette perdue serait moindre, sans gain d'activité.
-\item Une hausse rapporterait peu : 1,2~Md€ nets pour 3~points selon le CAE.
+\item Une hausse rapporterait peu : 1,2~Md€ nets pour 3~points, de 30 à 33~\%, selon le CAE (2025).
 \end{itemize}
 
 \textbf{Le report de l'apport-cession.} Un entrepreneur qui apporte ses titres à une holding avant de les
-vendre place sa plus-value en report : elle n'est imposée que si la holding vend sans réinvestir au moins
-70~\% du produit. Au décès, le report devient une exonération définitive ; en cas de donation, il s'efface si
-le donataire ne vend pas pendant six ans. D'après le rapport n°~3056 :
+vendre place sa plus-value en report : elle n'est imposée que s'il vend les titres de la holding, ou si la
+holding vend dans les trois ans sans réinvestir au moins 70~\% du produit. Au décès, le report devient une
+exonération définitive ; en cas de donation, il s'efface si le donataire ne vend pas pendant six ans (onze
+dans certains cas). D'après le rapport n°~3056 :
 \begin{itemize}\setlength{\itemsep}{0pt}
 \item 33,6~Md€ de plus-values ont été placées en report en 2023 et 22,2~Md€ en 2024, plus que les plus-values
-imposées au PFU (18,8~Md€) ;
-\item les deux tiers des entrées de 2023 se concentrent sur 84 foyers ;
-\item le stock atteint 153~Md€, et seuls 0,4 à 1,5~Md€ de reports expirent chaque année.
+imposées au PFU en 2024 (18,8~Md€ d'après les déclarations) ;
+\item plus des deux tiers des entrées de 2023 (23,5~Md€) se concentrent sur 84 foyers ;
+\item le stock atteint 153~Md€ en 2023 et 173~Md€ en 2024, et seuls 0,4 à 1,5~Md€ de reports ont expiré
+chaque année de 2022 à 2024.
 \end{itemize}
 Trois traitements sont possibles :
 \begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{L'expiration à toute transmission} (PLF 2027, art.~5) : 0,5~Md€ annoncés pour 2027 et au moins
-2~Md€ par an en régime de croisière. Mais elle taxe une structure plutôt qu'un gain réalisé : une holding
-familiale transmise sous pacte Dutreil paierait sans avoir rien vendu, et l'étalement sur cinq ans ne vise
-que l'impôt sur le revenu. Elle alourdit aussi de 90 à 100~M€ chacun la facture des plus gros apporteurs.
+\item \emph{L'expiration à toute transmission} (PLF 2027, art.~5) : 0,5~Md€ annoncés pour 2027 et, selon
+notre calcul, au moins 2~Md€ par an en régime de croisière. Mais elle taxe une structure plutôt qu'un gain
+réalisé : une holding familiale transmise sous pacte Dutreil paierait sans avoir rien vendu, et l'étalement
+sur cinq ans ne vise que l'impôt sur le revenu. Elle alourdit aussi de 90 à 100~M€ chacun la facture des plus gros apporteurs.
 \item \emph{L'expiration seulement quand la holding vend.}
 \item \emph{La transmission du report aux héritiers sans effacement} : la plus-value est imposée quand le
 capital sort réellement des sociétés, sans impôt sans liquidité ni hausse de facture à la transmission. Elle
@@ -884,9 +939,10 @@ la CDHR, comme le propose la commission d'enquête, alourdirait la facture des m
 \item Aligner les deux taux de prélèvements sociaux à 18,6~\% rapporterait de l'ordre de 1,3~Md€, payés
 surtout par la classe moyenne épargnante.
 \item Un prélèvement modéré sur la trésorerie passive des holdings (l'Irlande taxe à 20~\% les revenus passifs
-non distribués) viserait le bon problème, mais alourdirait lui aussi la facture des grandes fortunes. Un impôt
-de 25~\% sur les revenus non réinvestis des holdings se heurte à la directive mère-fille et à la
-jurisprudence constitutionnelle (imposer chez l'associé des bénéfices qu'il n'a pas perçus) ; il taxerait le
+que les sociétés fermées ne distribuent pas dans les dix-huit mois) viserait le bon problème, mais
+alourdirait lui aussi la facture des grandes fortunes. Un impôt de 25~\% sur les revenus non réinvestis des
+holdings risque de heurter la directive mère-fille, selon l'administration fiscale, et, s'il est établi chez
+l'associé, la jurisprudence constitutionnelle (imposer des bénéfices qu'il n'a pas perçus) ; il taxerait le
 capital avant qu'il sorte des sociétés.
 \item Pour une détention longue, la correction de principe est d'imposer le gain réel, en indexant le prix
 d'acquisition sur l'inflation, plutôt que de rétablir des abattements pour durée de détention. Ces
@@ -981,55 +1037,61 @@ Trois leviers atténuent cette charge :
 \vspace{8pt}
 {\scriptsize\setlength{\parskip}{2pt}\textbf{Références.}
 André et Meslin (2023), \emph{Insee Analyses} n°~91.
-André et Sireyjol (2021), « Imposition des couples et des familles », \emph{Économie et Statistique} 526-527.
 Assemblée nationale (2026), commission d'enquête sur l'imposition des plus hauts patrimoines et des revenus les
 plus élevés, rapport n°~3056.
 Avenancio-León et Howard (2022), « The Assessment Gap », \emph{QJE} 137(3).
 Bach, Bozio, Fabre, Guillouzouic, Leroy et Malgouyres (2019), note IPP n°~46.
 Bach, Bozio, Grimprel, Guillouzouic, Landais et Malgouyres (2025), Focus du CAE n°~118.
-Bachelet et Poulhès (2017), CGDD.
+Bach, Bozio, Guillouzouic, Leroy et Malgouyres (2024), « Follow the money! Why dividends overreact to flat-tax
+reforms », document de travail (PSE WP 2019-70).
+Bachelet et Poulhès (2017), « Hausse des droits de mutation : quel impact sur le marché de l'immobilier ? »,
+CGDD, \emph{Théma Analyse}.
 Banzhaf et Lavery (2010), \emph{Journal of Urban Economics} 67(2).
 Beer, de Mooij et Liu (2020), \emph{Journal of Economic Surveys} 34(3).
 Bérard et Trannoy (2018), \emph{Économie et Statistique} n°~500-501-502.
 Bernini et Treibich (2016), \emph{Industrial and Corporate Change} 25(5).
-Berry (2021), « Reassessing the Property Tax », Harris School.
+Berry (2021), « Reassessing the Property Tax », document de travail, Harris School (SSRN 3800536).
 Best et Kleven (2018), \emph{Review of Economic Studies} 85(1).
 Bontemps, Cherbonnier et Magnac (2023), TSE WP 23-1486.
-Cabannes, Houdré et Landais (2014), \emph{Économie et Statistique} 467-468.
-CAE (2025, 2026), Focus n°~124 et n°~147.
+CAE (2025), Focus n°~124.
 Chetty (2009), « Is the Taxable Income Elasticity Sufficient to Calculate Deadweight Loss? », \emph{AEJ:
 Economic Policy} 1(2).
-Chetty, Friedman, Olsen et Pistaferri (2011), \emph{QJE} 126(2).
-Chodorow-Reich, Smith, Zidar et Zwick (2026), NBER WP 32180.
+Chetty, Guren, Manoli et Weber (2013), « Does Indivisible Labor Explain the Difference between Micro and Macro
+Elasticities? », \emph{NBER Macroeconomics Annual} 27.
+Chodorow-Reich, Smith, Zidar et Zwick (2026), NBER WP 32180 (2024), version de janvier 2026.
 Conseil constitutionnel, décisions 2000-437 DC, 2012-662 DC et 2019-796 DC.
-Conseil des prélèvements obligatoires (2016, 2023, 2025).
+Conseil d'État, 13 mars 2025, n°~481538.
+Conseil des prélèvements obligatoires (2023, 2025), « Les différences d'imposition sur les bénéfices entre PME
+et grandes entreprises » ; « Tracer un cadre fiscal et social pluriannuel pour l'industrie française ».
 Dachis, Duranton et Turner (2012), \emph{Journal of Economic Geography} 12(2).
 Dolls, Fuest, Krolage et Neumeier (2025), \emph{Journal of Urban Economics} 145.
+Edmark, Liang, Mörk et Selin (2016), « The Swedish Earned Income Tax Credit: Did It Increase Employment? »,
+\emph{FinanzArchiv} 72(4).
 Eerola, Harjunen, Lyytikäinen et Saarimaa (2021), \emph{Journal of Urban Economics} 124.
-Feldstein (1999), \emph{REStat} 81(4).
 Ferreira (2010), \emph{Journal of Public Economics} 94(9-10).
 France Stratégie (2023), comité d'évaluation des réformes de la fiscalité du capital, quatrième rapport.
 Fritzsche et Vandrei (2019), \emph{Regional Science and Urban Economics} 74.
+Harberger (1964), « Taxation, Resource Allocation, and Welfare », dans NBER et Brookings Institution, \emph{The
+Role of Direct and Indirect Taxes in the Federal Revenue System}, Princeton University Press.
 Hines (1999), « Three Sides of Harberger Triangles », \emph{Journal of Economic Perspectives} 13(2).
-HMRC (2023), évaluation de l'allègement pour primo-accédants.
 Høj, Jørgensen et Schou (2018), \emph{Fiscal Studies} 39(2).
 Hourani, Millar-Powell, Perret et Ramm (2023), OCDE, \emph{Taxation Working Paper} n°~65.
-IFS (2023), \emph{Green Budget}, ch.~10.
-IPP (2023), rapport n°~47.
-Kleven et Kreiner (2006), « The Marginal Cost of Public Funds », \emph{Journal of Public Economics} 90(10-11).
+IPP (2023), Bach, Bozio, Fize, Guillouzouic et Malgouyres, « Évaluation des réformes de la fiscalité du
+capital : effets sur la création d'entreprises, l'expatriation et la circulation de l'épargne », rapport
+n°~47.
 Koster et Pinchbeck (2022), \emph{AEJ: Economic Policy} 14(1).
-Lefebvre, Lehmann et Sicsic (2025), \emph{Scandinavian Journal of Economics} (IZA DP 16112, 2023).
-Lutz (2015), \emph{AEJ: Economic Policy} 7(1).
+Lefebvre, Lehmann et Sicsic (2025), \emph{Scandinavian Journal of Economics} 127(2) (IZA DP 16112, 2023).
+Lehmann, Marical et Rioux (2013), « Labor Income Responds Differently to Income-Tax and Payroll-Tax Reforms »,
+\emph{Journal of Public Economics} 99.
 Määttänen et Terviö (2022), \emph{Economic Journal} 132(644).
 Maffini, Xing et Devereux (2019), \emph{AEJ: Economic Policy} 11(3).
-Martínez, Saez et Siegenthaler (2021), \emph{AER} 111(2).
-Morin (2014), \emph{Insee Première} 1492.
-Nielsson, Wroblewski et Yding (2024), document de travail.
+Nielsson, Wroblewski et Yding (2024), « The Incidence and Efficiency of Land Value Taxation », document de
+travail.
 OCDE, \emph{Revenue Statistics}, \emph{Corporate Tax Statistics} (2025), \emph{Taxing Wages} (2025).
-Paquier et Sicsic (2021), \emph{Économie et Statistique} n°~530-31.
-Sénat (1977), M.~Blin, rapport général sur le PLF pour 1978, n°~88 ; Sénat (2026), mission d'information sur les
-prélèvements obligatoires des entreprises.
-Sicsic (2022), \emph{Fiscal Studies}.
+Sénat (2026), mission d'information sur le poids des prélèvements obligatoires en France et ses conséquences sur
+la compétitivité des entreprises, l'investissement et les salaires, rapport n°~942 (2025-2026).
+Sicsic (2022), « Does Labour Income React More to Income Tax or Means-Tested Benefits Reforms? », \emph{Fiscal
+Studies} 43(3).
 Tax Foundation, \emph{International Tax Competitiveness Index} 2025 et 2026 ; \emph{Dividend Tax Rates in
 Europe} 2026.
 Yagan (2015), \emph{AER} 105(12).
