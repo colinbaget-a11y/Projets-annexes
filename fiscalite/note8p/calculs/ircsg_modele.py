@@ -88,8 +88,8 @@ def options(fe=6000.0, fam="franchise", qc_plafond=0.0, per=True):
 def impot_adultes(tm, T, o, zs, ls, ps_, kids):
     """Impôt du foyer, taux marginal de chaque adulte, revenu imposé de chaque adulte (remplace M.impot_adultes).
     fam : "franchise" (impôt individuel, franchise fe par enfant chez le parent au revenu le plus élevé) ; "qcp"
-    (même chose, puis quotient conjugal plafonné : l'impôt du couple ne peut pas être inférieur de plus de
-    qc_plafond à la somme des impôts individuels... ni à l'impôt du revenu partagé par moitié) ; "quotient" :
+    (même chose, puis quotient conjugal plafonné : l'impôt du couple est le plus élevé de l'impôt du revenu
+    partagé par moitié et de la somme des impôts individuels diminuée de qc_plafond) ; "quotient" :
     règles de synthese/ (réforme naïve)."""
     fam = o["fam"]
     if fam == "quotient":
@@ -133,12 +133,14 @@ def cale_echelle(seuils, taux_fixes, libres, o, cible=None):
 
 
 # ------------------------------------------------------------------ perte sèche (méthode v2) et effets réels
-def evalue(sched, o, jeu="central", vue=1.0, kappa=0.0, theta=0.0, repart=False):
+def evalue(sched, o, jeu="central", vue=1.0, kappa=0.0, theta=0.0, repart=False, vue_ext=None):
     """Variation par rapport à aujourd'hui (Md€ par an ; positif = perte sèche en plus) et effets réels.
     vue : part de la CSG-CRDS d'aujourd'hui (9,7 points) perçue comme l'IR, sur les deux marges ; le nouvel impôt est
-    entièrement perçu. kappa : hausse du prélèvement implicite sur le salaire due à l'impôt plus lourd sur les
+    entièrement perçu. vue_ext : perception sur la marge extensive si elle diffère (None : vue) ; la décision de
+    travailler se prend sur le salaire net, dont la CSG est déjà retirée, d'où la variante vue_ext = 1. kappa : hausse du prélèvement implicite sur le salaire due à l'impôt plus lourd sur les
     pensions futures (par euro brut), theta : part perçue de kappa."""
     tm, T = sched
+    vue_ext = vue if vue_ext is None else vue_ext
     eR, eD, eta = M.elast_v2(jeu)
     acc = dict(reel=0.0, ext=0.0, decl=0.0, dq_reel=0.0, dq_ext=0.0, emplois=0.0, dq_decl=0.0, ext_seuls=0.0,
                ext_couples=0.0, emplois_seuls=0.0, emplois_conjoints=0.0)
@@ -168,12 +170,12 @@ def evalue(sched, o, jeu="central", vue=1.0, kappa=0.0, theta=0.0, repart=False)
             ptr0 = M.PTR0[(tnom, k)]
             rest = ps.ptr_rest_single(g) - 0.1005 if single else 0.0126
             p0 = np.clip(ptr0 + rest, -0.5, 0.97)
-            p0v = np.clip(ptr0 - (1 - vue) * 0.097 + rest, -0.5, 0.97)
+            p0v = np.clip(ptr0 - (1 - vue_ext) * 0.097 + rest, -0.5, 0.97)
             p1 = np.clip(ptr1 + rest, -0.5, 0.97)
             dans = (g > 1000) & (g < 2 * SMIC)
             dlp = np.log(1 - p1) - np.log(1 - p0v)
             dq = eta * g * dlp * dans
-            pse = -((p0 + p1) / 2 + (kappa if False else 0.0)) * dq
+            pse = -((p0 + p1) / 2) * dq
             acc["ext"] += (w * pse).sum() / 1e9
             acc["dq_ext"] += (w * dq).sum() / 1e9
             acc["emplois"] += (w * eta * dlp * dans).sum()

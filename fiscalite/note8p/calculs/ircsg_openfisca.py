@@ -93,8 +93,8 @@ def calcule(adultes, enfants=0, isole=False):
 
 
 def brut_pour_base(cibles, b_max=820000.0):
-    """Salaire brut qui donne chaque revenu après cotisations visé (salarié seul), lu sur une grille de 10 €."""
-    b = np.arange(0.0, b_max, 10.0)
+    """Salaire brut qui donne chaque revenu après cotisations visé (salarié seul), lu sur une grille de 50 € (le taux marginal est calculé sur les revenus effectivement obtenus)."""
+    b = np.arange(0.0, b_max, 50.0)
     base = simule([("sal", b, 1980)])["bases"][0]
     mono = np.maximum.accumulate(base)     # le revenu après cotisations baisse un peu au passage du plafond
     return np.interp(cibles, mono, b)
@@ -197,5 +197,6 @@ def cas():
 
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
-    cas()
+    if "--marges" not in sys.argv:
+        cas()
     marges()

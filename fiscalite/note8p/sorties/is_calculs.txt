@@ -1,0 +1,123 @@
+====================================================================================================
+0. BASES (DGFiP Statistiques n° 51, exercice 2025, portées en 2027 par la croissance du bénéfice fiscal x1.040) ; ensuite +3% par an [H]
+[BASE] bénéfice au taux normal 2027 267.2 Md€ ; au taux réduit 31.8 Md€ ; un point de taux normal 2.99 Md€ (taux réduit supprimé) ; 2.67 Md€ (sur la seule base au taux normal)
+
+====================================================================================================
+1. SUPPRESSION DU TAUX RÉDUIT DE 15 %
+[TR] rendement à plein (10 points, 2027) : statique 3.18 Md€ ; prudent 2.15 (chiffre officiel 2019 de 2,2 Md€ pour 13 points, ramené à 10 points et porté à 3 %/an) ; central 2.67 (84 % du statique : passages à l'IR, rémunération en salaire, découpages non chiffrés) [S/H]
+[TR] bénéficiaires : 760 000 en 2019 (CPO 2023  d'après VM PLF 2019) ; base 2025 / plafond = au moins 720 000 sociétés au plafond-équivalent (base 2025) (le nombre réel est plus élevé : beaucoup sont sous le plafond) ; avantage maximal 4 250 € par société et par an
+[TR] si le taux normal final est x %, l'alignement rapporte (x − 15)/10 du rendement : 24 % 2.40 ; 23 % 2.13 ; 22 % 1.87 Md€ (comptabilisé ici à 25 % ; l'écart est dans le coût par point sur la base totale)
+[TR] calendrier proposé : 20 % en 2027, aligné sur le taux normal dès 2028 (exercices) ; recette 2027 1.33 ; 2028 2.75 ; 2029 2.83 ; 2030 2.92 ... 2040 3.92 Md€
+
+====================================================================================================
+2. DÉDUCTION IMMÉDIATE DE 50 % (définition : 50 % du prix déduits l'exercice d'acquisition, les 50 % restants amortis selon le plan ordinaire ; vérifiée dans is/simulation_is.py plan_bonus et is/calculs_note_is.py chemin)
+[DEF] déduction de l'exercice d'acquisition pour 100 € (achat au 1er juillet) : aujourd'hui linéaire 7.14, dégressif 16.07 ; réforme 50 % : linéaire 53.57, dégressif 58.04
+[Z r=5.00%] valeur actuelle des déductions pour 100 € : linéaire 84.7 ; dégressif 89.7 ; moyenne 87.2 ; 50 % + reste ordinaire 93.6 ; 100 % 100
+[Z r=3.25%] valeur actuelle des déductions pour 100 € : linéaire 89.6 ; dégressif 93.0 ; moyenne 91.3 ; 50 % + reste ordinaire 95.7 ; 100 % 100
+[Z r=8.00%] valeur actuelle des déductions pour 100 € : linéaire 77.4 ; dégressif 84.5 ; moyenne 80.9 ; 50 % + reste ordinaire 90.5 ; 100 % 100
+[DED A] 50 % dès 2027 : coût (mix ; dég.–lin.) 2027 7.38 (7.0–7.8) ; 2028 5.88 (5.0–6.8) ; 2029 4.70 (3.6–5.8) ; 2030 3.72 (2.7–4.8) ; 2032 2.00 (1.3–2.7) ; 2035 0.85 (0.7–1.0) ; 2040 0.99 (0.8–1.2) ; cumul 2027-2040 34.0
+[DED B] 25 % en 2027, 50 % dès 2028 (proposé) : coût (mix ; dég.–lin.) 2027 3.69 (3.5–3.9) ; 2028 6.74 (6.1–7.4) ; 2029 5.38 (4.4–6.4) ; 2030 4.28 (3.2–5.4) ; 2032 2.48 (1.7–3.3) ; 2035 0.85 (0.7–1.0) ; 2040 0.99 (0.8–1.2) ; cumul 2027-2040 34.0
+[DED C] 25 % en 2027-2028, 50 % dès 2029 : coût (mix ; dég.–lin.) 2027 3.69 (3.5–3.9) ; 2028 2.94 (2.5–3.4) ; 2029 6.27 (5.5–7.0) ; 2030 4.98 (4.0–6.0) ; 2032 2.97 (2.1–3.9) ; 2035 1.01 (0.7–1.3) ; 2040 0.99 (0.8–1.2) ; cumul 2027-2040 34.0
+[DED D] 100 % dès 2027 (référence abandonnée) : coût (mix ; dég.–lin.) 2027 14.77 (14.0–15.5) ; 2028 11.77 (9.9–13.6) ; 2029 9.40 (7.2–11.6) ; 2030 7.45 (5.3–9.6) ; 2032 3.99 (2.7–5.3) ; 2035 1.71 (1.4–2.0) ; 2040 1.98 (1.6–2.4) ; cumul 2027-2040 68.0
+[PERM A] coût permanent (régime établi) : 0.67 Md€ de 2027 (0.54–0.81) ; en 2040 (courants) 0.99 ; = 0.021 % du PIB
+[VA A] coût actualisé par année d'achats : 1.07 Md€ à 5 % (0.86–1.28) ; 0.73 à 3,25 % ; en points de taux 0.36
+[PERM D] coût permanent (régime établi) : 1.35 Md€ de 2027 (1.08–1.61) ; en 2040 (courants) 1.98 ; = 0.043 % du PIB
+[VA D] coût actualisé par année d'achats : 2.14 Md€ à 5 % (1.73–2.55) ; 1.45 à 3,25 % ; en points de taux 0.72
+[ANCIEN] ancienne variante « 50 % dès 2027 » financée par 4.22 Md€/an d'assiette (calculs_note_is) : dette maximale 5.2 Md€ en 2029 = cumul des avances de la transition, remboursé ensuite ; ce n'est pas un coût de 5 Md€ par an : le coût permanent est 0.67 Md€/an (euros de 2027)
+[TRANS B] part transitoire (avance d'impôt remboursée ensuite) du coût : 2027 3.36 ; 2028 6.05 ; 2030 3.54 ; 2033 0.77 ; 2035 0.00
+[VARIANTE] véhicules utilitaires inclus (moitié du matériel de transport des SNF, 21 Md€ en 2025 [H]) : tous les coûts x 1.25 ; 2028 8.43 au lieu de 6.74
+[PART 60%] calendrier B : 2027 2.95 ; 2028 5.40 ; 2040 0.79 ; permanent 0.54
+[PART 90%] calendrier B : 2027 4.43 ; 2028 8.09 ; 2040 1.19 ; permanent 0.81
+
+====================================================================================================
+3. BAISSE DU TAUX NORMAL
+[POINT] coût d'un point (statique, base totale, taux réduit supprimé) : 2027 2.99 ; 2028 3.08 ; 2030 3.27 ; 2035 3.79 ; 2040 4.39 Md€
+[POINT dyn] −2 points avec une semi-élasticité des bénéfices déclarés de 0.5 % par point (Beer, de Mooij et Liu, 2020, mesurée sur les filiales de multinationales : borne haute si appliquée à tous) : coût 5.98 − 0.69 = 5.29 Md€ (2027), soit 12 % de retour
+[POINT dyn] −2 points avec une semi-élasticité des bénéfices déclarés de 1.0 % par point (Beer, de Mooij et Liu, 2020, mesurée sur les filiales de multinationales : borne haute si appliquée à tous) : coût 5.98 − 1.38 = 4.60 Md€ (2027), soit 23 % de retour
+[INTER] chaque point de baisse réduit le coût de la déduction de 1/25 : 2027 +0.148 ; 2028 +0.270 ; 2030 +0.171 ; 2040 +0.040 Md€ par point
+[CIBLE 24 %] coût statique 2028 3.08 ; 2040 4.39 Md€ ; alignement du taux réduit (compté à 25 %) 2.75 en 2028
+[CIBLE 23 %] coût statique 2028 6.16 ; 2040 8.78 Md€ ; alignement du taux réduit (compté à 25 %) 2.75 en 2028
+[CIBLE 22 %] coût statique 2028 9.24 ; 2040 13.17 Md€ ; alignement du taux réduit (compté à 25 %) 2.75 en 2028
+
+====================================================================================================
+4. TAUX MARGINAUX ET MOYENS EFFECTIFS (convention Devereux-Griffith de is/calculs_note_is.py : r réel 5 %, inflation 2 %, δ 14 % équipements / 3,1 % bâtiments ; pas d'impôt personnel)
+[TEF] Système actuel (25 %)                                TMEI fonds propres  18.0 % (lin. 20.7, dég. 15.1) ; dette  -23.8 % ; mixte (1/3 dette)   7.6 % ; p fp 6.10 / dette 4.04 (écart 2.06 pt) ; bâtiment 22.0 % ; TMEA projet 20 % 22.9 %
+[TEF] Taux normal à 23 %                                   TMEI fonds propres  16.4 % (lin. 18.9, dég. 13.7) ; dette  -21.4 % ; mixte (1/3 dette)   6.7 % ; p fp 5.98 / dette 4.12 (écart 1.86 pt) ; bâtiment 20.2 % ; TMEA projet 20 % 21.0 %
+[TEF] Taux normal à 24 %                                   TMEI fonds propres  17.2 % (lin. 19.8, dég. 14.4) ; dette  -22.6 % ; mixte (1/3 dette)   7.1 % ; p fp 6.04 / dette 4.08 (écart 1.96 pt) ; bâtiment 21.1 % ; TMEA projet 20 % 21.9 %
+[TEF] Taux normal à 22 %                                   TMEI fonds propres  15.6 % (lin. 18.1, dég. 13.1) ; dette  -20.2 % ; mixte (1/3 dette)   6.3 % ; p fp 5.93 / dette 4.16 (écart 1.77 pt) ; bâtiment 19.2 % ; TMEA projet 20 % 20.1 %
+[TEF] Déduction immédiate de 50 % (25 %)                   TMEI fonds propres   9.9 % (lin. 11.5, dég.  8.2) ; dette  -37.0 % ; mixte (1/3 dette)  -1.7 % ; p fp 5.55 / dette 3.65 (écart 1.90 pt) ; bâtiment 22.0 % ; TMEA projet 20 % 20.8 %
+[TEF] 24 % + déduction de 50 %                             TMEI fonds propres   9.4 % (lin. 11.0, dég.  7.8) ; dette  -35.0 % ; mixte (1/3 dette)  -1.8 % ; p fp 5.52 / dette 3.70 (écart 1.81 pt) ; bâtiment 21.1 % ; TMEA projet 20 % 20.0 %
+[TEF] 23 % + déduction de 50 %                             TMEI fonds propres   8.9 % (lin. 10.4, dég.  7.4) ; dette  -33.0 % ; mixte (1/3 dette)  -1.8 % ; p fp 5.49 / dette 3.76 (écart 1.73 pt) ; bâtiment 20.2 % ; TMEA projet 20 % 19.1 %
+[TEF] 22 % + déduction de 50 %                             TMEI fonds propres   8.5 % (lin.  9.9, dég.  7.0) ; dette  -31.1 % ; mixte (1/3 dette)  -1.8 % ; p fp 5.46 / dette 3.81 (écart 1.65 pt) ; bâtiment 19.2 % ; TMEA projet 20 % 18.3 %
+[TEF] Déduction intégrale (25 %)                           TMEI fonds propres   0.0 % (lin.  0.0, dég.  0.0) ; dette  -53.4 % ; mixte (1/3 dette) -13.1 % ; p fp 5.00 / dette 3.26 (écart 1.74 pt) ; bâtiment 22.0 % ; TMEA projet 20 % 18.8 %
+[TEF] Petite société sous le plafond, aujourd'hui (15 %)   TMEI fonds propres  10.4 % (lin. 12.1, dég.  8.6) ; dette  -12.8 % ; mixte (1/3 dette)   3.8 % ; p fp 5.58 / dette 4.43 (écart 1.15 pt) ; bâtiment 13.0 % ; TMEA projet 20 % 13.7 %
+[TEF] lecture : l'écart de coût du capital entre dette et fonds propres (avantage de la dette) ne croît pas avec la déduction : il vaut ρ − i(1−τ) multiplié par (1 − τz)/(1 − τ), qui baisse quand z monte ; il baisse aussi avec le taux. Mais le TMEI d'un projet financé par emprunt devient plus négatif (subvention nette).
+
+====================================================================================================
+5. CAS TYPES
+[MACHINE linéaire] déductions annuelles actuelles 35 714 / 71 429 / 71 429 / 71 429 / 71 429 / 71 429 / 71 429 / 35 714 € ; avec la réforme 267 857 / 35 714 / 35 714 / 35 714 / 35 714 / 35 714 / 35 714 / 17 857 €
+   à 25 % : impôt économisé la 1re année 8 929 → 66 964 € (trésorerie +58 036 €, rendue les années suivantes) ; avantage actualisé 9 544 € à 5 %, 14 155 € à 8 %
+   à 23 % : impôt économisé la 1re année 8 214 → 61 607 € (trésorerie +53 393 €, rendue les années suivantes) ; avantage actualisé 8 781 € à 5 %, 13 023 € à 8 %
+[MACHINE dégressif (coef. 2,25)] déductions annuelles actuelles 80 357 / 134 885 / 91 529 / 62 109 / 43 706 / 43 706 / 43 706 € ; avec la réforme 290 179 / 67 443 / 45 765 / 31 055 / 21 853 / 21 853 / 21 853 €
+   à 25 % : impôt économisé la 1re année 20 089 → 72 545 € (trésorerie +52 455 €, rendue les années suivantes) ; avantage actualisé 6 461 € à 5 %, 9 695 € à 8 %
+   à 23 % : impôt économisé la 1re année 18 482 → 66 741 € (trésorerie +48 259 €, rendue les années suivantes) ; avantage actualisé 5 945 € à 5 %, 8 919 € à 8 %
+[MACHINE taux vs déduction] machine marginale (rapporte juste son coût du capital) : −2 points valent 1 707 € actualisés, la déduction de 50 % 8 003 € ; machine rentable (rendement réel brut 20 %) : −2 points valent 11 350 €, la déduction toujours 8 003 € (plan moyen, 5 %)
+[SERVICES] bénéfice 30 000 € : IS actuel 4 500 € ; écart à 24 % 2 700 ; 23 % 2 400 ; 22 % 2 100 € par an (+ = perte) ; la déduction de 50 % sur 10 000 € d'informatique par an vaut 80 €
+[SERVICES] bénéfice 42 500 € : IS actuel 6 375 € ; écart à 24 % 3 825 ; 23 % 3 400 ; 22 % 2 975 € par an (+ = perte) ; la déduction de 50 % sur 10 000 € d'informatique par an vaut 80 €
+[SERVICES] bénéfice 60 000 € : IS actuel 10 750 € ; écart à 24 % 3 650 ; 23 % 3 050 ; 22 % 2 450 € par an (+ = perte) ; la déduction de 50 % sur 10 000 € d'informatique par an vaut 80 €
+[SERVICES] bénéfice 100 000 € : IS actuel 20 750 € ; écart à 24 % 3 250 ; 23 % 2 250 ; 22 % 1 250 € par an (+ = perte) ; la déduction de 50 % sur 10 000 € d'informatique par an vaut 80 €
+[SERVICES] bénéfice 150 000 € : IS actuel 33 250 € ; écart à 24 % 2 750 ; 23 % 1 250 ; 22 % −250 € par an (+ = perte) ; la déduction de 50 % sur 10 000 € d'informatique par an vaut 80 €
+[SERVICES] bénéfice 300 000 € : IS actuel 70 750 € ; écart à 24 % 1 250 ; 23 % −1 750 ; 22 % −4 750 € par an (+ = perte) ; la déduction de 50 % sur 10 000 € d'informatique par an vaut 80 €
+[SERVICES] bénéfice en dessous duquel la société perd (taux réduit perdu > baisse du taux) : 24 % : 425 000 € ; 23 % : 212 500 € ; 22 % : 141 667 €
+
+====================================================================================================
+6. EFFETS RÉELS (ordres de grandeur, [S] calibrés sur [E])
+[REEL taux24] coût d'usage équipements -0.22 %, bâtiments -0.65 % ; capital équipements 0,4 à 1,4 Md€ (central 0,9), bâtiments 1,0 ; investissement des premières années 0,3 à 0,4 Md€/an ; en régime établi 0,1 à 0,3 ; PIB de long terme (niveau) 0.004 à 0.014 % (central 0.008 %, 0,2 Md€ de 2025)
+[REEL taux23] coût d'usage équipements -0.43 %, bâtiments -1.29 % ; capital équipements 0,9 à 2,8 Md€ (central 1,7), bâtiments 1,9 ; investissement des premières années 0,5 à 0,9 Md€/an ; en régime établi 0,2 à 0,6 ; PIB de long terme (niveau) 0.008 à 0.028 % (central 0.016 %, 0,5 Md€ de 2025)
+[REEL taux22] coût d'usage équipements -0.63 %, bâtiments -1.92 % ; capital équipements 1,3 à 4,1 Md€ (central 2,6), bâtiments 2,9 ; investissement des premières années 0,8 à 1,3 Md€/an ; en régime établi 0,3 à 0,9 ; PIB de long terme (niveau) 0.012 à 0.042 % (central 0.024 %, 0,7 Md€ de 2025)
+[REEL ded50] coût d'usage équipements -2.07 %, bâtiments +0.00 % ; capital équipements 4,2 à 13,4 Md€ (central 8,4), bâtiments −0,0 ; investissement des premières années 2,5 à 4,3 Md€/an ; en régime établi 0,6 à 2,0 ; PIB de long terme (niveau) 0.027 à 0.085 % (central 0.053 %, 1,6 Md€ de 2025)
+[REEL combi23] coût d'usage équipements -2.29 %, bâtiments -1.29 % ; capital équipements 4,6 à 14,8 Md€ (central 9,3), bâtiments 1,9 ; investissement des premières années 2,7 à 4,7 Md€/an ; en régime établi 0,7 à 2,4 ; PIB de long terme (niveau) 0.032 à 0.105 % (central 0.064 %, 1,9 Md€ de 2025)
+[REEL ded100] coût d'usage équipements -4.18 %, bâtiments +0.00 % ; capital équipements 8,5 à 27,1 Md€ (central 17,0), bâtiments −0,0 ; investissement des premières années 5,0 à 8,7 Md€/an ; en régime établi 1,3 à 4,1 ; PIB de long terme (niveau) 0.054 à 0.172 % (central 0.108 %, 3,2 Md€ de 2025)
+[RENDEMENT taux24] coût permanent 2.99 Md€/an (euros de 2027) ; capital en plus 1.9 Md€ ; 0.6 Md€ de capital par Md€ de coût annuel
+[RENDEMENT taux23] coût permanent 5.98 Md€/an (euros de 2027) ; capital en plus 3.7 Md€ ; 0.6 Md€ de capital par Md€ de coût annuel
+[RENDEMENT taux22] coût permanent 8.97 Md€/an (euros de 2027) ; capital en plus 5.4 Md€ ; 0.6 Md€ de capital par Md€ de coût annuel
+[RENDEMENT ded50] coût permanent 0.67 Md€/an (euros de 2027) ; capital en plus 8.4 Md€ ; 12.4 Md€ de capital par Md€ de coût annuel
+[RENDEMENT ded100] coût permanent 1.35 Md€/an (euros de 2027) ; capital en plus 17.0 Md€ ; 12.6 Md€ de capital par Md€ de coût annuel
+[RENDEMENT combi23] coût permanent 6.60 Md€/an (euros de 2027) ; capital en plus 11.2 Md€ ; 1.7 Md€ de capital par Md€ de coût annuel
+[PS ded50] triangle évité sur les équipements : 0.026 à 0.084 Md€/an (indicateur, pas du PIB)
+[PS taux23] triangle évité sur les équipements : 0.007 à 0.022 Md€/an (indicateur, pas du PIB)
+[PS combi23] triangle évité sur les équipements : 0.028 à 0.090 Md€/an (indicateur, pas du PIB)
+[PME15 → 23 % + 50 %] coût d'usage pour une société dont le bénéfice reste sous 42 500 € : équipements -0.3 %, bâtiments +4.7 %
+[PME15 trésorerie] les sociétés qui perdent le taux réduit perdent 2.67 Md€/an de trésorerie ; avec une sensibilité de l'investissement à la trésorerie de 0,1 à 0,3 [H], −0.27 à −0.80 Md€/an d'investissement chez elles, à comparer à l'investissement suscité par la déduction
+
+[COMPARAISON] coût brut 2028 ; coût permanent (euros de 2027) ; coût actualisé par année d'achats (5 %) ; cumul 2027-2036 ; capital en plus (central) ; capital par Md€ cumulé sur dix ans
+[CMP] Déduction de 50 % (calendrier B)   2027  3.69 ; 2028  6.74 ; permanent  0.67 ; actualisé  1.07 ; cumul 10 ans  30.2 ; ΔK  8.4 (4.2–13.4) Md€ ; 0.28 Md€ de capital par Md€ cumulé ; TMEI 9.9 %
+[CMP] Déduction de 100 % dès 2027        2027 14.77 ; 2028 11.77 ; permanent  1.35 ; actualisé  2.14 ; cumul 10 ans  60.4 ; ΔK 17.0 (8.5–27.1) Md€ ; 0.28 Md€ de capital par Md€ cumulé ; TMEI 0.0 %
+[CMP] Taux à 24 % dès 2027               2027  2.99 ; 2028  3.08 ; permanent  2.99 ; actualisé  2.99 ; cumul 10 ans  34.3 ; ΔK  1.9 (0.9–3.4) Md€ ; 0.05 Md€ de capital par Md€ cumulé ; TMEI 17.2 %
+[CMP] Taux à 23 % dès 2027               2027  5.98 ; 2028  6.16 ; permanent  5.98 ; actualisé  5.98 ; cumul 10 ans  68.6 ; ΔK  3.7 (1.8–6.6) Md€ ; 0.05 Md€ de capital par Md€ cumulé ; TMEI 16.4 %
+[CMP] Taux à 22 % dès 2027               2027  8.97 ; 2028  9.24 ; permanent  8.97 ; actualisé  8.97 ; cumul 10 ans 102.8 ; ΔK  5.4 (2.7–9.8) Md€ ; 0.05 Md€ de capital par Md€ cumulé ; TMEI 15.6 %
+[CMP] 23 % + déduction de 50 %           2027  9.38 ; 2028 12.36 ; permanent  6.60 ; actualisé  6.96 ; cumul 10 ans  96.4 ; ΔK 11.2 (5.6–18.7) Md€ ; 0.12 Md€ de capital par Md€ cumulé ; TMEI 8.9 %
+[CMP] par euro dépensé sur dix ans, la déduction de 50 % accumule 5.2 fois plus de capital (équipements et bâtiments) que la baisse de deux points ; Chodorow-Reich, Zidar et Zwick (2024) trouvent 1,5 fois dans un modèle complet (tous actifs, toutes les sociétés de capitaux)
+
+====================================================================================================
+7. TABLE ANNUELLE (exercices ; + = recette publique, − = coût ; Md€ courants)
+[ANNUEL] 2027 : taux réduit +1.33 ; déduction 50 % -3.69 ; un point de taux normal -2.99 (base normale seule -2.67) ; interaction par point +0.148 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2028 : taux réduit +2.75 ; déduction 50 % -6.74 ; un point de taux normal -3.08 (base normale seule -2.75) ; interaction par point +0.270 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2029 : taux réduit +2.83 ; déduction 50 % -5.38 ; un point de taux normal -3.17 (base normale seule -2.83) ; interaction par point +0.215 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2030 : taux réduit +2.92 ; déduction 50 % -4.28 ; un point de taux normal -3.27 (base normale seule -2.92) ; interaction par point +0.171 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2031 : taux réduit +3.00 ; déduction 50 % -3.35 ; un point de taux normal -3.37 (base normale seule -3.01) ; interaction par point +0.134 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2032 : taux réduit +3.09 ; déduction 50 % -2.48 ; un point de taux normal -3.47 (base normale seule -3.10) ; interaction par point +0.099 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2033 : taux réduit +3.19 ; déduction 50 % -1.58 ; un point de taux normal -3.57 (base normale seule -3.19) ; interaction par point +0.063 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2034 : taux réduit +3.28 ; déduction 50 % -0.98 ; un point de taux normal -3.68 (base normale seule -3.29) ; interaction par point +0.039 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2035 : taux réduit +3.38 ; déduction 50 % -0.85 ; un point de taux normal -3.79 (base normale seule -3.38) ; interaction par point +0.034 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2036 : taux réduit +3.48 ; déduction 50 % -0.88 ; un point de taux normal -3.90 (base normale seule -3.49) ; interaction par point +0.035 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2037 : taux réduit +3.59 ; déduction 50 % -0.91 ; un point de taux normal -4.02 (base normale seule -3.59) ; interaction par point +0.036 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2038 : taux réduit +3.69 ; déduction 50 % -0.93 ; un point de taux normal -4.14 (base normale seule -3.70) ; interaction par point +0.037 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2039 : taux réduit +3.80 ; déduction 50 % -0.96 ; un point de taux normal -4.26 (base normale seule -3.81) ; interaction par point +0.038 ; [mémoire] contribution exceptionnelle −7,0
+[ANNUEL] 2040 : taux réduit +3.92 ; déduction 50 % -0.99 ; un point de taux normal -4.39 (base normale seule -3.92) ; interaction par point +0.040 ; [mémoire] contribution exceptionnelle −7,0
+[SOLDE IS 24 % 2028] 2027 -2.36 ; 2028 -6.81 ; 2029 -5.50 ; 2030 -4.46 ; 2031 -3.58 ; 2033 -1.90 ; 2035 -1.23 ; 2040 -1.42
+[SOLDE IS 24 % progressif] 2027 -2.36 ; 2028 -4.00 ; 2029 -5.50 ; 2030 -4.46 ; 2031 -3.58 ; 2033 -1.90 ; 2035 -1.23 ; 2040 -1.42
+[SOLDE IS 23 % 2028] 2027 -2.36 ; 2028 -9.62 ; 2029 -8.46 ; 2030 -7.56 ; 2031 -6.81 ; 2033 -5.40 ; 2035 -4.98 ; 2040 -5.77
+[SOLDE IS 23 % progressif] 2027 -2.36 ; 2028 -4.00 ; 2029 -5.50 ; 2030 -4.46 ; 2031 -6.81 ; 2033 -5.40 ; 2035 -4.98 ; 2040 -5.77
+[SOLDE IS 22 % 2028] 2027 -2.36 ; 2028 -12.43 ; 2029 -11.42 ; 2030 -10.65 ; 2031 -10.04 ; 2033 -8.91 ; 2035 -8.73 ; 2040 -10.13
+[SOLDE IS 22 % progressif] 2027 -2.36 ; 2028 -4.00 ; 2029 -5.50 ; 2030 -4.46 ; 2031 -6.81 ; 2033 -8.91 ; 2035 -8.73 ; 2040 -10.13
