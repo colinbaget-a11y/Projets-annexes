@@ -4,6 +4,12 @@
 % transition_ircsg.txt, controle_hauts_purs.txt ; tableaux : tables_ircsg.py ; figures : figures_ircsg_n.py.
 % Hypothèses et chiffres non vérifiés : revue/hypotheses_ircsg.md et tableau tab:ircsg_hyp de l'annexe.
 
+À revenu égal, un retraité modeste paie deux fois moins d'impôt qu'un salarié ; le salaire du conjoint qui reprend un
+emploi est taxé au taux marginal du couple ; 500~€ de pension en plus peuvent coûter 600~€ d'impôt. Ces anomalies
+viennent de ce que trois prélèvements frappent les mêmes revenus selon des règles différentes. Cette partie propose
+de les fusionner en un impôt unique et individuel, sans marches, qui allège le premier salaire ; les pensions,
+désormais traitées comme les salaires, le financent, et c'est le choix le plus lourd de la réforme.
+
 \subsection{Trois impôts empilés, qui ne se parlent pas}
 
 Sur les revenus du travail, des pensions et du chômage, les ménages paient trois impôts. En 2024, sur les revenus
@@ -14,7 +20,7 @@ retenir est que l'impôt sur le revenu, celui dont on débat chaque automne, n'e
 rapporte deux tiers de plus que lui, dont 106~Md€ sur les revenus d'activité et 26~Md€ sur les pensions. Au
 niveau national, revenus du capital compris, les trois impôts prélèvent 258~Md€, soit 8,8~\% du PIB.
 
-\figbloc{ircsg_n01_recettes}{La CSG rapporte 132~Md€, l'impôt sur le revenu 80~Md€}{fig:ircsg_recettes}
+\figbloc{ircsg_n01_recettes}{La CSG rapporte deux tiers de plus que l'impôt sur le revenu : 132~Md€ contre 80}{fig:ircsg_recettes}
 
 Les trois impôts ne suivent pas la même logique. La CSG et la CRDS sont proportionnelles et individuelles : chacun
 paie 9,7~\% sur 98,25~\% de son salaire brut, soit 9,5~\% du brut, dès le premier euro, retenus par l'employeur, quelle que soit sa
@@ -26,11 +32,12 @@ leurs pensions pour l'IR, plafonné à 4\,399~€ par foyer, un abattement suppl
 CSG de 0, 3,8, 6,6 ou 8,3~\% selon leur revenu fiscal de l'avant-dernière année.
 
 Vu de l'étranger, la France n'est pas un pays qui taxe exceptionnellement le revenu des ménages. L'OCDE, qui range
-la CSG et la CRDS parmi les impôts sur le revenu des personnes, mesure ce prélèvement à 9,4~\% du PIB en 2023, un
-peu au-dessus de la moyenne de l'OCDE (8,2~\%) et en dessous de l'Allemagne, du Royaume-Uni ou de l'Italie
+la CSG et la CRDS parmi les impôts sur le revenu des personnes avec quelques autres prélèvements, mesure l'ensemble à
+9,4~\% du PIB en 2023, un peu au-dessus de la moyenne de l'OCDE (8,2~\%) et en dessous de l'Allemagne, du Royaume-Uni ou de l'Italie
 (figure~\ref{fig:ircsg_ocde}). Pour une personne seule au salaire moyen, l'impôt sur le revenu au sens de l'OCDE
-prend 12,2~\% du coût du travail, contre 13,3~\% en moyenne ; ce qui rend le coin fiscal français si lourd
-(47,2~\% contre 35,1~\%), ce sont les cotisations patronales, que la fusion ne touche pas. La particularité française
+prend 12,2~\% du coût du travail, contre 13,3~\% en moyenne ; ce qui rend si lourd le « coin fiscal » français,
+l'écart entre ce que le salarié coûte à son employeur et ce qu'il touche (47,2~\% du coût du travail contre
+35,1~\%), ce sont les cotisations patronales, que la fusion ne touche pas. La particularité française
 est ailleurs : près de 60~\% de cet impôt (5,5 points de PIB sur 9,4) passent par une contribution
 proportionnelle, conçue à l'origine comme un financement de la Sécurité sociale, et non par le barème progressif.
 
@@ -82,7 +89,7 @@ forme la moins taxée, et l'impôt doit prendre plus aux autres pour la même re
 
 Les marches comptent d'autant plus qu'elles tombent à un endroit où l'euro supplémentaire est déjà lourdement
 prélevé. Au niveau du Smic, une personne seule qui gagne un euro de plus voit disparaître une partie de la prime
-d'activité, et son employeur une partie des allègements de cotisations : sur un euro de coût du travail en plus,
+d'activité (le complément de revenu versé aux salariés modestes), et son employeur une partie des allègements de cotisations : sur un euro de coût du travail en plus,
 61~\% sont prélevés, et 67~\% vers 1,25~Smic, contre 38~\% à deux Smic (figure~\ref{fig:ircsg_coin}, droit de 2025 ;
 depuis 2026, les allègements s'éteignent plus haut, à 3~Smic). L'IR et la CSG n'y comptent que pour 5 à 11 points :
 la fusion ne peut pas, à elle seule, régler le problème des bas salaires, mais elle peut éviter d'y ajouter des
@@ -93,10 +100,11 @@ marches.
 Les études françaises confirment-elles que ces taux changent les comportements ? En partie, et d'une façon qui
 éclaire la réforme. Lehmann, Marical et Rioux (2013), qui suivent 12\,500 salariés du privé à travers deux réformes
 touchant les salaires sous deux Smic, trouvent que le salaire réagit au taux marginal de l'impôt sur le revenu
-(élasticité d'environ 0,2), mais pas du tout aux cotisations ; la réaction vient surtout des femmes et passe par le
+(élasticité d'environ 0,2 : quand la part du dernier euro laissée au salarié baisse de 10~\%, son salaire baisse
+d'environ 2~\%), mais pas du tout aux cotisations ; la réaction vient surtout des femmes et passe par le
 nombre de mois travaillés, presque pas par les heures des salariés déjà employés toute l'année (0,03). Sicsic (2022),
 sur 90\,000 personnes suivies de 2006 à 2015, mesure une réaction trois fois plus forte à l'impôt sur le revenu
-(0,26) qu'au retrait du RSA activité (0,09), et y voit l'effet de la visibilité de l'impôt ; elle croît avec le
+(0,26) qu'au retrait du RSA activité, l'ancêtre de la prime d'activité (0,09), et y voit l'effet de la visibilité de l'impôt ; elle croît avec le
 revenu, de 0,22 dans la moitié du bas à 0,51 dans le dixième du haut. Cabannes, Houdré et Landais (2014) ne trouvent
 presque rien en moyenne (0,02), sauf dans le décile supérieur (0,31). Ce qui réagit le plus nettement, c'est la
 décision de travailler : la synthèse de Chetty, Guren, Manoli et Weber (2013), surtout américaine, retient une
@@ -111,7 +119,7 @@ sociale par un prélèvement sur tous les revenus, et non plus sur les seuls sal
 retenue à la source, elle a été conçue comme une cotisation élargie plutôt que comme un impôt sur le revenu. L'abattement de 10~\% sur les pensions date de la loi de
 finances pour 1978 et devait être le pendant, pour les retraités, de la déduction forfaitaire de 10~\% pour frais
 professionnels des salariés (sources parlementaires, texte non relu). Les taux réduits de CSG protègent les petites
-pensions ; la CRDS, créée en 1996, rembourse la dette sociale logée à la CADES. Des décennies plus tard, ces raisons ont
+pensions ; la CRDS, créée en 1996, rembourse la dette sociale logée à la Caisse d'amortissement de la dette sociale (CADES). Des décennies plus tard, ces raisons ont
 en partie disparu : un retraité n'a pas de frais professionnels, et le revenu médian des plus de 65 ans atteint
 94~\% de celui de l'ensemble de la population, contre 90~\% dans l'Union européenne et 83~\% en Allemagne
 (Eurostat, 2024). Leur accumulation, surtout, produit ce que personne n'a
@@ -149,8 +157,8 @@ son salaire en impôt, contre 9,5~\% aujourd'hui (figure~\ref{fig:ircsg_premier_
 \figbloc{ircsg_n07_naive_marges}{La fusion naïve garde des marches, à d'autres endroits}{fig:ircsg_naive_marges}
 
 Le gain d'efficacité est faible : 1,8~Md€ par an (0,8 à 3,9 selon les élasticités), presque entièrement parce que le
-premier salaire d'une personne seule n'est plus prélevé qu'à 3,5~\% au lieu de 9,5~\%. Cette fusion ne remplit donc
-aucun des trois objectifs : elle alourdit nettement la charge du haut de la distribution, ce que la note s'interdit ;
+premier salaire d'une personne seule n'est plus prélevé qu'à 3,5~\% au lieu de 9,5~\%. Cette fusion échoue donc
+sur trois points : elle alourdit nettement la charge du haut de la distribution, ce que la note s'interdit ;
 elle garde les marches ; elle laisse le second salaire lourdement taxé. Elle montre en revanche où est la marge de
 manœuvre : en supprimant les niches et en traitant les pensions comme les salaires, l'assiette s'élargit tant qu'on
 peut baisser fortement les taux d'entrée, à condition de redessiner le barème.
@@ -205,9 +213,9 @@ revenus d'activité ; au-delà, le taux marginal est de 14~\% au premier euro im
 (figure~\ref{fig:ircsg_prop_marges}) : 13~\% au Smic au lieu de 10~\%, mais 26~\% au lieu de 32~\% à 50\,000~€,
 31~\% au lieu de 40~\% à 120\,000~€ et 45~\% au lieu de 47~\% à 300\,000~€. Pour un retraité, les marches de CSG
 disparaissent ; la sortie de l'exonération des petites pensions crée en revanche un taux marginal élevé, de 28 à
-31~\% entre 12\,500 et 22\,000~€ et jusqu'à 50~\% vers 24\,000~€. Il ne change pas la décision de travailler d'un
-retraité, mais il est visible et pèse sur le choix de partir plus tard ; l'étaler est l'un des arbitrages de la
-sous-partie suivante.
+31~\% entre 12\,500 et 22\,000~€ et jusqu'à 50~\% vers 24\,000~€. Ce taux ne change rien pour qui est déjà
+retraité, puisque sa pension est fixée, mais il réduit ce que rapporte un départ plus tardif, qui augmente la pension
+(le modèle ne mesure pas cet effet) ; l'étaler est l'un des arbitrages de la sous-partie suivante.
 
 \figbloc{ircsg_n09_prop_marges}{La proposition remplace les marches par une pente continue}{fig:ircsg_prop_marges}
 
@@ -221,7 +229,8 @@ la prime d'activité, qui pèsent bien davantage au niveau du Smic, ne changent 
 
 Qui paie ? Par construction, aucun décile ne bouge de plus de 500~€ en moyenne (figure~\ref{fig:ircsg_deciles}) : le
 deuxième décile paie 283~€ de moins, le huitième 389~€ de plus, le dixième 487~€ de plus (2,1~Md€), et le 1~\% le plus
-aisé ne bouge pas. Mais la moyenne par décile cache le principal transfert, qui se fait des actifs vers les retraités
+aisé ne bouge pas (sans compter la disparition de la contribution exceptionnelle sur les hauts revenus, que le bilan
+d'ensemble traite, section~\ref{sec:ens_haut}). Mais la moyenne par décile cache le principal transfert, qui se fait des actifs vers les retraités
 (figure~\ref{fig:ircsg_qui_paie}). Les actifs paient 20,8~Md€ de moins : 500~€ de moins en moyenne pour une personne
 seule active, 1\,460~€ pour un couple avec enfants (11,7~Md€ au total), qui bénéficie à la fois de la franchise
 d'activité et de la franchise par enfant. Les retraités paient 20,8~Md€ de plus : 1\,090~€ en moyenne pour un retraité
@@ -243,17 +252,17 @@ prix de l'impôt individuel pour ceux qui profitent aujourd'hui pleinement du qu
 à 100\,000~€ brut paierait 4\,000~€ de moins et un dirigeant salarié à 200\,000~€, 10\,900~€ de moins : la neutralité
 du 1~\% le plus aisé est une moyenne, qui recouvre une baisse pour les hauts salaires, payée par la fin des niches et
 la taxation des grosses pensions à l'intérieur du même centile. Au-delà de 1~M€ de revenu, la charge sur les revenus
-du barème monterait de 3 à 17 points de ce revenu dans la convention centrale du modèle.
+du barème monterait de 3 à 17 points de ce revenu dans la convention centrale du modèle, dont la fragilité est discutée plus bas.
 
 \input{parties/tab_ircsg_cas}
 
-Ce que vaut le gain d'efficacité doit être dit avec précision. Mesuré comme une baisse de la perte sèche statique sur
-l'activité, à court terme, il est de 4,9~Md€ par an (2,3 à 10,9 selon les élasticités), soit 60~\% de ce qu'atteindrait
+Le gain d'efficacité, mesuré comme une baisse de la perte sèche statique sur l'activité, à court terme, est de
+4,9~Md€ par an (2,3 à 10,9 selon les élasticités), soit 60~\% de ce qu'atteindrait
 le barème le plus efficace sans contrainte de répartition (8,1~Md€). Ce n'est pas un effet sur la croissance. Il
 vient pour 2,3~Md€ de la décision de travailler, grâce à la franchise, et pour 2,6~Md€ des heures et de l'effort des
 actifs déjà en emploi : 2,9~Md€ gagnés au-dessus de la médiane, où les taux marginaux baissent, dont 2,2~Md€ dans le
-dixième le plus aisé, et 0,25~Md€ perdus en dessous, où ils montent. Pour le dixième le plus aisé, l'élasticité retenue (0,10) n'est séparée de la
-réaction purement déclarative par aucune mesure : c'est la part la moins assurée du gain. La moindre optimisation des hauts revenus pourrait rapporter 3~Md€
+dixième le plus aisé, et 0,25~Md€ perdus en dessous, où ils montent. Pour le dixième le plus aisé, aucune étude ne sépare la
+réaction réelle (0,10 retenu) de la simple optimisation des déclarations : c'est la part la moins assurée du gain. La moindre optimisation des hauts revenus pourrait rapporter 3~Md€
 de recettes de plus (1,5 à 4,5), qui ne financent rien et ne sont pas comptées dans le gain. Avec des élasticités de
 long terme plus fortes sur les heures et la carrière (de 0,10 à 0,25) et plus faibles sur la participation (0,10),
 le gain monte à 7,3~Md€.
@@ -331,8 +340,8 @@ elle que la note retient.
 
 Le passage peut se faire sans dette ni trou de recette. Chaque année, chaque foyer paierait une part croissante du
 nouvel impôt et décroissante de l'ancien ; gagnants et perdants avançant au même rythme, la recette reste constante.
-Sur cinq ans, la hausse annuelle reste modérée pour la plupart des perdants (tableau~\ref{tab:ircsg_trans},
-figure~\ref{fig:ircsg_transition}) : 270~€ par an pour un retraité seul à 20\,000~€, 250~€ pour le retraité médian,
+Sur cinq ans, la hausse annuelle reste modérée pour la plupart des perdants (figure~\ref{fig:ircsg_transition} ;
+détail au tableau~\ref{tab:ircsg_trans} de l'annexe) : 270~€ par an pour un retraité seul à 20\,000~€, 250~€ pour le retraité médian,
 680~€ au 90\textsuperscript{e} centile des retraités et 1\,100~€ au 90\textsuperscript{e} centile des couples de
 retraités. Trois ans les augmentent des deux tiers ; dix ans les divisent par deux mais exposent la réforme à
 dix budgets successifs. Les centiles viennent de foyers représentatifs : la dispersion réelle des hausses est plus
@@ -343,8 +352,6 @@ vers la fin de la transition, comme le calendrier des dividendes s'est ajusté a
 le haut du barème dès la première année limite cet effet.
 
 \figbloc{ircsg_n16_transition}{Sur cinq ans, la hausse reste sous 400~€ par an pour un retraité seul à 25\,000~€}{fig:ircsg_transition}
-
-\input{parties/tab_ircsg_trans}
 
 Pour les retraités actuels, la hausse n'est pas un flux mais une perte de patrimoine. 20,8~Md€ par an, soit 5,1~\% de
 leurs pensions, valent environ 245~Md€ en valeur actualisée (224 à 268~Md€ pour un taux réel de 3 à 1~\%), et
@@ -360,13 +367,16 @@ une cotisation et la pension étant faible pour beaucoup de salariés, la vérit
 La collecte ne change presque pas : employeurs, caisses de retraite et France Travail prélèvent déjà à la source
 l'impôt sur le revenu et la CSG sur les mêmes revenus, et le taux individualisé est la règle par défaut du prélèvement
 à la source depuis le 1\textsuperscript{er} septembre 2025 (loi de finances pour 2024, art.~19). La transition demande
-en revanche de calculer deux impôts en parallèle pendant cinq ans. Deux engagements doivent être écrits dans la loi
-qui crée l'impôt. Le premier porte sur l'affectation : l'IR va à l'État, la CSG à la Sécurité sociale, la CRDS à la
+en revanche de calculer deux impôts en parallèle pendant cinq ans.
+
+Deux engagements doivent être écrits dans la loi qui crée l'impôt. Le premier porte sur l'affectation : l'IR va à l'État, la CSG à la Sécurité sociale, la CRDS à la
 CADES ; l'impôt fusionné doit être partagé selon des fractions fixes, faute de quoi le financement de la protection
 sociale dépendrait chaque année de la loi de finances. Le second porte sur la CRDS : elle s'éteint avec la CADES fin
 2033 (loi organique du 7 août 2020). Garder la recette fusionnée au-delà, c'est rendre permanents 7,4~Md€ de
 prélèvement ; il faut donc soit baisser tous les taux de 0,75 point en 2034, soit dire explicitement que l'impôt
-fusionné reprend le financement de la dette sociale, ce que la dette de l'ACOSS rend probable. Sur la constitutionnalité, le texte devra justifier l'impôt individuel par un objectif
+fusionné reprend le financement de la dette sociale, ce que la dette de l'ACOSS (la trésorerie de la Sécurité sociale) rend probable.
+
+Sur la constitutionnalité, le texte devra justifier l'impôt individuel par un objectif
 d'intérêt général explicite, l'emploi du second apporteur de revenu, et prévoir le repli décrit plus haut (imposition
 commune) si le Conseil constitutionnel s'en tient à sa décision de 2012. Reste le droit
 européen : la Cour de justice a jugé en 2000 que la CSG et la CRDS ne pouvaient pas frapper les revenus d'activité de
