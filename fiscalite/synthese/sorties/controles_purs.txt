@@ -1,9 +1,9 @@
 Contrôles du modèle à foyers purs (synthese/modele_purs.py, perte_seche_ircsg_purs.py)
 
 1. Construction
-Calage : charge actuelle des foyers purs 220.09 Md€ ; cible (IR + CSG + CRDS du modèle) 220.09 Md€ ; écart -0.000
+Calage : charge actuelle des foyers purs 220.09 Md€ ; cible (IR + CSG + CRDS du modèle) 220.09 Md€ ; écart +0.000
 Masses : pensions nettes 406.4 Md€ (tranches : 406.4) ; revenus nets des actifs 1075.1 (tranches : 1075.1) ; revenu brut total 1597.9 (modèle : 1597.9) ; revenu du travail qui réagit 1117.7 (modèle : 1117.7)
-Perte sèche quadratique d'aujourd'hui : 18.14 Md€ (modèle d'origine : 18.14)
+Perte sèche quadratique d'aujourd'hui : 18.84 Md€ (modèle d'origine : 18.14)
 Foyers de retraités 14.49 M (IRCOM, foyers déclarant des pensions : 14.22 M ; cases 1AS : 13,15 M) ; foyers d'actifs 27.14 M (IRCOM, foyers déclarant des salaires : 26.43 M)
 Couples de retraités 3.75 M (cases 1BS, pension du déclarant 2 : 4,32 M) ; couples d'actifs 9.30 M ; couples au total 13.05 M (2042 : 13,05 M)
 Part des foyers de retraités par tranche : masse des pensions (modèle) et foyers déclarant des pensions (IRCOM ; un foyer qui a les deux est compté deux fois) :
@@ -20,19 +20,19 @@ Part des foyers de retraités par tranche : masse des pensions (modèle) et foye
 300 001 à 400 000       0.1                8.2                   24.5                   82.6                       0.0
 Parents isolés 1.965 M (cases 0BT : 1,965 M ; modèle d'origine : 4.00 M) ; couples avec deux enfants 8.02 M, soit 86 % des couples d'actifs ; enfants 18.00 M (cible 18,0)
 Quotient familial des enfants : 13.36 Md€ (couples 11.20, parents isolés 2.16) ; avec le RFR du foyer représentatif (capital au PFU compris) : 14.34 ; vérification : 12,9 (9,7 + 3,3) ; modèle d'origine : 13.9 ; chèque 742 € par enfant
-Charge actuelle des retraités 45.1 Md€ (11.1 % de leurs pensions) ; des actifs 175.0 Md€ (16.3 % de leur revenu net)
+Charge actuelle des retraités 47.6 Md€ (11.7 % de leurs pensions) ; des actifs 172.4 Md€ (16.0 % de leur revenu net)
    repère, pensions dans le modèle d'origine (par_type) : CSG 25.8 + CRDS 1.6 + IR au prorata de l'assiette 13.7 = 41.1 Md€ (vérification : environ 41)
    OpenFisca, revenu net 20 k€ : charge d'un retraité seul 4.3 %, d'un actif seul 10.7 % (rapport 0.40)
    OpenFisca, revenu net 30 k€ : charge d'un retraité seul 11.0 %, d'un actif seul 15.0 % (rapport 0.74)
    OpenFisca, revenu net 50 k€ : charge d'un retraité seul 20.7 %, d'un actif seul 22.0 % (rapport 0.94)
    OpenFisca, revenu net 100 k€ : charge d'un retraité seul 29.5 %, d'un actif seul 28.8 % (rapport 1.02)
-   sensibilité : couple de retraités évalué au revenu / 1,5 au lieu de la moitié : charge des retraités 47.1 Md€
+   contrôle : avec l'ancienne approximation du couple de retraités, charge des retraités 45.1 Md€ ; taux d'un couple de retraités à 30/40/50/80 k€ de pension : OpenFisca 5.7 / 8.0 / 12.1 / 18.3 % ; ancienne approximation 0.0 / 4.5 / 9.5 / 17.1 %
    sensibilité : en gardant 4.0 M de personnes seules avec un enfant, dont 1,97 M avec la case T et les autres à 1,5 part (représentation de la vérification), le quotient familial vaut 13.2 Md€
 
 2. Recette et répartition
 Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k€, franchise d'activité 8 000 €, 6 000 € par enfant) appliqué tel quel aux foyers purs : recette 241.6 Md€ au lieu de 220.1 (vérification, foyers spécialisés : 243,3)
-   à ce barème, les retraités paient +39.4 Md€ de plus (vérification : au moins +28 contre le prorata du modèle d'origine) et les actifs -17.9
-   recalé sur la recette (+0.00 point pour tous dans la grille de référence) : retraités +7.8 Md€, actifs -7.8 Md€ (sorties actuelles : pensions +13,6, chômage +3,0, salaires −13,4, indépendants −3,2)
+   à ce barème, les retraités paient +36.8 Md€ de plus (vérification : au moins +28 contre le prorata du modèle d'origine) et les actifs -15.3
+   recalé sur la recette (+0.00 point pour tous dans la grille de référence) : retraités +5.2 Md€, actifs -5.2 Md€ (sorties actuelles : pensions +13,6, chômage +3,0, salaires −13,4, indépendants −3,2)
 À barème inchangé, la franchise d'activité de 8 000 € allège l'impôt des retraités de 0.00 Md€ (modèle d'origine : les retraités en profitaient)
    Référence : assiette large, même barème pour tous : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
    Franchise d'activité 4 000 € : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
@@ -79,7 +79,7 @@ Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k�
 Points à signaler (contrôles automatiques) :
    - hausse des retraités sous la borne de +28 Md€ de la vérification (ancienne proposition)
    - à signaler, non absurde : coût marginal central 1.11, sous la fourchette de Kleven et Kreiner (1,21 à 1,72) ; voir le § 3
-   - à signaler : charge actuelle des retraités 45.1 Md€ contre 41,1 au prorata (§ 1 : à revenu net égal, un retraité sans enfant paie presque autant qu'un actif sans enfant au-delà de 40 000 €, et les enfants sont tous chez les actifs)
+   - à signaler : charge actuelle des retraités 47.6 Md€ contre 41,1 au prorata (§ 1 : à revenu net égal, un retraité sans enfant paie presque autant qu'un actif sans enfant au-delà de 40 000 €, et les enfants sont tous chez les actifs)
    - à signaler : quotient familial des enfants 13.4 Md€ contre 12,9 dans la vérification (§ 1 : les enfants ne sont plus que chez les actifs, donc moins dans les tranches basses où les retraités sont nombreux ; 14,3 avec le RFR du foyer représentatif, 13,4 avec un RFR sans le capital au PFU ; 13,2 avec la représentation des parents de la vérification)
    - à signaler : tranche 0 à 10 000 : 3.8 M de foyers de retraités dans le modèle (masse des pensions) contre 2.0 M de foyers déclarant des pensions dans l'IRCOM ; 3.0 M de foyers n'y déclarent ni salaire ni pension. Effet faible sur les montants (revenus très bas)
    - à signaler : barème de référence au bord de la grille (z2)

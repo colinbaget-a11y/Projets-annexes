@@ -1,8 +1,8 @@
 Méthode v2 : perte sèche sur l'activité réelle, variation par rapport à aujourd'hui (Md€ par an ; négatif = gain) ; jeux bas / central / haut (modele_purs.V2) ; recette 220,1 Md€ dans tous les cas.
 Élasticités : {"bas": {"reel": [0.02, 0.05, 0.05, 0.05], "decl": [0.1, 0.15], "eta": 0.1}, "central": {"reel": [0.05, 0.1, 0.1, 0.1], "decl": [0.2, 0.3], "eta": 0.25}, "haut": {"reel": [0.1, 0.2, 0.25, 0.25], "decl": [0.3, 0.45], "eta": 0.5}} ; déplacement s = 0.5 vers 0.486
 
-[NEUTRE] barème qui s'écarte le moins de la charge d'aujourd'hui : 2 % au premier euro, 14 % à 20 k€, 23.0 % à 30 k€, 50 % à 250 k€ (écart moyen 1052 € par foyer ; 622 barèmes essayés)
-[NEUTRE] suivants : 2 % au premier euro, 14 % à 20 k€, 27.1 % à 40 k€, 50 % à 400 k€ : 1054 € | 4 % au premier euro, 12 % à 20 k€, 23.2 % à 30 k€, 50 % à 250 k€ : 1055 € | 2 % au premier euro, 14 % à 20 k€, 21.5 % à 25 k€, 50 % à 250 k€ : 1055 € | 4 % au premier euro, 12 % à 20 k€, 21.5 % à 25 k€, 50 % à 250 k€ : 1055 €
+[NEUTRE] barème qui s'écarte le moins de la charge d'aujourd'hui : 2 % au premier euro, 14 % à 20 k€, 23.0 % à 30 k€, 50 % à 250 k€ (écart moyen 967 € par foyer ; 622 barèmes essayés)
+[NEUTRE] suivants : 4 % au premier euro, 12 % à 20 k€, 23.2 % à 30 k€, 50 % à 250 k€ : 969 € | 4 % au premier euro, 12 % à 20 k€, 21.5 % à 25 k€, 50 % à 250 k€ : 969 € | 2 % au premier euro, 14 % à 20 k€, 21.5 % à 25 k€, 50 % à 250 k€ : 969 € | 4 % au premier euro, 12 % à 20 k€, 24.5 % à 30 k€, 50 % à 400 k€ : 970 €
 [OPTIMUM] barème qui minimise la perte sèche réelle (jeu central) : 14 % au premier euro, 14 % à 20 k€, 16.1 % à 45 k€, 50 % à 2000 k€ (-7.75 Md€)
 [OPTIMUM] suivants : 14 % au premier euro, 14 % à 20 k€, 16.8 % à 60 k€, 50 % à 2000 k€ : -7.73 | 14 % au premier euro, 14 % à 20 k€, 15.4 % à 30 k€, 50 % à 2000 k€ : -7.72 | 14 % au premier euro, 14 % à 20 k€, 15.5 % à 45 k€, 50 % à 1000 k€ : -7.71 | 14 % au premier euro, 14 % à 20 k€, 18.2 % à 90 k€, 50 % à 2000 k€ : -7.71
 
@@ -10,100 +10,100 @@ Méthode v2 : perte sèche sur l'activité réelle, variation par rapport à auj
 [OPTIMUM franchise 8000 €] 16 % au premier euro, 18 % à 20 k€, 18.9 % à 30 k€, 50 % à 2000 k€ (-8.00 Md€)
 [ATTEIGNABLE] franchise 4000 € : bas -4.04 / central -8.15 / haut -19.06 Md€ (barème optimisé pour le jeu central, évalué avec chaque jeu)
 [Barème neutre : assiette large, même barème pour tous, impôt individuel] points pour tous +0.00 ; perte sèche réelle -4.4 Md€ (basse -2.1, haute -10.1) dont intensive -2.6 [moitié du bas +0.3, 50-90 -0.4, 90-99 -1.8, 1 % -0.7], extensive -1.8 ; part de l'optimum 51 % / 54 % / 53 %
-    revenu déclaré : recette +3.3 Md€ (+1.6 à +4.9) ; écart moyen à aujourd'hui 1052 € par foyer ; perdants > 500 € 25 %
+    revenu déclaré : recette +3.3 Md€ (+1.6 à +4.9) ; écart moyen à aujourd'hui 967 € par foyer ; perdants > 500 € 23 %
     déciles € -34 -13 +164 +121 -370 -235 -333 +111 -1 +578 ; 1 % du haut +0.3 Md€ ; 10 % du haut +2.5 Md€
-    Md€ : retraités +7.0 ; couples avec deux enfants +4.6 ; parents isolés +0.6 | € par foyer : seul actif -707 ; seul retraité +156 ; parent isolé +286 ; couple actif sans enfant -669 ; couple retraité +1,406 ; couple avec deux enfants +570
+    Md€ : retraités +4.4 ; couples avec deux enfants +5.4 ; parents isolés +0.7 | € par foyer : seul actif -618 ; seul retraité +215 ; parent isolé +351 ; couple actif sans enfant -546 ; couple retraité +549 ; couple avec deux enfants +679
     cas-types : retraité seul 17 000 € +1,207 € ; salarié seul au Smic (21 500 € brut) -577 € ; couple avec deux enfants 50 000 € -745 €
 [Neutre + quotient conjugal et familial] points pour tous +2.03 ; perte sèche réelle -4.3 Md€ (basse -2.1, haute -9.9) dont intensive -3.3 [moitié du bas +0.4, 50-90 -1.0, 90-99 -1.8, 1 % -0.8], extensive -0.9 ; part de l'optimum 51 % / 52 % / 52 %
-    revenu déclaré : recette +3.6 Md€ (+1.8 à +5.3) ; écart moyen à aujourd'hui 909 € par foyer ; perdants > 500 € 28 %
+    revenu déclaré : recette +3.6 Md€ (+1.8 à +5.3) ; écart moyen à aujourd'hui 829 € par foyer ; perdants > 500 € 30 %
     déciles € +4 +132 +437 +439 -41 +101 -102 +203 -438 -709 ; 1 % du haut -1.1 Md€ ; 10 % du haut -3.0 Md€
-    Md€ : retraités +12.1 ; couples avec deux enfants -7.7 ; parents isolés -1.0 | € par foyer : seul actif -176 ; seul retraité +578 ; parent isolé -484 ; couple actif sans enfant -496 ; couple retraité +1,574 ; couple avec deux enfants -965
+    Md€ : retraités +9.5 ; couples avec deux enfants -6.9 ; parents isolés -0.8 | € par foyer : seul actif -86 ; seul retraité +637 ; parent isolé -419 ; couple actif sans enfant -373 ; couple retraité +717 ; couple avec deux enfants -856
     cas-types : retraité seul 17 000 € +1,551 € ; salarié seul au Smic (21 500 € brut) -191 € ; couple avec deux enfants 50 000 € -1,014 €
 [Neutre + franchise de 6 000 € par enfant] points pour tous +1.52 ; perte sèche réelle -4.0 Md€ (basse -1.9, haute -9.3) dont intensive -2.6 [moitié du bas +0.4, 50-90 -0.5, 90-99 -1.7, 1 % -0.7], extensive -1.4 ; part de l'optimum 47 % / 49 % / 49 %
-    revenu déclaré : recette +3.2 Md€ (+1.6 à +4.8) ; écart moyen à aujourd'hui 1074 € par foyer ; perdants > 500 € 27 %
+    revenu déclaré : recette +3.2 Md€ (+1.6 à +4.8) ; écart moyen à aujourd'hui 988 € par foyer ; perdants > 500 € 28 %
     déciles € -10 +77 +319 +266 -248 -110 -290 +122 -271 +148 ; 1 % du haut -0.0 Md€ ; 10 % du haut +0.6 Md€
-    Md€ : retraités +13.0 ; couples avec deux enfants -7.9 ; parents isolés -0.5 | € par foyer : seul actif -307 ; seul retraité +474 ; parent isolé -274 ; couple actif sans enfant +221 ; couple retraité +2,113 ; couple avec deux enfants -983
+    Md€ : retraités +10.4 ; couples avec deux enfants -7.0 ; parents isolés -0.4 | € par foyer : seul actif -218 ; seul retraité +532 ; parent isolé -209 ; couple actif sans enfant +344 ; couple retraité +1,257 ; couple avec deux enfants -874
     cas-types : retraité seul 17 000 € +1,466 € ; salarié seul au Smic (21 500 € brut) -286 € ; couple avec deux enfants 50 000 € -2,041 €
 [Neutre + chèque par enfant] points pour tous +0.95 ; perte sèche réelle -3.5 Md€ (basse -1.6, haute -8.2) dont intensive -2.1 [moitié du bas +0.4, 50-90 -0.1, 90-99 -1.7, 1 % -0.7], extensive -1.4 ; part de l'optimum 41 % / 43 % / 43 %
-    revenu déclaré : recette +3.1 Md€ (+1.6 à +4.7) ; écart moyen à aujourd'hui 1100 € par foyer ; perdants > 500 € 26 %
+    revenu déclaré : recette +3.1 Md€ (+1.6 à +4.7) ; écart moyen à aujourd'hui 1012 € par foyer ; perdants > 500 € 27 %
     déciles € -69 +2 +181 +101 -412 -248 -370 +118 -38 +718 ; 1 % du haut +0.5 Md€ ; 10 % du haut +3.1 Md€
-    Md€ : retraités +10.7 ; couples avec deux enfants -2.9 ; parents isolés -0.4 | € par foyer : seul actif -458 ; seul retraité +354 ; parent isolé -208 ; couple actif sans enfant -115 ; couple retraité +1,846 ; couple avec deux enfants -361
+    Md€ : retraités +8.1 ; couples avec deux enfants -2.0 ; parents isolés -0.3 | € par foyer : seul actif -369 ; seul retraité +413 ; parent isolé -143 ; couple actif sans enfant +8 ; couple retraité +989 ; couple avec deux enfants -251
     cas-types : retraité seul 17 000 € +1,368 € ; salarié seul au Smic (21 500 € brut) -396 € ; couple avec deux enfants 50 000 € -1,809 €
 [Neutre + abattement de 10 % sur les pensions] points pour tous +0.60 ; perte sèche réelle -3.8 Md€ (basse -1.8, haute -8.9) dont intensive -2.3 [moitié du bas +0.3, 50-90 -0.2, 90-99 -1.7, 1 % -0.7], extensive -1.5 ; part de l'optimum 44 % / 47 % / 47 %
-    revenu déclaré : recette +3.2 Md€ (+1.6 à +4.8) ; écart moyen à aujourd'hui 1049 € par foyer ; perdants > 500 € 24 %
+    revenu déclaré : recette +3.2 Md€ (+1.6 à +4.8) ; écart moyen à aujourd'hui 977 € par foyer ; perdants > 500 € 22 %
     déciles € -27 +6 +183 +158 -347 -239 -371 +30 -34 +625 ; 1 % du haut +0.4 Md€ ; 10 % du haut +2.7 Md€
-    Md€ : retraités +0.9 ; couples avec deux enfants +7.4 ; parents isolés +0.9 | € par foyer : seul actif -549 ; seul retraité -151 ; parent isolé +444 ; couple actif sans enfant -316 ; couple retraité +660 ; couple avec deux enfants +923
+    Md€ : retraités -1.7 ; couples avec deux enfants +8.3 ; parents isolés +1.0 | € par foyer : seul actif -459 ; seul retraité -93 ; parent isolé +509 ; couple actif sans enfant -194 ; couple retraité -197 ; couple avec deux enfants +1,032
     cas-types : retraité seul 17 000 € +1,101 € ; salarié seul au Smic (21 500 € brut) -462 € ; couple avec deux enfants 50 000 € -477 €
 [Neutre + petites pensions exonérées (jusqu'à 12 500 €, dégressif jusqu'à 25 000 €)] points pour tous +0.37 ; perte sèche réelle -4.1 Md€ (basse -1.9, haute -9.4) dont intensive -2.4 [moitié du bas +0.3, 50-90 -0.3, 90-99 -1.7, 1 % -0.7], extensive -1.7 ; part de l'optimum 47 % / 50 % / 49 %
-    revenu déclaré : recette +3.2 Md€ (+1.6 à +4.8) ; écart moyen à aujourd'hui 927 € par foyer ; perdants > 500 € 16 %
+    revenu déclaré : recette +3.2 Md€ (+1.6 à +4.8) ; écart moyen à aujourd'hui 883 € par foyer ; perdants > 500 € 15 %
     déciles € -56 -156 -134 -14 -402 -220 -317 +181 +167 +930 ; 1 % du haut +0.6 Md€ ; 10 % du haut +4.0 Md€
-    Md€ : retraités +3.2 ; couples avec deux enfants +6.3 ; parents isolés +0.8 | € par foyer : seul actif -610 ; seul retraité -36 ; parent isolé +383 ; couple actif sans enfant -453 ; couple retraité +960 ; couple avec deux enfants +786
+    Md€ : retraités +0.6 ; couples avec deux enfants +7.2 ; parents isolés +0.9 | € par foyer : seul actif -521 ; seul retraité +23 ; parent isolé +448 ; couple actif sans enfant -330 ; couple retraité +103 ; couple avec deux enfants +895
     cas-types : retraité seul 17 000 € +456 € ; salarié seul au Smic (21 500 € brut) -506 € ; couple avec deux enfants 50 000 € -581 €
 [Neutre + franchise d'activité 4 000 €] points pour tous +1.76 ; perte sèche réelle -4.9 Md€ (basse -2.3, haute -11.1) dont intensive -2.6 [moitié du bas +0.2, 50-90 -0.4, 90-99 -1.7, 1 % -0.7], extensive -2.4 ; part de l'optimum 56 % / 61 % / 58 %
-    revenu déclaré : recette +3.1 Md€ (+1.6 à +4.7) ; écart moyen à aujourd'hui 1257 € par foyer ; perdants > 500 € 30 %
+    revenu déclaré : recette +3.1 Md€ (+1.6 à +4.7) ; écart moyen à aujourd'hui 1159 € par foyer ; perdants > 500 € 31 %
     déciles € -45 -30 +163 +62 -440 -329 -391 +137 +13 +841 ; 1 % du haut +0.6 Md€ ; 10 % du haut +3.6 Md€
-    Md€ : retraités +14.0 ; couples avec deux enfants +1.7 ; parents isolés +0.2 | € par foyer : seul actif -916 ; seul retraité +523 ; parent isolé +77 ; couple actif sans enfant -1,022 ; couple retraité +2,223 ; couple avec deux enfants +217
+    Md€ : retraités +11.4 ; couples avec deux enfants +2.6 ; parents isolés +0.3 | € par foyer : seul actif -826 ; seul retraité +582 ; parent isolé +142 ; couple actif sans enfant -899 ; couple retraité +1,367 ; couple avec deux enfants +326
     cas-types : retraité seul 17 000 € +1,506 € ; salarié seul au Smic (21 500 € brut) -801 € ; couple avec deux enfants 50 000 € -1,288 €
 [Neutre + franchise d'activité 8 000 €] points pour tous +3.64 ; perte sèche réelle -5.4 Md€ (basse -2.4, haute -11.9) dont intensive -2.5 [moitié du bas +0.2, 50-90 -0.5, 90-99 -1.5, 1 % -0.7], extensive -2.9 ; part de l'optimum 60 % / 66 % / 62 %
-    revenu déclaré : recette +2.9 Md€ (+1.5 à +4.4) ; écart moyen à aujourd'hui 1538 € par foyer ; perdants > 500 € 33 %
+    revenu déclaré : recette +2.9 Md€ (+1.5 à +4.4) ; écart moyen à aujourd'hui 1440 € par foyer ; perdants > 500 € 34 %
     déciles € -27 -26 +153 -9 -506 -405 -461 +148 +10 +1101 ; 1 % du haut +1.0 Md€ ; 10 % du haut +4.7 Md€
-    Md€ : retraités +21.4 ; couples avec deux enfants -1.4 ; parents isolés -0.3 | € par foyer : seul actif -1,133 ; seul retraité +915 ; parent isolé -139 ; couple actif sans enfant -1,411 ; couple retraité +3,096 ; couple avec deux enfants -172
+    Md€ : retraités +18.9 ; couples avec deux enfants -0.5 ; parents isolés -0.1 | € par foyer : seul actif -1,043 ; seul retraité +974 ; parent isolé -75 ; couple actif sans enfant -1,288 ; couple retraité +2,240 ; couple avec deux enfants -62
     cas-types : retraité seul 17 000 € +1,826 € ; salarié seul au Smic (21 500 € brut) -1,057 € ; couple avec deux enfants 50 000 € -1,843 €
 [Neutre + franchise de 8 000 € sur tous les revenus] points pour tous +5.76 ; perte sèche réelle -3.7 Md€ (basse -1.6, haute -8.3) dont intensive -1.3 [moitié du bas +0.3, 50-90 +0.2, 90-99 -1.1, 1 % -0.6], extensive -2.4 ; part de l'optimum 41 % / 45 % / 43 %
-    revenu déclaré : recette +2.4 Md€ (+1.2 à +3.7) ; écart moyen à aujourd'hui 1111 € par foyer ; perdants > 500 € 21 %
+    revenu déclaré : recette +2.4 Md€ (+1.2 à +3.7) ; écart moyen à aujourd'hui 1038 € par foyer ; perdants > 500 € 19 %
     déciles € -87 -276 -143 -167 -672 -573 -659 +24 +231 +2271 ; 1 % du haut +2.3 Md€ ; 10 % du haut +9.6 Md€
-    Md€ : retraités +5.4 ; couples avec deux enfants +6.2 ; parents isolés +0.5 | € par foyer : seul actif -725 ; seul retraité +56 ; parent isolé +268 ; couple actif sans enfant -464 ; couple retraité +1,266 ; couple avec deux enfants +775
+    Md€ : retraités +2.8 ; couples avec deux enfants +7.1 ; parents isolés +0.7 | € par foyer : seul actif -635 ; seul retraité +115 ; parent isolé +333 ; couple actif sans enfant -341 ; couple retraité +410 ; couple avec deux enfants +885
     cas-types : retraité seul 17 000 € +941 € ; salarié seul au Smic (21 500 € brut) -823 € ; couple avec deux enfants 50 000 € -1,243 €
 [Neutre + franchise d'activité 4 000 € + 6 000 € par enfant + petites pensions] points pour tous +4.09 ; perte sèche réelle -4.0 Md€ (basse -1.8, haute -9.0) dont intensive -2.1 [moitié du bas +0.3, 50-90 -0.3, 90-99 -1.4, 1 % -0.7], extensive -1.9 ; part de l'optimum 46 % / 49 % / 47 %
-    revenu déclaré : recette +2.8 Md€ (+1.4 à +4.3) ; écart moyen à aujourd'hui 1164 € par foyer ; perdants > 500 € 26 %
+    revenu déclaré : recette +2.8 Md€ (+1.4 à +4.3) ; écart moyen à aujourd'hui 1091 € par foyer ; perdants > 500 € 25 %
     déciles € -85 -223 -129 +17 -369 -182 -311 +281 +4 +981 ; 1 % du haut +0.8 Md€ ; 10 % du haut +4.2 Md€
-    Md€ : retraités +15.4 ; couples avec deux enfants -8.7 ; parents isolés -0.7 | € par foyer : seul actif -390 ; seul retraité +602 ; parent isolé -352 ; couple actif sans enfant +174 ; couple retraité +2,382 ; couple avec deux enfants -1,089
+    Md€ : retraités +12.8 ; couples avec deux enfants -7.9 ; parents isolés -0.6 | € par foyer : seul actif -301 ; seul retraité +660 ; parent isolé -287 ; couple actif sans enfant +297 ; couple retraité +1,525 ; couple avec deux enfants -980
     cas-types : retraité seul 17 000 € +791 € ; salarié seul au Smic (21 500 € brut) -451 € ; couple avec deux enfants 50 000 € -2,380 €
 [Neutre + franchise d'activité 8 000 € + 6 000 € par enfant + petites pensions] points pour tous +6.33 ; perte sèche réelle -4.3 Md€ (basse -1.9, haute -9.5) dont intensive -1.8 [moitié du bas +0.3, 50-90 -0.3, 90-99 -1.2, 1 % -0.6], extensive -2.5 ; part de l'optimum 48 % / 53 % / 50 %
-    revenu déclaré : recette +2.5 Md€ (+1.3 à +3.8) ; écart moyen à aujourd'hui 1482 € par foyer ; perdants > 500 € 27 %
+    revenu déclaré : recette +2.5 Md€ (+1.3 à +3.8) ; écart moyen à aujourd'hui 1396 € par foyer ; perdants > 500 € 27 %
     déciles € -84 -305 -236 -92 -446 -254 -371 +326 +59 +1379 ; 1 % du haut +1.4 Md€ ; 10 % du haut +5.9 Md€
-    Md€ : retraités +22.7 ; couples avec deux enfants -11.7 ; parents isolés -1.1 | € par foyer : seul actif -613 ; seul retraité +986 ; parent isolé -558 ; couple actif sans enfant -206 ; couple retraité +3,240 ; couple avec deux enfants -1,455
+    Md€ : retraités +20.2 ; couples avec deux enfants -10.8 ; parents isolés -1.0 | € par foyer : seul actif -523 ; seul retraité +1,045 ; parent isolé -493 ; couple actif sans enfant -84 ; couple retraité +2,383 ; couple avec deux enfants -1,345
     cas-types : retraité seul 17 000 € +993 € ; salarié seul au Smic (21 500 € brut) -760 € ; couple avec deux enfants 50 000 € -2,988 €
 
 [Gain atteignable : optimum avec franchise d'activité de 4000 €] perte sèche réelle -8.1 Md€ (basse -4.0, haute -19.1) dont intensive -7.5 [moitié du bas +0.3, 50-90 -2.3, 90-99 -3.7, 1 % -1.9], extensive -0.6 ; part de l'optimum 100 % / 100 % / 100 %
-    revenu déclaré : recette +6.7 Md€ (+3.3 à +10.0) ; écart moyen à aujourd'hui 1828 € par foyer ; perdants > 500 € 49 %
+    revenu déclaré : recette +6.7 Md€ (+3.3 à +10.0) ; écart moyen à aujourd'hui 1756 € par foyer ; perdants > 500 € 49 %
     déciles € +64 +508 +1240 +1301 +875 +919 +669 +695 -230 -5902 ; 1 % du haut -12.9 Md€ ; 10 % du haut -25.1 Md€
-    Md€ : retraités +20.3 ; couples avec deux enfants -7.0 ; parents isolés +0.6 | € par foyer : seul actif -705 ; seul retraité +932 ; parent isolé +288 ; couple actif sans enfant -2,108 ; couple retraité +2,741 ; couple avec deux enfants -869
+    Md€ : retraités +17.7 ; couples avec deux enfants -6.1 ; parents isolés +0.7 | € par foyer : seul actif -616 ; seul retraité +991 ; parent isolé +353 ; couple actif sans enfant -1,985 ; couple retraité +1,885 ; couple avec deux enfants -759
     cas-types : retraité seul 17 000 € +2,720 € ; salarié seul au Smic (21 500 € brut) +362 € ; couple avec deux enfants 50 000 € +1,050 €
 [Optimum d'efficacité (pour mémoire)] perte sèche réelle -7.7 Md€ (basse -3.9, haute -18.3) dont intensive -7.9 [moitié du bas +0.2, 50-90 -2.5, 90-99 -3.7, 1 % -1.9], extensive +0.1 ; part de l'optimum 97 % / 95 % / 96 %
-    revenu déclaré : recette +6.7 Md€ (+3.4 à +10.1) ; écart moyen à aujourd'hui 1848 € par foyer ; perdants > 500 € 58 %
+    revenu déclaré : recette +6.7 Md€ (+3.4 à +10.1) ; écart moyen à aujourd'hui 1798 € par foyer ; perdants > 500 € 57 %
     déciles € +179 +698 +1327 +1401 +924 +902 +591 +544 -374 -6050 ; 1 % du haut -13.0 Md€ ; 10 % du haut -25.7 Md€
-    Md€ : retraités +13.7 ; couples avec deux enfants -4.2 ; parents isolés +0.9 | € par foyer : seul actif -518 ; seul retraité +581 ; parent isolé +476 ; couple actif sans enfant -1,758 ; couple retraité +1,987 ; couple avec deux enfants -519
+    Md€ : retraités +11.1 ; couples avec deux enfants -3.3 ; parents isolés +1.1 | € par foyer : seul actif -428 ; seul retraité +640 ; parent isolé +540 ; couple actif sans enfant -1,636 ; couple retraité +1,131 ; couple avec deux enfants -410
     cas-types : retraité seul 17 000 € +2,380 € ; salarié seul au Smic (21 500 € brut) +621 € ; couple avec deux enfants 50 000 € +1,462 €
 [Optimum + franchise d'activité 8 000 € + 6 000 € par enfant + petites pensions] points pour tous +5.98 ; perte sèche réelle -6.2 Md€ (basse -3.0, haute -14.7) dont intensive -5.1 [moitié du bas +0.5, 50-90 -1.1, 90-99 -2.9, 1 % -1.7], extensive -1.1 ; part de l'optimum 75 % / 76 % / 77 %
-    revenu déclaré : recette +5.8 Md€ (+2.9 à +8.8) ; écart moyen à aujourd'hui 1531 € par foyer ; perdants > 500 € 33 %
+    revenu déclaré : recette +5.8 Md€ (+2.9 à +8.8) ; écart moyen à aujourd'hui 1461 € par foyer ; perdants > 500 € 35 %
     déciles € -80 -258 +294 +743 +451 +644 +425 +837 +224 -3196 ; 1 % du haut -8.9 Md€ ; 10 % du haut -13.6 Md€
-    Md€ : retraités +23.9 ; couples avec deux enfants -16.1 ; parents isolés -0.7 | € par foyer : seul actif -373 ; seul retraité +1,110 ; parent isolé -336 ; couple actif sans enfant -986 ; couple retraité +3,202 ; couple avec deux enfants -2,008
+    Md€ : retraités +21.4 ; couples avec deux enfants -15.2 ; parents isolés -0.5 | € par foyer : seul actif -283 ; seul retraité +1,169 ; parent isolé -271 ; couple actif sans enfant -863 ; couple retraité +2,346 ; couple avec deux enfants -1,899
     cas-types : retraité seul 17 000 € +1,798 € ; salarié seul au Smic (21 500 € brut) +162 € ; couple avec deux enfants 50 000 € -1,500 €
 
-[CHEMIN λ=0.0] recette 220.1 ; perte sèche réelle -4.41 (-2.06 à -10.09) ; part de l'optimum 51 % / 54 % / 53 % ; écart moyen 1052 € ; perdants 25 % ; 10 % du haut +2.5 Md€ ; retraités +7.0 ; revenu déclaré +3.3
-[CHEMIN λ=0.1] recette 220.1 ; perte sèche réelle -4.88 (-2.30 à -11.21) ; part de l'optimum 57 % / 60 % / 59 % ; écart moyen 1057 € ; perdants 25 % ; 10 % du haut -0.4 Md€ ; retraités +7.6 ; revenu déclaré +3.8
-[CHEMIN λ=0.2] recette 220.1 ; perte sèche réelle -5.31 (-2.54 à -12.25) ; part de l'optimum 63 % / 65 % / 64 % ; écart moyen 1078 € ; perdants 26 % ; 10 % du haut -3.2 Md€ ; retraités +8.3 ; revenu déclaré +4.3
-[CHEMIN λ=0.3] recette 220.1 ; perte sèche réelle -5.71 (-2.75 à -13.23) ; part de l'optimum 68 % / 70 % / 69 % ; écart moyen 1119 € ; perdants 28 % ; 10 % du haut -6.0 Md€ ; retraités +9.0 ; revenu déclaré +4.7
-[CHEMIN λ=0.4] recette 220.1 ; perte sèche réelle -6.08 (-2.96 à -14.14) ; part de l'optimum 73 % / 75 % / 74 % ; écart moyen 1178 € ; perdants 32 % ; 10 % du haut -8.8 Md€ ; retraités +9.7 ; revenu déclaré +5.1
-[CHEMIN λ=0.5] recette 220.1 ; perte sèche réelle -6.43 (-3.15 à -14.98) ; part de l'optimum 78 % / 79 % / 79 % ; écart moyen 1262 € ; perdants 38 % ; 10 % du haut -11.6 Md€ ; retraités +10.3 ; revenu déclaré +5.4
-[CHEMIN λ=0.6] recette 220.1 ; perte sèche réelle -6.75 (-3.32 à -15.76) ; part de l'optimum 82 % / 83 % / 83 % ; écart moyen 1365 € ; perdants 42 % ; 10 % du haut -14.4 Md€ ; retraités +11.0 ; revenu déclaré +5.7
-[CHEMIN λ=0.7] recette 220.1 ; perte sèche réelle -7.03 (-3.49 à -16.48) ; part de l'optimum 86 % / 86 % / 86 % ; écart moyen 1479 € ; perdants 46 % ; 10 % du haut -17.3 Md€ ; retraités +11.7 ; revenu déclaré +6.0
-[CHEMIN λ=0.8] recette 220.1 ; perte sèche réelle -7.30 (-3.64 à -17.13) ; part de l'optimum 90 % / 90 % / 90 % ; écart moyen 1598 € ; perdants 50 % ; 10 % du haut -20.1 Md€ ; retraités +12.3 ; revenu déclaré +6.3
-[CHEMIN λ=0.9] recette 220.1 ; perte sèche réelle -7.53 (-3.78 à -17.73) ; part de l'optimum 93 % / 93 % / 93 % ; écart moyen 1720 € ; perdants 55 % ; 10 % du haut -22.9 Md€ ; retraités +13.0 ; revenu déclaré +6.5
-[CHEMIN λ=1.0] recette 220.1 ; perte sèche réelle -7.75 (-3.90 à -18.27) ; part de l'optimum 97 % / 95 % / 96 % ; écart moyen 1848 € ; perdants 58 % ; 10 % du haut -25.7 Md€ ; retraités +13.7 ; revenu déclaré +6.7
+[CHEMIN λ=0.0] recette 220.1 ; perte sèche réelle -4.41 (-2.06 à -10.09) ; part de l'optimum 51 % / 54 % / 53 % ; écart moyen 967 € ; perdants 23 % ; 10 % du haut +2.5 Md€ ; retraités +4.4 ; revenu déclaré +3.3
+[CHEMIN λ=0.1] recette 220.1 ; perte sèche réelle -4.88 (-2.30 à -11.21) ; part de l'optimum 57 % / 60 % / 59 % ; écart moyen 971 € ; perdants 25 % ; 10 % du haut -0.4 Md€ ; retraités +5.0 ; revenu déclaré +3.8
+[CHEMIN λ=0.2] recette 220.1 ; perte sèche réelle -5.31 (-2.54 à -12.25) ; part de l'optimum 63 % / 65 % / 64 % ; écart moyen 991 € ; perdants 27 % ; 10 % du haut -3.2 Md€ ; retraités +5.7 ; revenu déclaré +4.3
+[CHEMIN λ=0.3] recette 220.1 ; perte sèche réelle -5.71 (-2.75 à -13.23) ; part de l'optimum 68 % / 70 % / 69 % ; écart moyen 1032 € ; perdants 30 % ; 10 % du haut -6.0 Md€ ; retraités +6.4 ; revenu déclaré +4.7
+[CHEMIN λ=0.4] recette 220.1 ; perte sèche réelle -6.08 (-2.96 à -14.14) ; part de l'optimum 73 % / 75 % / 74 % ; écart moyen 1094 € ; perdants 35 % ; 10 % du haut -8.8 Md€ ; retraités +7.1 ; revenu déclaré +5.1
+[CHEMIN λ=0.5] recette 220.1 ; perte sèche réelle -6.43 (-3.15 à -14.98) ; part de l'optimum 78 % / 79 % / 79 % ; écart moyen 1181 € ; perdants 39 % ; 10 % du haut -11.6 Md€ ; retraités +7.7 ; revenu déclaré +5.4
+[CHEMIN λ=0.6] recette 220.1 ; perte sèche réelle -6.75 (-3.32 à -15.76) ; part de l'optimum 82 % / 83 % / 83 % ; écart moyen 1289 € ; perdants 43 % ; 10 % du haut -14.4 Md€ ; retraités +8.4 ; revenu déclaré +5.7
+[CHEMIN λ=0.7] recette 220.1 ; perte sèche réelle -7.03 (-3.49 à -16.48) ; part de l'optimum 86 % / 86 % / 86 % ; écart moyen 1407 € ; perdants 47 % ; 10 % du haut -17.3 Md€ ; retraités +9.1 ; revenu déclaré +6.0
+[CHEMIN λ=0.8] recette 220.1 ; perte sèche réelle -7.30 (-3.64 à -17.13) ; part de l'optimum 90 % / 90 % / 90 % ; écart moyen 1529 € ; perdants 50 % ; 10 % du haut -20.1 Md€ ; retraités +9.8 ; revenu déclaré +6.3
+[CHEMIN λ=0.9] recette 220.1 ; perte sèche réelle -7.53 (-3.78 à -17.73) ; part de l'optimum 93 % / 93 % / 93 % ; écart moyen 1660 € ; perdants 55 % ; 10 % du haut -22.9 Md€ ; retraités +10.4 ; revenu déclaré +6.5
+[CHEMIN λ=1.0] recette 220.1 ; perte sèche réelle -7.75 (-3.90 à -18.27) ; part de l'optimum 97 % / 95 % / 96 % ; écart moyen 1798 € ; perdants 57 % ; 10 % du haut -25.7 Md€ ; retraités +11.1 ; revenu déclaré +6.7
 
 [PROPOSITION franchise 4000 €] 53 barèmes respectent la contrainte ; retenu : 14 % au premier euro, 14 % à 20 k€, 30.3 % à 45 k€, 50 % à 1000 k€
 [Proposition : franchise d'activité 4000 € + 6 000 € par enfant + petites pensions, barème 14 % au premier euro, 14 % à 20 k€, 30.3 % à 45 k€, 50 % à 1000 k€] perte sèche réelle -5.3 Md€ (basse -2.5, haute -12.0) dont intensive -3.8 [moitié du bas +0.2, 50-90 -1.1, 90-99 -1.8, 1 % -1.2], extensive -1.4 ; part de l'optimum 62 % / 64 % / 63 %
-    revenu déclaré : recette +4.1 Md€ (+2.0 à +6.1) ; écart moyen à aujourd'hui 1108 € par foyer ; perdants > 500 € 29 %
+    revenu déclaré : recette +4.1 Md€ (+2.0 à +6.1) ; écart moyen à aujourd'hui 1020 € par foyer ; perdants > 500 € 29 %
     déciles € -82 -122 +251 +461 -26 +19 -239 +228 -68 -411 ; 1 % du haut -2.7 Md€ ; 10 % du haut -1.7 Md€
-    Md€ : retraités +15.2 ; couples avec deux enfants -9.6 ; parents isolés -0.5 | € par foyer : seul actif -321 ; seul retraité +603 ; parent isolé -234 ; couple actif sans enfant -55 ; couple retraité +2,325 ; couple avec deux enfants -1,195
+    Md€ : retraités +12.6 ; couples avec deux enfants -8.7 ; parents isolés -0.3 | € par foyer : seul actif -231 ; seul retraité +662 ; parent isolé -169 ; couple actif sans enfant +68 ; couple retraité +1,468 ; couple avec deux enfants -1,085
     cas-types : retraité seul 17 000 € +1,260 € ; salarié seul au Smic (21 500 € brut) +61 € ; couple avec deux enfants 50 000 € -1,357 €
 [PROPOSITION franchise 8000 €] 46 barèmes respectent la contrainte ; retenu : 16 % au premier euro, 16 % à 20 k€, 27.9 % à 30 k€, 50 % à 600 k€
 [Proposition : franchise d'activité 8000 € + 6 000 € par enfant + petites pensions, barème 16 % au premier euro, 16 % à 20 k€, 27.9 % à 30 k€, 50 % à 600 k€] perte sèche réelle -5.6 Md€ (basse -2.6, haute -12.7) dont intensive -3.6 [moitié du bas +0.3, 50-90 -0.8, 90-99 -1.9, 1 % -1.1], extensive -2.0 ; part de l'optimum 65 % / 68 % / 66 %
-    revenu déclaré : recette +4.1 Md€ (+2.0 à +6.1) ; écart moyen à aujourd'hui 1392 € par foyer ; perdants > 500 € 26 %
+    revenu déclaré : recette +4.1 Md€ (+2.0 à +6.1) ; écart moyen à aujourd'hui 1298 € par foyer ; perdants > 500 € 26 %
     déciles € -82 -275 +70 +306 -114 +4 -147 +492 +107 -346 ; 1 % du haut -2.5 Md€ ; 10 % du haut -1.5 Md€
-    Md€ : retraités +22.8 ; couples avec deux enfants -13.1 ; parents isolés -0.9 | € par foyer : seul actif -521 ; seul retraité +1,012 ; parent isolé -454 ; couple actif sans enfant -479 ; couple retraité +3,189 ; couple avec deux enfants -1,629
+    Md€ : retraités +20.3 ; couples avec deux enfants -12.2 ; parents isolés -0.8 | € par foyer : seul actif -431 ; seul retraité +1,071 ; parent isolé -389 ; couple actif sans enfant -356 ; couple retraité +2,333 ; couple avec deux enfants -1,520
     cas-types : retraité seul 17 000 € +1,440 € ; salarié seul au Smic (21 500 € brut) -278 € ; couple avec deux enfants 50 000 € -2,150 €
 
 [PRIX] neutre : perte sèche réelle par milliard levé (un point de taux pour tous) bas 0.03 / central 0.07 / haut 0.14

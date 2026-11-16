@@ -20,8 +20,11 @@ Construction (lecture seule de ir_csg/ ; rien n'y est modifié) :
 - Charge actuelle (IR + CSG + CRDS) : la charge de chaque point (donc de chaque tranche) est gardée ; elle est
   répartie entre types selon les charges des cas-types OpenFisca au même revenu net (ex.CT, colonne actuel selon
   base_a + base_b) : seul, couple sans enfant, couple avec deux enfants ; parent isolé = seul moins le gain de
-  quotient familial (case T) ; retraité seul = cas-type retraite_seul ; couple de retraités = couple d'actifs sans
-  enfant × (retraité seul / actif seul) à la moitié du revenu (pas de cas-type de couple retraité : hypothèse).
+  quotient familial (case T) ; retraité seul = cas-type retraite_seul ; couple de retraités = cas-type OpenFisca
+  (synthese/openfisca_couple_retraites.py, sorties/couple_retraites_openfisca.csv). Correction du 16/11/2026 : l'ancienne
+  approximation (couple d'actifs sans enfant × retraité seul / actif seul à la moitié du revenu) supposait des seuils de
+  CSG doubles de ceux d'une personne seule et sous-estimait de 3 à 7 points la charge des couples de retraités entre
+  25 000 et 50 000 € de pension (revue/hypotheses_ircsg.md) ; elle reste calculée pour contrôle (_U_ANCIEN).
 - Perte sèche : l'élasticité ne porte que sur le revenu du travail des actifs (salaires, gérants, 70 % des revenus
   des indépendants et loyers, comme dans le modèle d'origine) ; les pensions et le chômage ne réagissent pas.
 
@@ -117,9 +120,18 @@ def rho(z):
     return r_ret(z) / r_seul(z)
 
 
+_CRC = pd.read_csv(HERE / "sorties/couple_retraites_openfisca.csv")   # couple de retraités, pension totale = revenu net
+
+
+def r_rc(z):
+    """Charge actuelle / pension d'un couple de retraités (OpenFisca), en fonction de la pension totale z."""
+    return np.interp(z, _CRC.pension_totale.values, (_CRC.charge / _CRC.pension_totale).values)
+
+
 _U = {"seul": ZN * r_seul(ZN), "parent_isole": np.maximum(ZN * r_seul(ZN) - GAIN_S, 0.0),
       "couple0": ZN * r_c0(ZN), "couple2": ZN * r_c2(ZN), "retraite_seul": ZN * r_ret(ZN),
-      "retraite_couple": ZN * r_c0(ZN) * rho(ZN / 2)}
+      "retraite_couple": ZN * r_rc(ZN)}
+_U_ANCIEN = dict(_U, retraite_couple=ZN * r_c0(ZN) * rho(ZN / 2))     # approximation abandonnée, pour contrôle
 
 
 def _cle(nom):
@@ -398,11 +410,13 @@ def controles():
     for z_ in (20e3, 30e3, 50e3, 100e3):
         L.append(f"   OpenFisca, revenu net {z_ / 1e3:.0f} k€ : charge d'un retraité seul {100 * r_ret(z_):.1f} %, d'un actif seul"
                  f" {100 * r_seul(z_):.1f} % (rapport {rho(z_):.2f})")
-    # sensibilité : couple de retraités évalué au revenu / 1,5 au lieu de la moitié (seuils de CSG d'un couple plus bas
-    # que deux fois ceux d'une personne seule ; le rapport exact n'est pas vérifié ici)
-    u = dict(_U, retraite_couple=ZN * r_c0(ZN) * rho(ZN / 1.5))
+    # contrôle : ancienne approximation du couple de retraités (couple d'actifs × retraité seul / actif seul à la moitié
+    # du revenu), remplacée le 16/11/2026 par le cas-type OpenFisca
+    u = _U_ANCIEN
     norm = sum(w * u[_cle(nom)] for nom, _, _, w, _, _ in TYPES) / W
-    cur_r15 = sum((w * CUR * u[_cle(nom)] / norm).sum() for nom, g_, _, w, _, _ in TYPES if g_ == "R") / 1e9
-    L.append(f"   sensibilité : couple de retraités évalué au revenu / 1,5 au lieu de la moitié : charge des retraités"
-             f" {cur_r15:.1f} Md€")
+    cur_anc = sum((w * CUR * u[_cle(nom)] / norm).sum() for nom, g_, _, w, _, _ in TYPES if g_ == "R") / 1e9
+    L.append(f"   contrôle : avec l'ancienne approximation du couple de retraités, charge des retraités {cur_anc:.1f} Md€ ;"
+             " taux d'un couple de retraités à 30/40/50/80 k€ de pension : OpenFisca "
+             + " / ".join(f"{100 * float(r_rc(z_)):.1f}" for z_ in (30e3, 40e3, 50e3, 80e3)) + " % ; ancienne approximation "
+             + " / ".join(f"{100 * float(r_c0(z_) * rho(z_ / 2)):.1f}" for z_ in (30e3, 40e3, 50e3, 80e3)) + " %")
     return L
