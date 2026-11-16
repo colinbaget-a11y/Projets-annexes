@@ -208,6 +208,8 @@ for nom, t1 in (("PFU 25 %", 0.25), ("PFU 33 %", 0.33), ("PFU 34,4 %", 0.344)):
         NAIF[f"{nom} {nb}"] = dict(meca=meca, prem=prem, perm_077=[perm[1][pi] for pi in (0.0, 0.5, 1.0)])
 J["naif"] = NAIF
 
+for e in (0.5, 1.2):
+    p(f"   PFU 25 %, base 2024, e = {e} : premières années {fr(changement(0.25, B24, e)[1], 2)}")
 p("2b. Taux qui maximise la recette (sans réaction croisée) 1/(1+e) et coût d'un euro levé à 31,4 % [C]")
 for e in (0.65, 0.77, 1.0):
     p(f"   e = {e} : {fr(100 / (1 + e))} % ; {fr(1 / (1 - e * PFU / (1 - PFU)), 2)} €")
@@ -358,7 +360,7 @@ for nom, q in EFF.items():
 J["va_cohorte"] = {f"{k[0]}_{k[1]}": v for k, v in VA.items()}
 
 p("3d. Stock de reports d'apport-cession : valeur actualisée de l'impôt selon le traitement (Md€) [C]")
-p("    hazards annuels : expiration du vivant e = expirés / stock (≈ 0,7 %) ; transmission m = 1/T ; vente des")
+p("    hazards annuels : expiration du vivant e = expirés / stock (≈ 0,9 % en 2024) ; transmission m = 1/T ; vente des")
 p("    héritiers h ; intérêt au taux d'actualisation si prévu")
 REP = {}
 for nom, q in EFF.items():
@@ -403,6 +405,13 @@ for k in NOMS_P:
     p(f"   {NOMS_P[k]:38s} : an 10 {fr(SENS[k]['bas'][0], 2)} à {fr(SENS[k]['haut'][0], 2)} ; VA "
       f"{fr(SENS[k]['bas'][1], 2)} à {fr(SENS[k]['haut'][1], 2)} (centre {fr(ref10, 2)} ; {fr(refva, 2)})")
 J["sensibilite"] = dict(ref=[ref10, refva], par=SENS)
+for nom, chg in (("b et λ bas ensemble", dict(b=JEUX["bas"]["b"], lam=JEUX["bas"]["lam"])),
+                 ("b et λ hauts ensemble", dict(b=JEUX["haut"]["b"], lam=JEUX["haut"]["lam"])),
+                 ("verrouillage : a et h bas ensemble", dict(a=JEUX["bas"]["a"], h=JEUX["bas"]["h"]))):
+    q = dict(c0, **chg)
+    v = evalue(q)
+    SENS[nom] = dict(nom=nom, val=v)
+    p(f"   {nom:38s} : an 10 {fr(v[0], 2)} ({fr(100 * (v[0] / ref10 - 1), 0)} %) ; VA {fr(v[1], 2)}")
 
 p("3e. Le haut de la distribution [H : 90 % de la recette payée par le top 1 %]")
 PART_TOP1 = 0.90

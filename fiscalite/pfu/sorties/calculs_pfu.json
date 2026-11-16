@@ -883,6 +883,27 @@
     ],
     "v_bas": 35,
     "v_haut": 15
+   },
+   "b et λ bas ensemble": {
+    "nom": "b et λ bas ensemble",
+    "val": [
+     2.2458925302797614,
+     2.982162460856864
+    ]
+   },
+   "b et λ hauts ensemble": {
+    "nom": "b et λ hauts ensemble",
+    "val": [
+     5.576963890988836,
+     7.188225327201469
+    ]
+   },
+   "verrouillage : a et h bas ensemble": {
+    "nom": "verrouillage : a et h bas ensemble",
+    "val": [
+     2.1090351664196945,
+     3.2678360833479543
+    ]
    }
   }
  },

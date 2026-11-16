@@ -74,6 +74,8 @@
    PFU 33 %, base 2025 : mécanique 1,16 ; premières années (e = 0,65 / 0,77 / 1) 0,79 / 0,73 / 0,60 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 1,16 / 0,94 / 0,73
    PFU 34,4 %, base 2024 : mécanique 2,39 ; premières années (e = 0,65 / 0,77 / 1) 1,59 / 1,45 / 1,16 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 2,39 / 1,92 / 1,45
    PFU 34,4 %, base 2025 : mécanique 2,18 ; premières années (e = 0,65 / 0,77 / 1) 1,45 / 1,32 / 1,06 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 2,18 / 1,75 / 1,32
+   PFU 25 %, base 2024, e = 0.5 : premières années −4,21
+   PFU 25 %, base 2024, e = 1.2 : premières années −2,96
 2b. Taux qui maximise la recette (sans réaction croisée) 1/(1+e) et coût d'un euro levé à 31,4 % [C]
    e = 0.65 : 60,6 % ; 1,42 €
    e = 0.77 : 56,5 % ; 1,54 €
@@ -132,7 +134,7 @@
    central  impôt effacé 7,49 ; valeur actualisée (r = 2,5 / 3,5 / 5 %) 5,21 / 4,71 / 4,17 ; soit 63 % de l'impôt effacé (r = 3,5 %)
    haut     impôt effacé 14,68 ; valeur actualisée (r = 2,5 / 3,5 / 5 %) 11,65 / 10,87 / 9,96 ; soit 74 % de l'impôt effacé (r = 3,5 %)
 3d. Stock de reports d'apport-cession : valeur actualisée de l'impôt selon le traitement (Md€) [C]
-    hazards annuels : expiration du vivant e = expirés / stock (≈ 0,7 %) ; transmission m = 1/T ; vente des
+    hazards annuels : expiration du vivant e = expirés / stock (≈ 0,9 % en 2024) ; transmission m = 1/T ; vente des
     héritiers h ; intérêt au taux d'actualisation si prévu
    bas      impôt nominal 38,1 ; droit actuel 4,6 ; art. 5 19,7 ; report transmis 10,1 ; transmis avec intérêt 19,7 (r = 3,5 %)
    central  impôt nominal 43,2 ; droit actuel 4,5 ; art. 5 25,1 ; report transmis 15,5 ; transmis avec intérêt 25,1 (r = 3,5 %)
@@ -151,6 +153,9 @@
    ventes ensuite (par an)                : an 10 2,83 à 4,29 ; VA 3,80 à 5,25 (centre 3,62 ; 4,71)
    stock de reports                       : an 10 3,54 à 3,75 ; VA 4,60 à 4,91 (centre 3,62 ; 4,71)
    délai avant transmission (reports)     : an 10 3,43 à 4,05 ; VA 4,44 à 5,36 (centre 3,62 ; 4,71)
+   b et λ bas ensemble                    : an 10 2,25 (−38 %) ; VA 2,98
+   b et λ hauts ensemble                  : an 10 5,58 (54 %) ; VA 7,19
+   verrouillage : a et h bas ensemble     : an 10 2,11 (−42 %) ; VA 3,27
 3e. Le haut de la distribution [H : 90 % de la recette payée par le top 1 %]
    bas      : an 5 +0,66 ; an 10 +0,92 ; an 30 +1,70 ; moyenne 1-10 +0,69 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 22 Md€) : an 10 4 % ; droits acquis an 10 +0,43
    central  : an 5 +2,47 ; an 10 +3,26 ; an 30 +5,20 ; moyenne 1-10 +2,53 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 22 Md€) : an 10 15 % ; droits acquis an 10 +1,29
