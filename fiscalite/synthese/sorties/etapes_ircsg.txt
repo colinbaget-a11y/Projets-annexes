@@ -1,0 +1,21 @@
+[ÉTAPE 1] barème de l'IR (seuils [0.0, 11497.0, 29315.0, 83823.0, 180294.0], taux [0.0, 0.11, 0.3, 0.41, 0.45]) par adulte sur l'assiette large : 197.1 Md€ ; taux proportionnel qui remplace CSG et CRDS : 1.55 %
+[Étape 1 : barème de l'IR gardé, CSG-CRDS en taux proportionnel] gain réel 2.4 Md€ (0.9 à 5.2) dont intensif -0.2, participation 2.6 ; revenu déclaré +1.2 ; perdants > 500 € 19 % ; écart moyen 1221 €
+    déciles € -58 -221 -204 -281 -912 -981 -852 -39 +246 +3221 ; 1 % +3.6 Md€ ; 10 % +13.7 Md€
+    Md€ : actifs -4.7 ; retraites +4.7 ; seuls -11.8 ; seuls_actifs -12.0 ; seuls_retraites +0.1 ; parents_isoles +0.5 ; couples0 +4.1 ; couples0_actifs -0.4 ; couples0_retraites +4.6 ; couples2 +7.2
+    € par foyer : actifs -173 ; retraites +323 ; seuls -445 ; seuls_actifs -754 ; seuls_retraites +12 ; parents_isoles +239 ; couples0 +821 ; couples0_actifs -335 ; couples0_retraites +1,215 ; couples2 +904
+    cas-types : retraité seul 17 000 € +869 ; salarié seul au Smic (21 500 € brut) -920 ; couple avec deux enfants 50 000 € -1,728 ; couple avec deux enfants 50 000 €, un seul revenu +2,384 ; couple avec deux enfants 80 000 €, un seul revenu +5,525 ; couple avec deux enfants 80 000 €, partage 60/40 -1,190
+[Étape 2 : barème neutre, sans marche] gain réel 4.0 Md€ (1.9 à 9.2) dont intensif 2.2, participation 1.8 ; revenu déclaré +3.0 ; perdants > 500 € 25 % ; écart moyen 1052 €
+    déciles € -34 -13 +164 +121 -370 -235 -333 +111 -1 +578 ; 1 % +0.3 Md€ ; 10 % +2.5 Md€
+    Md€ : actifs -7.0 ; retraites +7.0 ; seuls -9.6 ; seuls_actifs -11.2 ; seuls_retraites +1.7 ; parents_isoles +0.6 ; couples0 +4.4 ; couples0_actifs -0.9 ; couples0_retraites +5.3 ; couples2 +4.6
+    € par foyer : actifs -256 ; retraites +480 ; seuls -359 ; seuls_actifs -707 ; seuls_retraites +156 ; parents_isoles +286 ; couples0 +878 ; couples0_actifs -669 ; couples0_retraites +1,406 ; couples2 +570
+    cas-types : retraité seul 17 000 € +1,207 ; salarié seul au Smic (21 500 € brut) -577 ; couple avec deux enfants 50 000 € -745 ; couple avec deux enfants 50 000 €, un seul revenu +2,109 ; couple avec deux enfants 80 000 €, un seul revenu +3,870 ; couple avec deux enfants 80 000 €, partage 60/40 -550
+[Étape 3 : barème neutre + franchise d'activité 4 000 €] gain réel 4.6 Md€ (2.1 à 10.2) dont intensif 2.2, participation 2.4 ; revenu déclaré +2.9 ; perdants > 500 € 30 % ; écart moyen 1257 €
+    déciles € -45 -30 +163 +62 -440 -329 -391 +137 +13 +841 ; 1 % +0.6 Md€ ; 10 % +3.6 Md€
+    Md€ : actifs -14.0 ; retraites +14.0 ; seuls -8.9 ; seuls_actifs -14.5 ; seuls_retraites +5.6 ; parents_isoles +0.2 ; couples0 +7.0 ; couples0_actifs -1.3 ; couples0_retraites +8.3 ; couples2 +1.7
+    € par foyer : actifs -514 ; retraites +963 ; seuls -335 ; seuls_actifs -916 ; seuls_retraites +523 ; parents_isoles +77 ; couples0 +1,398 ; couples0_actifs -1,022 ; couples0_retraites +2,223 ; couples2 +217
+    cas-types : retraité seul 17 000 € +1,506 ; salarié seul au Smic (21 500 € brut) -801 ; couple avec deux enfants 50 000 € -1,288 ; couple avec deux enfants 50 000 €, un seul revenu +1,833 ; couple avec deux enfants 80 000 €, un seul revenu +3,886 ; couple avec deux enfants 80 000 €, partage 60/40 -1,208
+[Proposition] gain réel 4.9 Md€ (2.3 à 11.1) dont intensif 3.4, participation 1.4 ; revenu déclaré +3.8 ; perdants > 500 € 29 % ; écart moyen 1108 €
+    déciles € -82 -122 +251 +461 -26 +19 -239 +228 -68 -411 ; 1 % -2.7 Md€ ; 10 % -1.7 Md€
+    Md€ : actifs -15.2 ; retraites +15.2 ; seuls +1.4 ; seuls_actifs -5.1 ; seuls_retraites +6.5 ; parents_isoles -0.5 ; couples0 +8.7 ; couples0_actifs -0.1 ; couples0_retraites +8.7 ; couples2 -9.6
+    € par foyer : actifs -560 ; retraites +1,049 ; seuls +52 ; seuls_actifs -321 ; seuls_retraites +603 ; parents_isoles -234 ; couples0 +1,719 ; couples0_actifs -55 ; couples0_retraites +2,325 ; couples2 -1,195
+    cas-types : retraité seul 17 000 € +1,260 ; salarié seul au Smic (21 500 € brut) +61 ; couple avec deux enfants 50 000 € -1,357 ; couple avec deux enfants 50 000 €, un seul revenu -575 ; couple avec deux enfants 80 000 €, un seul revenu +1,326 ; couple avec deux enfants 80 000 €, partage 60/40 -2,743

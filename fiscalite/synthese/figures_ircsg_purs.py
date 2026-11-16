@@ -1,13 +1,15 @@
-"""Figures de la partie IR-CSG de la note fusionnée (méthode v2, sorties/architectures_ircsg.json).
+"""Figures de la partie IR-CSG de la note fusionnée (méthode v2 ; sorties/etapes_ircsg.json, architectures_ircsg.json).
 
-ircsg_p01_baremes : taux moyen et taux marginal de trois cas-types OpenFisca (personne seule salariée, couple avec
-deux enfants aux revenus partagés 60/40, retraité seul), aujourd'hui, avec le barème neutre (assiette large, même
-barème pour tous, le plus proche de la charge d'aujourd'hui) et avec la proposition (franchise d'activité de
-4 000 €, 6 000 € par enfant, petites pensions exonérées).
-ircsg_p02_frontiere : gain d'efficacité réel et part des foyers qui perdent plus de 500 €, pour chaque architecture
-et le long du chemin du barème neutre à l'optimum.
+ircsg_p01_marches : taux marginal d'une personne seule salariée et d'un retraité seul (cas-types OpenFisca sans
+niche), aujourd'hui, à l'étape 1 (barème de l'IR gardé, CSG-CRDS en taux proportionnel), à l'étape 2 (barème
+neutre, sans marche) et avec la proposition.
+ircsg_p02_frontiere : gain d'efficacité et part des foyers qui perdent plus de 500 €, étape par étape, et chemin
+du barème neutre à l'optimum.
+ircsg_p03_qui_paie : variation de l'impôt par type de foyer (€ par an), étapes 1 et 2 et proposition.
 
-Lancer depuis fiscalite/ : FIG_NU=1 python3 synthese/figures_ircsg_purs.py
+Couleurs : palette catégorielle validée (skill dataviz : bleu, orange, vert d'eau, en ordre fixe) ; aujourd'hui en
+encre ; l'optimum, simple étalon, en gris. Lancer depuis fiscalite/ :
+python3 synthese/figures_ircsg_purs.py && FIG_NU=1 python3 synthese/figures_ircsg_purs.py
 """
 import json
 import sys
@@ -19,13 +21,15 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE), str(HERE.parent)]
 import modele_purs as M  # noqa: E402
-from graphiques import INK, PCT, fin, grille, plt  # noqa: E402
+from graphiques import PCT, fin, plt  # noqa: E402
 
 ex = M.ex
+E = json.loads((HERE / "sorties/etapes_ircsg.json").read_text(encoding="utf-8"))
 J = json.loads((HERE / "sorties/architectures_ircsg.json").read_text(encoding="utf-8"))
-BN = J["neutre"]
-PROP = J["propositions"]["4000"]
-BP, OP = PROP["bareme"], PROP["options"]
+INK, INK2, GRIS, GRILLE = "#0b0b0b", "#52514e", "#8a8984", "#e4e3df"
+BLEU, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"
+SRC = ("OpenFisca-France (législation des revenus 2024) ; DGFiP, IRCOM revenus 2024 ; calculs de l'auteur "
+       "(synthese/modele_purs.py, architectures_ircsg.py, etapes_ircsg.py).")
 
 
 def bareme(b):
@@ -33,105 +37,124 @@ def bareme(b):
     return ex.bareme_lineaire([0, 20e3, z1, z2], [t0, tb, t1, 0.50])
 
 
-SCH = {"neutre": (bareme(BN), dict(M.OPT0)), "prop": (bareme(BP), OP)}
-STYLE = {"auj": dict(color="#1a1a1a", lw=1.3, ls="-"),
-         "neutre": dict(color="#0072B2", lw=2.2, ls="--"),
-         "prop": dict(color="#009E73", lw=2.6, ls="-")}
-NOMS = {"auj": "Aujourd'hui", "neutre": "Barème neutre", "prop": "Proposition"}
-PROFILS = [("seul", "Personne seule salariée"), ("couple_2enf", "Couple, deux enfants, revenus partagés 60/40"),
-           ("retraite_seul", "Retraité seul")]
-CT = M.CT
+P4 = J["propositions"]["4000"]
+SCH = {"e1": (ex.bareme_empile(E["tau"]), dict(M.OPT0)), "e2": (bareme(J["neutre"]), dict(M.OPT0)),
+       "prop": (bareme(P4["bareme"]), P4["options"])}
+STYLE = {"auj": dict(color=INK, lw=1.3, ls="-", label="Aujourd'hui"),
+         "e1": dict(color=ORANGE, lw=1.8, ls=(0, (4, 2)), label="Étape 1 : barème de l'IR gardé"),
+         "e2": dict(color=BLEU, lw=2.0, ls="-", label="Étape 2 : barème sans marche"),
+         "prop": dict(color=AQUA, lw=2.4, ls="-", label="Proposition")}
+
+
+def style_axes(ax):
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    for s in ("left", "bottom"):
+        ax.spines[s].set_color(GRIS)
+    ax.tick_params(colors=INK2, labelsize=8.5, length=3)
+    ax.grid(axis="y", color=GRILLE, lw=0.6, zorder=0)
+    ax.set_axisbelow(True)
 
 
 def lisse(a):
     return pd.Series(a).rolling(5, center=True, min_periods=1).median().values
 
 
-def courbe(profil, cle):
-    g = CT[CT.profil == profil].sort_values("brut")
+def marginal(profil, cle):
+    g = M.CT[M.CT.profil == profil].sort_values("brut")
     b = g.brut.values
     if cle == "auj":
-        t, t1 = g.actuel.values, g.actuel_plus.values
-        mg = (t1 - t) / 1000
-    else:
-        (tm, T), o = SCH[cle]
-        t = np.array([M.cas_type(tm, T, o, profil, z) for z in b]) + g.actuel.values
-        mg = np.gradient(t, b)
-    return b, 100 * t / b, lisse(100 * mg)
+        return b, lisse(100 * (g.actuel_plus.values - g.actuel.values) / 1000)
+    (tm, T), o = SCH[cle]
+    t = np.array([M.cas_type(tm, T, o, profil, z) for z in b]) + g.actuel.values
+    return b, lisse(100 * np.gradient(t, b))
 
 
-def main():
-    fig, axs = plt.subplots(3, 2, figsize=(9.4, 8.4), sharex=True)
-    for ligne, (prof, lab) in enumerate(PROFILS):
-        a1, a2 = axs[ligne]
-        for cle in ("auj", "neutre", "prop"):
-            z, moy, mg = courbe(prof, cle)
-            a1.plot(z / 1e3, moy, label=NOMS[cle], **STYLE[cle])
-            a2.plot(z / 1e3, mg, **STYLE[cle])
-        for ax, t in ((a1, f"{lab} : taux moyen"), (a2, f"{lab} : taux marginal")):
-            ax.set_xlim(0, 200)
-            ax.yaxis.set_major_formatter(PCT)
-            ax.set_title(t, fontsize=9, color=INK, loc="left")
-            grille(ax)
-        a1.set_ylim(0, 40)
-        a2.set_ylim(0, 55)
-    for ax in axs[-1]:
-        ax.set_xlabel("Revenu brut annuel du foyer (k€)")
-    axs[0][0].legend(loc="upper left", fontsize=7.2, frameon=True)
-    fig.subplots_adjust(wspace=0.18, hspace=0.3)
-    f = lambda u: f"{100 * u:.1f}".replace(".", ",").replace(",0", "")  # noqa: E731
-    note = (f"Note : impôt individuel sur le revenu après cotisations, même barème pour tous, même recette qu'aujourd'hui "
-            f"(220 Md€). Taux marginal par adulte en ligne droite entre les seuils. Barème neutre (le plus proche de ce "
-            f"que chaque foyer paie aujourd'hui) : {f(BN[0])} % au premier euro, {f(BN[1])} % à 20 000 €, {f(BN[3])} % à "
-            f"{BN[2]/1e3:.0f} 000 €, 50 % à {BN[4]/1e3:.0f} 000 €. Proposition : franchise de 4 000 € par adulte sur les "
-            f"revenus d'activité, 6 000 € par enfant, pensions exonérées jusqu'à 12 500 € (puis de moins en moins jusqu'à "
-            f"25 000 €) ; {f(BP[0])} % au premier euro imposé, {f(BP[1])} % à 20 000 €, {f(BP[3])} % à "
-            f"{BP[2]/1e3:.0f} 000 €, 50 % à {BP[4]/1e3:.0f} 000 €. Cas-types sans niche : IR + CSG + CRDS (et Casa "
-            f"pour le retraité) en % du revenu brut ; taux marginal sur 1 000 € de plus, lissé sur 2 000 €.")
-    fin(fig, "ircsg_p01_baremes",
-        "OpenFisca-France (législation des revenus 2024) ; DGFiP, IRCOM revenus 2024 ; calculs de l'auteur "
-        "(synthese/modele_purs.py, architectures_ircsg.py).", note)
+def marches():
+    fig, axs = plt.subplots(1, 2, figsize=(9.0, 3.5), sharey=True)
+    for ax, (prof, titre) in zip(axs, (("seul", "Personne seule salariée"), ("retraite_seul", "Retraité seul"))):
+        for cle in ("auj", "e1", "e2", "prop"):
+            z, mg = marginal(prof, cle)
+            ax.plot(z / 1e3, mg, **STYLE[cle], zorder=3 if cle == "prop" else 2)
+        ax.set_xlim(0, 120)
+        ax.set_ylim(0, 55)
+        ax.yaxis.set_major_formatter(PCT)
+        ax.set_title(titre, fontsize=9.5, color=INK, loc="left")
+        ax.set_xlabel("Revenu brut annuel (milliers d'euros)", fontsize=8.5, color=INK2)
+        style_axes(ax)
+    axs[0].set_ylabel("Taux marginal", fontsize=8.5, color=INK2)
+    h, lab = axs[0].get_legend_handles_labels()
+    fig.legend(h, lab, loc="upper center", ncol=4, fontsize=8, frameon=False, bbox_to_anchor=(0.5, 1.02),
+               handlelength=2.6)
+    fig.subplots_adjust(wspace=0.08, top=0.82, bottom=0.16)
+    t = f"{100 * E['tau']:.2f}".replace(".", ",")
+    fin(fig, "ircsg_p01_marches", SRC,
+        f"Note : prélèvement sur 1 000 € de revenu brut en plus (IR + CSG + CRDS, et Casa pour le retraité), cas-types "
+        f"sans niche ; lissé sur 2 000 €. Étape 1 : barème de l'IR (0, 11, 30, 41, 45 %) appliqué à chaque adulte sur "
+        f"le revenu après cotisations, CSG et CRDS remplacées par un taux unique de {t} %. Étape 2 : taux marginal en "
+        f"ligne droite, le barème le plus proche de ce que chacun paie aujourd'hui. Proposition : franchise de 4 000 € "
+        f"sur les revenus d'activité, pensions exonérées jusqu'à 12 500 € puis de moins en moins jusqu'à 25 000 € "
+        f"(d'où le taux de 28 % du retraité dans cette zone).")
 
 
 def frontiere():
-    fig, ax = plt.subplots(figsize=(8.6, 4.6))
+    fig, ax = plt.subplots(figsize=(8.4, 3.6))
     ch = J["chemin"]
-    x = [c["perdants500"] for c in ch]
-    ax.plot(x, [-c["v2_central"] for c in ch], color="#999999", lw=1.4, ls=":", zorder=1)
-    ax.fill_between(x, [-c["v2_bas"] for c in ch], [-c["v2_haut"] for c in ch], color="#DDDDDD", alpha=0.5, zorder=0)
-    pts = [("Aujourd'hui", 0.0, (0.0, 0.0, 0.0), "#1a1a1a"),
-           ("Barème neutre", J["architectures"][0]["perdants500"], J["architectures"][0], "#0072B2"),
-           ("+ franchise d'activité 4 000 €", J["architectures"][6]["perdants500"], J["architectures"][6], "#56B4E9"),
-           ("+ franchise d'activité 8 000 €", J["architectures"][7]["perdants500"], J["architectures"][7], "#56B4E9"),
-           ("Proposition (franchise 4 000 €)", PROP["perdants500"], PROP, "#009E73"),
-           ("Optimum d'efficacité", J["optimum_r"]["perdants500"], J["optimum_r"], "#CC79A7"),
-           ("Gain atteignable", J["atteignable"]["perdants500"], J["atteignable"], "#CC79A7")]
-    for nom, xx, r, col in pts:
-        if isinstance(r, tuple):
-            y, lo, hi = r
+    ax.plot([c["perdants500"] for c in ch], [-c["v2_central"] for c in ch], color=GRIS, lw=1.2, ls=":", zorder=1)
+    pts = [("Étape 1", E["etape1"], ORANGE, "o", "haut"), ("Étape 2", E["etape2"], BLEU, "o", "haut"),
+           ("Étape 3", E["etape3"], BLEU, "s", "bas"), ("Proposition", E["proposition"], AQUA, "D", "haut"),
+           ("Optimum (étalon)", E["atteignable"], GRIS, "o", "droite")]
+    for nom, r, col, mk, pos in pts:
+        x, y, lo, hi = r["perdants500"], -r["v2_central"], -r["v2_bas"], -r["v2_haut"]
+        ax.errorbar([x], [y], yerr=[[y - lo], [hi - y]], fmt=mk, color=col, ms=6.5, capsize=3,
+                    lw=1.1, mec="white", mew=0.8, zorder=3)
+        if pos == "haut":
+            ax.text(x, hi + 0.45, nom, fontsize=8, color=INK, ha="center", va="bottom")
+        elif pos == "bas":
+            ax.text(x, lo - 0.45, nom, fontsize=8, color=INK, ha="center", va="top")
         else:
-            y, lo, hi = -r["v2_central"], -r["v2_bas"], -r["v2_haut"]
-        ax.errorbar([xx], [y], yerr=[[y - lo], [hi - y]], fmt="o", color=col, ms=6, capsize=3, lw=1.2, zorder=3)
-        off = {"Aujourd'hui": (8, 6, "left"), "Barème neutre": (-8, -4, "right"),
-               "+ franchise d'activité 4 000 €": (8, -9, "left"), "+ franchise d'activité 8 000 €": (8, 7, "left"),
-               "Proposition (franchise 4 000 €)": (-8, 12, "right"), "Gain atteignable": (-8, 8, "right"),
-               "Optimum d'efficacité": (8, 0, "left")}[nom]
-        ax.annotate(nom, (xx, y), xytext=off[:2], textcoords="offset points", fontsize=7.6, color=col,
-                    va="center", ha=off[2])
-    ax.set_xlabel("Foyers dont l'impôt augmente de plus de 500 € par an (%)")
-    ax.set_ylabel("Gain d'efficacité (Md€ par an)")
-    ax.set_xlim(-2, 70)
-    ax.set_ylim(0, 19)
-    grille(ax)
-    note = ("Note : gain d'efficacité = baisse de la perte sèche sur l'activité réelle par rapport à aujourd'hui "
-            "(heures, effort, reprise d'emploi), à recette égale ; point : hypothèses centrales ; barre et zone grise : "
-            "hypothèses basses et hautes. La réaction du revenu déclaré (forme, date, société) n'y est pas comptée. "
-            "Ligne pointillée : barèmes intermédiaires entre le barème neutre et l'optimum. Gain atteignable : meilleur "
-            "barème simple, franchise d'activité comprise.")
-    fin(fig, "ircsg_p02_frontiere", "Calculs de l'auteur (synthese/architectures_ircsg.py) ; élasticités : "
-        "cours/elasticites-france.tex.", note)
+            ax.annotate(nom, (x, y), xytext=(9, 0), textcoords="offset points", fontsize=8, color=INK, va="center")
+    ax.annotate("barèmes de plus en plus plats", (42, 4.6), fontsize=7.5, color=INK2, ha="center", rotation=4)
+    ax.set_xlim(0, 65)
+    ax.set_ylim(0, 20)
+    ax.set_xlabel("Foyers dont l'impôt augmente de plus de 500 € par an (%)", fontsize=8.5, color=INK2)
+    ax.set_ylabel("Gain d'efficacité (Md€ par an)", fontsize=8.5, color=INK2)
+    style_axes(ax)
+    fig.subplots_adjust(bottom=0.16)
+    fin(fig, "ircsg_p02_frontiere", SRC + " Élasticités : cours/elasticites-france.tex.",
+        "Note : gain d'efficacité = baisse de la perte sèche sur l'activité réelle par rapport à aujourd'hui, à recette "
+        "égale ; point : hypothèses centrales ; barre : hypothèses basses et hautes. La réaction du revenu déclaré "
+        "n'est pas comptée. Pointillé : barèmes intermédiaires entre le barème sans marche et l'optimum, qui est le "
+        "barème simple le plus efficace (franchise d'activité comprise).")
+
+
+def qui_paie():
+    types = [("seuls_actifs", "Personne seule active"), ("parents_isoles", "Parent isolé"),
+             ("couples0_actifs", "Couple actif sans enfant"), ("couples2", "Couple avec deux enfants"),
+             ("seuls_retraites", "Retraité seul"), ("couples0_retraites", "Couple de retraités")]
+    series = [("etape1", "Étape 1", ORANGE), ("etape2", "Étape 2", BLEU), ("proposition", "Proposition", AQUA)]
+    fig, ax = plt.subplots(figsize=(8.4, 3.9))
+    y0 = np.arange(len(types))[::-1]
+    h = 0.24
+    for k, (cle, nom, col) in enumerate(series):
+        v = [E[cle]["groupes"][t]["eur"] for t, _ in types]
+        ax.barh(y0 + (1 - k) * (h + 0.03), v, height=h, color=col, label=nom, zorder=2)
+    ax.axvline(0, color=INK2, lw=0.8, zorder=3)
+    ax.set_yticks(y0)
+    ax.set_yticklabels([n for _, n in types], fontsize=8.5, color=INK)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:+,.0f}".replace(",", " ").replace("+0", "0")))
+    ax.set_xlabel("Variation de l'impôt par foyer (€ par an ; positif : paie plus)", fontsize=8.5, color=INK2)
+    style_axes(ax)
+    ax.grid(axis="y", visible=False)
+    ax.grid(axis="x", color=GRILLE, lw=0.6, zorder=0)
+    ax.legend(loc="upper right", fontsize=8, frameon=False)
+    fig.subplots_adjust(left=0.24, bottom=0.15)
+    fin(fig, "ircsg_p03_qui_paie", SRC,
+        "Note : moyenne par type de foyer, IR + CSG + CRDS, à recette égale. Étapes 1 et 2 : impôt individuel sans aide "
+        "familiale. Proposition : franchise d'activité de 4 000 €, 6 000 € par enfant, petites pensions exonérées.")
 
 
 if __name__ == "__main__":
-    main()
+    marches()
     frontiere()
+    qui_paie()
