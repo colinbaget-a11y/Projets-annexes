@@ -1,0 +1,62 @@
+% Taxer mieux plutôt que davantage : quatre réformes à recette constante (rapport Sorbon, partie III)
+% Note unique issue de la fusion des notes ir_csg, foncier, is et pfu (novembre 2026).
+% Compilation depuis fiscalite/synthese/ : pdflatex note-reforme-fiscale.tex (deux passes)
+% Chiffres : sorties/perte_seche_ircsg_purs.txt (IR-CSG), ../foncier/sorties/simulation.txt,
+% ../is/sorties/simulation_is.txt, sorties/perte_seche_autres.txt ; méthode : ../revue/methode_perte_seche.md
+\documentclass[11pt,a4paper]{article}
+\input{../lvt/preambule}
+\renewcommand{\figbloc}[3]{%
+  \begin{figure}[!htbp]\centering
+  \caption{#2}\label{#3}
+  \includegraphics[max width=\linewidth,max height=0.28\textheight]{../figures/nu/#1.pdf}
+  \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize\color{encre}\setlength{\parskip}{2pt}%
+    \input{../figures/nu/#1_note.tex}}%
+  \end{figure}}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\preto\section{\needspace{8\baselineskip}}
+\preto\subsection{\needspace{5\baselineskip}}
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}\setcounter{totalnumber}{5}
+\fancyhead[L]{\small\itshape Taxer mieux plutôt que davantage}
+
+\begin{document}
+\renewcommand{\figurename}{Figure}\renewcommand{\tablename}{Tableau}
+
+\thispagestyle{empty}
+\vspace*{0.6cm}
+{\footnotesize\color{ocre}\bfseries NOTE DE TRAVAIL\quad·\quad NOVEMBRE 2026\par}
+\vspace{8pt}
+{\fontsize{22}{26}\selectfont\bfseries\color{bleu}Taxer mieux plutôt que davantage\par}
+\vspace{6pt}
+{\large Quatre réformes à recette constante : impôts sur le revenu, immobilier, sociétés, revenus du capital\par}
+\vspace{8pt}
+{\small Colin Baget. Droit de 2026 ; données fiscales de la DGFiP (revenus 2024, fiscalité locale 2024, IS
+2022), ventes immobilières DVF 2023-2024, comptes nationaux de l'Insee ; programmes \texttt{fiscalite/synthese/}
+et dossiers \texttt{ir\_csg/}, \texttt{foncier/}, \texttt{is/}, \texttt{pfu/}. Vérifications et revues :
+\texttt{fiscalite/revue/}.\par}
+\vspace{6pt}
+{\color{bleu}\hrule height 1.2pt}
+\vspace{4pt}
+
+\input{parties/introduction}
+
+\section{Fusionner l'impôt sur le revenu, la CSG et la CRDS}\label{sec:ircsg}
+\input{parties/ircsg}
+
+\section{Immobilier : moins taxer les ventes, mieux taxer le sol}\label{sec:foncier}
+\input{parties/foncier}
+
+\section{Impôt sur les sociétés : ne pas toucher au taux, mieux déduire l'investissement}\label{sec:is}
+\input{parties/is}
+
+\section{Revenus du capital : garder le prélèvement forfaitaire unique}\label{sec:pfu}
+\input{parties/pfu}
+
+\section{L'ensemble}\label{sec:ensemble}
+\input{parties/ensemble}
+
+\input{parties/references}
+
+\end{document}
