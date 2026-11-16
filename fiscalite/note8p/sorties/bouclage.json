@@ -1,0 +1,288 @@
+{
+ "annuel": {
+  "2027": {
+   "ircsg": 0.0,
+   "foncier_net": 0.0,
+   "taux_reduit": 0.0,
+   "deduction_50": 0.0,
+   "baisse_taux": 0.0,
+   "taux_normal": 25.0,
+   "solde_sans_pfu": 0.0,
+   "pfu_reserve": 0.0,
+   "solde_avec_pfu": 0.0,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": 0.0
+   }
+  },
+  "2028": {
+   "ircsg": 0.0,
+   "foncier_net": -0.469,
+   "taux_reduit": 1.334,
+   "deduction_50": 0.0,
+   "baisse_taux": -0.0,
+   "taux_normal": 25.0,
+   "solde_sans_pfu": 0.8650000000000001,
+   "pfu_reserve": 0.855,
+   "solde_avec_pfu": 1.7200000000000002,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 0.0,
+    "dmto": -0.0,
+    "calendrier_ventes": -0.469,
+    "report_paiement": -0.0,
+    "deductibilite_is_ir": -0.0,
+    "net": -0.469
+   }
+  },
+  "2029": {
+   "ircsg": 0.0,
+   "foncier_net": 2.102,
+   "taux_reduit": 2.6689320388349516,
+   "deduction_50": 0.0,
+   "baisse_taux": -1.4951456310679612,
+   "taux_normal": 24.5,
+   "solde_sans_pfu": 3.27578640776699,
+   "pfu_reserve": 1.912,
+   "solde_avec_pfu": 5.18778640776699,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 5.0,
+    "dmto": -2.692,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.206,
+    "deductibilite_is_ir": -0.0,
+    "net": 2.102
+   }
+  },
+  "2030": {
+   "ircsg": 0.0,
+   "foncier_net": 3.823,
+   "taux_reduit": 2.6684890187576586,
+   "deduction_50": -3.6924292968750003,
+   "baisse_taux": -1.4211497207715822,
+   "taux_normal": 24.5,
+   "solde_sans_pfu": 1.377910001111076,
+   "pfu_reserve": 2.105,
+   "solde_avec_pfu": 3.482910001111076,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 10.0,
+    "dmto": -5.383,
+    "calendrier_ventes": -0.0,
+    "report_paiement": -0.398,
+    "deductibilite_is_ir": -0.395,
+    "net": 3.823
+   }
+  },
+  "2031": {
+   "ircsg": 0.0,
+   "foncier_net": 5.792,
+   "taux_reduit": 2.6685530786738134,
+   "deduction_50": -6.548127287946429,
+   "baisse_taux": -1.3641049042629352,
+   "taux_normal": 24.5,
+   "solde_sans_pfu": 0.5483208864644489,
+   "pfu_reserve": 2.29,
+   "solde_avec_pfu": 2.838320886464449,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.234,
+    "report_paiement": -0.577,
+    "deductibilite_is_ir": -0.791,
+    "net": 5.792
+   }
+  },
+  "2032": {
+   "ircsg": 0.0,
+   "foncier_net": 5.203,
+   "taux_reduit": 2.6681266048908134,
+   "deduction_50": -5.069749577487246,
+   "baisse_taux": -2.7872107816557055,
+   "taux_normal": 24.0,
+   "solde_sans_pfu": 0.014166245747861517,
+   "pfu_reserve": 2.468,
+   "solde_avec_pfu": 2.4821662457478615,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.536,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.203
+   }
+  },
+  "2033": {
+   "ircsg": 0.0,
+   "foncier_net": 5.242,
+   "taux_reduit": 2.668911578884603,
+   "deduction_50": -3.9176131697644827,
+   "baisse_taux": -4.2499308522126125,
+   "taux_normal": 23.5,
+   "solde_sans_pfu": -0.2566324430924922,
+   "pfu_reserve": 2.639,
+   "solde_avec_pfu": 2.3823675569075076,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.497,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.242
+   }
+  },
+  "2034": {
+   "ircsg": 0.0,
+   "foncier_net": 5.28,
+   "taux_reduit": 2.6682248417941223,
+   "deduction_50": -2.979802919387252,
+   "baisse_taux": -4.306053463651314,
+   "taux_normal": 23.5,
+   "solde_sans_pfu": 0.662368458755556,
+   "pfu_reserve": 2.803,
+   "solde_avec_pfu": 3.465368458755556,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.459,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.28
+   }
+  },
+  "2035": {
+   "ircsg": 0.0,
+   "foncier_net": 5.316,
+   "taux_reduit": 2.6685663402288866,
+   "deduction_50": -2.1376086455625303,
+   "baisse_taux": -5.809164990400761,
+   "taux_normal": 23.0,
+   "solde_sans_pfu": 0.03779270426559478,
+   "pfu_reserve": 2.96,
+   "solde_avec_pfu": 2.9977927042655947,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.422,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.316
+   }
+  },
+  "2036": {
+   "ircsg": 0.0,
+   "foncier_net": 5.351,
+   "taux_reduit": 2.668203211981102,
+   "deduction_50": -1.3199443020433814,
+   "baisse_taux": -5.875463407711614,
+   "taux_normal": 23.0,
+   "solde_sans_pfu": 0.8237955022261074,
+   "pfu_reserve": 3.111,
+   "solde_avec_pfu": 3.9347955022261076,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.388,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.351
+   }
+  },
+  "2037": {
+   "ircsg": 0.0,
+   "foncier_net": 5.385,
+   "taux_reduit": 2.6686630620205083,
+   "deduction_50": -0.7958496247348535,
+   "baisse_taux": -7.3953464069945145,
+   "taux_normal": 22.5,
+   "solde_sans_pfu": -0.1375329697088601,
+   "pfu_reserve": 3.256,
+   "solde_avec_pfu": 3.1184670302911397,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.354,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.385
+   }
+  },
+  "2038": {
+   "ircsg": 0.0,
+   "foncier_net": 5.417,
+   "taux_reduit": 2.6683207788196555,
+   "deduction_50": -0.6745452644308307,
+   "baisse_taux": -7.407489445921753,
+   "taux_normal": 22.5,
+   "solde_sans_pfu": 0.003286068467071246,
+   "pfu_reserve": 3.396,
+   "solde_avec_pfu": 3.399286068467071,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.322,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.417
+   }
+  },
+  "2039": {
+   "ircsg": 0.0,
+   "foncier_net": 5.448,
+   "taux_reduit": 2.668624195755827,
+   "deduction_50": -0.6745452644308291,
+   "baisse_taux": -7.408449623246107,
+   "taux_normal": 22.5,
+   "solde_sans_pfu": 0.03362930807889164,
+   "pfu_reserve": 3.529,
+   "solde_avec_pfu": 3.5626293080788916,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.291,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.448
+   }
+  },
+  "2040": {
+   "ircsg": 0.0,
+   "foncier_net": 5.478,
+   "taux_reduit": 2.668750444134262,
+   "deduction_50": -0.6745452644308296,
+   "baisse_taux": -7.4083429753178045,
+   "taux_normal": 22.5,
+   "solde_sans_pfu": 0.06386220438562784,
+   "pfu_reserve": 3.658,
+   "solde_avec_pfu": 3.7218622043856278,
+   "foncier_detail": {
+    "taxe_fonciere_nouvelle": 15.0,
+    "dmto": -8.075,
+    "calendrier_ventes": 0.0,
+    "report_paiement": -0.261,
+    "deductibilite_is_ir": -1.186,
+    "net": 5.478
+   }
+  }
+ },
+ "points_par_exercice": {
+  "2027": 0.0,
+  "2028": 0.5,
+  "2029": 0.5,
+  "2030": 0.5,
+  "2031": 1.0,
+  "2032": 1.5,
+  "2033": 1.5,
+  "2034": 2.0,
+  "2035": 2.0,
+  "2036": 2.5,
+  "2037": 2.5,
+  "2038": 2.5,
+  "2039": 2.5,
+  "2040": 2.5
+ },
+ "dette_cumulee_2040_sans_pfu": -9.986174296576003,
+ "notes": "Bouclage budgétaire de la note de 8 pages : neutralité approximative chaque année, sans dette de transition.\n\nEntrées : sorties/{ircsg,foncier,is,pfu}.json (tables « annuel »). Unités : Md€ constants (niveau des prix et de\nl'activité de 2027 ≈ 2025 + 2 ans) ; les séries IS, nominales (+3 %/an), sont déflatées par leur propre croissance.\nConvention de caisse : l'IS d'un exercice est encaissé l'année suivante (is.json, annuel_caisse) ; la taxe foncière,\nles droits et l'impôt sur les plus-values sont comptés l'année d'encaissement.\n\nRègles (CADRE.md) : pas de déficit organisé ; les recettes de la fin de l'effacement des plus-values ne financent rien\ntant qu'elles ne sont pas constatées (elles forment une réserve, affectée ensuite à une baisse supplémentaire du taux\nd'IS) ; la fin de la contribution exceptionnelle sur l'IS et l'extinction de la CRDS (droit en vigueur) sont affichées\nà part, non comptées.\n\nChoix de calendrier [C] :\n- taux réduit d'IS : 20 % pour l'exercice 2027, aligné sur le taux normal dès l'exercice 2028 ;\n- déduction immédiate : 25 % pour l'exercice 2029, 50 % dès l'exercice 2030 (elle attend la taxe foncière, en\n  recouvrement par tiers en 2029-2031, et les droits baissent au même rythme : foncier.json) ;\n- taux normal : baisse par demi-points, la plus forte possible chaque année sans solde négatif au-delà de −0,3 Md€.\nSortie : sorties/bouclage.json, sorties/bouclage.txt.\n"
+}

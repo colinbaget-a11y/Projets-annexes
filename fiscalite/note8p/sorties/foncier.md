@@ -1,7 +1,7 @@
 # Bloc « fiscalité immobilière » : compte rendu pour l'assembleur
 
 *16/11/2026. Scripts : `note8p/calculs/foncier_calculs.py` (chiffres → `foncier.json`, journal `foncier_journal.txt`) et
-`foncier_figures.py` (g4, g5, g6). Le modèle communal de `foncier/simulation.py` est importé tel quel (logements des
+`foncier_figures.py` (g4, g5, g6), `foncier_annexe.py` (annexe LaTeX générée depuis le JSON). Le modèle communal de `foncier/simulation.py` est importé tel quel (logements des
 particuliers, métropole hors Alsace-Moselle, DVF 2023-2024 pour les prix, REI 2025, comptes de patrimoine fin 2025).
 Montants en Md€ de 2025, assiettes de 2025 non indexées. Statuts : [E] empirique publié, [S] simulation, [H] hypothèse,
 [C] choix de politique.*
