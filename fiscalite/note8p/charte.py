@@ -51,6 +51,9 @@ def sauver(fig, nom, source, note=""):
     d = Path(__file__).parent / "figures"
     fig.savefig(d / f"{nom}.pdf")
     fig.savefig(d / f"{nom}.png", dpi=150)
+    import re
     txt = "Source : " + source + ("\\par " + note if note else "")
+    txt = re.sub(r"(?<!\\)_", r"\\_", txt)
+    txt = re.sub(r"(?<!\\)%", r"\\%", txt)
     (d / f"{nom}_source.tex").write_text(txt + "\n", encoding="utf-8")
     plt.close(fig)

@@ -171,6 +171,8 @@ def cas():
         ("conj_mi", "Couple, 35 000 € brut + mi-temps au Smic", [("sal", 35000.0, 1985), ("sal", SMIC / 2, 1985)], 0, False),
         ("conj2_0", "Couple, deux enfants, un seul salaire de 35 000 € brut", [("sal", 35000.0, 1985), ("sal", 0.0, 1985)], 2, False),
         ("conj2_mi", "Couple, deux enfants, 35 000 € brut + mi-temps au Smic", [("sal", 35000.0, 1985), ("sal", SMIC / 2, 1985)], 2, False),
+        ("conj_1k", "Couple, 35 000 € brut + 1 000 € brut", [("sal", 35000.0, 1985), ("sal", 1000.0, 1985)], 0, False),
+        ("conj2_1k", "Couple, deux enfants, 35 000 € brut + 1 000 € brut", [("sal", 35000.0, 1985), ("sal", 1000.0, 1985)], 2, False),
         ("seul_mi", "Personne seule, mi-temps au Smic", [("sal", SMIC / 2, 1985)], 0, False),
         # prolongation d'activité à 63 ans (né en 1962) : salaire de 35 000 € brut, ou pension de 20 000 € brut
         ("sen_sal", "Salarié de 63 ans, 35 000 € brut", [("sal", 35000.0, 1962)], 0, False),
@@ -199,4 +201,5 @@ if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     if "--marges" not in sys.argv:
         cas()
-    marges()
+    if "--cas" not in sys.argv:
+        marges()

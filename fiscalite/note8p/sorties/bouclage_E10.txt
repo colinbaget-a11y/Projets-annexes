@@ -1,0 +1,29 @@
+2027 | IR-CSG -0.01 | foncier +0.00 | taux réduit +0.00 | déduction +0.00 | taux 25.0 % (+0.00) | solde -0.01 | réserve PV +0.00
+2028 | IR-CSG -0.03 | foncier -0.47 | taux réduit +1.33 | déduction +0.00 | taux 25.0 % (-0.00) | solde +0.84 | réserve PV +0.85
+2029 | IR-CSG -0.04 | foncier +0.50 | taux réduit +2.67 | déduction -3.69 | taux 25.0 % (-0.00) | solde -0.56 | réserve PV +1.91
+2030 | IR-CSG -0.05 | foncier +0.75 | taux réduit +2.67 | déduction -6.55 | taux 25.0 % (-0.00) | solde -3.18 | réserve PV +2.10
+2031 | IR-CSG -0.05 | foncier +1.24 | taux réduit +2.67 | déduction -5.07 | taux 25.0 % (-0.00) | solde -1.21 | réserve PV +2.29
+2032 | IR-CSG -0.05 | foncier +0.77 | taux réduit +2.67 | déduction -3.92 | taux 25.0 % (-0.00) | solde -0.53 | réserve PV +2.47
+2033 | IR-CSG -0.05 | foncier +0.80 | taux réduit +2.67 | déduction -2.98 | taux 25.0 % (-0.00) | solde +0.44 | réserve PV +2.64
+2034 | IR-CSG -0.05 | foncier +0.82 | taux réduit +2.67 | déduction -2.14 | taux 24.5 % (-1.45) | solde -0.15 | réserve PV +2.80
+2035 | IR-CSG -0.05 | foncier +0.85 | taux réduit +2.67 | déduction -1.32 | taux 24.5 % (-1.47) | solde +0.68 | réserve PV +2.96
+2036 | IR-CSG -0.05 | foncier +0.87 | taux réduit +2.67 | déduction -0.80 | taux 24.0 % (-2.96) | solde -0.27 | réserve PV +3.11
+2037 | IR-CSG -0.05 | foncier +0.90 | taux réduit +2.67 | déduction -0.67 | taux 24.0 % (-2.96) | solde -0.13 | réserve PV +3.26
+2038 | IR-CSG -0.05 | foncier +0.92 | taux réduit +2.67 | déduction -0.67 | taux 24.0 % (-2.96) | solde -0.10 | réserve PV +3.40
+2039 | IR-CSG -0.05 | foncier +0.94 | taux réduit +2.67 | déduction -0.67 | taux 24.0 % (-2.96) | solde -0.08 | réserve PV +3.53
+2040 | IR-CSG -0.05 | foncier +0.96 | taux réduit +2.67 | déduction -0.67 | taux 24.0 % (-2.96) | solde -0.06 | réserve PV +3.66
+2027 | avec étape PV : taux 25.0 % ; solde -0.01
+2028 | avec étape PV : taux 25.0 % ; solde +1.69
+2029 | avec étape PV : taux 25.0 % ; solde +1.35
+2030 | avec étape PV : taux 25.0 % ; solde -1.08
+2031 | avec étape PV : taux 25.0 % ; solde +1.08
+2032 | avec étape PV : taux 25.0 % ; solde +1.94
+2033 | avec étape PV : taux 25.0 % ; solde +3.07
+2034 | avec étape PV : taux 24.5 % ; solde +2.65
+2035 | avec étape PV : taux 24.5 % ; solde +3.64
+2036 | avec étape PV : taux 23.0 % ; solde -0.11
+2037 | avec étape PV : taux 23.0 % ; solde +0.17
+2038 | avec étape PV : taux 23.0 % ; solde +0.33
+2039 | avec étape PV : taux 23.0 % ; solde +0.48
+2040 | avec étape PV : taux 23.0 % ; solde +0.63
+Dette cumulée 2040 (sans réserve PV) : 5.81

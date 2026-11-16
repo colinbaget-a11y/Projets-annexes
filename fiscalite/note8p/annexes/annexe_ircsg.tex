@@ -1,0 +1,114 @@
+% Annexe du bloc IR-CSG-CRDS (note8p, 17/11/2026). Écrit par note8p/calculs/ircsg_annexe.py à partir de
+% note8p/sorties/ircsg.json ; ne pas modifier à la main.
+
+\subsection{Champ, recette et données}
+
+\paragraph{Champ.} Le nouvel impôt remplace l'IR des revenus imposés au barème (salaires, pensions, chômage, bénéfices des indépendants, revenus fonciers), la CSG et la CRDS des revenus d'activité et de remplacement, et la CEHR due sur ces revenus. Les revenus du capital mobilier et les plus-values (PFU, option pour le barème comprise) relèvent du bloc capital. En 2025 : IR 86{,}6~Md€, CSG 135{,}8~Md€ (activité 108{,}5, pensions 26{,}7, chômage 0{,}6), CRDS 7{,}6~Md€, soit 229{,}9~Md€ ; s'y ajoutent la CEHR du barème (0{,}58~Md€ sur 1{,}39, au prorata des revenus du barème dans le revenu fiscal des tranches qui la paient, hypothèse) et les avantages maintenus pour l'invalidité et la dépendance (1{,}03~Md€, PLF 2026, Voies et moyens). Recette à tenir : 231{,}5~Md€.
+
+\paragraph{Réconciliation de l'IR.} Comptes nationaux 2025 : 103{,}6~Md€ ; IRCOM des revenus 2024 porté en 2025 : 99{,}0 ; IR imputé par le modèle aux revenus du capital (12,8~\% de 90~Md€, convention de 2024) : 12{,}4 ; IR au PFU mesuré par le bloc capital (revenus 2025) : 8{,}4. L'écart de 4{,}0~Md€ n'est pas attribué : IR des revenus du capital imposés au barème par option (hors de notre périmètre), assurance-vie et plus-values immobilières comptées à tort dans les 90~Md€, erreur de répartition. S'il s'agissait en entier d'IR sur des revenus du barème, la recette à tenir monterait d'autant, soit $+$0{,}29~point sur tous les taux.
+
+\paragraph{Modèle.} Foyers « purs » de \texttt{synthese/modele\_purs.py} : 25 tranches de l'IRCOM des revenus 2024, 60 foyers représentatifs par tranche, chacun scindé en foyers d'actifs et de retraités dans la proportion des pensions de la tranche ; couples homogènes, quatre partages des revenus (100/0, 88/12, 70/30, 55/45, Insee) ; 1,97~M de parents isolés (un enfant chacun) et deux enfants par couple « avec enfants » ; charge actuelle répartie entre types par des cas-types OpenFisca sans niche, puis recalée en 2025 composante par composante. Les cas-types sont recalculés avec OpenFisca-France 176.1 (droit des revenus 2025 ; IR, CEHR, CDHR, CSG, CRDS ; taux de CSG des pensions en régime stable) par \texttt{note8p/calculs/ircsg\_openfisca.py}.
+
+\subsection{Taux marginaux d'aujourd'hui sur une assiette comparable}
+
+Le taux marginal est le prélèvement supplémentaire sur 100~€ de revenu après cotisations en plus, calculé point par point par OpenFisca sur une grille de 100~€ (salarié seul du privé, sans enfant). Les taux nominaux ne s'additionnent pas : la CSG et la CRDS portent sur 98,25~\% du brut (100~\% au-delà de quatre plafonds), donc aussi sur les cotisations ; l'IR porte sur le revenu imposable, net de la CSG déductible (6,8 points) et des frais professionnels (10~\%, plafonnés). Au sommet, par euro de revenu après cotisations : entre 4 et 8 plafonds, IR 41{,}6 + CSG 10{,}3 + CRDS 0{,}56 = 52{,}4~\% ; au-delà de 8 plafonds, 51{,}7~\% ; plus 2{,}8 ou 3{,}7 points de CEHR. La CDHR ne joue pas pour un salarié (taux moyen supérieur à 20~\%). Médianes sur la grille : 54{,}7~\% entre 250\,000 et 450\,000~€, 55{,}7~\% au-delà de 550\,000~€ ; maximum 56{,}7~\%.
+
+\begin{table}[h]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Taux marginal sur 100~€ de revenu après cotisations, salarié seul (\%)}\label{tab:ircsg8_tm}
+\begin{tabular}{rrrrrrr}\hline
+Revenu (€) & Aujourd'hui & dont IR & dont CEHR & dont CSG-CRDS & Naïve & Proposition \\ \hline
+10\,000 & 10{,}7 & 0{,}0 & 0{,}0 & 10{,}7 & 4{,}3 & 5 \\
+15\,000 & 10{,}7 & 0{,}0 & 0{,}0 & 10{,}7 & 15{,}3 & 20 \\
+19\,000 & 10{,}7 & 0{,}0 & 0{,}0 & 10{,}7 & 15{,}3 & 20 \\
+20\,500 & 10{,}7 & 0{,}0 & 0{,}0 & 10{,}7 & 15{,}3 & 20 \\
+25\,000 & 23{,}8 & 13{,}0 & 0{,}0 & 10{,}7 & 15{,}3 & 20 \\
+30\,000 & 23{,}7 & 13{,}0 & 0{,}0 & 10{,}7 & 34{,}3 & 20 \\
+38\,000 & 35{,}8 & 25{,}0 & 0{,}0 & 10{,}7 & 34{,}3 & 28 \\
+45\,000 & 35{,}6 & 25{,}0 & 0{,}0 & 10{,}6 & 34{,}3 & 28 \\
+60\,000 & 35{,}7 & 25{,}0 & 0{,}0 & 10{,}6 & 34{,}3 & 28 \\
+90\,000 & 35{,}6 & 25{,}0 & 0{,}0 & 10{,}6 & 45{,}3 & 28 \\
+110\,000 & 45{,}6 & 35{,}0 & 0{,}0 & 10{,}6 & 45{,}3 & 28 \\
+150\,000 & 44{,}7 & 34{,}0 & 0{,}0 & 10{,}6 & 45{,}3 & 45 \\
+200\,000 & 47{,}8 & 37{,}0 & 0{,}0 & 10{,}8 & 49{,}3 & 45 \\
+250\,000 & 51{,}9 & 41{,}0 & 0{,}0 & 10{,}8 & 49{,}3 & 45 \\
+300\,000 & 54{,}9 & 41{,}1 & 3{,}0 & 10{,}8 & 49{,}3 & 45 \\
+400\,000 & 54{,}7 & 42{,}0 & 3{,}0 & 9{,}7 & 49{,}3 & 45 \\
+600\,000 & 54{,}8 & 42{,}1 & 3{,}0 & 9{,}8 & 49{,}3 & 45 \\
+\hline\end{tabular}
+\par\footnotesize Fusion naïve : barème de l'IR (sans décote ni abattement) sur le revenu après cotisations, plus 4{,}3~\% sur tout le revenu (recette égale). Source : OpenFisca-France 176.1 ; calculs des auteurs.
+\end{table}
+
+\subsection{Choix du barème et variantes}
+
+\paragraph{Exploration.} 1\,800 barèmes à quatre taux ont été essayés (\texttt{ircsg\_explore.py}, \texttt{ircsg\_affinage.py}), chacun calé sur la recette : taux d'entrée de 0 à 10~\% jusqu'à 6\,000 à 16\,000~€, deux taux intermédiaires, taux supérieur de 40 à 50~\% au-delà de 80\,000 à 150\,000~€. Le gain d'efficacité croît toujours quand le barème s'aplatit (le plus efficace à taux supérieur de 45~\%, 15~\% jusqu'à 100\,000~€ puis 45~\%, gagne 5,6~Md€ et rend 21~Md€ au dixième le plus aisé) : sans pondération d'équité, le modèle mène à un impôt proportionnel. Le choix est donc un choix de politique, guidé par cinq règles : un taux constant de 0,6 à 1,9 Smic (enseignement de Bozio et Wasmer, 2024) ; aucun salarié au Smic perdant ; taux supérieur de 45~\% sur le 1~\% le plus aisé ; chiffres ronds ; à progressivité égale, le barème le plus robuste à la perception de la CSG. Le seuil de 36\,500~€ est calé sur la recette (231{,}50~Md€, écart $-$0{,}03). Coût d'un point : tous les taux 14{,}0~Md€ ; 20 et 28~\% 8{,}3 ; 45~\% 0{,}42 ; 1\,000~€ de franchise par enfant 3{,}1~Md€.
+
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\caption{Variantes, recette constante (taux intermédiaires recalés)}\label{tab:ircsg8_var}
+\begin{tabular}{lrrrrrrrrr}\hline
+ & \multicolumn{3}{c}{Gain (Md€), CSG perçue} & Emplois & Retraités & Couple, 2 enf. & 1~\% & Mono-act. & Couple 1 rev. \\
+ & entière & moitié & nulle & (milliers) & (Md€) & (€/foyer) & (Md€) & 60\,k€ (€) & 80\,k€ (€) \\ \hline
+Proposition & 3{,}8 & 0{,}1 & $-$3{,}3 & 305 & $+$12{,}9 & $-$1\,130 & $-$2{,}2 & $+$1\,080 & $+$3\,603 \\
+30~\% de 44 à 100~k€ & 3{,}4 & $-$0{,}3 & $-$3{,}8 & 306 & $+$12{,}3 & $-$1\,035 & $-$0{,}7 & $+$697 & $+$3\,548 \\
+Seuil de 10\,000~€ à 0~\% & 3{,}1 & $-$0{,}6 & $-$4{,}1 & 408 & $+$12{,}4 & $-$1\,138 & $-$1{,}5 & $+$1\,272 & $+$4\,170 \\
+Taux supérieur de 40~\% & 4{,}0 & 0{,}4 & $-$3{,}1 & 298 & $+$13{,}4 & $-$1\,239 & $-$3{,}9 & $+$1\,155 & $+$3\,755 \\
+Taux supérieur de 50~\% & 3{,}6 & $-$0{,}1 & $-$3{,}6 & 311 & $+$12{,}4 & $-$1\,019 & $-$0{,}4 & $+$1\,007 & $+$3\,456 \\
+Franchise de 4\,000~€/enfant & 3{,}9 & 0{,}2 & $-$3{,}2 & 284 & $+$11{,}0 & $-$635 & $-$2{,}2 & $+$1\,524 & $+$2\,927 \\
+Franchise de 8\,000~€/enfant & 3{,}7 & 0{,}0 & $-$3{,}5 & 315 & $+$14{,}8 & $-$1\,608 & $-$2{,}3 & $+$429 & $+$4\,072 \\
+Quotient conj. plafonné (2\,000~€) & 3{,}1 & $-$0{,}6 & $-$4{,}0 & 216 & $+$12{,}6 & $-$1\,330 & $-$2{,}0 & $-$690 & $+$2\,068 \\
+Quotient conj. sans plafond & 3{,}1 & $-$0{,}6 & $-$4{,}0 & 174 & $+$12{,}9 & $-$1\,480 & $-$3{,}1 & $-$894 & $-$405 \\
+Fusion naïve & 1{,}5 & $-$2{,}3 & $-$5{,}9 & 303 & $+$9{,}6 & $-$818 & $+$2{,}4 & $-$1\,427 & $-$969 \\
+\hline\end{tabular}
+\par Gain : variation de perte sèche réelle, jeu central ; perception sur les heures et l'effort, la décision de travailler se prenant sur le salaire net. Mono-act. : famille à un revenu, deux enfants, 60\,000~€ brut ; couple 1 rev. : sans enfant, 80\,000~€ brut.
+\end{table}
+
+\subsection{Résultats distributifs}
+
+\paragraph{Déciles.} Variation moyenne par foyer fiscal (€ par an), déciles de foyers classés par revenu fiscal (IRCOM) : D1 $+$3 ; D2 $+$19 ; D3 $+$373 ; D4 $+$526 ; D5 $+$45 ; D6 $+$113 ; D7 $-$223 ; D8 $+$292 ; D9 $-$57 ; D10 $-$690. Le dixième le plus aisé paie 2{,}9~Md€ de moins, le 1~\% 2{,}2~Md€ de moins. Les déciles 3 et 4, où les retraités modestes sont nombreux, paient le plus. Actifs $-$11{,}3~Md€ ($-$416~€ par foyer) ; retraités $+$12{,}9~Md€ ($+$889~€) ; 33~\% des foyers paient plus de 500~€ de plus.
+
+\paragraph{Couples et impôt individuel.} Variation moyenne selon la part du revenu du couple gagnée par le premier conjoint (100/0, 88/12, 70/30, 55/45) : couples d'actifs sans enfant $+$2\,945 / $+$1\,116 / $-$388 / $-$850~€ ; avec enfants $+$1\,166 / $-$492 / $-$1\,657 / $-$1\,745~€ ; couples de retraités $+$3\,620 / $+$2\,315 / $+$1\,116 / $+$767~€. Les perdants de l'individualisation sont les couples aux revenus très inégaux.
+
+\begin{table}[h]\centering\footnotesize
+\caption{Variation de l'impôt par configuration familiale, selon le revenu brut du ménage (€ par an)}\label{tab:ircsg8_fam}
+\begin{tabular}{lrrrrrrr}\hline
+ & 20\,k€ & 30\,k€ & 40\,k€ & 60\,k€ & 80\,k€ & 100\,k€ & 150\,k€ \\ \hline
+Salarié seul & $-$160 & $-$130 & $-$480 & $-$1\,930 & $-$3\,290 & $-$4\,660 & $-$8\,660 \\
+Couple biactif, sans enfant & $-$1\,020 & $-$930 & $-$320 & $-$560 & $-$500 & $-$2\,400 & $-$5\,900 \\
+Couple à un revenu, sans enfant & $-$160 & $+$660 & $+$1\,480 & $+$2\,590 & $+$3\,600 & $+$2\,240 & $+$1\,210 \\
+Couple biactif, 2 enfants & $-$1\,550 & $-$2\,130 & $-$2\,310 & $-$1\,080 & $-$1\,830 & $-$2\,150 & $-$5\,650 \\
+Couple à un revenu, 2 enfants & $-$1\,620 & $-$1\,740 & $-$920 & $+$1\,120 & $+$1\,810 & $+$2\,490 & $-$570 \\
+Couple biactif, 3 enfants & $-$1\,550 & $-$2\,330 & $-$2\,610 & $-$2\,280 & $-$1\,170 & $-$1\,880 & $-$3\,710 \\
+Couple à un revenu, 3 enfants & $-$1\,910 & $-$2\,430 & $-$2\,120 & $-$460 & $+$1\,980 & $+$2\,710 & $+$1\,010 \\
+Parent isolé, 2 enfants & $-$1\,620 & $-$1\,740 & $-$920 & $-$430 & $-$580 & $-$1\,950 & $-$7\,990 \\
+Retraité seul & $+$1\,340 & $+$910 & $-$310 & $-$1\,910 & $-$3\,720 & $-$6\,080 & $-$10\,670 \\
+Couple de retraités & $+$1\,000 & $+$1\,110 & $+$1\,240 & 0 & $-$1\,180 & $-$3\,350 & $-$7\,860 \\
+\hline\end{tabular}
+\par Cas-types OpenFisca (salariés du privé, couples mariés ou pacsés, biactifs à 60/40 ; retraités de plus de 65 ans, pension brute) ; charge d'aujourd'hui : IR, CEHR, CSG, CRDS.
+\end{table}
+
+\subsection{Efficacité et effets réels}
+
+\paragraph{Méthode.} Celle de \texttt{revue/methode\_v2.md}, recopiée dans \texttt{ircsg\_modele.evalue} pour appliquer la perception de la CSG aux deux marges. Marge intensive : $\Delta Q = e\,g\,[\ln(1-t_1) - \ln(1-\tilde t_0)]$, où $t_1$ est le taux marginal du nouvel impôt (entièrement perçu), $\tilde t_0$ le taux actuel perçu (IR, plus la part perçue de la CSG-CRDS) ; chaque euro perdu coûte le coin moyen total non contributif (impôt, cotisations non contributives, retrait de la prime d'activité, inchangés). Élasticités du revenu réel 0,02/0,05/0,10 sous la médiane, 0,05/0,10/0,20 au-dessus (0,25 au sommet dans le jeu haut). Marge extensive : même formule sur le taux de prélèvement du premier salaire, adultes gagnant moins de deux Smic, $\eta$ = 0,10/0,25/0,50. Le revenu déclaré du dixième supérieur est un effet sur la recette (non compté).
+
+\begin{table}[h]\centering\footnotesize
+\caption{Gain d'efficacité (Md€ par an), emplois (milliers) et PIB potentiel, selon la perception de la CSG}\label{tab:ircsg8_eff}
+\begin{tabular}{lrrrrrrr}\hline
+CSG d'aujourd'hui perçue & \multicolumn{3}{c}{Gain : bas, central, haut} & \multicolumn{3}{c}{Emplois} & PIB (\%) \\ \hline
+entière & 1{,}9 & 3{,}8 & 9{,}0 & 122 & 305 & 610 & $+$0{,}91 \\
+moitié (heures, effort) & 0{,}0 & 0{,}1 & 0{,}8 & 122 & 305 & 610 & $+$0{,}32 \\
+nulle (heures, effort) & $-$1{,}7 & $-$3{,}3 & $-$7{,}0 & 122 & 305 & 610 & $-$0{,}24 \\
+moitié (deux marges) & $-$1{,}0 & $-$2{,}4 & $-$4{,}4 & $-$54 & $-$136 & $-$272 & $-$0{,}49 \\
+nulle (deux marges) & $-$3{,}6 & $-$8{,}2 & $-$16{,}8 & $-$219 & $-$549 & $-$1\,097 & $-$1{,}80 \\
+\hline\end{tabular}
+\par PIB : Cobb-Douglas (part du travail 2/3), capital ajusté, jeu central ; à capital donné, deux tiers de ces chiffres.
+\end{table}
+
+Le gain central s'annule sous 48~\% de perception. Pensions futures : hausse du taux moyen sur les pensions de 3{,}1~points, soit un prélèvement implicite de 0{,}84~point sur le salaire ($\kappa = 0{,}274\,\Delta\tau$, part contributive des cotisations) ; gain 3{,}9 s'il n'est pas vu, 3{,}3 à moitié, 2{,}8 en entier.
+
+\subsection{Retraités, trajectoire et limites}
+
+\paragraph{Retraités.} Hausse de 12{,}9~Md€ (3{,}1~\% des pensions ; charge actuelle 50{,}2~Md€). Repères en droit actuel : abattement de 10~\% 5{,}32~Md€ ; abattement des plus de 65 ans 0{,}42 ; demi-part des anciens combattants 0{,}47 ; CSG de toutes les pensions au taux de 9,2~\% : $+$11{,}9~Md€ (approximation). Le nouveau barème rend une partie de ces sommes (taux de 5~\% jusqu'à 12\,000~€, 45~\% au sommet). Variation par retraité seul : P10 $+$27, médiane $+$845, P90 $+$1\,451~€ ; par couple : médiane $+$1\,479, P90 $+$3\,296~€.
+
+\paragraph{Trajectoire.} Chaque foyer paie $(1-\lambda)$ fois l'ancien impôt et $\lambda$ fois le nouveau, $\lambda$ = 0,25 ; 0,5 ; 0,75 ; 1 de 2027 à 2030 : la recette est constante chaque année. En 2030 (Md€, niveau 2025) : retraités $+$12{,}88, actifs $-$11{,}30, CEHR du barème $-$0{,}58, invalidité et dépendance $-$1{,}03, total $-$0{,}05. L'extinction de la CRDS après 2033 (droit en vigueur) se traduit en 2034 par une baisse de 0{,}54~point de tous les taux, hors bilan de la réforme.
+
+\paragraph{Limites.} Foyers synthétiques (pas de ménages mixtes actifs-retraités, pas de familles de trois enfants ou plus dans le modèle agrégé, niches réelles réparties au prorata) ; perception de la CSG non mesurée ; suppression des crédits d'impôt (emploi à domicile, garde d'enfants : 8,8~Md€) héritée du modèle ; IR non attribué de 4{,}0~Md€ ; IR de 2025 peut-être à un point haut ; répartition des revenus au PFU entre tranches inconnue ; pas de demande de travail ni de réaction des retraités ; frontaliers et non-résidents (CJCE, C-169/98) à expertiser.
+

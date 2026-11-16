@@ -7,8 +7,8 @@ Choix (arbitrages de l'auteur du 17/11/2026 ; exploration : ircsg_explore.py, so
 - assiette : revenu après cotisations sociales (salaire net de cotisations avant CSG, pension brute, revenus des
   indépendants et fonciers après cotisations, allocations chômage), de chaque adulte ; versements d'épargne retraite
   déductibles (plafonds actuels) ; aucune autre niche, sauf invalidité et dépendance (maintenues, coût 1,03 Md€) ;
-- barème : 5 % jusqu'à 12 000 €, 20 % jusqu'à S1, 30 % jusqu'à 100 000 €, 45 % au-delà ; S1 calé sur la recette du
-  périmètre puis arrondi au millier (44 000 €) ;
+- barème : 5 % jusqu'à 12 000 €, 20 % jusqu'à S1, 28 % jusqu'à 120 000 €, 45 % au-delà ; S1 calé sur la recette du
+  périmètre puis arrondi à 500 € (36 500 €) ;
 - enfants : franchise de 6 000 € par enfant, déduite par le parent au revenu le plus élevé (choix des parents) ;
 - pensions au droit commun (aucun abattement, aucun taux réduit, aucune exonération propre) ;
 - CEHR supprimée sur les revenus du barème (absorbée) ; CEHR et CDHR sur les revenus du capital : bloc capital.
@@ -68,7 +68,7 @@ p(f"[RÉCONCILIATION IR] comptes nationaux 2025 {NAT25['ir']:.1f} ; IRCOM porté
 
 # ================================================================== 2. barème retenu
 FE = 6000.0
-S0, T0, T1, T2, S2, TOP = 12000.0, 0.05, 0.20, 0.30, 100000.0, 0.45
+S0, T0, T1, T2, S2, TOP = 12000.0, 0.05, 0.20, 0.28, 120000.0, 0.45
 
 
 def sched_S1(S1, fe=FE, s0=S0, t=(T0, T1, T2, TOP), s2=S2):
@@ -85,7 +85,7 @@ def cale_S1(o, **k):
 
 O = R.options(fe=FE)
 S1_EXACT = cale_S1(O)
-S1 = round(S1_EXACT / 1000) * 1000
+S1 = round(S1_EXACT / 500) * 500
 SCHED = sched_S1(S1)
 SEUILS, TAUX = [0.0, S0, S1, S2], [T0, T1, T2, TOP]
 REC = R.recette(SCHED, O)
@@ -95,7 +95,7 @@ dtop = R.recette(R.bareme(SEUILS, [T0, T1, T2, TOP + .01]), O) - REC
 denf = R.recette(SCHED, R.options(fe=FE + 1000)) - REC
 D["bareme"] = dict(seuils=SEUILS, taux=TAUX, S1_exact=S1_EXACT, franchise_enfant=FE, recette=REC, ecart=REC - R.CIBLE,
                    cout_par_point=dict(tous_taux=d1, taux_20_30=d1b, taux_45=dtop, franchise_enfant_1000=-denf))
-p(f"\n[BARÈME] 5 % jusqu'à {f(S0)} €, 20 % jusqu'à {f(S1)} € (calage exact {f(S1_EXACT)}), 30 % jusqu'à {f(S2)} €, 45 %"
+p(f"\n[BARÈME] 5 % jusqu'à {f(S0)} €, 20 % jusqu'à {f(S1)} € (calage exact {f(S1_EXACT)}), 28 % jusqu'à {f(S2)} €, 45 %"
   f" au-delà ; franchise {f(FE)} € par enfant ; recette {REC:.2f} Md€ (écart {REC - R.CIBLE:+.2f})")
 p(f"[POINT DE TAUX] tous les taux +1 point : {d1:.1f} Md€ ; 20 et 30 % : {d1b:.1f} ; 45 % : {dtop:.2f} ; 1 000 € de"
   f" franchise par enfant : {-denf:.2f} Md€")
@@ -135,6 +135,8 @@ p(f"  seuil : le gain central s'annule si moins de {100 * VUE_SEUIL:.0f} % de la
 p(f"  effets réels (central, vue 1) : travail {c['travail_pct']:+.2f} % ; équivalents emplois moyens"
   f" {c['etp_milliers']:+.0f} k ; PIB (Cobb-Douglas, travail 2/3) {c['pib_court_pct']:+.2f} % à capital donné,"
   f" {c['pib_long_pct']:+.2f} % capital ajusté, soit {c['pib_long_pct'] / 100 * NAT25['pib']:+.0f} Md€ [H]")
+p(f"  participation seule : {c['emplois'] / 1e3:+.0f} k personnes, revenu d'activité {EFF['central_vue_1']['extensif']:+.2f}"
+  f" Md€ de perte sèche en moins ; intensif : revenu réel du travail {100 * (c['travail_pct'] / 100):+.2f} % au total")
 p(f"  revenu déclaré (effet sur la recette, non compté) : {c['decl']:+.2f} Md€ (bas {EFF['bas_vue_1']['decl']:+.2f},"
   f" haut {EFF['haut_vue_1']['decl']:+.2f})")
 
@@ -244,7 +246,13 @@ for cle0, cle1, lib in (("conj_0", "conj_mi", "sans enfant"), ("conj2_0", "conj2
     p(f"[RÉCIT] couple {lib}, premier salaire 35 000 € brut ; le second reprend un mi-temps au Smic ({f(sal2)} € brut,"
       f" {f(b2)} € après cotisations) : impôt supplémentaire {f(t_auj)} € aujourd'hui ({u['taux_auj']:.1f} % du brut),"
       f" {f(t_ref)} € après ({u['taux_reforme']:.1f} %) ; charge du couple {f(u['charge_couple_auj'])} -> {f(u['charge_couple_reforme'])} €")
-# taux sur le premier euro du second conjoint aujourd'hui (OpenFisca : IR du couple au taux marginal du foyer + CSG-CRDS)
+# taux sur les 1 000 premiers euros bruts du second conjoint
+for cle0, cle1 in (("conj_0", "conj_1k"), ("conj2_0", "conj2_1k")):
+    c0, c1 = R.CAS[R.CAS.cle == cle0].iloc[0], R.CAS[R.CAS.cle == cle1].iloc[0]
+    D["recit"][f"premier_euro_{cle1}"] = dict(auj=100 * (float(c1.charge) - float(c0.charge)) / 1000,
+                                             reforme=100 * (R.impot_cas(SCHED, O, cle1) - R.impot_cas(SCHED, O, cle0)) / 1000)
+    p(f"[RÉCIT] premiers 1 000 € bruts du second conjoint ({cle1}) : {D['recit'][f'premier_euro_{cle1}']['auj']:.1f} % aujourd'hui,"
+      f" {D['recit'][f'premier_euro_{cle1}']['reforme']:.1f} % après")
 # prolongation d'activité
 for s_, r_ in (("sen_sal", "sen_ret"), ("sen_sal2", "sen_ret2")):
     cs, cr = R.CAS[R.CAS.cle == s_].iloc[0], R.CAS[R.CAS.cle == r_].iloc[0]
@@ -268,6 +276,25 @@ for k, base_k in (("seul_mi", None), ("jeune_smic", None)):
 D["recit"]["premier_salaire"] = PTR
 p("[PREMIER SALAIRE] prélèvement / salaire brut : " + " ; ".join(f"{k} {v['auj']:.1f} % -> {v['reforme']:.1f} %"
                                                                for k, v in PTR.items()))
+
+# courbes par configuration familiale (grille OpenFisca de synthese/sorties/cas_types_openfisca.csv, droit 2025)
+COURBES = {}
+for prof in ("seul", "couple_0enf", "couple_0enf_mono", "couple_2enf", "couple_2enf_mono", "couple_3enf", "couple_3enf_mono",
+             "parent_isole_2enf", "retraite_seul", "retraite_couple"):
+    g = U.CTN[(U.CTN.profil == prof) & (U.CTN.brut >= 10000) & (U.CTN.brut <= 200000) & (U.CTN.brut % 10000 == 0)]
+    kids = U.ENF[prof]
+    rows = []
+    for _, r in g.iterrows():
+        zs = [np.array([r.base_a])] + ([np.array([r.base_b])] if prof.startswith(("couple", "retraite_couple")) else [])
+        nv = float(R.impot_adultes(*SCHED, O, zs, zs, [0 * z for z in zs], kids)[0][0])
+        rows.append(dict(brut=float(r.brut), auj=float(r.charge), apres=nv, delta=nv - float(r.charge),
+                         pct_brut=100 * (nv - float(r.charge)) / float(r.brut)))
+    COURBES[prof] = rows
+D["courbes_familles"] = COURBES
+p("\n[CONFIGURATIONS FAMILIALES] variation (€ par an) selon le revenu brut du ménage (couples : 60/40 ou un seul revenu)")
+for prof, rows in COURBES.items():
+    p(f"  {prof:18s} " + " ".join(f"{r['brut'] / 1e3:.0f}k:{r['delta']:+.0f}" for r in rows if r['brut'] in
+                                   (20e3, 30e3, 40e3, 50e3, 60e3, 80e3, 100e3, 150e3, 200e3)))
 
 # ================================================================== 7. variantes
 VAR = {}
@@ -295,9 +322,13 @@ for fe in (4000.0, 8000.0):
                                          dict(seuils=[0, S0, s1, S2], taux=TAUX, fe=fe))
 # seuil d'exonération au lieu du taux d'entrée : 0 % jusqu'à 10 000 €, puis 20/30/45, S1 recalé (si possible)
 o_ = R.options(fe=FE)
-t_exo = R.cale_echelle([0, 10e3, 44e3, S2], [0.0, T1, T2, TOP], [1, 2], o_)
-VAR["seuil_exoneration"] = resume("Seuil d'exonération de 10 000 € (taux 20/30 recalés)", R.bareme([0, 10e3, 44e3, S2], t_exo), o_,
-                                  dict(seuils=[0, 10e3, 44e3, S2], taux=list(t_exo), fe=FE))
+t_exo = R.cale_echelle([0, 10e3, S1, S2], [0.0, T1, T2, TOP], [1, 2], o_)
+VAR["seuil_exoneration"] = resume("Seuil d'exonération de 10 000 € (taux 20/28 recalés)", R.bareme([0, 10e3, S1, S2], t_exo), o_,
+                                  dict(seuils=[0, 10e3, S1, S2], taux=list(t_exo), fe=FE))
+# ancien barème exploré (30 % de 44 000 à 100 000 €), pour mémoire
+o_ = R.options(fe=FE)
+VAR["bareme_30_100k"] = resume("5/20/30/45 %, seuils 12 000 / 44 000 / 100 000 €", R.bareme([0, S0, 44e3, 100e3], [T0, T1, 0.30, TOP]),
+                               o_, dict(seuils=[0, S0, 44e3, 100e3], taux=[T0, T1, 0.30, TOP], fe=FE))
 # taux supérieur : 40 % ou 50 % (taux 20/30 recalés)
 for top in (0.40, 0.50):
     t_ = R.cale_echelle(SEUILS, [T0, T1, T2, top], [1, 2], O)
@@ -320,6 +351,16 @@ TAU_N = (lo + hi) / 2
 VAR["naive"] = resume("Fusion naïve : IR actuel sur l'assiette large + taux proportionnel", U.empile(TAU_N), o_n,
                       dict(tau=TAU_N))
 D["variantes"] = VAR
+# étape intermédiaire (quotient conjugal plafonné à 2 000 €) : second conjoint
+o_q = R.options(fe=FE, fam="qcp", qc_plafond=2000.0)
+s_q = R.bareme(SEUILS, VAR["qc_plafond_2000"]["taux"])
+QCP = {}
+for cle0, cle1 in (("conj_0", "conj_1k"), ("conj_0", "conj_mi"), ("conj2_0", "conj2_1k"), ("conj2_0", "conj2_mi")):
+    sal2 = float(str(R.CAS[R.CAS.cle == cle1].iloc[0].bruts).split(";")[1])
+    QCP[cle1] = 100 * (R.impot_cas(s_q, o_q, cle1) - R.impot_cas(s_q, o_q, cle0)) / sal2
+D["recit"]["second_conjoint_qcp2000"] = QCP
+p("[ÉTAPE INTERMÉDIAIRE, quotient conjugal plafonné à 2 000 €] prélèvement sur le salaire du second conjoint : "
+  + " ; ".join(f"{k} {v:.1f} %" for k, v in QCP.items()))
 p("\n[VARIANTES] gain central (vue 1 / 0,5 / 0, marge extensive vue en entier) ; emplois ; retraités ; 1 % ; cas")
 for k, v in VAR.items():
     g = v["groupes"]
@@ -417,6 +458,8 @@ p(f"\n[BOUCLAGE] 2030 : retraités {DR:+.2f}, actifs {DA:+.2f}, CEHR {-R.CEHR_BA
   f" écart de calage {REC - R.CIBLE:+.2f} -> total {ann['2030']['ircsg_total']:+.2f} Md€ ; CRDS 2034 : baisse de"
   f" {CRDS_PTS:.2f} point de tous les taux ({R25['crds']:.1f} Md€)")
 
+D["cout_par_point"] = dict(D["bareme"]["cout_par_point"], unite="Md€ par point de taux (ou par 1 000 € de franchise),"
+                          " niveau 2025, avant réaction")
 D["status"] = {"recettes": "[E] comptes nationaux, CCSS, IRCOM ; [S] répartition du modèle", "bareme": "[C]",
                "perte_seche": "[S] sur élasticités [E] et hypothèses [H]", "perception_csg": "[H]",
                "effets_reels": "[S]/[H]", "cas_types": "[S] OpenFisca 176.1 (droit des revenus 2025)"}

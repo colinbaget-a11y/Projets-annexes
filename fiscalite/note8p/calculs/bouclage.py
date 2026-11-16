@@ -12,7 +12,7 @@ d'IS) ; la fin de la contribution exceptionnelle sur l'IS et l'extinction de la 
 
 Choix de calendrier [C] :
 - taux réduit d'IS : 20 % pour l'exercice 2027, aligné sur le taux normal dès l'exercice 2028 ;
-- déduction immédiate : 25 % pour l'exercice 2029, 50 % dès l'exercice 2030 (elle attend la taxe foncière, en
+- déduction immédiate : 25 % pour l'exercice 2028, 50 % dès l'exercice 2029 (elle attend la taxe foncière, en
   recouvrement par tiers en 2029-2031, et les droits baissent au même rythme : foncier.json) ;
 - taux normal : baisse par demi-points, la plus forte possible chaque année sans solde négatif au-delà de −0,3 Md€.
 Sortie : sorties/bouclage.json, sorties/bouclage.txt.
@@ -42,7 +42,9 @@ def is_exercice(cle, a):
 # Déduction : profil du calendrier B (25 % puis 50 %) décalé de deux exercices (début en 2029), en euros constants.
 B = IS["deduction"]["calendriers"]["B"]["mix"]
 B_const = {int(a): v / defl[int(a)] for a, v in B.items()}
-DEC = 2
+import os
+DEC = int(os.environ.get("DEC", 1))
+PAS = float(os.environ.get("PAS", 0.5))
 
 
 def deduction_exercice(a):
@@ -68,13 +70,19 @@ def point_exercice(a):
     return base + inter * ratio
 
 
+SCEN = os.environ.get("FONCIER_SCEN", "")
+SUF = f"_{SCEN}" if SCEN else ""
+
+
 def foncier(a):
+    if SCEN:
+        return FON["annuel_par_scenario"][SCEN][str(a)]["net"]
     return FON["annuel"][str(a)]["net"]
 
 
 def ircsg(a):
     an = IRC.get("annuel", {}).get(str(a), {})
-    return an.get("net", 0.0) if an else 0.0
+    return an.get("ircsg_total", an.get("net", 0.0)) if an else 0.0
 
 
 def pfu(a):
@@ -92,9 +100,18 @@ def solde_ex(a, kk):
 points = {}
 k = 0.0
 for a in ANS:
-    while all(solde_ex(b, k + 0.5) >= -0.3 for b in ANS if b >= a):
-        k += 0.5
+    while all(solde_ex(b, k + PAS) >= -0.3 for b in ANS if b >= a):
+        k += PAS
     points[a] = k
+
+# Étape conditionnelle : demi-points supplémentaires financés par la fin de l'effacement, une fois la recette constatée
+# (recette de l'année précédente, scénario central), pas avant l'exercice 2035.
+extra, kx = {}, 0.0
+for a in ANS:
+    if a >= 2035:
+        while all(solde_ex(b, points[b] + kx + 0.5) + pfu(min(b, 2040)) >= -0.3 for b in ANS if b >= a):
+            kx += 0.5
+    extra[a] = kx
 
 lignes, res = [], {}
 for c in ANS:                                 # c = année de caisse
@@ -114,10 +131,17 @@ for c in ANS:                                 # c = année de caisse
 dette = 0.0
 for c in ANS:
     dette = dette * 1.0325 - res[c]["solde_sans_pfu"]
-res_tot = {"annuel": res, "points_par_exercice": points, "dette_cumulee_2040_sans_pfu": dette,
+for c in ANS:
+    e = c - 1
+    x = extra.get(e, 0.0) * point_exercice(e) if e >= 2027 else 0.0
+    res[c]["baisse_taux_pv"] = x
+    res[c]["taux_normal_avec_pv"] = res[c]["taux_normal"] - (extra.get(e, 0.0) if e >= 2027 else 0.0)
+    res[c]["solde_avec_pfu_et_baisse"] = res[c]["solde_avec_pfu"] + x
+    lignes.append(f"{c} | avec étape PV : taux {res[c]['taux_normal_avec_pv']:.1f} % ; solde {res[c]['solde_avec_pfu_et_baisse']:+.2f}")
+res_tot = {"annuel": res, "points_par_exercice": points, "points_pv": extra, "dette_cumulee_2040_sans_pfu": dette,
            "notes": __doc__}
-(S / "bouclage.json").write_text(json.dumps(res_tot, ensure_ascii=False, indent=1), encoding="utf-8")
-(S / "bouclage.txt").write_text("\n".join(lignes) + f"\nDette cumulée 2040 (sans réserve PV) : {dette:.2f}\n",
+(S / f"bouclage{SUF}.json").write_text(json.dumps(res_tot, ensure_ascii=False, indent=1), encoding="utf-8")
+(S / f"bouclage{SUF}.txt").write_text("\n".join(lignes) + f"\nDette cumulée 2040 (sans réserve PV) : {dette:.2f}\n",
                                 encoding="utf-8")
 print("\n".join(lignes))
 print(f"dette cumulée 2040 sans la réserve des plus-values : {dette:.2f} Md€")

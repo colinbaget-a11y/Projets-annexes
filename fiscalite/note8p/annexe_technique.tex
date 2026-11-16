@@ -1,0 +1,152 @@
+\documentclass[10pt,a4paper]{article}
+% Annexe technique de la note « Taxer mieux plutôt que davantage » (17/11/2026). Les annexes B à E sont écrites par
+% les programmes de note8p/calculs ; A est rédigée à la main ; F par calculs/annexe_bouclage.py.
+\input{preambule8p}
+\fancyfoot[L]{\small\color{gris}Taxer mieux plutôt que davantage — annexe technique}
+\setcounter{secnumdepth}{2}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\titleformat{\section}{\normalfont\large\bfseries\color{bleu}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\color{bleu}}{\thesubsection}{0.5em}{}
+
+\begin{document}
+
+{\footnotesize\color{brique}\bfseries ANNEXE TECHNIQUE\quad·\quad NOVEMBRE 2026\par}
+\vspace{4pt}
+{\fontsize{18}{22}\selectfont\bfseries\color{bleu}Taxer mieux plutôt que davantage\par}
+\vspace{3pt}
+{\large Données, hypothèses, formules, variantes et trajectoire budgétaire\par}
+\vspace{5pt}
+{\color{bleu}\hrule height 1pt}
+\vspace{4pt}
+
+{\small Chaque chiffre de la note est produit par un programme du dossier \texttt{fiscalite/note8p/calculs} et
+enregistré dans \texttt{note8p/sorties} (fichiers \texttt{.json}, et comptes rendus \texttt{.md} qui détaillent les
+sources). Statuts : \textbf{[E]} résultat empirique publié ; \textbf{[S]} simulation calibrée par nous ; \textbf{[H]}
+hypothèse ; \textbf{[C]} choix de politique. Base : prélèvements obligatoires de 2025 ; droit de 2026 ; répartition de
+l'impôt sur le revenu entre foyers : revenus de 2024 (IRCOM), les derniers publiés.\par}
+
+{\setcounter{tocdepth}{1}\small\tableofcontents}
+
+\section{Mesurer l'efficacité : la perte sèche, et ce qu'elle n'est pas}\label{ann:methode}
+
+\textbf{L'idée.} Un salarié pourrait faire une mission de plus payée 100~€ ; il n'y tient qu'à hauteur de 80~€. Sans
+impôt, il la fait : la société y gagne 20~€. Si l'on prélève 30~€, il ne lui reste que 70~€ : il renonce. L'État ne
+touche rien, le salarié non plus, et les 20~€ de valeur ont disparu. C'est la perte sèche : la valeur des activités
+que l'impôt fait abandonner, au-delà de ce qu'il rapporte. Une réforme est plus efficace si, à recette égale, elle fait
+renoncer à moins d'activités utiles.
+
+\textbf{La formule.} Nous utilisons la même formule pour les quatre réformes (Harberger, 1964 ; Hines, 1999) :
+\[
+\Delta PS \;=\; -\sum_j \big(\bar T_j - s_j\,\tau_{k(j)}\big)\,\Delta Q_j ,\qquad
+\Delta Q_j = \varepsilon_j\,Q_j\,\Delta\ln(1-t_j).
+\]
+$j$ parcourt les marges sur lesquelles une réforme agit : heures et effort, décision de travailler, ventes de
+logements, construction, stock d'équipements. $Q_j$ est la quantité concernée, $t_j$ le taux auquel elle réagit,
+$\varepsilon_j$ son élasticité. $\Delta Q_j$ est la quantité supplémentaire (ou perdue) ; chaque unité vaut, pour la
+collectivité, le coin total $\bar T_j$ qui la frappe, moyenne de sa valeur avant et après réforme (c'est la version
+« trapèze » de la formule, exacte au second ordre).
+
+\textbf{Les coins préexistants.} Sur une marge déjà taxée, une unité d'activité en moins coûte tout ce qui était
+prélevé dessus, pas seulement l'impôt réformé. Pour le travail, le coin total comprend l'impôt fusionné, les cotisations
+qui n'ouvrent pas de droits et le retrait de la prime d'activité : nous ne réformons pas ces prélèvements, mais les
+ignorer sous-estimerait la valeur d'un emploi de plus au voisinage du Smic. Pour l'immobilier, le coin est le droit de
+mutation sur les ventes et l'impôt sur le bâti sur la construction ; l'impôt sur le sol n'a pas de marge, puisque la
+quantité de terrain ne réagit pas. Pour l'IS, c'est l'écart entre le rendement avant et après impôt de l'équipement
+marginal (coût d'usage de Hall et Jorgenson).
+
+\textbf{Le réel, pas le déclaré.} Seule la baisse réelle de l'activité entre dans le gain. Un revenu déclaré plus tard,
+autrement ou dans une société est un effet sur la recette, donné à part, net de ce qui est récupéré sur une autre
+assiette ($s_j$, part déplacée, taxée au taux $\tau_k$ ; Chetty, 2009). Nous ne transformons jamais une élasticité du
+revenu imposable en élasticité de la production.
+
+\textbf{Les marges et les élasticités.} Heures et effort (revenu réel) : $\varepsilon$ de 0{,}02 / 0{,}05 / 0{,}10 sous
+le revenu médian et de 0{,}05 / 0{,}10 / 0{,}20 à 0{,}25 au-dessus (jeux bas, central, haut ; ordre de grandeur de
+Lehmann, Marical et Rioux, 2013, sur données françaises). Décision de travailler : élasticité au taux
+de prélèvement sur tout le salaire d'entrée de 0{,}10 / 0{,}25 / 0{,}50 sous deux Smic (synthèse de Chetty, Guren,
+Manoli et Weber, 2013). Ventes de logements : 0 à 8~\% par point de droits, 6 au centre ; 0 si la réaction n'est que
+temporaire (Bérard et Trannoy, 2018). Stock d'équipements : élasticité au coût d'usage de 0{,}5 à 1{,}6 (Maffini, Xing et
+Devereux, 2019). Les pensions, l'épargne et l'âge de départ ne réagissent pas dans le calcul, faute de mesure fiable.
+
+\textbf{La perception de la CSG.} Les salariés réagissent au taux qu'ils perçoivent. Le nouvel impôt, publié avec un
+barème, est supposé perçu en entier ; la CSG d'aujourd'hui l'est avec un poids $\theta$ inconnu. Si $\theta=1$, la
+fusion réduit la perte sèche de 3{,}8~Md€ ; elle ne gagne plus rien sous $\theta \approx 0{,}48$ ; à $\theta=0$, elle
+la relève de 3{,}3~Md€. C'est l'hypothèse qui peut le plus changer la conclusion.
+
+\textbf{Pas de doubles comptes.} La baisse de l'IS financée par l'excédent foncier est comptée dans le bloc IS, pas
+dans le bloc foncier ; la déductibilité de la taxe foncière est comptée une fois, dans le foncier. Les effets de l'IS sur
+le capital et le PIB ne sont pas ajoutés à sa perte sèche : ce sont deux mesures du même mécanisme. La perte de valeur
+des terrains due à la taxe est un transfert entre propriétaires actuels et collectivité, pas une perte sèche. Aucune
+perte sèche n'est chiffrée pour les plus-values : aucune élasticité ne s'applique proprement à une règle de transmission.
+
+\textbf{Ce que la perte sèche n'est pas.} Ce n'est pas un supplément de PIB : elle mesure une valeur nette (le revenu
+d'une heure de travail en plus moins la valeur du loisir sacrifié), pas une production brute. C'est une mesure statique,
+de niveau, à comportements mesurés sur de petites réformes. Elle ne dit rien du taux de croissance. Nous n'en faisons
+pas la somme avec les effets réels, et nous ne donnons pas de chiffre global de croissance.
+
+\begin{table}[!htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Ce que l'on peut chiffrer, réforme par réforme}\label{tab:gains}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+Réforme & Perte sèche évitée (Md€ par an ; central, fourchette) & Effets réels \\
+\midrule
+Nouvel impôt sur le revenu & 3,8 (1,9 à 9,0) si la CSG est perçue comme l'IR ; 0,1 si à moitié ; $-3{,}3$ si pas du
+tout [S/H] & offre de travail : +305\,000 personnes (122\,000 à 610\,000) si perçue [S/H] \\
+Immobilier & 2,5 (ventes 1,7 ; autres immeubles 0,4 ; bâti 0,4) ; 0,8 si la réaction des ventes n'est que temporaire [S]
+& mobilité résidentielle accrue [E, étranger] ; aucun effet chiffré sur l'emploi ni sur la construction \\
+Impôt sur les sociétés & 0,03 à 0,08 sur les équipements [S] & capital +11~Md€ (5,6 à 18,7) ; PIB potentiel
++0,06~\% (0,03 à 0,10), effet de niveau [S] \\
+Plus-values & non chiffrée & moins de verrouillage aux âges élevés [E pour le sens] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Le nouvel impôt sur le revenu}\label{ann:ircsg}
+\input{annexes/annexe_ircsg}
+
+\section{La fiscalité immobilière}\label{ann:foncier}
+\input{annexes/annexe_foncier}
+
+\section{L'impôt sur les sociétés}\label{ann:is}
+\input{annexes/annexe_is}
+
+\section{La fiscalité du capital}\label{ann:pfu}
+\input{annexes/annexe_pfu}
+
+\section{Le bouclage budgétaire, année par année}\label{ann:bouclage}
+\input{annexes/annexe_bouclage}
+
+\section{Références principales}\label{ann:refs}
+{\small\setlength{\parskip}{2pt}
+Banzhaf, H. S. et N. Lavery (2010), « Can the land tax help curb urban sprawl? Evidence from growth patterns in
+Pennsylvania », \emph{Journal of Urban Economics} 67(2). \par
+Bérard, G. et A. Trannoy (2018), « The impact of the 2014 increase in the real estate transfer taxes on the French
+housing market », \emph{Économie et Statistique} 500-502. \par
+Bozio, A. et É. Wasmer (2024), \emph{Les politiques d'exonérations de cotisations sociales : une inflexion
+nécessaire}, rapport au Premier ministre. \par
+Chetty, R. (2009), « Is the taxable income elasticity sufficient to calculate deadweight loss? », \emph{AEJ: Economic
+Policy} 1(2). \par
+Chetty, R., A. Guren, D. Manoli et A. Weber (2013), « Does indivisible labor explain the difference between micro and
+macro elasticities? », \emph{NBER Macroeconomics Annual} 27. \par
+Chodorow-Reich, G., O. Zidar et E. Zwick (2024), « Lessons from the biggest business tax cut in US history »,
+\emph{Journal of Economic Perspectives} 38(3). \par
+Eerola, E., O. Harjunen, T. Lyytikäinen et T. Saarimaa (2021), « Revisiting the effects of housing transfer taxes »,
+\emph{Journal of Urban Economics} 124. \par
+France Stratégie (2023), Comité d'évaluation des réformes de la fiscalité du capital, rapport final. \par
+Harberger, A. (1964), « The measurement of waste », \emph{American Economic Review} 54(3). \par
+Hilber, C. et T. Lyytikäinen (2017), « Transfer taxes and household mobility », \emph{Journal of Urban Economics} 101.
+\par
+Hines, J. (1999), « Three sides of Harberger triangles », \emph{Journal of Economic Perspectives} 13(2). \par
+Lehmann, É., F. Marical et L. Rioux (2013), « Labor income responds differently to income-tax and payroll-tax reforms »,
+\emph{Journal of Public Economics} 99. \par
+Maffini, G., J. Xing et M. Devereux (2019), « The impact of investment incentives: evidence from UK corporation tax
+returns », \emph{AEJ: Economic Policy} 11(3). \par
+Oates, W. et R. Schwab (1997), « The impact of urban land taxation: the Pittsburgh experience », \emph{National Tax
+Journal} 50(1). \par
+Zwick, E. et J. Mahon (2017), « Tax policy and heterogeneous investment behavior », \emph{American Economic Review}
+107(1). \par
+Les références propres à chaque bloc, avec ce qui en a été lu (texte ou résumé), figurent dans les comptes rendus
+\texttt{note8p/sorties/\{ircsg,foncier,is,pfu\}.md}. Boissel et Matray (2022, \emph{AER}), souvent cité sur la hausse de
+la fiscalité des dividendes de 2013, a été rétracté par ses auteurs en 2023 ; nous ne nous appuyons pas sur lui.\par}
+
+\end{document}

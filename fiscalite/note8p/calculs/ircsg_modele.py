@@ -198,7 +198,8 @@ def effets_reels(ev):
     (court terme), ΔY/Y = 2/3 × ΔL/L ; capital ajusté à rendement inchangé (long terme), ΔY/Y = ΔL/L."""
     dl = (ev["dq_reel"] + ev["dq_ext"]) / MASSE_TRAVAIL
     salaire_moyen_etp = MASSE_TRAVAIL * 1e9 / 26.0e6           # repère : environ 26 M d'ETP salariés et non salariés [H]
-    return dict(emplois_milliers=ev["emplois"] / 1e3, travail_pct=100 * dl,
+    return dict(emplois_milliers=ev["emplois"] / 1e3, travail_pct=100 * dl, dq_ext_Md=ev["dq_ext"], dq_reel_Md=ev["dq_reel"],
+                salaire_moyen_entrant=ev["dq_ext"] * 1e9 / ev["emplois"] if ev["emplois"] else float("nan"),
                 etp_milliers=(ev["dq_reel"] + ev["dq_ext"]) * 1e9 / salaire_moyen_etp / 1e3,
                 pib_court_pct=100 * 2 / 3 * dl, pib_long_pct=100 * dl)
 

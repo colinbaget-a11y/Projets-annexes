@@ -65,3 +65,27 @@
   {\par\smallskip\noindent\begin{minipage}{\linewidth}\color{encre}\setlength{\parskip}{0.3em}%
    \hrule height 0.6pt\vspace{4pt}{\footnotesize\bfseries\color{bleu}\MakeUppercase{#1}}\par\small}
   {\par\vspace{3pt}\hrule height 0.3pt\end{minipage}\par\smallskip}
+
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{202F}{\,}
+\DeclareUnicodeCharacter{2009}{\,}
+\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}
+\DeclareUnicodeCharacter{03C4}{\ensuremath{\tau}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03BB}{\ensuremath{\lambda}}
+\DeclareUnicodeCharacter{00B2}{\textsuperscript{2}}
+
+% \graphiquemarge{fichier}{titre}{label} : figure demi-largeur habillée par le texte (à placer en début de paragraphe).
+\newcommand{\graphiquemarge}[3]{%
+  \begin{wrapfigure}{r}{0.47\linewidth}\vspace{-10pt}
+  \captionsetup{type=figure}\caption{#2}\label{#3}\vspace{1pt}
+  \includegraphics[width=\linewidth]{figures/#1.pdf}\par
+  {\raggedright\scriptsize\color{gris}\input{figures/#1_source.tex}\par}\vspace{-6pt}
+  \end{wrapfigure}}
