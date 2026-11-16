@@ -1,74 +1,53 @@
 % Annexe de la partie IR-CSG (réécrite le 16/11/2026 ; base 2025, taux marginaux recalculés et cotisations retirées le
-% 17/11/2026). Chiffres : sorties/*_ircsg.txt, controles_purs.txt, controle_hauts_purs.txt, architectures_ircsg.txt ;
-% tableaux : tables_ircsg.py ; figures : figures_ircsg_n.py.
+% 17/11/2026 ; coupée le 17/11/2026, CONSIGNES_COUPE.md). Chiffres : sorties/*_ircsg.txt, controles_purs.txt,
+% controle_hauts_purs.txt, architectures_ircsg.txt ; tableaux : tables_ircsg.py ; figures : figures_ircsg_n.py.
 
 \subsection{Champ, données et modèle}
 
-\paragraph{Le champ.} La fusion remplace l'IR, la CSG et la CRDS payés sur les revenus imposés au barème : salaires,
-pensions, bénéfices des indépendants, loyers, allocations chômage. En 2025, ces trois impôts y prélèvent 229,9~Md€ :
-86,6~Md€ d'IR, 135,8~Md€ de CSG (108,5 sur les revenus d'activité, 26,7 sur les pensions, 0,6 sur le chômage) et
-7,6~Md€ de CRDS. L'IR de l'IRCOM des revenus 2024 (91,7~Md€, 99,0~Md€ une fois porté en 2025) comprend celui des revenus
-du capital au prélèvement forfaitaire unique, auquel on impute 11,5~Md€ en 2024 (12,8~\% de 90~Md€ de revenus du
-capital hors barème, convention), 12,4~Md€ en 2025. Ces 90~Md€ comprennent 7,6~Md€ d'assurance-vie et 1,7~Md€ de
-plus-values immobilières, qui ne relèvent pas du PFU, dont l'assiette était de 79,6~Md€ sur les revenus 2024 (section~\ref{sec:pfu}) : l'IR
-imputé est surestimé d'environ 1,4~Md€ en 2025. Corrigé, la recette à remplacer passerait à 231,3~Md€ et, au barème
-proposé, le 1~\% paierait environ 1,1~Md€ de moins (synthèse, base 2025, section~\ref{sec:ens_haut}) ; le modèle n'a pas encore été recalé sur
-ce point (section~\ref{sec:ens_haut}). Ces revenus gardent leur régime (section~\ref{sec:pfu}). La CASA (0,3~\% sur
-les pensions), le prélèvement de solidarité sur les loyers et la CEHR restent hors champ ; la disparition de la CEHR
-sur les revenus du barème n'est pas comptée ici (0,3 à 0,7~Md€ rendus au 1~\%, comptés dans le bilan du haut,
-section~\ref{sec:ens_haut}).
+\paragraph{Le champ.} En 2025, l'IR, la CSG et la CRDS prélèvent 229,9~Md€ sur les revenus imposés au barème : 86,6~Md€
+d'IR, 135,8~Md€ de CSG (108,5 sur les revenus d'activité, 26,7 sur les pensions, 0,6 sur le chômage) et 7,6~Md€ de CRDS.
+Les revenus du capital au prélèvement forfaitaire unique gardent leur régime (section~\ref{sec:pfu}) ; on leur impute
+11,5~Md€ de l'IR de l'IRCOM des revenus 2024 (12,8~\% de 90~Md€ de revenus du capital hors barème, convention), 12,4~Md€
+en 2025. Ces 90~Md€ comprenant 7,6~Md€ d'assurance-vie et 1,7~Md€ de plus-values immobilières, hors PFU, l'IR imputé est
+surestimé d'environ 1,4~Md€ : corrigé, la recette à remplacer passerait à 231,3~Md€ et le 1~\% paierait environ 1,1~Md€
+de moins (modèle non recalé ; section~\ref{sec:ens_haut}). La CASA, le prélèvement de solidarité sur les loyers et la
+CEHR restent hors champ.
 
-\paragraph{La base 2025.} Les agrégats sont ceux des prélèvements obligatoires de 2025 ; la répartition est celle des
-revenus de 2024, la plus récente que publie la DGFiP (IRCOM). Chaque montant de 2024 est porté en 2025 avec la
-croissance de l'agrégat dont il relève, la même dans toutes les tranches : l'IR avec celle de l'IR des comptes
-nationaux (96,0~Md€ en 2024, 103,6~Md€ en 2025, $+$7,9~\% ; Insee, comptes nationaux annuels publiés en 2026) ; la CSG
-sur les revenus d'activité avec celle de la CSG d'activité des régimes de base et du Fonds de solidarité vieillesse
-($+$2,3~\%), la CSG des pensions et du chômage avec celle de la CSG sur les revenus de remplacement ($+$3,3~\%) (rapport
-d'évaluation « Financement » annexé au projet de loi d'approbation des comptes de la Sécurité sociale de 2025) ; la
-CRDS avec celle des comptes nationaux ($+$2,2~\%). Les revenus grandissent comme l'assiette de la CSG qui les frappe
-($+$2,3~\% pour les revenus d'activité, $+$3,3~\% pour les pensions et le chômage). Dans chaque tranche, la charge
-actuelle des retraités est séparée en CSG des pensions et en IR, si bien que les tranches où l'IR pèse plus voient leur
-charge monter davantage. L'IR de 2025 est un montant encaissé : pour l'essentiel la retenue à la source sur les revenus
-de 2025, plus le solde, net des remboursements, de l'impôt sur les revenus de 2024. Sa hausse tient en partie au jeu
-des acomptes et des soldes (Insee) ; le budget de l'État la confirme (IR net de 94,6~Md€, en hausse de 7,0~Md€,
-dont 1,9~Md€ de moindres remboursements, selon la commission des finances du Sénat). Si elle est passagère, la
-recette à remplacer est surestimée d'environ 4,5~Md€ (0,4 point de taux). Restent en 2024, faute de données de 2025 : la répartition entre
-tranches et entre types de foyers, le nombre de foyers, la composition des revenus, la CSG des pensions de départ
-(chiffre de la CCSS), le montant des niches et le taux marginal actuel par tranche. Le droit de l'IR actuel est celui
-des revenus 2025 (barème, décote et plafonds du quotient familial revalorisés de 0,9~\%).
+\paragraph{La base 2025.} La répartition est celle des revenus de 2024 (IRCOM), chaque montant étant porté en 2025 avec
+la croissance de son agrégat, la même dans toutes les tranches : IR des comptes nationaux (96,0~Md€ en 2024, 103,6~Md€
+en 2025, $+$7,9~\%), CSG sur les revenus d'activité ($+$2,3~\%) et de remplacement ($+$3,3~\%) (rapport « Financement »
+annexé au projet de loi d'approbation des comptes de la Sécurité sociale de 2025), CRDS ($+$2,2~\%) ; les revenus
+grandissent comme l'assiette de la CSG qui les frappe. La hausse de l'IR encaissé tient en partie au jeu des acomptes et
+des soldes (Insee) ; le budget de l'État la confirme (IR net de 94,6~Md€, en hausse de 7,0~Md€, selon la commission des
+finances du Sénat). Si elle est passagère, la recette à remplacer est surestimée d'environ 4,5~Md€ (0,4 point de taux).
+Restent en 2024 : la répartition entre foyers, la composition des revenus, la CSG des pensions de départ, les niches et
+le taux marginal actuel par tranche. Le droit de l'IR est celui des revenus 2025.
 
-\paragraph{Les données.} La distribution vient des 25 tranches de revenu fiscal de l'IRCOM des revenus 2024 (DGFiP),
-découpées en 60 foyers représentatifs par tranche ; la composition des revenus, des totaux par case des déclarations
-2042 ; la CSG, d'une reconstitution par type de revenu calée sur les comptes de la Sécurité sociale (25,4~Md€ sur les
-pensions en 2024, chiffre de la CCSS non relu à la source). L'assiette est de 1\,639~Md€ brute en 2025, 1\,520~Md€
-après cotisations, dont 420~Md€ de pensions (1\,598, 1\,481 et 406~Md€ en 2024).
+\paragraph{Les données et les foyers.} Les 25 tranches de revenu fiscal de l'IRCOM sont découpées en 60 foyers
+représentatifs chacune ; la composition des revenus vient des totaux par case des déclarations 2042, la CSG d'une
+reconstitution calée sur les comptes de la Sécurité sociale (25,4~Md€ sur les pensions en 2024, chiffre de la CCSS non
+relu à la source). L'assiette est de 1\,520~Md€ après cotisations en 2025, dont 420~Md€ de pensions. Chaque foyer est
+scindé en un foyer d'actifs et un foyer de retraités de même revenu, dans la proportion des pensions de sa tranche :
+27,1~millions de foyers d'actifs, 14,5~millions de foyers de retraités. Les couples partagent leurs revenus selon
+l'Insee (Insee Première 1492) ; les enfants ne sont que chez les actifs (un par parent isolé, deux par couple « avec
+enfants »). La charge actuelle de chaque tranche est la charge observée, répartie entre types de foyers selon des
+cas-types OpenFisca sans niche ; les retraités paient ainsi 50,2~Md€, 12,0~\% de leurs pensions, et les actifs 16,3~\%
+de leurs revenus (ni la DGFiP ni la DREES ne publient l'impôt des foyers de retraités). Ce sont des ordres de grandeur,
+pas une microsimulation : la dispersion réelle des gagnants et des perdants est plus forte.
 
-\paragraph{Les foyers purs.} Chaque foyer représentatif est scindé en un foyer d'actifs et un foyer de retraités de
-même revenu en 2024, dans la proportion des pensions de sa tranche : 27,1~millions de foyers d'actifs et 14,5~millions
-de foyers de retraités, dont 3,75~millions de couples (4,32~millions de déclarants 2 ont une pension dans les
-déclarations). Les couples, 13,05~millions comme dans les déclarations, partagent leurs revenus selon l'Insee
-(Insee Première 1492, ramené à quatre classes). Les enfants ne sont que chez les actifs : un par parent isolé
-(1,97~million de cases T), deux par couple « avec enfants » (8,0~millions de couples). La charge actuelle de chaque
-tranche est la charge observée ; elle est répartie entre types de foyers selon des cas-types OpenFisca sans niche, y
-compris pour les couples de retraités (correction du 16/11/2026). Ce sont des ordres de grandeur tirés de foyers
-représentatifs, pas une microsimulation : la dispersion réelle des gagnants et des perdants est plus forte.
+\paragraph{Le nouvel impôt.} Les options du modèle (\texttt{modele\_purs.impot\_adultes}) sont la franchise d'activité
+(salaires, indépendants et loyers, que le modèle ne sait pas séparer), l'exonération des petites pensions (totale
+jusqu'à 12\,500~€, à peu près le minimum vieillesse de 12\,523~€ en 2026, puis réduite d'un euro par euro de pension,
+d'un demi-euro dans la variante « étalée »), l'abattement sur les pensions, la franchise ou le chèque par enfant, les
+quotients aux plafonds actuels et la déduction de l'épargne retraite (10,8~Md€ de versements en 2025), supposée
+proportionnelle aux revenus d'activité de la moitié la plus aisée, faute de répartition publiée ; elle coûte 3,0~Md€,
+soit 0,29 point de taux pour tous.
 
-\paragraph{Le nouvel impôt.} Il porte sur le revenu après cotisations de chaque adulte. Les options du modèle
-(\texttt{modele\_purs.impot\_adultes}) sont la franchise d'activité (salaires, gérants, indépendants et loyers, que le
-modèle ne sait pas séparer), l'exonération des petites pensions (totale jusqu'à 12\,500~€, réduite ensuite d'un euro
-par euro de pension, ou d'un demi-euro dans la variante « étalée »), l'abattement proportionnel sur les pensions, la
-franchise ou le chèque par enfant, le quotient conjugal et familial aux plafonds actuels et la déduction des
-versements d'épargne retraite. Ceux-ci (cases 6NS à 6NU, 6RS à 6RU, 6QS à 6QU et 6OS à 6OT : 10,6~Md€ en 2024,
-10,8~Md€ portés en 2025) sont supposés proportionnels aux revenus d'activité de la moitié la plus aisée des foyers,
-faute de répartition publiée ; garder leur déduction coûte 3,0~Md€ de recette au barème retenu, soit 0,29 point de
-taux pour tous.
-
-\paragraph{L'efficacité.} Le gain est la baisse de la perte sèche statique sur l'activité, à court terme, par rapport à
-aujourd'hui (méthode v2, \texttt{revue/methode\_v2.md}). Seul le revenu d'activité des actifs réagit, au taux de
-l'impôt fusionné ; chaque euro perdu coûte tout ce que la collectivité prélevait dessus (le coin total, défini dans
-l'annexe de méthode). La décision de travailler réagit au taux de prélèvement du premier salaire, sous deux Smic. La
-réaction du revenu déclaré du dixième le plus aisé est comptée à part, comme un effet sur la recette. Quatre jeux
-d'élasticités sont utilisés : bas, central, haut et long terme (tableau~\ref{tab:ircsg_jeux}).
+\paragraph{L'efficacité.} Le gain est la baisse de la perte sèche statique sur l'activité, à court terme (méthode v2,
+\texttt{revue/methode\_v2.md}). Seul le revenu d'activité des actifs réagit ; chaque euro perdu coûte tout ce que la
+collectivité prélevait dessus (annexe de méthode). La participation réagit au taux de prélèvement du premier salaire,
+sous deux Smic ; la réaction du revenu déclaré du dixième le plus aisé est comptée comme un effet sur la recette
+(tableau~\ref{tab:ircsg_jeux}).
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}
 \caption{Les jeux d'élasticités}\label{tab:ircsg_jeux}
@@ -90,67 +69,66 @@ Weber (2013) ; \texttt{cours/elasticites-france.tex}. Ce sont des choix, pas des
 (convention).}
 \end{table}
 
-\paragraph{Les cas-types.} Ils sont calculés avec OpenFisca-France 176.1, législation des revenus 2025
-(\texttt{synthese/openfisca\_cas\_ircsg.py}) : barème de l'IR de 11\,600, 29\,579, 84\,577 et 181\,917~€, décote de 897
-et 1\,483~€, plafond du quotient familial de 1\,807~€ par demi-part ; salariés du privé nés en 1980, retraités nés en
-1950, enfants nés en 2015, aucune niche, couples mariés ou pacsés, Smic de 21\,622~€ brut par an (11,88~€ de l'heure,
-chiffre de sources secondaires). Le taux de CSG d'un retraité dépend du revenu fiscal de l'avant-dernière année, qui
-dépend lui-même de la CSG déductible, donc du taux. On suppose un régime stable, la même pension chaque année : on
-calcule l'année avec chacun des quatre taux et l'on retient le plus élevé dont le seuil est dépassé par le revenu
-fiscal calculé à ce taux. Dans une bande de quelques centaines d'euros sous chaque seuil, aucun taux n'est cohérent
-avec son propre revenu fiscal ; on garde alors le taux inférieur, comme le fait la règle des deux années consécutives
-pour le passage aux taux médian et plein, qu'OpenFisca ne code pas.
+\paragraph{Les cas-types et les taux marginaux.} OpenFisca-France 176.1, législation des revenus 2025
+(\texttt{openfisca\_cas\_ircsg.py}) : salariés du privé, retraités nés en 1950, aucune niche, couples mariés ou pacsés,
+Smic de 21\,622~€ brut par an (sources secondaires). Les seuils de CSG des retraités y sont de 12\,817, 16\,755 et
+26\,004~€ de revenu fiscal pour une part, non relus ; ceux de 2026 (13\,048, 17\,057 et 26\,472~€) ont été vérifiés sur
+service-public.fr. Le taux de CSG dépendant du revenu fiscal de l'avant-dernière année, qui dépend de la CSG déductible,
+on suppose la même pension chaque année et l'on retient le taux le plus élevé dont le seuil est dépassé par le revenu
+fiscal calculé à ce taux. Les taux marginaux sont calculés tous les 100~€, sans lissage ; leurs pics sont de vrais sauts
+du droit : seuil de CSG appliqué à toute la pension, abattement des plus de 65 ans qui baisse d'un coup de 1\,411~€ à
+chacun de ses deux seuils (vers 33\,500~€ de pension, 100~€ de plus coûtent 247~€) et, dans la proposition, sortie de
+l'exonération des petites pensions.
 
-\paragraph{Les taux marginaux.} Les courbes de taux marginal (figures~\ref{fig:ircsg_marches},
-\ref{fig:ircsg_naive_marges}, \ref{fig:ircsg_prop_marges} et~\ref{fig:ircsg_variantes_marges}) donnent l'IR, la CSG et
-la CRDS supplémentaires pour 1\,000~€ de revenu après cotisations en plus, calculés tous les 100~€, chaque point
-directement, sans lissage ni interpolation de l'impôt. La version précédente comportait trois artefacts : un pas de
-500~€ qui dessinait des triangles là où il y a des paliers ; la moyenne de deux passages pour le taux de CSG des
-retraités, qui coupait chaque saut en deux demi-marches de hauteur moitié (en droit 2024, des paliers de 36 à 45~\%
-au lieu d'un seul de 64 à 78~\% sous les trois seuils de CSG) ; la mesure par euro de salaire brut, qui faisait passer dans la courbe de l'impôt des effets
-propres au passage du brut au net (un creux vers 46\,000~€ brut). Les pics qui restent sont de vrais sauts du droit :
-le seuil de CSG franchi s'applique à toute la pension ; l'abattement des plus de 65 ans baisse d'un coup de 1\,411~€
-à chacun de ses deux seuils ; l'IR n'est pas recouvré sous 61~€, d'où un petit pic à l'entrée dans l'impôt ; dans la
-proposition, la sortie de l'exonération des petites pensions double le taux du barème entre 12\,500 et 25\,000~€.
+\subsection{Situation actuelle et réforme naïve : compléments}
+
+\figbloc{ircsg_n02_ocde}{La France prélève sur le revenu un peu plus que la moyenne de l'OCDE, pour près de 60~\% par
+la CSG et la CRDS}{fig:ircsg_ocde}
+
+\figbloc{ircsg_n05_quotient}{Le quotient familial ne vaut rien sous 45\,000~€ de revenu, et jusqu'à 7\,200~€ par an
+au-delà de 114\,000~€}{fig:ircsg_quotient}
+
+\figbloc{ircsg_n07_naive_marges}{La fusion naïve garde des marches, à d'autres endroits}{fig:ircsg_naive_marges}
+
+Appliqué à chaque adulte sur l'assiette large, le barème de l'IR rapporte 205~Md€ et le taux proportionnel tombe à
+1,64~\%. Le dixième le plus aisé paie 2\,950~€ de plus par foyer (12,5~Md€), le 1~\% le plus aisé 2,8~Md€ ; un couple
+avec deux enfants à un seul revenu de 50\,000~€, 2\,360~€ de plus. Le gain est de 2,6~Md€ (1,1 à 5,6), presque
+entièrement sur la participation. Le passage de l'IR actuel (86,6~Md€) à ce barème se décompose ainsi : règles actuelles
+sans niche, 115,1~Md€ ; assiette large, $+$47,5 ; sans quotient familial, $+$17,4 ; sans décote, $+$7,0 ; sans quotient
+conjugal, $+$18,0. L'écart de 28,5~Md€ entre 115,1 et 86,6 recouvre les niches (au moins 24~Md€) et des revenus exonérés
+présents dans le revenu fiscal ; il n'est pas bouclé.
 
 \subsection{Le choix de la proposition}
 
-Les règles fixées d'avance sont décrites dans le corps. La recherche porte sur la franchise d'activité (0 à 8\,000~€
-par adulte), le taux d'entrée (0 à 16~\%), le taux à 20\,000~€ (8 à 26~\%) et le seuil intermédiaire (25\,000 à
-90\,000~€) ; pour chaque combinaison, le taux au seuil intermédiaire est calé sur la recette et le seuil du taux de
-50~\% sur la neutralité du 1~\% le plus aisé (écart inférieur à 0,05~Md€). Sur 10\,332 barèmes essayés, 3\,743
-tiennent la recette et la neutralité du 1~\%, et 1\,119 respectent aussi la contrainte des déciles.
-La règle de choix est celle de l'auteur : le gain sur la participation le plus élevé (à 0,02~Md€ près), puis le gain
-total. Elle retient une franchise de 8\,000~€, à la borne de l'intervalle autorisé, et un taux d'entrée de 15~\%. Le
-barème le plus efficace sous les mêmes contraintes a lui aussi une franchise de 8\,000~€, avec un taux d'entrée de
-16~\% : il gagne autant (4,69~Md€ contre 4,67), mais 2,1~Md€ seulement sur la participation au lieu de 2,3. Le
-tableau~\ref{tab:ircsg_design} donne le meilleur barème pour chaque combinaison de franchise et de taux d'entrée, et
-la figure~\ref{fig:ircsg_designs} l'ensemble des barèmes admissibles.
+La recherche porte sur la franchise d'activité (0 à 8\,000~€ par adulte), le taux d'entrée (0 à 16~\%), le taux à
+20\,000~€ (8 à 26~\%) et le seuil intermédiaire (25\,000 à 90\,000~€). Le taux au seuil intermédiaire est calé sur la
+recette, le seuil du taux de 50~\% sur une charge inchangée du 1~\% le plus aisé (à 0,05~Md€ près). Sur 10\,332 barèmes
+essayés, 3\,743 tiennent la recette et la charge du 1~\%, et 1\,119 laissent aussi chaque décile à moins de 500~€ de sa
+charge actuelle (figure~\ref{fig:ircsg_deciles}). La règle de choix, le gain sur la participation le plus élevé (à
+0,02~Md€ près) puis le gain total, retient une franchise de 8\,000~€, à la borne de l'intervalle, et un taux d'entrée de
+15~\%. Le barème le plus efficace a la même franchise et un taux d'entrée de 16~\% : il gagne autant (4,69~Md€ contre
+4,67), mais 2,1~Md€ seulement sur la participation (tableau~\ref{tab:ircsg_design}, figure~\ref{fig:ircsg_designs}). Le
+barème retenu passe par 15~\% à 20\,000~€, 28,8~\% à 30\,000~€, 30~\% à 45\,000~€, 36~\% à 100\,000~€, 41,5~\% à
+150\,000~€ et 50~\% à 231\,000~€.
+
+\figbloc{ircsg_n10_deciles}{Avec la proposition, aucun décile ne bouge de plus de 500~€}{fig:ircsg_deciles}
 
 \input{parties/tab_ircsg_design}
 
 \figbloc{ircsg_n17_designs}{Plus la franchise est forte, plus la participation progresse, et le gain total avec
 elle}{fig:ircsg_designs}
 
-\subsection{La réforme naïve, variante individuelle}
-
-Appliqué à chaque adulte sur l'assiette large, le barème de l'IR rapporte 205~Md€ ; le taux proportionnel qui remplace
-la CSG et la CRDS tombe à 1,64~\%. Le dixième le plus aisé paie 2\,950~€ de plus par foyer (12,5~Md€), le 1~\% le plus
-aisé 2,8~Md€ ; les couples avec deux enfants paient 950~€ de plus, faute de quotient ; un couple avec deux enfants
-à un seul revenu de 50\,000~€ paie 2\,360~€ de plus. Le gain d'efficacité est de 2,6~Md€ (1,1 à 5,6), venu presque
-entièrement de la participation. Cette version est moins « spontanée » que celle du corps, parce qu'elle change aussi
-l'unité d'imposition ; elle aboutit aux mêmes conclusions.
-
 \subsection{Les variantes}
 
-Le tableau~\ref{tab:ircsg_dec} donne la variation par décile de toutes les variantes, la
-figure~\ref{fig:ircsg_cas} les ménages types du tableau~\ref{tab:ircsg_cas} sous forme graphique, la
-figure~\ref{fig:ircsg_arbitrages} le gain d'efficacité de chaque arbitrage et la
-figure~\ref{fig:ircsg_variantes_marges} les taux marginaux de deux variantes. Le tableau~\ref{tab:ircsg_arch} rappelle
-les architectures simples de la méthode v2, chaque dispositif étant ajouté seul au barème neutre et financé par des
-points de taux pour tous ; elles n'ont pas la déduction de l'épargne retraite.
+Le tableau~\ref{tab:ircsg_dec} donne la variation par décile de toutes les variantes, le tableau~\ref{tab:ircsg_arbcas}
+et la figure~\ref{fig:ircsg_cas} leurs effets sur des ménages types, la figure~\ref{fig:ircsg_arbitrages} le gain de
+chaque arbitrage ; le tableau~\ref{tab:ircsg_arch} rappelle les architectures de la méthode v2, où chaque dispositif est
+ajouté seul au barème neutre et financé par des points de taux pour tous. Un chèque par enfant égal au coût actuel du
+quotient familial (765~€) libérerait 0,7 point de taux pour tous.
 
 \input{parties/tab_ircsg_dec}
+
+\input{parties/tab_ircsg_arbcas}
 
 \figbloc{ircsg_n15_cas_types}{Familles et salariés gagnent, retraités et couples à un seul revenu perdent}{fig:ircsg_cas}
 
@@ -162,48 +140,39 @@ relève un peu plus haut}{fig:ircsg_variantes_marges}
 
 \input{parties/tab_ircsg_arch}
 
-\subsection{Sensibilités, très hauts revenus et valeur actualisée}
+\subsection{Sensibilités, haut de la distribution et transition}
 
-\paragraph{Ce qui fait varier le gain.} Le tableau~\ref{tab:ircsg_sens} réunit les sensibilités de la proposition. La
-perception de la CSG domine toutes les autres : la fusion n'est efficace que si la CSG d'aujourd'hui fait déjà réagir
-les salariés.
+\paragraph{Ce qui fait varier le gain.} La perception de la CSG domine toutes les autres sensibilités
+(tableau~\ref{tab:ircsg_sens}) : la fusion n'est efficace que si la CSG d'aujourd'hui fait déjà réagir les salariés.
 
 \input{parties/tab_ircsg_sens}
 
-\paragraph{Les très hauts revenus.} La DGFiP ne publie pas, par tranche, la part des revenus imposés au PFU. Dans la
-convention centrale (« mixte »), la proposition laisse inchangée la charge du 1~\% le plus aisé, mais elle augmente
-de 3 à 16 points celle des revenus du barème au-delà de 1~M€, auxquels cette convention prête un taux actuel de 33 à
-39~\%. Dans la convention « haut », plus proche du barème légal (44 à 51~\%) et que soutient un calage sur l'IR
-observé au-delà de 1~M€ (\texttt{revue/hypotheses\_ircsg.md}, H9), le 1~\% paierait 3,0~Md€ de moins, les foyers de
-1 à 9~M€ de 2 à 8 points de moins (ceux au-delà de 9~M€, 1,9 point de plus), et la neutralité demanderait d'atteindre
-50~\% dès 91\,000~€ environ, mais le dixième le plus aisé verrait alors sa charge moyenne monter de 1\,300~€ : dans
-cette convention, neutralité du 1~\% et contrainte des déciles ne tiennent pas ensemble ; au prorata, le 1~\% paierait
-3,8~Md€ de plus (\texttt{sorties/controle\_hauts\_purs.txt}). La CEHR (3 à 4 points au très haut), qui disparaîtrait
-sur les revenus du barème, n'est comptée dans aucun cas.
-
-\paragraph{La décomposition de l'IR.} Le passage de l'IR actuel (86,6~Md€) au barème de l'IR appliqué à chaque adulte
-sur l'assiette large (205,0~Md€) se décompose ainsi, sur les foyers du modèle : règles actuelles sans niche sur le
-revenu imposable, 115,1~Md€ ; assiette large, $+$47,5 ; sans quotient familial des enfants, $+$17,4 ; sans décote,
-$+$7,0 ; sans quotient conjugal, $+$18,0. L'écart de 28,5~Md€ entre 115,1 et 86,6 recouvre les niches (au moins
-24~Md€, chiffrage de 2024) et des revenus exonérés présents dans le revenu fiscal ; il n'est pas bouclé.
+\paragraph{Le haut de la distribution.} La DGFiP ne publie pas, par tranche, la part des revenus imposés au PFU. Dans la
+convention centrale (« mixte »), la charge du 1~\% le plus aisé ne bouge pas : la baisse des hauts salaires y est
+compensée par une hausse de 3 à 16 points pour les revenus du barème au-delà de 1~M€, auxquels cette convention prête un
+taux actuel de 33 à 39~\%. Dans la convention « haut », plus proche du barème légal (44 à 51~\%) et que soutient un
+calage sur l'IR observé (\texttt{revue/hypotheses\_ircsg.md}, H9), le 1~\% paierait 3,0~Md€ de moins, les foyers de 1 à
+9~M€ de 2 à 8 points de moins ; garder sa charge demanderait le taux de 50~\% dès 91\,000~€ environ, mais le dixième le
+plus aisé paierait alors 1\,300~€ de plus en moyenne. Au prorata, le 1~\% paierait 3,8~Md€ de plus
+(\texttt{sorties/controle\_hauts\_purs.txt}). La disparition de la CEHR (3 à 4 points au très haut) sur les revenus du
+barème, qui rend 0,3 à 0,7~Md€ au 1~\%, n'est pas comptée ici mais dans le bilan du haut (section~\ref{sec:ens_haut}).
 
 \paragraph{La transition.} Le tableau~\ref{tab:ircsg_trans} donne la hausse annuelle des principaux perdants selon la
-durée de la convergence (trois, cinq ou dix ans) ; la figure~\ref{fig:ircsg_transition} en reprend l'essentiel.
+durée de la convergence.
 
 \input{parties/tab_ircsg_trans}
 
-\paragraph{La valeur actualisée.} La hausse annuelle des retraités est multipliée par un facteur d'annuité moyen :
-table de Gompertz ($\mu(x) = A\,e^{0,10x}$) calée sur une espérance de vie à 65 ans de 21,8 ans (moyenne des 23,6 ans
-des femmes et 20,0 ans des hommes, Insee 2025 provisoire) ; stock de retraités formé de cohortes de même taille dès
-62 ans (âge moyen 76 ans, hypothèse) ; taux réel de 1 à 3~\%. Le facteur moyen va de 10,8 à 12,9 (8,6 à 10,7 avec une
-montée en charge sur cinq ans). Un euro de hausse annuelle vaut 17~€ à 65 ans, 12~€ à 75 ans et 7~€ à 85 ans, au taux
-de 2~\% (\texttt{sorties/transition\_ircsg.txt}).
+\paragraph{La valeur actualisée.} La hausse annuelle des retraités est multipliée par un facteur d'annuité : table de
+Gompertz ($\mu(x) = A\,e^{0,10x}$) calée sur une espérance de vie à 65 ans de 21,8 ans (Insee 2025 provisoire) ;
+cohortes de même taille dès 62 ans (âge moyen 76 ans, hypothèse) ; taux réel de 1 à 3~\%. Le facteur moyen va de 10,8 à
+12,9 (8,6 à 10,7 avec une montée en charge sur cinq ans). Au taux de 2~\%, un euro de hausse annuelle vaut 17~€ à 65
+ans, 12~€ à 75 ans et 7~€ à 85 ans (\texttt{sorties/transition\_ircsg.txt}).
 
 \paragraph{Le gain permanent.} En régime permanent, la hausse de l'impôt sur les pensions (5,1 points de taux moyen)
 réduit la valeur des droits à pension qu'ouvre chaque euro de salaire, soit environ 27 centimes par euro brut sous le
 plafond de la Sécurité sociale (hypothèse) : elle alourdit d'environ 1,4 point le prélèvement implicite sur le salaire
-des actifs. Selon que ceux-ci le perçoivent à moitié ou en entier, le gain permanent est de 3,8 ou de 3,0~Md€ au lieu
-de 4,7. C'est une borne : le lien entre un euro de salaire et la pension est faible au bas de l'échelle (minimum
+des actifs. Selon que ceux-ci le perçoivent à moitié ou en entier, le gain permanent est de 3,8 ou de 3,0~Md€ au lieu de
+4,7. C'est une borne : le lien entre un euro de salaire et la pension est faible au bas de l'échelle (minimum
 contributif) et nul au-delà de huit fois le plafond.
 
 \subsection{Hypothèses fortes et chiffres non vérifiés}
@@ -212,11 +181,9 @@ contributif) et nul au-delà de huit fois le plafond.
 
 \subsection{Programmes}
 
-{\sloppy Dans \texttt{synthese/}, depuis \texttt{fiscalite/} : \texttt{python3.13 openfisca\_cas\_ircsg.py} (cas-types
-et courbes de taux marginal, environ une minute), puis \texttt{situation\_ircsg.py}, \texttt{architectures\_ircsg.py}
-(environ 5 minutes), \texttt{naive\_ircsg.py}, \texttt{proposition\_ircsg.py} (environ 3 minutes),
-\texttt{arbitrages\_prop\_ircsg.py}, \texttt{transition\_ircsg.py}, \texttt{controle\_hauts\_purs.py},
-\texttt{tables\_ircsg.py} et \texttt{figures\_ircsg\_n.py} (deux fois, la seconde avec \texttt{FIG\_NU=1}). Le
-modèle est \texttt{modele\_purs.py}, qui porte aussi le passage à la base 2025 (la variable d'environnement
-\texttt{BASE\_IRCSG=2024} rend l'ancienne base) ; les outils communs, \texttt{outils\_ircsg.py} ; les architectures de
-la méthode v2, \texttt{architectures\_ircsg.py}. Vérifications indépendantes : \texttt{revue/calculs\_verif/ircsg/}.\par}
+{\sloppy Dans \texttt{synthese/}, depuis \texttt{fiscalite/} : \texttt{python3.13 openfisca\_cas\_ircsg.py}, puis
+\texttt{situation\_ircsg.py}, \texttt{architectures\_ircsg.py}, \texttt{naive\_ircsg.py},
+\texttt{proposition\_ircsg.py}, \texttt{arbitrages\_prop\_ircsg.py}, \texttt{transition\_ircsg.py},
+\texttt{controle\_hauts\_purs.py}, \texttt{tables\_ircsg.py} et \texttt{figures\_ircsg\_n.py} (deux fois, la seconde
+avec \texttt{FIG\_NU=1}). Modèle : \texttt{modele\_purs.py} (\texttt{BASE\_IRCSG=2024} rend l'ancienne base) ;
+outils : \texttt{outils\_ircsg.py} ; vérifications : \texttt{revue/calculs\_verif/ircsg/}.\par}

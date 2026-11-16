@@ -6,8 +6,8 @@ Lancer depuis fiscalite/, après ces programmes : python3 synthese/tables_ircsg.
 Fichiers écrits dans synthese/parties/ :
 - tab_ircsg_cas.tex     ménages types : aujourd'hui, réforme naïve, proposition (corps, sous-partie 4) ;
 - tab_ircsg_arb.tex     arbitrages : gain, financement, qui paie (corps, sous-partie 5) ;
-- tab_ircsg_arbcas.tex  arbitrages : ménages types (corps, sous-partie 5) ;
-- tab_ircsg_trans.tex   transition : hausse annuelle des principaux perdants (corps, sous-partie 6) ;
+- tab_ircsg_arbcas.tex  arbitrages : ménages types (annexe) ;
+- tab_ircsg_trans.tex   transition : hausse annuelle des principaux perdants (annexe) ;
 - tab_ircsg_dec.tex     déciles de toutes les variantes (annexe) ;
 - tab_ircsg_design.tex  franchise contre taux d'entrée (annexe) ;
 - tab_ircsg_sens.tex    sensibilités du gain et du haut de la distribution (annexe) ;
@@ -117,10 +117,10 @@ L = [r"\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}",
      ligne_arb(r"\quad Idem, et déciles à $\pm$1\,000~€", A["libre_1000"]),
      r"\bottomrule", r"\end{tabular}}"]
 L += note(r"Gain d'efficacité : baisse de la perte sèche statique sur l'activité, à court terme, par rapport à aujourd'hui "
-          r"(hypothèses centrales ; basses et hautes entre parenthèses). Sauf « points pour tous », chaque variante garde les "
-          r"contraintes de la proposition (recette de " + n(PROP["cible"], 1, False) + r"~Md€, aucun décile au-delà de $\pm$500~€, charge du 1~\% inchangée ; "
-          r"sous-partie 5 : 1~\% libre de baisser) et le barème est recherché de nouveau ; « points pour tous » : la recette est "
-          r"rétablie en ajoutant ce nombre de points à tous les taux sous 50~\%, sans respecter les contraintes. Optimum "
+          r"(hypothèses centrales ; basses et hautes entre parenthèses). Sauf « points pour tous », chaque variante garde le "
+          r"calibrage de la proposition (recette de " + n(PROP["cible"], 1, False) + r"~Md€ ; répartition inchangée : aucun décile au-delà de $\pm$500~€, charge du 1~\% inchangée ; "
+          r"rubrique 5 : 1~\% libre de baisser) et le barème est recherché de nouveau ; « points pour tous » : la recette est "
+          r"rétablie en ajoutant ce nombre de points à tous les taux sous 50~\%, sans ce calibrage. Optimum "
           r"d'efficacité (sans contrainte de répartition) : " + n(-A["atteignable"]["v2_central"], 1, False) + r"~Md€, le "
           r"dixième le plus aisé payant " + n(-A["atteignable"]["top10_Md"], 0, False) + r"~Md€ de moins.")
 L.append(r"\end{table}")
@@ -140,7 +140,7 @@ L += note(r"Mêmes cas-types que le tableau~\ref{tab:ircsg_cas}. Quotient : impo
           r"et familial aux plafonds actuels à la place de la franchise par enfant ; abattement de 10~\% sur les pensions en "
           r"plus de l'exonération des petites pensions ; chèque de " + n(A["cheque_egal"]["cheque"], 0, False) + r"~€ par enfant, "
           r"de même coût que la franchise de 6\,000~€ par enfant ; franchise d'activité de 4\,000~€ par adulte au lieu de "
-          r"8\,000~€. Chaque variante a son propre barème, recherché sous les mêmes contraintes.")
+          r"8\,000~€. Chaque variante a son propre barème, recherché dans le même cadre.")
 L.append(r"\end{table}")
 ecrire("tab_ircsg_arbcas", L)
 
@@ -182,7 +182,7 @@ for lib, r in (("Réforme naïve (quotient, " + n(100 * NQ["tau"], 2, False) + r
     L.append(lib + " & " + " & ".join(n(u) for u in r["dec_eur"]) + f" & {n(r['top1_Md'], 1)} & {n(r['groupes']['retraites']['Md'], 1)} \\\\")
 L += [r"\bottomrule", r"\end{tabular}}"]
 L += note(r"Déciles de foyers fiscaux classés par revenu fiscal de référence (IRCOM, revenus 2024 ; montants de 2025). Moyennes de foyers "
-          r"représentatifs : elles cachent les écarts à l'intérieur de chaque décile (sous-partie~\ref{sec:ircsg}.5).")
+          r"représentatifs : elles cachent les écarts à l'intérieur de chaque décile (sous-partie~\ref{sec:ircsg}.4).")
 L.append(r"\end{table}")
 ecrire("tab_ircsg_dec", L)
 
@@ -202,7 +202,7 @@ for r in sorted(PROP["par_design"], key=lambda r: (r["F"], r["t0"])):
 L += [r"\bottomrule", r"\end{tabular}}"]
 L += note(r"Pour chaque franchise d'activité (par adulte) et chaque taux d'entrée (taux sur le premier euro imposé après la "
           r"franchise), le barème le plus efficace parmi ceux qui respectent la recette, les déciles à $\pm$500~€ et la "
-          r"neutralité du 1~\%. Sont aussi fixées : l'exonération des petites pensions, la franchise de 6\,000~€ par enfant, la "
+          r"charge inchangée du 1~\%. Sont aussi fixées : l'exonération des petites pensions, la franchise de 6\,000~€ par enfant, la "
           r"déduction de l'épargne retraite. Premier salaire : taux de prélèvement IR-CSG d'une personne seule qui prend un "
           r"emploi au Smic, à mi-temps ou à temps plein (aujourd'hui : " + n(SIT["ptr_auj"]["seul_mi"], 1, False) + r"~\%). "
           r"Taux d'entrée pairs seulement ; " + str(PROP["n_essais"]) + r" barèmes essayés, " + str(PROP["n_ok"]) +
@@ -220,7 +220,7 @@ for bloc in (S / "controle_hauts_purs.txt").read_text(encoding="utf-8").split("\
         HP[m.group(1)] = dict(gain=-float(m.group(3)), top1=float(m.group(4)), z2=float(m.group(5).replace(",", "")))
 sal, perm = TR["saillance"], TR["permanent"]["gains"]
 L = [r"\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}",
-     r"\caption{Ce qui fait varier le gain de la proposition et la neutralité du 1~\%}\label{tab:ircsg_sens}",
+     r"\caption{Ce qui fait varier le gain de la proposition et la charge du 1~\% le plus aisé}\label{tab:ircsg_sens}",
      r"\resizebox{\linewidth}{!}{%", r"\begin{tabular}{@{}lrl@{}}", r"\toprule", r"Hypothèse & Gain (Md€) & Autre effet \\",
      r"\midrule",
      f"Modèle, hypothèses centrales & {n(P['gain_central'], 2, False)} & participation {n(P['extensif'], 2, False)}~Md€ \\\\",
@@ -260,8 +260,8 @@ HYP = [
     ("Régime permanent : les actifs ne voient pas que leurs futures pensions seront plus taxées.",
      "Part « permanente » du gain", f"Vu en entier : gain permanent {n(perm['1.0']['central'], 1, False)}~Md€ au lieu de {n(P['gain_central'], 1, False)}."),
     ("Répartition des revenus au PFU entre tranches (non publiée) ; convention « mixte ».",
-     "Neutralité du 1~\\%, forme du haut du barème",
-     (f"Convention « haut » (que soutient un calage sur l'IR observé) : 1~\\% {n(HP['haut']['top1'], 1)}~Md€ ; neutralité si 50~\\% dès "
+     "Charge du 1~\\%, forme du haut du barème",
+     (f"Convention « haut » (que soutient un calage sur l'IR observé) : 1~\\% {n(HP['haut']['top1'], 1)}~Md€ ; charge inchangée si 50~\\% dès "
       f"{n(HP['haut']['z2'], 0, False)}~k€." if "haut" in HP else "")),
     ("Foyers purs : pas de foyer mixte (couple dont un seul est retraité, retraité bailleur) ; loyers tous chez les actifs.",
      "Coût de la franchise, charge des retraités", "Franchise sous-estimée et hausse des retraités surestimée, jusqu'à 3~Md€ environ (borne grossière)."),
