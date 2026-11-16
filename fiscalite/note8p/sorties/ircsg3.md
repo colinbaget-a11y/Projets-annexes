@@ -127,7 +127,7 @@ impôt individuel ; franchise de 6 000 € par enfant. Taux marginaux comparés 
 | F3 (−3 Md€) | 1,9/15,7/22,7/28,7/35,9 | −31 | −53 | −50 | −140 | −98 | 2,73 | +434 k |
 | F6 (−6 Md€) | 1,7/15,4/22,4/28,4/35,7 | −35 | −59 | −55 | −152 | −115 | 2,96 | +449 k |
 
-**Nous recommandons F0.** 3 Md€ de financement externe rapportent 0,22 Md€ de perte sèche en moins (7 centimes par
+**Nous recommandions F0** (avant la décision de bouclage, § 7). 3 Md€ de financement externe rapportent 0,22 Md€ de perte sèche en moins (7 centimes par
 euro) et 3 € par mois au Smic : un mauvais emploi d'un milliard qui manque ailleurs (moindre hausse foncière, transition
 de l'amortissement à l'IS). F3 est une option de confort si l'assembleur a une marge sans meilleur usage. Coûts
 unitaires : 1 point sur tous les taux 13,7 Md€ ; sur le bas et le milieu 10,5 ; 1 point de plafond 0,48 ; 1 000 € de
@@ -211,6 +211,46 @@ central) reste en annexe.
 Montée en charge sur quatre ans, (1 − λ) × ancien + λ × nouveau, λ = 0,25 à 1 de 2027 à 2030 : recette constante chaque
 année (F0 : 0 ; F3 : −0,75, −1,5, −2,25 puis −3,0 Md€ ; F6 : le double). Postes en 2030 (F0) : retraités +13,76,
 actifs −12,15, CEHR −0,58, invalidité −1,03. CRDS : extinction après 2033, droit en vigueur, hors bilan.
+
+## 7. Version finale retenue par l'assembleur : C2 financé 5,5 Md€ [C]/[S]
+
+Décision de bouclage (18/11/2026) : le bloc reçoit 5,5 Md€ par an en régime de croisière (fiscalité foncière, niches
+de l'IS), en caisse par paliers : 0 jusqu'en 2031, 1,0 (2032), 2,0 (2033), 3,0 (2034), 4,0 (2035), 5,0 (2036), 5,5 dès
+2037 ; la fusion garde sa montée en charge 2027-2030 à recette constante. Script : `calculs/ircsg3_final.py` ; chiffres :
+clé `final` et table `annuel_final` de `ircsg3.json` (total de chaque année = −financement de l'année),
+`sorties/ircsg3_final.txt`.
+
+**Ciblage.** La baisse porte sur les points 0, 1, 1,5 et 2 Smic (poids 1 / 1 / 1 / 0,5 ; −0,53 point), donc aucun taux
+marginal n'est relevé entre 0,7 et 1,1 Smic. Pour que le haut ne reçoive rien, le taux au point 3,5 Smic est relevé de
+0,36 point, de sorte que l'impôt au point haut (163 400 €) et au-delà est inchangé. Plafond de 48 % et point haut
+inchangés. **Barème final** : 1,5 % au premier euro, 15,5 % à 1 Smic (19 200 €), 22,5 % à 1,5 Smic (28 800 €), 28,7 % à
+2 Smic (38 400 €), 36,4 % à 3,5 Smic (67 100 €), 48 % à 163 400 € et au-delà.
+
+**Qui reçoit les 5,5 Md€** : actifs 3,7, retraités 1,8 ; dixième le plus aisé 1,0 (des couples dont chaque membre gagne
+moins de 163 000 €), centième 0,06. Par foyer : de 10 à 37 € par an aux deux premiers déciles, 77 à 199 € du 3e au 8e,
+233 à 235 € aux deux derniers.
+
+**Résultats finaux (€ par mois pour les actifs).** Smic −36 ; 1,5 Smic −60 ; 2 000 € net −57 ; 2 Smic −75 ; 3 Smic −145 ;
+cadre à 120 000 € brut −86 ; 250 000 € −183 (inchangé). Mi-temps au Smic −46. Retraités seuls (€/an) : 12 000 € +702 ;
+16 000 € +1 170 ; 20 000 € +894 ; 30 000 € +439 ; 60 000 € −1 250 ; 100 000 € −1 490 ; couples de retraités 30 000 €
++860, 60 000 € −706. Familles sans niche (€/mois) : biactif 2 enfants à 60 000 € −170 ; mono-actif 2 enfants à 40 000 €
+−121, à 60 000 € +83 ; biactif 3 enfants −236 ; mono-actif 4 enfants à 45 000 € −261 ; parent isolé au Smic −147 ; couple
+à un revenu sans enfant à 80 000 € +429. Avec niches : biactif 2 enfants avec garde et emploi à domicile +101 (sans niche
+−170) ; cadres avec emploi à domicile et dons +211 ; retraité à 30 000 € avec emploi à domicile +203 (sans niche +37).
+Second conjoint (mi-temps au Smic) : 11,5 % → 4,4 % ; premiers 1 000 € : 9,5 % → 1,6 %. Déciles (€/foyer) : −45, −33,
++150, +67, −478, −428, −659, −148, −421, +1 041 ; actifs −15,8 Md€, retraités +11,9 Md€ ; le dixième le plus aisé paie
+4,4 Md€ de plus et reçoit 21,6 % des baisses (centième 8,2 %). Perte sèche : −2,8 Md€ par an (1,2 à 6,1), dont 0,7 heures
+et effort, 2,1 participation ; travail +0,9 % (0,4–1,9), environ 233 000 ETP (98 000–485 000).
+
+**Cascade finale (graphique F)** : élargissement +112,2 ; CEHR et invalidité −1,6 ; franchise −18,1 ; barème −98,0
+(dixième supérieur −36,8, centième −8,8) ; variation nette −3,9 hors CEHR et invalidité, soit −5,5 au total.
+
+**Trajectoire (`annuel_final`, Md€)** : 0 de 2027 à 2031 (fusion à recette constante, λ = 0,25 à 1 de 2027 à 2030) ;
+−1,0 (2032), −2,0 (2033), −3,0 (2034), −4,0 (2035), −5,0 (2036), −5,5 dès 2037. Chaque palier abaisse le barème au
+prorata (taux = C2 − (financement/5,5) × écart au barème final).
+
+Les figures g1, g2, g3, g3b et F (travail) montrent désormais cette version finale ; les figures de travail A à E
+comparent les candidats à recette constante.
 
 ## 6. Limites qui peuvent changer la conclusion
 

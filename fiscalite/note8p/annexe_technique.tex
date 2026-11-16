@@ -1,7 +1,8 @@
 \documentclass[10pt,a4paper]{article}
 % Annexe technique de la note « Taxer mieux plutôt que davantage » (17/11/2026). Les annexes B à E sont écrites par
 % les programmes de note8p/calculs ; A est rédigée à la main ; F par calculs/annexe_bouclage.py.
-\input{preambule8p}
+\input{preambule_v3}
+\setcounter{secnumdepth}{2}
 \fancyfoot[L]{\small\color{gris}Taxer mieux plutôt que davantage — annexe technique}
 \setcounter{secnumdepth}{2}
 \renewcommand{\thesection}{\Alph{section}}
@@ -60,42 +61,37 @@ autrement ou dans une société est un effet sur la recette, donné à part, net
 assiette ($s_j$, part déplacée, taxée au taux $\tau_k$ ; Chetty, 2009). Nous ne transformons jamais une élasticité du
 revenu imposable en élasticité de la production.
 
-\textbf{Les marges et les élasticités.} Heures et effort (revenu réel) : $\varepsilon$ de 0{,}02 / 0{,}05 / 0{,}10 sous
-le revenu médian et de 0{,}05 / 0{,}10 / 0{,}20 à 0{,}25 au-dessus (jeux bas, central, haut ; ordre de grandeur de
-Lehmann, Marical et Rioux, 2013, sur données françaises). Décision de travailler : élasticité au taux
-de prélèvement sur tout le salaire d'entrée de 0{,}10 / 0{,}25 / 0{,}50 sous deux Smic (synthèse de Chetty, Guren,
-Manoli et Weber, 2013). Ventes de logements : 0 à 8~\% par point de droits, 6 au centre ; 0 si la réaction n'est que
-temporaire (Bérard et Trannoy, 2018). Stock d'équipements : élasticité au coût d'usage de 0{,}5 à 1{,}6 (Maffini, Xing et
-Devereux, 2019). Les pensions, l'épargne et l'âge de départ ne réagissent pas dans le calcul, faute de mesure fiable.
+\textbf{Les marges et les élasticités : un cadre standard.} Chacun arbitre selon ce que lui rapporte réellement une
+heure, une augmentation ou un emploi de plus, tous prélèvements compris : la CSG et la CRDS comptent comme l'impôt sur
+le revenu, aujourd'hui comme demain. Nous avons abandonné l'hypothèse d'une CSG mal perçue, qu'aucune étude ne calibre
+(Lehmann, Marical et Rioux, 2013, ne parlent pas de la CSG ; Chetty, Looney et Kroft, 2009, portent sur des prix en
+caisse ; note \texttt{sorties/saillance.md}). Élasticités : heures et effort, revenu réel, 0,05 / 0,10 / 0,20 selon
+le revenu (jeux bas, central, haut ; ordre de grandeur de Lehmann, Marical et Rioux, 2013) ; décision de travailler,
+0,10 / 0,25 / 0,50 au taux de prélèvement sur le salaire d'entrée (Chetty, Guren, Manoli et Weber, 2013) ; stock
+d'équipements, 0,5 à 1,6 au coût d'usage (Maffini, Xing et Devereux, 2019). Nous ne chiffrons pas ce qui n'est pas
+établi : ni gain sur le volume des ventes de logements, ni effet sur l'emploi des droits de mutation, ni migration des
+grands patrimoines, ni effet de trésorerie du taux réduit sur l'investissement des PME. Les pensions et l'épargne ne
+réagissent pas dans le calcul.
 
-\textbf{La perception de la CSG.} Les salariés réagissent au taux qu'ils perçoivent. Le nouvel impôt, publié avec un
-barème, est supposé perçu en entier ; la CSG d'aujourd'hui l'est avec un poids $\theta$ inconnu. Si $\theta=1$, la
-fusion réduit la perte sèche de 3{,}8~Md€ ; elle ne gagne plus rien sous $\theta \approx 0{,}48$ ; à $\theta=0$, elle
-la relève de 3{,}3~Md€. C'est l'hypothèse qui peut le plus changer la conclusion.
+\textbf{Pas de doubles comptes.} Les lignes de l'impôt sur le revenu sont nettes des niches supprimées et du barème
+(la cascade de l'annexe B montre l'ordre) ; les niches communes à l'IR et à l'IS sont comptées dans l'IS seulement ; la
+déductibilité de la taxe foncière est comptée une fois, dans le foncier ; la perte de valeur des terrains est un
+transfert, pas une perte sèche ; les effets de l'IS sur le capital ne s'ajoutent pas à sa perte sèche.
 
-\textbf{Pas de doubles comptes.} La baisse de l'IS financée par l'excédent foncier est comptée dans le bloc IS, pas
-dans le bloc foncier ; la déductibilité de la taxe foncière est comptée une fois, dans le foncier. Les effets de l'IS sur
-le capital et le PIB ne sont pas ajoutés à sa perte sèche : ce sont deux mesures du même mécanisme. La perte de valeur
-des terrains due à la taxe est un transfert entre propriétaires actuels et collectivité, pas une perte sèche. Aucune
-perte sèche n'est chiffrée pour les plus-values : aucune élasticité ne s'applique proprement à une règle de transmission.
-
-\textbf{Ce que la perte sèche n'est pas.} Ce n'est pas un supplément de PIB : elle mesure une valeur nette (le revenu
-d'une heure de travail en plus moins la valeur du loisir sacrifié), pas une production brute. C'est une mesure statique,
-de niveau, à comportements mesurés sur de petites réformes. Elle ne dit rien du taux de croissance. Nous n'en faisons
-pas la somme avec les effets réels, et nous ne donnons pas de chiffre global de croissance.
+\textbf{Ce que la perte sèche n'est pas.} Ce n'est pas un supplément de PIB : elle mesure une valeur nette, pas une
+production brute ; c'est une mesure statique, de niveau. Les gains de la suppression des niches (moins de recherche de
+rente, de coûts de gestion, de mauvaise allocation) ne sont pas chiffrés.
 
 \begin{table}[!htbp]\centering\small\setlength{\tabcolsep}{4pt}
-\caption{Ce que l'on peut chiffrer, réforme par réforme}\label{tab:gains}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\caption{Ce que l'on peut chiffrer, réforme par réforme}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{4.6cm}@{}}
 \toprule
-Réforme & Perte sèche évitée (Md€ par an ; central, fourchette) & Effets réels \\
+Réforme & Perte sèche évitée (Md€ par an) & Effets réels \\
 \midrule
-Nouvel impôt sur le revenu & 3,8 (1,9 à 9,0) si la CSG est perçue comme l'IR ; 0,1 si à moitié ; $-3{,}3$ si pas du
-tout [S/H] & offre de travail : +305\,000 personnes (122\,000 à 610\,000) si perçue [S/H] \\
-Immobilier & 2,5 (ventes 1,7 ; autres immeubles 0,4 ; bâti 0,4) ; 0,8 si la réaction des ventes n'est que temporaire [S]
-& mobilité résidentielle accrue [E, étranger] ; aucun effet chiffré sur l'emploi ni sur la construction \\
-Impôt sur les sociétés & 0,03 à 0,08 sur les équipements [S] & capital +11~Md€ (5,6 à 18,7) ; PIB potentiel
-+0,06~\% (0,03 à 0,10), effet de niveau [S] \\
+Nouvel impôt sur le revenu & 2,8 (1,2 à 6,1 selon les élasticités) [S] & offre de travail : environ 233\,000 ETP
+(98\,000 à 485\,000), offre et non emploi effectif [S/H] ; annexe seulement \\
+Immobilier & non chiffrée (réaction durable des ventes non établie en France) & mobilité résidentielle [E, étranger] \\
+Impôt sur les sociétés & faible & capital +8,4~Md€ (4,2 à 13,4) ; PIB potentiel +0,05~\%, effet de niveau [S] \\
 Plus-values & non chiffrée & moins de verrouillage aux âges élevés [E pour le sens] \\
 \bottomrule
 \end{tabularx}
@@ -124,6 +120,8 @@ Bérard, G. et A. Trannoy (2018), « The impact of the 2014 increase in the real
 housing market », \emph{Économie et Statistique} 500-502. \par
 Bozio, A. et É. Wasmer (2024), \emph{Les politiques d'exonérations de cotisations sociales : une inflexion
 nécessaire}, rapport au Premier ministre. \par
+Chetty, R., A. Looney et K. Kroft (2009), « Salience and taxation: theory and evidence », \emph{American Economic
+Review} 99(4). \par
 Chetty, R. (2009), « Is the taxable income elasticity sufficient to calculate deadweight loss? », \emph{AEJ: Economic
 Policy} 1(2). \par
 Chetty, R., A. Guren, D. Manoli et A. Weber (2013), « Does indivisible labor explain the difference between micro and

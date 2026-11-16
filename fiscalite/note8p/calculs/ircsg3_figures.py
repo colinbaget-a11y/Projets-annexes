@@ -209,13 +209,16 @@ sauver(fig, "g1_taux_moyens", "OpenFisca-France 176.1 (droit des revenus 2025) ;
 # g2 : taux marginaux
 fig, ax = plt.subplots(figsize=(PLEINE, 2.5))
 ax.plot(z, T["auj_tm"], color=AUJ, lw=1.5, label="Aujourd'hui", drawstyle="steps-post")
+_irs = np.array([0.0, 11600.0, 29579.0, 84577.0, 181917.0]); _irt = np.array([0.0, 0.11, 0.30, 0.41, 0.45])
+_naive = 100 * (_irt[np.searchsorted(_irs, np.asarray(z), side="right") - 1] + 0.043)
+ax.plot(z, _naive, color=NAIF, lw=1.5, label="Fusion naïve (barème de l'IR + 4,3 points)", drawstyle="steps-post")
 ax.plot(z, T["final_tm"], color=PROP, lw=2.3, label="Nouvel impôt")
 for zz, tk in zip(D["final"]["points"], D["final"]["taux"]):
     lab = _fr(100 * tk, 1 if abs(100 * tk - round(100 * tk)) > 0.05 else 0) + " %"
     ax.plot(zz, float(np.interp(zz, z, T["final_tm"])) if zz else 2, "o", color=PROP, ms=3.5)
     ax.text(zz + 3000, (float(np.interp(zz, z, T["final_tm"])) if zz else 2) - 4.5, lab, color=PROP, fontsize=7)
-reperes(ax, 300e3, 56)
-ax.set_xlim(0, 300e3)
+reperes(ax, 280e3, 56)
+ax.set_xlim(0, 280e3)
 ax.set_ylim(0, 60)
 ax.xaxis.set_major_formatter(keur)
 ax.yaxis.set_major_formatter(pctf)

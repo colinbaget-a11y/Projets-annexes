@@ -1,7 +1,7 @@
 {
  "annuel": {
   "2027": {
-   "ircsg_fusion": 6.916689443414725e-14,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 0.0,
    "dmto": -0.0,
@@ -10,10 +10,10 @@
    "is_niches": 0.0,
    "is_deduction_50": 0.0,
    "reserve_plus_values": 0.0,
-   "solde": 6.916689443414725e-14
+   "solde": 0.0
   },
   "2028": {
-   "ircsg_fusion": 1.383337888682945e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 0.0,
    "dmto": -0.0,
@@ -22,10 +22,10 @@
    "is_niches": 0.0,
    "is_deduction_50": -0.0,
    "reserve_plus_values": 0.0,
-   "solde": 0.5766310679613033
+   "solde": 0.5766310679611649
   },
   "2029": {
-   "ircsg_fusion": 2.0672352718520415e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 3.333,
    "dmto": -2.692,
@@ -34,10 +34,10 @@
    "is_niches": 2.636440757847111,
    "is_deduction_50": -0.0,
    "reserve_plus_values": 0.0,
-   "solde": 5.2351184843059855
+   "solde": 5.2351184843057785
   },
   "2030": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 6.667,
    "dmto": -5.383,
@@ -46,10 +46,10 @@
    "is_niches": 3.0712154087892034,
    "is_deduction_50": -3.584609879686326,
    "reserve_plus_values": 0.195,
-   "solde": 2.3227042207251243
+   "solde": 2.322704220724847
   },
   "2031": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -58,10 +58,10 @@
    "is_niches": 3.1532405330527795,
    "is_deduction_50": -6.357124827836754,
    "reserve_plus_values": 0.44,
-   "solde": 0.11272572896191857
+   "solde": 0.11272572896164146
   },
   "2032": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -1.0,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -70,10 +70,10 @@
    "is_niches": 3.235645550224999,
    "is_deduction_50": -4.92204572369604,
    "reserve_plus_values": 0.488,
-   "solde": 0.14256351987644944
+   "solde": 0.14256351987617233
   },
   "2033": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -2.0,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -82,10 +82,10 @@
    "is_niches": 3.3181126249806385,
    "is_deduction_50": -3.8038534938571575,
    "reserve_plus_values": 0.536,
-   "solde": 0.3684573200628427
+   "solde": 0.3684573200625656
   },
   "2034": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -3.0,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -94,10 +94,10 @@
    "is_niches": 3.3995356089265614,
    "is_deduction_50": -2.892979597359652,
    "reserve_plus_values": 0.583,
-   "solde": 0.3850142872309492
+   "solde": 0.3850142872306721
   },
   "2035": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -4.0,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -106,10 +106,10 @@
    "is_niches": 3.4820841325587693,
    "is_deduction_50": -2.0753568770113366,
    "reserve_plus_values": 0.629,
-   "solde": 0.3088723172453247
+   "solde": 0.3088723172450476
   },
   "2036": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.0,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -118,10 +118,10 @@
    "is_niches": 3.5638378053978643,
    "is_deduction_50": -1.2814487764785438,
    "reserve_plus_values": 0.674,
-   "solde": 0.20717387475301097
+   "solde": 0.20717387475273386
   },
   "2037": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -130,10 +130,10 @@
    "is_niches": 3.5642098523553125,
    "is_deduction_50": -0.7723694836628006,
    "reserve_plus_values": 0.719,
-   "solde": 0.23874426955258587
+   "solde": 0.23874426955230876
   },
   "2038": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -142,10 +142,10 @@
    "is_niches": 3.564426578738292,
    "is_deduction_50": -0.6552360978750772,
    "reserve_plus_values": 0.762,
-   "solde": 0.37687765534031004
+   "solde": 0.3768776553400329
   },
   "2039": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -154,10 +154,10 @@
    "is_niches": 3.564412551140688,
    "is_deduction_50": -0.6550888081002367,
    "reserve_plus_values": 0.804,
-   "solde": 0.3971371658959807
+   "solde": 0.3971371658957036
   },
   "2040": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 10.0,
    "dmto": -8.075,
@@ -166,12 +166,12 @@
    "is_niches": 3.564099313524291,
    "is_deduction_50": -0.6550751890734368,
    "reserve_plus_values": 0.846,
-   "solde": 0.41554473823018667
+   "solde": 0.41554473822990956
   }
  },
  "prudent": {
   "2027": {
-   "ircsg_fusion": 6.916689443414725e-14,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 0.0,
    "dmto": -0.0,
@@ -180,10 +180,10 @@
    "is_niches": 0.0,
    "is_deduction_50": 0.0,
    "reserve_plus_values": 0.0,
-   "solde": 6.916689443414725e-14
+   "solde": 0.0
   },
   "2028": {
-   "ircsg_fusion": 1.383337888682945e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 0.0,
    "dmto": -0.0,
@@ -192,10 +192,10 @@
    "is_niches": 0.0,
    "is_deduction_50": -0.0,
    "reserve_plus_values": 0.0,
-   "solde": 0.5766310679613033
+   "solde": 0.5766310679611649
   },
   "2029": {
-   "ircsg_fusion": 2.0672352718520415e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 2.9997000000000003,
    "dmto": -2.692,
@@ -204,10 +204,10 @@
    "is_niches": 1.9773305683853333,
    "is_deduction_50": -0.0,
    "reserve_plus_values": 0.0,
-   "solde": 4.242708294844207
+   "solde": 4.242708294844
   },
   "2030": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 6.0003,
    "dmto": -5.383,
@@ -216,10 +216,10 @@
    "is_niches": 2.3034115565919024,
    "is_deduction_50": -4.301531855623591,
    "reserve_plus_values": 0.195,
-   "solde": 0.17127839259055744
+   "solde": 0.17127839259028121
   },
   "2031": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -0.0,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -228,10 +228,10 @@
    "is_niches": 2.3649303997895847,
    "is_deduction_50": -7.628549793404104,
    "reserve_plus_values": 0.44,
-   "solde": -2.947009369868627
+   "solde": -2.947009369868904
   },
   "2032": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -1.0,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -240,10 +240,10 @@
    "is_niches": 2.4267341626687493,
    "is_deduction_50": -5.906454868435247,
    "reserve_plus_values": 0.488,
-   "solde": -2.650757012419008
+   "solde": -2.650757012419285
   },
   "2033": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -2.0,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -252,10 +252,10 @@
    "is_niches": 2.488584468735479,
    "is_deduction_50": -4.564624192628589,
    "reserve_plus_values": 0.536,
-   "solde": -2.2218415349537484
+   "solde": -2.2218415349540255
   },
   "2034": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -3.0,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -264,10 +264,10 @@
    "is_niches": 2.549651706694921,
    "is_deduction_50": -3.471575516831582,
    "reserve_plus_values": 0.583,
-   "solde": -2.043465534472621
+   "solde": -2.0434655344728982
   },
   "2035": {
-   "ircsg_fusion": 2.76667577736589e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -4.0,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -276,10 +276,10 @@
    "is_niches": 2.611563099419077,
    "is_deduction_50": -2.490428252413604,
    "reserve_plus_values": 0.629,
-   "solde": -1.976720091296635
+   "solde": -1.976720091296912
   },
   "2036": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.0,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -288,10 +288,10 @@
    "is_niches": 2.6728783540483985,
    "is_deduction_50": -1.5377385317742525,
    "reserve_plus_values": 0.674,
-   "solde": -1.9400753318921635
+   "solde": -1.9400753318924406
   },
   "2037": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -300,10 +300,10 @@
    "is_niches": 2.6731573892664846,
    "is_deduction_50": -0.9268433803953606,
    "reserve_plus_values": 0.719,
-   "solde": -1.806782090268802
+   "solde": -1.8067820902690792
   },
   "2038": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -312,10 +312,10 @@
    "is_niches": 2.673319934053719,
    "is_deduction_50": -0.7862833174500926,
    "reserve_plus_values": 0.762,
-   "solde": -1.6452762089192783
+   "solde": -1.6452762089195554
   },
   "2039": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -324,10 +324,10 @@
    "is_niches": 2.673309413355516,
    "is_deduction_50": -0.786106569720284,
    "reserve_plus_values": 0.804,
-   "solde": -1.6249837335092385
+   "solde": -1.6249837335095156
   },
   "2040": {
-   "ircsg_fusion": 2.7711166694643907e-13,
+   "ircsg_fusion": 0.0,
    "ircsg_financement_externe": -5.5,
    "taxe_fonciere": 9.0,
    "dmto": -8.075,
@@ -336,7 +336,7 @@
    "is_niches": 2.673074485143218,
    "is_deduction_50": -0.7860902268881241,
    "reserve_plus_values": 0.846,
-   "solde": -1.6064951279655735
+   "solde": -1.6064951279658506
   }
  },
  "financement_ir": {

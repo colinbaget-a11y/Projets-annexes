@@ -1,54 +1,34 @@
-% Écrit par note8p/calculs/annexe_bouclage.py ; ne pas modifier à la main.
-\subsection{Règles et calendrier}
+% Écrit par calculs/annexe_bouclage3.py.
+\subsection{Règles, calendrier et scénario prudent}
+Règles : aucune année de déficit dans le scénario central ; les recettes de la fin de l'effacement des plus-values ne
+financent rien (réserve) ; les évolutions du droit en vigueur (fin de la contribution exceptionnelle sur l'IS, $-7$~Md€ ;
+extinction de la CRDS fin 2033) ne sont ni comptées ni utilisées. Calendrier [C] : fusion IR-CSG montée en charge de
+2027 à 2030 à recette constante (chaque foyer paie $(1-\lambda)$ ancien impôt $+\ \lambda$ nouvel impôt) ; taxe nationale
+sur le sol par tiers en 2029-2031 et droits de mutation baissés au même rythme, avec clause de suspension ; taux réduit
+d'IS à 20~\% pour l'exercice 2027, aligné ensuite ; niches de l'IS dès l'exercice 2028 ; déduction de 50~\% dès
+l'exercice 2029 (25~\% la première année) ; baisse supplémentaire de l'impôt sur le travail par paliers de 1~Md€ de 2032
+à 2036, puis 5,5~Md€. Unités : euros de 2027 environ ; séries d'IS déflatées de leur croissance nominale (3~\% par an).
 
-Le bouclage tient trois règles. Aucune année de déficit organisée : le solde des quatre réformes reste compris entre
-$-0{,}3$ et $+1{,}1$~Md€ chaque année. Les recettes de la fin de l'effacement des plus-values ne financent rien avant
-d'être constatées ; elles forment une réserve. Les évolutions du droit en vigueur (fin de la contribution exceptionnelle
-sur les bénéfices des grandes entreprises, $-7$~Md€ par an après l'exercice 2026 ; extinction de la CRDS fin 2033, qui
-permet de baisser tous les taux du nouvel impôt de 0{,}54 point à recette constante) ne sont ni comptées ni utilisées.
+Scénario prudent [H] : niches de l'IS rapportant 25~\% de moins, déduction plus coûteuse de 20~\% (part imposable de
+90~\%), taxe sur le sol plus faible de 10~\% (capitalisation plus forte). Sans les paliers de baisse sur le travail, le
+solde serait de $-2{,}9$~Md€ en 2031 et $-1{,}7$~Md€ en 2032, couverts par l'excédent cumulé de 2028-2030 (5,0~Md€) :
+la dette ne dépasse jamais celle du droit actuel. La clause qui conditionne chaque palier aux recettes constatées
+limiterait alors la baisse supplémentaire à 3,5~Md€. Programme : \texttt{note8p/calculs/bouclage3.py}.
 
-Unités : euros constants de 2027. Les séries de l'IS, nominales (+3~\% par an), sont déflatées par leur propre
-croissance ; les séries foncières et des plus-values sont au niveau de l'activité de 2025. L'écart de convention
-(environ 4~\%) est sans effet sur les conclusions. L'IS d'un exercice est encaissé l'année suivante.
-
-Calendrier [C] : nouvel impôt sur le revenu monté en charge sur quatre ans (2027-2030), chaque foyer payant
-$(1-\lambda)\times$ ancien impôt $+\ \lambda\times$ nouvel impôt, $\lambda = 0{,}25$ à 1, ce qui garde la recette chaque
-année ; taxe foncière nationale par tiers en 2029, 2030 et 2031, droits de mutation baissés le 1\textsuperscript{er}
-janvier des mêmes années, avec clause de suspension ; taux réduit d'IS à 20~\% pour l'exercice 2027, aligné dès 2028 ;
-déduction immédiate à 25~\% pour l'exercice 2028, 50~\% dès 2029 ; taux normal baissé par demi-points, au plus fort
-possible sans qu'aucune année ultérieure passe sous $-0{,}3$~Md€ : 24~\% (exercice 2030), 23{,}5~\% (2032), 23~\%
-(2033), 22{,}5~\% (2035). Étape conditionnelle : un point de plus dès l'exercice 2035 si la réserve atteint son niveau
-central. Programme : \texttt{note8p/calculs/bouclage.py}.
-
-\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2.4pt}
-\caption{Trajectoire complète (Md€ de 2027, années d'encaissement ; + = recette publique en plus)}\label{tab:traj_complete}
+\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2.3pt}
+\caption{Trajectoire complète (Md€ par an, années d'encaissement ; + = recette publique en plus)}
 \begin{tabular}{@{}lrrrrrrrrrrrrrr@{}}\toprule
  & 27 & 28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36 & 37 & 38 & 39 & 40 \\ \midrule
-Nouvel impôt sur le revenu (net) & 0{,}0 & 0{,}0 & 0{,}0 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 & $-$0{,}1 \\
-Foncier net (taxe, droits, report, déductibilité) & 0{,}0 & $-$0{,}5 & 2{,}1 & 3{,}8 & 5{,}8 & 5{,}2 & 5{,}2 & 5{,}3 & 5{,}3 & 5{,}4 & 5{,}4 & 5{,}4 & 5{,}4 & 5{,}5 \\
-Fin du taux réduit d'IS & 0{,}0 & 1{,}3 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 & 2{,}7 \\
-Déduction immédiate de 50~\% & 0{,}0 & 0{,}0 & $-$3{,}7 & $-$6{,}5 & $-$5{,}1 & $-$3{,}9 & $-$3{,}0 & $-$2{,}1 & $-$1{,}3 & $-$0{,}8 & $-$0{,}7 & $-$0{,}7 & $-$0{,}7 & $-$0{,}7 \\
-Baisse du taux normal & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & $-$2{,}8 & $-$2{,}8 & $-$4{,}3 & $-$5{,}8 & $-$5{,}9 & $-$7{,}4 & $-$7{,}4 & $-$7{,}4 & $-$7{,}4 & $-$7{,}4 \\
-\textbf{Solde} & 0{,}0 & 0{,}8 & 1{,}0 & $-$0{,}1 & 0{,}6 & 1{,}1 & 0{,}6 & 0{,}0 & 0{,}7 & $-$0{,}2 & $-$0{,}1 & 0{,}0 & 0{,}0 & 0{,}0 \\
-Réserve : fin de l'effacement (central) & 0{,}0 & 0{,}9 & 1{,}9 & 2{,}1 & 2{,}3 & 2{,}5 & 2{,}6 & 2{,}8 & 3{,}0 & 3{,}1 & 3{,}3 & 3{,}4 & 3{,}5 & 3{,}7 \\
-Étape conditionnelle : baisse financée par la réserve & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & $-$3{,}0 & $-$3{,}0 & $-$3{,}0 & $-$3{,}0 & $-$3{,}0 \\
-Solde avec la réserve et l'étape conditionnelle & 0{,}0 & 1{,}7 & 3{,}0 & 2{,}0 & 2{,}8 & 3{,}5 & 3{,}2 & 2{,}8 & 3{,}7 & $-$0{,}1 & 0{,}2 & 0{,}4 & 0{,}5 & 0{,}7 \\
-Taux normal de l'IS (exercice précédent, \%) & 25{,}0 & 25{,}0 & 25{,}0 & 25{,}0 & 24{,}0 & 24{,}0 & 23{,}5 & 23{,}0 & 23{,}0 & 22{,}5 & 22{,}5 & 22{,}5 & 22{,}5 & 22{,}5 \\
-Idem avec l'étape conditionnelle (\%) & 25{,}0 & 25{,}0 & 25{,}0 & 25{,}0 & 24{,}0 & 24{,}0 & 23{,}5 & 23{,}0 & 23{,}0 & 21{,}5 & 21{,}5 & 21{,}5 & 21{,}5 & 21{,}5 \\
+Taxe nationale sur le sol & 0{,}0 & 0{,}0 & 3{,}3 & 6{,}7 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 & 10{,}0 \\
+Droits de mutation & 0{,}0 & 0{,}0 & $-$2{,}7 & $-$5{,}4 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 \\
+Report, déductibilité, calendrier & 0{,}0 & $-$0{,}5 & $-$0{,}1 & $-$0{,}5 & $-$0{,}7 & $-$1{,}2 & $-$1{,}2 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}0 & $-$1{,}0 & $-$1{,}0 \\
+Fin du taux réduit d'IS & 0{,}0 & 1{,}0 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 \\
+Niches de l'IS & 0{,}0 & 0{,}0 & 2{,}6 & 3{,}1 & 3{,}2 & 3{,}2 & 3{,}3 & 3{,}4 & 3{,}5 & 3{,}6 & 3{,}6 & 3{,}6 & 3{,}6 & 3{,}6 \\
+Déduction immédiate de 50~\% & 0{,}0 & 0{,}0 & 0{,}0 & $-$3{,}6 & $-$6{,}4 & $-$4{,}9 & $-$3{,}8 & $-$2{,}9 & $-$2{,}1 & $-$1{,}3 & $-$0{,}8 & $-$0{,}7 & $-$0{,}7 & $-$0{,}7 \\
+Fusion IR-CSG (montée en charge) & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 \\
+Baisse supplémentaire de l'impôt sur le travail & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & $-$1{,}0 & $-$2{,}0 & $-$3{,}0 & $-$4{,}0 & $-$5{,}0 & $-$5{,}5 & $-$5{,}5 & $-$5{,}5 & $-$5{,}5 \\
+\textbf{Solde, scénario central} & 0{,}0 & 0{,}6 & 5{,}2 & 2{,}3 & 0{,}1 & 0{,}1 & 0{,}4 & 0{,}4 & 0{,}3 & 0{,}2 & 0{,}2 & 0{,}4 & 0{,}4 & 0{,}4 \\
+Réserve : plus-values (prudent) & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}2 & 0{,}4 & 0{,}5 & 0{,}5 & 0{,}6 & 0{,}6 & 0{,}7 & 0{,}7 & 0{,}8 & 0{,}8 & 0{,}8 \\
+Solde, scénario prudent (avant clause) & 0{,}0 & 0{,}6 & 4{,}2 & 0{,}2 & $-$2{,}9 & $-$1{,}7 & $-$0{,}2 & 1{,}0 & 2{,}0 & 3{,}1 & 3{,}7 & 3{,}9 & 3{,}9 & 3{,}9 \\
 \bottomrule\end{tabular}
 \end{table}
-
-\subsection{Sensibilités}
-
-\textbf{Plus-values.} Au bas de la fourchette (1{,}0~Md€ en 2040 au lieu de 3{,}7), l'étape conditionnelle n'a pas
-lieu ; rien d'autre ne change, puisque la réserve ne finance rien d'autre. \textbf{Foncier.} Avec une enveloppe de 10~Md€ au lieu de 15 (excédent net d'environ 1~Md€ par an), la baisse du
-taux normal se limite à un point, et le calendrier de la déduction immédiate n'est plus finançable : le solde tombe à
-$-3{,}2$~Md€ l'année du pic, sauf à retarder la déduction. Avec 20~Md€ (excédent de 10~Md€), le taux normal
-descendrait à 21~\% dès 2035. Si l'évaluation des terrains prend un an de retard, la clause de suspension décale la
-taxe et la baisse des droits, mais pas les mesures d'IS : sans autre précaution, le solde tomberait à $-1{,}8$~Md€ une
-année. La déduction immédiate et chaque palier de baisse du taux doivent donc être soumis à la même clause que les
-droits de mutation (programme : \texttt{FONCIER\_SCEN=E10|E20|E15\_glissement\_un\_an python3 calculs/bouclage.py}).
-\textbf{IS.} La part imposable de l'investissement (75~\%, hypothèse) fait varier le coût de la déduction
-dans la même proportion (pic de 5{,}4 à 8{,}1~Md€ pour 60 à 90~\%) ; inclure les véhicules utilitaires le multiplie
-par 1{,}25. Le rendement de la fin du taux réduit va de 2{,}15 à 3{,}18~Md€. Dans le cas défavorable, la baisse du
-taux normal doit attendre ; le calendrier par paliers le permet.

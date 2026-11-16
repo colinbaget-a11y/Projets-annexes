@@ -45,10 +45,16 @@ corps = re.sub(r"\\includegraphics\[width=\\linewidth\]\{figures/([^}]*)\.pdf\}"
 corps = re.sub(r"\\input\{figures/([^}]*)_source\.tex\}", lambda m: source(m.group(1)), corps)
 corps = corps.replace("\\captionsetup{type=table}", "")
 corps = re.sub(r"\\ref\{([^}]*)\}", lambda m: nums.get(m.group(1), "?"), corps)
+corps = re.sub(r"\\graphiqueetroit\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}\{[^}]*\}",
+               lambda m: fig(m.group(1), m.group(2), m.group(3)), corps, flags=re.S)
+corps = re.sub(r"\\chiffre\{([^}]*)\}\{([^}]*)\}", r"\\textbf{\1} (\2) ; ", corps)
+corps = re.sub(r"\\begin\{enbref\}|\\end\{enbref\}|\\par\\vspace\{5pt\}", "\n\n", corps)
+corps = re.sub(r"\\begin\{tcolorbox\}\[[^\]]*\]|\\end\{tcolorbox\}", "", corps)
+corps = corps.replace("\\color{white}", "")
 # en-tête
-t = re.search(r"\\selectfont\\bfseries\\color\{bleu\}(.*?)\\par\}", corps, re.S).group(1)
-st = re.search(r"\{\\large (.*?)\\par\}", corps, re.S).group(1)
-debut = corps.index("\\section{")
+t = "Taxer mieux plutôt que davantage"
+st = "Moins de niches, des assiettes larges, des taux raisonnables : une fiscalité qui récompense le travail, l'investissement et la mobilité, sans un euro de dette en plus"
+debut = corps.index("\\textbf{Ce que nous proposons.}") if "Ce que nous proposons" in corps else corps.index("\\section{")
 corps = f"\\section*{{{t}}}\n\n\\emph{{{st}}}\n\n" + corps[debut:]
 for c in ("\\color{gris}", "\\raggedright", "\\scriptsize", "\\small", "\\vspace{1pt}", "\\vspace{2pt}", "\\vspace{3pt}",
           "\\vspace{4pt}", "\\setlength{\\tabcolsep}{3.2pt}"):
