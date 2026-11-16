@@ -100,3 +100,11 @@ Années de référence cohérentes.
 Plus éditorial, think tank, direct, parfois oral, sans tics mécaniques ; titres-conclusions ; insister sur la philosophie
 anti-niches ; présenter la fiscalité cible, pas des retouches ; exemples incarnés conservés (+ un exemple de suppression
 de niches) ; graphiques grands, peu de courbes, valeurs affichées, sources courtes (programmes et conventions en annexe).
+
+## Parcimonie méthodologique (ajout de l'auteur, 18/11/2026) — s'applique à tous les blocs
+Abandonner les hypothèses comportementales sophistiquées ou mal fondées, à commencer par la « perception de la CSG » :
+cadre standard, les individus arbitrent selon leur rémunération nette (tous les prélèvements, CSG comprise, comptent
+pleinement, aujourd'hui comme demain). Mécanismes standards ; élasticités consensuelles ; pas d'hypothèse ad hoc non
+calibrable ; pas de sophistication qui ajoute plus d'incertitude que d'information ; pas de multiplication des
+sensibilités sur des mécanismes non établis ; renoncer à chiffrer un effet quand les éléments manquent. Si une hypothèse
+peu documentée suffit à déterminer le signe ou l'ampleur d'un gain, la retirer ou ne pas chiffrer ce gain.
