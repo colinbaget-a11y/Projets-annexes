@@ -1,147 +1,444 @@
-% Partie PFU (source : ../pfu/note-pfu.tex, corrigée selon ../revue/verif_is_pfu.md)
-Le prélèvement forfaitaire unique (PFU) impose depuis 2018 les dividendes, les intérêts et les plus-values
-mobilières à un taux unique, 31,4~\% en 2026, au lieu du barème progressif. La référence le garde tel qu'il
-est :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Quand le taux a monté en 2013, les actionnaires qui contrôlent leur société ont laissé les bénéfices
-dedans. Quand il a baissé en 2018, ils les ont distribués.
-\item Cette réaction porte sur le moment où l'on se verse le revenu plus que sur l'activité. Elle dépend sans
-doute du taux qu'on attend pour demain : le principal service à rendre est de ne plus le changer.
-\item La faiblesse du système n'est pas dans le taux du PFU, mais dans le circuit des holdings.
+% TITRE_SECTION: Revenus du capital : garder le taux, fermer la sortie sans impôt
+% Partie PFU, refonte du 16/11/2026 (synthese/CHARTE_NOTE.md ; DECISIONS.md, décision 3). Chiffres :
+% ../pfu/sorties/calculs_pfu.txt (programme ../pfu/calculs_pfu.py) ; figures : ../pfu/figures_pfu_n.py ;
+% hypothèses et vérifications : ../revue/hypotheses_pfu.md ; annexe : parties/annexe_pfu.tex.
+
+Les revenus du capital sont imposés deux fois sur le chemin qui va de l'entreprise au ménage : par l'impôt sur
+les sociétés quand la société fait un bénéfice, puis par le prélèvement forfaitaire unique (PFU) quand elle le
+distribue ou que l'actionnaire vend ses titres. Le débat public porte presque toujours sur le taux de ce second
+prélèvement. Cette partie soutient que le taux n'est pas le problème : il est déjà élevé, ses variations ont
+surtout déplacé les dividendes d'une année sur l'autre, et le changer encore coûterait cher ou rapporterait peu.
+Le problème est qu'une partie du capital ne passe jamais par la sortie : la plus-value accumulée jusqu'à une
+donation ou un décès s'efface. Nous proposons de garder le taux et de fermer cette sortie sans impôt.
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Deux impôts sur le même bénéfice, et une sortie qui échappe au second}\label{sec:pfu_situation}
+
+Depuis 2018, les dividendes, les intérêts et les plus-values sur valeurs mobilières sont imposés à un taux
+forfaitaire, le PFU, au lieu du barème progressif. En 2026, il additionne 12,8~\% d'impôt sur le revenu et
+18,6~\% de prélèvements sociaux, soit 31,4~\%. La loi de financement de la sécurité sociale pour 2026 a porté la
+CSG sur ces revenus de 9,2 à 10,6~\%, mais l'a laissée à 9,2~\% pour une liste fermée de placements
+(assurance-vie, épargne logement, revenus fonciers, plus-values immobilières), qui restent ainsi à 17,2~\% de
+prélèvements sociaux. Un foyer peut choisir le barème à la place : 2,5~millions l'ont fait sur leurs revenus de
+2024, en général ceux dont le taux marginal est bas.
+
+En 2024, les foyers ont déclaré 79,6~Md€ de revenus soumis à ce régime : 50,1~Md€ de dividendes, 11,8~Md€
+d'intérêts et autres distributions, 17,7~Md€ de plus-values nettes des pertes (figure~\ref{fig:pfu_assiette}).
+La part d'impôt sur le revenu rapporte au plus 10,2~Md€ : c'est un majorant, puisque les foyers qui optent pour le
+barème paient moins, et l'acompte effectivement prélevé à la source n'atteint que 7,7~Md€. Les prélèvements
+sociaux sur ces mêmes revenus rapportent 14,8~Md€, et environ 37~Md€ sur l'ensemble des revenus du capital,
+loyers et assurance-vie compris. Deux contributions s'ajoutent tout en haut. La contribution exceptionnelle sur
+les hauts revenus (CEHR) prélève 3 puis 4~\% au-delà de 250\,000~€ de revenu pour une personne seule
+(500\,000~€ pour un couple) ; elle a rapporté 1,4~Md€ sur les revenus de 2023, sur l'ensemble des revenus et pas
+seulement ceux du capital. La contribution différentielle (CDHR), créée en 2025, garantit aux mêmes foyers un
+impôt d'au moins 20~\% de leur revenu ; elle est prorogée jusqu'à ce que le déficit de l'État repasse sous 3~\%
+du PIB. Elle devait rapporter 1,9~Md€ d'acompte en 2025 ; 370~M€ ont été encaissés (rapport n°~3056 de
+l'Assemblée nationale, chiffre provisoire de la DGFiP).
+
+\figbloc{pfu_n01_assiette}{Les plus-values placées en report dépassent celles qui sont imposées (revenus de 2024)}{fig:pfu_assiette}
+
+Ces revenus sont parmi les plus concentrés de l'économie. En 2021, 1~\% des foyers déclaraient 96~\% des
+dividendes, et les 0,01~\% les plus aisés, environ 4\,000 foyers, un tiers des dividendes et 70~\% des
+plus-values (France Stratégie, 2023 ; figure~\ref{fig:pfu_concentration}). Toute réforme du PFU est d'abord une
+réforme de l'impôt du haut de la distribution.
+
+\figbloc{pfu_n02_concentration}{Quatre mille foyers reçoivent un tiers des dividendes et plus de la moitié des plus-values}{fig:pfu_concentration}
+
+Le PFU ne se comprend qu'avec l'impôt déjà payé par la société. Sur 100~€ de bénéfice, une grande société paie
+25,8~€ d'IS (25~\% plus la contribution sociale de 3,3~\% sur l'impôt qui dépasse 763\,000~€). Si elle distribue les
+74,2~€ restants, l'actionnaire paie 31,4~\% : le bénéfice a supporté 49,1~\% au total, 52,1~\% pour un foyer à
+la CEHR et 54,5~\% pour un foyer à la CDHR (figure~\ref{fig:pfu_taux}). C'est du même ordre que le taux marginal
+supérieur sur un salaire, 55,4~\% sans compter les cotisations sociales, qui alourdiraient encore le salaire.
+Pour le bénéfice distribué, l'empilement de l'IS et du PFU fonctionne donc comme un impôt sur le revenu à peu
+près uniforme. Mais si la société verse son dividende à une holding de l'actionnaire, le régime dit
+« mère-fille » l'exonère, à une quote-part de 5~\% près imposée à 25~\% : la holding paie 1,25~\%, et le bénéfice
+qui y reste n'a supporté que 26,8~\%.
+
+\figbloc{pfu_n03_taux_cumules}{Un bénéfice distribué paie la moitié en impôts, un bénéfice gardé en holding un quart}{fig:pfu_taux}
+
+Ce niveau est élevé en Europe, moins toutefois qu'on ne le lit souvent. La Tax Foundation place la France au
+premier rang européen pour le taux intégré (IS et impôt personnel) sur les dividendes, avec 57,9~\% en 2025 ;
+mais elle retient le taux de 36,1~\% que paient, avec la contribution exceptionnelle, les seuls groupes de plus de
+3~Md€ de chiffre d'affaires.
+Avec l'IS de droit commun, le taux français est de 51,0~\% en 2025 et de 52,1~\% en 2026, au cinquième puis au
+quatrième rang sur 31 pays, derrière l'Irlande, le Danemark et le Royaume-Uni, pour une moyenne de 39~\%
+(figure~\ref{fig:pfu_europe}).
+
+\figbloc{pfu_n04_europe}{Avec l'IS de droit commun, la France reste parmi les cinq pays européens qui taxent le plus le bénéfice distribué}{fig:pfu_europe}
+
+Le bénéfice qui ne sort pas en dividende sort un jour sous forme de plus-value, quand l'actionnaire vend ses
+titres. C'est là que le système a deux sorties sans impôt. La première est l'apport-cession. Un entrepreneur qui
+veut vendre son entreprise peut d'abord apporter ses titres à une holding qu'il contrôle : la plus-value est
+calculée à ce moment, mais son imposition est reportée, et la holding vend ensuite sans impôt notable. Le report
+prend fin si l'entrepreneur vend les titres de sa holding, ou si la holding vend dans les trois ans sans
+réinvestir au moins 70~\% du produit dans une activité économique (règle durcie en 2026). Le report est devenu
+massif : 33,6~Md€ de plus-values y ont été placés en 2023 et 22,2~Md€ en 2024, davantage que les plus-values
+imposées ; le stock atteint 127~Md€ en 2023 selon l'administration, et jusqu'à 173~Md€ en 2024 d'après les
+déclarations, un majorant. Seuls 0,4 à 1,5~Md€ de reports ont pris fin chaque année de 2022 à 2024 : le report
+sert rarement à différer l'impôt, il sert à attendre.
+
+La seconde sortie est générale : c'est l'effacement à la transmission. Quand des titres sont donnés ou hérités,
+le bénéficiaire prend pour prix d'acquisition leur valeur au jour de la transmission, celle qui sert au calcul
+des droits de donation ou de succession (article~150-0~D du code général des impôts). La plus-value accumulée par
+le donateur ou le défunt disparaît. Un investisseur qui a acheté 50\,000~€ d'actions en 2003 et meurt en 2022
+quand elles en valent 400\,000 transmet ses titres sans que les 350\,000~€ de plus-value soient jamais imposés ;
+s'il les avait vendus la veille, il aurait payé 105\,000~€ (exemple du rapport n°~1678 de l'Assemblée, repris par
+le rapport n°~3056). Pour un report d'apport-cession, l'impôt dû, déjà calculé, s'efface au décès, et après une
+donation si le donataire garde les titres six ans (onze dans certains cas).
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Le taux déplace les dividendes dans le temps ; l'effacement supprime l'impôt}\label{sec:pfu_probleme}
+
+Que reproche la théorie à un impôt sur les dividendes ? Moins qu'on ne le croit, pour une entreprise qui finance
+ses investissements sur ses bénéfices. 100~€ distribués aujourd'hui rapportent 68,6~€ nets à l'actionnaire ;
+réinvestis dans l'entreprise à 5~\%, ils deviennent 105~€ l'année suivante, soit 72,0~€ nets une fois distribués.
+Le PFU prend la même fraction dans les deux cas : il ne change pas le rendement de l'investissement, seulement la
+date et la forme sous lesquelles l'actionnaire touche son revenu. Deux réserves s'imposent. Le raisonnement ne
+vaut pas pour une jeune entreprise qui lève des fonds propres auprès d'investisseurs extérieurs : pour elle,
+l'impôt sur le dividende renchérit le capital. Et tout impôt sur les revenus du capital taxe le rendement de
+l'épargne : celui qui épargne paie davantage que celui qui consomme tout de suite. Aucune étude française ne
+mesure la réaction de l'épargne au PFU ; les chiffrages de cette note ne lui en prêtent aucune, et c'est une
+hypothèse, pas un résultat.
+
+Ce que les réformes françaises ont mesuré, ce sont des déplacements dans le temps, d'une ampleur considérable
+(figure~\ref{fig:pfu_dividendes}). En 2013, la fin du prélèvement libératoire fait passer tous les dividendes au
+barème. Les foyers qui l'avaient choisi déclarent 40~\% de dividendes en moins, sans hausse de leurs salaires ;
+les entreprises contrôlées par des particuliers distribuent moins, accumulent des actifs financiers et
+n'investissent pas moins (Bach et al., 2019). En 2018, le PFU fait l'inverse : les dividendes versés augmentent
+de 15~\% dès la première année, et la réforme coûte 0,4~Md€ au lieu de 0,9. Les deux épisodes n'en font qu'un :
+ce qui a été gardé de 2013 à 2017 est sorti à partir de 2018. Aux États-Unis, la baisse de l'impôt sur les
+dividendes de 2003 n'a modifié ni l'investissement ni les salaires (Yagan, 2015), et France Stratégie (2023) ne
+détecte aucun effet sur l'investissement ou les salaires des entreprises les plus exposées au PFU.
+
+L'épisode le plus récent montre que les actionnaires réagissent au taux qu'ils attendent, pas seulement à celui
+qu'ils paient. Les dividendes reçus par les ménages bondissent de 13,9~Md€ en 2024, l'année où la contribution
+différentielle est annoncée pour les revenus de 2025, puis reculent de 10,5~Md€ en 2025 ; l'Insee y voit une
+possible anticipation, et la CDHR a rapporté le cinquième de ce qui était prévu. Rapportés à l'excédent
+d'exploitation des sociétés, les dividendes passent de 12,5~\% en 2023 à 15,0~\% en 2024, puis à 12,9~\% en
+2025 : ce ne sont pas les bénéfices qui bougent, c'est le calendrier.
+
+\figbloc{pfu_n05_dividendes}{Les dividendes reçus par les ménages suivent le taux qu'ils attendent}{fig:pfu_dividendes}
+
+Le taux actuel n'est pas loin de ce que l'assiette peut supporter. Lefebvre, Lehmann et Sicsic (2025) estiment,
+sur dix ans de déclarations, que les revenus du capital déclarés baissent de 0,77~\% quand la part laissée au
+contribuable (un moins le taux) baisse de 1~\%, et situent le taux qui maximise la recette à 43~\% en comptant la réaction des revenus du travail
+(57~\% sans elle), prélèvements sociaux compris. Avec cette élasticité, lever un euro de plus par le PFU oblige à
+alourdir de 1,5~€ l'impôt calculé à comportements inchangés. Mais cette réaction, mesurée sur des réformes qui se compensent, est surtout un
+calendrier : elle dit combien un changement de taux rapporte ou coûte les premières années, pas combien
+d'activité il détruit.
+
+La vraie faiblesse est ailleurs. Garder un bénéfice dans une holding n'est pas en soi une exonération : si la
+holding le distribue dans vingt-cinq ans, il paiera le PFU sur le tout, et l'impôt total, en valeur actualisée,
+reste de l'ordre de 50~\%, comme s'il avait été distribué tout de suite. La holding offre seulement à son
+actionnaire ce que les autres épargnants n'ont pas : placer presque sans impôt, puisque les dividendes qu'elle
+reçoit de ses filiales ne paient que 1,25~\%. Sur vingt-cinq ans à 5~\%, l'actionnaire dispose ainsi de 44~\% de
+richesse en plus que s'il avait placé lui-même son dividende net, avec des revenus imposés chaque année au PFU
+(annexe~\ref{ann:pfu}). Ce report ne devient une exonération que si la sortie n'a jamais lieu, et c'est ce que
+permet l'effacement : les héritiers reprennent la holding avec un prix d'acquisition égal à sa valeur et peuvent
+en céder les titres sans impôt sur la plus-value. L'impôt total tombe alors à 27~\%. C'est ce qui rend
+l'imposition dégressive tout en haut : selon l'IPP, cité par le rapport n°~3056, le taux d'imposition total
+rapporté au revenu économique passe de 46~\% à l'entrée des 0,1~\% les plus aisés à 26~\% pour les 0,0002~\%
+(données de 2016 ; étude non lue directement).
+
+Ces règles avaient leurs raisons. L'effacement au décès évite que la même valeur paie à la fois les droits de
+succession et l'impôt sur la plus-value, et il dispense les héritiers de retrouver un prix d'acquisition parfois
+très ancien : c'est la logique du \emph{step-up} américain. L'apport-cession a été créé en 2012 pour fermer un
+montage, apporter ses titres puis vendre aussitôt pour purger la plus-value, tout en ne taxant pas l'argent
+réinvesti. Mais la première justification est faible : le contribuable qui vend la veille de sa mort paie les
+deux impôts, celui qui garde ses titres un seul. La seconde ne justifie pas l'effacement du report, que
+l'évaluation préalable du projet de loi de finances pour 2027 qualifie d'« avantage sans lien avec l'objectif
+poursuivi initialement ». Le dispositif a changé d'échelle : environ 5~Md€ placés en report par an en 2015-2017,
+16~Md€ en 2021, 34~Md€ en 2023, dont 70~\% pour 84 foyers. La règle a enfin un coût économique propre : elle
+pousse à garder ses titres jusqu'à la mort pour en effacer la plus-value plutôt qu'à les vendre pour réinvestir.
+C'est cet effet de verrouillage que le Trésor américain invoquait en 2015 pour proposer d'y mettre fin.
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Changer le taux : cher dans un sens, peu rentable dans l'autre}\label{sec:pfu_naif}
+
+La réforme qui vient spontanément est de changer le taux du PFU. Les uns veulent le baisser à 25~\% pour
+rapprocher la France de ses voisins ; les autres veulent le relever, ou revenir au barème, pour que le capital
+paie comme le travail. La figure~\ref{fig:pfu_naif} en donne les ordres de grandeur sur les revenus de 2024.
+
+Ramener le PFU à 25~\% coûterait 5,1~Md€ par an à comportements inchangés. Les dividendes remonteraient, comme en
+2018, et le coût tomberait à 3,3 à 3,9~Md€ les premières années, selon que l'élasticité est de 1 ou de 0,65.
+Mais si cette réaction n'est qu'un décalage, des bénéfices qui seraient sortis plus tard et auraient alors été
+imposés, elle ne rapporte rien durablement : le coût permanent se situe entre 3,7 et 5,1~Md€ selon la part de la
+réaction qui aurait sinon échappé pour toujours à l'impôt, part que personne ne mesure. L'année 2024 étant
+gonflée par l'anticipation de la CDHR, tous ces chiffres baissent d'environ 9~\% sur la base de 2025.
+
+\figbloc{pfu_n06_reforme_naive}{Baisser le PFU à 25~\% coûterait près de 4~Md€ ; le relever à 33~\% rapporterait moins de 1~Md€}{fig:pfu_naif}
+
+Qui y gagnerait ? Moins les plus grandes fortunes qu'en 2018. Tant que la CDHR existe, un foyer qui vit de ses
+dividendes paie au moins 20~\% d'impôt sur le revenu et de CEHR : si la baisse passe par la part d'impôt sur le
+revenu, la CDHR la reprend euro pour euro, et un rentier qui touche 3~M€ de dividendes reste à 38,6~\%
+(tableau~\ref{tab:pfu_cas}). Le gain irait aux foyers sous les seuils de la CDHR : un cadre qui touche
+10\,000~€ de dividendes et de plus-values paierait 640~€ de moins, un retraité qui touche 1\,100~€ d'intérêts et
+de dividendes 7~€ de moins. La CDHR reprendrait de l'ordre de 0,7 à 1,2~Md€ du coût (ordre de grandeur, faute de
+données sur ses redevables). Si la baisse passait par les prélèvements sociaux, la CDHR ne reprendrait rien, le
+rentier descendrait à 32,2~\%, et la Sécurité sociale perdrait la recette.
+
+Qu'achèterait-on avec ces 4~Md€ ? Aucune réaction réelle n'a été détectée après 2018. Dans les chiffrages de
+cette note, qui ne prêtent aucune réaction à l'épargne, la baisse alourdit même la perte sèche d'environ 0,4~Md€
+(0,2 à 0,9), le prix des impôts qu'il faudrait lever ailleurs, si la réaction des dividendes n'est qu'un
+calendrier ; elle l'allège si la moitié au moins de cette réaction était une évasion définitive que la baisse
+ferait cesser. Cette conclusion dépend de l'hypothèse d'une épargne insensible au rendement. Si l'on prêtait à
+l'épargne une élasticité réelle de 0,2 à 0,5, ce qu'aucune estimation française ne permet de vérifier, la baisse
+réduirait la perte sèche sur l'épargne de 0,5 à 1,2~Md€, autant ou plus que ce que coûte son financement.
+L'argument contre une baisse n'est donc pas qu'elle serait inefficace par principe : elle coûte cher, son gain
+réel n'est pas mesuré, et elle relancerait le jeu des anticipations.
+
+La hausse a le défaut inverse. Porter le PFU à 33~\% rapporterait 1,3~Md€ à comportements inchangés et 0,8~Md€
+les premières années, à peu près ce que chiffre le CAE (2025) pour une hausse de 30 à 33~\%. Revenir au barème
+rapporterait de l'ordre de 12~Md€ à comportements inchangés, sous des hypothèses fortes sur les taux marginaux des
+détenteurs, et 3 à 6~Md€ après réaction, environ 4 si les dividendes déclarés reculaient de 40~\% comme en 2013.
+L'écart entre ces chiffres est le message : le rendement d'une hausse dépend presque entièrement de la réaction
+d'actionnaires qui peuvent garder leurs bénéfices dans leurs sociétés. Au barème, le cadre paierait 1\,557~€ de
+plus et le rentier passerait de 38,6 à 45,3~\%.
+
+Les deux réformes passent à côté du problème. Elles jouent sur le taux de la sortie, alors que la faiblesse du
+système est l'existence d'une sortie qui ne paie rien. Une hausse rendrait la holding et l'effacement plus
+attrayants ; une baisse coûterait 4~Md€ sans les fermer ; l'une comme l'autre relancerait le va-et-vient de
+2013, 2018 et 2024, dont le principal effet a été de rendre la recette imprévisible. La commission d'enquête de
+l'Assemblée sur les plus hauts patrimoines recommande d'ailleurs de « maintenir la stabilité » des taux du PFU
+(rapport n°~3056, recommandation~13).
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Garder le taux, faire suivre le prix d'acquisition}\label{sec:pfu_proposition}
+
+La proposition tient en deux règles. Le PFU reste à 31,4~\%, avec une majoration de 3 puis 4~points au-delà de
+250\,000~€ de revenu, qui remplace la CEHR sur les revenus du capital quand celle-ci disparaît du barème fusionné
+(section~\ref{sec:ircsg}). Et la transmission cesse d'effacer l'impôt : à la donation comme au décès, le
+bénéficiaire reprend le prix d'acquisition du donateur ou du défunt. Rien n'est payé au moment de la
+transmission. L'impôt sur toute la plus-value, depuis l'achat initial, est dû quand l'héritier vend, ou quand il
+sort la valeur d'une holding par un rachat de ses titres ou une liquidation. Le report d'apport-cession suit la
+même règle : il passe aux héritiers sans s'effacer et prend fin aux mêmes événements que pour l'apporteur.
+
+Pourquoi ne pas imposer la plus-value au décès, comme le Canada ? Parce qu'un impôt dû à la transmission frappe
+un patrimoine qui n'a rien vendu : une famille qui hérite d'une entreprise devrait payer sans en avoir la
+trésorerie, le jour même où elle doit les droits de succession. C'est aussi, selon l'administration fiscale,
+juridiquement fragile : l'imposition des plus-values latentes lors des transmissions « paraît impossible en
+l'état de la jurisprudence » (direction de la législation fiscale, citée par le rapport n°~3056). La reprise du
+prix d'acquisition n'impose que des plus-values réalisées. Elle met l'héritier dans la situation où aurait été le
+défunt s'il avait vécu : vendre la veille de sa mort ou le lendemain ne change plus rien à l'impôt sur la
+plus-value.
+
+Plusieurs pays font ainsi suivre le prix d'acquisition, ou imposent la plus-value au décès :
+\begin{itemize}
+\item \emph{Canada.} Depuis 1972, quand l'impôt sur les plus-values a été créé et l'impôt fédéral sur les
+successions supprimé, le défunt est réputé vendre ses biens à leur valeur de marché juste avant sa mort ; le
+conjoint survivant reprend toutefois le prix d'acquisition (Vaillancourt et Kerkhoff, 2019 ; Agence du revenu du
+Canada). Les plus-values acquises avant 1972 ont été exonérées, grâce à une évaluation des biens au « jour V ».
+\item \emph{États-Unis.} Le donataire reprend le prix d'acquisition du donateur ; l'héritier, lui, reprend la
+valeur au décès. Le Congrès a voté en 1976 la reprise du prix d'acquisition au décès, l'a reportée en 1978 et
+abrogée en 1980 avant toute application, en raison de sa complexité. En 2015, l'administration Obama a proposé
+d'imposer la plus-value à la donation et au décès, avec une franchise de 100\,000~\$ par personne, un report pour
+les petites entreprises familiales jusqu'à leur vente et un paiement étalé sur quinze ans (Trésor américain,
+2015).
+\item \emph{Allemagne.} Pour une participation d'au moins 1~\%, celui qui la reçoit gratuitement reprend le prix
+d'acquisition de celui qui l'avait achetée (article~17 de la loi sur l'impôt sur le revenu).
+\item \emph{Australie.} Depuis la création de l'impôt sur les plus-values en 1985, l'héritier reprend le prix
+d'acquisition du défunt pour les biens achetés depuis cette date (administration fiscale australienne, lue par
+résumé).
 \end{itemize}
+Le CAE (Dherbécourt, Fack, Landais et Stantcheva, 2021) recommande la même chose pour la France : imposer la
+plus-value « au moment de la revente de l'actif par l'héritier, comme cela existe dans certains pays développés ».
+L'objection américaine, des héritiers incapables de retrouver le prix payé par leurs parents, vaut moins en
+France : chaque titre reçu par donation ou succession y a déjà une valeur déclarée, celle des droits de mutation,
+les reports d'apport-cession sont suivis chaque année dans les déclarations, et les banques connaissent le prix
+de revient des titres cotés. Pour les titres très anciens dont le prix est perdu, une règle de repli suffit, par
+exemple une fraction de la valeur à la transmission.
 
-\subsection{Le PFU en 2026}
+Combien cela rapporterait-il ? Aucune statistique publique ne mesure les plus-values effacées ; le CAE notait en
+2021 qu'il n'en existait « pas à notre connaissance de chiffrage » pour la France. Nous en donnons un ordre de
+grandeur, sous des hypothèses que l'annexe détaille. Les ménages détenaient fin 2025 environ 1\,970~Md€
+d'actions, de parts de sociétés et de fonds en actions (Banque de France) ; nous en retenons 1\,450~Md€, une
+fois écartées les parts de sociétés immobilières et l'épargne déjà exonérée. Le flux des transmissions, environ
+300~Md€ par an selon le CAE (2021), représente 2~\% du patrimoine des ménages ; comme les titres sont détenus
+plus tard dans la vie, nous supposons que 2,3~\% en sont transmis chaque année, et que la plus-value latente en représente 55~\%.
+L'effacement porterait alors sur 18~Md€ de plus-values par an, auxquels s'ajoutent environ 6~Md€ de reports
+d'apport-cession transmis. L'impôt effacé atteindrait 7,5~Md€ par an, 0,25~\% du PIB, dans une fourchette de
+3,7 à 14,7~Md€ qui combine toutes les hypothèses basses ou toutes les hautes. Le repère américain est cohérent :
+le Trésor évalue l'effacement au décès à 38~Md\$ en 2025, soit environ 5~Md€ une fois transposé au PIB et au taux
+français, sans compter les donations, qui aux États-Unis gardent déjà le prix d'acquisition du donateur.
 
-Le PFU additionne 12,8~\% d'impôt sur le revenu et 18,6~\% de prélèvements sociaux.
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Depuis la LFSS pour 2026, la CSG sur les revenus du capital est de 10,6~\%. Elle reste à 9,2~\% pour une
-liste fermée de revenus (assurance-vie, épargne logement, revenus fonciers, plus-values immobilières) : deux
-taux coexistent, sans justification économique.
-\item Le contribuable peut opter pour le barème, globalement et, depuis 2026, de façon révocable. Sur leurs
-revenus de 2024, 2,5~millions de foyers l'ont fait.
-\item En haut de la distribution, la contribution exceptionnelle sur les hauts revenus (CEHR) ajoute 3 puis
-4~points au-delà de 250\,000~€ de revenu (500\,000~€ pour un couple). La contribution différentielle (CDHR)
-garantit un impôt d'au moins 20~\% du revenu, ce qui porte à 38,6~\% le taux d'un foyer qui vit de
-dividendes ; elle est prorogée jusqu'à ce que le déficit du budget de l'État repasse sous 3~\% du PIB.
+La recette arrive plus lentement que l'impôt effacé, puisqu'elle attend la vente. Si les héritiers vendent 30~\%
+des titres dans l'année et 4~\% par an ensuite, elle serait de 1,9~Md€ la première année, de 3,6~Md€ la dixième et
+de 5,8~Md€ la trentième (figure~\ref{fig:pfu_recette}). Une année de transmissions vaudrait 4,7~Md€ en valeur
+actualisée, les deux tiers de l'impôt effacé. La recette de la dixième année va de 1,0 à 9,4~Md€ selon les
+hypothèses ; celles qui comptent le plus sont la part des titres transmise chaque année, la part de plus-value
+latente et le rythme des ventes (annexe~\ref{ann:pfu}). Les reports d'apport-cession n'en représentent qu'environ
+un cinquième : l'essentiel de l'enjeu est l'effacement ordinaire, que les débats récents ont laissé de côté.
+
+\figbloc{pfu_n08_recette}{Fermer l'effacement rapporterait environ 2~Md€ la première année et 4~Md€ la dixième}{fig:pfu_recette}
+
+Pour l'actionnaire qui laisse ses bénéfices dans une holding, la proposition rétablit l'égalité des chemins
+(figure~\ref{fig:pfu_holding}). Aujourd'hui, un bénéfice distribué paie 49~\%, un bénéfice gardé vingt-cinq ans
+puis distribué 50~\% en valeur actualisée, un bénéfice gardé puis transmis 27~\%. Avec la proposition, le
+troisième chemin paie 50~\% si les héritiers sortent la valeur dix ans après. La holding garde son avantage de
+capitalisation, et c'est un choix : un impôt sur les revenus non distribués des holdings, comme celui de 25~\%
+parfois proposé, frapperait le capital avant qu'il ne sorte des entreprises, risquerait de heurter la directive
+mère-fille et, s'il était établi chez l'associé, la jurisprudence constitutionnelle, selon l'administration
+fiscale (rapport n°~3056).
+
+\figbloc{pfu_n07_holding}{Avec la proposition, un bénéfice gardé en holding puis transmis paierait autant que s'il était distribué}{fig:pfu_holding}
+
+Reste le haut de la distribution. La charge d'IR-CSG du 1~\% le plus aisé ne bouge pas
+(section~\ref{sec:ircsg}) ; dans cette partie, le taux du PFU et sa majoration ne bougent pas non plus. La seule
+hausse est la fin de l'effacement, qui pèse presque entièrement sur le haut : nous supposons que le 1~\% le plus
+aisé en paierait 90~\%, puisque les 0,01~\% déclarent à eux seuls 70~\% des plus-values. Elle lui coûterait
+2,5~Md€ par an en moyenne sur les dix premières années (0,7 à 6,8), 3,3~Md€ la dixième année, soit environ
+15~\% de ce que ce centile paie aujourd'hui d'impôts personnels sur ses revenus du capital (de l'ordre de
+22~Md€). Cette partie n'est donc pas neutre pour le haut. Ce n'est pas une hausse de taux : celui qui vend avant
+de mourir paie déjà tout cela ; c'est la fin d'une exonération réservée à ceux qui peuvent ne jamais vendre. Si
+la contrainte sur les grandes fortunes doit être tenue à la lettre sur l'ensemble des quatre réformes, trois
+leviers existent : la fin de la contribution exceptionnelle sur l'IS, qui rend 5 à 7~Md€ aux actionnaires de
+quelque 450 entreprises qui la paient (section~\ref{sec:is}), dont une part inconnue revient aux mêmes
+ménages ; la suppression de
+la majoration sur le capital (0,7 à 1,1~Md€) ; une clause de droits acquis, qui ramène la hausse à 0,7~Md€ par
+an en moyenne sur dix ans (section~\ref{sec:pfu_transition}). Le bilan d'ensemble est fait à la
+section~\ref{sec:ensemble}.
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Cinq réglages à trancher, et qui en supporte le coût}\label{sec:pfu_arbitrages}
+
+La proposition laisse cinq paramètres sur lesquels un décideur peut hésiter. Les cas types du
+tableau~\ref{tab:pfu_cas} montrent qui paie quoi.
+
+\textbf{Le taux du PFU.} Le baisser à 25~\% coûterait 3,3 à 5,1~Md€ par an, au profit surtout des foyers aisés
+qui ne sont pas à la CDHR, pour un gain réel qui n'existe que si l'épargne réagit au rendement, ce que rien ne
+mesure en France. Le relever à 33~\% rapporterait 0,7 à 0,9~Md€ les premières années, payés par les foyers qui
+ne sont pas au plancher de la CDHR, et pousserait à garder davantage dans les holdings. Le service le plus sûr est
+de ne plus y toucher, et de le dire : une règle de stabilité, inscrite dans une loi de programmation des
+finances publiques, vaudrait mieux qu'un nouveau changement de taux.
+
+\textbf{La majoration qui remplace la CEHR sur le capital.} Dans le barème fusionné, la CEHR disparaît sur les
+revenus d'activité et les pensions. La garder sous forme d'une majoration de 3 puis 4~points du PFU maintient le
+taux actuel sur le capital et ne coûte rien. La supprimer coûterait 0,7 à 1,1~Md€ (en supposant que la moitié aux
+quatre cinquièmes de la CEHR porte sur les revenus du capital) et baisserait de 35,4 à 31,4~\% le taux marginal
+du haut sur le capital ; une partie du coût reviendrait par la réaction des revenus déclarés. Le gain irait aux
+foyers à plus de 250\,000~€ de revenu qui ne sont pas au plancher de la CDHR, ceux qui ont aussi des revenus
+d'activité ; le rentier qui vit de ses dividendes resterait à 38,6~\%, la CDHR reprenant ce que perd la
+majoration. C'est le levier le plus simple pour rendre au haut une partie de ce que lui prend la fin de
+l'effacement.
+
+\textbf{Les deux taux de prélèvements sociaux.} Aligner sur 18,6~\% le taux de 17,2~\% laissé à
+l'assurance-vie, à l'épargne logement et aux revenus fonciers rapporterait 1,3~Md€. La paieraient les
+détenteurs d'assurance-vie et les bailleurs, sans doute plus nombreux parmi les ménages aisés et âgés ; aucune
+donnée du dossier ne permet de chiffrer cette répartition, et l'idée que la hausse frapperait surtout la « classe
+moyenne épargnante » n'est pas démontrée. Pour un petit épargnant, 60\,000~€
+d'assurance-vie rapportant 2,5~\% coûteraient 21~€ de plus par an. L'alignement vers le bas, à 17,2~\% pour tous,
+coûterait 1,5~Md€ et alourdirait moins l'épargne, ce que préférerait une grille qui vise la croissance. La
+proposition ne dépend pas de ce choix ; deux taux pour des revenus de même nature n'ont pas de justification
+économique, mais leur alignement est une décision de financement, pas de structure.
+
+\textbf{Le traitement du report d'apport-cession.} Trois traitements sont possibles (figure~\ref{fig:pfu_entrepreneur}).
+\begin{itemize}
+\item \emph{L'expiration à toute transmission}, que propose l'article~5 du projet de loi de finances pour 2027 :
+l'impôt est dû à la donation ou au décès, l'impôt sur le revenu (pas les prélèvements sociaux) pouvant être étalé
+sur cinq ans. La recette est immédiate, de l'ordre de 1,7~Md€ par an (1,1 à 3,5) une fois passée la première
+année, que l'évaluation préalable chiffre à 0,5~Md€ ; l'impôt du stock de reports vaut 25~Md€ en valeur
+actualisée, contre 4,5 aujourd'hui. Mais il faut payer sans avoir vendu, et chacun des plus gros apporteurs (84
+foyers, 280~M€ de plus-value en moyenne) devrait 84 à 99~M€ le jour de la transmission, en plus des droits de
+succession.
+\item \emph{L'expiration quand la holding vend ses actifs ou devient une simple boîte à placements} : plus ciblée,
+mais plus difficile à définir et à contrôler ; son rendement ne se chiffre pas faute de données sur les cessions
+des holdings.
+\item \emph{La transmission du report sans effacement}, retenue ici : l'impôt est dû quand les héritiers vendent.
+Le stock de reports vaut alors 15,5~Md€ en valeur actualisée (10 à 24), moins que l'expiration à la transmission,
+mais sans impôt sans trésorerie et avec la même règle que pour toutes les autres plus-values.
 \end{itemize}
+Pour un entrepreneur qui a placé 7,5~M€ de plus-value en report et meurt vingt ans plus tard, l'impôt vaut
+aujourd'hui zéro, 1,18~M€ en valeur actualisée avec l'article~5, 0,63~M€ avec le report transmis, contre 2,35~M€
+s'il avait vendu directement.
 
-Le PFU ne s'apprécie qu'avec l'IS déjà payé par la société. Sur 100~€ de bénéfice, une société paie 25~€
-d'IS (25,8~€ si son impôt dépasse 763\,000~€, avec la contribution sociale).
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Si elle distribue le reste, l'actionnaire paie 31,4~\%. Le bénéfice distribué supporte donc 48,6 à
-49,1~\% au total, et jusqu'à 54,5~\% pour un foyer à la CDHR (figure~\ref{fig:taux}). C'est proche du taux
-marginal supérieur sur un salaire (55,4~\% hors cotisations sociales).
-\item Ce niveau est élevé en Europe. La France est sixième sur 35 pour le taux personnel supérieur sur les
-dividendes (Tax Foundation, 2026, avec le taux de 34~\% de 2025) ; à cinq fois le salaire moyen, l'OCDE
-trouvait en 2023 un taux moyen intégré de 49~\% que seuls le Danemark et l'Espagne dépassent.
-\item Si la société verse son dividende à une holding de l'actionnaire qui le garde, la holding ne paie que
-1,25~\% (régime mère-fille) et le bénéfice n'a supporté que 26,8~\%. C'est un report, pas un taux final :
-distribué un jour, il paiera le PFU.
+\figbloc{pfu_n09_entrepreneur}{Pour un entrepreneur qui cède, le report transmis vaut la moitié de l'impôt dû au décès, l'intérêt sur l'impôt différé le rétablit}{fig:pfu_entrepreneur}
+
+\textbf{Un intérêt sur l'impôt différé.} La reprise du prix d'acquisition laisse un avantage : un impôt payé
+dans trente ans pèse moins qu'un impôt payé aujourd'hui, et l'héritier peut avoir intérêt à garder ses titres
+pour différer. Faire courir sur l'impôt latent, depuis la transmission, un intérêt au taux d'emprunt de l'État,
+payable à la vente, supprime cet avantage : l'impôt ne dépend plus de la date de la vente (Auerbach, 1991). Une
+année de transmissions vaudrait alors 7,5~Md€ au lieu de 4,7, si tout finit par être vendu, et l'impôt de
+l'entrepreneur 1,18~M€ au lieu de 0,63. La France connaît déjà le principe : le paiement des droits de succession
+sur une entreprise peut être différé cinq ans puis fractionné sur dix, moyennant intérêt. Le coût est une
+complexité de plus et un impôt qui paraît plus lourd ; il retombe sur les héritiers qui gardent leurs titres
+longtemps, souvent ceux des entreprises familiales. La variante prudente est une durée maximale du report, par
+exemple trente ans, au-delà de laquelle l'impôt devient exigible avec un paiement étalé.
+
+Deux réglages techniques complètent le dispositif. Une franchise de plus-value par transmission, comme les
+100\,000~\$ de la proposition américaine de 2015, sortirait du champ les petits patrimoines pour 5 à 15~\% de la
+recette (hypothèse : rien ne mesure la distribution des plus-values latentes). Déduire l'impôt latent de
+l'assiette des droits de succession rendrait la règle exactement neutre entre vendre avant de mourir et
+transmettre, mais coûterait tout de suite 10 à 40~\% de l'impôt latent transmis, selon le taux de droits
+réellement payé, pacte Dutreil compris ; nous ne la retenons pas.
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{Ce que chacun paierait (impôt sur les revenus du capital, personne seule, droit de 2026)}\label{tab:pfu_cas}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Cas & Aujourd'hui & PFU à 25~\% & Barème & Proposition \\
+\midrule
+Retraité, petit épargnant : pension de 22\,000~€, 1\,100~€ de dividendes et d'intérêts, 30\,000~€ d'actions dont
+10\,000~€ de plus-value latente & 282~€ (option pour le barème) & 275~€ & 282~€ & 282~€ (+21~€ si les
+prélèvements sociaux sont alignés) ; ses héritiers paieront 3\,140~€ en vendant les actions, 0 avec une
+franchise \\
+Cadre : 95\,000~€ de revenu imposable, 10\,000~€ de dividendes et de plus-values, 120\,000~€ de plus-value
+latente & 3\,140~€ & 2\,500~€ & 4\,697~€ & 3\,140~€ ; ses héritiers paieront 37\,680~€ en vendant \\
+Dirigeant de PME : 400\,000~€ de bénéfice par an & distribué : 49,3~\% ; gardé en holding : 24,9~\% & -- & -- &
+gardé puis transmis : 50~\% au lieu de 27~\% en valeur actualisée \\
+Entrepreneur qui cède : 7,5~M€ de plus-value en apport-cession, décès vingt ans après & 0 (2,35~M€ s'il avait
+vendu directement) & -- & -- & 0,63~M€ en valeur actualisée (1,18~M€ avec intérêt) \\
+Héritier : titres cotés de 2~M€ achetés 0,8~M€ par le défunt, revendus 2,1~M€ trois ans après & 31\,400~€ & -- &
+-- & 408\,200~€ \\
+Rentier : 3~M€ de dividendes par an, 40~M€ de plus-value latente & 1,16~M€ (38,6~\%) & 38,6~\% (32,2~\% par les
+prélèvements sociaux) & 45,3~\% & 38,6~\% ; impôt latent de 12,6~M€ transmis à ses héritiers \\
+\bottomrule
+\end{tabularx}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Note : barème de l'impôt sur le revenu des revenus de
+2024 ; PFU à 25~\% obtenu en baissant la part d'impôt sur le revenu ; dirigeant : IS de 15~\% jusqu'à
+42\,500~€, impôt en valeur actualisée sur vingt-cinq ans à 5~\%. Calculs de l'auteur
+(\texttt{pfu/calculs\_pfu.py}) ; hypothèses en annexe.}
+\end{table}
+
+% ---------------------------------------------------------------------------------------------------------------
+\subsection{Annoncer tôt, appliquer aux transmissions futures}\label{sec:pfu_transition}
+
+La réforme doit s'appliquer aux transmissions faites à partir du jour où elle est annoncée. Sinon, les familles
+concernées donneront avant la date, comme les actionnaires ont distribué avant la CDHR. L'article~5 du projet de
+loi de finances pour 2027 s'applique ainsi aux transmissions faites à partir du 1\textsuperscript{er} octobre
+2026, jour du dépôt du projet. Cette application à une période antérieure au vote est un risque
+constitutionnel, en général admis quand elle sert à empêcher les anticipations ; nous ne l'avons pas fait
+expertiser.
+
+La vraie question est le sort du stock, les plus-values déjà acquises sur des titres que leurs détenteurs
+comptaient transmettre sans impôt.
+\begin{itemize}
+\item \emph{Appliquer la règle à toutes les transmissions futures}, y compris à la plus-value acquise avant la
+réforme. C'est le chiffrage central : 28~Md€ de recettes cumulées sur dix ans. Aucun impôt n'est réclamé sur un
+événement passé ; seule change la conséquence d'une transmission à venir. Les reports déjà transmis par donation,
+dont le délai de conservation de six ou onze ans court encore, garderaient l'ancienne règle.
+\item \emph{Une clause de droits acquis} : seule la plus-value acquise après l'entrée en vigueur serait imposée.
+La recette tomberait à 7,5~Md€ sur dix ans, le quart, et la hausse pour le haut à 0,7~Md€ par an en moyenne. Mais
+il faudrait évaluer tous les titres non cotés à la date de la réforme. Le Canada l'a fait en 1971 avec son
+« jour V » ; une évaluation de ce type a compté parmi les difficultés de la réforme américaine de 1976 (point
+non vérifié sur les débats de l'époque).
 \end{itemize}
-Imposer le bénéfice quand il sort des sociétés est d'ailleurs, en principe, ce qui gêne le moins la
-croissance, puisque le capital circule d'une entreprise à l'autre sans impôt. Le report ne devient une
-exonération que si la sortie n'a jamais lieu, ce que permet l'effacement au décès.
+Nous retenons la première option, avec la seconde comme variante prudente si la contrainte sur les grandes
+fortunes l'exige. Pour les reports d'apport-cession, dont l'impôt est déjà calculé, l'administration fiscale
+juge que les faire expirer à la transmission ne pose « aucune difficulté constitutionnelle » ; les transmettre
+sans effacement est moins contraignant encore. La sécurité juridique de l'ensemble reste à expertiser.
 
-\figbloc{pfu_01_taux_cumule}{Impôt total sur 100~€ de bénéfice, selon ce qu'en fait l'actionnaire (2026)}{fig:taux}
+La mise en œuvre est surtout une affaire de traçabilité. Le notaire porterait le prix d'acquisition du défunt
+dans la déclaration de succession, à côté de la valeur retenue pour les droits ; les banques, qui connaissent le
+prix de revient des titres cotés, le transmettraient d'un compte à l'autre ; les reports d'apport-cession sont
+déjà suivis chaque année. Le dispositif doit aussi suivre l'héritier qui part : la plus-value latente reprise
+entrerait dans la base de l'impôt dû au départ de France (\emph{exit tax}). Cet impôt est aujourd'hui dégrevé si
+les titres sont conservés deux ans après le départ, cinq ans au-delà de 2,57~M€, contre quinze ans avant 2019
+(sources secondaires) ; 4,7~Md€ de plus-values étaient en sursis à ce titre sur les revenus de 2024, pour 358
+foyers. Rallonger ce délai pour les grosses participations fermerait la troisième sortie sans impôt, celle du
+départ avant la vente, sans rien alourdir pour ceux qui restent.
 
-\subsection{Ce que 2013 et 2018 ont appris}
-
-Les dividendes ont suivi les deux réformes, en sens inverse :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item En 2013, l'option pour un prélèvement libératoire disparaît et tous les dividendes passent au barème.
-Les foyers qui avaient opté pour le prélèvement libératoire déclarent 40~\% de dividendes en moins, sans
-hausse de leurs salaires ; les entreprises contrôlées par des particuliers distribuent moins, accumulent des
-actifs financiers et n'investissent pas moins (Bach et al., 2019).
-\item Le taux marginal supérieur intégré n'était pourtant passé que de 57,6 à 60,1~\% : les actionnaires ont
-pu juger la hausse provisoire et attendre, ou garder le bénéfice dans la société pour le sortir plus tard en
-plus-value ou le transmettre (Bach et al., 2024).
-\item En 2018, les dividendes remontent (+15~\% dès la première année). Le coût de la réforme tombe de 0,9 à
-0,4~Md€ selon l'IPP (de 1,05 à 0,74~Md€, voire un gain dans l'hypothèse haute, selon l'Insee).
-\item Mais 2013 et 2018 forment un seul épisode : les bénéfices retenus de 2013 à 2017 ont été distribués à
-partir de 2018. L'« autofinancement » que France Stratégie (2023) déduit d'une part causale supposée, faute
-de pouvoir la mesurer, ne vaut que pour les premières années, rattrapage compris.
-\end{itemize}
-
-Pour une société qui investit ses bénéfices, l'impôt sur le dividende ne change pas le choix d'investir :
-100~€ distribués aujourd'hui rapportent 68,6~€ nets ; réinvestis à 5~\%, ils donneront 105~€ l'an prochain,
-soit 72,0~€ nets. Le PFU prend la même fraction dans les deux cas : il change seulement la date et la forme
-du revenu. Le raisonnement ne vaut pas pour une jeune entreprise qui lève des fonds propres à l'extérieur.
-Les effets réels mesurés sont minces :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item après 2018, l'effet le plus net est une création d'entreprises un peu plus rapide dans les secteurs
-exposés, qu'on ne sait pas séparer de celui de la baisse de l'IS (IPP, 2023) ;
-\item la baisse américaine de 2003 n'a pas davantage modifié l'investissement (Yagan, 2015).
-\end{itemize}
-
-Sur le niveau du taux :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Le taux qui maximise les recettes sur les revenus du capital, prélèvements sociaux compris, est estimé
-à 43~\% en comptant la réaction des revenus du travail, à 57~\% sans elle (Lefebvre, Lehmann et Sicsic,
-2025). Le PFU est en dessous, mais la marge est mince : avec l'élasticité estimée (0,77), un passage de 31,4
-à 33~\% ne garde qu'un peu moins des deux tiers de son rendement mécanique.
-\item Cette élasticité ne mesure pas une perte sèche : la réaction des dividendes consiste surtout à laisser le
-bénéfice dans la société, ce qui reporte l'impôt sans détruire d'activité.
-\item Les dividendes sont concentrés : 1~\% des foyers en déclarent 96~\% (2021). L'exil est faible (un point
-d'imposition effective en plus fait partir à long terme 0,02 à 0,23~\% du centile aux plus hauts revenus du
-capital ; Bach et al., 2025) et non mesuré au-delà.
-\item La commission d'enquête de l'Assemblée sur les plus hauts patrimoines recommande de « maintenir la
-stabilité » des taux (rapport n°~3056, 2026).
-\end{itemize}
-
-\subsection{Les arbitrages}
-
-\textbf{Le taux.}
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Un PFU à 25~\% coûterait au plus 5,1~Md€ à comportements inchangés (un majorant, à cause des foyers qui
-optent pour le barème) et 3,2 à 3,9~Md€ après réaction. Le gain irait d'abord au centile le plus aisé
-(44~\% du gain du PFU selon l'estimation du Gouvernement en 2017).
-\item Cette baisse ne rapporterait rien en activité : après 2018, aucun effet n'a été détecté sur
-l'investissement ni sur les salaires des entreprises les plus exposées (France Stratégie, 2023). Elle
-coûterait le prix des 3,7~Md€ à lever ailleurs, environ +0,3~Md€ de perte sèche (0,15 à 0,6).
-\item La réaction des dividendes est une affaire de recette, pas d'efficacité : si une partie était une
-évasion définitive que la baisse ferait cesser, la recette perdue serait moindre, sans gain d'activité.
-\item Une hausse rapporterait peu : 1,2~Md€ nets pour 3~points, de 30 à 33~\%, selon le CAE (2025).
-\end{itemize}
-
-\textbf{Le report de l'apport-cession.} Un entrepreneur qui apporte ses titres à une holding avant de les
-vendre place sa plus-value en report : elle n'est imposée que s'il vend les titres de la holding, ou si la
-holding vend dans les trois ans sans réinvestir au moins 70~\% du produit. Au décès, le report devient une
-exonération définitive ; en cas de donation, il s'efface si le donataire ne vend pas pendant six ans (onze
-dans certains cas). D'après le rapport n°~3056 :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item 33,6~Md€ de plus-values ont été placées en report en 2023 et 22,2~Md€ en 2024, plus que les plus-values
-imposées au PFU en 2024 (18,8~Md€ d'après les déclarations) ;
-\item plus des deux tiers des entrées de 2023 (23,5~Md€) se concentrent sur 84 foyers ;
-\item le stock atteint 153~Md€ en 2023 et 173~Md€ en 2024, et seuls 0,4 à 1,5~Md€ de reports ont expiré
-chaque année de 2022 à 2024.
-\end{itemize}
-Trois traitements sont possibles :
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item \emph{L'expiration à toute transmission} (PLF 2027, art.~5) : 0,5~Md€ annoncés pour 2027 et, selon
-notre calcul, au moins 2~Md€ par an en régime de croisière. Mais elle taxe une structure plutôt qu'un gain
-réalisé : une holding familiale transmise sous pacte Dutreil paierait sans avoir rien vendu, et l'étalement
-sur cinq ans ne vise que l'impôt sur le revenu. Elle alourdit aussi de 90 à 100~M€ chacun la facture des plus gros apporteurs.
-\item \emph{L'expiration seulement quand la holding vend.}
-\item \emph{La transmission du report aux héritiers sans effacement} : la plus-value est imposée quand le
-capital sort réellement des sociétés, sans impôt sans liquidité ni hausse de facture à la transmission. Elle
-rapporte moins et plus tard, et sa solidité juridique reste à expertiser.
-\end{itemize}
-
-\textbf{Les autres choix.}
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Dans l'impôt fusionné, la CEHR disparaît pour les revenus du barème. La garder sur les revenus du
-capital, sous la forme d'une majoration de 3 puis 4~points du PFU, maintient le taux actuel (tant que la CDHR
-existe, un foyer qui vit de dividendes, déjà au plancher de 20~\%, n'y gagnerait de toute façon rien). Durcir
-la CDHR, comme le propose la commission d'enquête, alourdirait la facture des mêmes foyers.
-\item Aligner les deux taux de prélèvements sociaux à 18,6~\% rapporterait de l'ordre de 1,3~Md€, payés
-surtout par la classe moyenne épargnante.
-\item Un prélèvement modéré sur la trésorerie passive des holdings (l'Irlande taxe à 20~\% les revenus passifs
-que les sociétés fermées ne distribuent pas dans les dix-huit mois) viserait le bon problème, mais
-alourdirait lui aussi la facture des grandes fortunes. Un impôt de 25~\% sur les revenus non réinvestis des
-holdings risque de heurter la directive mère-fille, selon l'administration fiscale, et, s'il est établi chez
-l'associé, la jurisprudence constitutionnelle (imposer des bénéfices qu'il n'a pas perçus) ; il taxerait le
-capital avant qu'il sorte des sociétés.
-\item Pour une détention longue, la correction de principe est d'imposer le gain réel, en indexant le prix
-d'acquisition sur l'inflation, plutôt que de rétablir des abattements pour durée de détention. Ces
-abattements avaient compliqué l'impôt de 2013 à 2017.
-\end{itemize}
+Il n'y a pas de coût de transition à financer. La recette commence dès la première année et monte lentement ;
+le rendement permanent n'est atteint qu'après plusieurs décennies. Le taux, lui, ne doit pas bouger, et une
+échéance est déjà connue : quand le déficit repassera sous 3~\% du PIB, la CDHR disparaîtra et le taux d'un
+rentier qui touche 3~M€ de dividendes tombera de 38,6 à 35~\%. Dire dès maintenant ce qui la remplacera, ou qu'elle ne sera pas remplacée,
+fait partie de la stabilité promise.

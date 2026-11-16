@@ -38,9 +38,14 @@ if len(sys.argv) > 1 and sys.argv[1] == "--un":
 
     A = json.loads((HERE / "sorties/architectures_ircsg.json").read_text(encoding="utf-8"))
     P4 = A["propositions"]["4000"]
+    systemes = [("neutre", A["neutre"], dict(M.OPT0)), ("proposition", P4["bareme"], P4["options"])]
+    if (HERE / "sorties/proposition_ircsg.json").exists():      # proposition de la note réécrite (16/11/2026)
+        PN = json.loads((HERE / "sorties/proposition_ircsg.json").read_text(encoding="utf-8"))
+        C = PN["choix"]
+        systemes.append(("proposition_n", (C["t0"], C["tb"], C["z1"], C["t1"], C["z2"]),
+                         dict(M.OPT0, F=C["F"], **PN["base"])))
     out = {}
-    for nom, (t0, tb, z1, _, z2), o in (("neutre", A["neutre"], dict(M.OPT0)),
-                                         ("proposition", P4["bareme"], P4["options"])):
+    for nom, (t0, tb, z1, _, z2), o in systemes:
         lo, hi = 0.0, 0.50
         for _ in range(32):
             t1 = (lo + hi) / 2
@@ -52,7 +57,12 @@ if len(sys.argv) > 1 and sys.argv[1] == "--un":
                            "dn": sum(w * (imp - cur) for w, imp, cur, *_ in res.values()),
                            "cur": sum(w * cur for w, imp, cur, *_ in res.values())})
         g = df.groupby("tr", sort=False).sum().iloc[-10:]
-        out[nom] = dict(t1=b[3], cen=r["v2"], top1=r["top1_Md"], dec=r["dec_eur"],
+        neutre_z2 = None
+        if nom == "proposition_n":       # seuil du taux de 50 % qui rendrait le 1 % neutre dans cette convention
+            import outils_ircsg as U
+            c = U.cale_top1(t0, tb, z1, o)
+            neutre_z2 = None if c is None else dict(z2=float(c[0]), t1=float(c[1]))
+        out[nom] = dict(t1=b[3], cen=r["v2"], top1=r["top1_Md"], dec=r["dec_eur"], neutre_z2=neutre_z2,
                         tranches=[dict(tr=i, foyers=float(u.w), eur=float(u.dn / u.w), pts=float(100 * u.dn / u.zn),
                                        taux_auj=float(100 * u.cur / u.zn)) for i, u in g.iterrows()])
     print("JSON" + json.dumps(out))
@@ -69,7 +79,9 @@ for conv in ("mixte", "haut", "prorata"):
     d = json.loads(o.split("JSON", 1)[1])
     for nom, r in d.items():
         L.append(f"[{conv} / {nom}] t1 {100*r['t1']:.1f} % ; perte sèche réelle {r['cen']:+.1f} Md€ ; 1 % du haut"
-                 f" {r['top1']:+.1f} Md€ ; déciles € " + " ".join(f"{u:+.0f}" for u in r["dec"]))
+                 f" {r['top1']:+.1f} Md€ ; déciles € " + " ".join(f"{u:+.0f}" for u in r["dec"])
+                 + (f" ; neutralité du 1 % dans cette convention : 50 % atteint à {r['neutre_z2']['z2'] / 1e3:,.0f} k€"
+                    f" (t1 {100 * r['neutre_z2']['t1']:.1f} %)" if r.get("neutre_z2") else ""))
         for t in r["tranches"]:
             L.append(f"    {t['tr']:<26} foyers {t['foyers']:>8,.0f}  € {t['eur']:>+12,.0f}  pts {t['pts']:+6.1f}"
                      f"  taux_auj {t['taux_auj']:5.1f}")

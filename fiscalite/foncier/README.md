@@ -19,6 +19,13 @@ S'appuie sur la note « Taxer le terrain » (`../lvt/`, notes de lecture vérifi
 - `donnees/croissance_tf.json` : TFPB 2017 (REI 2017, parts communale, intercommunale et départementale
   comprises) et 2024 en métropole ; logements des particuliers (recensement 2022).
 - `simulation.py` : scénarios → `sorties/simulation.txt`.
+- `donnees/terrains_secteurs_2024.csv` : valeur des terrains par secteur fin 2024 (Insee, comptes de patrimoine,
+  tableau 8.200, URL en tête du fichier) ; sert à l'assiette « tous les terrains privés ».
+- `../synthese/calculs_foncier.py` (importe `simulation.py`) : tous les chiffres de la partie Immobilier de la note
+  fusionnée (refonte du 16/11/2026) → `../synthese/sorties/calculs_foncier.txt` et `.json`.
+- `figures_note.py` : figures `foncier_n01` à `foncier_n14` de la note fusionnée (lit le `.json` ; lancer
+  `python3 foncier/figures_note.py && FIG_NU=1 python3 foncier/figures_note.py` depuis `fiscalite/`, après
+  `calculs_foncier.py`). `figures_foncier.py` (figures `fon_*`) ne sert plus qu'à `note-foncier.tex`.
 
 ## Hypothèses du modèle (à rappeler dans la note)
 
@@ -46,13 +53,18 @@ S'appuie sur la note « Taxer le terrain » (`../lvt/`, notes de lecture vérifi
   +9 à +55 % selon le décile ; taux départemental de 0,11 % (Paris : 0,12 %) à 0,85 % (Creuse) de la valeur
   du terrain, d'où la question de la péréquation.
 
-## Proposition retenue
+## Proposition retenue (note fusionnée, refonte du 16/11/2026 : `../synthese/parties/foncier.tex`)
 
-DMTO divisés par deux (5,81 → 2,9 %) ; chaque commune garde sa recette de taxe foncière, répartie sur la
-valeur de marché avec un taux sur le terrain égal à 4 fois le taux sur le bâti ; taux national unique sur la
-valeur des terrains (0,15 % avec reprise des ventes de +6 % par point, 0,19 % sans) reversé aux départements.
-TF +2 % (décile le moins cher) à +60 % (le plus cher) ; total TF + DMTO de −86 à +26 € par logement et par an ;
-18 % des logements à plus de 300 € de hausse ; transition sur dix ans, plafond attaché au bien.
+Droits divisés par deux sur toutes les ventes d'immeubles dès l'annonce (5,7 Md€ sur les logements, environ 1,4 Md€
+sur les autres biens, ce second chiffre non vérifié) ; taux national d'environ 0,12 % (valeurs Insee ; 0,146 % sur les
+valeurs du modèle) sur la valeur de **tous les terrains privés**, bâtis ou non, hors terres agricoles et terrains
+publics (6 348 Md€) ; les logements des particuliers en paient 4,5 Md€ ; part communale à deux taux (sol = 4 × bâti),
+recette constante par commune ; montée linéaire sur cinq ans (déficit transitoire de 14 Md€) ; report de paiement par
+défaut dès 65 ans. Résultats (sans reprise des ventes) : taxe foncière +2 à +54 % selon le dixième (+10 à +438 €),
+taxe moins droits de −87 à +11 € ; 17,6 % des logements à plus de +300 € ; Paris +96 % (+86 % si l'on corrige le
+double vieillissement) ; perte sèche évitée 1,9 Md€ (logements), 2,3 avec les autres immeubles. L'ancienne proposition
+(taux national de 0,185 % sur le seul sol des logements, +3 à +69 %, 23 %, Paris +122 %) devient une variante.
+Hypothèses et corrections : `../revue/hypotheses_foncier.md` ; annexe : `../synthese/parties/annexe_foncier.tex`.
 
 ## Notes de lecture (`notes/`)
 

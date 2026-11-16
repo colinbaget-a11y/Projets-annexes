@@ -1,0 +1,138 @@
+====================================================================================================
+1. SITUATION ACTUELLE
+====================================================================================================
+[CHAMP] 30.5 M logements des particuliers (métropole hors Alsace-Moselle) ; valeur 6 762 Md€ ; terrain 3 068 Md€ (45.4 %) ; taxe foncière 23.6 Md€ (773 € par logement, 0.348 % de la valeur) ; droits 11.37 Md€ (taux 5.81 %)
+[DROITS] ventes de logements anciens 196 Md€ par an, 786 000 ventes ; rotation 2.6 % du parc par an ; droits rapportés au parc : 373 € par logement et par an, soit 0.168 % de la valeur par an (coin implicite sur la détention)
+[INVENTAIRE 2024] total 116.4 Md€ = 3.97 % du PIB (2 935 Md€, Insee) ; Détention 69.0 ; Ventes 25.0 ; Transmissions 12.5 ; Loyers 8.4 ; Construction 1.5
+[QUI PAIE] taxe foncière par statut d'occupation (Md€) : Propriétaires occupants 12.7 (54 %) ; Logements loués par des particuliers 5.8 (24 %) ; Résidences secondaires 2.6 (11 %) ; Logements vacants 2.0 (8 %) ; Logés gratuitement 0.5 (2 %)
+[TAUX] taxe foncière / valeur par décile de prix au m² (%) : 0.52 0.48 0.48 0.45 0.42 0.40 0.38 0.35 0.30 0.18
+[TAUX] prix médian au m² par décile : 1 035 1 404 1 693 2 000 2 356 2 737 3 176 3 749 4 746 6 261
+[TAUX] taxe foncière / valeur dans quelques communes (%) : Paris 0.12 ; Lyon 0.33 ; Marseille 0.41 ; Toulouse 0.38 ; Nice 0.32 ; Nantes 0.39 ; Bordeaux 0.33 ; Lille 0.29 ; Saint-Denis 0.40 ; Saint-Étienne 0.83 ; Limoges 0.70 ; Guéret 0.88 ; Ussel 1.05 ; Annecy 0.22 ; Arcachon 0.23
+[TAUX] part des logements dont la taxe dépasse 0,5 % de la valeur : 23 % ; sous 0,2 % : 10 %
+[TAUX, H1] à l'intérieur des villes (IA 91, IRIS, 2017) : Paris 0,074 % (1er décile) à 0,121 % (9e) ; agglomération lyonnaise 0,25 à 0,52 % ; rapport 9e/1er décile : Paris 1,64, Lyon 2,09, Toulouse 1,76, Lille 1,52
+[TAILLE] < 1 000 hab. : TF 594 €/log., 0.38 % de la valeur, droits 225 €/log./an ; 1 000-5 000 : TF 740 €/log., 0.35 % de la valeur, droits 327 €/log./an ; 5 000-20 000 : TF 839 €/log., 0.36 % de la valeur, droits 389 €/log./an ; 20 000-100 000 : TF 876 €/log., 0.36 % de la valeur, droits 438 €/log./an ; > 100 000 : TF 791 €/log., 0.30 % de la valeur, droits 501 €/log./an
+[ACHAT] droits = 5.81 % du prix, soit 38 % d'un apport moyen de 15 % du prix ; la baisse de moitié (2.9 points) représente 14.5 % d'un apport de 20 % et 29 % d'un apport de 10 %
+[OCDE 2023] impôts périodiques sur l'immobilier / sur les transactions (% du PIB) : France 1.90 / 0.72 ; Royaume-Uni 2.78 / 0.60 ; États-Unis 2.63 / 0.08 ; Belgique 1.28 / 0.84 ; Italie 1.09 / 0.94 ; Espagne 0.93 / 0.75 ; Danemark 1.20 / 0.22 ; Pays-Bas 0.69 / 0.29 ; Allemagne 0.37 / 0.29 ; Moyenne OCDE 0.95 / 0.37
+[CYCLE] droits sur les logements (Md€) : 2021 16.4 ; 2022 16.8 ; 2023 13.0 ; 2024 11.2 ; 2025 13.6 ; de 2022 à 2024 : -33 % ; taxe foncière sur les logements 2024 30.5, 2025 31.6
+[COUT MARGINAL] σ = 3 : le dernier euro de droits coûte 0.21 € de perte sèche (contre 0 pour un impôt sur le sol)
+[COUT MARGINAL] σ = 6 : le dernier euro de droits coûte 0.53 € de perte sèche (contre 0 pour un impôt sur le sol)
+[COUT MARGINAL] σ = 8 : le dernier euro de droits coûte 0.87 € de perte sèche (contre 0 pour un impôt sur le sol)
+
+====================================================================================================
+3. RÉFORME NAÏVE
+====================================================================================================
+[NAÏF] taxe foncière relevée de 24.1 % partout (5.69 Md€) ; 19,7 % si les ventes augmentent de 6 % par point
+[NAÏF] variation de taxe foncière par décile (€/an) : +106 +136 +162 +179 +195 +207 +218 +232 +237 +196
+[NAÏF] taxe foncière moins droits (moyenne du parc, €/an) : +28 +35 +43 +42 +42 +33 +25 +14 -30 -231
+[NAÏF] taxe / valeur par décile (%) : 0.65 0.59 0.59 0.56 0.52 0.50 0.47 0.43 0.37 0.22
+[NAÏF] logements dont la taxe monte de plus de 300 € : 11 % ; Paris appartement médian +125 €
+[NAÏF] taxe moins droits par taille de commune (€/an) : < 1 000 hab. +31 ; 1 000-5 000 +15 ; 5 000-20 000 +8 ; 20 000-100 000 -7 ; > 100 000 -59
+
+====================================================================================================
+4. PROPOSITION
+====================================================================================================
+[INSEE 2024] sol sous les bâtiments des ménages 3 993 Md€ ; des entreprises et autres privés 1 833 ; terrains non bâtis privés 522 ; terres cultivées 839 ; terrains publics 1 043 (exclus)
+[HLM] sol des 4.2 M logements HLM loués, estimé (valeur médiane de la commune, majorant) : 578 Md€ en valeurs Insee ; rapport valeurs Insee / modèle : 1.23
+[DROITS AUTRES BIENS] 3.08 Md€ par an en 2023-2024 (différence de deux sources, non vérifiée) ; à l'échelle du champ (0.938) : moitié = 1.45 Md€ ; logements : moitié = 5.69 Md€
+[TAUX NATIONAL] proposition (droits divisés par deux sur tous les immeubles, 7.13 Md€, assiette 6 348 Md€) : 0.119 % en valeurs Insee ; 0.146 % sur les terrains du modèle ; les logements des particuliers paient 62.9 % = 4.49 Md€
+[TAUX NATIONAL] sol des logements seul (ancienne proposition N4) : 0.185 % sur les terrains du modèle ; 0.151 % en valeurs Insee
+[QUI PAIE LE TAUX NATIONAL] logements des particuliers 4.49 Md€ (droits en moins 5.69) ; sol des entreprises et autres bâtiments privés 2.06 Md€ (droits en moins 1.45) ; terrains non bâtis 0.59 Md€
+[USAGE] avec le seul sol des logements, construire un logement sur un terrain nu déclenche un impôt dont la valeur actuelle vaut 6.2 % de la valeur du terrain (r = 3 %) ; avec tous les terrains : 0
+[PROPOSITION] ΔTF par décile (€/an) : +10 +25 +32 +73 +107 +130 +175 +219 +264 +438
+[PROPOSITION] ΔTF par décile (%) : +2 +4 +5 +10 +13 +15 +19 +23 +27 +54
+[PROPOSITION] ΔTF − baisse des droits rapportée au parc (€/an) : -69 -75 -87 -64 -46 -44 -18 +1 -3 +11
+[PROPOSITION] taxe / valeur (%) : 0.53 0.50 0.50 0.49 0.48 0.46 0.46 0.43 0.38 0.27
+[PROPOSITION] hausse > 300 € : 17.6 % des logements ; taxe qui double : 4.5 % (dont Paris 85 %) ; baisse : 12 % ; Paris +96 % (appartement médian +523 €) ; dernier décile hors Paris +40 % ; maisons +115 €, appartements +191 €
+[PROPOSITION] distribution de ΔTF (€/an) : P10 -17 ; P25 +33 ; P50 +102 ; P75 +229 ; P90 +403 ; P95 +523 ; P99 +625
+[PROPOSITION]   logements à plus de +500 €/an : 7.0 %
+[PROPOSITION]   logements à plus de +660 €/an : 0.8 %
+[PROPOSITION]   logements à plus de +760 €/an : 0.5 %
+[PROPOSITION]   logements à plus de +1000 €/an : 0.1 %
+[SOL DES LOGEMENTS SEUL (N4)] ΔTF par décile (€/an) : +15 +34 +44 +91 +133 +162 +217 +274 +334 +561
+[SOL DES LOGEMENTS SEUL (N4)] ΔTF par décile (%) : +3 +6 +7 +12 +16 +19 +24 +29 +34 +69
+[SOL DES LOGEMENTS SEUL (N4)] ΔTF − baisse des droits rapportée au parc (€/an) : -63 -66 -75 -45 -21 -11 +24 +57 +67 +133
+[SOL DES LOGEMENTS SEUL (N4)] taxe / valeur (%) : 0.54 0.50 0.51 0.50 0.49 0.48 0.47 0.45 0.40 0.30
+[SOL DES LOGEMENTS SEUL (N4)] hausse > 300 € : 23.0 % des logements ; taxe qui double : 5.4 % (dont Paris 70 %) ; baisse : 11 % ; Paris +122 % (appartement médian +660 €) ; dernier décile hors Paris +51 % ; maisons +149 €, appartements +237 €
+[SOL DES LOGEMENTS SEUL (N4)] distribution de ΔTF (€/an) : P10 -8 ; P25 +45 ; P50 +129 ; P75 +279 ; P90 +495 ; P95 +660 ; P99 +760
+[SOL DES LOGEMENTS SEUL (N4)]   logements à plus de +500 €/an : 9.5 %
+[SOL DES LOGEMENTS SEUL (N4)]   logements à plus de +660 €/an : 2.5 %
+[SOL DES LOGEMENTS SEUL (N4)]   logements à plus de +760 €/an : 1.0 %
+[SOL DES LOGEMENTS SEUL (N4)]   logements à plus de +1000 €/an : 0.4 %
+[PROPOSITION] la part nationale représente 84 % du montant des hausses de plus de 300 €
+[PROPOSITION] plus fortes hausses (cellules ≥ 1 000 logements) : SAINT TROPEZ (maisons) +2,509 € (+72 %) ; MEGEVE (maisons) +1,888 € (+46 %) ; SAINT JEAN CAP FERRAT (appartements) +1,826 € (+83 %) ; RAMATUELLE (maisons) +1,747 € (+76 %) ; LA CLUSAZ (maisons) +1,701 € (+76 %) ; CASSIS (maisons) +1,632 € (+108 %)
+[SENSIBILITÉ ASSIETTE] terrains bâtis privés : taux 0.159 % (modèle), 0.129 % (Insee) ; Paris +105 % ; dernier décile +479 €/an ; hausses > 300 € 19.9 %
+[SENSIBILITÉ ASSIETTE] tous terrains privés hors terres agricoles : taux 0.146 % (modèle), 0.119 % (Insee) ; Paris +96 % ; dernier décile +438 €/an ; hausses > 300 € 17.6 %
+[SENSIBILITÉ ASSIETTE] tous terrains privés, terres agricoles comprises : taux 0.129 % (modèle), 0.105 % (Insee) ; Paris +85 % ; dernier décile +385 €/an ; hausses > 300 € 14.6 %
+[SENSIBILITÉ ASSIETTE] tous terrains privés, droits des seuls logements : taux 0.117 % (modèle), 0.095 % (Insee) ; Paris +77 % ; dernier décile +346 €/an ; hausses > 300 € 12.7 %
+[SENSIBILITÉ ASSIETTE] tous terrains privés, sol des HLM exonéré : taux 0.161 % (modèle), 0.131 % (Insee) ; Paris +106 % ; dernier décile +484 €/an ; hausses > 300 € 20.1 %
+[VOLUMES] avec +6 % de ventes par point, la baisse des droits des logements coûte 4.64 Md€ au lieu de 5.69 (×0.82) ; taux national 0.119 % (modèle)
+[BÂTI] impôt sur le bâti des logements : 14.1 Md€ aujourd'hui ; 7.3 avec la proposition ; 17.5 avec la réforme naïve ; valeur du bâti 3 694 Md€
+[PERTE SÈCHE] ventes de logements (σ = 6) -1.49 Md€ (σ = 3 / 8 / 15 : -0.74 / -1.98 / -3.72) ; σ = 0 : 0
+[PERTE SÈCHE] bâti : proposition -0.43 (ε = 0,5 : -0.22 ; u = 3,5 % : -0.56 ; u = 6 % : -0.33) ; réforme naïve +0.32
+[PERTE SÈCHE] ventes des autres immeubles (σ = 6 transposé, 50 Md€ de ventes, ordre de grandeur) : -0.38
+[PERTE SÈCHE] total : réforme naïve -1.16 ; proposition, logements -1.92 ; avec les autres immeubles -2.30 Md€ (0.065 % du PIB pour les logements)
+[PERTE SÈCHE] variante Määttänen-Terviö (remplace le triangle sur les ventes) : environ 3.3 Md€ (euros 2004), total -3.8 Md€
+[PERTE SÈCHE] bâti avec le coin des droits sur la détention (0.168 %/an) : proposition -0.91 ; réforme naïve +0.04
+[PERTE SÈCHE] rapport terrain/bâti 2 : impôt sur le bâti 10.6 Md€ -> -0.26 Md€
+[PERTE SÈCHE] rapport terrain/bâti 4 : impôt sur le bâti 7.3 Md€ -> -0.43 Md€
+[PERTE SÈCHE] rapport terrain/bâti inf : impôt sur le bâti 0.0 Md€ -> -0.60 Md€
+
+----------------------------------------------------------------------------------------------------
+CAPITALISATION
+[VALEUR ACTUELLE r = 3 %] taux national (tous terrains) : 238 Md€ pour l'ensemble des propriétaires de terrains, dont 150 pour les logements des particuliers ; baisse des droits sur les logements : 190 Md€ ; sol des logements seul : 190 Md€
+[VALEUR ACTUELLE r = 4 %] taux national (tous terrains) : 178 Md€ pour l'ensemble des propriétaires de terrains, dont 112 pour les logements des particuliers ; baisse des droits sur les logements : 142 Md€ ; sol des logements seul : 142 Md€
+[CAPITALISATION, symétrique (taxe et droits capitalisés)] variation de la valeur des logements +40 Md€ (+0.6 %) ; somme des pertes -35 Md€ ; appartement parisien médian -3,679 € (-0.9 %) ; 5e centile -2.1 % ; logements perdant plus de 5 % de leur valeur 0.7 %
+[CAPITALISATION, asymétrique (taxe capitalisée, baisse des droits à l'acheteur)] variation de la valeur des logements -150 Md€ (-2.2 %) ; somme des pertes -160 Md€ ; appartement parisien médian -17,424 € (-4.2 %) ; 5e centile -4.8 % ; logements perdant plus de 5 % de leur valeur 4.6 %
+[CAPITALISATION, réforme naïve, asymétrique] -190 Md€ ; Paris -4,167 €
+[ÉTALEMENT] part de la perte actualisée supportée à l'annonce si la hausse monte linéairement sur n ans (r = 3 %) : 1 ans 100 % ; 3 ans 97 % ; 5 ans 94 % ; 10 ans 88 % ; 20 ans 77 %
+
+----------------------------------------------------------------------------------------------------
+CAS-TYPES
+[CAS] Paris, appartement : valeur 416 182 €, terrain 84 %, taxe 518 € ; droits à l'achat 24 166 € (économie 12 083 €) ; ΔTF : naïve +125, sol des logements seul +660, proposition +523 € (part nationale 513, redistribution communale +10) ; acheteur qui revend après 7 ans +8,826 €, 15 ans +5,843 € ; économie rattrapée : proposition 40 ans, naïve jamais
+[CAS] Lyon, appartement : valeur 279 167 €, terrain 66 %, taxe 911 € ; droits à l'achat 16 210 € (économie 8 105 €) ; ΔTF : naïve +220, sol des logements seul +358, proposition +285 € (part nationale 271, redistribution communale +14) ; acheteur qui revend après 7 ans +6,330 €, 15 ans +4,703 € ; économie rattrapée : proposition 65 ans, naïve jamais
+[CAS] Bordeaux, appartement : valeur 222 804 €, terrain 64 %, taxe 732 € ; droits à l'achat 12 937 € (économie 6 469 €) ; ΔTF : naïve +177, sol des logements seul +377, proposition +321 € (part nationale 209, redistribution communale +112) ; acheteur qui revend après 7 ans +4,466 €, 15 ans +2,632 € ; économie rattrapée : proposition 31 ans, naïve jamais
+[CAS] Nantes, maison : valeur 449 520 €, terrain 46 %, taxe 1 768 € ; droits à l'achat 26 102 € (économie 13 051 €) ; ΔTF : naïve +427, sol des logements seul +252, proposition +170 € (part nationale 305, redistribution communale -135) ; acheteur qui revend après 7 ans +11,992 €, 15 ans +11,022 € ; économie rattrapée : proposition jamais, naïve 84 ans
+[CAS] Limoges, maison : valeur 171 810 €, terrain 23 %, taxe 1 209 € ; droits à l'achat 9 976 € (économie 4 988 €) ; ΔTF : naïve +292, sol des logements seul +264, proposition +248 € (part nationale 59, redistribution communale +189) ; acheteur qui revend après 7 ans +3,444 €, 15 ans +2,029 € ; économie rattrapée : proposition 31 ans, naïve 24 ans
+[CAS] Saint-Étienne, appartement : valeur 78 049 €, terrain 10 %, taxe 651 € ; droits à l'achat 4 532 € (économie 2 266 €) ; ΔTF : naïve +157, sol des logements seul -39, proposition -42 € (part nationale 11, redistribution communale -53) ; acheteur qui revend après 7 ans +2,526 €, 15 ans +2,764 € ; économie rattrapée : proposition jamais (taxe en baisse), naïve 19 ans
+[CAS] Annecy, maison : valeur 693 155 €, terrain 30 %, taxe 1 507 € ; droits à l'achat 40 249 € (économie 20 125 €) ; ΔTF : naïve +364, sol des logements seul -102, proposition -183 € (part nationale 305, redistribution communale -488) ; acheteur qui revend après 7 ans +21,267 €, 15 ans +22,313 € ; économie rattrapée : proposition jamais (taxe en baisse), naïve jamais
+[CAS] Arcachon, maison : valeur 781 856 €, terrain 42 %, taxe 1 832 € ; droits à l'achat 45 400 € (économie 22 700 €) ; ΔTF : naïve +442, sol des logements seul +253, proposition +124 € (part nationale 482, redistribution communale -358) ; acheteur qui revend après 7 ans +21,926 €, 15 ans +21,218 € ; économie rattrapée : proposition jamais, naïve jamais
+[CAS] Guéret, maison : valeur 109 992 €, terrain 11 %, taxe 966 € ; droits à l'achat 6 387 € (économie 3 193 €) ; ΔTF : naïve +233, sol des logements seul +31, proposition +26 € (part nationale 18, redistribution communale +8) ; acheteur qui revend après 7 ans +3,032 €, 15 ans +2,884 € ; économie rattrapée : proposition jamais, naïve 18 ans
+[CAS] Ussel, maison : valeur 102 719 €, terrain 10 %, taxe 1 076 € ; droits à l'achat 5 965 € (économie 2 982 €) ; ΔTF : naïve +260, sol des logements seul +19, proposition +15 € (part nationale 15, redistribution communale -0) ; acheteur qui revend après 7 ans +2,889 €, 15 ans +2,803 € ; économie rattrapée : proposition jamais, naïve 14 ans
+[REPORT] retraité parisien (hausse 523 €/an reportée), intérêt 2 %, 15 ans : dette 9 040 € = 2.2 % de la valeur actuelle du logement
+[REPORT] retraité parisien (hausse 523 €/an reportée), intérêt 3 %, 10 ans : dette 5 992 € = 1.4 % de la valeur actuelle du logement
+[REPORT] retraité parisien (hausse 523 €/an reportée), intérêt 3 %, 15 ans : dette 9 722 € = 2.3 % de la valeur actuelle du logement
+[REPORT] retraité parisien (hausse 523 €/an reportée), intérêt 3 %, 20 ans : dette 14 046 € = 3.4 % de la valeur actuelle du logement
+[REPORT] retraité parisien (hausse 523 €/an reportée), intérêt 4 %, 15 ans : dette 10 467 € = 2.5 % de la valeur actuelle du logement
+[REPORT] majorant : si tous les propriétaires occupants reportaient leur hausse, 2.38 Md€ par an (somme des hausses positives des propriétaires occupants)
+[FAMILLE] achat d'une maison à Nantes (449 520 €) : droits 26 102 € -> économie 13 051 € ; ΔTF ensuite +170 €/an
+
+====================================================================================================
+5. ARBITRAGES
+====================================================================================================
+[BAISSE 30 %] coût 4.28 Md€ (logements 3.41) ; taux national 0.088 % ; perte sèche sur les ventes de logements -1.01 Md€ ; Paris appartement +318 € ; dernier décile +256 € ; hausses > 300 € 8.5 %
+[BAISSE 50 %] coût 7.13 Md€ (logements 5.69) ; taux national 0.146 % ; perte sèche sur les ventes de logements -1.49 Md€ ; Paris appartement +523 € ; dernier décile +438 € ; hausses > 300 € 17.6 %
+[BAISSE 100 %] coût 14.27 Md€ (logements 11.37) ; taux national 0.292 % ; perte sèche sur les ventes de logements -1.98 Md€ ; Paris appartement +1035 € ; dernier décile +895 € ; hausses > 300 € 37.3 %
+[BAISSE] 30 % garde 68 % du gain sur les ventes de la baisse de 50 % pour 60 % de son coût
+[RAPPORT 1] impôt sur le bâti 14.1 Md€ (perte sèche +0.00) ; Paris +96 % ; dernier décile +457 € ; maisons +127 €, appartements +175 € ; hausses > 300 € 12.6 %
+[RAPPORT 2] impôt sur le bâti 10.6 Md€ (perte sèche -0.26) ; Paris +96 % ; dernier décile +446 € ; maisons +120 €, appartements +184 € ; hausses > 300 € 14.5 %
+[RAPPORT 4] impôt sur le bâti 7.3 Md€ (perte sèche -0.43) ; Paris +96 % ; dernier décile +438 € ; maisons +115 €, appartements +191 € ; hausses > 300 € 17.6 %
+[RAPPORT inf] impôt sur le bâti 0.0 Md€ (perte sèche -0.60) ; Paris +96 % ; dernier décile +427 € ; maisons +111 €, appartements +196 € ; hausses > 300 € 21.5 %
+[DÉPARTEMENTAL] taux départemental sur le sol des logements : de 0.11 à 0.84 % ; Paris 0.119 %, Creuse 0.845 % ; Paris appartement +429 € ; Guéret maison +110 € ; Ussel +66 €
+[COMPENSATION] droits perdus sur les logements 5.69 Md€ : départements 4.41, communes 1.18, frais de l'État 0.10 ; autres immeubles 1.45
+[PÉRÉQUATION, proposition, logements] Paris paie 595 M€ et perd 486 M€ (+109) ; Hauts-de-Seine +57 M€ ; Creuse -4 M€ ; transfert entre départements 245 M€ ; départements contributeurs nets 7
+[PÉRÉQUATION, sol des logements seul, logements] Paris paie 755 M€ et perd 486 M€ (+268) ; Hauts-de-Seine +133 M€ ; Creuse -4 M€ ; transfert entre départements 809 M€ ; départements contributeurs nets 21
+
+====================================================================================================
+6. TRANSITION
+====================================================================================================
+[3 ANS] hausse annuelle (toutes composantes linéaires) : P90 134 €, P99 208 €, Paris appartement 174 € ; déficit cumulé si les droits baissent dès l'annonce 7.1 Md€ (5.8 avec la reprise des ventes) ; perte actualisée supportée à l'annonce 97 %
+[5 ANS] hausse annuelle (toutes composantes linéaires) : P90 81 €, P99 125 €, Paris appartement 105 € ; déficit cumulé si les droits baissent dès l'annonce 14.3 Md€ (11.6 avec la reprise des ventes) ; perte actualisée supportée à l'annonce 94 %
+[10 ANS] hausse annuelle (toutes composantes linéaires) : P90 40 €, P99 63 €, Paris appartement 52 € ; déficit cumulé si les droits baissent dès l'annonce 32.1 Md€ (26.2 avec la reprise des ventes) ; perte actualisée supportée à l'annonce 88 %
+[CALENDRIER 5 ANS] année 1 : taux 0.029 %, recette 1.4, manque 5.7 Md€, taxe parisienne 622 € ; année 2 : taux 0.058 %, recette 2.9, manque 4.3 Md€, taxe parisienne 727 € ; année 3 : taux 0.088 %, recette 4.3, manque 2.9 Md€, taxe parisienne 831 € ; année 4 : taux 0.117 %, recette 5.7, manque 1.4 Md€, taxe parisienne 936 € ; année 5 : taux 0.146 %, recette 7.1, manque 0.0 Md€, taxe parisienne 1040 €
+[RETARD] montée sur 3 ans commençant après 3 années sans nouvelle recette : déficit cumulé 28.5 Md€ ; baisse des droits en deux temps (25 % à l'annonce, 25 % au démarrage) : 17.8 Md€
+[RETARD] montée sur 5 ans commençant après 3 années sans nouvelle recette : déficit cumulé 35.7 Md€ ; baisse des droits en deux temps (25 % à l'annonce, 25 % au démarrage) : 25.0 Md€
+[RETARD] montée sur 10 ans commençant après 3 années sans nouvelle recette : déficit cumulé 53.5 Md€ ; baisse des droits en deux temps (25 % à l'annonce, 25 % au démarrage) : 42.8 Md€
+[ANCIEN CALENDRIER] taux national plein dès la 1re année : saut parisien +513 € (sol des logements seul : +650 €)
+[SURTAXE 1970] relever la taxe actuelle de 30 % pour financer la transition : taxe / valeur 0.68 % dans le décile le moins cher, 0.23 % dans le plus cher
+[H6] taxe actuelle corrigée du double vieillissement : Paris +86 % (au lieu de +96 %) ; ΔTF % par décile : +2 +5 +5 +10 +13 +15 +19 +22 +27 +51 ; hausses > 300 € 17.6 %
+[H5] terrain des maisons mesuré par résidu (coût recalé 2,016 €/m²) : maisons +189 €, appartements +92 € (mesure centrale : maisons +115, appartements +191) ; par décile : +8 +11 +3 +23 +74 +108 +148 +233 +333 +532 ; Paris +94 %

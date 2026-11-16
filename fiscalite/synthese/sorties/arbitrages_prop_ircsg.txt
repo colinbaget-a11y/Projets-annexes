@@ -1,0 +1,144 @@
+[Proposition] gain 4.91 Md€ (2.25 à 10.94 ; long terme 7.30) dont intensif 2.63 [bas -0.25, 50-90 +0.64, 90-99 +1.50, 1 % +0.74], participation 2.27 ; revenu déclaré +3.0 ; perdants > 500 € 26 %
+    déciles € -82 -283 -22 +161 -254 -139 -254 +389 -5 +487 ; 1 % +0.01 Md€ ; 10 % +2.1 Md€ ; retraités +20.8 Md€ ; actifs -20.8
+    € par foyer : seul actif -500 ; parent isolé -457 ; couple actif sans enfant -236 ; couple avec enfants -1,457 ; retraité seul +1,086 ; couple de retraités +2,439
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.4, conjoint mi-temps 1.9, conjoint Smic 7.4
+    cas-types : ret12 +0 ; ret16 +1,005 ; ret18 +827 ; ret20 +1,353 ; ret25 +1,815 ; ret35 +1,732 ; rc30 -109 ; rc45 +1,330 ; smic_mi -812 ; smic -447 ; cadre60 -2,354 ; cadre100 -4,015 ; cadre200 -10,917 ; pi_smic -2,027 ; pi35 -1,729 ; c0_50 -1,328 ; c0m_50 +1,731 ; c0m_80 +3,498 ; c2_50 -2,408 ; c2m_50 -862 ; c3_40 -2,926 ; c3_60 -2,922 ; c3_80 -2,722 ; c3m_60 -1,003
+    points pour tous +0.00 ; hausses : retraités P90 +3,373 €, P99 +6,959 € ; tous P99 +5,915 € ; plus de 1 000 € de hausse 9.3 M de foyers
+
+[Imposition commune : quotient conjugal et familial (plafonds actuels)] gain 5.76 Md€ (2.69 à 12.90 ; long terme 9.52) dont intensif 3.65 [bas -0.23, 50-90 +1.13, 90-99 +1.90, 1 % +0.85], participation 2.11 ; revenu déclaré +3.6 ; perdants > 500 € 26 %
+    déciles € -82 -276 +37 +287 -60 +84 +22 +538 +9 -536 ; 1 % -1.31 Md€ ; 10 % -2.3 Md€ ; retraités +17.2 Md€ ; actifs -17.2
+    € par foyer : seul actif -540 ; parent isolé -196 ; couple actif sans enfant -1,137 ; couple avec enfants -845 ; retraité seul +1,051 ; couple de retraités +1,573
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.3, conjoint mi-temps 2.0, conjoint Smic 7.7
+    cas-types : ret12 +0 ; ret16 +990 ; ret18 +804 ; ret20 +1,321 ; ret25 +1,762 ; ret35 +1,660 ; rc30 -163 ; rc45 +697 ; smic_mi -815 ; smic -470 ; cadre60 -2,447 ; cadre100 -4,170 ; cadre200 -11,181 ; pi_smic -505 ; pi35 -52 ; c0_50 -1,407 ; c0m_50 -175 ; c0m_80 -42 ; c2_50 -722 ; c2m_50 +464 ; c3_40 -1,079 ; c3_60 -413 ; c3_80 -285 ; c3m_60 +785
+    points pour tous -0.21 ; hausses : retraités P90 +2,727 €, P99 +5,165 € ; tous P99 +4,060 € ; plus de 1 000 € de hausse 8.4 M de foyers
+
+[quotient sous contraintes] 12 % au premier euro imposé, 15 % à 20 k€, 30.9 % à 25 k€, 50 % à 315 k€
+[Imposition commune : quotient conjugal et familial (plafonds actuels), barème recherché sous les mêmes contraintes] gain 5.13 Md€ (2.34 à 11.29 ; long terme 7.52) dont intensif 2.77 [bas -0.17, 50-90 +0.85, 90-99 +1.28, 1 % +0.80], participation 2.36 ; revenu déclaré +2.9 ; perdants > 500 € 25 %
+    déciles € -82 -285 -63 +108 -271 -120 -140 +465 -31 +417 ; 1 % -0.00 Md€ ; 10 % +1.8 Md€ ; retraités +17.8 Md€ ; actifs -17.8
+    € par foyer : seul actif -517 ; parent isolé -351 ; couple actif sans enfant -1,051 ; couple avec enfants -942 ; retraité seul +1,114 ; couple de retraités +1,553
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.6, seul Smic 6.5, conjoint mi-temps 1.8, conjoint Smic 7.1
+    cas-types : ret12 +0 ; ret16 +877 ; ret18 +637 ; ret20 +1,109 ; ret25 +1,577 ; ret35 +1,830 ; rc30 -345 ; rc45 +196 ; smic_mi -840 ; smic -635 ; cadre60 -1,940 ; cadre100 -2,733 ; cadre200 -9,060 ; pi_smic -688 ; pi35 -411 ; c0_50 -1,814 ; c0m_50 -661 ; c0m_80 +65 ; c2_50 -1,163 ; c2m_50 -77 ; c3_40 -1,404 ; c3_60 -993 ; c3_80 -1,080 ; c3m_60 +102
+
+[Abattement de 5 % sur les pensions] gain 4.51 Md€ (2.07 à 10.09 ; long terme 6.65) dont intensif 2.36 [bas -0.28, 50-90 +0.49, 90-99 +1.42, 1 % +0.72], participation 2.15 ; revenu déclaré +2.9 ; perdants > 500 € 26 %
+    déciles € -82 -281 -39 +170 -258 -158 -285 +344 -12 +595 ; 1 % +0.18 Md€ ; 10 % +2.5 Md€ ; retraités +17.5 Md€ ; actifs -17.5
+    € par foyer : seul actif -405 ; parent isolé -385 ; couple actif sans enfant -16 ; couple avec enfants -1,287 ; retraité seul +918 ; couple de retraités +2,040
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.0, seul Smic 7.7, conjoint mi-temps 2.0, conjoint Smic 7.7
+    cas-types : ret12 +0 ; ret16 +918 ; ret18 +741 ; ret20 +1,268 ; ret25 +1,609 ; ret35 +1,403 ; rc30 -195 ; rc45 +1,002 ; smic_mi -805 ; smic -393 ; cadre60 -2,132 ; cadre100 -3,642 ; cadre200 -10,284 ; pi_smic -2,027 ; pi35 -1,674 ; c0_50 -1,187 ; c0m_50 +1,911 ; c0m_80 +3,799 ; c2_50 -2,326 ; c2m_50 -740 ; c3_40 -2,895 ; c3_60 -2,826 ; c3_80 -2,537 ; c3m_60 -867
+    points pour tous +0.50 ; hausses : retraités P90 +2,855 €, P99 +6,209 € ; tous P99 +5,457 € ; plus de 1 000 € de hausse 9.2 M de foyers
+
+[abat5 sous contraintes] 16 % au premier euro imposé, 16 % à 20 k€, 28.8 % à 30 k€, 50 % à 284 k€
+[Abattement de 5 % sur les pensions, barème recherché sous les mêmes contraintes] gain 4.67 Md€ (2.16 à 10.45 ; long terme 7.14) dont intensif 2.60 [bas -0.28, 50-90 +0.67, 90-99 +1.46, 1 % +0.75], participation 2.07 ; revenu déclaré +3.0 ; perdants > 500 € 26 %
+    déciles € -82 -275 +21 +260 -181 -132 -320 +301 -42 +446 ; 1 % -0.02 Md€ ; 10 % +1.9 Md€ ; retraités +17.2 Md€ ; actifs -17.2
+    € par foyer : seul actif -390 ; parent isolé -367 ; couple actif sans enfant -25 ; couple avec enfants -1,282 ; retraité seul +903 ; couple de retraités +2,005
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.2, seul Smic 8.2, conjoint mi-temps 2.2, conjoint Smic 8.2
+    cas-types : ret12 +0 ; ret16 +992 ; ret18 +842 ; ret20 +1,380 ; ret25 +1,620 ; ret35 +1,242 ; rc30 -94 ; rc45 +1,019 ; smic_mi -784 ; smic -289 ; cadre60 -2,248 ; cadre100 -3,697 ; cadre200 -10,678 ; pi_smic -2,027 ; pi35 -1,569 ; c0_50 -982 ; c0m_50 +1,763 ; c0m_80 +3,728 ; c2_50 -2,150 ; c2m_50 -755 ; c3_40 -2,822 ; c3_60 -2,644 ; c3_80 -2,328 ; c3m_60 -1,011
+
+[Abattement de 10 % sur les pensions] gain 4.10 Md€ (1.88 à 9.23 ; long terme 5.98) dont intensif 2.08 [bas -0.30, 50-90 +0.34, 90-99 +1.33, 1 % +0.71], participation 2.03 ; revenu déclaré +2.8 ; perdants > 500 € 27 %
+    déciles € -82 -279 -56 +177 -257 -180 -317 +298 -21 +706 ; 1 % +0.34 Md€ ; 10 % +3.0 Md€ ; retraités +14.2 Md€ ; actifs -14.2
+    € par foyer : seul actif -308 ; parent isolé -311 ; couple actif sans enfant +208 ; couple avec enfants -1,115 ; retraité seul +748 ; couple de retraités +1,635
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.0, seul Smic 7.9, conjoint mi-temps 2.0, conjoint Smic 7.9
+    cas-types : ret12 +0 ; ret16 +825 ; ret18 +649 ; ret20 +1,176 ; ret25 +1,428 ; ret35 +1,063 ; rc30 -287 ; rc45 +661 ; smic_mi -798 ; smic -338 ; cadre60 -1,907 ; cadre100 -3,263 ; cadre200 -9,641 ; pi_smic -2,027 ; pi35 -1,618 ; c0_50 -1,043 ; c0m_50 +2,094 ; c0m_80 +4,105 ; c2_50 -2,243 ; c2m_50 -616 ; c3_40 -2,864 ; c3_60 -2,729 ; c3_80 -2,350 ; c3m_60 -728
+    points pour tous +1.01 ; hausses : retraités P90 +2,354 €, P99 +5,406 € ; tous P99 +5,210 € ; plus de 1 000 € de hausse 8.6 M de foyers
+
+[abat10 sous contraintes] 16 % au premier euro imposé, 17 % à 20 k€, 27.3 % à 25 k€, 50 % à 256 k€
+[Abattement de 10 % sur les pensions, barème recherché sous les mêmes contraintes] gain 4.26 Md€ (1.97 à 9.61 ; long terme 6.55) dont intensif 2.34 [bas -0.32, 50-90 +0.47, 90-99 +1.47, 1 % +0.72], participation 1.92 ; revenu déclaré +3.0 ; perdants > 500 € 27 %
+    déciles € -82 -275 -15 +248 -179 -105 -264 +311 -49 +409 ; 1 % +0.02 Md€ ; 10 % +1.7 Md€ ; retraités +14.2 Md€ ; actifs -14.2
+    € par foyer : seul actif -298 ; parent isolé -300 ; couple actif sans enfant +171 ; couple avec enfants -1,131 ; retraité seul +751 ; couple de retraités +1,626
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.2, seul Smic 8.3, conjoint mi-temps 2.2, conjoint Smic 8.3
+    cas-types : ret12 +0 ; ret16 +871 ; ret18 +719 ; ret20 +1,262 ; ret25 +1,519 ; ret35 +1,064 ; rc30 -217 ; rc45 +809 ; smic_mi -784 ; smic -259 ; cadre60 -2,043 ; cadre100 -3,682 ; cadre200 -10,300 ; pi_smic -2,027 ; pi35 -1,538 ; c0_50 -872 ; c0m_50 +2,045 ; c0m_80 +3,814 ; c2_50 -2,115 ; c2m_50 -539 ; c3_40 -2,812 ; c3_60 -2,591 ; c3_80 -2,156 ; c3m_60 -682
+
+[Sortie de l'exonération des petites pensions étalée jusqu'à 37 500 €] gain 4.44 Md€ (2.03 à 9.93 ; long terme 6.53) dont intensif 2.31 [bas -0.28, 50-90 +0.47, 90-99 +1.40, 1 % +0.72], participation 2.13 ; revenu déclaré +2.9 ; perdants > 500 € 25 %
+    déciles € -82 -281 -74 +55 -461 -348 -297 +419 +117 +936 ; 1 % +0.42 Md€ ; 10 % +4.0 Md€ ; retraités +16.9 Md€ ; actifs -16.9
+    € par foyer : seul actif -387 ; parent isolé -371 ; couple actif sans enfant +26 ; couple avec enfants -1,255 ; retraité seul +867 ; couple de retraités +2,021
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.0, seul Smic 7.7, conjoint mi-temps 2.0, conjoint Smic 7.7
+    cas-types : ret12 +0 ; ret16 +780 ; ret18 +464 ; ret20 +845 ; ret25 +642 ; ret35 +1,578 ; rc30 -472 ; rc45 -223 ; smic_mi -803 ; smic -383 ; cadre60 -2,090 ; cadre100 -3,571 ; cadre200 -10,165 ; pi_smic -2,027 ; pi35 -1,663 ; c0_50 -1,160 ; c0m_50 +1,945 ; c0m_80 +3,856 ; c2_50 -2,311 ; c2m_50 -717 ; c3_40 -2,890 ; c3_60 -2,808 ; c3_80 -2,502 ; c3m_60 -841
+    points pour tous +0.59 ; hausses : retraités P90 +3,318 €, P99 +7,445 € ; tous P99 +6,232 € ; plus de 1 000 € de hausse 6.7 M de foyers
+
+[sortie_etalee sous contraintes] 16 % au premier euro imposé, 17 % à 20 k€, 25.9 % à 25 k€, 50 % à 239 k€
+[Sortie de l'exonération des petites pensions étalée jusqu'à 37 500 €, barème recherché sous les mêmes contraintes] gain 4.61 Md€ (2.14 à 10.38 ; long terme 7.28) dont intensif 2.67 [bas -0.32, 50-90 +0.67, 90-99 +1.62, 1 % +0.71], participation 1.93 ; revenu déclaré +3.1 ; perdants > 500 € 26 %
+    déciles € -82 -275 -11 +165 -328 -208 -213 +423 +52 +473 ; 1 % +0.04 Md€ ; 10 % +2.0 Md€ ; retraités +16.7 Md€ ; actifs -16.7
+    € par foyer : seul actif -367 ; parent isolé -352 ; couple actif sans enfant -17 ; couple avec enfants -1,266 ; retraité seul +862 ; couple de retraités +1,983
+    premier salaire (taux de prélèvement, %) : seul mi-temps 2.2, seul Smic 8.3, conjoint mi-temps 2.2, conjoint Smic 8.3
+    cas-types : ret12 +0 ; ret16 +847 ; ret18 +563 ; ret20 +972 ; ret25 +818 ; ret35 +1,545 ; rc30 -373 ; rc45 +57 ; smic_mi -784 ; smic -259 ; cadre60 -2,327 ; cadre100 -4,264 ; cadre200 -10,822 ; pi_smic -2,027 ; pi35 -1,538 ; c0_50 -872 ; c0m_50 +1,864 ; c0m_80 +3,357 ; c2_50 -2,115 ; c2m_50 -565 ; c3_40 -2,812 ; c3_60 -2,591 ; c3_80 -2,156 ; c3m_60 -748
+
+[ENFANTS] la franchise de 6 000 € par enfant coûte 21.43 Md€ au barème de la proposition ; chèque de même coût : 1,191 € par enfant (18.0 M d'enfants) ; coût actuel du quotient familial 13.36 Md€, soit 742 € par enfant
+[Chèque de 1,191 € par enfant (même coût que la franchise)] gain 4.06 Md€ (1.85 à 9.16 ; long terme 5.88) dont intensif 2.01 [bas -0.25, 50-90 +0.20, 90-99 +1.36, 1 % +0.70], participation 2.05 ; revenu déclaré +2.8 ; perdants > 500 € 28 %
+    déciles € -166 -364 -156 -25 -449 -297 -361 +368 +192 +1233 ; 1 % +0.72 Md€ ; 10 % +5.2 Md€ ; retraités +20.8 Md€ ; actifs -20.8
+    € par foyer : seul actif -500 ; parent isolé -722 ; couple actif sans enfant -236 ; couple avec enfants -1,392 ; retraité seul +1,086 ; couple de retraités +2,439
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.4, conjoint mi-temps 1.9, conjoint Smic 7.4
+    cas-types : ret12 +0 ; ret16 +1,005 ; ret18 +827 ; ret20 +1,353 ; ret25 +1,815 ; ret35 +1,732 ; rc30 -109 ; rc45 +1,330 ; smic_mi -812 ; smic -447 ; cadre60 -2,354 ; cadre100 -4,015 ; cadre200 -10,917 ; pi_smic -2,828 ; pi35 -2,125 ; c0_50 -1,328 ; c0m_50 +1,731 ; c0m_80 +3,498 ; c2_50 -2,958 ; c2m_50 +98 ; c3_40 -4,550 ; c3_60 -3,538 ; c3_80 -2,008 ; c3m_60 +546
+    points pour tous +0.00 ; hausses : retraités P90 +3,373 €, P99 +6,959 € ; tous P99 +6,316 € ; plus de 1 000 € de hausse 9.9 M de foyers
+
+[cheque_egal sous contraintes] 14 % au premier euro imposé, 19 % à 20 k€, 24.5 % à 25 k€, 50 % à 243 k€
+[Chèque de 1,191 € par enfant (même coût que la franchise), barème recherché sous les mêmes contraintes] gain 4.16 Md€ (1.94 à 9.52 ; long terme 6.72) dont intensif 2.41 [bas -0.38, 50-90 +0.40, 90-99 +1.68, 1 % +0.71], participation 1.75 ; revenu déclaré +3.2 ; perdants > 500 € 27 %
+    déciles € -166 -363 -121 +96 -252 -65 -180 +432 +118 +496 ; 1 % -0.02 Md€ ; 10 % +2.1 Md€ ; retraités +20.8 Md€ ; actifs -20.8
+    € par foyer : seul actif -466 ; parent isolé -689 ; couple actif sans enfant -302 ; couple avec enfants -1,458 ; retraité seul +1,096 ; couple de retraités +2,416
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.8, conjoint mi-temps 1.9, conjoint Smic 7.8
+    cas-types : ret12 +0 ; ret16 +1,041 ; ret18 +917 ; ret20 +1,521 ; ret25 +2,118 ; ret35 +1,761 ; rc30 -19 ; rc45 +1,667 ; smic_mi -810 ; smic -359 ; cadre60 -2,585 ; cadre100 -4,962 ; cadre200 -12,384 ; pi_smic -2,740 ; pi35 -1,788 ; c0_50 -998 ; c0m_50 +1,725 ; c0m_80 +2,873 ; c2_50 -2,627 ; c2m_50 +92 ; c3_40 -4,389 ; c3_60 -3,078 ; c3_80 -1,656 ; c3m_60 +315
+
+[Chèque de 742 € par enfant (coût actuel du quotient familial)] gain 4.67 Md€ (2.13 à 10.44 ; long terme 6.86) dont intensif 2.43 [bas -0.21, 50-90 +0.42, 90-99 +1.49, 1 % +0.72], participation 2.24 ; revenu déclaré +3.0 ; perdants > 500 € 27 %
+    déciles € -134 -334 -124 +14 -407 -280 -337 +349 +183 +1050 ; 1 % +0.47 Md€ ; 10 % +4.5 Md€ ; retraités +18.4 Md€ ; actifs -18.4
+    € par foyer : seul actif -643 ; parent isolé -417 ; couple actif sans enfant -566 ; couple avec enfants -826 ; retraité seul +958 ; couple de retraités +2,154
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.8, seul Smic 7.0, conjoint mi-temps 1.8, conjoint Smic 7.0
+    cas-types : ret12 +0 ; ret16 +952 ; ret18 +744 ; ret20 +1,240 ; ret25 +1,627 ; ret35 +1,472 ; rc30 -192 ; rc45 +1,045 ; smic_mi -823 ; smic -528 ; cadre60 -2,687 ; cadre100 -4,574 ; cadre200 -11,865 ; pi_smic -2,013 ; pi35 -1,401 ; c0_50 -1,541 ; c0m_50 +1,461 ; c0m_80 +3,047 ; c2_50 -2,273 ; c2m_50 +725 ; c3_40 -3,351 ; c3_60 -2,472 ; c3_80 -1,073 ; c3m_60 +1,558
+    points pour tous -0.75 ; hausses : retraités P90 +2,990 €, P99 +6,462 € ; tous P99 +5,959 € ; plus de 1 000 € de hausse 9.6 M de foyers
+
+[Aucune aide aux enfants dans l'impôt] gain 5.64 Md€ (2.58 à 12.51 ; long terme 8.43) dont intensif 3.09 [bas -0.14, 50-90 +0.79, 90-99 +1.69, 1 % +0.76], participation 2.55 ; revenu déclaré +3.3 ; perdants > 500 € 28 %
+    déciles € -82 -285 -72 +77 -337 -252 -297 +318 +170 +748 ; 1 % +0.06 Md€ ; 10 % +3.2 Md€ ; retraités +14.3 Md€ ; actifs -14.3
+    € par foyer : seul actif -880 ; parent isolé +88 ; couple actif sans enfant -1,113 ; couple avec enfants +112 ; retraité seul +746 ; couple de retraités +1,681
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.6, seul Smic 6.4, conjoint mi-temps 1.6, conjoint Smic 6.4
+    cas-types : ret12 +0 ; ret16 +865 ; ret18 +608 ; ret20 +1,054 ; ret25 +1,317 ; ret35 +1,040 ; rc30 -328 ; rc45 +574 ; smic_mi -840 ; smic -663 ; cadre60 -3,239 ; cadre100 -5,499 ; cadre200 -13,435 ; pi_smic -663 ; pi35 -202 ; c0_50 -1,892 ; c0m_50 +1,013 ; c0m_80 +2,301 ; c2_50 -1,140 ; c2m_50 +1,762 ; c3_40 -1,366 ; c3_60 -706 ; c3_80 +475 ; c3m_60 +3,233
+    points pour tous -1.99 ; hausses : retraités P90 +2,373 €, P99 +5,599 € ; tous P99 +5,600 € ; plus de 1 000 € de hausse 8.8 M de foyers
+
+[Franchise d'activité de 0 € (barème qui maximise la participation)] gain 4.04 Md€ (1.91 à 9.20 ; long terme 7.12) dont intensif 2.74 [bas -0.15, 50-90 +0.68, 90-99 +1.43, 1 % +0.79], participation 1.30 ; revenu déclaré +3.0 ; perdants > 500 € 22 %
+    déciles € +1 +16 +201 +285 -249 -229 -430 +100 -201 +496 ; 1 % -0.01 Md€ ; 10 % +2.1 Md€ ; retraités +6.3 Md€ ; actifs -6.3
+    € par foyer : seul actif -114 ; parent isolé -86 ; couple actif sans enfant +587 ; couple avec enfants -629 ; retraité seul +312 ; couple de retraités +778
+    premier salaire (taux de prélèvement, %) : seul mi-temps 9.1, seul Smic 9.3, conjoint mi-temps 9.1, conjoint Smic 9.3
+    cas-types : ret12 +0 ; ret16 +712 ; ret18 +356 ; ret20 +696 ; ret25 +509 ; ret35 -229 ; rc30 -580 ; rc45 -652 ; smic_mi -48 ; smic -52 ; cadre60 -1,908 ; cadre100 -3,354 ; cadre200 -10,774 ; pi_smic -1,329 ; pi35 -1,341 ; c0_50 -613 ; c0m_50 +2,086 ; c0m_80 +4,082 ; c2_50 -1,399 ; c2m_50 -528 ; c3_40 -2,011 ; c3_60 -2,027 ; c3_80 -2,147 ; c3m_60 -731
+
+[Franchise d'activité de 2,000 € (barème qui maximise la participation)] gain 4.07 Md€ (1.91 à 9.30 ; long terme 6.90) dont intensif 2.57 [bas -0.20, 50-90 +0.46, 90-99 +1.60, 1 % +0.72], participation 1.50 ; revenu déclaré +3.1 ; perdants > 500 € 24 %
+    déciles € -63 -64 +141 +209 -299 -100 -220 +251 -153 +298 ; 1 % -0.05 Md€ ; 10 % +1.3 Md€ ; retraités +10.0 Md€ ; actifs -10.0
+    € par foyer : seul actif -215 ; parent isolé -179 ; couple actif sans enfant +381 ; couple avec enfants -835 ; retraité seul +512 ; couple de retraités +1,191
+    premier salaire (taux de prélèvement, %) : seul mi-temps 7.7, seul Smic 8.7, conjoint mi-temps 7.7, conjoint Smic 8.7
+    cas-types : ret12 +0 ; ret16 +770 ; ret18 +436 ; ret20 +790 ; ret25 +833 ; ret35 +532 ; rc30 -500 ; rc45 -88 ; smic_mi -196 ; smic -172 ; cadre60 -2,097 ; cadre100 -4,089 ; cadre200 -10,820 ; pi_smic -1,492 ; pi35 -1,461 ; c0_50 -780 ; c0m_50 +2,106 ; c0m_80 +3,561 ; c2_50 -1,647 ; c2m_50 -310 ; c3_40 -2,330 ; c3_60 -2,285 ; c3_80 -2,216 ; c3m_60 -494
+
+[Franchise d'activité de 4,000 € (barème qui maximise la participation)] gain 4.38 Md€ (2.02 à 9.89 ; long terme 6.97) dont intensif 2.55 [bas -0.12, 50-90 +0.41, 90-99 +1.53, 1 % +0.74], participation 1.82 ; revenu déclaré +3.1 ; perdants > 500 € 26 %
+    déciles € -83 -153 +96 +188 -327 -170 -242 +312 -83 +457 ; 1 % -0.01 Md€ ; 10 % +1.9 Md€ ; retraités +13.5 Md€ ; actifs -13.5
+    € par foyer : seul actif -313 ; parent isolé -262 ; couple actif sans enfant +201 ; couple avec enfants -1,031 ; retraité seul +697 ; couple de retraités +1,600
+    premier salaire (taux de prélèvement, %) : seul mi-temps 6.1, seul Smic 8.4, conjoint mi-temps 6.1, conjoint Smic 8.4
+    cas-types : ret12 +0 ; ret16 +840 ; ret18 +546 ; ret20 +940 ; ret25 +1,092 ; ret35 +922 ; rc30 -390 ; rc45 +309 ; smic_mi -362 ; smic -243 ; cadre60 -2,104 ; cadre100 -3,894 ; cadre200 -10,911 ; pi_smic -1,683 ; pi35 -1,531 ; c0_50 -1,057 ; c0m_50 +2,021 ; c0m_80 +3,677 ; c2_50 -1,844 ; c2m_50 -518 ; c3_40 -2,589 ; c3_60 -2,452 ; c3_80 -2,563 ; c3m_60 -670
+
+[Franchise d'activité de 6,000 € (barème qui maximise la participation)] gain 4.70 Md€ (2.16 à 10.53 ; long terme 7.27) dont intensif 2.66 [bas -0.16, 50-90 +0.55, 90-99 +1.53, 1 % +0.74], participation 2.04 ; revenu déclaré +3.1 ; perdants > 500 € 26 %
+    déciles € -83 -232 +47 +189 -278 -159 -243 +355 -46 +447 ; 1 % -0.03 Md€ ; 10 % +1.9 Md€ ; retraités +17.1 Md€ ; actifs -17.1
+    € par foyer : seul actif -404 ; parent isolé -352 ; couple actif sans enfant -13 ; couple avec enfants -1,242 ; retraité seul +888 ; couple de retraités +2,010
+    premier salaire (taux de prélèvement, %) : seul mi-temps 4.2, seul Smic 8.1, conjoint mi-temps 4.2, conjoint Smic 8.1
+    cas-types : ret12 +0 ; ret16 +922 ; ret18 +686 ; ret20 +1,146 ; ret25 +1,452 ; ret35 +1,319 ; rc30 -250 ; rc45 +816 ; smic_mi -564 ; smic -313 ; cadre60 -2,239 ; cadre100 -3,985 ; cadre200 -10,982 ; pi_smic -1,915 ; pi35 -1,598 ; c0_50 -1,167 ; c0m_50 +1,872 ; c0m_80 +3,567 ; c2_50 -2,067 ; c2m_50 -688 ; c3_40 -2,731 ; c3_60 -2,626 ; c3_80 -2,634 ; c3m_60 -834
+
+[Franchise d'activité de 7,000 € (barème qui maximise la participation)] gain 4.78 Md€ (2.20 à 10.69 ; long terme 7.30) dont intensif 2.66 [bas -0.24, 50-90 +0.63, 90-99 +1.55, 1 % +0.72], participation 2.12 ; revenu déclaré +3.0 ; perdants > 500 € 26 %
+    déciles € -83 -263 +2 +182 -239 -116 -229 +373 -37 +409 ; 1 % +0.01 Md€ ; 10 % +1.7 Md€ ; retraités +18.9 Md€ ; actifs -18.9
+    € par foyer : seul actif -448 ; parent isolé -405 ; couple actif sans enfant -129 ; couple avec enfants -1,352 ; retraité seul +986 ; couple de retraités +2,219
+    premier salaire (taux de prélèvement, %) : seul mi-temps 3.0, seul Smic 7.7, conjoint mi-temps 3.0, conjoint Smic 7.7
+    cas-types : ret12 +0 ; ret16 +947 ; ret18 +747 ; ret20 +1,259 ; ret25 +1,694 ; ret35 +1,532 ; rc30 -189 ; rc45 +1,112 ; smic_mi -693 ; smic -379 ; cadre60 -2,340 ; cadre100 -4,138 ; cadre200 -10,861 ; pi_smic -2,027 ; pi35 -1,661 ; c0_50 -1,197 ; c0m_50 +1,798 ; c0m_80 +3,429 ; c2_50 -2,250 ; c2m_50 -717 ; c3_40 -2,839 ; c3_60 -2,771 ; c3_80 -2,585 ; c3m_60 -875
+
+[haut_baisse] 14 % au premier euro imposé, 19 % à 20 k€, 30.0 % à 38 k€, 50 % à 1,500 k€
+[Le 1 % peut baisser (déciles ±500 €)] gain 5.25 Md€ (2.46 à 12.01 ; long terme 8.77) dont intensif 3.23 [bas -0.36, 50-90 +0.57, 90-99 +1.77, 1 % +1.25], participation 2.02 ; revenu déclaré +4.2 ; perdants > 500 € 26 %
+    déciles € -82 -282 +10 +272 -84 +37 -140 +494 +186 -395 ; 1 % -3.58 Md€ ; 10 % -1.7 Md€ ; retraités +21.6 Md€ ; actifs -21.6
+    € par foyer : seul actif -423 ; parent isolé -407 ; couple actif sans enfant -481 ; couple avec enfants -1,681 ; retraité seul +1,143 ; couple de retraités +2,489
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.8, conjoint mi-temps 1.9, conjoint Smic 7.8
+    cas-types : ret12 +0 ; ret16 +1,041 ; ret18 +917 ; ret20 +1,521 ; ret25 +2,059 ; ret35 +1,720 ; rc30 -19 ; rc45 +1,570 ; smic_mi -810 ; smic -359 ; cadre60 -2,259 ; cadre100 -4,145 ; cadre200 -16,149 ; pi_smic -2,027 ; pi35 -1,637 ; c0_50 -998 ; c0m_50 +1,724 ; c0m_80 +3,611 ; c2_50 -2,304 ; c2m_50 -586 ; c3_40 -2,898 ; c3_60 -2,764 ; c3_80 -2,207 ; c3m_60 -865
+
+[deciles_1000] 14 % au premier euro imposé, 17 % à 20 k€, 26.3 % à 25 k€, 50 % à 250 k€
+[Déciles à ±1 000 €, 1 % neutre] gain 4.93 Md€ (2.27 à 11.02 ; long terme 7.52) dont intensif 2.74 [bas -0.29, 50-90 +0.70, 90-99 +1.60, 1 % +0.73], participation 2.19 ; revenu déclaré +3.1 ; perdants > 500 € 26 %
+    déciles € -82 -283 -12 +198 -195 -72 -209 +395 -29 +290 ; 1 % -0.14 Md€ ; 10 % +1.2 Md€ ; retraités +20.8 Md€ ; actifs -20.8
+    € par foyer : seul actif -491 ; parent isolé -453 ; couple actif sans enfant -256 ; couple avec enfants -1,465 ; retraité seul +1,086 ; couple de retraités +2,426
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.6, conjoint mi-temps 1.9, conjoint Smic 7.6
+    cas-types : ret12 +0 ; ret16 +1,017 ; ret18 +857 ; ret20 +1,409 ; ret25 +1,913 ; ret35 +1,730 ; rc30 -79 ; rc45 +1,437 ; smic_mi -811 ; smic -418 ; cadre60 -2,449 ; cadre100 -4,340 ; cadre200 -11,194 ; pi_smic -2,027 ; pi35 -1,698 ; c0_50 -1,218 ; c0m_50 +1,716 ; c0m_80 +3,271 ; c2_50 -2,373 ; c2m_50 -757 ; c3_40 -2,917 ; c3_60 -2,869 ; c3_80 -2,550 ; c3m_60 -929
+
+[libre_1000] 14 % au premier euro imposé, 19 % à 20 k€, 27.6 % à 25 k€, 50 % à 2,000 k€
+[Déciles à ±1 000 €, 1 % libre de baisser] gain 5.47 Md€ (2.58 à 12.66 ; long terme 9.52) dont intensif 3.52 [bas -0.36, 50-90 +0.46, 90-99 +2.01, 1 % +1.40], participation 1.96 ; revenu déclaré +4.6 ; perdants > 500 € 27 %
+    déciles € -82 -282 +10 +272 -63 +118 +32 +691 +292 -959 ; 1 % -5.19 Md€ ; 10 % -4.1 Md€ ; retraités +22.4 Md€ ; actifs -22.4
+    € par foyer : seul actif -405 ; parent isolé -394 ; couple actif sans enfant -609 ; couple avec enfants -1,796 ; retraité seul +1,194 ; couple de retraités +2,547
+    premier salaire (taux de prélèvement, %) : seul mi-temps 1.9, seul Smic 7.8, conjoint mi-temps 1.9, conjoint Smic 7.8
+    cas-types : ret12 +0 ; ret16 +1,041 ; ret18 +917 ; ret20 +1,521 ; ret25 +2,196 ; ret35 +2,098 ; rc30 -19 ; rc45 +1,805 ; smic_mi -810 ; smic -359 ; cadre60 -2,092 ; cadre100 -4,798 ; cadre200 -18,986 ; pi_smic -2,027 ; pi35 -1,637 ; c0_50 -998 ; c0m_50 +2,088 ; c0m_80 +3,372 ; c2_50 -2,304 ; c2m_50 -483 ; c3_40 -2,898 ; c3_60 -2,764 ; c3_80 -2,206 ; c3m_60 -618
+
+[ATTEIGNABLE] optimum d'efficacité (architectures_ircsg.py, sans déduction d'épargne retraite) : gain 8.1 Md€ ; 10 % du haut -25.1 Md€ ; 1 % -12.9 Md€

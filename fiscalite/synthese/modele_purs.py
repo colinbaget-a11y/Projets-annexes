@@ -73,6 +73,13 @@ R_A = ZN / Z_A                                 # rapport net / brut des actifs (
 LAB_A = par_tranche((m.F_SAL * x.sal + m.F_GER * x.ger + 0.7 * m.F_AUT * x.ind) / ACT_B)  # part qui réagit
 ACTIV_A = ZN * par_tranche((ACT_N - v.F_CHO_N * x.cho) / ACT_N)   # revenus d'activité nets (sans le chômage)
 SAL_A = ZN * par_tranche((v.F_SAL_N * x.sal + v.F_GER_N * x.ger) / ACT_N)  # salaires et gérants seuls
+# Épargne retraite (option « per ») : versements déduits du revenu en 2024, cases 6NS à 6NU, 6RS à 6RU, 6QS à 6QU
+# (9,64 Md€) et 6OS, 6OT (0,94 Md€), donnees/ir_2042_cases_revenus2024.csv. Leur répartition par tranche n'est pas
+# publiée : on suppose la déduction proportionnelle aux revenus d'activité des actifs de la moitié haute de la
+# distribution (hypothèse, revue/hypotheses_ircsg.md), calée sur le total. Ajout du 16/11/2026 (DECISIONS.md).
+PER_TOTAL = 10.58e9
+_PER_BASE = ACTIV_A * (Q >= 0.5)
+DED_PER = _PER_BASE * PER_TOTAL / (W_A * _PER_BASE).sum()
 # RFR d'un foyer d'actifs : 90 % des salaires, gérants et chômage (frais professionnels), indépendants et loyers
 RFR_A = ZN * par_tranche((0.9 * (x.sal + x.ger + x.cho) + x.ind) / ACT_N)
 
@@ -154,7 +161,10 @@ def impot_adultes(tm, T, o, zs, ls, ps_, kids):
     zs : revenu net de chaque adulte ; ls : sa part couverte par la franchise ; ps_ : sa pension."""
     ab = []
     for p in ps_:
-        exo = np.clip(2 * o["Fp"] - p, 0, p) if o["Fp_degressif"] else np.minimum(o["Fp"], p)
+        if o["Fp_degressif"]:        # exonération totale jusqu'à Fp, puis réduite de Fp_pente € par euro (1 : nulle à 2·Fp)
+            exo = np.minimum(p, np.clip(o["Fp"] - o.get("Fp_pente", 1.0) * np.clip(p - o["Fp"], 0, None), 0, None))
+        else:
+            exo = np.minimum(o["Fp"], p)
         ab.append(exo + o["abat_pens"] * p)
     tax = [np.clip(z - np.minimum(o["F"], l) - a, 0, None) for z, l, a in zip(zs, ls, ab)]
     actif = [l > o["F"] for l in ls]                  # le dernier euro d'activité est-il au-delà de la franchise ?
@@ -181,16 +191,19 @@ def impot_adultes(tm, T, o, zs, ls, ps_, kids):
 
 
 def adultes(grp, parts, o, sans=None):
-    """Revenus des adultes d'un type (listes zs, ls, ps). sans = k : l'adulte k perd son revenu d'activité."""
+    """Revenus des adultes d'un type (listes zs, ls, ps). sans = k : l'adulte k perd son revenu d'activité.
+    Option o["per"] : les versements d'épargne retraite des actifs restent déductibles (DED_PER)."""
+    ded = DED_PER if (grp == "A" and o.get("per")) else 0.0 * ZN
     if grp == "A":
         lab = {"activite": ACTIV_A, "salaires": SAL_A, "tout": ZN}[o["sur"]]
         pens = 0.0 * ZN
     else:
         lab = ZN if o["sur"] == "tout" else 0.0 * ZN
         pens = ZN
-    zs, ls, ps_ = [sh * ZN for sh in parts], [sh * lab for sh in parts], [sh * pens for sh in parts]
+    zs = [sh * (ZN - ded) for sh in parts]
+    ls, ps_ = [sh * lab for sh in parts], [sh * pens for sh in parts]
     if sans is not None:
-        zs[sans] = np.clip(zs[sans] - parts[sans] * ACTIV_A, 0, None)
+        zs[sans] = np.clip(parts[sans] * (ZN - ACTIV_A), 0, None)   # sans activité, plus de versement déduit
         ls[sans] = 0.0 * ZN
     return zs, ls, ps_
 
@@ -202,7 +215,7 @@ def recette(tm, T, o):
 
 def elast(jeu="central"):
     """Élasticité du revenu brut d'un foyer d'actifs (barème du modèle × part du travail qui réagit)."""
-    a, b, c, d = v.ELAST[jeu]
+    a, b, c, d = v.ELAST.get(jeu, v.ELAST["central"])
     return np.select([Q < 0.5, Q < 0.9, Q < 0.99], [a, b, c], d) * LAB_A
 
 
@@ -234,7 +247,9 @@ SMIC = ps.SMIC
 # dixième du haut seulement ; élasticité de participation η (adultes sous 2 Smic). Sources : cours/elasticites-france.tex.
 V2 = {"bas": dict(reel=(0.02, 0.05, 0.05, 0.05), decl=(0.10, 0.15), eta=0.10),
       "central": dict(reel=(0.05, 0.10, 0.10, 0.10), decl=(0.20, 0.30), eta=0.25),
-      "haut": dict(reel=(0.10, 0.20, 0.25, 0.25), decl=(0.30, 0.45), eta=0.50)}
+      "haut": dict(reel=(0.10, 0.20, 0.25, 0.25), decl=(0.30, 0.45), eta=0.50),
+      # jeu « long terme » (revue/avis_cochrane.md) : marge intensive plus forte, participation faible
+      "long": dict(reel=(0.10, 0.20, 0.25, 0.25), decl=(0.20, 0.30), eta=0.10)}
 S_DEPL, TAU_ALT = 0.5, 0.486       # part de la réaction déclarée qui passe vers l'IS puis le PFU, et son taux
 
 
@@ -250,7 +265,13 @@ def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
     """Recette, perte sèche (quadratique, coins IR-CSG, non contributif, toutes cotisations, déplacement s = 0,5,
     marge extensive) et indicateurs de répartition, pour les foyers purs. Variation par rapport à aujourd'hui.
     Méthode v2 (clés v2_*) : réaction au taux de l'impôt fusionné (saillance), coûtée au coin total non contributif ;
-    revenu réel et revenu déclaré séparés ; marge extensive avec η du jeu."""
+    revenu réel et revenu déclaré séparés ; marge extensive avec η du jeu.
+    Options de sensibilité (sans effet par défaut ; revue/hypotheses_ircsg.md) :
+    - o["csg_vue"] : part de la CSG et de la CRDS d'aujourd'hui (9,7 % de l'assiette) qui fait réagir le revenu
+      d'activité (1 : comme l'IR, hypothèse du modèle ; 0 : pas du tout, comme les cotisations) ;
+    - o["kappa_reel"], o["kappa_vu"] : coin ajouté, après la réforme, au salaire des actifs (par euro brut) par la
+      hausse de l'impôt sur leurs futures pensions (régime permanent) ; réel (coût de chaque euro perdu) et perçu
+      (réaction)."""
     e = elast(jeu)
     eR, eD, eta2 = elast_v2(jeu)
     top = Q >= 0.9
@@ -263,6 +284,8 @@ def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
         if grp == "R":                                        # pensions : pas de réaction
             continue
         single = 1.0 if len(parts) == 1 else 0.0
+        kr, kv = o.get("kappa_reel", 0.0), o.get("kappa_vu", 0.0)
+        t0v = np.clip(TAU0 - (1 - o.get("csg_vue", 1.0)) * 0.097, 0, None)   # taux perçu aujourd'hui
         for k, (sh, mg) in enumerate(zip(parts, mgs)):
             t1, t0 = np.clip(mg * R_A, 0, 0.95), TAU0
             z = sh * Z_A
@@ -280,8 +303,8 @@ def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
                 if conv == "nc":                              # déplacement de la moitié de la réaction du haut
                     acc["nc_s50_486"] += (w * (pse + np.where(top, 0.5 * 0.486, 0.0) * dq)).sum() / 1e9
                     # v2 : la quantité réagit au taux net de l'impôt fusionné ; chaque euro perdu coûte le coin total
-                    dl = np.log(1 - t1) - np.log(1 - t0)
-                    coin_m = er + ee + pa + (t0 + t1) / 2         # coin moyen, par euro de salaire brut
+                    dl = np.log(1 - np.clip(t1 + kv, 0, 0.95)) - np.log(1 - t0v)
+                    coin_m = er + ee + pa + (t0 + t1 + kr) / 2    # coin moyen, par euro de salaire brut
                     dq_r, dq_d = eR * g * dl, eD * g * dl
                     acc["v2_reel"] += (w * -coin_m * dq_r).sum() / 1e9
                     for cle, m_ in (("q50", Q < 0.5), ("q90", (Q >= 0.5) & (Q < 0.9)), ("q99", (Q >= 0.9) & (Q < 0.99)),
@@ -292,7 +315,7 @@ def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
                     acc["v2_decl_recette"] += (w * (coin_m - S_DEPL * TAU_ALT) * dq_d).sum() / 1e9
             # marge extensive : impôt du foyer avec et sans le revenu d'activité de l'adulte k
             imp_wo = impot_adultes(tm, T, o, *adultes(grp, parts, o, sans=k), kids)[0]
-            ptr1 = np.where(g > 0, (imp - imp_wo) / np.maximum(g, 1.0), 0.0)
+            ptr1 = np.where(g > 0, (imp - imp_wo) / np.maximum(g, 1.0), 0.0) + kv
             ptr0 = PTR0[(tnom, k)]
             for conv in ("tout", "nc"):
                 if single:

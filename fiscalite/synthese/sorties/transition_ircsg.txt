@@ -1,0 +1,36 @@
+[HAUSSE ANNUELLE] convergence linéaire sur 3 / 5 / 10 ans (€ par an), centiles de la hausse finale entre foyers représentatifs (la dispersion réelle est plus forte) et cas-types :
+  Retraités, médiane                                         hausse finale  +1,253 € :    418 /    251 /    125 € par an
+  Retraités, 90e centile                                     hausse finale  +3,373 € :  1,124 /    675 /    337 € par an
+  Retraités, 99e centile                                     hausse finale  +6,959 € :  2,320 /  1,392 /    696 € par an
+  Couples de retraités, 90e centile                          hausse finale  +5,524 € :  1,841 /  1,105 /    552 € par an
+  Tous les foyers, 90e centile                               hausse finale  +2,272 € :    757 /    454 /    227 € par an
+  Tous les foyers, 99e centile                               hausse finale  +5,915 € :  1,972 /  1,183 /    592 € par an
+  Retraité seul, pension de 16 000 €                         hausse finale  +1,005 € :    335 /    201 /    100 € par an
+  Retraité seul, pension de 18 000 €                         hausse finale    +827 € :    276 /    165 /     83 € par an
+  Retraité seul, pension de 20 000 €                         hausse finale  +1,352 € :    451 /    270 /    135 € par an
+  Retraité seul, pension de 25 000 €                         hausse finale  +1,815 € :    605 /    363 /    181 € par an
+  Retraité seul, pension de 35 000 €                         hausse finale  +1,732 € :    577 /    346 /    173 € par an
+  Couple de retraités, 45 000 € de pensions (60/40)          hausse finale  +1,330 € :    443 /    266 /    133 € par an
+  Couple sans enfant à un seul revenu, 50 000 €              hausse finale  +1,731 € :    577 /    346 /    173 € par an
+  Couple sans enfant à un seul revenu, 80 000 €              hausse finale  +3,498 € :  1,166 /    700 /    350 € par an
+  foyers dont la charge monte de plus de 500 € : 10.9 M, dont 9.1 M de retraités ; plus de 1 000 € : 9.3 M
+
+[VALEUR ACTUALISÉE] Gompertz : e(65) 21.8 ans, e(75) 14.2 ans ; âge moyen du stock de retraités 76.1 ans (cohortes égales dès 62 ans, hypothèse)
+  hausse annuelle des retraités : +20.8 Md€, soit 5.1 % de leurs pensions (406 Md€)
+  taux réel 1 % : facteur moyen 12.9 (montée sur 5 ans : 10.7) → valeur actualisée 268 Md€ (223 Md€ avec la montée sur 5 ans) ; un euro par an vaut 19.2 € à 65 ans, 13.0 € à 75 ans, 7.8 € à 85 ans
+  taux réel 2 % : facteur moyen 11.7 (montée sur 5 ans : 9.6) → valeur actualisée 245 Md€ (200 Md€ avec la montée sur 5 ans) ; un euro par an vaut 17.1 € à 65 ans, 12.0 € à 75 ans, 7.4 € à 85 ans
+  taux réel 3 % : facteur moyen 10.8 (montée sur 5 ans : 8.6) → valeur actualisée 224 Md€ (180 Md€ avec la montée sur 5 ans) ; un euro par an vaut 15.3 € à 65 ans, 11.0 € à 75 ans, 7.0 € à 85 ans
+  Retraité seul, pension de 20 000 € : hausse finale +1,352 € par an ; valeur actualisée à 2 %, montée sur 5 ans : 65 ans 20,082 € ;  75 ans 13,186 € ;  85 ans 7,156 €
+  Retraité seul, pension de 25 000 € : hausse finale +1,815 € par an ; valeur actualisée à 2 %, montée sur 5 ans : 65 ans 26,943 € ;  75 ans 17,691 € ;  85 ans 9,601 €
+  Couple de retraités, 45 000 € de pensions (60/40) : hausse finale +1,330 € par an ; valeur actualisée à 2 %, montée sur 5 ans : 65 ans 19,743 € ;  75 ans 12,963 € ;  85 ans 7,035 €
+
+[GAIN PERMANENT] hausse du taux moyen d'impôt sur les pensions 5.12 points ; coin ajouté au salaire des actifs en régime permanent κ = 0.274 × 0.0512 = 1.40 point
+  θ = 0.0 : gain permanent 4.94 Md€ (2.27 à 11.02) contre 4.91 dans le modèle
+  θ = 0.5 : gain permanent 4.10 Md€ (1.89 à 9.23) contre 4.91 dans le modèle
+  θ = 1.0 : gain permanent 3.25 Md€ (1.49 à 7.39) contre 4.91 dans le modèle
+[CSG PERÇUE à 100 %] gain 4.91 Md€ (2.25 à 10.94) dont intensif +2.63, participation +2.27
+[CSG PERÇUE à 50 %] gain 1.29 Md€ (0.47 à 2.86) dont intensif -0.98, participation +2.27
+[CSG PERÇUE à 0 %] gain -2.09 Md€ (-1.20 à -4.71) dont intensif -4.37, participation +2.27
+
+[CRDS] recette de la CRDS dans le champ 7.44 Md€ (3.4 % de la recette fusionnée) : si elle disparaît en 2034, les taux sous 50 % peuvent baisser de 0.75 point
+[LONG TERME] jeu de l'avis Cochrane (intensif 0,10 à 0,25, participation 0,10) : gain 7.30 Md€ dont participation 0.91

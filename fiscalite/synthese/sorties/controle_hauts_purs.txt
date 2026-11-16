@@ -23,6 +23,17 @@ pts : variation de la charge IR + CSG + CRDS en points du revenu du barème apr�
     7 000 001 à 8 000 000      foyers      180  €     +284,345  pts   +8.8  taux_auj  34.9
     8 000 001 à 9 000 000      foyers      157  €     +343,737  pts   +9.9  taux_auj  34.2
     Plus de 9 000 000          foyers      695  €   +1,448,223  pts  +15.8  taux_auj  31.9
+[mixte / proposition_n] t1 27.4 % ; perte sèche réelle -4.9 Md€ ; 1 % du haut +0.0 Md€ ; déciles € -82 -283 -22 +161 -254 -139 -254 +389 -5 +487 ; neutralité du 1 % dans cette convention : 50 % atteint à 265 k€ (t1 27.4 %)
+    900 001 à 1 000 000        foyers    2,993  €         +710  pts   +0.1  taux_auj  35.5
+    1 000 001 à 2 000 000      foyers   11,478  €      +21,638  pts   +3.0  taux_auj  35.9
+    2 000 001 à 3 000 000      foyers    2,999  €      +74,944  pts   +6.4  taux_auj  36.4
+    3 000 001 à 4 000 000      foyers    1,338  €     +131,136  pts   +8.2  taux_auj  36.4
+    4 000 001 à 5 000 000      foyers      681  €     +162,338  pts   +8.2  taux_auj  37.3
+    5 000 001 à 6 000 000      foyers      455  €     +240,916  pts  +10.0  taux_auj  36.2
+    6 000 001 à 7 000 000      foyers      298  €     +329,136  pts  +12.2  taux_auj  34.2
+    7 000 001 à 8 000 000      foyers      180  €     +391,140  pts  +12.1  taux_auj  34.9
+    8 000 001 à 9 000 000      foyers      157  €     +449,482  pts  +13.0  taux_auj  34.2
+    Plus de 9 000 000          foyers      695  €   +1,523,414  pts  +16.6  taux_auj  31.9
 
 [haut / neutre] t1 23.8 % ; perte sèche réelle -4.0 Md€ ; 1 % du haut -2.8 Md€ ; déciles € -34 -13 +164 +122 -365 -210 -279 +219 +209 +182
     900 001 à 1 000 000        foyers    2,993  €      -32,049  pts   -8.6  taux_auj  41.0
@@ -46,6 +57,17 @@ pts : variation de la charge IR + CSG + CRDS en points du revenu du barème apr�
     8 000 001 à 9 000 000      foyers      157  €     -115,460  pts   -6.7  taux_auj  46.0
     7 000 001 à 8 000 000      foyers      180  €     -103,634  pts   -5.9  taux_auj  45.4
     Plus de 9 000 000          foyers      695  €      +41,584  pts   +1.0  taux_auj  44.0
+[haut / proposition_n] t1 28.3 % ; perte sèche réelle -4.5 Md€ ; 1 % du haut -2.8 Md€ ; déciles € -82 -283 -22 +161 -250 -123 -212 +490 +173 +151 ; neutralité du 1 % dans cette convention : 50 % atteint à 110 k€ (t1 23.6 %)
+    900 001 à 1 000 000        foyers    2,993  €      -33,767  pts   -9.1  taux_auj  41.0
+    1 000 001 à 2 000 000      foyers   11,478  €      -35,541  pts   -7.4  taux_auj  42.4
+    2 000 001 à 3 000 000      foyers    2,999  €      -41,690  pts   -5.8  taux_auj  45.0
+    3 000 001 à 4 000 000      foyers    1,338  €      -40,340  pts   -4.2  taux_auj  45.9
+    4 000 001 à 5 000 000      foyers      681  €      -68,647  pts   -6.2  taux_auj  48.9
+    5 000 001 à 6 000 000      foyers      455  €      -44,901  pts   -3.4  taux_auj  47.1
+    6 000 001 à 7 000 000      foyers      298  €      -25,005  pts   -1.8  taux_auj  45.7
+    8 000 001 à 9 000 000      foyers      157  €      -17,234  pts   -1.0  taux_auj  46.0
+    7 000 001 à 8 000 000      foyers      180  €       -4,761  pts   -0.3  taux_auj  45.4
+    Plus de 9 000 000          foyers      695  €     +140,112  pts   +3.5  taux_auj  44.0
 
 [prorata / neutre] t1 22.1 % ; perte sèche réelle -4.9 Md€ ; 1 % du haut +4.3 Md€ ; déciles € -34 -13 +164 +121 -376 -264 -394 -11 -226 +1014
     900 001 à 1 000 000        foyers    2,993  €      +44,172  pts   +6.4  taux_auj  32.6
@@ -69,4 +91,15 @@ pts : variation de la charge IR + CSG + CRDS en points du revenu du barème apr�
     7 000 001 à 8 000 000      foyers      180  €     +680,878  pts  +14.4  taux_auj  31.0
     8 000 001 à 9 000 000      foyers      157  €     +812,580  pts  +15.6  taux_auj  30.3
     Plus de 9 000 000          foyers      695  €   +2,856,844  pts  +19.9  taux_auj  28.6
+[prorata / proposition_n] t1 26.3 % ; perte sèche réelle -5.3 Md€ ; 1 % du haut +3.7 Md€ ; déciles € -82 -283 -22 +160 -258 -157 -303 +275 -195 +856 ; neutralité du 1 % dans cette convention : 50 % atteint à 858 k€ (t1 28.7 %)
+    900 001 à 1 000 000        foyers    2,993  €      +38,278  pts   +5.6  taux_auj  32.6
+    1 000 001 à 2 000 000      foyers   11,478  €      +81,005  pts   +8.5  taux_auj  32.6
+    2 000 001 à 3 000 000      foyers    2,999  €     +192,143  pts  +11.9  taux_auj  32.6
+    3 000 001 à 4 000 000      foyers    1,338  €     +302,922  pts  +13.4  taux_auj  32.4
+    4 000 001 à 5 000 000      foyers      681  €     +393,927  pts  +13.8  taux_auj  32.8
+    5 000 001 à 6 000 000      foyers      455  €     +527,134  pts  +15.1  taux_auj  32.0
+    6 000 001 à 7 000 000      foyers      298  €     +683,653  pts  +17.0  taux_auj  30.4
+    7 000 001 à 8 000 000      foyers      180  €     +786,958  pts  +16.7  taux_auj  31.0
+    8 000 001 à 9 000 000      foyers      157  €     +916,132  pts  +17.6  taux_auj  30.3
+    Plus de 9 000 000          foyers      695  €   +2,906,373  pts  +20.3  taux_auj  28.6
 
