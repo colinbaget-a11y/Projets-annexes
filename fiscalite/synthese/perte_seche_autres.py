@@ -50,11 +50,18 @@ B_PFU = 79.6                # assiette du PFU, Md€
 
 def pfu(t1, e, pi, mu1, t0=0.314, cout_net=None):
     """Baisse du taux : réaction ΔQ = e·B·Δln(1−t) ; seule la part pi qui échappe définitivement à l'impôt est une
-    perte sèche évitée ; la recette perdue doit être levée ailleurs au prix mu1."""
+    perte sèche évitée ; la recette perdue doit être levée ailleurs au prix mu1.
+
+    Correction du 16/11/2026 (revue/hypotheses_pfu.md) : la recette perdue dépend aussi de pi. La part 1 − pi de la
+    réaction n'est qu'un calendrier : ce bénéfice aurait été distribué plus tard et imposé ; avec un taux permanent,
+    la date de la distribution ne change pas la valeur actualisée de l'impôt. Seule la part pi rapporte durablement.
+    Recette perdue en régime permanent = (t0 − t1)·B − pi·t1·ΔQ ; celle des premières années, où toute la réaction
+    rapporte (rattrapage compris), vaut t0·B − t1·(B + ΔQ) et est renvoyée à part."""
     dq = e * B_PFU * np.log((1 - t1) / (1 - t0))
     tbar = (t0 + t1) / 2
-    perte_recette = (t0 * B_PFU - t1 * (B_PFU + dq)) if cout_net is None else cout_net
-    return -pi * tbar * dq + mu1 * perte_recette, perte_recette, dq
+    premieres = t0 * B_PFU - t1 * (B_PFU + dq)
+    perte_recette = ((t0 - t1) * B_PFU - pi * t1 * dq) if cout_net is None else cout_net
+    return -pi * tbar * dq + mu1 * perte_recette, perte_recette, dq, premieres
 
 
 if __name__ == "__main__":
@@ -71,16 +78,29 @@ if __name__ == "__main__":
     for nom, m0, m1 in (("100 %, régime actuel linéaire", 0.051, 0.0), ("100 %, dégressif", 0.035, 0.0),
                         ("50 %, linéaire", 0.051, 0.025), ("IS à 28 %, linéaire", 0.051, 0.060)):
         p(f"  {nom} : ε = 0,5 / 1 / 1,6 -> " + " / ".join(f"{capital(m0, m1, e):+.3f}" for e in (0.5, 1, 1.6)) + " Md€")
+    # IS à 28 % dans le paquet : les équipements étant déduits tout de suite, leur coin reste nul quel que soit le taux ;
+    # la hausse frappe le capital non éligible. Bâtiments non résidentiels imposables : 0,75 × 399,9 Md€ (Insee 8.212,
+    # fin 2025), amortis sur 25 ans (z = 0,577 à 5 %), δ de 3,1 % (OCDE) à 12,3 % (CCF / stock, Insee). Ajout du 16/11/2026
+    # (revue/hypotheses_is.md) : la ligne « IS à 28 %, linéaire » ci-dessus suppose des équipements non déduits.
+    m_b = lambda t: t * (1 - 0.577) / (1 - t)
+    for d_b in (0.031, 0.123):
+        p(f"  IS à 28 % avec déduction des équipements, bâtiments non résidentiels (δ = {d_b}) : ε = 0,5 / 1 / 1,6 -> "
+          + " / ".join(f"{(0.05 + d_b) * 0.75 * 399.9 * e * (m_b(0.28) ** 2 - m_b(0.25) ** 2) / 2:+.3f}"
+                       for e in (0.5, 1, 1.6)) + " Md€")
     for kappa in (0.0, 0.5, 1.0):
-        # IS à 28 % : base déclarée perdue 1 à 1,5 % par point × 3 points × 322 Md€ (2027)
-        db = np.array([0.03, 0.045]) * 322.0
+        # IS à 28 %, taux réduit maintenu : base déclarée perdue 1 à 1,5 % par point × 3 points × base au taux normal
+        # en 2027, 251 Md€ (2022) × 1,061 (bénéfice fiscal, is/simulation_is.py) = 266 Md€. Correction du 16/11/2026 :
+        # 322 Md€ comptait la base au taux réduit, que la hausse ne touche pas, et une croissance de 3 % par an.
+        db = np.array([0.03, 0.045]) * 251.0 * 1.061
         p(f"  IS à 28 %, coût réel du transfert de bénéfices κ = {kappa} : +{kappa*0.265*db[0]:.1f} à +{kappa*0.265*db[1]:.1f} Md€")
     p("")
-    p("[PFU] baisse à 25 % ; π = part de la réaction qui échappe définitivement à l'impôt")
+    p("[PFU] baisse à 25 % ; π = part de la réaction qui échappe définitivement à l'impôt ; recette perdue en régime")
+    p("  permanent (seule la part π de la réaction rapporte durablement) ; entre crochets, celle des premières années")
     for e in (0.65, 0.77, 1.0):
         for pi in (0.0, 0.5, 1.0):
             r = [pfu(0.25, e, pi, m) for m in MU1]
             p(f"  e = {e} ; π = {pi} : ΔPS = " + " / ".join(f"{u[0]:+.2f}" for u in r)
-              + f" Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue {r[0][1]:.1f} Md€ ; réaction {r[0][2]:+.1f} Md€")
+              + f" Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue {r[0][1]:.1f} Md€ [{r[0][3]:.1f}] ;"
+              + f" réaction {r[0][2]:+.1f} Md€")
     (OUT / "perte_seche_autres.txt").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))

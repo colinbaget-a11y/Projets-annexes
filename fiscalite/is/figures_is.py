@@ -61,8 +61,9 @@ fin(fig, "is_01_cout_deduction",
     "nominale de 3 % par an, 75 % de cet investissement fait par des sociétés imposables (hypothèse). Bande de "
     "chaque coût : régime actuel supposé dégressif (bas) ou linéaire sur sept ans (haut). Sans investissement "
     "supplémentaire suscité par la mesure. Ressources, en euros de 2027 puis en hausse de 3 % par an : "
-    "élargissement de l'assiette, 3,5 à 4,9 Md€ (fin du taux réduit de 15 %, CIR apprécié au niveau du groupe, "
-    "fin des exonérations zonées hors outre-mer, avantage de la boîte à brevets réduit de moitié) ; taux à "
-    "28 %, 5,1 à 8,7 Md€ selon la réaction des bénéfices déclarés (0 à 1,5 % de base en moins par point de "
-    "taux). Le taux réduit et la hausse de taux sont chiffrés sur les bénéfices de 2022, portés en 2027 par "
-    "la croissance nominale.")
+    "élargissement de l'assiette, 3,5 à 4,6 Md€ (fin du taux réduit de 15 %, CIR apprécié au niveau du groupe, "
+    "fin des exonérations zonées d'IR et d'IS hors outre-mer, avantage de la boîte à brevets réduit de moitié) ; "
+    "taux à 28 %, 4,6 à 8,0 Md€ selon la réaction des bénéfices déclarés (0 à 1,5 % de base en moins par point "
+    "de taux). Le taux réduit et la hausse de taux sont chiffrés sur les bénéfices de 2022, portés en 2027 par "
+    "la croissance du bénéfice fiscal (+1 %, 0 % et +1 % de 2023 à 2025 selon les Voies et moyens ; +2 % par an "
+    "en 2026 et 2027, hypothèse).")

@@ -16,7 +16,10 @@ réduit est la pièce discutable (Bernini et Treibich, 2016). Revue : `../revue/
 - `figures_is.py` : figure `is_01_cout_deduction` (lancer depuis `fiscalite/`, puis avec `FIG_NU=1`).
 - Docx : `cd ../ir_csg && python3 tex2docx.py ../is/note-is`.
 
-Chiffres clés (part imposable 75 %) : coût an 1 de la déduction totale 14 à 15,5 Md€ ; coût actualisé par
-millésime 1,8 à 2,6 Md€ (0,7 à 1 point de taux) ; IS à 28 % : 4,4 à 7,5 Md€ ; assiette : 3,5 à 4,4 Md€ ;
-calendrier 50 % puis 100 % : dette (intérêts à 3,25 %) au plus 3 à 33 Md€, remboursée en 5 à 25 ans ; gain de PIB
-de long terme 0,04 à 0,2 % (0,1 % au centre) avec la déduction totale.
+Chiffres clés (euros de 2027, part imposable 75 % ; corrigés le 16/11/2026, registre des hypothèses et des
+corrections : `../revue/hypotheses_is.md`) : coût an 1 de la déduction totale 14 à 15,5 Md€, coût permanent dès
+l'an 8 de 1,3 à 2,0 Md€ (euros de 2034) ; coût actualisé par millésime 1,7 à 2,6 Md€ à 5 % (0,6 à 0,9 point de
+taux ; un point vaut 2,95 Md€ une fois le taux réduit supprimé) ; IS à 28 % : 4,6 à 8,0 Md€ ; assiette : 3,5 à
+4,6 Md€ ; calendrier 50 % puis 100 % : dette (intérêts à 3,25 %) au plus 3 à 32 Md€, remboursée en 4 à 25 ans
+(100 % dès 2027 : 18 à 46 Md€, 10 à 28 ans) ; baisse finale du taux de 0,6 à 1,2 point ; gain de PIB de long terme
+0,04 à 0,2 % (0,1 % au centre) avec la déduction totale.

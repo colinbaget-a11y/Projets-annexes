@@ -30,15 +30,22 @@ H = 40                   # horizon de simulation (années)
 
 BASE_NORMALE = 251.0     # bénéfice imposé aux taux normaux, 2022 (DGFiP Statistiques n° 21), Md€
 BASE_REDUITE = 27.0      # bénéfice imposé à 15 %, 2022, Md€
-A22 = (1 + G) ** (AN1 - 2022)   # montants de 2022 portés en 2027 (croissance nominale)
-A25 = (1 + G) ** (AN1 - 2025)   # montants de 2025 portés en 2027
+# Croissance du bénéfice fiscal (Évaluation des voies et moyens, tome I, PLF 2025 et PLF 2026) : +1 % en 2023,
+# 0 % en 2024, +1 % en 2025 ; +2 % par an en 2026 et 2027 (hypothèse : le PLF 2026 prévoyait +2,5 % pour 2026, prévision
+# révisée à la baisse par le PLF 2027, dont le tome I n'est pas en ligne). Correction du 16/11/2026
+# (revue/hypotheses_is.md) : les bénéfices de 2022 étaient portés en 2027 à 3 % par an (x 1,159), ce que démentent les
+# chiffres officiels ; l'IS brut implicite (77 Md€) était incompatible avec la recette nette prévue pour 2027 (58,5 Md€).
+BFI = {2023: 0.01, 2024: 0.00, 2025: 0.01, 2026: 0.02, 2027: 0.02}
+A22 = float(np.prod([1 + BFI[a] for a in range(2023, AN1 + 1)]))   # montants de 2022 portés en 2027 (x 1,061)
+A25 = float(np.prod([1 + BFI[a] for a in range(2026, AN1 + 1)]))   # montants de 2025 portés en 2027 (x 1,040)
 # Élargissement de l'assiette (Md€ par an)
 ELARG = {"Fin du taux réduit de 15 % (statique 2022, porté en 2027)": 2.7 * A22,
          "CIR apprécié au niveau du groupe (CPO, 2025)": 0.57 * A25,
-         "Fin des exonérations zonées hors outre-mer (CPO, 2025)": 0.52 * A25,
+         "Fin des exonérations zonées hors outre-mer, IR et IS (CPO, 2025)": 0.52 * A25,
          "Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable)": 0.6 * A25}
 # Version prudente : taux réduit au chiffre officiel de 2019 (2,2 Md€ pour un écart de 13 points, soit
-# 1,7 Md€ pour 10 points, porté en 2027) et brevets à 0,2 (fuite de la base)
+# 1,7 Md€ pour 10 points), porté en 2027 à 3 % par an (2,15 Md€, soit 75 % du rendement statique corrigé : marge pour
+# les réactions non chiffrées, passage à l'IR ou rémunération en salaire), et brevets à 0,2 (fuite de la base)
 ELARG_PRUDENT = 1.7 * (1 + G) ** (AN1 - 2019) + (0.57 + 0.52 + 0.2) * A25
 
 
@@ -47,16 +54,19 @@ def plan(regime):
     if regime == "lineaire":
         d = [0.5 / DUREE] + [1 / DUREE] * (DUREE - 1) + [0.5 / DUREE]
     elif regime == "degressif":
+        # BOI-BIC-AMT-20-20-30, § 260 : l'exercice d'acquisition compte pour une année entière dans le calcul des
+        # années restant à courir ; le plan s'achève au 7e exercice (correction du 16/11/2026, l'ancien code
+        # l'étalait sur 8 exercices).
         taux = 2.25 / DUREE
         reste, d = 1.0, []
-        for k in range(DUREE + 1):
-            ann_rest = DUREE - k + 0.5          # années restantes, demi-année comprise
-            lin = reste / ann_rest if ann_rest > 0 else reste
-            dk = (0.5 if k == 0 else 1.0) * max(taux * reste, lin)
-            dk = min(dk, reste)
+        for k in range(DUREE):
+            ann_rest = DUREE - k
+            deg = taux * reste * (0.5 if k == 0 else 1.0)
+            dk = deg if k == 0 else max(deg, reste / ann_rest)
+            dk = reste if k == DUREE - 1 else min(dk, reste)
             d.append(dk)
             reste -= dk
-        d[-1] += reste
+        d.append(0.0)
     else:
         raise ValueError(regime)
     return np.array(d)
@@ -108,7 +118,7 @@ def petite_societe(benefice, invest):
 
 
 R_ETAT = 0.0325          # taux d'emprunt de l'État (hypothèse, 3 à 3,5 %)
-PIB_2027 = 3100.0        # PIB nominal 2027, Md€ (ordre de grandeur)
+PIB_2027 = 2991.0 * (1 + G) ** 2   # PIB nominal 2027, Md€ (Insee 2025 : 2 991 Md€, porté à 3 % par an)
 NICHES = ((0.57 + 0.52 + 0.2) * A25, (0.57 + 0.52 + 0.6) * A25)   # CIR groupe, zones, brevets (bas, haut), 2027
 REDUIT = (1.7 * (1 + G) ** (AN1 - 2019), 2.7 * A22)                  # fin du taux réduit (bas, haut), 2027
 POINT = (BASE_NORMALE + BASE_REDUITE) * A22 / 100                    # un point de taux normal en 2027, taux réduit supprimé
@@ -212,8 +222,8 @@ if __name__ == "__main__":
           f"avance de trésorerie la 1re année {TAU*i*(1-plan('lineaire')[0]):>6,.0f}".replace(",", " "))
     perte, _ = petite_societe(42_500, 0)
     p(f"  investissement annuel qui compense la perte maximale : {perte/(TAU*(1-zl)):,.0f} €".replace(",", " "))
-    p(f"  taux cumulé IS + PFU sur un bénéfice distribué de 42 500 € : {100*(0.15+0.85*0.314):.1f} % -> "
-      f"{100*(0.25+0.75*0.314):.1f} %")
+    p(f"  taux cumulé IS + PFU sur un bénéfice distribué de 42 500 € : {100*(0.15+0.85*0.314):.2f} % -> "
+      f"{100*(0.25+0.75*0.314):.2f} %")
 
     p("")
     p(f"[VRAI_ETAT] Coût par millésime actualisé au taux de l'État ({R_ETAT:.2%}), déduction totale : "
@@ -244,7 +254,7 @@ if __name__ == "__main__":
         p(f"[PME50] déduction de 50 % : avance la 1re année pour {i:,} € d'équipements {av:,.0f} € ;".replace(",", " ")
           + f" investissement annuel qui compense la perte maximale {perte/(TAU*(z(plan_bonus('lineaire', .5))-z(plan('lineaire')))):,.0f} €".replace(",", " "))
     # gain de PIB de long terme (ordre de grandeur)
-    K, DEP, PIB25 = 541.0, 0.14, 2950.0      # stock éligible fin 2025 (Insee 8.212, lu par la revue), dépréciation
+    K, DEP, PIB25 = 541.0, 0.14, 2991.0      # stock éligible fin 2025 (Insee 8.212 : 512,1 + 28,8), dépréciation ; PIB Insee
     sk = (0.05 + DEP) * K / PIB25
     for nom, dc in (("100 %", (0.034, 0.048)), ("50 %", (0.017, 0.024))):
         lo = sk * 0.5 * dc[0] * 0.75

@@ -8,9 +8,11 @@ Alsace-Moselle (pas de DVF). Unité : la commune, avec deux types de logements (
 Hypothèses (toutes réglables en tête de fichier) :
 - valeur d'un logement = prix médian au m² des ventes 2023-2024 (commune, sinon intercommunalité, sinon
   département) × surface médiane des logements vendus du même type ;
-- part du terrain = 1 − coût de reconstruction du bâti / prix au m², bornée entre 10 et 90 % ; le coût de
-  reconstruction est calé pour que la part du terrain de l'ensemble égale celle des comptes de patrimoine des
-  ménages (Insee, 2024 : 3 993 Md€ de terrains pour 4 807 Md€ de logements) ;
+- part du terrain, bornée entre 10 et 90 % : maisons, prix au m² des terrains à bâtir (commune, sinon département
+  ajusté par l'écart de prix des maisons) × parcelle médiane plafonnée, rapporté à la valeur ; appartements,
+  1 − coût de reconstruction du bâti / prix au m², le coût étant calé pour que la part du terrain de l'ensemble
+  égale celle des comptes de patrimoine des ménages (3 993 Md€ de terrains pour 4 807 Md€ de logements ; Insee
+  Première n° 2081 publie 4 043 Md€ de terrains bâtis, écart de 0,3 point non expliqué) ;
 - taxe foncière actuelle d'un logement = (taxe foncière / valeur des logements de la commune, Insee IA 91, 2017)
   × valeur 2024 × facteur national calé sur le total ;
 - droits de mutation = taux × valeur des ventes de logements anciens de la commune (moyenne annuelle 2023-2024).
@@ -212,8 +214,16 @@ def cas_types(scen, p):
         for nom, (tf1, d1) in scen.items():
             dtf = tf1[i] - L.tf0[i]
             eco = dm * (1 - d1[i] / L.d0[i]) if L.d0[i] > 0 else 0
-            txt.append(f"{nom} TF {tf1[i]:,.0f} € ({dtf:+,.0f}), DMTO à l'achat −{eco:,.0f} €"
-                       + (f", amorti en {eco/dtf:.0f} ans" if dtf > 0 else ""))
+            # durée au bout de laquelle la hausse de TF, actualisée à R_ACT, égale l'économie de droits ; « jamais »
+            # si la rente perpétuelle dtf / R_ACT reste inférieure à l'économie (revue/hypotheses_foncier.md)
+            if dtf <= 0:
+                rattrape = ""
+            elif R_ACT * eco >= dtf:
+                rattrape = f", jamais rattrapé à {100*R_ACT:.0f} % ({eco/dtf:.0f} ans sans actualisation)"
+            else:
+                rattrape = (f", rattrapé en {-np.log(1 - R_ACT * eco / dtf) / np.log(1 + R_ACT):.0f} ans à"
+                            f" {100*R_ACT:.0f} % ({eco/dtf:.0f} ans sans actualisation)")
+            txt.append(f"{nom} TF {tf1[i]:,.0f} € ({dtf:+,.0f}), DMTO à l'achat −{eco:,.0f} €" + rattrape)
         p(f"  {lab} : valeur {L.v[i]:,.0f} €, terrain {100*L.lam[i]:.0f} %, TF {L.tf0[i]:,.0f} €, DMTO à l'achat {dm:,.0f} € | "
           + " | ".join(txt))
 
@@ -333,6 +343,16 @@ if __name__ == "__main__":
     bati_ap = (L.n * tc4 * L.v * (1 - L.lam)).sum() / 1e9
     p(f"[CONTROLE] part de la TF portant sur le bâti (TF actuelle répartie selon la valeur) : {bati_av:.1f} Md€ ;"
       f" après la proposition : {bati_ap:.1f} Md€")
+    # impôt sur le bâti dans les autres variantes (pour la perte sèche des arbitrages : revue/hypotheses_foncier.md)
+    bat = {"R50": bati_av * (1 + 0.5 * D0 / TF0)}
+    for k in (2, 4):
+        bk = L.v * (L.lam * k + (1 - L.lam))
+        gk = L.assign(b=L.n * bk, t0=L.n * L.tf0)
+        tck = L.codgeo.map(gk.groupby("codgeo").t0.sum() / gk.groupby("codgeo").b.sum())
+        bat[f"commune {k}x"] = (L.n * tck * L.v * (1 - L.lam)).sum() / 1e9
+        bat[f"national {k}x"] = TAUX[k][1] * (L.n * L.v * (1 - L.lam)).sum() / 1e9
+    p("[CONTROLE] impôt sur le bâti après réforme (Md€) : taxe actuelle relevée de 24 % " + f"{bat['R50']:.1f} ; "
+      + " ; ".join(f"{k_} {v_:.1f}" for k_, v_ in bat.items() if k_ != "R50") + " ; sol seul 0,0")
     dtf = scen["N4"][0] - L.tf0
     paris = (L.codgeo == "75056") & (L.type == "a")
     p(f"[CONTROLE] Paris, appartement médian : TF {float(L.tf0[paris].iloc[0]):,.0f} € -> "
