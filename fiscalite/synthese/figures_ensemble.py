@@ -98,9 +98,8 @@ def n02():
     axes_propres(a1)
     a1.legend(frameon=False, fontsize=7.6, ncol=2, loc="lower right", handlelength=1.2, columnspacing=0.8)
     a1.set_ylim(-19, 9.5)
-    for cle, nom, col, ls in (("dette", "fin de la CEHR (central)", PROP, "-"),
-                              ("dette_v2", "et barème du haut adouci", VAR, "--"),
-                              ("dette_sans", "sans compensation du haut", SEC, "-")):
+    for cle, nom, col, ls in (("dette", "proposition (avec fin de la CEHR)", PROP, "-"),
+                              ("dette_sans", "sans fin de la CEHR", SEC, "-")):
         v = [t[cle] for t in T]
         a2.plot(ans, v, color=col, lw=2.1, ls=ls, label=nom, zorder=3)
         a2.text(ans[-1] + 0.25, v[-1], _fr(v[-1], 0), va="center", fontsize=8.5, color=ENCRE)
