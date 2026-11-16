@@ -14,7 +14,7 @@ CAS = [("Bénéfice distribué, PFU (31,4 %)", 49.1, "#003399"),
        ("Distribué, foyer à la CEHR (35,4 %)", 52.1, "#003399"),
        ("Distribué, foyer à la CDHR (38,6 %)", 54.5, "#003399"),
        ("Variante PFU à 25 %", 44.4, "#c79100"),
-       ("Bénéfice remonté dans une holding et conservé", 26.7, "#993333"),
+       ("Bénéfice remonté dans une holding et conservé", 26.8, "#993333"),
        ("Pour comparaison : salaire, taux marginal supérieur", 55.4, "#6b6b6b")]
 
 fig, ax = plt.subplots(figsize=(8.6, 3.4))
@@ -35,4 +35,5 @@ fin(fig, "pfu_01_taux_cumule",
     "hauts revenus (4 %) ou porté au plancher de 20 % de la contribution différentielle. Holding : dividende "
     "exonéré à 95 % (régime mère-fille), soit 1,25 % d'impôt. Salaire : impôt sur le revenu à 45 % et CEHR à 4 %, "
     "plus CSG et CRDS (9,7 %, dont 6,8 points déductibles), hors cotisations sociales. Entreprises de plus de "
-    "3 Md€ de chiffre d'affaires (contribution exceptionnelle, environ 450 entreprises) : 56 à 59 %.")
+    "3 Md€ de chiffre d'affaires (taux le plus élevé de la contribution exceptionnelle, dont les quelque 450 "
+    "redevables comprennent aussi des groupes de 1 à 3 Md€) : 56 à 61 % selon la situation de l'actionnaire.")
