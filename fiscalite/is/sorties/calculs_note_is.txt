@@ -139,7 +139,7 @@
 [CAS] PME de services : bénéfice 40 000 € ; achats 10 000 €/an ; IS actuel 6 000 € ; fin du taux réduit +4 000 ; valeur de la déduction −382 ; net 3 618 € (+60.3 % de l'IS) ; trésorerie 2027 1 679 €
 [CAS] Société qui n'investit pas : bénéfice 42 500 € ; achats 0 €/an ; IS actuel 6 375 € ; fin du taux réduit +4 250 ; valeur de la déduction −0 ; net 4 250 € (+66.7 % de l'IS) ; trésorerie 2027 4 250 €
 [CAS] Grand groupe : bénéfice 500 000 000 € ; achats 300 000 000 €/an ; IS actuel 129 099 821 € ; fin du taux réduit +0 ; valeur de la déduction −11 453 221 ; net −11 453 221 € (-8.9 % de l'IS) ; trésorerie 2027 −34 937 500 € ; IS 2026 avec contribution exceptionnelle 180,6 M€, dont contribution 51,5 M€ (29 % de l'impôt 2026)
-[CAS] grand groupe : baisse finale de 0,6 à 1,2 point → 3,0 à 6,0 M€ par an de moins, après extinction de la dette ; fin de la contribution exceptionnelle : 51,5 M€ de moins dès 2027 (29 % de l'impôt 2026)
+[CAS] grand groupe : baisse finale de 0,6 à 1,3 point → 3,0 à 6,5 M€ par an de moins, après extinction de la dette ; fin de la contribution exceptionnelle : 51,5 M€ de moins dès 2027 (29 % de l'impôt 2026)
 [SEUIL r=5%] achats annuels qui compensent la perte maximale de 4 250 € : 100 % linéaire 111 322 € ; dégressif 164 436 € ; 50 % linéaire 222 645 €
 [SEUIL r=8%] achats annuels qui compensent la perte maximale de 4 250 € : 100 % linéaire 75 061 € ; dégressif 109 593 € ; 50 % linéaire 150 122 €
 [SEUIL r=10%] achats annuels qui compensent la perte maximale de 4 250 € : 100 % linéaire 63 024 € ; dégressif 91 348 € ; 50 % linéaire 126 049 €

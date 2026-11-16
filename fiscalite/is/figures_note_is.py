@@ -239,7 +239,7 @@ ax.set_ylabel("Md€ courants par an")
 axes_propres(ax)
 taille_ticks(ax)
 fin(fig, "is_n06_calendriers",
-    "Source : Insee, comptes nationaux 2025 (tableau 8.212) ; DGFiP Statistiques n° 21 ; CPO (2025) ; " + SRC_SIM + ".",
+    "Source : Insee, comptes nationaux 2025 (tableau 8.212) ; DGFiP Statistiques n° 51 (bénéfices de 2025) ; CPO (2025) ; " + SRC_SIM + ".",
     "Note : coût annuel pour l'État, hors intérêts, d'une déduction immédiate des machines, équipements et matériels "
     "informatiques neufs des sociétés non financières (84 Md€ en 2025, hors matériels de transport), en hausse de 3 % "
     "par an ; 75 % de cet investissement fait par des sociétés imposables (hypothèse) ; régime actuel supposé pour "

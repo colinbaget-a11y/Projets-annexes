@@ -6,8 +6,8 @@ Partie « Revenus du capital : garder le taux, fermer la sortie sans impôt » d
 `../synthese/parties/pfu.tex` (corps, six temps de `../synthese/CHARTE_NOTE.md`) et
 `../synthese/parties/annexe_pfu.tex` (calibrage, variantes, hypothèses fortes et chiffres non vérifiés).
 
-Position : garder le PFU à 31,4 % (stabilité ; une baisse à 25 % coûte 3,3 à 5,1 Md€, une hausse à 33 %
-rapporte 0,7 à 1,3 Md€) ; majoration de 3-4 points à la place de la CEHR sur le capital ; fermer l'effacement de la
+Position : garder le PFU à 31,4 % (stabilité ; sur les revenus de 2025, une baisse à 25 % coûte 2,8 à 4,3 Md€, une
+hausse à 33 % rapporte 0,5 à 1,1 Md€ ; 3,3 à 5,1 et 0,7 à 1,3 sur les revenus de 2024) ; majoration de 3-4 points à la place de la CEHR sur le capital ; fermer l'effacement de la
 plus-value à la donation et au décès (le bénéficiaire reprend le prix d'acquisition ; report d'apport-cession
 transmis sans effacement ; décision 3 de `../synthese/DECISIONS.md`). Arbitrages : taux, majoration, alignement des
 prélèvements sociaux, trois traitements du report, intérêt sur l'impôt différé.
@@ -22,6 +22,12 @@ prélèvements sociaux, trois traitements du report, intérêt sur l'impôt diff
   2026), `patrimoine_actions_menages.csv` (Insee 8.210 ; Banque de France, Stat Info épargne des ménages 2025T4),
   `tf_taux_integres_2025.csv` (Tax Foundation, taux intégrés 2025), `pfu_chiffres.csv` (recherche de novembre 2026).
 - `notes/pfu_recherche.md` : droit 2026, évaluations, holdings, statut de chaque source.
+
+Base 2025 (recalage du 17/11/2026) : assiette du PFU des revenus de 2025 estimée à 67,0 Md€ (cases 2042 de 2024
+évoluées comme les revenus déclarés de 2025, DGFiP Statistiques n° 53) ; IR au PFU 8,4 Md€ (revenus 2025, 10,2 en 2024) ;
+prélèvements sociaux sur le capital encaissés en 2025 36,2 Md€ (DGFiP n° 43) ; CEHR 1,4 Md€ (revenus 2025 ; 1,9 en 2024) ;
+CDHR 0,62 Md€ (revenus 2025 ; acompte encaissé en 2025 0,37) ; impôt personnel du 1 % sur ses revenus du capital
+≈ 16 Md€ (21 sur les revenus de 2024).
 
 Chiffres clés (centre, fourchette) : impôt effacé à la transmission 7,5 Md€ par an (3,7 à 14,7), dont 1,7 pour les
 reports ; recette de la reprise du prix d'acquisition 1,9 Md€ l'an 1, 3,6 l'an 10 (1,0 à 9,4), 5,8 l'an 30 ; valeur

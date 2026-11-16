@@ -109,3 +109,11 @@ CRDS sur produits de placement,0.58,Md EUR,2024,"CADES, rapport financier 2024 (
 Assiette implicite des prélèvements sociaux sur le capital,190,Md EUR,2024,"Calcul (CRDS / 0,5 %)",CALCUL
 "Prélèvements sociaux sur le capital à 17,2 %",33,Md EUR,2024,"Calcul (190 x 17,2 %)",CALCUL
 "Prélèvement de solidarité (7,5 %, budget de l'État)",15.3,Md EUR,2027,"PLF 2027, état A, ligne 1427",TEXTE LU
+"Revenus de capitaux mobiliers déclarés (2024 ; 2025)","69,9 ; 60,9",Md€,revenus 2024 et 2025,"DGFiP Statistiques n° 53 (nov. 2026), tableau 1 ; données provisoires",TEXTE LU
+"Revenus divers, dont plus-values (2024 ; 2025)","23,7 ; 17,5",Md€,revenus 2024 et 2025,"DGFiP Statistiques n° 53, tableau 1",TEXTE LU
+"Impôt hors barème (part d'IR du PFU pour l'essentiel), revenus 2025","8,43",Md€,revenus 2025,"DGFiP Statistiques n° 53, tableau 2 (-17,7 % ; 10,32 sur les revenus 2024 selon le n° 41)",TEXTE LU
+"Impôt hors barème du dernier centième de RFR par part (2024 ; 2025)","8,08 ; 6,03",Md€,revenus 2024 et 2025,"DGFiP Statistiques n° 41 et n° 53, tableau 2",TEXTE LU
+"CEHR (revenus 2024 ; 2025)","1,98 ; 1,39",Md€,revenus 2024 et 2025,"DGFiP Statistiques n° 41 et n° 53",TEXTE LU
+"CDHR, revenus 2025 (environ 14 000 foyers)","0,62",Md€,revenus 2025,"DGFiP Statistiques n° 53 ; provisoire",TEXTE LU
+"CDHR, acompte encaissé en 2025 (7 203 foyers)","0,369",Md€,2025,"DGFiP Statistiques n° 43 ; Insee 3.217 ; rapport AN n° 2847",TEXTE LU
+"Prélèvements sociaux sur les revenus encaissés par la DGFiP (taux de 17,2 %)","36,19",Md€,2025,"DGFiP Statistiques n° 43, tableau 1 (34,89 en 2024 ; 44 % État, 56 % sécurité sociale)",TEXTE LU

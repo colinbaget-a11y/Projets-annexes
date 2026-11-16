@@ -19,10 +19,11 @@ réduit est la pièce discutable (Bernini et Treibich, 2016). Revue : `../revue/
 Chiffres clés (euros de 2027, part imposable 75 % ; corrigés le 16/11/2026, registre des hypothèses et des
 corrections : `../revue/hypotheses_is.md`) : coût an 1 de la déduction totale 14 à 15,5 Md€, coût permanent dès
 l'an 8 de 1,3 à 2,0 Md€ (euros de 2034) ; coût actualisé par millésime 1,7 à 2,6 Md€ à 5 % (0,6 à 0,9 point de
-taux ; un point vaut 2,95 Md€ une fois le taux réduit supprimé) ; IS à 28 % : 4,6 à 8,0 Md€ ; assiette : 3,5 à
-4,6 Md€ ; calendrier 50 % puis 100 % : dette (intérêts à 3,25 %) au plus 3 à 32 Md€, remboursée en 4 à 25 ans
-(100 % dès 2027 : 18 à 46 Md€, 10 à 28 ans) ; baisse finale du taux de 0,6 à 1,2 point ; gain de PIB de long terme
-0,04 à 0,2 % (0,1 % au centre) avec la déduction totale.
+taux ; un point vaut 2,99 Md€ une fois le taux réduit supprimé) ; IS à 28 % : 4,6 à 8,0 Md€ ; assiette : 3,5 à
+4,9 Md€ ; calendrier 50 % puis 100 % : dette (intérêts à 3,25 %) au plus 2 à 32 Md€, remboursée en 4 à 25 ans
+(100 % dès 2027 : 17 à 46 Md€, 10 à 28 ans) ; baisse finale du taux de 0,6 à 1,3 point ; gain de PIB de long terme
+0,04 à 0,2 % (0,1 % au centre) avec la déduction totale. Bénéfices de l'exercice 2025 (DGFiP n° 51) depuis le
+17/11/2026 ; avant, bénéfices de 2022 portés en 2027 (point de 2,95 Md€, assiette 3,5 à 4,6 Md€).
 
 ## Refonte de la note de synthèse (16/11/2026)
 
@@ -40,8 +41,12 @@ déduction imputables hors plafond ; financement par l'assiette, baisse finale d
 - `donnees/extraire_ocde_is_pib.py` -> `donnees/ocde_is_pib.csv` (OCDE, Revenue Statistics, IS en % du PIB, 38 pays ;
   le CSV téléchargé est passé en argument et lu avec `python3 -I`).
 
-Chiffres clés (cas central : plan actuel moitié linéaire, moitié dégressif ; ressources 4,06 Md€ ; part imposable 75 % ;
-plafond couvrant 20 % de l'investissement) : coût 2027 de 8,4 à 9,3 Md€ (dont 1,3 de coût permanent) ; dette maximale
-23 Md€ en 2033 (10 à 40 selon les bornes), éteinte en 2042 (2036 à 2053) ; baisse finale du taux de 0,9 point (0,6 à
-1,2) ; part imposable de 90 % : 35 Md€, éteinte en 2047 (57 Md€ et 2066 au pire). Avec la fin de la contribution
-exceptionnelle, l'IS rapporte en 2027 11,8 Md€ de moins qu'en 2026 (4,8 pour la réforme, 7,0 pour l'extinction).
+Chiffres clés, recalés le 17/11/2026 sur 2025 (bénéfices imposables de l'exercice 2025, DGFiP Statistiques n° 51 ;
+recette 2025 : PLF 2027, rapport AN n° 2847, Insee comptes de la Nation 2025 tableau 3.217 ; investissement 2025 : Insee
+8.212). Cas central : plan actuel moitié linéaire, moitié dégressif ; ressources 4,22 Md€ (3,50 à 4,94) ; part imposable
+75 % ; plafond couvrant 20 % de l'investissement. Coût 2027 de 8,4 à 9,3 Md€ (dont 1,3 de coût permanent) ; dette
+maximale 21,5 Md€ en 2033 (8 à 40 selon les bornes), éteinte en 2041 (2035 à 2053) ; baisse finale du taux de 1,0 point
+(0,6 à 1,3) ; part imposable de 90 % : 33 Md€, éteinte en 2046 (57 Md€ et 2066 au pire) ; un point de taux vaut
+2,99 Md€. Avec la fin de la contribution exceptionnelle, l'IS rapporte en 2027 11,6 Md€ de moins qu'en 2026 (4,6 pour
+la réforme, 7,0 pour l'extinction). Avant le recalage (bénéfices de 2022 portés en 2027) : ressources 4,06 (3,50 à
+4,62), dette 23 Md€ éteinte en 2042, point de 2,95 Md€.

@@ -507,7 +507,10 @@ for k, v in CAS.items():
       f"fin du taux réduit +{fr(v['taux_reduit'],0)} ; valeur de la déduction −{fr(v['deduction'],0)} ; net {fr(net,0)} € "
       f"({100*v['net_pct']:+.1f} % de l'IS) ; trésorerie 2027 {fr(v['avance_net_2027'],0)} €{extra}")
 gg = CAS["Grand groupe"]
-p(f"[CAS] grand groupe : baisse finale de 0,6 à 1,2 point → {fr(0.006*gg['benefice']/1e6)} à {fr(0.012*gg['benefice']/1e6)} M€ "
+BX = [RES[CLE][(niv, reg)][4] for niv in ("bas", "haut") for reg in ("deg", "lin")]
+bx_lo, bx_hi = round(min(BX), 1), round(max(BX), 1)
+p(f"[CAS] grand groupe : baisse finale de {fr(bx_lo)} à {fr(bx_hi)} point → {fr(bx_lo/100*gg['benefice']/1e6)} à "
+  f"{fr(bx_hi/100*gg['benefice']/1e6)} M€ "
   f"par an de moins, après extinction de la dette ; fin de la contribution exceptionnelle : {fr(gg['ce']/1e6)} M€ de moins "
   f"dès 2027 ({100*gg['ce']/gg['is_2026']:.0f} % de l'impôt 2026)")
 for r in (0.05, 0.08, 0.10):
@@ -612,7 +615,7 @@ lig = [r"\begin{table}[!htbp]\centering\footnotesize", r"\setlength{\tabcolsep}{
        r"\begin{tabular}{@{}l" + NUM * 7 + r"@{}}", r"\toprule",
        r"Année & Taux de déduction & Coût & dont permanent & Ressources & Solde & Dette en fin d'année & "
        r"Écart de recette à 2026 \\", r"\midrule"]
-for i in list(range(0, 9)) + [11, 14, ext]:
+for i in list(range(0, 9)) + [11, 14] + ([ext] if ext not in (11, 14) else []):   # sans doublon si l'extinction tombe en 2041
     r_ = rows[i]
     dt = t(r_['dette']) if r_['dette'] > 0 else "éteinte"
     lig.append(f"{r_['an']} & {r_['taux']*100:.0f}~\\% & {t(r_['cout'])} & {t(r_['perm'])} & {t(r_['ress'])} & "
