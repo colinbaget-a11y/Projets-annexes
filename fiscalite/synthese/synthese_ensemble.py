@@ -504,7 +504,7 @@ CT = [
     cas("monoactif_3enf", "Couple à un seul revenu, trois enfants, locataire", 60000, CASI["c3m_60"]["delta"],
         hyp="un salaire de 60 000 € brut ; locataire",
         notes="hypothèse : la taxe sur le sol ne passe pas dans les loyers (théorie) ; avec le quotient conjugal"
-              " (repli), +785 € au lieu de −1 003 €"),
+              " (repli, barème recalculé), +102 € au lieu de −1 003 €"),
     cas("cadre_paris", "Cadre parisien qui achète", 100000, CASI["cadre100"]["delta"], tf=paris["prop"],
         droits=paris["eco"], pfu=0.0, transm=PFU_T * 120e3,
         hyp="seul, 100 000 € brut ; achète l'appartement parisien médian ; 10 000 € de dividendes et plus-values"
