@@ -50,6 +50,16 @@ Arbitrages à faire apparaître :
 - Arbitrages IR-CSG : `synthese/sorties/arbitrages_ircsg.txt` (perte sèche quadratique ; relancer avec GEN).
 - En attente : verif_ir_csg.md, methode_perte_seche.md.
 
+## État (16/11, suite)
+- Méthode de perte sèche reçue (revue/methode_perte_seche.md) ; calculs foncier/IS/PFU :
+  synthese/perte_seche_autres.py (foncier −1,9 ; IS −0,05 à −0,16 ; PFU 25 % +1,4).
+- verif_ir_csg.md : défaut de fond (foyers représentatifs mixtes) ; un agent reconstruit le modèle avec des
+  foyers purs : synthese/modele_purs.py, perte_seche_ircsg_purs.py, sorties/perte_seche_ircsg_purs.txt,
+  controles_purs.txt. Les sorties perte_seche_ircsg.txt (foyers mixtes) sont caduques.
+- Note : synthese/note-reforme-fiscale.tex + parties/{introduction,foncier,is,pfu,references}.tex écrits ;
+  restent parties/ircsg.tex (à écrire depuis le modèle purs) et parties/ensemble.tex (synthèse : recettes,
+  perte sèche totale, grandes fortunes, familles, retraités, transition).
+
 ## Répétitions à supprimer
 Objectifs et contraintes répétés dans chaque introduction ; taux cumulés IS + PFU (notes IS et PFU) ;
 CEHR et majoration (IR-CSG et PFU) ; paragraphes « grandes fortunes » et « familles » de chaque note ;
