@@ -32,7 +32,7 @@ Charge actuelle des retraités 45.1 Md€ (11.1 % de leurs pensions) ; des actif
 2. Recette et répartition
 Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k€, franchise d'activité 8 000 €, 6 000 € par enfant) appliqué tel quel aux foyers purs : recette 241.6 Md€ au lieu de 220.1 (vérification, foyers spécialisés : 243,3)
    à ce barème, les retraités paient +39.4 Md€ de plus (vérification : au moins +28 contre le prorata du modèle d'origine) et les actifs -17.9
-   recalé sur la recette (+4.80 point pour tous dans la grille de référence) : retraités +32.0 Md€, actifs -32.0 Md€ (sorties actuelles : pensions +13,6, chômage +3,0, salaires −13,4, indépendants −3,2)
+   recalé sur la recette (+0.00 point pour tous dans la grille de référence) : retraités +7.8 Md€, actifs -7.8 Md€ (sorties actuelles : pensions +13,6, chômage +3,0, salaires −13,4, indépendants −3,2)
 À barème inchangé, la franchise d'activité de 8 000 € allège l'impôt des retraités de 0.00 Md€ (modèle d'origine : les retraités en profitaient)
    Référence : assiette large, même barème pour tous : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
    Franchise d'activité 4 000 € : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
@@ -47,6 +47,7 @@ Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k�
    Taux supérieur 45 % : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
    Taux supérieur 55 % : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
    Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
+   Progressivité : barème le plus proche d'aujourd'hui (5 % / 13 % à 20 k€ / 21.1 % à 30 k€ / 50 % à 250 k€) : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
 Écart le plus grand entre ces sommes, ou entre la recette et la cible : 0.000 Md€
 
 3. Prix d'un milliard (coût marginal des fonds publics) du barème de référence
@@ -70,9 +71,11 @@ Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k�
    Taux supérieur 45 % : +0.17 Md€ ; salarié seul au Smic +530 € par an
    Taux supérieur 55 % : +0.10 Md€ ; salarié seul au Smic +493 € par an
    Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant : -0.73 Md€ ; salarié seul au Smic -98 € par an
+   Progressivité : barème le plus proche d'aujourd'hui (5 % / 13 % à 20 k€ / 21.1 % à 30 k€ / 50 % à 250 k€) : -0.95 Md€ ; salarié seul au Smic -368 € par an
 
 5. Signes et ordres de grandeur
 Points à signaler (contrôles automatiques) :
+   - hausse des retraités sous la borne de +28 Md€ de la vérification (ancienne proposition)
    - à signaler, non absurde : coût marginal central 1.11, sous la fourchette de Kleven et Kreiner (1,21 à 1,72) ; voir le § 3
    - à signaler : charge actuelle des retraités 45.1 Md€ contre 41,1 au prorata (§ 1 : à revenu net égal, un retraité sans enfant paie presque autant qu'un actif sans enfant au-delà de 40 000 €, et les enfants sont tous chez les actifs)
    - à signaler : quotient familial des enfants 13.4 Md€ contre 12,9 dans la vérification (§ 1 : les enfants ne sont plus que chez les actifs, donc moins dans les tranches basses où les retraités sont nombreux ; 14,3 avec le RFR du foyer représentatif, 13,4 avec un RFR sans le capital au PFU ; 13,2 avec la représentation des parents de la vérification)

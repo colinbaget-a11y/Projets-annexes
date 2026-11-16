@@ -167,6 +167,14 @@ if __name__ == "__main__":
     run("Taux supérieur 45 %", top=0.45)
     run("Taux supérieur 55 %", top=0.55)
     run("Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant", F=8000.0, fam="franchise")
+    # arbitrage de progressivité : barème de la forme la plus proche de la charge d'aujourd'hui (étape 2 des notes :
+    # 5 % au premier euro, 13 % à 20 k€, t1 à 30 k€, 50 % à 250 k€), recalé sur la recette
+    b_ref = b
+    t1_2 = cale_t1(0.05, 0.13, 30e3, 250e3, o_ref)
+    b = (0.05, 0.13, 30e3, t1_2, 250e3)
+    run(f"Progressivité : barème le plus proche d'aujourd'hui (5 % / 13 % à 20 k€ / {100*t1_2:.1f} % à 30 k€ / 50 % à 250 k€)",
+        recale=False)
+    b = b_ref
     (OUT / "perte_seche_ircsg_purs.txt").write_text("\n".join(L) + "\n", encoding="utf-8")
 
     # ------------------------------------------------------------------ contrôles d'ordre de grandeur
