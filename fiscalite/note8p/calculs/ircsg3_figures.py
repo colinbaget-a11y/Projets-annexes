@@ -155,7 +155,7 @@ trav(fig, "E_familles", "Gauche : couples mariés ou pacsés (biactifs 60/40), s
      " bleu foncé = nouveau barème et franchise ; trait = variation nette.")
 
 # ------------------------------------------------------------------ F : cascade
-CA = D["cascade_recommande"]
+CA = D["cascade_final"]
 lab_c = {"observe": "Charge actuelle", "niches": "Réductions, crédits\net exonérations", "abatpen": "Abattement\n10 % pensions",
          "age": "Abattement\npersonnes âgées", "csg_ret": "CSG des\nretraités", "conjugal": "Quotient\nconjugal",
          "qf": "Quotient\nfamilial", "csg_ded": "CSG\ndéductible", "forfait": "Forfait 10 %\n(frais réels gardés)",
@@ -190,10 +190,10 @@ trav(fig, "F_cascade_recettes", "Mesures introduites une à une dans cet ordre (
 # g1 : taux moyens, aujourd'hui et recommandé
 fig, ax = plt.subplots(figsize=(PLEINE, 2.4))
 ax.plot(z, T["auj_ta"], color=AUJ, lw=1.8, label="Aujourd'hui (IR, CEHR, CSG, CRDS)")
-ax.plot(z, T["C2_plafond48_ta"], color=PROP, lw=2.2, label="Nouvel impôt")
+ax.plot(z, T["final_ta"], color=PROP, lw=2.2, label="Nouvel impôt")
 for zz in (SZ, 2 * SZ, 60e3, 100e3, 200e3):
     i = int(np.argmin(np.abs(z - zz)))
-    for k, c, dy in (("auj_ta", AUJ, 1.4), ("C2_plafond48_ta", PROP, -3.2)):
+    for k, c, dy in (("auj_ta", AUJ, 1.4), ("final_ta", PROP, -3.2)):
         ax.text(zz, T[k][i] + dy, _fr(T[k][i], 1) + " %", color=c, fontsize=6.5, ha="center")
 reperes(ax, 250e3, 44)
 ax.set_xlim(0, 250e3)
@@ -209,10 +209,11 @@ sauver(fig, "g1_taux_moyens", "OpenFisca-France 176.1 (droit des revenus 2025) ;
 # g2 : taux marginaux
 fig, ax = plt.subplots(figsize=(PLEINE, 2.5))
 ax.plot(z, T["auj_tm"], color=AUJ, lw=1.5, label="Aujourd'hui", drawstyle="steps-post")
-ax.plot(z, T["C2_plafond48_tm"], color=PROP, lw=2.3, label="Nouvel impôt")
-for zz, lab in ((0, "2 %"), (SZ, "16 %"), (1.5 * SZ, "23 %"), (2 * SZ, "29 %"), (3.5 * SZ, "36 %"), (D["recommande"]["F0"]["points"][-1], "48 %")):
-    ax.plot(zz, float(np.interp(zz, z, T["C2_plafond48_tm"])) if zz else 2, "o", color=PROP, ms=3.5)
-    ax.text(zz + 3000, (float(np.interp(zz, z, T["C2_plafond48_tm"])) if zz else 2) - 4.5, lab, color=PROP, fontsize=7)
+ax.plot(z, T["final_tm"], color=PROP, lw=2.3, label="Nouvel impôt")
+for zz, tk in zip(D["final"]["points"], D["final"]["taux"]):
+    lab = _fr(100 * tk, 1 if abs(100 * tk - round(100 * tk)) > 0.05 else 0) + " %"
+    ax.plot(zz, float(np.interp(zz, z, T["final_tm"])) if zz else 2, "o", color=PROP, ms=3.5)
+    ax.text(zz + 3000, (float(np.interp(zz, z, T["final_tm"])) if zz else 2) - 4.5, lab, color=PROP, fontsize=7)
 reperes(ax, 300e3, 56)
 ax.set_xlim(0, 300e3)
 ax.set_ylim(0, 60)
@@ -226,7 +227,7 @@ sauver(fig, "g2_taux_marginaux", "OpenFisca-France 176.1 (aujourd'hui, droit des
        " barème, reliés en ligne droite. " + CONV)
 
 # g3 : cas-types, € par mois
-C = D["cas_types"]
+C = D["final"]["cas_types"]
 LIB = [("jeune_smic", "Salarié au Smic"), ("sal_2000", "Salarié à 2 000 € net"), ("couple2_60", "Couple biactif, 2 enfants, 60 k€"),
        ("nomb3_60", "Couple biactif, 3 enfants, 60 k€"), ("pi2_smic", "Parent isolé, 2 enfants, Smic"),
        ("mono2_60", "Couple mono-actif, 2 enfants, 60 k€"), ("cadre120", "Cadre seul, 120 k€ brut"),
@@ -254,13 +255,13 @@ sauver(fig, "g3_cas_types", "OpenFisca-France 176.1 (charge d'aujourd'hui : IR, 
 S, Rr = D["courbes"]["salarie"], D["courbes"]["retraite"]
 fig, ax = plt.subplots(figsize=(PLEINE, 2.4))
 xs = np.array([r["z"] for r in S])
-ax.plot(xs, [-r["C2_plafond48"] / 12 for r in S], color=PROP, lw=2.2, label="Salarié seul")
-ax.plot([r["pension"] for r in Rr], [-r["C2_plafond48"] / 12 for r in Rr], color=HAUSSE, lw=2.0, label="Retraité seul")
+ax.plot(xs, [-r["final"] / 12 for r in S], color=PROP, lw=2.2, label="Salarié seul")
+ax.plot([r["pension"] for r in Rr], [-r["final"] / 12 for r in Rr], color=HAUSSE, lw=2.0, label="Retraité seul")
 for zz in (SZ, 1.5 * SZ, 2 * SZ, 3 * SZ, 100e3):
-    v = -float(np.interp(zz, xs, [r["C2_plafond48"] for r in S])) / 12
+    v = -float(np.interp(zz, xs, [r["final"] for r in S])) / 12
     ax.text(zz, v + 12, ("+" if v > 0 else "") + _fr(round(v)), color=PROP, fontsize=6.5, ha="center")
 for zz in (12e3, 16e3, 30e3, 60e3, 100e3):
-    v = -float(np.interp(zz, [r["pension"] for r in Rr], [r["C2_plafond48"] for r in Rr])) / 12
+    v = -float(np.interp(zz, [r["pension"] for r in Rr], [r["final"] for r in Rr])) / 12
     ax.text(zz, v - 22, ("+" if v > 0 else "") + _fr(round(v)), color=HAUSSE, fontsize=6.5, ha="center")
 ax.axhline(0, color=ENCRE2, lw=0.6)
 reperes(ax, 150e3, 285)

@@ -113,6 +113,13 @@ D["final"] = dict(
     familles_sans_niche_mois=fam, familles_niches=niches, second_conjoint=sc, deciles_eur=ev["dec_eur"],
     agregats=ind["agregats"], efficacite=ind["efficacite"], part_gains=ind["part_gains"], qui_recoit_les_5_5=recu)
 D["annuel_final"] = ann
+grid = np.array(D["taux"]["z"])
+D["taux"]["final_tm"] = list(100 * S[0](grid))
+D["taux"]["final_ta"] = list(100 * S[1](grid) / grid)
+for r in D["courbes"]["salarie"]:
+    r["final"] = float(N.impot_z(S, O, [r["z"]])[0]) - r["auj"]
+for r in D["courbes"]["retraite"]:
+    r["final"] = float(N.impot_z(S, O, [r["pension"]])[0]) - r["auj"]
 D["unites_final"] = ("Md€ niveau 2025 ; + = recette publique en plus ; ircsg_total = −financement externe de l'année ;"
                      " fusion λ = 0,25/0,5/0,75/1 en 2027-2030 ; financement en caisse 0 jusqu'en 2031 puis 1/2/3/4/5 et 5,5")
 json.dump(D, open(OUT / "ircsg3.json", "w"), ensure_ascii=False, indent=1, default=float)
