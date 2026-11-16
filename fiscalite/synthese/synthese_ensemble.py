@@ -30,7 +30,7 @@ Conventions d'année (base 2025, DECISIONS.md, décision 5 ; recalage du 17/11/2
   revenus de 2025 (assiette estimée), patrimoine de fin 2025.
 
 Lancer depuis fiscalite/ : python3 synthese/synthese_ensemble.py  ->  synthese/sorties/synthese_ensemble.{txt,json}
-(environ une minute ; quatre sous-processus du modèle IR-CSG).
+(quelques secondes ; quatre sous-processus du modèle IR-CSG).
 """
 import json
 import os

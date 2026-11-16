@@ -35,14 +35,14 @@ les sorties). Les chiffres de l'ancienne note sont périmés quand les registres
   sol ; report de paiement par défaut pour les propriétaires âgés ; corriger les quatre erreurs du registre.
 - IS : pas de falaise 50 % → 100 % en 2033 (paliers annuels ou 100 % sous plafond dès 2027, sur le modèle
   britannique) ; la fin de la contribution exceptionnelle est une baisse d'impôt de 5 à 7 Md€ à afficher dans la
-  recette ; tableau de transition année par année ; calibrage corrigé (un point = 2,95 Md€).
+  recette ; tableau de transition année par année ; calibrage corrigé (un point = 2,99 Md€).
 - PFU : calibrage corrigé (réaction purement temporelle ; base 2024 gonflée par la CDHR) ; effacement fermé (déc. 3).
 
 ## Décisions du 17/11/2026 (auteur)
 5. **Base 2025 pour tous les chiffrages** : recettes et assiettes calées sur les prélèvements obligatoires de 2025
    (comptes nationaux de l'Insee publiés en 2026, exécution budgétaire 2025, DGFiP, OFGL). Quand une donnée 2025
    n'existe pas, prendre 2024 et le dire explicitement (texte ou note de tableau/figure). Pour l'IR, préciser ce que
-   recouvre « 2025 » (impôt encaissé en 2025, en grande partie sur les revenus 2024 ; IRCOM revenus 2024 pour la
+   recouvre « 2025 » (impôt encaissé en 2025 : surtout la retenue à la source sur les revenus 2025, plus le solde 2024 ; IRCOM revenus 2024 pour la
    répartition) ; recaler les agrégats en gardant la structure de répartition la plus récente, et le dire.
 6. **Courbes de taux marginaux** : pas d'oscillations artificielles. Distinguer les vrais sauts du droit (décote,
    seuils de CSG des retraités appliqués à toute la pension, sortie d'une exonération) des artefacts de calcul (pas

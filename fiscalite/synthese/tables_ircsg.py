@@ -275,7 +275,7 @@ HYP = [
      "Recette à remplacer, charge actuelle par tranche",
      f"Si cette hausse est passagère, la recette est surestimée d'environ {n(SIT['recettes']['base_2024']['ir'] * (SIT['recettes']['facteurs']['ir'] - SIT['recettes']['facteurs']['csg_activite']), 1, False)}~Md€ (IR porté en 2025 comme les revenus), soit environ 0,4 point de taux."),
     ("Épargne retraite : déduction de 10,6~Md€ (cases 2042) supposée proportionnelle aux revenus d'activité de la moitié haute.",
-     "Barème, haut de la distribution", f"Coût de la déduction {n(PROP['cout_per'], 1, False)}~Md€ ({n(PROP['points_per'], 2, False)}~point) ; répartition non vérifiée."),
+     "Barème, haut de la distribution", f"Coût de la déduction {n(PROP['cout_per'], 1, False)}~Md€ ({n(100 * PROP['points_per'] if PROP['points_per'] < 0.05 else PROP['points_per'], 2, False)}~point) ; répartition non vérifiée."),
     ("Cas-types : législation des revenus 2025 d'OpenFisca, Smic de 21\\,622~€ (sources secondaires) ; retraités en régime stable (taux de CSG le plus élevé dont le seuil est dépassé par le revenu fiscal calculé à ce taux).",
      "Tous les cas-types, courbes de taux marginaux", "Dans une bande de quelques centaines d'euros autour de chaque seuil de CSG, aucun taux n'est cohérent avec son propre revenu fiscal ; le taux inférieur est retenu, ce qui déplace le saut de moins de 1\\,000~€."),
     ("Valeur actualisée : table de Gompertz calée sur l'espérance de vie à 65 ans (21,8 ans) ; cohortes de retraités de même taille.",
