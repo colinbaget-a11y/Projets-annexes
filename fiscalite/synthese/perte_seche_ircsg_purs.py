@@ -167,6 +167,17 @@ if __name__ == "__main__":
     run("Taux supérieur 45 %", top=0.45)
     run("Taux supérieur 55 %", top=0.55)
     run("Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant", F=8000.0, fam="franchise")
+    run("Combinaison : franchise d'activité 8 000 € + 6 000 € par enfant + petites pensions exonérées", F=8000.0,
+        fam="franchise", Fp=12500.0, Fp_degressif=True)
+    # prix d'un milliard : un point de taux pour tous en plus, sur la référence
+    tm1, T1 = bareme(b, 0.01)
+    r1 = {j: M.evalue("prix", tm1, T1, o_ref, jeu=j, sorties=False) for j in ("central", "bas", "haut")}
+    r0 = {"central": ref, "bas": M.evalue("prix0", *bareme(b), o_ref, jeu="bas", sorties=False),
+          "haut": M.evalue("prix0", *bareme(b), o_ref, jeu="haut", sorties=False)}
+    drec = r1["central"]["recette"] - ref["recette"]
+    prix = {j: (r1[j]["cen"] - r0[j]["cen"]) / drec for j in r1}
+    p(f"[PRIX] un point de taux pour tous rapporte {drec:.1f} Md€ ; perte sèche centrale par milliard levé"
+      f" {prix['central']:.2f} (élasticités basses {prix['bas']:.2f}, hautes {prix['haut']:.2f})")
     # arbitrage de progressivité : barème de la forme la plus proche de la charge d'aujourd'hui (étape 2 des notes :
     # 5 % au premier euro, 13 % à 20 k€, t1 à 30 k€, 50 % à 250 k€), recalé sur la recette
     b_ref = b

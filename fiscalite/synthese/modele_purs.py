@@ -213,12 +213,34 @@ PTR0 = _ptr0()
 SMIC = ps.SMIC
 
 
+# ------------------------------------------------------------------ méthode v2 (revue/methode_v2.md)
+# Élasticités du revenu réellement produit (marge intensive : heures, effort, carrière), par groupe de revenu
+# (moitié du bas, 50-90 %, 90-99 %, 1 % du haut) ; élasticités du revenu déclaré (forme, calendrier, société),
+# dixième du haut seulement ; élasticité de participation η (adultes sous 2 Smic). Sources : cours/elasticites-france.tex.
+V2 = {"bas": dict(reel=(0.02, 0.05, 0.05, 0.05), decl=(0.10, 0.15), eta=0.10),
+      "central": dict(reel=(0.05, 0.10, 0.10, 0.10), decl=(0.20, 0.30), eta=0.25),
+      "haut": dict(reel=(0.10, 0.20, 0.25, 0.25), decl=(0.30, 0.45), eta=0.50)}
+S_DEPL, TAU_ALT = 0.5, 0.486       # part de la réaction déclarée qui passe vers l'IS puis le PFU, et son taux
+
+
+def elast_v2(jeu="central"):
+    c = V2[jeu]
+    a, b, cc, d = c["reel"]
+    reel = np.select([Q < 0.5, Q < 0.9, Q < 0.99], [a, b, cc], d)
+    decl = np.select([Q < 0.9, Q < 0.99], [0.0, c["decl"][0]], c["decl"][1])
+    return reel, decl, c["eta"]
+
+
 def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
     """Recette, perte sèche (quadratique, coins IR-CSG, non contributif, toutes cotisations, déplacement s = 0,5,
-    marge extensive) et indicateurs de répartition, pour les foyers purs. Variation par rapport à aujourd'hui."""
+    marge extensive) et indicateurs de répartition, pour les foyers purs. Variation par rapport à aujourd'hui.
+    Méthode v2 (clés v2_*) : réaction au taux de l'impôt fusionné (saillance), coûtée au coin total non contributif ;
+    revenu réel et revenu déclaré séparés ; marge extensive avec η du jeu."""
     e = elast(jeu)
+    eR, eD, eta2 = elast_v2(jeu)
     top = Q >= 0.9
-    acc = dict(modele=0.0, c0=0.0, tout=0.0, nc=0.0, nc_s50_486=0.0, ext_nc=0.0, ext_tout=0.0, ext_nc_seuls_05_2=0.0)
+    acc = dict(modele=0.0, c0=0.0, tout=0.0, nc=0.0, nc_s50_486=0.0, ext_nc=0.0, ext_tout=0.0, ext_nc_seuls_05_2=0.0,
+               v2_reel=0.0, v2_ext=0.0, v2_decl_recette=0.0, v2_decl_dq=0.0, v2_reel_dq=0.0)
     res = {}
     for tnom, grp, fam_, w, parts, kids in TYPES:
         imp, mgs, _ = impot_adultes(tm, T, o, *adultes(grp, parts, o), kids)
@@ -242,6 +264,17 @@ def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
                 acc[conv] += (w * pse).sum() / 1e9
                 if conv == "nc":                              # déplacement de la moitié de la réaction du haut
                     acc["nc_s50_486"] += (w * (pse + np.where(top, 0.5 * 0.486, 0.0) * dq)).sum() / 1e9
+                    # v2 : la quantité réagit au taux net de l'impôt fusionné ; chaque euro perdu coûte le coin total
+                    dl = np.log(1 - t1) - np.log(1 - t0)
+                    coin_m = er + ee + pa + (t0 + t1) / 2         # coin moyen, par euro de salaire brut
+                    dq_r, dq_d = eR * g * dl, eD * g * dl
+                    acc["v2_reel"] += (w * -coin_m * dq_r).sum() / 1e9
+                    for cle, m_ in (("q50", Q < 0.5), ("q90", (Q >= 0.5) & (Q < 0.9)), ("q99", (Q >= 0.9) & (Q < 0.99)),
+                                    ("top1", Q >= 0.99)):
+                        acc["v2_reel_" + cle] = acc.get("v2_reel_" + cle, 0.0) + (w * -coin_m * dq_r * m_).sum() / 1e9
+                    acc["v2_reel_dq"] += (w * dq_r).sum() / 1e9
+                    acc["v2_decl_dq"] += (w * dq_d).sum() / 1e9
+                    acc["v2_decl_recette"] += (w * (coin_m - S_DEPL * TAU_ALT) * dq_d).sum() / 1e9
             # marge extensive : impôt du foyer avec et sans le revenu d'activité de l'adulte k
             imp_wo = impot_adultes(tm, T, o, *adultes(grp, parts, o, sans=k), kids)[0]
             ptr1 = np.where(g > 0, (imp - imp_wo) / np.maximum(g, 1.0), 0.0)
@@ -258,9 +291,13 @@ def evalue(nom, tm, T, o, jeu="central", eta=0.25, sorties=True):
                 acc["ext_" + conv] += (w * pse * dans).sum() / 1e9
                 if conv == "nc" and single:
                     acc["ext_nc_seuls_05_2"] += (w * pse * dans * (g >= 0.5 * SMIC)).sum() / 1e9
+                if conv == "nc":
+                    acc["v2_ext"] += (w * pse * dans).sum() / 1e9 * eta2 / eta
     out = dict(nom=nom, recette=sum((w * imp).sum() for w, imp, *_ in res.values()) / 1e9, **acc)
     out["quad"] = acc["modele"] - QUAD0
     out["cen"] = acc["nc_s50_486"] + acc["ext_nc"]           # critère central (revue/methode_perte_seche.md)
+    out["v2"] = acc["v2_reel"] + acc["v2_ext"]               # v2 : perte sèche sur l'activité réelle
+    out["v2_tout"] = out["v2"] - acc["v2_decl_recette"]      # v2 + revenu déclaré compté comme une perte (Feldstein)
     if sorties:
         out.update(repartition(res))
     return out
@@ -283,7 +320,8 @@ def repartition(res):
         nb = sum(w.sum() for w, _, _ in sel)
         grp[cle] = dict(Md=md, eur=1e9 * md / nb, foyers_M=nb / 1e6)
     perd = sum((w * (imp - cur > 500)).sum() for w, imp, cur, *_ in res.values()) / W.sum()
-    return dict(dec_eur=list(d.dn / d.w), dec_foyers=list(d.w), groupes=grp, perdants500=100 * perd,
+    ecart = sum((w * np.abs(imp - cur)).sum() for w, imp, cur, *_ in res.values()) / W.sum()
+    return dict(dec_eur=list(d.dn / d.w), dec_foyers=list(d.w), groupes=grp, perdants500=100 * perd, ecart_moyen=ecart,
                 top1_Md=(dn * (Q >= 0.99)).sum() / 1e9, top10_Md=(dn * (Q >= 0.9)).sum() / 1e9,
                 total_Md=dn.sum() / 1e9)
 

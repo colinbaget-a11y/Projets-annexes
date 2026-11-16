@@ -47,6 +47,7 @@ Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k�
    Taux supérieur 45 % : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
    Taux supérieur 55 % : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
    Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
+   Combinaison : franchise d'activité 8 000 € + 6 000 € par enfant + petites pensions exonérées : recette 220.09 ; somme des déciles +0.000 Md€, actifs + retraités +0.000, quatre types de foyers +0.000, total +0.000
    Progressivité : barème le plus proche d'aujourd'hui (5 % / 13 % à 20 k€ / 21.1 % à 30 k€ / 50 % à 250 k€) : recette 220.09 ; somme des déciles -0.000 Md€, actifs + retraités -0.000, quatre types de foyers -0.000, total -0.000
 Écart le plus grand entre ces sommes, ou entre la recette et la cible : 0.000 Md€
 
@@ -71,6 +72,7 @@ Barème de l'ancienne proposition (17 / 22 / 24,2 % à 45 k€ / 50 % à 600 k�
    Taux supérieur 45 % : +0.17 Md€ ; salarié seul au Smic +530 € par an
    Taux supérieur 55 % : +0.10 Md€ ; salarié seul au Smic +493 € par an
    Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant : -0.73 Md€ ; salarié seul au Smic -98 € par an
+   Combinaison : franchise d'activité 8 000 € + 6 000 € par enfant + petites pensions exonérées : -0.45 Md€ ; salarié seul au Smic +38 € par an
    Progressivité : barème le plus proche d'aujourd'hui (5 % / 13 % à 20 k€ / 21.1 % à 30 k€ / 50 % à 250 k€) : -0.95 Md€ ; salarié seul au Smic -368 € par an
 
 5. Signes et ordres de grandeur

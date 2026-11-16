@@ -14,7 +14,8 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "sorties"
 OUT.mkdir(exist_ok=True)
-MU1 = (0.16, 0.38, 0.60)    # prix d'un milliard levé par le barème fusionné (coin IR-CSG seul, non contributif, total)
+MU1 = (0.04, 0.08, 0.17)    # prix d'un milliard levé par un point de taux pour tous du barème fusionné, perte sèche réelle
+                            # (méthode v2, jeux bas / central / haut : sorties/architectures_ircsg.txt, [PRIX])
 
 # ---------------------------------------------------------------- foncier (foncier/sorties/simulation.txt)
 V = 11.4 / 0.0581           # ventes de logements anciens, Md€ par an (2023-2024)
@@ -80,6 +81,6 @@ if __name__ == "__main__":
         for pi in (0.0, 0.5, 1.0):
             r = [pfu(0.25, e, pi, m) for m in MU1]
             p(f"  e = {e} ; π = {pi} : ΔPS = " + " / ".join(f"{u[0]:+.2f}" for u in r)
-              + f" Md€ (μ−1 = 0,16 / 0,38 / 0,60) ; recette perdue {r[0][1]:.1f} Md€ ; réaction {r[0][2]:+.1f} Md€")
+              + f" Md€ (μ−1 = 0,04 / 0,08 / 0,17) ; recette perdue {r[0][1]:.1f} Md€ ; réaction {r[0][2]:+.1f} Md€")
     (OUT / "perte_seche_autres.txt").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
