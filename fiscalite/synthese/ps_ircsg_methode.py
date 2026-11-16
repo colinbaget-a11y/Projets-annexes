@@ -11,7 +11,7 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path('/home/user/Projets-annexes/fiscalite')
+ROOT = Path(__file__).resolve().parent.parent
 sys.path[:0] = [str(ROOT / 'ir_csg'), str(ROOT)]
 import proposition as P  # noqa: E402
 
@@ -53,12 +53,27 @@ def coin(g, single, conv):
     return er, ee, pa
 
 
+# options d'arbitrage sur les pensions (synthese/perte_seche_ircsg.py) : Fp = franchise sur les pensions ;
+# Fp_degressif = exonération totale jusqu'à Fp, nulle à 2·Fp ; abat_pens = abattement proportionnel
+EXTRA = dict(Fp=0.0, Fp_degressif=False, abat_pens=0.0)
+
+
+def _pens(p):
+    fp = EXTRA["Fp"]
+    if EXTRA["Fp_degressif"]:
+        a = np.clip(2 * fp - p, 0, p)
+    else:
+        a = np.minimum(fp, p)
+    return a + EXTRA["abat_pens"] * p
+
+
 # ------------------------------------------------------------------ impôt par type (copie de P.impot_type + abattement pensions)
 def impot_type(tm, T, F, fam, parts, kids, lab, A0=0.0):
     zs = [sh * ZN for sh in parts]
     ls = [sh * lab for sh in parts]
     ps = [sh * ZN * PSH for sh in parts]
     ab = [np.minimum(p, np.clip(A0 - 0.5 * np.clip(p - A0, 0, None), 0, None)) if A0 else 0.0 for p in ps]
+    ab = [a + _pens(p) for a, p in zip(ab, ps)]
     tax = [np.clip(z - np.minimum(F, l) - a, 0, None) for z, l, a in zip(zs, ls, ab)]
     actif = [l > F for l in ls]
     if fam == 'quotient':
@@ -174,7 +189,10 @@ def evalue(nom, tm, T, F, fam, lab, A0=0.0, jeu='central', eta=0.25, sorties=Tru
                 p0 = np.clip(ptr0 + rest, -0.5, 0.97)
                 p1 = np.clip(ptr1 + rest, -0.5, 0.97)
                 pse = eta * g * (np.log((1 - p0) / (1 - p1)) - (p1 - p0))
-                acc['ext_' + conv] += (w * pse * (g > 1000) * (g < 2 * SMIC)).sum() / 1e9
+                # personnes seules de 0,5 à 2 Smic exclues : artefact des foyers représentatifs, qui mêlent
+                # pensions et salaires (revue/methode_perte_seche.md, § 2, limite 5)
+                borne = 0.5 * SMIC if single else 2 * SMIC
+                acc['ext_' + conv] += (w * pse * (g > 1000) * (g < borne)).sum() / 1e9
     nmean = n / W
     out = dict(nom=nom, recette=(W * nmean).sum() / 1e9, **acc)
     if sorties:
@@ -198,6 +216,7 @@ def impot_type_sans(tm, T, F, fam, parts, kids, lab, A0, k):
     ls[k] = 0 * ls[k]
     ps = [sh * ZN * PSH for sh in parts]
     ab = [np.minimum(p, np.clip(A0 - 0.5 * np.clip(p - A0, 0, None), 0, None)) if A0 else 0.0 for p in ps]
+    ab = [a + _pens(p) for a, p in zip(ab, ps)]
     tax = [np.clip(z - np.minimum(F, l) - a, 0, None) for z, l, a in zip(zs, ls, ab)]
     if fam == 'quotient':
         y = sum(tax)

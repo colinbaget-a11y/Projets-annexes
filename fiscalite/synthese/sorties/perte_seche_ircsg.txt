@@ -1,0 +1,38 @@
+[AUJ] perte sèche quadratique d'aujourd'hui (modèle des notes) : 18.1 Md€
+[REF] barème de référence : 12 % au premier euro, 15 % à 20 k€, 15.4 % à 45 k€, 50 % à 600 k€
+[Référence : assiette large, même barème pour tous] décalage +0.00 pt ; perte sèche, variation : centrale -13.2 Md€ (coin IR-CSG seul -10.7 ; coin non contributif -22.1 ; toutes cotisations -34.4 ; déplacement s=0,5 +9.6 ; marge extensive -0.7) ; quadratique des notes -12.9 ; perdants > 500 € 52 % ; fourchette élasticités -5.6 à -22.2
+    déciles € +145 +595 +1190 +1283 +823 +820 +506 +447 -488 -5196 ; 10 % du haut -22.1 Md€, 1 % du haut -9.5 Md€
+    types Md€ Salaires -13.9 ; Pensions +16.5 ; Indépendants, foncier, gérants -5.5 ; Chômage, préretraites +2.9
+[Franchise d'activité 4 000 €] décalage +2.28 pt ; perte sèche, variation : centrale -12.0 Md€ (coin IR-CSG seul -9.8 ; coin non contributif -19.3 ; toutes cotisations -29.8 ; déplacement s=0,5 +8.8 ; marge extensive -1.6) ; quadratique des notes -11.9 ; perdants > 500 € 44 % ; fourchette élasticités -5.9 à -19.5
+    déciles € +48 +256 +849 +984 +566 +651 +414 +515 -196 -3989 ; 10 % du haut -16.9 Md€, 1 % du haut -8.1 Md€
+    types Md€ Salaires -13.5 ; Pensions +15.2 ; Indépendants, foncier, gérants -4.6 ; Chômage, préretraites +3.0
+[Franchise d'activité 8 000 €] décalage +4.86 pt ; perte sèche, variation : centrale -10.0 Md€ (coin IR-CSG seul -8.7 ; coin non contributif -15.8 ; toutes cotisations -24.3 ; déplacement s=0,5 +7.9 ; marge extensive -2.1) ; quadratique des notes -10.7 ; perdants > 500 € 33 % ; fourchette élasticités -5.6 à -15.6
+    déciles € +73 +289 +509 +617 +226 +380 +221 +483 +17 -2751 ; 10 % du haut -11.7 Md€, 1 % du haut -6.5 Md€
+    types Md€ Salaires -13.4 ; Pensions +14.1 ; Indépendants, foncier, gérants -3.6 ; Chômage, préretraites +3.0
+[Franchise de 8 000 € sur les seuls salaires] décalage +4.85 pt ; perte sèche, variation : centrale -10.1 Md€ (coin IR-CSG seul -8.7 ; coin non contributif -15.8 ; toutes cotisations -24.4 ; déplacement s=0,5 +7.9 ; marge extensive -2.2) ; quadratique des notes -10.7 ; perdants > 500 € 33 % ; fourchette élasticités -5.7 à -15.8
+    déciles € +73 +289 +508 +616 +225 +379 +226 +486 +18 -2754 ; 10 % du haut -11.7 Md€, 1 % du haut -6.5 Md€
+    types Md€ Salaires -13.4 ; Pensions +14.1 ; Indépendants, foncier, gérants -3.7 ; Chômage, préretraites +3.0
+[Franchise de 8 000 € sur tous les revenus] décalage +5.28 pt ; perte sèche, variation : centrale -7.6 Md€ (coin IR-CSG seul -8.4 ; coin non contributif -15.2 ; toutes cotisations -22.9 ; déplacement s=0,5 +7.7 ; marge extensive -0.2) ; quadratique des notes -10.4 ; perdants > 500 € 34 % ; fourchette élasticités -3.6 à -12.9
+    déciles € -87 -208 +394 +605 +230 +417 +286 +603 +188 -2363 ; 10 % du haut -10.0 Md€, 1 % du haut -6.2 Md€
+    types Md€ Salaires -13.0 ; Pensions +13.4 ; Indépendants, foncier, gérants -3.3 ; Chômage, préretraites +3.0
+[Abattement de 10 % sur les pensions] décalage +0.45 pt ; perte sèche, variation : centrale -12.8 Md€ (coin IR-CSG seul -10.5 ; coin non contributif -21.6 ; toutes cotisations -33.6 ; déplacement s=0,5 +9.5 ; marge extensive -0.7) ; quadratique des notes -12.7 ; perdants > 500 € 52 % ; fourchette élasticités -5.5 à -21.5
+    déciles € +141 +580 +1161 +1277 +813 +807 +478 +403 -479 -5061 ; 10 % du haut -21.5 Md€, 1 % du haut -9.3 Md€
+    types Md€ Salaires -13.8 ; Pensions +16.3 ; Indépendants, foncier, gérants -5.4 ; Chômage, préretraites +2.9
+[Famille : franchise de 6 000 € par enfant] décalage +1.17 pt ; perte sèche, variation : centrale -12.2 Md€ (coin IR-CSG seul -10.2 ; coin non contributif -20.7 ; toutes cotisations -32.1 ; déplacement s=0,5 +9.3 ; marge extensive -0.8) ; quadratique des notes -12.4 ; perdants > 500 € 55 % ; fourchette élasticités -5.4 à -20.5
+    déciles € +130 +566 +1165 +1241 +754 +781 +430 +416 -491 -4875 ; 10 % du haut -20.7 Md€, 1 % du haut -9.1 Md€
+    types Md€ Salaires -13.8 ; Pensions +16.2 ; Indépendants, foncier, gérants -5.3 ; Chômage, préretraites +2.9
+[Famille : chèque par enfant] décalage +0.96 pt ; perte sèche, variation : centrale -12.1 Md€ (coin IR-CSG seul -10.2 ; coin non contributif -20.8 ; toutes cotisations -32.3 ; déplacement s=0,5 +9.2 ; marge extensive -0.5) ; quadratique des notes -12.4 ; perdants > 500 € 57 % ; fourchette élasticités -5.1 à -20.4
+    déciles € +44 +544 +1142 +1233 +757 +784 +447 +435 -460 -4812 ; 10 % du haut -20.4 Md€, 1 % du haut -8.9 Md€
+    types Md€ Salaires -13.8 ; Pensions +16.1 ; Indépendants, foncier, gérants -5.2 ; Chômage, préretraites +3.0
+[Imposition commune : quotient conjugal et familial] décalage +0.42 pt ; perte sèche, variation : centrale -13.2 Md€ (coin IR-CSG seul -11.0 ; coin non contributif -22.7 ; toutes cotisations -35.4 ; déplacement s=0,5 +10.1 ; marge extensive -0.6) ; quadratique des notes -13.3 ; perdants > 500 € 59 % ; fourchette élasticités -5.6 à -22.3
+    déciles € +152 +623 +1239 +1338 +878 +878 +558 +507 -431 -5610 ; 10 % du haut -23.8 Md€, 1 % du haut -10.9 Md€
+    types Md€ Salaires -13.8 ; Pensions +17.0 ; Indépendants, foncier, gérants -6.1 ; Chômage, préretraites +2.9
+[Taux supérieur 45 %] décalage +0.10 pt ; perte sèche, variation : centrale -13.3 Md€ (coin IR-CSG seul -11.0 ; coin non contributif -22.6 ; toutes cotisations -35.1 ; déplacement s=0,5 +9.9 ; marge extensive -0.7) ; quadratique des notes -13.4 ; perdants > 500 € 52 % ; fourchette élasticités -5.7 à -22.5
+    déciles € +146 +602 +1205 +1303 +846 +848 +540 +490 -436 -5417 ; 10 % du haut -23.0 Md€, 1 % du haut -10.5 Md€
+    types Md€ Salaires -13.6 ; Pensions +16.8 ; Indépendants, foncier, gérants -6.1 ; Chômage, préretraites +3.0
+[Taux supérieur 55 %] décalage -0.10 pt ; perte sèche, variation : centrale -13.0 Md€ (coin IR-CSG seul -10.2 ; coin non contributif -21.5 ; toutes cotisations -33.7 ; déplacement s=0,5 +9.3 ; marge extensive -0.7) ; quadratique des notes -12.3 ; perdants > 500 € 52 % ; fourchette élasticités -5.5 à -21.8
+    déciles € +143 +588 +1175 +1263 +799 +792 +471 +403 -540 -4976 ; 10 % du haut -21.1 Md€, 1 % du haut -8.5 Md€
+    types Md€ Salaires -14.1 ; Pensions +16.2 ; Indépendants, foncier, gérants -5.0 ; Chômage, préretraites +2.9
+[Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant] décalage +6.72 pt ; perte sèche, variation : centrale -8.1 Md€ (coin IR-CSG seul -7.8 ; coin non contributif -13.2 ; toutes cotisations -20.1 ; déplacement s=0,5 +7.2 ; marge extensive -2.1) ; quadratique des notes -9.7 ; perdants > 500 € 40 % ; fourchette élasticités -5.1 à -12.3
+    déciles € +65 +256 +444 +569 +143 +302 +60 +390 -15 -2163 ; 10 % du haut -9.2 Md€, 1 % du haut -5.6 Md€
+    types Md€ Salaires -13.4 ; Pensions +13.6 ; Indépendants, foncier, gérants -3.2 ; Chômage, préretraites +3.0
