@@ -51,3 +51,11 @@ les sorties). Les chiffres de l'ancienne note sont périmés quand les registres
 7. **Partie IR-CSG : ne pas parler des cotisations sociales (salariales et patronales)**, qui relèvent d'une autre
    partie du rapport : pas de discussion, pas de figure, pas d'argument fondé sur elles dans le texte de la partie.
    La méthode de perte sèche (coin total) peut rester, mentionnée sobrement dans l'annexe de méthode.
+
+## Décision du 17/11/2026, soir (auteur)
+8. **Coupe et présentation** (détail : CONSIGNES_COUPE.md) : ne rien redire de ce qu'exposent les première et deuxième
+   parties du rapport commun (principes de 1789, perte sèche, assiette large et taux bas, neutralité, incidence, niveau
+   des prélèvements, histoire de la CSG et de la CRDS) ; présenter le cadre comme une **neutralité distributive**
+   d'ensemble, sans afficher la neutralité du 1 % ni un geste pour les familles comme objectifs (chiffrages
+   inchangés, résultats donnés sobrement, détail du haut en annexe) ; réduire la longueur d'environ 40 % dans le corps
+   et 30 % dans les annexes.

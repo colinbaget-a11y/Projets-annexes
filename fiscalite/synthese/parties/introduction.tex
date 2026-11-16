@@ -1,88 +1,43 @@
-% Introduction de la note, réécrite le 16/11/2026 (synthese/CHARTE_NOTE.md, DECISIONS.md) ; base 2025 le 17/11/2026.
+% Introduction de la note, réécrite le 16/11/2026 (synthese/CHARTE_NOTE.md, DECISIONS.md) ; base 2025 le 17/11/2026 ;
+% coupée le 17/11/2026 (CONSIGNES_COUPE.md : pas de redite de la première partie du rapport commun).
 % Chiffres : sorties/synthese_ensemble.txt (synthese/synthese_ensemble.py) ; méthode : parties/annexe_methode.tex.
 \section*{Introduction}
 
-La France prélève en impôts et en cotisations sociales 43,5~\% de son produit intérieur brut, au deuxième rang de l'OCDE derrière le
-Danemark (OCDE, \emph{Revenue Statistics} ; chiffres de 2024, les derniers publiés, connus pour 36 des 38 pays
-membres). Le débat budgétaire oscille depuis des années entre deux réponses :
-prélever davantage pour réduire le déficit, ou baisser des impôts jugés trop lourds. Cette note pose une autre
-question, qui ne préjuge pas de la première : à recette égale, peut-on prélever autrement, de façon à moins décourager
-ceux qui travaillent, embauchent, investissent, déménagent ou transmettent ? Taxer mieux plutôt que davantage.
+Le rapport pose les principes d'un bon impôt et montre où le système français s'en écarte. Cette note les applique à
+quatre ensembles d'impôts et chiffre ce que l'on peut attendre de réformes précises. Les défauts visés sont concrets.
+Un même euro de revenu paie un impôt différent selon qu'il est un salaire ou une pension, et le salaire d'un second
+conjoint supporte le taux marginal du couple. Un ménage qui achète un logement verse en une fois près de 6~\% de son
+prix, quand son voisin installé paie chaque année une taxe assise sur des valeurs de 1970. Une société paie le même taux
+sur la machine qui rapporte tout juste ce qu'elle coûte et sur la rente d'une marque. Une plus-value accumulée pendant
+trente ans s'efface si son détenteur meurt au lieu de vendre.
 
-La question n'est pas d'école. Un même euro de revenu paie aujourd'hui des impôts différents selon qu'il est un salaire
-ou une pension, et le salaire d'un second conjoint supporte le taux marginal du couple. Un ménage qui achète un
-logement verse en une fois près de 6~\% de son prix, quand son voisin installé paie chaque année une taxe assise sur des
-valeurs de 1970. Une société paie le même taux sur la machine qui rapporte tout juste ce qu'elle coûte et sur la rente
-d'une marque. Une plus-value accumulée pendant trente ans s'efface si son détenteur meurt au lieu de vendre. Chacune de
-ces règles a eu sa raison ; leur accumulation produit des impôts qui coûtent à l'économie plus qu'ils ne devraient pour
-ce qu'ils rapportent. La note examine quatre ensembles où cet écart paraît le plus grand : l'impôt sur le revenu, la contribution sociale
-généralisée (CSG) et la contribution au remboursement de la dette sociale (CRDS), qui ont prélevé ensemble 230~Md€ en 2025 sur les revenus du travail, les pensions et le chômage ; les impôts sur
-l'immobilier ; l'impôt sur les sociétés ; l'imposition des revenus du capital.
+\paragraph{Une discipline.} Chaque réforme rapporte autant que les impôts qu'elle remplace, avant toute réaction des
+contribuables ; ce que ces réactions pourraient rapporter de plus ne finance aucune mesure. Chacune laisse aussi la
+répartition de la charge à peu près inchangée : pour la fusion de l'impôt sur le revenu et de la CSG, aucun dixième de
+la population ne voit sa charge moyenne varier de plus de 500~€ par an. Le degré de redistribution relève d'un choix
+collectif ; le tenir à part permet de mesurer ce qu'une réforme apporte en efficacité, sans le confondre avec un
+transfert entre contribuables. Les écarts qui subsistent, ceux des retraités d'abord, sont chiffrés. La référence est le
+droit en vigueur, y compris deux baisses d'impôt déjà votées que le bilan d'ensemble chiffre sans les compter dans nos
+réformes : la fin de la contribution exceptionnelle sur les bénéfices des grandes entreprises après 2026 et
+l'extinction de la CRDS fin 2033.
 
-\paragraph{Une discipline et deux contraintes.} Taxer mieux sans taxer davantage impose une discipline : chaque réforme
-est calibrée pour rapporter autant que les impôts qu'elle remplace, avant toute réaction des contribuables, et ce que
-ces réactions pourraient rapporter de plus ne sert à financer aucune mesure. La référence est le droit en vigueur. Elle
-comporte deux baisses d'impôt déjà votées, que la note ne compte pas dans ses réformes mais qu'elle chiffre dans le
-bilan d'ensemble, parce qu'un décideur doit les assumer ou les compenser : la fin de la contribution exceptionnelle
-sur les bénéfices des grandes entreprises après 2026, et l'extinction de la CRDS avec la dette sociale fin 2033.
+\paragraph{Ce qui est chiffré.} Le « gain d'efficacité » est la baisse de la perte sèche : la valeur des décisions que
+l'impôt fait abandonner (une heure travaillée, un emploi accepté, une vente de logement, une machine achetée), à recette
+égale. Il est prudent : seules comptent les réactions réelles, pas l'optimisation des déclarations, dont l'effet sur la
+recette est donné à part ; chaque euro d'activité perdu coûte tout ce qui était prélevé dessus ; chaque chiffre est
+encadré par des hypothèses basses et hautes sur les comportements. C'est une mesure statique, de court terme, centrée
+sur le travail, qui ignore l'épargne, l'innovation et la localisation des sièges et des hauts revenus : ce n'est pas un
+effet sur la croissance. Les réactions viennent des études, françaises quand elles existent ; les montants, des
+prélèvements obligatoires de 2025 (comptes nationaux, exécution budgétaire, DGFiP, collectivités locales). Quand une
+donnée de 2025 manque, nous prenons 2024 et le disons : c'est le cas de la répartition de l'impôt sur le revenu entre
+foyers. Les cas-types sont calculés avec le simulateur OpenFisca. Le texte distingue toujours ce que dit la théorie, ce
+que l'on peut chiffrer et ce que nous proposons (méthode à l'\ref{ann:methode}).
 
-Deux contraintes de répartition encadrent les réformes. La première porte sur le haut de la distribution : prises
-ensemble, les réformes ne doivent ni alourdir ni alléger la charge du 1~\% des foyers les plus aisés. Une réforme
-présentée au nom de l'efficacité qui servirait à relever l'impôt des plus riches, ou à le baisser, changerait de
-nature ; et les comportements de ces foyers, les plus mobiles et les moins bien mesurés, rendraient fragile tout
-chiffrage d'un tel mouvement. La seconde porte sur les familles : le nouveau système doit leur être, au total, un peu plus
-favorable qu'aujourd'hui. Pour la fusion de l'impôt sur le revenu et de la CSG, nous ajoutons un garde-fou de notre fait : aucun
-dixième de la population ne voit sa charge moyenne varier de plus de 500~€ par an. Ces contraintes ont un prix en
-efficacité, que la note chiffre chaque fois.
+L'optimisation sert de boussole, pas de pilote. Le barème d'impôt sur le revenu qui réduirait le plus le coût
+économique de l'impôt rendrait 26~Md€ au dixième le plus aisé ; la proposition retient près de 60~\% de son gain à
+répartition à peu près inchangée, et chaque écart est chiffré comme une variante.
 
-\paragraph{La méthode, en trois niveaux.} Le texte distingue toujours ce que dit la théorie, ce qu'on peut chiffrer et
-ce que nous proposons. La théorie fournit trois principes simples. Le coût d'un impôt pour l'économie tient aux décisions
-qu'il fait abandonner, et il croît à peu près comme le carré du taux qui frappe le dernier euro : mieux vaut un taux bas
-sur une assiette large qu'un taux élevé sur une assiette percée. Un impôt sur ce qui ne peut ni fuir ni se réduire, le
-sol ou une rente, ne coûte presque rien. Deux revenus de même nature devraient payer le même impôt, faute de quoi ceux
-qui le peuvent déplacent leurs revenus vers la forme la moins taxée. Le chiffrage repose sur les données fiscales
-publiées (DGFiP, Insee, Banque de France, ventes immobilières), sur des cas-types calculés avec le simulateur
-OpenFisca et sur les réactions des contribuables mesurées dans les études, françaises quand elles existent. Les
-recettes et les assiettes sont celles des prélèvements obligatoires de 2025 (comptes nationaux publiés en 2026,
-exécution budgétaire, statistiques de la DGFiP et des collectivités locales). Quand une donnée de 2025 manque, nous
-prenons 2024 et le disons : c'est le cas de la répartition de l'impôt sur le revenu entre foyers, connue pour les
-revenus de 2024, et du détail des déclarations de revenus. La
-proposition va dans la direction qu'indique la théorie sans aller jusqu'au bout de ce que préconiserait un calcul
-d'optimisation, parce que les comportements n'ont été mesurés que face à de petites réformes et parce que la
-répartition de la charge compte.
-
-L'optimisation sert de boussole, pas de pilote. Pour l'impôt sur le revenu, nous calculons le barème qui réduirait le
-plus le coût économique de l'impôt sans autre contrainte : il montre où sont les gains, au premier salaire et dans le
-haut du barème, mais il rendrait 26~Md€ au dixième le plus aisé. La proposition en retient près de 60~\% en respectant
-les contraintes de répartition, et chaque choix qui l'en écarte est chiffré comme une variante, avec ce qu'il coûte et
-qui le paie.
-
-Le « gain d'efficacité » de la note a un sens précis. C'est la baisse de la perte sèche : la valeur des décisions que
-l'impôt fait abandonner (une heure travaillée, un emploi accepté, une vente de logement, une machine achetée), mesurée
-par rapport à aujourd'hui, à recette égale. Trois choix la rendent prudente. Chaque euro d'activité perdu coûte à la
-collectivité tout ce qui était prélevé dessus, impôt, cotisations sans contrepartie et prestations retirées ; seule
-compte la réaction réelle, pas l'optimisation des déclarations, dont l'effet sur la recette est donné à part ; chaque
-chiffre est encadré par des hypothèses basses et hautes sur les comportements, et un jeu de long terme montre ce qui
-change si les carrières s'ajustent. Ses limites sont aussi nettes. C'est une mesure statique, de court terme, centrée
-sur le travail : elle ne compte ni l'épargne, que nous supposons insensible à son rendement faute de mesure française,
-ni l'accumulation du capital au-delà d'un ordre de grandeur pour l'impôt sur les sociétés, ni l'innovation, ni la
-localisation des sièges et des hauts revenus. Ce n'est pas un effet sur la croissance. Elle dit ce que les études
-permettent d'affirmer, pas tout ce que les réformes pourraient apporter. Ses formules et les conventions communes
-sont exposées à l'\ref{ann:methode}.
-
-\paragraph{Où va la note.} Chaque réforme suit le même chemin : comprendre l'impôt tel qu'il est, dire ce que
-l'économie lui reproche et ce que les études en confirment, montrer ce que donnerait la réforme qui vient spontanément
-à l'esprit et pourquoi elle ne suffit pas, construire une réforme plus intelligente, exposer les choix qui restent au
-décideur, dire comment passer de l'ancien au nouveau système. La fusion de l'impôt sur le revenu, de la CSG et de la
-CRDS (section~\ref{sec:ircsg}) fait l'essentiel du gain : un barème sans marches et une franchise pour le premier
-salaire, financés par l'alignement des pensions sur les salaires ; c'est la plus efficace des quatre réformes et la plus
-difficile, parce que les retraités en paient le prix. L'immobilier (section~\ref{sec:foncier}) remplace la moitié des
-droits de mutation par un impôt sur la valeur du sol. L'impôt sur les sociétés (section~\ref{sec:is}) cesse de taxer la
-machine marginale, par une déduction immédiate des équipements financée par la suppression de dispositifs ciblés plutôt
-que par le taux. Les revenus du capital (section~\ref{sec:pfu}) gardent leur taux, mais la plus-value cesse de
-s'effacer à la transmission. La dernière section (\ref{sec:ensemble}) additionne les quatre réformes : environ 7~Md€
-par an de perte sèche évitée, dans une fourchette de 2,4 à 15~Md€, qui repose d'abord sur une hypothèse
-que rien ne vérifie (que les salariés réagissent aujourd'hui à la CSG comme à l'impôt sur le revenu) ; une avance de trésorerie d'une trentaine de
-milliards, remboursée à partir de 2033 ; un haut de la distribution à peu près neutre à condition de supprimer la
-contribution exceptionnelle sur les hauts revenus ; et une poignée de décisions que les chiffres ne prennent pas à la
-place du décideur.
+Chaque partie suit le même chemin : l'impôt tel qu'il est, ce qu'on lui reproche et ce que les études en confirment, la
+réforme qui vient spontanément à l'esprit et pourquoi elle ne suffit pas, une réforme plus intelligente, les choix qui
+restent au décideur, le passage de l'ancien au nouveau système. La dernière section (\ref{sec:ensemble}) additionne les
+quatre réformes.
