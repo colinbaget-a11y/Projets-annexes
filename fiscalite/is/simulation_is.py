@@ -30,14 +30,16 @@ H = 40                   # horizon de simulation (années)
 
 BASE_NORMALE = 251.0     # bénéfice imposé aux taux normaux, 2022 (DGFiP Statistiques n° 21), Md€
 BASE_REDUITE = 27.0      # bénéfice imposé à 15 %, 2022, Md€
-CROISS_BASE = (1.06) ** 0  # on garde la base 2022, faute de ventilation plus récente (ordre de grandeur)
+A22 = (1 + G) ** (AN1 - 2022)   # montants de 2022 portés en 2027 (croissance nominale)
+A25 = (1 + G) ** (AN1 - 2025)   # montants de 2025 portés en 2027
 # Élargissement de l'assiette (Md€ par an)
-ELARG = {"Fin du taux réduit de 15 % (statique 2022 ; 2,2 officiel en 2019)": 2.7,
-         "CIR apprécié au niveau du groupe (CPO, 2025)": 0.57,
-         "Fin des exonérations zonées hors outre-mer (CPO, 2025)": 0.52,
-         "Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable)": 0.6}
-# Version prudente : taux réduit au chiffre officiel de 2019 (2,2) et brevets à 0,2 (fuite de la base)
-ELARG_PRUDENT = 2.2 + 0.57 + 0.52 + 0.2
+ELARG = {"Fin du taux réduit de 15 % (statique 2022, porté en 2027)": 2.7 * A22,
+         "CIR apprécié au niveau du groupe (CPO, 2025)": 0.57 * A25,
+         "Fin des exonérations zonées hors outre-mer (CPO, 2025)": 0.52 * A25,
+         "Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable)": 0.6 * A25}
+# Version prudente : taux réduit au chiffre officiel de 2019 (2,2 Md€ pour un écart de 13 points, soit
+# 1,7 Md€ pour 10 points, porté en 2027) et brevets à 0,2 (fuite de la base)
+ELARG_PRUDENT = 1.7 * (1 + G) ** (AN1 - 2019) + (0.57 + 0.52 + 0.2) * A25
 
 
 def plan(regime):
@@ -86,10 +88,11 @@ def cout_vrai(regime, b, part):
     return TAU * part * I1 * (z(plan_bonus(regime, b)) - z(plan(regime)))
 
 
-def recette_taux(points, semi_elast):
-    """Recette d'une hausse du taux normal de `points`, base 2022 ; semi-élasticité en % de base par point."""
-    base = BASE_NORMALE * (1 - semi_elast / 100 * points)
-    return (TAU + points / 100) * base - TAU * BASE_NORMALE
+def recette_taux(points, semi_elast, base0=None):
+    """Recette (Md€ de 2027) d'une hausse du taux normal de `points` ; semi-élasticité en % de base par point."""
+    b0 = BASE_NORMALE * A22 if base0 is None else base0
+    base = b0 * (1 - semi_elast / 100 * points)
+    return (TAU + points / 100) * base - TAU * b0
 
 
 def cout_usage(zv, tau=TAU):
@@ -106,8 +109,9 @@ def petite_societe(benefice, invest):
 
 R_ETAT = 0.0325          # taux d'emprunt de l'État (hypothèse, 3 à 3,5 %)
 PIB_2027 = 3100.0        # PIB nominal 2027, Md€ (ordre de grandeur)
-NICHES = (0.57 + 0.52 + 0.2, 0.57 + 0.52 + 0.6)      # CIR groupe, zones, brevets (bas, haut)
-REDUIT = (2.2, 2.7)                                   # fin du taux réduit (bas, haut)
+NICHES = ((0.57 + 0.52 + 0.2) * A25, (0.57 + 0.52 + 0.6) * A25)   # CIR groupe, zones, brevets (bas, haut), 2027
+REDUIT = (1.7 * (1 + G) ** (AN1 - 2019), 2.7 * A22)                  # fin du taux réduit (bas, haut), 2027
+POINT = (BASE_NORMALE + BASE_REDUITE) * A22 / 100                    # un point de taux normal en 2027, taux réduit supprimé
 
 
 def scenario(regime, bonus, financement, baisse_pts=0.0, baisse_des=None, r=R_ETAT, h=H):
@@ -120,7 +124,7 @@ def scenario(regime, bonus, financement, baisse_pts=0.0, baisse_des=None, r=R_ET
     rec = financement * cr
     if baisse_des is not None:
         on = np.arange(h) >= baisse_des
-        rec = rec - on * baisse_pts / 100 * BASE_NORMALE * cr
+        rec = rec - on * baisse_pts * POINT * cr
         cout = np.where(on, cout * (TAU - baisse_pts / 100) / TAU, cout)
     solde = rec - cout
     dette = np.zeros(h)
@@ -175,7 +179,7 @@ if __name__ == "__main__":
     for reg in ("lineaire", "degressif"):
         p(f"[VRAI] Coût actualisé par millésime, déduction immédiate [{reg}] : "
           + " / ".join(f"{cout_vrai(reg, 1.0, s):.2f}" for s in PARTS) + " Md€ (parts 60/75/90 %) ; "
-          f"en points de taux : {cout_vrai(reg, 1.0, .75)/(BASE_NORMALE/100):.2f}")
+          f"en points de taux : {cout_vrai(reg, 1.0, .75)/POINT:.2f}")
     p("")
     p("[TAUX] Recette d'une hausse du taux normal (base 2022 des taux normaux, 251 Md€)")
     for pts in (1, 3):
@@ -186,7 +190,7 @@ if __name__ == "__main__":
     p("[ELARG] Élargissement de l'assiette (Md€/an, statique)")
     for k, v in ELARG.items():
         p(f"  {k} : {v:.2f}")
-    p(f"  Total : {tot:.1f} Md€, soit {tot/(BASE_NORMALE/100):.1f} point de taux normal")
+    p(f"  Total : {tot:.1f} Md€ (prudent {ELARG_PRUDENT:.1f}), soit {tot/POINT:.1f} point de taux normal ; un point = {POINT:.2f} Md€ en 2027")
     p("")
     for TOT in (tot, ELARG_PRUDENT):
       p(f"[SOLDE] Solde cumulé (élargissement de {TOT:.1f} Md€ croissant à 3 %/an moins coût), part 75 %, Md€")
@@ -222,11 +226,23 @@ if __name__ == "__main__":
                 ("S1 50 % permanent, niches", lambda t: 0.5, NICHES, {}),
                 ("S2 50 % puis 100 % en an 7, niches", pal, NICHES, {}),
                 ("S3 50 % puis 100 % en an 7, niches + taux réduit", pal, tuple(a + b for a, b in zip(NICHES, REDUIT)), {}),
-                ("S3b idem, taux normal -1 pt dès l'an 13", pal, tuple(a + b for a, b in zip(NICHES, REDUIT)),
-                 dict(baisse_pts=1.0, baisse_des=12)),
                 ("S4 100 % dès l'an 1, niches + taux réduit", lambda t: 1.0, tuple(a + b for a, b in zip(NICHES, REDUIT)), {})):
             for f in fin:
                 p(resume_scenario(f"{nom} ({f:.1f})", reg, bonus, f, **kw))
+    # baisse de taux que l'excédent permet une fois la dette remboursée (scénario S3)
+    for reg in ("lineaire", "degressif"):
+        for f in tuple(a + b for a, b in zip(NICHES, REDUIT)):
+            solde, dette = scenario(reg, pal, f)
+            cr_ = (1 + G) ** np.arange(len(solde))
+            pts = solde / (POINT * cr_)
+            p(f"[POINTS] S3 [{reg}] financement {f:.1f} : excédent en points de taux normal, an 15 {pts[14]:.2f},"
+              f" an 20 {pts[19]:.2f}, an 30 {pts[29]:.2f}")
+    # petite société pendant la phase à 50 % (2027-2032)
+    perte = 4250.0
+    for i in (20_000, 50_000):
+        av = TAU * i * (plan_bonus("lineaire", 0.5)[0] - plan("lineaire")[0])
+        p(f"[PME50] déduction de 50 % : avance la 1re année pour {i:,} € d'équipements {av:,.0f} € ;".replace(",", " ")
+          + f" investissement annuel qui compense la perte maximale {perte/(TAU*(z(plan_bonus('lineaire', .5))-z(plan('lineaire')))):,.0f} €".replace(",", " "))
     # gain de PIB de long terme (ordre de grandeur)
     K, DEP, PIB25 = 541.0, 0.14, 2950.0      # stock éligible fin 2025 (Insee 8.212, lu par la revue), dépréciation
     sk = (0.05 + DEP) * K / PIB25

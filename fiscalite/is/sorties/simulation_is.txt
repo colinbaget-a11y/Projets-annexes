@@ -13,38 +13,38 @@ Investissement éligible année 1 (2027) : 89.1 Md€ (base 2025 84.0, +3%/an)
   D : 50 % les années 1 à 6, 100 % ensuite [lineaire] an1 7.8 an2 6.8 an3 5.8 an4 4.8 an5 3.7 an10 6.8 an20 2.8 | an1 (60-90 %) 6.2-9.3 | an10 (60-90 %) 5.4-8.1 | cumul 5 ans 28.9
   D : 50 % les années 1 à 6, 100 % ensuite [degressif] an1 7.0 an2 5.0 an3 3.6 an4 2.7 an5 2.0 an10 3.9 an20 1.9 | an1 (60-90 %) 5.6-8.4 | an10 (60-90 %) 3.1-4.7 | cumul 5 ans 20.3
 
-[VRAI] Coût actualisé par millésime, déduction immédiate [lineaire] : 2.04 / 2.55 / 3.06 Md€ (parts 60/75/90 %) ; en points de taux : 1.02
-[VRAI] Coût actualisé par millésime, déduction immédiate [degressif] : 1.41 / 1.76 / 2.12 Md€ (parts 60/75/90 %) ; en points de taux : 0.70
+[VRAI] Coût actualisé par millésime, déduction immédiate [lineaire] : 2.04 / 2.55 / 3.06 Md€ (parts 60/75/90 %) ; en points de taux : 0.79
+[VRAI] Coût actualisé par millésime, déduction immédiate [degressif] : 1.41 / 1.76 / 2.12 Md€ (parts 60/75/90 %) ; en points de taux : 0.55
 
 [TAUX] Recette d'une hausse du taux normal (base 2022 des taux normaux, 251 Md€)
-  +1 pt : semi-élasticité 0 -> 2.5 ; semi-élasticité 0.5 -> 2.2 ; semi-élasticité 1.0 -> 1.9 ; semi-élasticité 1.5 -> 1.5 Md€
-  +3 pt : semi-élasticité 0 -> 7.5 ; semi-élasticité 0.5 -> 6.5 ; semi-élasticité 1.0 -> 5.4 ; semi-élasticité 1.5 -> 4.4 Md€
+  +1 pt : semi-élasticité 0 -> 2.9 ; semi-élasticité 0.5 -> 2.5 ; semi-élasticité 1.0 -> 2.2 ; semi-élasticité 1.5 -> 1.8 Md€
+  +3 pt : semi-élasticité 0 -> 8.7 ; semi-élasticité 0.5 -> 7.5 ; semi-élasticité 1.0 -> 6.3 ; semi-élasticité 1.5 -> 5.1 Md€
 
 [ELARG] Élargissement de l'assiette (Md€/an, statique)
-  Fin du taux réduit de 15 % (statique 2022 ; 2,2 officiel en 2019) : 2.70
-  CIR apprécié au niveau du groupe (CPO, 2025) : 0.57
-  Fin des exonérations zonées hors outre-mer (CPO, 2025) : 0.52
-  Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable) : 0.60
-  Total : 4.4 Md€, soit 1.7 point de taux normal
+  Fin du taux réduit de 15 % (statique 2022, porté en 2027) : 3.13
+  CIR apprécié au niveau du groupe (CPO, 2025) : 0.60
+  Fin des exonérations zonées hors outre-mer (CPO, 2025) : 0.55
+  Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable) : 0.64
+  Total : 4.9 Md€ (prudent 3.5), soit 1.5 point de taux normal ; un point = 3.22 Md€ en 2027
 
-[SOLDE] Solde cumulé (élargissement de 4.4 Md€ croissant à 3 %/an moins coût), part 75 %, Md€
-  A : déduction immédiate dès l'année 1 [lineaire] : creux -34.7 Md€ (année 6), solde annuel positif dès l'année 7, cumul repasse à zéro année 16
-  A : déduction immédiate dès l'année 1 [degressif] : creux -18.1 Md€ (année 4), solde annuel positif dès l'année 5, cumul repasse à zéro année 10
-  B : 50 % immédiat, reste amorti (permanent) [lineaire] : creux -6.8 Md€ (année 3), solde annuel positif dès l'année 4, cumul repasse à zéro année 7
-  B : 50 % immédiat, reste amorti (permanent) [degressif] : creux -3.1 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 4
-  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] : creux -26.9 Md€ (année 7), solde annuel positif dès l'année 8, cumul repasse à zéro année 16
-  C : 50 % les années 1 à 3, 100 % ensuite [degressif] : creux -10.4 Md€ (année 6), solde annuel positif dès l'année 3, cumul repasse à zéro année 10
-  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] : creux -15.9 Md€ (année 10), solde annuel positif dès l'année 4, cumul repasse à zéro année 16
-  D : 50 % les années 1 à 6, 100 % ensuite [degressif] : creux -3.1 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 4
+[SOLDE] Solde cumulé (élargissement de 4.9 Md€ croissant à 3 %/an moins coût), part 75 %, Md€
+  A : déduction immédiate dès l'année 1 [lineaire] : creux -31.6 Md€ (année 5), solde annuel positif dès l'année 6, cumul repasse à zéro année 14
+  A : déduction immédiate dès l'année 1 [degressif] : creux -15.9 Md€ (année 3), solde annuel positif dès l'année 4, cumul repasse à zéro année 9
+  B : 50 % immédiat, reste amorti (permanent) [lineaire] : creux -5.1 Md€ (année 3), solde annuel positif dès l'année 4, cumul repasse à zéro année 6
+  B : 50 % immédiat, reste amorti (permanent) [degressif] : creux -2.1 Md€ (année 1), solde annuel positif dès l'année 2, cumul repasse à zéro année 4
+  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] : creux -22.8 Md€ (année 7), solde annuel positif dès l'année 8, cumul repasse à zéro année 14
+  C : 50 % les années 1 à 3, 100 % ensuite [degressif] : creux -7.2 Md€ (année 5), solde annuel positif dès l'année 2, cumul repasse à zéro année 9
+  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] : creux -9.8 Md€ (année 10), solde annuel positif dès l'année 4, cumul repasse à zéro année 14
+  D : 50 % les années 1 à 6, 100 % ensuite [degressif] : creux -2.1 Md€ (année 1), solde annuel positif dès l'année 2, cumul repasse à zéro année 4
 [SOLDE] Solde cumulé (élargissement de 3.5 Md€ croissant à 3 %/an moins coût), part 75 %, Md€
-  A : déduction immédiate dès l'année 1 [lineaire] : creux -40.5 Md€ (année 6), solde annuel positif dès l'année 7, cumul repasse à zéro année 22
-  A : déduction immédiate dès l'année 1 [degressif] : creux -22.0 Md€ (année 5), solde annuel positif dès l'année 6, cumul repasse à zéro année 13
-  B : 50 % immédiat, reste amorti (permanent) [lineaire] : creux -10.5 Md€ (année 4), solde annuel positif dès l'année 5, cumul repasse à zéro année 9
-  B : 50 % immédiat, reste amorti (permanent) [degressif] : creux -4.9 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 6
-  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] : creux -34.6 Md€ (année 8), solde annuel positif dès l'année 9, cumul repasse à zéro année 22
-  C : 50 % les années 1 à 3, 100 % ensuite [degressif] : creux -16.2 Md€ (année 6), solde annuel positif dès l'année 3, cumul repasse à zéro année 13
-  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] : creux -27.0 Md€ (année 11), solde annuel positif dès l'année 5, cumul repasse à zéro année 22
-  D : 50 % les années 1 à 6, 100 % ensuite [degressif] : creux -7.2 Md€ (année 9), solde annuel positif dès l'année 3, cumul repasse à zéro année 13
+  A : déduction immédiate dès l'année 1 [lineaire] : creux -40.3 Md€ (année 6), solde annuel positif dès l'année 7, cumul repasse à zéro année 21
+  A : déduction immédiate dès l'année 1 [degressif] : creux -21.8 Md€ (année 5), solde annuel positif dès l'année 6, cumul repasse à zéro année 13
+  B : 50 % immédiat, reste amorti (permanent) [lineaire] : creux -10.4 Md€ (année 4), solde annuel positif dès l'année 5, cumul repasse à zéro année 9
+  B : 50 % immédiat, reste amorti (permanent) [degressif] : creux -4.8 Md€ (année 2), solde annuel positif dès l'année 3, cumul repasse à zéro année 6
+  C : 50 % les années 1 à 3, 100 % ensuite [lineaire] : creux -34.3 Md€ (année 8), solde annuel positif dès l'année 9, cumul repasse à zéro année 21
+  C : 50 % les années 1 à 3, 100 % ensuite [degressif] : creux -16.0 Md€ (année 6), solde annuel positif dès l'année 3, cumul repasse à zéro année 13
+  D : 50 % les années 1 à 6, 100 % ensuite [lineaire] : creux -26.6 Md€ (année 11), solde annuel positif dès l'année 5, cumul repasse à zéro année 21
+  D : 50 % les années 1 à 6, 100 % ensuite [degressif] : creux -6.9 Md€ (année 9), solde annuel positif dès l'année 3, cumul repasse à zéro année 13
 
 [PME] Petite société : perte due à la fin du taux réduit / gain actualisé de la déduction immédiate (€/an)
   bénéfice  42 500 €  investissement       0 €/an : perte  4 250 ; gain      0 ; avance de trésorerie la 1re année      0
@@ -57,25 +57,27 @@ Investissement éligible année 1 (2027) : 89.1 Md€ (base 2025 84.0, +3%/an)
 
 [VRAI_ETAT] Coût par millésime actualisé au taux de l'État (3.25%), déduction totale : lineaire 1.39 / 1.74 / 2.08 ; degressif 0.95 / 1.19 / 1.43 Md€ (parts 60/75/90 %)
 [SCEN] Dette cumulée avec intérêts à 3.25% (part imposable 75 %, horizon 30 ans)
-  S1 50 % permanent, niches (1.3) [lineaire] : dette max 29.4 Md€ (an 24), remboursée an None ; solde an 10 +0.6, an 20 +0.8 Md€ ; dette an 30 +28.7 Md€ (+0.39 pt de PIB)
-  S1 50 % permanent, niches (1.7) [lineaire] : dette max 23.3 Md€ (an 7), remboursée an 30 ; solde an 10 +1.2, an 20 +1.5 Md€ ; dette an 30 -0.6 Md€ (-0.01 pt de PIB)
-  S2 50 % puis 100 % en an 7, niches (1.3) [lineaire] : dette max 201.6 Md€ (an 40), remboursée an None ; solde an 10 -5.1, an 20 -0.6 Md€ ; dette an 30 +138.9 Md€ (+1.90 pt de PIB)
-  S2 50 % puis 100 % en an 7, niches (1.7) [lineaire] : dette max 148.4 Md€ (an 40), remboursée an None ; solde an 10 -4.6, an 20 +0.1 Md€ ; dette an 30 +109.6 Md€ (+1.50 pt de PIB)
-  S3 50 % puis 100 % en an 7, niches + taux réduit (3.5) [lineaire] : dette max 32.5 Md€ (an 12), remboursée an 25 ; solde an 10 -2.2, an 20 +3.3 Md€ ; dette an 30 -22.3 Md€ (-0.30 pt de PIB)
-  S3 50 % puis 100 % en an 7, niches + taux réduit (4.4) [lineaire] : dette max 18.5 Md€ (an 11), remboursée an 17 ; solde an 10 -1.0, an 20 +4.9 Md€ ; dette an 30 -88.2 Md€ (-1.21 pt de PIB)
-  S3b idem, taux normal -1 pt dès l'an 13 (3.5) [lineaire] : dette max 133.3 Md€ (an 40), remboursée an None ; solde an 10 -2.2, an 20 -1.0 Md€ ; dette an 30 +83.6 Md€ (+1.14 pt de PIB)
-  S3b idem, taux normal -1 pt dès l'an 13 (4.4) [lineaire] : dette max 18.6 Md€ (an 21), remboursée an None ; solde an 10 -1.0, an 20 +0.6 Md€ ; dette an 30 +17.7 Md€ (+0.24 pt de PIB)
-  S4 100 % dès l'an 1, niches + taux réduit (3.5) [lineaire] : dette max 45.6 Md€ (an 7), remboursée an 28 ; solde an 10 +2.4, an 20 +3.3 Md€ ; dette an 30 -9.2 Md€ (-0.13 pt de PIB)
-  S4 100 % dès l'an 1, niches + taux réduit (4.4) [lineaire] : dette max 39.0 Md€ (an 6), remboursée an 19 ; solde an 10 +3.6, an 20 +4.9 Md€ ; dette an 30 -75.1 Md€ (-1.03 pt de PIB)
-  S1 50 % permanent, niches (1.3) [degressif] : dette max 15.2 Md€ (an 6), remboursée an 25 ; solde an 10 +1.0, an 20 +1.3 Md€ ; dette an 30 -9.4 Md€ (-0.13 pt de PIB)
-  S1 50 % permanent, niches (1.7) [degressif] : dette max 12.5 Md€ (an 5), remboursée an 16 ; solde an 10 +1.5, an 20 +2.0 Md€ ; dette an 30 -38.7 Md€ (-0.53 pt de PIB)
-  S2 50 % puis 100 % en an 7, niches (1.3) [degressif] : dette max 86.0 Md€ (an 40), remboursée an None ; solde an 10 -2.2, an 20 +0.3 Md€ ; dette an 30 +66.7 Md€ (+0.91 pt de PIB)
-  S2 50 % puis 100 % en an 7, niches (1.7) [degressif] : dette max 37.8 Md€ (an 26), remboursée an None ; solde an 10 -1.7, an 20 +1.0 Md€ ; dette an 30 +37.4 Md€ (+0.51 pt de PIB)
-  S3 50 % puis 100 % en an 7, niches + taux réduit (3.5) [degressif] : dette max 8.3 Md€ (an 9), remboursée an 14 ; solde an 10 +0.7, an 20 +4.2 Md€ ; dette an 30 -94.4 Md€ (-1.29 pt de PIB)
-  S3 50 % puis 100 % en an 7, niches + taux réduit (4.4) [degressif] : dette max 3.2 Md€ (an 2), remboursée an 5 ; solde an 10 +1.8, an 20 +5.8 Md€ ; dette an 30 -160.4 Md€ (-2.20 pt de PIB)
-  S3b idem, taux normal -1 pt dès l'an 13 (3.5) [degressif] : dette max 19.6 Md€ (an 40), remboursée an None ; solde an 10 +0.7, an 20 -0.1 Md€ ; dette an 30 +12.3 Md€ (+0.17 pt de PIB)
-  S3b idem, taux normal -1 pt dès l'an 13 (4.4) [degressif] : dette max 3.2 Md€ (an 2), remboursée an 5 ; solde an 10 +1.8, an 20 +1.4 Md€ ; dette an 30 -53.6 Md€ (-0.73 pt de PIB)
-  S4 100 % dès l'an 1, niches + taux réduit (3.5) [degressif] : dette max 24.3 Md€ (an 5), remboursée an 16 ; solde an 10 +3.1, an 20 +4.2 Md€ ; dette an 30 -85.4 Md€ (-1.17 pt de PIB)
-  S4 100 % dès l'an 1, niches + taux réduit (4.4) [degressif] : dette max 19.5 Md€ (an 4), remboursée an 11 ; solde an 10 +4.3, an 20 +5.8 Md€ ; dette an 30 -151.4 Md€ (-2.07 pt de PIB)
+  S1 50 % permanent, niches (1.4) [lineaire] : dette max 26.7 Md€ (an 15), remboursée an None ; solde an 10 +0.7, an 20 +1.0 Md€ ; dette an 30 +23.0 Md€ (+0.31 pt de PIB)
+  S1 50 % permanent, niches (1.8) [lineaire] : dette max 22.4 Md€ (an 7), remboursée an 27 ; solde an 10 +1.3, an 20 +1.7 Md€ ; dette an 30 -8.1 Md€ (-0.11 pt de PIB)
+  S2 50 % puis 100 % en an 7, niches (1.4) [lineaire] : dette max 191.2 Md€ (an 40), remboursée an None ; solde an 10 -5.0, an 20 -0.4 Md€ ; dette an 30 +133.1 Md€ (+1.82 pt de PIB)
+  S2 50 % puis 100 % en an 7, niches (1.8) [lineaire] : dette max 134.8 Md€ (an 40), remboursée an None ; solde an 10 -4.4, an 20 +0.3 Md€ ; dette an 30 +102.0 Md€ (+1.40 pt de PIB)
+  S3 50 % puis 100 % en an 7, niches + taux réduit (3.5) [lineaire] : dette max 31.9 Md€ (an 12), remboursée an 25 ; solde an 10 -2.2, an 20 +3.3 Md€ ; dette an 30 -24.6 Md€ (-0.34 pt de PIB)
+  S3 50 % puis 100 % en an 7, niches + taux réduit (4.9) [lineaire] : dette max 11.2 Md€ (an 10), remboursée an 14 ; solde an 10 -0.3, an 20 +5.8 Md€ ; dette an 30 -127.2 Md€ (-1.74 pt de PIB)
+  S4 100 % dès l'an 1, niches + taux réduit (3.5) [lineaire] : dette max 45.4 Md€ (an 7), remboursée an 28 ; solde an 10 +2.5, an 20 +3.3 Md€ ; dette an 30 -11.5 Md€ (-0.16 pt de PIB)
+  S4 100 % dès l'an 1, niches + taux réduit (4.9) [lineaire] : dette max 35.2 Md€ (an 6), remboursée an 16 ; solde an 10 +4.3, an 20 +5.8 Md€ ; dette an 30 -114.1 Md€ (-1.56 pt de PIB)
+  S1 50 % permanent, niches (1.4) [degressif] : dette max 14.7 Md€ (an 6), remboursée an 23 ; solde an 10 +1.1, an 20 +1.4 Md€ ; dette an 30 -15.2 Md€ (-0.21 pt de PIB)
+  S1 50 % permanent, niches (1.8) [degressif] : dette max 11.9 Md€ (an 5), remboursée an 15 ; solde an 10 +1.6, an 20 +2.2 Md€ ; dette an 30 -46.2 Md€ (-0.63 pt de PIB)
+  S2 50 % puis 100 % en an 7, niches (1.4) [degressif] : dette max 75.6 Md€ (an 40), remboursée an None ; solde an 10 -2.1, an 20 +0.5 Md€ ; dette an 30 +60.9 Md€ (+0.83 pt de PIB)
+  S2 50 % puis 100 % en an 7, niches (1.8) [degressif] : dette max 33.8 Md€ (an 16), remboursée an None ; solde an 10 -1.6, an 20 +1.2 Md€ ; dette an 30 +29.9 Md€ (+0.41 pt de PIB)
+  S3 50 % puis 100 % en an 7, niches + taux réduit (3.5) [degressif] : dette max 7.9 Md€ (an 9), remboursée an 14 ; solde an 10 +0.7, an 20 +4.2 Md€ ; dette an 30 -96.8 Md€ (-1.32 pt de PIB)
+  S3 50 % puis 100 % en an 7, niches + taux réduit (4.9) [degressif] : dette max 2.1 Md€ (an 1), remboursée an 4 ; solde an 10 +2.5, an 20 +6.7 Md€ ; dette an 30 -199.4 Md€ (-2.73 pt de PIB)
+  S4 100 % dès l'an 1, niches + taux réduit (3.5) [degressif] : dette max 24.2 Md€ (an 5), remboursée an 15 ; solde an 10 +3.1, an 20 +4.2 Md€ ; dette an 30 -87.8 Md€ (-1.20 pt de PIB)
+  S4 100 % dès l'an 1, niches + taux réduit (4.9) [degressif] : dette max 17.2 Md€ (an 4), remboursée an 10 ; solde an 10 +5.0, an 20 +6.7 Md€ ; dette an 30 -190.4 Md€ (-2.61 pt de PIB)
+[POINTS] S3 [lineaire] financement 3.5 : excédent en points de taux normal, an 15 0.59, an 20 0.59, an 30 0.59
+[POINTS] S3 [lineaire] financement 4.9 : excédent en points de taux normal, an 15 1.03, an 20 1.03, an 30 1.03
+[POINTS] S3 [degressif] financement 3.5 : excédent en points de taux normal, an 15 0.75, an 20 0.75, an 30 0.75
+[POINTS] S3 [degressif] financement 4.9 : excédent en points de taux normal, an 15 1.18, an 20 1.18, an 30 1.18
+[PME50] déduction de 50 % : avance la 1re année pour 20 000 € d'équipements 2 321 € ; investissement annuel qui compense la perte maximale 222 645 €
+[PME50] déduction de 50 % : avance la 1re année pour 50 000 € d'équipements 5 804 € ; investissement annuel qui compense la perte maximale 222 645 €
 [PIB] 100 % : part du revenu de ce capital 3.5 % du PIB ; gain de long terme 0.04 à 0.20 % du PIB (central 0.11 %, soit 3.2 Md€)
 [PIB] 50 % : part du revenu de ce capital 3.5 % du PIB ; gain de long terme 0.02 à 0.10 % du PIB (central 0.05 %, soit 1.6 Md€)
