@@ -135,7 +135,10 @@ def fin(fig, nom, src, note=None):
     stem = Path(nom).stem
     if NU:
         lignes = [_tex(src)] + ([_tex(note)] if note else [])
-        (OUT / f"{stem}_note.tex").write_text("\\par ".join(lignes) + "\n", encoding="utf-8")
+        chemin_note = OUT / f"{stem}_note.tex"
+        # Une note retouchée à la main (première ligne « % note éditée ») n'est pas écrasée.
+        if not (chemin_note.exists() and chemin_note.read_text(encoding="utf-8").startswith("% note éditée")):
+            chemin_note.write_text("\\par ".join(lignes) + "\n", encoding="utf-8")
         # La figure est imprimée à la largeur de la ligne : si les étiquettes la font déborder,
         # on rétrécit la zone de tracé plutôt que de laisser LaTeX réduire tout le texte.
         fig.canvas.draw()

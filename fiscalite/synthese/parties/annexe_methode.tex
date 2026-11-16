@@ -1,201 +1,185 @@
-% Annexe de méthode commune, écrite le 16/11/2026 ; base 2025 le 17/11/2026. Sources : revue/methode_perte_seche.md, revue/methode_v2.md,
-% synthese/perte_seche_autres.py, synthese/synthese_ensemble.py. Les calibrages propres à chaque réforme sont dans les
-% annexes de partie (ann:ircsg, ann:foncier, ann:is, ann:pfu) et ne sont pas repris ici.
-
-Cette annexe décrit ce qui est commun aux quatre réformes : la mesure du gain d'efficacité, les jeux d'hypothèses sur
-les comportements, les conventions de calcul et les calculs propres à la synthèse. Le calibrage de chaque réforme est
-dans son annexe.
+% Annexe de méthode commune, écrite le 16/11/2026 ; base 2025 le 17/11/2026 ; coupée le 17/11/2026
+% (synthese/CONSIGNES_COUPE.md) : reçoit le bilan détaillé du 1 % (ann:meth_haut, tab:ens_haut), sorti de la synthèse.
+% Sources : revue/methode_perte_seche.md, revue/methode_v2.md, synthese/perte_seche_autres.py,
+% synthese/synthese_ensemble.py. Les calibrages propres à chaque réforme sont dans les annexes de partie (ann:ircsg,
+% ann:foncier, ann:is, ann:pfu) et ne sont pas repris ici.
 
 \subsection{Une seule mesure de l'efficacité : la perte sèche généralisée}\label{ann:meth_ps}
 
-Un impôt fait renoncer à des actes qui auraient valu plus qu'ils ne coûtaient : une heure de travail, un emploi, une
-vente de logement, une machine. La perte sèche est la valeur de ces renoncements. La note ne cherche pas ce que coûte la
-fiscalité française par rapport à un monde sans impôt, mais de combien une réforme réduit cette perte par rapport à
-aujourd'hui, à recette égale. La même formule sert pour les quatre réformes (Harberger, 1964 ; Hines, 1999) :
+La note mesure de combien chaque réforme réduit la perte sèche par rapport à aujourd'hui, à recette égale, avec la
+même formule pour les quatre (Harberger, 1964 ; Hines, 1999) :
 \[
 \Delta PS \;=\; -\sum_j \big(\bar T_j - s_j\,\tau_{k(j)}\big)\,\Delta Q_j ,\qquad
 \Delta Q_j = \varepsilon_j\,Q_j\,\Delta\ln(1-t_j).
 \]
 L'indice $j$ parcourt les marges sur lesquelles la réforme agit ; $Q_j$ est la quantité taxée (revenu d'activité,
-ventes de logements, stock d'équipements, revenus du capital déclarés) ; $t_j$ est le taux de l'impôt réformé auquel la
-quantité réagit ; $\bar T_j$ est le coin total sur la marge, moyenne de ses valeurs avant et après ; $s_j$ est la part
-de la réaction qui se déplace vers une autre assiette taxée au taux $\tau_k$ (Chetty, 2009). Le triangle de Harberger,
-$\tfrac12\,\varepsilon\,t^2/(1-t)\,Q$, est le cas d'une seule marge partant d'un taux nul ; quand la marge est déjà
-taxée, un point de plus coûte au premier ordre le coin existant multiplié par la quantité perdue. C'est pourquoi un même
-point d'impôt coûte beaucoup là où le coin est déjà lourd (au voisinage du Smic, où s'ajoute le retrait de la prime
-d'activité) et peu là où il est faible.
+ventes de logements, stock d'équipements, revenus du capital déclarés) ; $t_j$, le taux réformé auquel elle réagit ;
+$\bar T_j$, le coin total sur la marge, moyenne de ses valeurs avant et après ; $s_j$, la part de la réaction qui se
+déplace vers une autre assiette taxée au taux $\tau_k$ (Chetty, 2009). Sur une marge déjà taxée, un point de plus coûte
+au premier ordre le coin existant multiplié par la quantité perdue : beaucoup là où le coin est lourd, comme au
+voisinage du Smic.
 
-\paragraph{Le coin total.} Un euro d'activité perdu ne coûte pas seulement l'impôt réformé : il fait perdre les autres
-prélèvements qui le frappaient sans ouvrir de droits et augmente les prestations sous condition de ressources. Pour
-l'IR-CSG, le coin compte donc, outre l'impôt fusionné, les cotisations sociales qui n'ouvrent pas de droits et le
-retrait de la prime d'activité ; la quantité, elle, ne réagit qu'au taux de l'impôt fusionné, le seul que la réforme
-change (\ref{ann:ircsg}). Pour l'immobilier, le coin est le
-droit de mutation sur la marge des ventes et l'impôt sur le bâti rapporté au coût d'usage du logement sur la marge de la
-construction ; le sol n'a pas de marge. Pour l'IS, c'est le coin sur le coût d'usage des équipements
-(Hall-Jorgenson). Pour les revenus du capital, c'est la part de la réaction qui échappe définitivement à l'impôt.
+\paragraph{Le coin total} compte tout ce qu'un euro d'activité perdu fait perdre à la collectivité : pour l'IR-CSG,
+l'impôt fusionné, les cotisations qui n'ouvrent pas de droits et le retrait de la prime d'activité (\ref{ann:ircsg}) ;
+pour l'immobilier, le droit de mutation sur les ventes et l'impôt sur le bâti rapporté au coût d'usage sur la
+construction, le sol n'ayant pas de marge ; pour l'IS, le coin sur le coût d'usage des équipements (Hall-Jorgenson).
 
-\paragraph{Le réel et le déclaratif.} Un revenu déclaré peut baisser parce qu'on travaille ou investit moins, ou parce
-qu'on le déclare plus tard, sous une autre forme ou dans une société. Seule la première réaction entre dans le gain
-d'efficacité. La seconde ne coûte à la collectivité que les ressources qu'elle consomme (conseils, montages) ; le reste
-est un transfert, en partie vers une autre assiette. Faute de mesure de ce coût, la note la traite comme un effet sur la
-recette, net de ce qui est récupéré ailleurs (la moitié de la réaction des hauts revenus se déplace vers l'IS et le
-prélèvement forfaitaire, à 48,6~\%, convention), donné à part et jamais utilisé pour financer une mesure. Ce choix
-minore le gain si l'optimisation consomme des ressources réelles. Une réaction de calendrier, comme celle des dividendes
-autour des réformes de 2013, 2018 et 2024, ne compte presque pas : ce qui sort plus tôt aurait été imposé plus tard.
+\paragraph{Le réel et le déclaratif.} Seule la baisse réelle de l'activité ou de l'investissement entre dans le gain.
+Un revenu déclaré plus tard, autrement ou dans une société est traité comme un effet sur la recette, net de ce qui est
+récupéré ailleurs (la moitié de la réaction des hauts revenus passe à l'IS et au prélèvement forfaitaire, à 48,6~\%,
+convention), donné à part et sans rien financer, ce qui minore le gain si l'optimisation consomme des ressources
+réelles. Une réaction de calendrier, comme celle des dividendes en 2013, 2018 et 2024, ne compte presque pas.
 
-\paragraph{Les marges.} L'effort et les heures (marge intensive) réagissent au taux marginal ; la décision de
-travailler (marge extensive) réagit au taux de prélèvement sur tout le premier salaire, pour les salaires inférieurs à
-deux Smic. Les pensions et les allocations chômage ne réagissent pas dans le modèle, faute de mesure : l'âge de départ et
-le cumul emploi-retraite ne sont pas modélisés. Pour l'immobilier, les ventes et la construction réagissent ; pour l'IS,
-le stock d'équipements ; pour les revenus du capital, le moment et la forme des distributions, l'épargne étant supposée
-insensible à son rendement.
+\paragraph{Les marges.} Les heures réagissent au taux marginal ; la décision de travailler, sous deux Smic, au taux de
+prélèvement sur tout le premier salaire. Ni les pensions, ni les allocations chômage, ni l'épargne ne réagissent, faute
+de mesure ; l'âge de départ et le cumul emploi-retraite ne sont pas modélisés.
 
 \subsection{Quatre jeux d'hypothèses sur les comportements}\label{ann:meth_jeux}
 
-Les élasticités disponibles ont été mesurées face à de petites réformes, d'une année sur l'autre ; personne ne sait
-comment les comportements réagiraient à un système entièrement différent. Chaque résultat est donc donné avec trois
-jeux, bas, central et haut ; le jeu central est prudent et calé autant que possible sur les études françaises
-(\texttt{cours/elasticites-france.tex}). Un quatrième jeu, de long terme, suit l'avis Cochrane
-(\texttt{revue/avis\_cochrane.md}) : les heures et la carrière réagissent davantage quand les rigidités se lèvent, la
-décision de travailler moins. Le tableau~\ref{tab:meth_jeux} rassemble les paramètres des quatre réformes ; le détail par
-tranche de revenu de la fusion est au tableau~\ref{tab:ircsg_jeux}.
+Les élasticités ont été mesurées face à de petites réformes, d'une année sur l'autre ; nul ne sait comment les
+comportements réagiraient à un système entièrement différent. D'où trois jeux, bas, central (prudent, calé sur les
+études françaises autant que possible) et haut, plus pour la fusion un jeu de long terme (tableaux~\ref{tab:ircsg_jeux}
+et~\ref{tab:meth_jeux}).
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}
-\caption{Les paramètres de comportement des quatre réformes}\label{tab:meth_jeux}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{3.2cm}@{}}
+\caption{Les paramètres de comportement de l'immobilier, de l'IS et des revenus du capital}\label{tab:meth_jeux}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{3.4cm}@{}}
 \toprule
-Paramètre & Bas & Central & Haut & Long terme & Appui \\
+Paramètre & Bas & Central & Haut & Appui \\
 \midrule
-IR-CSG : revenu d'activité réel, élasticité au taux net & 0,02 à 0,05 & 0,05 à 0,10 & 0,10 à 0,25 & 0,10 à 0,25 & Lehmann et al. (2013) ; Sicsic (2022) ; Cabannes et al. (2014) \\
-IR-CSG : participation, sous deux Smic & 0,10 & 0,25 & 0,50 & 0,10 & Chetty, Guren, Manoli et Weber (2013) \\
-IR-CSG : revenu déclaré des 10~\% du haut (recette seulement) & 0,10 à 0,15 & 0,20 à 0,30 & 0,30 à 0,45 & 0,20 à 0,30 & Cabannes et al. (2014) \\
-Immobilier : ventes en moins par point de droits & 0 & 6~\% & 15~\% & --- & convention construite sur Bérard et Trannoy (2018), Eerola et al. (2021) \\
-Immobilier : capital logement, élasticité au coût d'usage & 0,5 & 1 & 1 (coût d'usage de 3,5~\%) & --- & convention \\
-IS : stock d'équipements, élasticité au coût d'usage & 0,5 & 1 & 1,6 & --- & partie IS (hypothèses H18-H19) ; borne basse sans source \\
-Revenus du capital : revenus déclarés, élasticité au taux net & 0,65 & 0,77 & 1 & --- & Lefebvre, Lehmann et Sicsic (2025) ; CAE (2025) \\
-Revenus du capital : part de la réaction qui échappe définitivement à l'impôt & 0 & 0 & 1 & --- & non mesurée \\
-Épargne : élasticité au rendement net & 0 & 0 & 0 (0,1 à 0,5 en variante) & --- & aucune estimation française \\
+Immobilier : ventes en moins par point de droits & 0 & 6~\% & 15~\% & convention, d'après Bérard et Trannoy (2018), Eerola et al. (2021) \\
+Immobilier : capital logement, élasticité au coût d'usage & 0,5 & 1 & 1 (coût d'usage de 3,5~\%) & convention \\
+IS : stock d'équipements, élasticité au coût d'usage & 0,5 & 1 & 1,6 & partie IS (H18-H19) ; borne basse sans source \\
+Revenus du capital : revenus déclarés, élasticité au taux net & 0,65 & 0,77 & 1 & Lefebvre, Lehmann et Sicsic (2025) ; CAE (2025) \\
+Revenus du capital : part de la réaction qui échappe définitivement à l'impôt & 0 & 0 & 1 & non mesurée \\
+Épargne : élasticité au rendement net & 0 & 0 & 0 (0,1 à 0,5 en variante) & aucune estimation française \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Ce sont des choix, appuyés sur les études, et non des estimations. Les jeux bas et
-haut combinent toutes les hypothèses basses ou toutes les hautes ; ce sont des bornes, pas des scénarios probables.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Des choix appuyés sur les études, non des estimations. Les jeux bas et haut
+combinent toutes les hypothèses basses ou hautes : ce sont des bornes, pas des scénarios.\par}
 \end{table}
 
-\paragraph{Le prix d'un milliard.} Quand deux variantes ne lèvent pas la même recette, la différence est supposée levée
-par un point de taux de l'impôt fusionné pour tous. Chaque milliard ainsi levé coûte 0,04~Md€ de perte sèche dans le
-jeu bas, 0,08 dans le jeu central et 0,17 dans le jeu haut, autour de la proposition (0,03 / 0,07 / 0,14 autour du barème
-neutre ; \texttt{sorties/architectures\_ircsg.txt}). Ce prix est bas parce que les élasticités le sont : avec une
-élasticité de 0,3 et un coin de 40 à 50~\%, la formule usuelle donnerait 0,25 à 0,43 (avis Cochrane). Il sert surtout à
-comparer les variantes de taux du prélèvement forfaitaire (partie~\ref{sec:pfu}).
+\paragraph{Le prix d'un milliard.} L'écart de recette entre deux variantes est supposé levé par un point de taux de
+l'impôt fusionné pour tous, au prix de 0,04~Md€ de perte sèche par milliard dans le jeu bas, 0,08 dans le central et
+0,17 dans le haut. C'est peu parce que les élasticités sont basses : avec 0,3 et un coin de 40 à 50~\%, la formule
+usuelle donnerait 0,25 à 0,43 (avis Cochrane).
 
 \subsection{Conventions communes}\label{ann:meth_conv}
 
-\paragraph{Référence et recette.} La référence est le droit en vigueur au moment de la note (novembre 2026), sans le
-projet de loi de finances pour 2027. Elle comprend la fin de la contribution exceptionnelle sur l'IS après 2026 et
-l'extinction de la CRDS fin 2033, que le bilan d'ensemble affiche à part. Chaque réforme est calibrée à recette
-constante avant toute réaction des contribuables ; les effets favorables des réactions sont donnés à part et ne
-financent rien.
+\paragraph{Référence.} Le droit en vigueur en novembre 2026, sans le projet de loi de finances pour 2027, donc avec la
+fin de la contribution exceptionnelle sur l'IS et l'extinction de la CRDS, que la synthèse affiche à part. Chaque
+réforme est calibrée à recette constante avant toute réaction.
 
-\paragraph{Dates et unités.} Les chiffrages sont calés sur les prélèvements obligatoires de 2025 (décision de
-l'auteur du 17 novembre 2026). Pour l'IR-CSG, la recette est celle de 2025 dans les comptes nationaux : l'impôt sur le
-revenu encaissé en 2025, c'est-à-dire pour l'essentiel la retenue à la source sur les revenus de 2025, plus le solde de
-l'impôt sur les revenus de 2024 ; la répartition entre foyers est celle des revenus de 2024 (IRCOM, la plus récente),
-portée au niveau de 2025. Pour l'immobilier, ventes, droits de mutation et fiscalité locale de 2025, comptes de
-patrimoine de fin 2025. Pour l'IS, bénéfices de l'exercice 2025 portés en 2027, puis euros courants des années
-suivantes. Pour les revenus du capital, revenus de 2025 (assiette estimée à partir des déclarations de 2024 et de
-l'évolution publiée par la DGFiP) et patrimoine de fin 2025. La CEHR est celle des revenus de 2025 (1,4~Md€), comme
-dans la partie PFU ; celle des revenus de 2024, encaissée en 2025 (1,9~Md€), est donnée en sensibilité. L'impôt sur le
-revenu imputé aux revenus du capital est compté sur les revenus de 2024, l'année de la répartition dont le modèle
-IR-CSG le retire. Restent en 2024 : la répartition entre foyers, le détail des déclarations de revenus et les
-comparaisons internationales de l'OCDE. La synthèse additionne ces montants sans les indexer : l'erreur est de
-quelques pour cent, petite devant les fourchettes.
+\paragraph{Base 2025.} Les chiffrages sont calés sur les prélèvements obligatoires de 2025, dans le sens que précise
+l'annexe de chaque partie (pour l'IS, bénéfices de 2025 portés en 2027 ; pour la CEHR, revenus de 2025). Restent en
+2024 la répartition entre foyers, le détail des déclarations, l'impôt sur le revenu imputé aux revenus du capital et
+les comparaisons de l'OCDE. La synthèse additionne ces montants sans les indexer : l'erreur, de quelques pour cent, est
+petite devant les fourchettes.
 
-\paragraph{Actualisation.} L'État emprunte à 3,25~\% (dette de transition, valeur de la déduction immédiate pour l'État) ;
-les entreprises actualisent à 5~\% (valeur de la déduction pour elles, taux effectifs) ; les ménages à 3~\% réels
-(capitalisation de la taxe foncière, report de paiement, droits annualisés) ; les héritiers à 3,5~\% nominal, de 2,5 à
-5~\% (fin de l'effacement) ; la valeur actualisée de la hausse des retraités est calculée de 1 à 3~\% réels.
+\paragraph{Actualisation.} 3,25~\% pour l'État (dette de transition, déduction immédiate), 5~\% pour les entreprises,
+3~\% réels pour les ménages (taxe foncière capitalisée, report de paiement, droits annualisés), 3,5~\% nominal (2,5 à
+5~\%) pour les héritiers, 1 à 3~\% réels pour la valeur actualisée de la hausse des retraités.
 
-\paragraph{Le haut de la distribution.} Le « 1~\% le plus aisé » est le centile des foyers fiscaux au revenu fiscal de
-référence le plus élevé. La répartition entre tranches des revenus au prélèvement forfaitaire n'étant pas publiée, le
-modèle IR-CSG a trois conventions : au prorata des autres revenus, logés d'abord tout en haut (« haut »), et leur moyenne
-(« mixte », centrale). La part de la CEHR payée sur les revenus du capital (50 à 80~\%) et la part de la fin de
-l'effacement payée par le 1~\% (90~\%) sont des hypothèses de la partie PFU.
-
-\paragraph{Incidence.} L'impôt sur le revenu et la CSG sont supportés par ceux qui les paient. Pour la taxe foncière,
-trois cas polaires sont chiffrés ; le cas central suppose que la hausse de taxe passe dans les prix et que la baisse des
-droits profite à l'acheteur. L'IS est compté au niveau de la société ; sa répartition entre actionnaires, salariés et
-clients n'est pas modélisée.
+\paragraph{Incidence.} L'impôt sur le revenu et la CSG pèsent sur ceux qui les paient ; la hausse de taxe foncière
+passe dans les prix et la baisse des droits profite à l'acheteur (cas central) ; l'IS est compté au niveau de la
+société.
 
 \subsection{Les calculs de la synthèse}\label{ann:meth_synthese}
 
-\paragraph{Trajectoire.} Les soldes annuels sont ceux des parties : calendrier de cinq ans de l'immobilier (droits
-divisés par deux dès l'annonce, taux national montant d'un cinquième par an), tableau de transition de l'IS (cas central,
-comptes de l'exercice), recette de la fin de l'effacement dans le jeu central de la partie PFU. Toutes les réformes
-entrent en vigueur le 1\textsuperscript{er}~janvier 2027. La dette cumulée porte intérêt au taux de l'État ; le cas
-défavorable combine 90~\% d'investissement fait par des sociétés imposables et le jeu bas de l'effacement, le cas
-favorable 60~\%, le jeu haut et la reprise des ventes de logements.
+\paragraph{Trajectoire.} Soldes des parties : immobilier sur cinq ans (droits divisés par deux dès l'annonce, taux
+national montant d'un cinquième par an), IS au cas central (comptes de l'exercice, en caisse un an plus tard),
+effacement au jeu central ; un an de retard sur 2027 décalerait la dette sans la changer. Le cas défavorable combine
+90~\% d'investissement fait par des sociétés imposables et le jeu bas de l'effacement, le favorable 60~\%, le jeu haut
+et la reprise des ventes.
 
-\paragraph{Le haut et sa compensation.} Le modèle IR-CSG (\texttt{modele\_purs.py}, \texttt{outils\_ircsg.py}) est relancé
-sans modification dans chaque convention de répartition des revenus du capital, et une fois avec un impôt imputé aux
-revenus du capital de 10,2~Md€ au lieu de 11,5 (revenus de 2024), en réduisant cet impôt dans la même proportion dans
-chaque tranche de revenu fiscal ; le modèle porte ensuite l'impôt restant au niveau de 2025. Deux façons de rendre un montant donné au 1~\% sont cherchées. La première garde la recette de la fusion
-et déplace le seuil du taux de 50~\%, le taux à 25\,000~€ étant recalé sur la recette (comme
-\texttt{outils\_ircsg.cale\_top1}). La seconde garde le barème proposé jusqu'à 150\,000~€ de revenu imposé et ajoute un
-nœud : de là, le taux monte en ligne droite jusqu'à 50~\% à un seuil cherché par dichotomie ; la recette baisse
-d'autant.
+\paragraph{Gain total.} Celui de l'IS est la moyenne des deux régimes d'amortissement actuels à une élasticité de 1,
+borné par le dégressif à 0,5 et le linéaire à 1,6. Les bornes de l'immobilier sont les jeux bas et haut du
+tableau~\ref{tab:meth_jeux}. Le gain permanent retire de celui de la fusion la part des retraités actuels, selon que
+les actifs perçoivent à moitié ou entièrement l'impôt futur sur leur pension (\ref{ann:ircsg}).
 
-\paragraph{Gain total.} Le gain de l'IS est la moyenne des deux régimes d'amortissement actuels avec une élasticité du
-stock d'équipements de 1 (0,07~Md€) ; ses bornes sont le dégressif à 0,5 et le linéaire à 1,6. Les bornes de l'immobilier
-combinent l'absence de réaction des ventes et une élasticité du capital logement de 0,5, puis 15~\% de ventes par point
-et un coût d'usage de 3,5~\%. Le gain permanent retire de celui de la fusion la part qui vient des retraités actuels,
-selon que les actifs perçoivent à moitié ou entièrement l'impôt futur sur leur pension (\ref{ann:ircsg}).
-
-\paragraph{Cas-types.} L'impôt fusionné vient des cas-types OpenFisca de la partie IR-CSG, au terme de la convergence ;
-la taxe foncière et les droits, des logements médians de la partie Immobilier ; l'IS, de la PME industrielle de la partie
-IS ; l'impôt latent transmis, du taux de 31,4~\% sur la plus-value supposée. Les droits de mutation sont ramenés à un
-montant annuel sur dix ans de détention, à 3~\% (facteur 0,117).
+\paragraph{Cas-types.} Impôt fusionné des cas-types OpenFisca de la partie IR-CSG ; logement médian de la commune
+(Limoges, 171\,800~€ ; Paris, 416\,200~€ ; Lyon, 279\,200~€), sans effet de la taxe sur les prix ni sur les loyers ;
+droits annualisés sur dix ans à 3~\% ; PME industrielle de la partie IS ; impôt transmis à 31,4~\% de la plus-value
+latente supposée (80\,000~€ pour le couple de retraités, 120\,000~€ pour le cadre, 5~M€ pour le dirigeant, 40~M€ pour
+le rentier).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Hypothèses propres à la synthèse}\label{tab:meth_hyp}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.2cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Hypothèse & Où elle joue & Ce qu'elle change si elle est fausse \\
+Hypothèse & Où elle joue & Si elle est fausse \\
 \midrule
-Les quatre réformes entrent en vigueur le 1\textsuperscript{er}~janvier 2027 & trajectoire & Un an de retard décale la
-dette sans la changer ; un décalage entre réformes déplace le pic \\
-La compensation du haut s'applique en entier dès 2027, la recette de l'effacement monte en trente ans & dette & Avancer
-la compensation coûte de la dette : sans elle, le pic passe de 32 à 23~Md€ \\
-Toute la CEHR est payée par le 1~\% ; 50 à 80~\% sur les revenus du capital ; CEHR des revenus de 2025 & bilan du haut,
-coût de la compensation & La suppression totale coûte 1,4~Md€ quelle que soit la part ; la part sur le barème (0,3 à
-0,7) n'est qu'une répartition ; avec la CEHR encaissée en 2025 (revenus de 2024), 1,9~Md€ et un pic de dette de 35~Md€
-\\
-Le 1~\% paie 90~\% de la fin de l'effacement & bilan du haut & À 75~\%, 2,1~Md€ au lieu de 2,5 en moyenne sur dix ans \\
-Part du 1~\% dans le taux national sur le sol des entreprises et les terrains nus : 0 à 0,5~Md€ & bilan du haut & Non
-vérifiable : la détention de ces terrains par niveau de revenu n'est pas publiée \\
-IR imputé aux revenus du capital, revenus de 2024 : 10,2~Md€ dans la variante (au lieu de 11,5) & bilan du haut,
-recette de la fusion &
-10,2 est un majorant de la partie PFU ; l'impôt de l'assurance-vie, non chiffré, réduirait un peu la correction \\
-Cas-types : revenus, logements et plus-values supposés (tableau~\ref{tab:ens_cas}) ; locataire sans effet sur son loyer
-& cas-types & Ce sont des illustrations ; l'effet de la taxe sur le sol sur les loyers est théorique, non mesuré \\
-Report de taxe foncière réservé aux 65 ans et plus : environ la moitié des hausses des propriétaires occupants & dette
-brute & Ordre de grandeur non vérifié ; le majorant est de 20~Md€ fin 2036 \\
-Montants des parties additionnés sans indexation (2025 pour l'essentiel, IS en euros de 2027) & trajectoire, tableau
-d'ensemble & Erreur de quelques pour cent \\
+Le 1~\% paie 90~\% de la fin de l'effacement & bilan du haut & À 75~\%, 2,1~Md€ au lieu de 2,5 \\
+Le 1~\% paie 0 à 0,5~Md€ du taux national sur le sol des entreprises et les terrains nus & bilan du haut & Non vérifiable :
+détention non publiée par niveau de revenu \\
+50 à 80~\% de la CEHR portent sur les revenus du capital & bilan du haut & Ne fait que répartir un coût de 1,4~Md€ \\
+IR imputé au capital (revenus de 2024) : 10,2~Md€ au lieu de 11,5 en variante & bilan du haut & Majorant ; l'impôt de
+l'assurance-vie, non chiffré, réduirait un peu la correction \\
+Report de taxe foncière réservé aux 65 ans et plus : moitié des hausses & dette brute & Ordre de grandeur non vérifié ;
+majorant de 20~Md€ fin 2036 \\
+Taxe sur le sol sans effet sur les loyers & cas-types & Effet théorique, non mesuré \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
+\subsection{Le bilan du 1~\% le plus aisé}\label{ann:meth_haut}
+
+Le tableau~\ref{tab:ens_haut} fait le compte pour le centile des foyers au revenu fiscal de référence le plus élevé.
+La fusion supprime la CEHR sur les revenus du barème, ce que la partie IR-CSG ne compte pas. Restent non répartis le
+taux national sur le sol des entreprises et des terrains nus (1,4~Md€ net) et la fin du taux réduit de l'IS, qui touche
+des holdings patrimoniales et des sociétés de professions libérales.
+
+\begin{table}[!htbp]\centering\scriptsize
+\caption{La charge du 1~\% le plus aisé (Md€ par an ; + : paie davantage)}\label{tab:ens_haut}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}@{}}
+\toprule
+ & Convention centrale (fourchette) & IR imputé au capital corrigé & Revenus du capital logés tout en haut \\
+\midrule
+Fusion IR-CSG & 0,0 & $-$1,1 & $-$3,0 \\
+CEHR sur les revenus du barème & $-$0,5 ($-$0,3 à $-$0,7) & $-$0,5 & $-$0,5 \\
+Fin de l'effacement (moyenne sur dix ans) & +2,5 (0,7 à 6,8) & +2,5 & +2,5 \\
+Immobilier (sol des entreprises et terrains nus) & 0 à +0,5, non compté & id. & id. \\
+Fin du taux réduit de l'IS & non chiffré & id. & id. \\
+\textbf{Bilan} & \textbf{+2,0 ($-$0,1 à 7,0)} & \textbf{+0,9} & \textbf{$-$1,0} \\
+Suppression de la majoration ex-CEHR sur le capital & $-$0,9 & $-$0,9 & $-$0,9 \\
+\textbf{Après suppression} & \textbf{+1,1 ($-$1,0 à 6,1)} & \textbf{0,0} & \textbf{$-$1,9} \\
+Barème adouci au-delà de 150\,000~€ & $-$1,1, soit 0,0 & --- & --- \\
+\bottomrule
+\end{tabularx}
+\par\vspace{2pt}{\raggedright\scriptsize Hypothèses : tableau~\ref{tab:meth_hyp}. Source :
+\texttt{sorties/synthese\_ensemble.txt}, \texttt{controle\_hauts\_purs.txt}.\par}
+\end{table}
+
+Le bilan dépend surtout de la répartition par tranche de revenu des revenus au prélèvement forfaitaire, que la DGFiP ne
+publie pas. Le modèle IR-CSG les répartit au prorata des autres revenus, les loge d'abord tout en haut (« haut », que
+suggère un calage sur l'impôt observé), ou prend la moyenne des deux (« mixte », centrale). Second écart, de même sens :
+sur les revenus de 2024, le modèle retire de l'impôt sur le revenu 11,5~Md€ imputés aux revenus du capital, la partie
+PFU au plus 10,2, sur l'assiette du prélèvement forfaitaire (79,6~Md€), qui exclut l'assurance-vie et les plus-values
+immobilières. Corrigé, l'impôt des revenus du barème est sous-estimé d'environ 1,4~Md€ en 2025 : la fusion rendrait
+cette somme, dont 1,1~Md€ au 1~\%, et la recette à remplacer passerait à environ 231,3~Md€ ; tenir inchangée la charge du 1~\% à recette constante
+obligerait alors à atteindre 50~\% dès 180\,000~€ et ferait bouger de 540~€ la charge moyenne d'un dixième. Le modèle porte en outre cet
+impôt au niveau de 2025 (+7,9~\%), quand la partie PFU le mesure en baisse de 18~\% sur les revenus de 2025 : ces
+conventions ne sont pas réconciliées.
+
+La suppression de la majoration ex-CEHR coûte 0,9~Md€ (0,7 à 1,1), un peu moins tant que la contribution
+différentielle sur les hauts revenus reprend la baisse des rentiers à son plancher : le rentier des cas-types n'y gagne
+rien avant qu'elle disparaisse, 107\,500~€ par an ensuite. Calculée sur la CEHR des revenus de 2024, encaissée en
+2025, elle coûterait 1,9~Md€, le 1~\% paierait 0,5~Md€ de plus et la dette de transition culminerait à 35~Md€.
+
+Si le calage confirme la convention centrale, rendre encore environ 1,1~Md€ au 1~\% passerait au mieux par le haut du
+barème : le garder jusqu'à 150\,000~€ de revenu imposé (41,5~\%), puis n'atteindre 50~\% qu'à 1,25~M€ au lieu de
+231\,000~€. Seul le 1~\% est touché, aucun dixième ne bouge de plus de 360~€, le gain de la fusion monte de 4,7 à
+4,9~Md€ et la dette de transition à 39~Md€. Le faire à recette constante ferait payer les autres foyers, dont les
+retraités ($+$0,4~Md€) : nous ne le recommandons pas. Si le calage loge les revenus du capital tout en haut, il faut
+garder la majoration.
+
+\paragraph{Calcul.} Le modèle IR-CSG est relancé sans modification dans chaque convention, et une fois avec 10,2~Md€
+d'impôt imputé, réduit dans la même proportion dans chaque tranche. Le barème adouci ajoute au barème proposé un nœud à
+150\,000~€, d'où le taux monte en ligne droite jusqu'à 50~\% à un seuil cherché par dichotomie.
+
 \subsection{Programmes}\label{ann:meth_programmes}
 
-{\small\raggedright Depuis \texttt{fiscalite/}. Fusion IR-CSG : la liste est en~\ref{ann:ircsg} (modèle
-\texttt{synthese/modele\_purs.py}, proposition \texttt{synthese/proposition\_ircsg.py}, transition
-\texttt{synthese/transition\_ircsg.py}). Immobilier : \texttt{synthese/calculs\_foncier.py} (qui importe
-\texttt{foncier/simulation.py}) et \texttt{foncier/figures\_note.py}. IS : \texttt{is/calculs\_note\_is.py} (mécanique de
-\texttt{is/simulation\_is.py}) et \texttt{is/figures\_note\_is.py}. Revenus du capital : \texttt{pfu/calculs\_pfu.py} et
-\texttt{pfu/figures\_pfu\_n.py}. Perte sèche de l'IS : \texttt{synthese/perte\_seche\_autres.py} ; celles de
-l'immobilier et du prélèvement forfaitaire sont calculées par les programmes de leur partie. Synthèse :
-\texttt{synthese/synthese\_ensemble.py} (sorties \texttt{synthese/sorties/synthese\_ensemble.txt} et \texttt{.json} ;
-il lit les sorties des parties et relance le modèle IR-CSG dans quatre sous-processus), puis \texttt{synthese/figures\_ensemble.py}, deux fois, la seconde
-avec \texttt{FIG\_NU=1}. Couleurs : \texttt{synthese/style\_note.py} ; charte des figures : \texttt{graphiques.py}.
-Méthode et vérifications : \texttt{revue/methode\_perte\_seche.md}, \texttt{revue/methode\_v2.md},
-\texttt{revue/hypotheses\_*.md}.\par}
+{\small\raggedright Depuis \texttt{fiscalite/} : \texttt{synthese/synthese\_ensemble.py} (sorties
+\texttt{synthese/sorties/synthese\_ensemble.txt} et \texttt{.json}), puis \texttt{synthese/figures\_ensemble.py}, une
+seconde fois avec \texttt{FIG\_NU=1} ; perte sèche de l'IS : \texttt{synthese/perte\_seche\_autres.py} ; méthode :
+\texttt{revue/methode\_v2.md}. Les programmes des parties sont dans leurs annexes.\par}

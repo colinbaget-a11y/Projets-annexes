@@ -1,25 +1,20 @@
 % Synthèse d'ensemble, réécrite le 16/11/2026 (synthese/CHARTE_NOTE.md, DECISIONS.md) ; base 2025 le 17/11/2026
-% (décision 5 ; synthese/MAJ_ENSEMBLE_2025.md).
+% (décision 5 ; synthese/MAJ_ENSEMBLE_2025.md) ; coupée le 17/11/2026 (synthese/CONSIGNES_COUPE.md) : le bilan détaillé
+% du 1 % (tab:ens_haut) est passé en annexe de méthode (ann:meth_haut) ; la figure ensemble_n03 et le tableau des
+% cas-types sont retirés (hypothèses des ménages : annexe de méthode, ann:meth_synthese).
 % Chiffres : sorties/synthese_ensemble.txt et .json (synthese/synthese_ensemble.py, qui lit les sorties des quatre
 % parties et relance le modèle IR-CSG sans le modifier) ; figures : synthese/figures_ensemble.py (ensemble_n01 à n04).
 % Hypothèses propres à la synthèse : annexe de méthode, tableau tab:meth_hyp.
 
-Chaque réforme a été construite pour tenir seule : à recette constante, avec ses perdants nommés et sa transition
-chiffrée. Les additionner pose trois questions qu'aucune partie ne pouvait trancher seule. Combien l'ensemble
-rapporte-t-il en efficacité, et que vaut ce chiffre ? Combien coûte-t-il en trésorerie pendant les années où les
-nouvelles recettes ne remplacent pas encore les anciennes ? Et qui paie au bout du compte, en particulier en haut de la
-distribution, où la note s'est interdit tout mouvement net ?
+\subsection{Un gain de 6,8 milliards par an, aux sept dixièmes tiré de la fusion}\label{sec:ens_bilan}
 
-\subsection{Environ sept milliards d'efficacité par an, et deux baisses d'impôt déjà votées}\label{sec:ens_bilan}
-
-Le tableau~\ref{tab:ens_tableau} réunit les quatre réformes. Aucune n'a de coût permanent : la fusion de l'impôt sur le
-revenu et de la CSG rapporte exactement ce qu'elles rapportent aujourd'hui, le taux national sur le sol remplace les
-droits de mutation perdus, et l'excédent que l'assiette de l'impôt sur les sociétés dégage au-delà du coût permanent de
-la déduction immédiate est rendu par une baisse du taux une fois la dette de transition éteinte. Seule la fermeture de
-l'effacement des plus-values à la transmission rapporte davantage : 1,9~Md€ la première année, 3,6~Md€ la dixième,
-5,8~Md€ la trentième, à mesure que les héritiers vendent. La section~\ref{sec:ens_haut} montre que, pour tenir la
-contrainte sur le haut de la distribution, il faut en rendre une partie, 1,4~Md€, en supprimant la contribution
-exceptionnelle sur les hauts revenus (CEHR).
+Aucune des quatre réformes n'a de coût permanent (tableau~\ref{tab:ens_tableau}) : la fusion rapporte ce que
+rapportent aujourd'hui l'impôt sur le revenu, la CSG et la CRDS ; le taux national sur le sol remplace les droits de
+mutation perdus ; l'excédent que dégage l'assiette de l'IS est rendu par une baisse du taux une fois sa dette de
+transition éteinte. Seule la fin de l'effacement des plus-values à la transmission rapporte davantage, et de plus en
+plus à mesure que les héritiers vendent : 1,9~Md€ la première année, 3,6~Md€ la dixième, 5,8~Md€ la trentième. La
+disparition complète de la contribution exceptionnelle sur les hauts revenus (CEHR) coûte 1,4~Md€
+(section~\ref{sec:ens_haut}).
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Les quatre réformes ensemble (Md€ par an ; + : recette en plus ou perte sèche évitée)}\label{tab:ens_tableau}
@@ -28,79 +23,58 @@ exceptionnelle sur les hauts revenus (CEHR).
 \toprule
 Réforme & Recette permanente & Coût de transition & Gain d'efficacité & Recette non comptée & Qui paie \\
 \midrule
-Fusion IR-CSG-CRDS & 0 (229,9~Md€ en 2025, avant réaction) & aucun : convergence sur cinq ans à recette constante & 4,7 (2,1 à 10,3) ; long terme 6,7 &
-+2,6 (1,3 à 3,9) : moindre optimisation des hauts revenus & retraités +21,5~Md€ ; actifs $-$21,5 (couple avec enfants
-$-$1\,520~€) \\
-Immobilier & 0 à terme & déficit de 15,2~Md€ sur cinq ans (12,4 si les ventes reprennent) & 2,1 (0,2 à 4,6) & +1,4 :
-droits sur les ventes supplémentaires & propriétaires de sol cher (taxe foncière parisienne +99~\%), sol des entreprises
-et terrains nus (+1,4 net) ; acheteurs $-$7,6 de droits \\
-Impôt sur les sociétés & 0 après 2041 (baisse finale du taux de 1,0 point) & dette maximale de 21,5~Md€ en 2033, éteinte
-en 2041 & 0,07 (0,02 à 0,16) & investissement suscité, non chiffré & petites sociétés au taux réduit (+2,2 à 3,2), CIR des
-groupes, zones, brevets ; gagnent les sociétés qui achètent des équipements \\
+Fusion IR-CSG-CRDS & 0 (229,9~Md€ en 2025) & aucun : convergence sur cinq ans à recette constante & 4,7 (2,1 à 10,3) ;
+long terme 6,7 & +2,6 (1,3 à 3,9) & retraités +21,5 ; actifs $-$21,5 \\
+Immobilier & 0 à terme & déficit de 15,2 sur cinq ans (12,4 si les ventes reprennent) & 2,1 (0,2 à 4,6) & +1,4 &
+propriétaires de sol cher, sol des entreprises et terrains nus (+1,4 net) ; acheteurs $-$7,6 de droits \\
+Impôt sur les sociétés & 0 après 2041 (baisse finale du taux de 1,0 point) & dette maximale de 21,5 en 2033 &
+0,07 (0,02 à 0,16) & investissement suscité & petites sociétés au taux réduit (+2,2 à 3,2), CIR des groupes, zones,
+brevets ; gagnent les sociétés qui investissent \\
 Revenus du capital & +1,9 (an 1) à +3,6 (an 10) ; moyenne +2,8 (0,8 à 7,5) & aucun & non chiffré & --- & héritiers de
 plus-values latentes, le 1~\% le plus aisé pour 90~\% (hypothèse) \\
-Fin de la CEHR & $-$1,4 & --- & faible, non chiffré & --- & 1~\% le plus aisé $-$1,4 \\
+Fin de la CEHR & $-$1,4 & --- & faible & --- & 1~\% le plus aisé $-$1,4 \\
 \midrule
-Ensemble & +1,4 en moyenne sur dix ans & dette maximale de 32~Md€ en 2032, éteinte vers 2040 & 6,8 (2,4 à 15,1) & +3,9 &
-\\
-\midrule
-\multicolumn{6}{@{}l}{\emph{Pour mémoire, baisses d'impôt inscrites dans le droit en vigueur, hors réformes}} \\
-Contribution exceptionnelle sur l'IS & $-$7,0 par rapport à 2026 ($-$5,0 par rapport au PLF 2027) & & & & environ 450 grands
-groupes \\
-CRDS, fin 2033 & $-$7,6 sur le champ de la fusion, $-$1,1 sur le capital, dès 2034 & & & & tous les contribuables \\
+Ensemble & +1,4 en moyenne sur dix ans & dette maximale de 32 en 2032, éteinte vers 2040 & 6,8 (2,4 à 15,1) & +3,9 & \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Gain d'efficacité : baisse de la perte sèche statique par rapport à aujourd'hui,
-jeu central et fourchette des jeux bas et haut. Recette non comptée : effet favorable des réactions, qui ne finance
-aucune mesure. Base 2025 : recette encaissée en 2025 pour la fusion (répartition entre foyers des revenus de 2024),
-ventes, droits et fiscalité locale de 2025 pour l'immobilier (droits au taux permanent de 5,81~\%, sans le relèvement
-temporaire voté par 88 départements, environ 0,4~Md€ en 2025, chiffre non vérifié), bénéfices de 2025 portés
-en 2027 pour l'IS, revenus de 2025 pour la CEHR et les revenus du capital. Source :
-\texttt{sorties/synthese\_ensemble.txt}.\par}
+\par\vspace{2pt}{\raggedright\scriptsize Gain d'efficacité : baisse de la perte sèche statique, jeu central et fourchette
+des jeux bas et haut. Recette non comptée : effet favorable des réactions, qui ne finance aucune mesure. Base 2025 :
+\ref{ann:meth_conv}. Source : \texttt{sorties/synthese\_ensemble.txt}.\par}
 \end{table}
 
-Le gain d'efficacité atteint 6,8~Md€ par an, 0,23~\% du PIB, dans une fourchette de 2,4 à 15,1~Md€ selon la force des
-réactions (figure~\ref{fig:ens_gain}). Près des sept dixièmes viennent de la fusion de l'impôt sur le revenu et de la
-CSG, trois dixièmes de la bascule des droits de mutation vers le sol. L'impôt sur les sociétés et les revenus du
-capital ne pèsent presque rien dans cette mesure, et ce n'est pas une faiblesse de ces réformes : la mesure ne compte
-pas l'épargne, compte à peine l'accumulation du capital, et la déduction immédiate se défend d'abord par son effet sur
-l'investissement en équipements (de l'ordre de 0,1~\% du PIB à long terme, partie~\ref{sec:is}), la fin de l'effacement
-par l'égalité entre ceux qui vendent et ceux qui transmettent.
+Le gain d'efficacité atteint 6,8~Md€ par an, 0,23~\% du PIB, entre 2,4 et 15,1~Md€ selon la force des réactions
+(figure~\ref{fig:ens_gain}). Près des sept dixièmes viennent de la fusion, trois dixièmes de la bascule des droits de
+mutation vers le sol. L'IS et les revenus du capital ne pèsent presque rien dans une mesure qui ne compte pas
+l'épargne et à peine l'accumulation du capital : la déduction immédiate se défend par l'investissement en équipements
+qu'elle suscite (de l'ordre de 0,1~\% du PIB à long terme, partie~\ref{sec:is}), la fin de l'effacement par l'égalité
+entre ceux qui vendent et ceux qui transmettent.
 
 \figbloc{ensemble_n01_gain}{Environ 7~milliards d'efficacité par an, pour près des sept dixièmes grâce à la fusion de
 l'impôt sur le revenu et de la CSG}{fig:ens_gain}
 
-Ce chiffre est une perte sèche statique, de court terme, centrée sur le travail : un plancher construit sur les réactions observées d'une année sur l'autre, pas un effet sur la croissance. Si les heures et
-les carrières s'ajustent davantage à long terme, le gain de la fusion passe de 4,7 à 6,7~Md€ et celui de l'ensemble à
-8,8~Md€. Une partie du gain, en revanche, ne se reproduira pas : la hausse de l'impôt des retraités actuels frappe des
-décisions passées et ne décourage rien, si bien que le gain permanent, celui qui vaut pour les générations qui
-cotiseront en sachant que leur pension sera imposée comme un salaire, est de 5,1 à 6,0~Md€ ; l'écart, 0,8 à 1,7~Md€, est
-un gain de transition. Enfin, tout repose sur une hypothèse que rien ne vérifie : que la CSG retenue sur la fiche de
-paie fasse aujourd'hui réagir les salariés autant que l'impôt sur le revenu. Si elle était perçue comme une cotisation,
-la fusion la rendrait visible et son gain deviendrait une perte ; l'ensemble tomberait un peu sous zéro
-($-$0,4~Md€) ; il serait de 3,1~Md€ si elle n'est perçue qu'à moitié. C'est la principale fragilité de la note.
-
-Deux baisses d'impôt déjà inscrites dans le droit ne relèvent d'aucune réforme, mais un décideur ne peut pas les ignorer.
-La contribution exceptionnelle sur les bénéfices des grandes entreprises s'éteint après l'exercice 2026 : l'IS rapportera
-7~Md€ de moins qu'en 2026, 5~Md€ de moins que ce que proposait le projet de loi de finances pour 2027, soit 70~Md€ sur dix
-ans, plus du double de la dette de transition des quatre réformes. C'est une baisse de taux pour quelque 450 groupes,
-exactement le type de baisse que la partie~\ref{sec:is} juge la moins efficace ; la laisser s'éteindre tient une promesse
-et met fin à un impôt qui frappe des décisions passées, mais elle n'est pas financée. La CRDS, ensuite, disparaît avec
-la dette sociale fin 2033 : 7,6~Md€ sur le champ de la fusion, et environ 1~Md€ sur les revenus du capital, dont le
-prélèvement forfaitaire passerait de 31,4 à 30,9~\% sans que personne l'ait décidé. Rester à recette constante par
-rapport au droit en vigueur suppose de baisser de 0,74 point les taux de l'impôt fusionné en 2034 ; garder la recette,
-c'est créer un impôt permanent de 7,6~Md€, ce qui peut se défendre si la dette sociale de l'ACOSS doit être financée,
-mais doit être dit.
+Ce chiffre est une perte sèche statique, de court terme, centrée sur le travail : un plancher construit sur les
+réactions observées d'une année sur l'autre, pas un effet sur la croissance. Si les heures et les carrières s'ajustent
+davantage à long terme, le gain de la fusion passe de 4,7 à 6,7~Md€ et celui de l'ensemble à 8,8~Md€. À l'inverse, la
+hausse d'impôt des retraités actuels frappe des décisions passées et ne décourage rien : le gain permanent, celui qui
+vaut pour les générations qui cotiseront en sachant leur pension imposée comme un salaire, est de 5,1 à 6,0~Md€,
+l'écart (0,8 à 1,7~Md€) étant un gain de transition. Surtout, tout repose sur une hypothèse que rien ne vérifie : que
+la CSG retenue sur la fiche de paie fasse aujourd'hui réagir les salariés autant que l'impôt sur le revenu. Si elle
+était perçue comme une cotisation, la fusion la rendrait visible et son gain deviendrait une perte : l'ensemble
+tomberait un peu sous zéro ($-$0,4~Md€). Perçue à moitié, il serait de 3,1~Md€. C'est la principale fragilité de la
+note.
 
 \subsection{Une avance de trésorerie d'une trentaine de milliards, remboursée à partir de 2033}\label{sec:ens_trajectoire}
 
-Les coûts de transition ne sont pas des coûts permanents, mais ils se financent par la dette. Deux réformes avancent
-leurs coûts : la baisse des droits de mutation s'applique dès l'annonce, pour ne pas geler les ventes, alors que le taux
-national sur le sol monte sur cinq ans ; la déduction immédiate rend tout de suite l'impôt sur des amortissements que
-l'État aurait accordés plus tard. À l'inverse, la recette de la fin de l'effacement arrive lentement, puisqu'elle
-attend que les héritiers vendent. La fusion IR-CSG, elle, est à recette constante chaque année : gagnants et perdants
-convergent au même rythme. Le tableau~\ref{tab:ens_traj} et la figure~\ref{fig:ens_traj} suivent l'ensemble de 2027 à
-2036, en supposant que les quatre réformes entrent en vigueur au 1\textsuperscript{er}~janvier 2027.
+Deux réformes avancent leurs coûts : la baisse des droits de mutation s'applique dès l'annonce, pour ne pas geler les
+ventes, alors que le taux national sur le sol monte sur cinq ans ; la déduction immédiate rend tout de suite l'impôt
+sur des amortissements que l'État aurait accordés plus tard. La recette de la fin de l'effacement, elle, attend que
+les héritiers vendent. Si les quatre réformes entrent en vigueur au 1\textsuperscript{er}~janvier 2027, le solde est
+négatif de 10~Md€ la première année et devient positif en 2033, quand l'IS commence à rembourser son avance
+(tableau~\ref{tab:ens_traj} et figure~\ref{fig:ens_traj}). La dette cumulée culmine à 32~Md€ en 2032, environ 1,1~\%
+du PIB, et s'éteint vers 2040 ; sans la disparition de la CEHR, elle s'arrêterait à 23~Md€ et s'éteindrait en 2037.
+Le cas défavorable (90~\% de l'investissement fait par des sociétés imposables, recette de l'effacement au bas de sa
+fourchette) la porte à 58~Md€ en 2036, sans qu'elle ait vraiment commencé à baisser ; le cas favorable la limite à
+5~Md€.
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3.2pt}
 \caption{Trajectoire budgétaire des quatre réformes (Md€ ; + : recette en plus par rapport au droit en vigueur)}\label{tab:ens_traj}
@@ -108,7 +82,6 @@ convergent au même rythme. Le tableau~\ref{tab:ens_traj} et la figure~\ref{fig:
 \toprule
  & 2027 & 2028 & 2029 & 2030 & 2031 & 2032 & 2033 & 2034 & 2035 & 2036 \\
 \midrule
-Fusion IR-CSG & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 Immobilier & $-$6,1 & $-$4,5 & $-$3,0 & $-$1,5 & 0 & 0 & 0 & 0 & 0 & 0 \\
 Impôt sur les sociétés & $-$4,6 & $-$3,9 & $-$3,4 & $-$2,9 & $-$2,5 & $-$1,9 & +0,3 & +1,6 & +2,4 & +3,1 \\
 Fin de l'effacement & +1,9 & +2,1 & +2,3 & +2,5 & +2,7 & +2,9 & +3,1 & +3,3 & +3,5 & +3,6 \\
@@ -117,282 +90,130 @@ Fin de la CEHR & $-$1,4 & $-$1,4 & $-$1,4 & $-$1,4 & $-$1,4 & $-$1,4 & $-$1,4 & 
 \textbf{+2,0} & \textbf{+3,5} & \textbf{+4,5} & \textbf{+5,3} \\
 \textbf{Dette cumulée} & \textbf{10,2} & \textbf{18,3} & \textbf{24,3} & \textbf{28,4} & \textbf{30,4} & \textbf{31,8} &
 \textbf{30,7} & \textbf{28,2} & \textbf{24,6} & \textbf{20,1} \\
-\midrule
-\multicolumn{11}{@{}l}{\emph{Variantes de la dette cumulée}} \\
-Sans compensation du haut & 8,8 & 15,4 & 20,0 & 22,6 & 23,0 & 22,7 & 20,0 & 15,7 & 10,4 & 4,0 \\
-Avec le barème adouci au-delà de 150\,000~€ & 11,3 & 20,4 & 27,6 & 32,8 & 36,1 & 38,6 & 38,9 & 37,7 & 35,5 & 32,3 \\
-\midrule
-\multicolumn{11}{@{}l}{\emph{Pour mémoire, droit en vigueur}} \\
-Contribution exceptionnelle (par rapport à 2026) & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 & $-$7,0 \\
-CRDS (par rapport à 2033) & & & & & & & & $-$8,7 & $-$8,7 & $-$8,7 \\
 \bottomrule
 \end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Dette : intérêts au taux d'emprunt de l'État retenu par la partie IS (3,25~\%).
-IS : cas central, comptes de l'exercice (en caisse, un an plus tard). Immobilier : droits divisés par deux dès l'annonce,
-taux national montant d'un cinquième par an. Fin de l'effacement : jeu central de la partie PFU. Fin de la CEHR : la
-majoration du PFU est supprimée et la CEHR disparaît des revenus du barème (CEHR des revenus de 2025, 1,39~Md€). Les
-avances du report de taxe foncière, des prêts, ne sont pas comptées. Montants de 2025 (IS : bénéfices de 2025 portés
-en 2027), additionnés sans indexation. Source : \texttt{sorties/synthese\_ensemble.txt}.\par}
+\par\vspace{2pt}{\raggedright\scriptsize La fusion, à recette constante chaque année, n'apparaît pas. Dette : intérêts au
+taux d'emprunt de l'État (3,25~\%). Hypothèses : \ref{ann:meth_synthese}. Source :
+\texttt{sorties/synthese\_ensemble.txt}.\par}
 \end{table}
 
 \figbloc{ensemble_n02_trajectoire}{Les quatre réformes empruntent au plus 32~milliards et commencent à rembourser en 2033}{fig:ens_traj}
 
-Le solde est négatif de 10~Md€ la première année, puis se redresse à mesure que le taux national sur le sol monte et
-que les paliers de la déduction immédiate cessent de peser ; il devient positif en 2033, quand l'IS commence à
-rembourser son avance. La dette cumulée culmine à 32~Md€ en 2032, environ 1,1~\% du PIB, et s'éteint vers 2040. La
-compensation du haut en est la principale cause évitable : sans elle, la recette de la fin de l'effacement suffit à
-limiter la dette à 23~Md€ et à l'éteindre en 2037 ; avec, en plus, le barème adouci que la section~\ref{sec:ens_haut}
-envisage, elle monte à 39~Md€. Le cas défavorable (90~\% de l'investissement fait par des sociétés imposables, recette
-de l'effacement au bas de sa fourchette) porte la dette à 58~Md€ en 2036, sans qu'elle ait vraiment commencé à baisser ; le cas
-favorable la limite à 5~Md€.
+Cette dette n'est pas une perte : l'avance de l'IS se rembourse d'elle-même, et le déficit de l'immobilier remplace
+des droits qu'auraient payés les acheteurs des années de transition, qui en gardent le bénéfice. Les reports de taxe
+foncière des propriétaires âgés sont des prêts au taux de l'État, remboursés à la vente ou à la succession : hors du
+solde, ils pèsent sur la dette brute, jusqu'à 20~Md€ fin 2036 si tous les propriétaires occupants reportaient leur
+hausse, environ la moitié si le report est réservé aux 65~ans et plus (ordre de grandeur non vérifié).
 
-Trois précisions évitent de mal lire ces chiffres. La dette de transition n'est pas une perte : l'avance de l'IS se
-rembourse d'elle-même, et le déficit de l'immobilier remplace des droits qui auraient été payés par les acheteurs des
-années de transition, qui en gardent le bénéfice. Les avances du report de taxe foncière des propriétaires âgés sont
-des prêts remboursés à la vente ou à la succession, au taux de l'État : elles n'entrent pas dans le solde, mais dans la
-dette brute, à hauteur de 20~Md€ au plus fin 2036 si tous les propriétaires occupants reportaient leur hausse, et
-d'environ la moitié si le report est réservé aux 65~ans et plus (ordre de grandeur non vérifié). Enfin, la fin de la
-contribution exceptionnelle pèse sur le même budget, à hauteur de 7~Md€ par an. La partie~\ref{sec:is} décrit une façon d'en
-atténuer l'effet sur la transition : une dernière année de contribution, affectée à la transition, ramènerait la
-dette de l'IS de 22 à 15~Md€.
+Deux baisses d'impôt déjà inscrites dans le droit pèsent sur le même budget. La contribution exceptionnelle sur les
+bénéfices des grandes entreprises s'éteint après l'exercice 2026 : l'IS rapportera 7~Md€ de moins qu'en 2026, 5~Md€ de
+moins que dans le projet de loi de finances pour 2027, soit 70~Md€ sur dix ans, plus du double de la dette de
+transition des quatre réformes. C'est une baisse de taux pour quelque 450 groupes, celle que la partie~\ref{sec:is}
+juge la moins efficace ; elle tient une promesse mais n'est pas financée, et une dernière année de contribution
+affectée à la transition ramènerait la dette de l'IS de 22 à 15~Md€. La CRDS disparaît avec la dette sociale fin
+2033 : 7,6~Md€ sur le champ de la fusion, et environ 1~Md€ sur les revenus du capital, dont le prélèvement forfaitaire
+passerait de 31,4 à 30,9~\% sans que personne l'ait décidé. Rester à recette constante suppose de baisser de 0,74 point
+les taux de l'impôt fusionné en 2034 ; garder la recette crée un impôt permanent de 7,6~Md€, ce qui se défend si la
+dette sociale de l'ACOSS doit être financée, mais doit être dit.
 
-\subsection{Le haut de la distribution : à peu près neutre si la CEHR disparaît}\label{sec:ens_haut}
+\subsection{Qui paie : les retraités et le sol cher, au profit des actifs et des acheteurs}\label{sec:ens_gagnants}\label{sec:ens_cas}\label{sec:ens_haut}
 
-La contrainte posée en introduction est que les quatre réformes, ensemble, ne changent pas la charge du 1~\% des foyers
-les plus aisés. Le tableau~\ref{tab:ens_haut} fait le compte. La fusion, par construction, laisse inchangée leur charge
-d'impôt sur le revenu, de CSG et de CRDS dans la convention centrale du modèle. Elle supprime pourtant la CEHR sur les
-revenus du barème, ce que la partie IR-CSG ne compte pas : 0,3 à 0,7~Md€ rendus au 1~\%. La fin de l'effacement lui
-coûte 2,5~Md€ par an en moyenne sur dix ans (0,7 à 6,8), en supposant qu'il en paie 90~\%. L'immobilier est presque
-neutre pour les logements chers, dont la hausse de taxe foncière est compensée en moyenne par la baisse des droits ; le
-taux national sur le sol des entreprises et les terrains nus, 1,4~Md€ net de la baisse des droits sur ces biens, retombe
-en partie sur leurs propriétaires, que nous ne savons pas répartir (de 0 à 0,5~Md€ pour le 1~\%, hypothèse). La fin du
-taux réduit de l'IS touche des holdings patrimoniales et des sociétés de professions libérales dont les associés sont
-souvent dans le haut de la distribution, pour un montant qu'aucune donnée ne permet de chiffrer. Au total, le 1~\%
-paierait 2,0~Md€ de plus par an, dans une fourchette d'environ 0 à 7~Md€.
+Les réformes laissent la répartition de la charge entre niveaux de revenu à peu près inchangée : la fusion ne déplace
+la charge moyenne d'aucun dixième de plus de 500~€ (partie~\ref{sec:ircsg}). Le grand transfert de charge se fait à
+revenu égal : des actifs vers les retraités, des acheteurs vers les propriétaires de sol cher. Les actifs paient
+21,5~Md€ de moins d'impôt fusionné, 515~€ par an en moyenne pour une personne seule, 1\,520~€ pour un couple avec
+enfants, et 15,7~millions de foyers paient plus de 500~€ de moins. Les acheteurs économisent 7,6~Md€ de droits par an,
+dont 6,2 sur les logements ; les sociétés qui achètent des équipements ne paient plus d'impôt sur la machine
+marginale. En face, les retraités paient 21,5~Md€ de plus, 5,1~\% de leurs pensions, et 9,4~millions de foyers de
+retraités plus de 500~€ par an. La taxe foncière augmente de 99~\% en moyenne à Paris, et de plus de 300~€ pour près
+d'un logement sur cinq. Les petites sociétés au taux réduit qui n'investissent pas paient jusqu'à 4\,250~€ de plus par
+an, les couples à un seul revenu perdent le quotient conjugal, et les héritiers de patrimoines jamais vendus paient
+l'impôt sur la plus-value qu'ils réalisent.
 
-\begin{table}[!htbp]\centering\scriptsize
-\caption{La charge du 1~\% le plus aisé (Md€ par an ; + : paie davantage)}\label{tab:ens_haut}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}@{}}
-\toprule
- & Convention centrale (fourchette) & IR imputé au capital corrigé & Revenus du capital logés tout en haut \\
-\midrule
-Fusion IR-CSG & 0,0 & $-$1,1 & $-$3,0 \\
-CEHR sur les revenus du barème, supprimée par la fusion & $-$0,5 ($-$0,3 à $-$0,7) & $-$0,5 & $-$0,5 \\
-Fin de l'effacement (moyenne des dix premières années) & +2,5 (0,7 à 6,8) & +2,5 & +2,5 \\
-Immobilier (sol des entreprises et terrains nus) & 0 à +0,5, non compté & id. & id. \\
-Fin du taux réduit de l'IS & non chiffré & id. & id. \\
-\textbf{Bilan} & \textbf{+2,0 ($-$0,1 à 7,0)} & \textbf{+0,9} & \textbf{$-$1,0} \\
-Suppression de la majoration ex-CEHR sur le capital & $-$0,9 & $-$0,9 & $-$0,9 \\
-\textbf{Après compensation} & \textbf{+1,1 ($-$1,0 à 6,1)} & \textbf{0,0} & \textbf{$-$1,9} \\
-Barème adouci au-delà de 150\,000~€ (si la convention centrale se confirme) & $-$1,1, soit 0,0 & --- & --- \\
-\bottomrule
-\end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize Convention centrale : répartition « mixte » des revenus au prélèvement forfaitaire
-entre tranches de revenu (partie IR-CSG). IR imputé corrigé : 10,2~Md€ d'impôt sur le revenu imputés aux revenus du
-capital au lieu de 11,5, sur les revenus de 2024 comme la répartition du modèle (voir le texte). Revenus du capital logés
-tout en haut : convention « haut », barème recalé sur la recette. CEHR : revenus de 2025 (1,39~Md€). Fin de l'effacement :
-90~\% de la recette payée par le 1~\% (hypothèse). Source :
-\texttt{sorties/synthese\_ensemble.txt}, \texttt{controle\_hauts\_purs.txt}.\par}
-\end{table}
-
-Ce bilan dépend moins de nos choix que d'une donnée qui manque. La DGFiP ne publie pas, par tranche de revenu, la part
-des revenus imposés au prélèvement forfaitaire. Selon qu'on les loge surtout tout en haut, comme le suggère un calage
-sur l'impôt observé, ou qu'on les répartit plus largement, la fusion fait gagner 3,0~Md€ au 1~\% ou ne change rien à sa
-charge. Un second écart, plus technique, va dans le même sens. Sur les revenus de 2024, ceux de la répartition du
-modèle, le modèle IR-CSG retire de l'impôt sur le revenu 11,5~Md€ qu'il attribue aux revenus du capital ; la partie PFU,
-qui part des déclarations, trouve au plus 10,2~Md€. L'écart vient de l'assurance-vie et des plus-values immobilières,
-comptées dans les revenus du capital du modèle alors qu'elles ne sont pas imposées au prélèvement forfaitaire, ou à
-d'autres taux. Recalé sur l'assiette du prélèvement forfaitaire, il signifie que l'impôt des revenus du barème est
-sous-estimé d'environ 1,4~Md€ une fois porté en 2025 (un peu moins si l'on impute aussi l'impôt de l'assurance-vie, non
-chiffré) : au barème proposé, la fusion rendrait cette somme, dont 1,1~Md€ au 1~\% (section~\ref{sec:ens_fragile}).
-Entre ces trois lectures, le bilan du haut va de $-$1,0 à +2,0~Md€ avant toute compensation
-(figure~\ref{fig:ens_haut}).
-
-\figbloc{ensemble_n03_haut}{Supprimer la CEHR ramène la charge supplémentaire du 1~\% à 1,1~milliard par an dans la convention
-centrale, et entre $-$1,9 et 0 dans les deux autres lectures des données}{fig:ens_haut}
-
-La compensation la plus simple et la plus défendable est de supprimer la majoration de 3 puis 4 points du prélèvement
-forfaitaire qui devait remplacer la CEHR sur les revenus du capital. La CEHR disparaît alors entièrement, ce qui
-simplifie le système ; le taux du prélèvement forfaitaire devient le même pour tous, 31,4~\% ; et la mesure suit la
-logique de toute la note, élargir l'assiette pour baisser les taux, puisque c'est la fin d'une exonération qui la
-finance. Elle coûte 0,9~Md€ (0,7 à 1,1), un peu moins tant que la contribution différentielle sur les hauts revenus
-existe, puisque celle-ci reprend la baisse pour les rentiers à son plancher. Le haut paierait alors 1,1~Md€ de plus
-dans la convention centrale, presque rien si l'imputation est corrigée, et 1,9~Md€ de moins si les revenus du capital
-sont logés tout en haut. Ce n'est pas une neutralité exacte, mais elle place le bilan au milieu de ce que nous ignorons.
-Ces montants retiennent la CEHR des revenus de 2025 (1,4~Md€), comme la partie PFU. Celle des revenus de 2024,
-encaissée en 2025, rapportait 1,9~Md€ (les revenus de capitaux mobiliers déclarés ont baissé de 13~\% d'une année sur
-l'autre, les plus-values et autres revenus divers de 26~\%) : sur cette base, la compensation coûterait 1,9~Md€ par an, le haut paierait 0,5~Md€ de plus après compensation, et la dette de transition
-culminerait à 35~Md€.
-
-Aller plus loin demande d'abord de lever l'incertitude. Si le calage sur les données fiscales confirme la convention
-centrale, il faudra rendre encore environ 1,1~Md€ au 1~\%. Le moyen le plus ciblé est de garder le barème proposé
-jusqu'à 150\,000~€ de revenu imposé, où le taux marginal atteint 41,5~\%, puis de n'atteindre 50~\% qu'à 1,25~M€ au
-lieu de 231\,000~€ : seul le 1~\% est touché, aucun dixième ne bouge de plus de 360~€, et le gain d'efficacité monte de
-4,7 à 4,9~Md€, parce que ce sont les taux marginaux les plus élevés qui baissent. Il coûte 1,1~Md€ au budget, ce qui revient à
-rendre au 1~\% l'essentiel de ce que lui prend la fin de l'effacement. Le faire à recette constante de la fusion,
-en relevant les taux au milieu du barème, ferait payer cette compensation aux autres foyers et aux retraités
-($+$0,4~Md€ pour ces derniers) : nous ne le recommandons pas. Si le calage confirme au contraire que les revenus du
-capital sont logés tout en haut, il faut garder la majoration, et le bilan du haut est de $-$1,0~Md€.
-
-Neutre en moyenne, le haut ne l'est pas pour chacun. La compensation va à ceux qui ont de hauts revenus d'activité ou
-de capital imposés chaque année, la hausse aux héritiers des patrimoines qui n'ont jamais été vendus. C'est voulu :
-la note ne cherche pas à alourdir l'impôt du haut, mais à faire payer le même impôt à ceux qui vendent et à ceux qui
-transmettent. Et la charge de la fin de l'effacement croît avec le temps (3,3~Md€ la dixième année, 5,2 la trentième),
-alors que la compensation est fixe : au-delà de dix ans, le haut paiera davantage.
-
-\subsection{Sept ménages : le retraité modeste perd 8~\% de sa pension, le jeune couple qui achète gagne 3\,000~€ par an}\label{sec:ens_cas}
-
-Les moyennes cachent les situations. Le tableau~\ref{tab:ens_cas} et la figure~\ref{fig:ens_cas} additionnent, pour
-sept ménages auxquels un lecteur peut s'identifier, ce que changent la fusion, la réforme de l'immobilier, celle de l'IS
-et celle des revenus du capital. Les montants sont ceux du régime permanent, une fois les transitions achevées ; les
-droits de mutation, payés une fois, sont donnés tels quels et, pour l'addition, ramenés à un montant annuel sur dix ans
-de détention.
-
-\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{3pt}
-\caption{Sept ménages : variation annuelle de leurs impôts, au terme des transitions (€ ; + : paie davantage)}\label{tab:ens_cas}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X rrrrrr@{}}
-\toprule
-Ménage et hypothèses & IR-CSG & Taxe & Droits & Société & Total & Transmission \\
- & & foncière & (une fois) & & par an & (héritiers) \\
-\midrule
-\emph{Retraité modeste en province} : seul, 75 ans, pension de 16\,000~€, maison médiane de Limoges (171\,800~€) &
-+1\,050 & +253 & --- & --- & +1\,303 & 0 \\
-\emph{Couple de retraités à Paris} : 45\,000~€ de pensions, appartement parisien médian (416\,200~€), 200\,000~€ d'actions
-dont 80\,000~€ de plus-value latente & +1\,834 & +545 & --- & --- & +2\,378 & 25\,120 \\
-\emph{Jeune couple primo-accédant, deux enfants} : 50\,000~€ brut (60/40), achète l'appartement lyonnais médian
-(279\,200~€) & $-$2\,313 & +303 & $-$8\,105 & --- & $-$2\,961 & 0 \\
-\emph{Couple à un seul revenu, trois enfants, locataire} : 60\,000~€ brut & $-$1\,259 & --- & --- & --- & $-$1\,259 & 0 \\
-\emph{Cadre parisien} : seul, 100\,000~€ brut, achète l'appartement parisien médian, 300\,000~€ d'actions dont
-120\,000~€ de plus-value latente & $-$3\,606 & +545 & $-$12\,083 & --- & $-$4\,478 & 37\,680 \\
-\emph{Dirigeant de PME} : salaire de 200\,000~€ brut ; sa société gagne 300\,000~€ et achète 150\,000~€ de machines
-par an ; holding de 6~M€ dont 5~M€ de plus-value latente & $-$8\,553 & --- & --- & $-$1\,477 & $-$10\,029 & 1,57~M€ \\
-\emph{Rentier} : 3~M€ de dividendes par an, 60~M€ de titres dont 40~M€ de plus-value latente, appartement parisien de
-2~M€ et maison à Saint-Tropez & 0 & +5\,193 & --- & --- & +5\,193 & 12,56~M€ \\
-\bottomrule
-\end{tabularx}
-\par\vspace{2pt}{\raggedright\scriptsize IR-CSG : cas-types OpenFisca de la partie IR-CSG (législation des revenus 2025),
-au terme de la convergence de cinq ans, avant la baisse de 0,74 point liée à la fin de la CRDS. Taxe foncière et
-droits : logements et fiscalité locale de 2025. Taxe foncière : proposition
-de la partie Immobilier, logement médian de la commune, sans effet sur les prix ; Paris à 2~M€ : au prorata de la valeur de
-l'appartement médian ; Saint-Tropez : maisons de la commune. Total par an : droits annualisés sur dix ans à 3~\% (950~€ à
-Lyon, 1\,417~€ à Paris). Société : PME industrielle de la partie IS, régime permanent. Revenus du capital : prélèvement
-forfaitaire inchangé pour tous ces ménages. Transmission : impôt sur la plus-value latente, payé par les héritiers quand
-ils vendent (rien aujourd'hui). Source : \texttt{sorties/synthese\_ensemble.txt}.\par}
-\end{table}
+Les deux plus grosses bascules transfèrent de la valeur des générations âgées vers les plus jeunes. La hausse de
+l'impôt des retraités actuels équivaut à une perte de patrimoine de 210 à 250~Md€ en valeur actualisée ; si la hausse
+de taxe foncière passe dans les prix, comme le suggèrent les études les plus proches, les propriétaires actuels de
+logements perdent près de 160~Md€ de valeur à l'annonce, au profit des acheteurs futurs. Ces pertes touchent en
+partie les mêmes ménages. Les transitions sur cinq ans et le report de paiement protègent leur trésorerie, pas leur
+patrimoine.
 
 \figbloc{ensemble_n04_cas_types}{Les retraités et le rentier paient davantage chaque année ; les familles, les actifs et
 le dirigeant paient moins}{fig:ens_cas}
 
-Le retraité modeste est le ménage le plus touché en proportion : 1\,300~€ de plus par an au terme de la transition, 8,1~\%
-de sa pension. Exonéré aujourd'hui d'impôt sur le revenu et de CSG, il paie 1\,050~€ d'impôt fusionné, parce que
-l'exonération des petites pensions n'est totale que jusqu'à 12\,500~€ et décroît ensuite ; sa taxe foncière augmente de 253~€, qu'il
-peut reporter sur sa succession. Dans une commune bon marché comme Guéret, la hausse de taxe ne serait que de 27~€. Le
-couple de retraités parisien paie 2\,380~€ de plus par an, 5,3~\% de ses pensions, et ses enfants paieront 25\,000~€
-d'impôt sur la plus-value de ses actions s'ils les vendent. Ces deux ménages portent ce que la note assume : aligner
-les pensions sur les salaires, et taxer le sol là où il vaut cher.
+Sept ménages types donnent la mesure de ces transferts au terme des transitions (figure~\ref{fig:ens_cas}). Le plus
+touché en proportion est un retraité seul de 75~ans, avec 16\,000~€ de pension et une maison à Limoges : 1\,300~€ de
+plus par an, 8,1~\% de sa pension. Exonéré aujourd'hui, il paie 1\,050~€ d'impôt fusionné, parce que l'exonération
+des petites pensions n'est totale que jusqu'à 12\,500~€ ; sa taxe foncière augmente de 253~€ (27~€ à Guéret), qu'il
+peut reporter sur sa succession. Un couple de retraités parisien, avec 45\,000~€ de pensions, paie 2\,380~€ de plus,
+5,3~\% de ses pensions, et ses enfants devront 25\,000~€ sur la plus-value de ses actions s'ils les vendent. À l'autre
+bout, un jeune couple avec deux enfants et 50\,000~€ de salaires, qui achète à Lyon, paie 2\,300~€ de moins d'impôt
+fusionné et économise 8\,100~€ de droits ; sa taxe foncière augmente de 300~€, mais si cette hausse passe dans les prix,
+il achète environ 10\,000~€ moins cher. Un couple à un seul revenu de 60\,000~€ avec trois enfants gagne 1\,260~€,
+moins qu'un couple biactif au même revenu (2\,840~€) ; avec la variante du quotient conjugal, il ne gagnerait presque
+plus rien (27~€).
 
-À l'autre bout, les ménages qui travaillent, ont des enfants et achètent leur logement gagnent nettement. Le jeune
-couple lyonnais paie 2\,300~€ de moins d'impôt fusionné, grâce à la franchise d'activité et à la franchise par enfant,
-et économise 8\,100~€ de droits à l'achat ; sa taxe foncière augmente de 300~€, et si cette hausse passe dans les prix,
-comme le retient la partie Immobilier, il achète environ 10\,000~€ moins cher. Le couple à un seul revenu avec trois
-enfants gagne 1\,260~€, moins qu'un couple biactif au même revenu (2\,840~€), parce que l'impôt individuel lui retire
-le quotient conjugal ; avec la variante du quotient conjugal, où le quotient familial remplace aussi la franchise par
-enfant, il ne gagnerait presque plus rien (27~€, tableau~\ref{tab:ircsg_arbcas}). Le cadre parisien gagne 3\,600~€ sur
-son salaire et 12\,100~€ de droits à l'achat, mais ses héritiers paieront 37\,700~€ sur les plus-values de son
-portefeuille.
+Un cadre parisien à 100\,000~€ gagne 3\,600~€ sur son salaire et 12\,100~€ de droits à l'achat, mais ses héritiers
+paieront 37\,700~€ sur les plus-values de son portefeuille. Le dirigeant d'une PME qui investit gagne 10\,000~€ par
+an, parce que les taux marginaux baissent en haut du barème et que sa société gagne plus à la déduction immédiate
+qu'elle ne perd au taux réduit ; ses héritiers devront 1,6~M€ sur la plus-value de sa holding s'ils la vendent. Le
+rentier qui vit de 3~M€ de dividendes paie 5\,200~€ de plus de taxe foncière, garde le même impôt sur ses dividendes,
+tenu par la contribution différentielle à 38,6~\%, et ses héritiers devront 12,6~M€ sur une plus-value qui s'efface
+aujourd'hui.
 
-Les deux ménages du haut montrent la logique de l'ensemble. Le dirigeant de PME gagne 10\,000~€ par an, 5~\% de son
-salaire, parce que les taux marginaux baissent dans le haut du barème et que sa société, qui investit, gagne plus à la
-déduction immédiate qu'elle ne perd au taux réduit ; mais ses héritiers devront 1,6~M€ sur la plus-value de sa holding
-s'ils la vendent ou la vident, au lieu de rien. Le rentier paie 5\,200~€ de plus de taxe foncière et ne voit pas bouger
-l'impôt sur ses dividendes, tenu par la contribution différentielle à 38,6~\% ; quand celle-ci disparaîtra, la
-suppression de la majoration lui fera gagner 107\,500~€ par an. Ses héritiers, eux, devront 12,6~M€ sur une
-plus-value qui s'efface aujourd'hui.
-
-\subsection{Gagnants et perdants : de la valeur passe des générations âgées aux plus jeunes}\label{sec:ens_gagnants}
-
-Les gagnants sont ceux que la note voulait aider. Les actifs paient 21,5~Md€ de moins d'impôt fusionné : 515~€ par an
-pour une personne seule en moyenne, 1\,520~€ pour un couple avec enfants, et un premier salaire au Smic à mi-temps n'est
-plus prélevé qu'à 2,2~\% au lieu de 9,5~\%. Au total, 15,7~millions de foyers paient plus de 500~€ de moins. Les
-acheteurs économisent 7,6~Md€ de droits par an, dont 6,2 sur les logements, les sociétés qui achètent des équipements ne paient plus
-d'impôt sur la machine marginale, et les familles gagnent à la fois par la franchise par enfant et par la baisse des
-droits au moment où elles achètent plus grand.
-
-Les perdants sont nommés. Les retraités paient 21,5~Md€ de plus, 5,1~\% de leurs pensions, et 9,4~millions de foyers de
-retraités plus de 500~€ par an. Les propriétaires de sol cher paient davantage de taxe foncière : à Paris, elle augmente de
-99~\% en moyenne, et près d'un logement sur cinq voit sa taxe augmenter de plus de 300~€. Les petites sociétés au taux réduit qui
-n'investissent pas paient jusqu'à 4\,250~€ de plus par an, les couples à un seul revenu perdent le quotient conjugal, et
-les héritiers de patrimoines jamais vendus paient l'impôt sur la plus-value qu'ils réalisent.
-
-Les deux plus grosses bascules ont un point commun : elles transfèrent de la valeur des générations
-âgées vers les plus jeunes. La hausse de l'impôt des retraités actuels équivaut à une perte de patrimoine de 210 à
-250~Md€ en valeur actualisée. Si la hausse de taxe foncière passe dans les prix, comme le suggèrent les études les plus
-proches, les propriétaires actuels de logements perdent près de 160~Md€ de valeur à l'annonce, au profit des acheteurs
-futurs.
-Les deux pertes ne s'additionnent pas exactement, puisqu'elles touchent en partie les mêmes ménages, mais elles portent
-sur les mêmes générations. C'est le prix de réformes qui allègent le travail et l'acquisition plutôt que la détention ;
-les transitions sur cinq ans et le report de paiement protègent la trésorerie des ménages, pas leur patrimoine.
+Pour le 1~\% des foyers les plus aisés, l'addition des quatre réformes donne 2,0~Md€ de plus par an ($-$0,1 à 7,0),
+pour l'essentiel parce que la fin de l'effacement lui coûte 2,5~Md€ en moyenne sur dix ans. Nous proposons de
+supprimer la majoration de 3 puis 4 points du prélèvement forfaitaire qui devait remplacer la CEHR sur les revenus du
+capital : la CEHR disparaît alors entièrement, ce qui simplifie le système, et le prélèvement forfaitaire garde un
+taux unique de 31,4~\% ; comme partout dans la note, c'est la fin d'une exonération, l'effacement, qui finance la
+baisse. Cette suppression coûte 0,9~Md€, 1,4 avec la CEHR que la fusion supprime déjà sur les revenus du barème ; le
+1~\% paierait alors 1,1~Md€ de plus ($-$1,0 à 6,1). Ce bilan dépend surtout d'une donnée que la DGFiP ne publie pas,
+la répartition par tranche de revenu des revenus imposés au prélèvement forfaitaire : selon la convention retenue, il
+va de $-$1,0 à +2,0~Md€ avant cette suppression (\ref{ann:meth_haut}). La moyenne mêle deux mouvements : l'allègement
+de ceux qui ont de hauts revenus d'activité ou de capital imposés chaque année, la hausse pour les héritiers des
+patrimoines jamais vendus, qui croît avec le temps (3,3~Md€ la dixième année, 5,2 la trentième).
 
 \subsection{Ce qui reste fragile, à commencer par la perception de la CSG}\label{sec:ens_fragile}
 
-Quatre incertitudes peuvent changer la conclusion. La perception de la CSG, d'abord (section~\ref{sec:ens_bilan}) : si les
-salariés ne la voient pas aujourd'hui, la fusion perd tout son gain sur les heures et l'efficacité de l'ensemble tombe
-à zéro, voire un peu en dessous ; aucune étude ne le mesure. La part de l'investissement faite par des sociétés qui paient l'impôt l'année de l'achat, ensuite : à 90~\%
-au lieu de 75~\%, la dette de l'IS culmine à 33~Md€ au lieu de 22, et à 57~Md€ dans le cas le plus défavorable. La
-réaction des ventes de logements aux droits de mutation, aussi : si elle n'est pas durable, comme le trouvent Bérard et
-Trannoy (2018) pour la France, la réforme de l'immobilier ne gagne plus que 0,5~Md€ et se défend surtout par la justice de sa base. Le
-rendement de la fin de l'effacement, enfin, va de 0,8 à 7,5~Md€ par an en moyenne sur dix ans, et les héritiers
-garderont sans doute leurs titres plus longtemps une fois l'impôt dû à la vente.
+Outre la perception de la CSG (section~\ref{sec:ens_bilan}), trois incertitudes peuvent changer la conclusion. Si
+90~\% de l'investissement, au lieu de 75~\%, est fait par des sociétés qui paient l'impôt l'année de l'achat, la dette
+de l'IS culmine à 33~Md€ au lieu de 22. Si la réaction des ventes de logements aux droits de mutation n'est pas
+durable, comme le trouvent Bérard et Trannoy (2018) pour la France, la réforme de l'immobilier ne gagne plus que
+0,5~Md€ et se défend surtout par la justice de sa base. La recette de la fin de l'effacement va de 0,8 à 7,5~Md€ par an
+en moyenne sur dix ans, et les héritiers garderont sans doute leurs titres plus longtemps une fois l'impôt dû à la
+vente.
 
-La base de 2025 ajoute une incertitude de niveau. L'impôt sur le revenu encaissé en 2025,
-qui fixe la recette à remplacer par la fusion, est pour l'essentiel la retenue à la source sur les revenus de 2025, plus
-le solde de l'impôt sur les revenus de 2024 ; il a progressé de 7,9~\% en un an, en partie par le jeu des acomptes et
-des soldes. Si cette hausse est passagère, la recette à remplacer est surestimée d'environ 4,5~Md€, soit 0,4 point de
-taux (\ref{ann:ircsg}). Restent en 2024, faute de données de 2025, la répartition de l'impôt entre foyers (revenus de
-2024), le détail des déclarations de revenus et l'impôt sur le revenu imputé aux revenus du capital ; les comparaisons
-internationales s'arrêtent à 2024.
+La base de 2025 ajoute une incertitude de niveau : l'impôt sur le revenu encaissé en 2025, qui fixe la recette à
+remplacer, a progressé de 7,9~\% en un an, en partie par le jeu des acomptes et des soldes ; si cette hausse est
+passagère, la recette est surestimée d'environ 4,5~Md€, soit 0,4 point de taux (\ref{ann:ircsg}). Les parties ne
+s'accordent pas tout à fait sur l'impôt sur le revenu imputé aux revenus du capital, ce qui touche surtout le bilan du
+haut (\ref{ann:meth_haut}). Deux interactions ne sont simulées nulle part : après la fusion, un dirigeant paie un
+taux marginal plus faible sur son salaire et le même sur ses dividendes, et se rémunérera davantage en salaire, ce qui
+réduit l'assiette de l'IS et du prélèvement forfaitaire ; les seuils fixés en revenu fiscal de référence (exonération
+de taxe foncière des plus de 75~ans, taux de CSG) devront être redéfinis.
 
-Les parties ne sont pas tout à fait cohérentes entre elles sur deux points, qui touchent tous deux le haut de la
-distribution. L'impôt sur le revenu imputé aux revenus du capital (sur les revenus de 2024, 11,5~Md€ dans le modèle
-IR-CSG, au plus 10,2 dans la partie PFU) a été discuté plus haut : il faut caler le modèle sur l'assiette effective du
-prélèvement forfaitaire (79,6~Md€ sur les revenus de 2024, 67,0 sur ceux de 2025) et compter à part l'assurance-vie ;
-la recette à remplacer passe alors de 229,9 à environ 231,3~Md€, et la neutralité du 1~\% à recette constante demande
-d'atteindre le taux de 50~\% dès 180\,000~€, un dixième de la population voyant alors sa charge moyenne bouger de
-540~€. Le modèle porte en outre cet impôt au niveau de 2025 comme le reste de l'impôt sur le revenu (+7,9~\%), alors
-que la partie PFU mesure, sur les revenus de 2025, un impôt sur le revenu au prélèvement forfaitaire en baisse de
-18~\% (8,4~Md€ au lieu de 10,2) : les deux conventions ne sont pas réconciliées. Et la fusion supprime la CEHR sur les
-revenus du barème sans le compter (0,3 à 0,7~Md€), ce que le bilan du haut corrige. Plusieurs interactions, enfin, ne
-sont simulées nulle part. Après la fusion, un dirigeant paie un taux marginal plus faible sur son salaire et le même sur
-ses dividendes : il se rémunérera davantage en salaire, ce qui réduit l'assiette de l'IS et du prélèvement forfaitaire.
-Les seuils fixés en revenu fiscal de référence (exonération de taxe foncière des plus de 75~ans, taux de CSG) devront
-être redéfinis. La contribution différentielle sur les hauts revenus, temporaire, change le bilan du haut tant qu'elle
-existe.
-
-Le droit, enfin, comporte trois risques sérieux, qu'aucune expertise juridique n'a encore examinés : l'impôt
-individuel, que le Conseil constitutionnel pourrait juger contraire à l'égalité entre foyers de même revenu (décision
-2012-662~DC), d'où la variante du quotient conjugal, prête ; les valeurs provisoires du sol par commune, qui donnent le
-même prix au mètre carré à toutes les parcelles d'une commune ; l'application de la fin de l'effacement aux
-transmissions faites dès l'annonce de la réforme.
+Le droit comporte trois risques sérieux, qu'aucune expertise juridique n'a encore examinés : l'impôt individuel, que
+le Conseil constitutionnel pourrait juger contraire à l'égalité entre foyers de même revenu (décision 2012-662~DC),
+d'où la variante du quotient conjugal, prête ; les valeurs provisoires du sol, qui donnent le même prix au mètre carré
+à toutes les parcelles d'une commune ; l'application de la fin de l'effacement aux transmissions faites dès l'annonce
+de la réforme.
 
 \subsection{Six décisions que les chiffres ne prennent pas à la place du décideur}\label{sec:ens_decisions}
 
-Pour chacune, les chiffres donnent le prix ; le choix reste politique.
 \begin{itemize}\setlength{\itemsep}{1pt}
-\item \emph{Jusqu'où aligner les pensions sur les salaires.} L'alignement complet, avec une franchise d'activité de
-8\,000~€, fait payer 21,5~Md€ aux retraités ; un abattement de 5~\% sur les pensions garde 89~\% du gain et ramène leur
-hausse à 18,4~Md€ ; une franchise de 4\,000~€ la ramène à 14,3~Md€, au prix d'un premier salaire moins allégé. C'est le
-choix politique central de la note.
+\item \emph{Jusqu'où aligner les pensions sur les salaires}, le choix politique central. L'alignement complet, avec une
+franchise d'activité de 8\,000~€, fait payer 21,5~Md€ aux retraités ; un abattement de 5~\% sur les pensions garde
+89~\% du gain et ramène leur hausse à 18,4~Md€ ; une franchise de 4\,000~€ la ramène à 14,3~Md€, au prix d'un premier
+salaire moins allégé.
 \item \emph{Impôt individuel ou quotient conjugal.} L'impôt individuel allège le second salaire mais pénalise les couples
-à un revenu et porte un risque constitutionnel sérieux ; le quotient conjugal, solution de repli, ne coûte rien en
-efficacité dans le modèle.
-\item \emph{La contribution exceptionnelle sur l'IS.} La laisser s'éteindre coûte 7~Md€ par an par rapport à 2026 ; une
-dernière année affectée à la transition réduirait la dette de l'IS de 22 à 15~Md€.
-\item \emph{La neutralité du haut.} Supprimer la CEHR ($-$1,4~Md€) dès la réforme ; arrêter le haut du barème après le
-calage des revenus du capital sur les données fiscales, avec pour règle que le 1~\% ne paie ni plus ni moins sur
-l'ensemble des quatre réformes.
-\item \emph{Le rythme.} Cinq ans pour chaque transition limitent la hausse annuelle des perdants et la dette à environ
-32~Md€ ; dix ans diviseraient par deux les hausses annuelles mais exposeraient les réformes à dix budgets successifs et
-feraient plus que doubler le déficit de l'immobilier.
-\item \emph{La CRDS en 2034.} Baisser de 0,74 point les taux de l'impôt fusionné, ou dire que l'impôt fusionné reprend le
-financement de la dette sociale.
+à un revenu et porte un risque constitutionnel sérieux ; le quotient conjugal ne coûte rien en efficacité dans le
+modèle.
+\item \emph{La contribution exceptionnelle sur l'IS} : la laisser s'éteindre, ou en garder une dernière année affectée à
+la transition.
+\item \emph{La CEHR et le haut du barème.} Supprimer toute la CEHR dès la réforme ; arrêter le haut du barème une fois
+les revenus du capital calés sur les données fiscales (\ref{ann:meth_haut}).
+\item \emph{Le rythme.} Cinq ans pour chaque transition limitent la hausse annuelle des perdants et la dette ; dix ans
+diviseraient par deux les hausses annuelles, mais exposeraient les réformes à dix budgets successifs et feraient plus
+que doubler le déficit de l'immobilier.
+\item \emph{La CRDS en 2034} : baisser les taux de l'impôt fusionné, ou dire qu'il reprend le financement de la dette
+sociale.
 \end{itemize}
