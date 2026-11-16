@@ -1,0 +1,87 @@
+% Préambule « think tank » de la note v3 (sans empattement, bandeau, encadrés, chiffres clés).
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[french]{babel}
+\usepackage[a4paper,left=2.0cm,right=2.0cm,top=1.7cm,bottom=1.8cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,array}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage[labelfont={bf,color=bleu},labelsep=period,font={small,sf},singlelinecheck=false,justification=raggedright,skip=3pt]{caption}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage[most]{tcolorbox}
+\providecommand{\euro}{\texteuro}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{encre}{HTML}{1A1A1A}
+\definecolor{bleu}{HTML}{173F8A}
+\definecolor{bleuclair}{HTML}{E8EEF8}
+\definecolor{brique}{HTML}{B8642A}
+\definecolor{gris}{HTML}{5A5A5A}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{bleu}}{}{0em}{}[{\color{brique}\titlerule[1.2pt]}]
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\color{bleu}}{}{0em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .6ex minus .2ex}{0.9ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus .5ex minus .2ex}{0.3ex plus .1ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\small\color{gris}\thepage}
+\fancyfoot[L]{\small\color{gris}Taxer mieux plutôt que davantage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\linespread{1.04}
+\setlist{itemsep=1pt,topsep=1pt,parsep=0pt,leftmargin=1.2em}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.88}\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.1}\renewcommand{\floatpagefraction}{0.8}
+
+% Encadré « en bref » et chiffres clés
+\newtcolorbox{enbref}[1][]{colback=bleuclair,colframe=bleuclair,boxrule=0pt,arc=0pt,left=8pt,right=8pt,top=6pt,
+  bottom=6pt,fontupper=\small,#1}
+\newtcolorbox{exemple}[1]{colback=white,colframe=brique,boxrule=0.6pt,leftrule=3pt,arc=0pt,left=6pt,right=6pt,top=4pt,
+  bottom=4pt,fontupper=\small,title={\bfseries #1},coltitle=brique,colbacktitle=white,attach title to upper={\ \ }}
+\newcommand{\chiffre}[2]{\begin{minipage}[t]{0.235\linewidth}\centering{\Large\bfseries\color{bleu}#1}\\[1pt]
+  {\scriptsize\color{gris}#2}\end{minipage}}
+
+\newcommand{\graphique}[3]{%
+  \begin{figure}[!htbp]\centering
+  \caption{#2}\label{#3}\vspace{1pt}
+  \includegraphics[width=\linewidth]{figures/#1.pdf}\par\vspace{1pt}
+  {\raggedright\scriptsize\color{gris}\input{figures/#1_source.tex}\par}
+  \end{figure}}
+\newcommand{\deuxgraphiques}[6]{%
+  \begin{figure}[!htbp]
+  \begin{minipage}[t]{0.485\linewidth}\caption{#2}\label{#3}\vspace{1pt}
+  \includegraphics[width=\linewidth]{figures/#1.pdf}\par
+  {\raggedright\scriptsize\color{gris}\input{figures/#1_source.tex}\par}\end{minipage}\hfill
+  \begin{minipage}[t]{0.485\linewidth}\caption{#5}\label{#6}\vspace{1pt}
+  \includegraphics[width=\linewidth]{figures/#4.pdf}\par
+  {\raggedright\scriptsize\color{gris}\input{figures/#4_source.tex}\par}\end{minipage}
+  \end{figure}}
+
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{202F}{\,}
+\DeclareUnicodeCharacter{2009}{\,}
+\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}
+\DeclareUnicodeCharacter{03C4}{\ensuremath{\tau}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{03B8}{\ensuremath{\theta}}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03BB}{\ensuremath{\lambda}}
+\DeclareUnicodeCharacter{00B2}{\textsuperscript{2}}
