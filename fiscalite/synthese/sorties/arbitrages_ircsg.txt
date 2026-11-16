@@ -1,0 +1,50 @@
+[AUJ] perte sèche aujourd'hui : quadratique 18.1 (8.1-31.1), généralisée 18.1 (8.1-31.1) Md€
+[REF] barème de référence : 14 % au premier euro, 14 % à 20 k€, 18.2 % à 120 k€, 50 % à 600 k€
+[REF assiette large, même barème pour tous] décalage +0.00 pt ; recette 220.1 ; perte sèche quadratique 4.8 (2.1-8.3) ; généralisée 4.8 (2.1-8.3) ; perdants >500 € 54 %, >1000 € 47 %
+    déciles € +179 +698 +1327 +1400 +921 +888 +554 +453 -545 -5739
+    types Md€ Salaires -14.0 ; Pensions +17.1 ; Indépendants, foncier, gérants -6.0 ; Chômage, préretraites +2.9
+    foyers € seul -118 ; parent_isole +1,114 ; couple0 -670 ; couple2 +355
+[Franchise d'activité 4 000 €] décalage +2.21 pt ; recette 220.1 ; perte sèche quadratique 5.8 (2.5-10.0) ; généralisée 5.8 (2.5-10.0) ; perdants >500 € 46 %, >1000 € 34 %
+    déciles € +66 +320 +971 +1107 +673 +727 +466 +521 -254 -4489
+    types Md€ Salaires -13.6 ; Pensions +15.7 ; Indépendants, foncier, gérants -5.0 ; Chômage, préretraites +3.0
+    foyers € seul -149 ; parent_isole +1,083 ; couple0 -602 ; couple2 +423
+[Franchise d'activité 8 000 €] décalage +4.72 pt ; recette 220.1 ; perte sèche quadratique 7.1 (3.0-12.2) ; généralisée 7.1 (3.0-12.2) ; perdants >500 € 40 %, >1000 € 18 %
+    déciles € +89 +347 +608 +731 +337 +464 +275 +488 -43 -3220
+    types Md€ Salaires -13.5 ; Pensions +14.6 ; Indépendants, foncier, gérants -4.0 ; Chômage, préretraites +3.0
+    foyers € seul -164 ; parent_isole +1,068 ; couple0 -568 ; couple2 +457
+[Franchise de 8 000 € sur tous les revenus] décalage +5.17 pt ; recette 220.1 ; perte sèche quadratique 7.3 (3.1-12.6) ; généralisée 7.3 (3.1-12.6) ; perdants >500 € 37 %, >1000 € 20 %
+    déciles € -87 -195 +484 +717 +340 +503 +345 +616 +141 -2792
+    types Md€ Salaires -13.0 ; Pensions +13.7 ; Indépendants, foncier, gérants -3.7 ; Chômage, préretraites +3.0
+    foyers € seul -198 ; parent_isole +1,034 ; couple0 -495 ; couple2 +530
+[Pensions exonérées jusqu'à 12 500 €] décalage +5.07 pt ; recette 220.1 ; perte sèche quadratique 7.2 (3.0-12.5) ; généralisée 7.2 (3.0-12.5) ; perdants >500 € 49 %, >1000 € 32 %
+    déciles € +103 +401 +830 +1218 +674 +577 +58 +61 -302 -3540
+    types Md€ Salaires -13.4 ; Pensions +14.8 ; Indépendants, foncier, gérants -4.3 ; Chômage, préretraites +3.0
+    foyers € seul -274 ; parent_isole +957 ; couple0 -326 ; couple2 +698
+[Abattement de 10 % sur les pensions] décalage +0.43 pt ; recette 220.1 ; perte sèche quadratique 5.0 (2.1-8.6) ; généralisée 5.0 (2.1-8.6) ; perdants >500 € 54 %, >1000 € 47 %
+    déciles € +174 +679 +1296 +1395 +912 +875 +526 +409 -538 -5595
+    types Md€ Salaires -13.9 ; Pensions +16.9 ; Indépendants, foncier, gérants -5.9 ; Chômage, préretraites +2.9
+    foyers € seul -133 ; parent_isole +1,099 ; couple0 -636 ; couple2 +389
+[Famille : franchise de 6 000 € par enfant] décalage +1.13 pt ; recette 220.1 ; perte sèche quadratique 5.3 (2.2-9.0) ; généralisée 5.3 (2.2-9.0) ; perdants >500 € 57 %, >1000 € 32 %
+    déciles € +159 +656 +1288 +1348 +844 +846 +481 +430 -540 -5382
+    types Md€ Salaires -13.9 ; Pensions +16.8 ; Indépendants, foncier, gérants -5.8 ; Chômage, préretraites +2.9
+    foyers € seul +162 ; parent_isole +559 ; couple0 -14 ; couple2 -876
+[Famille : chèque par enfant] décalage +0.95 pt ; recette 220.1 ; perte sèche quadratique 5.2 (2.2-9.0) ; généralisée 5.2 (2.2-9.0) ; perdants >500 € 59 %, >1000 € 34 %
+    déciles € +78 +646 +1277 +1349 +853 +851 +492 +439 -521 -5339
+    types Md€ Salaires -13.9 ; Pensions +16.7 ; Indépendants, foncier, gérants -5.7 ; Chômage, préretraites +2.9
+    foyers € seul +117 ; parent_isole +577 ; couple0 -119 ; couple2 -638
+[Imposition commune : quotient conjugal et familial] décalage +0.23 pt ; recette 220.1 ; perte sèche quadratique 4.4 (1.9-7.6) ; généralisée 4.4 (1.9-7.6) ; perdants >500 € 58 %, >1000 € 47 %
+    déciles € +183 +716 +1363 +1448 +977 +954 +628 +531 -489 -6165
+    types Md€ Salaires -13.9 ; Pensions +17.5 ; Indépendants, foncier, gérants -6.6 ; Chômage, préretraites +2.9
+    foyers € seul -59 ; parent_isole +1,106 ; couple0 -711 ; couple2 +192
+[Ancienne proposition : franchise d'activité 8 000 € + 6 000 € par enfant] décalage +6.55 pt ; recette 220.1 ; perte sèche quadratique 8.1 (3.4-14.0) ; généralisée 8.1 (3.4-14.0) ; perdants >500 € 44 %, >1000 € 17 %
+    déciles € +79 +304 +528 +668 +239 +375 +108 +399 -56 -2584
+    types Md€ Salaires -13.4 ; Pensions +14.0 ; Indépendants, foncier, gérants -3.6 ; Chômage, préretraites +3.0
+    foyers € seul +172 ; parent_isole +371 ; couple0 +243 ; couple2 -1,025
+[Taux supérieur 45 %] décalage +0.06 pt ; recette 220.1 ; perte sèche quadratique 4.4 (1.9-7.6) ; généralisée 4.4 (1.9-7.6) ; perdants >500 € 55 %, >1000 € 47 %
+    déciles € +180 +702 +1335 +1412 +935 +905 +574 +479 -511 -5872
+    types Md€ Salaires -13.7 ; Pensions +17.3 ; Indépendants, foncier, gérants -6.5 ; Chômage, préretraites +3.0
+    foyers € seul -104 ; parent_isole +1,128 ; couple0 -700 ; couple2 +325
+[Taux supérieur 55 %] décalage -0.06 pt ; recette 220.1 ; perte sèche quadratique 5.3 (2.3-9.1) ; généralisée 5.3 (2.3-9.1) ; perdants >500 € 54 %, >1000 € 47 %
+    déciles € +178 +694 +1318 +1389 +907 +872 +533 +428 -579 -5605
+    types Md€ Salaires -14.2 ; Pensions +16.9 ; Indépendants, foncier, gérants -5.6 ; Chômage, préretraites +2.9
+    foyers € seul -131 ; parent_isole +1,101 ; couple0 -640 ; couple2 +385

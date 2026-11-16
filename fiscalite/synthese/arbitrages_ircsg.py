@@ -48,7 +48,12 @@ def impot(tm, T, o, parts, kids):
     """Impôt d'un type de foyer et taux marginal de chaque adulte (sur l'assiette nette)."""
     zs = [sh * ZN for sh in parts]
     couv = {"activite": ACT, "tout": TOUT, "aucune": 0 * ZN}[o.get("couv", "aucune")]
-    fr = [np.minimum(o.get("F", 0.0), sh * couv) + np.minimum(o.get("Fp", 0.0), sh * PENS) for sh in parts]
+    fp = o.get("Fp", 0.0)
+    if o.get("Fp_degressif"):
+        # exonération des petites pensions : totale jusqu'à Fp, dégressive au-delà, nulle à 2·Fp (décote)
+        fr = [np.minimum(o.get("F", 0.0), sh * couv) + np.clip(2 * fp - sh * PENS, 0, sh * PENS) for sh in parts]
+    else:
+        fr = [np.minimum(o.get("F", 0.0), sh * couv) + np.minimum(fp, sh * PENS) for sh in parts]
     ab = [o.get("abat_pens", 0.0) * sh * PENS for sh in parts]
     tax = [np.clip(z - f - a, 0, None) for z, f, a in zip(zs, fr, ab)]
     fam = o.get("fam", "rien")
@@ -185,7 +190,8 @@ if __name__ == "__main__":
         ("Franchise d'activité 4 000 €", dict(ref_o, couv="activite", F=4000.0)),
         ("Franchise d'activité 8 000 €", dict(ref_o, couv="activite", F=8000.0)),
         ("Franchise de 8 000 € sur tous les revenus", dict(ref_o, couv="tout", F=8000.0)),
-        ("Pensions exonérées jusqu'à 12 500 €", dict(ref_o, Fp=12500.0)),
+        ("Franchise de 12 500 € sur toutes les pensions", dict(ref_o, Fp=12500.0)),
+        ("Petites pensions exonérées jusqu'à 12 500 €, dégressif jusqu'à 25 000 €", dict(ref_o, Fp=12500.0, Fp_degressif=True)),
         ("Abattement de 10 % sur les pensions", dict(ref_o, abat_pens=0.10)),
         ("Famille : franchise de 6 000 € par enfant", dict(ref_o, fam="franchise")),
         ("Famille : chèque par enfant", dict(ref_o, fam="cheque")),
