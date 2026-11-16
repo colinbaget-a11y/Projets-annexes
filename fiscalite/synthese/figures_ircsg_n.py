@@ -231,6 +231,10 @@ def n08():
 
 
 # ------------------------------------------------------------------ 4. proposition
+_xr, _yr = U.courbe_marginale(S_P, O_P, "retraite_seul", bmin=12500.0, bmax=25000.0)
+MAX_RET, X_MAX_RET = float(_yr.max()), float(_xr[_yr.argmax()] + 500)    # milieu de la fenêtre de 1 000 €
+
+
 def n09():
     panneaux([(None, None, AUJ, 1.0, "Aujourd'hui"), (S_P, O_P, PROP, 2.0, "Proposition")],
              f"Note : proposition : franchise de {_fr(C['F'])} € par adulte sur les revenus d'activité, puis taux marginal de "
@@ -238,8 +242,9 @@ def n09():
              f"{_fr(C['z1'] / 1e3, 1 if C['z1'] % 1000 else 0)} 000 €, 50 % à {_fr(C['z2'] / 1e3)} 000 €, en ligne droite "
              f"entre ces points ; pensions exonérées jusqu'à 12 500 €, puis de moins en moins jusqu'à 25 000 € ; {NOTE_MG}. "
              "Le seul saut qui reste est un vrai effet de la règle : entre 12 500 et 25 000 € de pension, chaque euro de "
-             "pension en plus retire un euro d'exonération, si bien que le retraité paie deux fois le taux du barème, et ce "
-             "taux monte vite entre 20 000 et 25 000 €.",
+             "pension en plus retire un euro d'exonération, si bien que le retraité paie deux fois le taux marginal du "
+             f"barème, jusqu'à {_fr(MAX_RET)} % vers {_fr(X_MAX_RET / 1e3)} 000 € ; à 25 000 €, l'exonération est épuisée et "
+             "le taux retombe à celui du barème.",
              "ircsg_n09_prop_marges", SRC_OF + " (synthese/proposition_ircsg.py, outils_ircsg.py).", reperes=False)
 
 
@@ -426,6 +431,9 @@ def n17():
                 color=ENCRE)
     ax.set_xlabel("Gain sur la participation (Md€)")
     ax.set_ylabel("Gain d'efficacité total (Md€)")
+    dec = plt.FuncFormatter(lambda v, _: _fr(v, 2).rstrip("0").rstrip(","))
+    ax.xaxis.set_major_formatter(dec)
+    ax.yaxis.set_major_formatter(dec)
     axes_propres(ax)
     legende(ax, loc="upper left", ncol=2, markerscale=1.5)
     fin(fig, "ircsg_n17_designs", SRC_M + ".",
@@ -455,7 +463,7 @@ def n18():
         k_euros(ax)
         ax.yaxis.set_major_formatter(pct)
         axes_propres(ax)
-        legende(ax, loc="upper left")
+        legende(ax, loc="upper left" if prof == "seul" else "upper right")
     axs[0].set_ylabel("Prélèvement sur 1 000 € de plus")
     axs[0].set_ylim(0, 90)
     fig.subplots_adjust(wspace=0.15)

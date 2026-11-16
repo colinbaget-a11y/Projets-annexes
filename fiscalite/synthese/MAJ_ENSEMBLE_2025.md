@@ -25,3 +25,15 @@
 - note-reforme-fiscale.tex page de titre : « IS 2022 » → « IS 2025 » ; DECISIONS.md « 2,95 » → 2,99
 - references.tex : DGFiP Statistiques n° 39, 41 (2025), 43, 51, 53 (2026) ; AN rapport n° 2847 (2026, Ph. Juvin) ;
   Insee comptes nationaux 2026, tableaux 3.217 et 8.212
+
+## IR-CSG
+- 220,1 → 229,9 Md€ (IR 86,6 / CSG 135,8 / CRDS 7,6) ; gain 4,9 (2,3 à 10,9) → 4,7 (2,1 à 10,3) ; long terme 7,3 → 6,7 ;
+  revenu déclaré +3,0 (1,5 à 4,5) → +2,6 (1,3 à 3,9) ; retraités/actifs 20,8 → 21,5 ; franchise 4 000 € : 13,5 → 14,3 ;
+  valeur actualisée 245 → 250 ; 50 % à 265 000 → 231 000 € ; « garde 95 % du gain » → 89 % ; 9,1 → 9,4 M de retraités perdants ;
+  premier salaire au Smic 7,4 → 7,8 % (aujourd'hui 9,5 %) ; CSG non perçue −2,1 → −2,5 ; gain permanent 3,0 à 3,8
+- IR encaissé en 2025 : surtout la retenue à la source sur les revenus 2025 + solde 2024 (ne pas écrire « en grande partie sur
+  les revenus 2024 ») ; fragilité : si la hausse de l'IR 2025 est passagère, recette surestimée d'environ 4,5 Md€
+- synthese_ensemble.py importe modele_purs : relancer ; note-reforme-fiscale-plat.tex cite ircsg_n06 (supprimée) : réaplatir
+- references.tex : Insee (2026) « Impôts. Données annuelles de 1995 à 2025 » (28/08/2026) ; Insee Informations rapides n° 78
+  (27/03/2026) ; Insee, Comptes de la Nation 2025, tableau 1.101 ; Sénat (2026), J.-F. Husson, rapport n° 736 (2025-2026), t. I ;
+  annexe 1 « Financement » du PLACSS 2025 (2026) ; OpenFisca-France 176.1, législation des revenus 2025

@@ -32,7 +32,7 @@ charge monter davantage. L'IR de 2025 est un montant encaissé : pour l'essentie
 de 2025, plus le solde, net des remboursements, de l'impôt sur les revenus de 2024. Sa hausse tient en partie au jeu
 des acomptes et des soldes (Insee) ; le budget de l'État la confirme (IR net de 94,6~Md€, en hausse de 7,0~Md€,
 dont 1,9~Md€ de moindres remboursements, selon la commission des finances du Sénat). Si elle est passagère, la
-recette à remplacer est surestimée d'environ 4~Md€. Restent en 2024, faute de données de 2025 : la répartition entre
+recette à remplacer est surestimée d'environ 4,5~Md€ (0,4 point de taux). Restent en 2024, faute de données de 2025 : la répartition entre
 tranches et entre types de foyers, le nombre de foyers, la composition des revenus, la CSG des pensions de départ
 (chiffre de la CCSS), le montant des niches et le taux marginal actuel par tranche. Le droit de l'IR actuel est celui
 des revenus 2025 (barème, décote et plafonds du quotient familial revalorisés de 0,9~\%).
@@ -106,8 +106,8 @@ pour le passage aux taux médian et plein, qu'OpenFisca ne code pas.
 la CRDS supplémentaires pour 1\,000~€ de revenu après cotisations en plus, calculés tous les 100~€, chaque point
 directement, sans lissage ni interpolation de l'impôt. La version précédente comportait trois artefacts : un pas de
 500~€ qui dessinait des triangles là où il y a des paliers ; la moyenne de deux passages pour le taux de CSG des
-retraités, qui coupait chaque saut en deux demi-marches et faisait apparaître de faux creux (vers 20\,500 et
-33\,500~€ de pension) ; la mesure par euro de salaire brut, qui faisait passer dans la courbe de l'impôt des effets
+retraités, qui coupait chaque saut en deux demi-marches de hauteur moitié (en droit 2024, des paliers de 36 à 45~\%
+au lieu d'un seul de 64 à 78~\% sous les trois seuils de CSG) ; la mesure par euro de salaire brut, qui faisait passer dans la courbe de l'impôt des effets
 propres au passage du brut au net (un creux vers 46\,000~€ brut). Les pics qui restent sont de vrais sauts du droit :
 le seuil de CSG franchi s'applique à toute la pension ; l'abattement des plus de 65 ans baisse d'un coup de 1\,411~€
 à chacun de ses deux seuils ; l'IR n'est pas recouvré sous 61~€, d'où un petit pic à l'entrée dans l'impôt ; dans la
@@ -129,8 +129,8 @@ la figure~\ref{fig:ircsg_designs} l'ensemble des barèmes admissibles.
 
 \input{parties/tab_ircsg_design}
 
-\figbloc{ircsg_n17_designs}{Plus la franchise est forte, plus la participation progresse, à gain total presque
-égal}{fig:ircsg_designs}
+\figbloc{ircsg_n17_designs}{Plus la franchise est forte, plus la participation progresse, et le gain total avec
+elle}{fig:ircsg_designs}
 
 \subsection{La réforme naïve, variante individuelle}
 
