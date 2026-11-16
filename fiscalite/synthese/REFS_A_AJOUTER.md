@@ -27,3 +27,13 @@
 - Lois de finances pour 1978 (n° 77-1467, art. 3) et pour 1991
 - Eurostat ilc_pnp2 (2024) ; Insee Première n° 1492 ; Insee, espérance de vie 2025 (provisoire)
 - OpenFisca-France 176.1 ; service-public.fr F2971 et F16871
+
+## PFU
+- Auerbach (1991), « Retrospective Capital Gains Taxation », AER 81(1)
+- Dherbécourt, Fack, Landais et Stantcheva (2021), « Repenser l'héritage », note du CAE n° 69
+- Vaillancourt et Kerkhoff (2019), eJournal of Tax Research 16(2)
+- U.S. Treasury (2015), General Explanations FY2016 ; U.S. Treasury (2024), Tax Expenditures FY2026
+- Li (2020), Tax Foundation, suppression du step-up ; Tax Foundation, « Integrated Tax Rates on Corporate Income in Europe, 2025 »
+- Assemblée nationale, rapport n° 1678 (2023)
+- Insee, comptes nationaux base 2020 (2026) ; Insee Première n° 2105 ; Banque de France, Stat Info Épargne des ménages 2025T4
+- 26 U.S.C. §1015 ; EStG §17 ; Income Tax Act (Canada), art. 70(5) ; IPP note n° 92 (via rapport n° 3056)
