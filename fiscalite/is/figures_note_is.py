@@ -78,7 +78,7 @@ cats = ["Très petites", "PME", "ETI", "Grandes"]
 lib = {"Très petites": "Très petites\nentreprises", "PME": "PME", "ETI": "Entreprises de taille\nintermédiaire",
        "Grandes": "Grandes\nentreprises"}
 DE = {"Très petites": " d'", "PME": " ", "ETI": " ", "Grandes": " "}
-nb = {"Très petites": "2,2 millions", "PME": "217 500", "ETI": "8 100", "Grandes": "400"}
+nb = {"Très petites": "2,6 millions", "PME": "220 000", "ETI": "8 700", "Grandes": "370"}
 fig, ax = plt.subplots(figsize=(9.0, 3.4))
 y = np.arange(len(cats))[::-1]
 parts = [100 * q[c]["part"] for c in cats]
@@ -93,12 +93,14 @@ ax.set_xticks([0, 10, 20, 30])
 ax.set_xticklabels(["0 %", "10 %", "20 %", "30 %"])
 axes_propres(ax, grille="x")
 taille_ticks(ax)
+rf = [f(100 * q[c]["part_resultat"], 0) for c in cats]
 fin(fig, "is_n02_qui_paie",
-    "Source : DGFiP, Statistiques n° 21 (avril 2024), tableau 2, exercices 2022.",
-    "Note : IS brut, avant crédits et réductions d'impôt (68,4 Md€ en 2022). Catégories d'entreprises du décret "
-    "n° 2008-1354 (une entreprise peut regrouper plusieurs sociétés). Les bénéfices se répartissent presque de la même "
-    "façon : 22, 27, 22 et 29 %. La contribution exceptionnelle de 2025 et 2026 (7 à 7,5 Md€ par an) s'ajoute pour les "
-    "seuls groupes de plus de 1 Md€ de chiffre d'affaires.")
+    "Source : DGFiP, Statistiques n° 51 (septembre 2026), tableau 2, exercice 2025 (données provisoires).",
+    f"Note : IS brut, avant crédits et réductions d'impôt ({f(sum(q[c]['is_brut'] for c in cats))} Md€ en 2025). "
+    "Catégories d'entreprises du décret n° 2008-1354 (une entreprise peut regrouper plusieurs sociétés). Le résultat "
+    f"fiscal (bénéfices moins déficits) se répartit en {rf[0]}, {rf[1]}, {rf[2]} et {rf[3]} %. En 2022, la répartition de "
+    "l'IS brut était presque la même (19, 28, 23 et 30 %). La contribution exceptionnelle de 2025 et 2026 (7,5 Md€ en "
+    "2025) s'ajoute pour les seuls groupes de plus de 1 Md€ de chiffre d'affaires.")
 
 # ------------------------------------------------------------------ n03 : taux affiché, taux sur le bénéfice, taux sur l'excédent
 cat3 = [("Microentreprises", 13.1 / 60.3, 19.0), ("PME", 18.9 / 75.9, 21.4), ("Grandes entreprises", 20.6 / 79.5, 14.3)]
@@ -131,7 +133,8 @@ fin(fig, "is_n03_taux",
     "imputation des déficits reportés. Excédent net d'exploitation : ce que dégage l'activité, avant intérêts et "
     "impôt, au sens de la comptabilité nationale (Insee). Les deux sources ne mesurent pas exactement le même champ. "
     "Le taux réduit de 15 % (bénéfice jusqu'à 42 500 €) explique l'essentiel du taux plus bas des microentreprises sur "
-    "leur bénéfice.")
+    "leur bénéfice. Année 2022 : la dernière pour laquelle l'Insee publie ces taux implicites ; en 2024 (DGFiP n° 39), "
+    "l'IS brut représente 21,2, 24,5 et 26,1 % du bénéfice fiscal des trois catégories.")
 
 # ------------------------------------------------------------------ n04 : à coût égal (réforme naïve)
 T = J["tef"]
@@ -166,7 +169,8 @@ fin(fig, "is_n04_cout_egal",
     "Devereux et Griffith, 2003) : financement par fonds propres, rendement réel exigé de 5 %, inflation de 2 %, usure "
     "de 14 % par an, amortissement linéaire sur sept ans aujourd'hui. Ces conventions ne sont pas celles de l'OCDE "
     "(9,8 % pour les équipements en 2025) : seuls les écarts entre barres comptent. Coûts en 2027 : la baisse du taux "
-    "normal, taux réduit gardé, coûte 2,66 Md€ par point avant toute réaction des bénéfices déclarés ; la déduction "
+    f"normal, taux réduit gardé, coûte {f(J['naif']['1'][0], 2)} Md€ par point avant toute réaction des bénéfices déclarés "
+    "(bénéfices de 2025 portés en 2027) ; la déduction "
     "immédiate de tous les équipements coûte 1,7 à 2,6 Md€ par année d'achats en valeur actualisée au taux des "
     "entreprises (5 %). Le taux de 24 % est la baisse qui coûte autant.")
 
@@ -242,7 +246,8 @@ fin(fig, "is_n06_calendriers",
     "moitié linéaire, pour moitié dégressif (cas central). Plafond de 1 M€ par groupe et par an, supposé couvrir 20 % "
     "de l'investissement. Sans investissement supplémentaire suscité. Ressources : fin du taux réduit, CIR apprécié au "
     "niveau du groupe, fin des exonérations zonées d'IR et d'IS hors outre-mer, avantage de la boîte à brevets réduit "
-    "de moitié, 3,5 à 4,6 Md€ en 2027 puis +3 % par an. Les trois calendriers ont le même coût en régime permanent "
+    f"de moitié, {f(J['fin']['bas'])} à {f(J['fin']['haut'])} Md€ en 2027 puis +3 % par an. Les trois calendriers ont le "
+    "même coût en régime permanent "
     "(1,3 à 2,0 Md€ en 2034).")
 
 # ------------------------------------------------------------------ n07 : cas types
@@ -349,7 +354,7 @@ taille_ticks(ax)
 ax.legend(loc="upper right", frameon=False, fontsize=9.0 * ECH_TXT if NU else 9.0)
 fin(fig, "is_n09_dette_calendriers",
     "Source : " + SRC_SIM + ".",
-    "Note : cas central (régime actuel moitié linéaire, moitié dégressif ; ressources de l'assiette de 4,1 Md€ en 2027 ; "
+    f"Note : cas central (régime actuel moitié linéaire, moitié dégressif ; ressources de l'assiette de {f(J['fin']['central'])} Md€ en 2027 ; "
     "part imposable 75 % ; plafond couvrant 20 % de l'investissement). Dette cumulée, intérêts de 3,25 % compris, avant "
     "toute baisse du taux. Les calendriers « 100 % sous plafond seul » et « amortissement neutre » ne créent pas de "
     "dette : leur coût reste toujours inférieur aux ressources.")

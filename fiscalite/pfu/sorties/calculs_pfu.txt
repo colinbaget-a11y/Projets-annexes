@@ -11,13 +11,15 @@
    moins-values (à déduire)                                       1,4 Md€
    plus-values placées en report d'apport-cession (non imposées)  22,2 Md€
    stock de reports                                               173,3 Md€
-   assiette du PFU : 79,6 Md€ ; base 2025 approchée (dividendes × 0,858) : 72,5 Md€
+   assiette du PFU : 79,6 Md€ (revenus 2024)
+   revenus 2025 (DGFiP n° 53) : RCM 69,9 -> 60,9 Md€ (−12,9 %) ; revenus divers 23,7 -> 17,5 (−26,4 %) ; impôt hors barème 10,24 -> 8,43 (−17,7 %)
+   assiette du PFU des revenus 2025 [C] : dividendes 43,7 + intérêts 10,3 + plus-values 13,0 = 67,0 Md€ ; contrôles : assiette 2024 × évolution de l'impôt hors barème 65,5 ; dividendes au rythme de l'Insee (× 0,858) et le reste inchangé (ancienne approximation) 72,5
 1b. Recettes (Md€ par an)
-   IR au PFU (12,8 % × assiette, majorant : 2,54 M d'optants) : 10,2 ; acompte prélevé 2CK : 7,7
-   prélèvements sociaux sur l'assiette du PFU (18,6 %) : 14,8
-   prélèvements sociaux sur tous les revenus du capital (assiette ≈ 204 Md€) : 36,6
-   CEHR 1,41 (revenus 2023, toutes catégories ; part payée sur le capital inconnue, 50-80 % [H] -> 0,7-1,1) [V AN 3056]
-   CDHR 0,37 (acompte 2025) ; 0,6 prévus en 2027 (PLF 2027, état A) [V]
+   IR au PFU (impôt hors barème, DGFiP n° 53) [V] : revenus 2025 8,4 ; revenus 2024 10,2 (12,8 % × assiette 2024 = 10,2, foyers au barème compris ; acompte prélevé 2CK 7,7)
+   prélèvements sociaux sur l'assiette du PFU des revenus 2025, au taux de 2026 (18,6 %) : 12,5 ; au taux de 2025 (17,2 %) : 11,5 [C]
+   prélèvements sociaux sur tous les revenus du capital encaissés en 2025 (DGFiP n° 43, taux de 17,2 %) : 36,2 [V] ; assiette implicite 210 Md€ ; ancien calcul aux taux de 2026 sur 204 Md€ (prélèvement de solidarité, PLF 2027) : 36,6
+   CEHR (toutes catégories de revenus ; part payée sur le capital inconnue, 50-80 % [H]) : revenus 2023 1,41 ; 2024 1,94 (encaissée en 2025) ; 2025 1,39 [V]
+   CDHR : acompte encaissé en 2025 0,37 (7 203 foyers, AN n° 2847) ; revenus 2025 0,62 (environ 14 000 foyers, DGFiP n° 53) ; 0,65 prévus en 2026 et 0,6 en 2027 [V]
 1c. Concentration [V France Stratégie 2023, POTE 2021 ; AN 3056 pour les reports de 2023]
    part du top 0,01 % (≈ 4 000 foyers) : dividendes 33 % ; plus-values de droit commun 70 % ; plus-values mises en report en 2023 56 % ; 84 foyers : 70 %
    part du top 1 % des dividendes : 96 % ; du top 0,1 % : 62 %
@@ -69,11 +71,13 @@
 2. RÉFORME NAÏVE
 ==============================================================================================================
    PFU 25 %, base 2024 : mécanique −5,10 ; premières années (e = 0,65 / 0,77 / 1) −3,94 / −3,73 / −3,32 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) −5,10 / −4,41 / −3,73
-   PFU 25 %, base 2025 : mécanique −4,64 ; premières années (e = 0,65 / 0,77 / 1) −3,59 / −3,40 / −3,02 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) −4,64 / −4,02 / −3,40
+   PFU 25 %, base 2025 : mécanique −4,29 ; premières années (e = 0,65 / 0,77 / 1) −3,32 / −3,14 / −2,79 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) −4,29 / −3,71 / −3,14
    PFU 33 %, base 2024 : mécanique 1,27 ; premières années (e = 0,65 / 0,77 / 1) 0,87 / 0,80 / 0,65 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 1,27 / 1,04 / 0,80
-   PFU 33 %, base 2025 : mécanique 1,16 ; premières années (e = 0,65 / 0,77 / 1) 0,79 / 0,73 / 0,60 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 1,16 / 0,94 / 0,73
+   PFU 33 %, base 2025 : mécanique 1,07 ; premières années (e = 0,65 / 0,77 / 1) 0,73 / 0,67 / 0,55 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 1,07 / 0,87 / 0,67
    PFU 34,4 %, base 2024 : mécanique 2,39 ; premières années (e = 0,65 / 0,77 / 1) 1,59 / 1,45 / 1,16 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 2,39 / 1,92 / 1,45
-   PFU 34,4 %, base 2025 : mécanique 2,18 ; premières années (e = 0,65 / 0,77 / 1) 1,45 / 1,32 / 1,06 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 2,18 / 1,75 / 1,32
+   PFU 34,4 %, base 2025 : mécanique 2,01 ; premières années (e = 0,65 / 0,77 / 1) 1,34 / 1,22 / 0,98 ; régime permanent (e = 0,77, π = 0 / 0,5 / 1) 2,01 / 1,61 / 1,22
+   PFU 25 %, base 2025, e = 0.5 : premières années −3,54
+   PFU 25 %, base 2025, e = 1.2 : premières années −2,49
    PFU 25 %, base 2024, e = 0.5 : premières années −4,21
    PFU 25 %, base 2024, e = 1.2 : premières années −2,96
 2b. Taux qui maximise la recette (sans réaction croisée) 1/(1+e) et coût d'un euro levé à 31,4 % [C]
@@ -82,25 +86,37 @@
    e = 1.0 : 50,0 % ; 1,84 €
 2c. Perte sèche d'un PFU à 25 % (Harberger ; π = part de la réaction qui échappe définitivement à l'impôt ;
     μ − 1 = prix d'un milliard levé ailleurs, 0,04 / 0,08 / 0,17, sorties/architectures_ircsg.txt [PRIX]) [C]
-   π = 0.0 : 0,20 / 0,41 / 0,87 Md€ (recette perdue 5,1)
-   π = 0.5 : −0,59 / −0,42 / −0,02 Md€ (recette perdue 4,4)
-   π = 1.0 : −1,39 / −1,24 / −0,91 Md€ (recette perdue 3,7)
+   base 2025, π = 0.0 : 0,17 / 0,34 / 0,73 Md€ (recette perdue 4,3)
+   base 2025, π = 0.5 : −0,50 / −0,35 / −0,02 Md€ (recette perdue 3,7)
+   base 2025, π = 1.0 : −1,17 / −1,05 / −0,76 Md€ (recette perdue 3,1)
+   base 2024, π = 0.0 : 0,20 / 0,41 / 0,87 Md€ (recette perdue 5,1)
+   base 2024, π = 0.5 : −0,59 / −0,42 / −0,02 Md€ (recette perdue 4,4)
+   base 2024, π = 1.0 : −1,39 / −1,24 / −0,91 Md€ (recette perdue 3,7)
 2d. Bloc épargne (avis Cochrane) : si l'épargne réagissait au rendement net avec une élasticité réelle ε_s [H],
     la perte sèche sur l'assiette du PFU vaut ½ ε_s t²/(1 − t) B ; gain d'une baisse de 31,4 à 25 % :
-   ε_s = 0.1 : −0,24 Md€ de perte sèche (à comparer au coût du financement : +0,2 à +0,9)
-   ε_s = 0.2 : −0,48 Md€ de perte sèche (à comparer au coût du financement : +0,2 à +0,9)
-   ε_s = 0.5 : −1,20 Md€ de perte sèche (à comparer au coût du financement : +0,2 à +0,9)
+   ε_s = 0.1 : −0,20 Md€ de perte sèche, base 2025 (base 2024 : −0,24) ; à comparer au coût du financement : +0,2 à +0,7
+   ε_s = 0.2 : −0,40 Md€ de perte sèche, base 2025 (base 2024 : −0,48) ; à comparer au coût du financement : +0,2 à +0,7
+   ε_s = 0.5 : −1,01 Md€ de perte sèche, base 2025 (base 2024 : −1,20) ; à comparer au coût du financement : +0,2 à +0,7
 2e. Retour au barème : ordre de grandeur statique [H fortes : 96 % des dividendes au TMI 45 %, 4 % au TMI 30 %,
     intérêts au TMI 30 %, plus-values au TMI 45 %, abattement de 40 %, CSG déductible 6,8 %]
-   gain statique ≈ 12,5 Md€ (avant optants déjà au barème, CDHR perdue de 0,4-0,6 et TMI de 41 %)
-   e = 0.65 : taux moyen 31,4 -> 47,1 % ; recette nette 6,2 Md€
-   e = 0.77 : taux moyen 31,4 -> 47,1 % ; recette nette 5,0 Md€
-   e = 1.0 : taux moyen 31,4 -> 47,1 % ; recette nette 2,8 Md€
-   si les dividendes baissaient de 40 % comme en 2013 : 4,0 Md€ ; Institut Montaigne via CAE : 3,2 à 3,6 (statique), −0,7 si l'assiette revient à 2017 [S]
-2f. Exil (CAE Focus 118 : 0,02 à 0,23 % du top 1 % par point, long terme) [V+C]
-   PFU à 25 % : 0,13 % du top 1 % retenu -> 0,02 Md€ gardés
-   PFU à 25 % : 1,47 % du top 1 % retenu -> 0,24 Md€ gardés
-   assiette du PFU du top 1 % ≈ 66 Md€ ; impôt personnel ≈ 20,8 Md€ + CEHR et CDHR
+   base 2025 : gain statique ≈ 10,1 Md€ (avant optants déjà au barème, CDHR perdue et TMI de 41 %)
+     e = 0.65 : taux moyen 31,4 -> 46,5 % ; recette nette 5,1 Md€
+     e = 0.77 : taux moyen 31,4 -> 46,5 % ; recette nette 4,2 Md€
+     e = 1.0 : taux moyen 31,4 -> 46,5 % ; recette nette 2,4 Md€
+     si les dividendes baissaient de 40 % comme en 2013 : 2,8 Md€
+   base 2024 : gain statique ≈ 12,5 Md€ (avant optants déjà au barème, CDHR perdue et TMI de 41 %)
+     e = 0.65 : taux moyen 31,4 -> 47,1 % ; recette nette 6,2 Md€
+     e = 0.77 : taux moyen 31,4 -> 47,1 % ; recette nette 5,0 Md€
+     e = 1.0 : taux moyen 31,4 -> 47,1 % ; recette nette 2,8 Md€
+     si les dividendes baissaient de 40 % comme en 2013 : 4,0 Md€
+   Institut Montaigne via CAE : 3,2 à 3,6 (statique), −0,7 si l'assiette revient à 2017 [S]
+2f. Le dernier centile : assiette et impôt sur les revenus du capital ; exil (CAE Focus 118 : 0,02 à 0,23 % du top 1 %
+    par point, long terme) [V+C]
+   revenus 2024 : impôt hors barème du dernier centième 8,08 Md€ -> assiette 63,1 Md€ ; impôt personnel sur ses revenus du capital (PFU 31,4 %, 65 % de la CEHR, CDHR) ≈ 21,1 Md€
+   revenus 2025 : impôt hors barème du dernier centième 6,03 Md€ -> assiette 47,1 Md€ ; impôt personnel sur ses revenus du capital (PFU 31,4 %, 65 % de la CEHR, CDHR) ≈ 16,3 Md€
+   ancienne hypothèse (96 % des dividendes, 80 % des plus-values, 30 % des intérêts, revenus 2024) : 66 Md€
+   PFU à 25 % : 0,13 % du top 1 % retenu -> 0,02 Md€ gardés (revenus 2025)
+   PFU à 25 % : 1,47 % du top 1 % retenu -> 0,17 Md€ gardés (revenus 2025)
 
 ==============================================================================================================
 3. PROPOSITION : FERMER L'EFFACEMENT À LA TRANSMISSION
@@ -157,16 +173,16 @@
    b et λ hauts ensemble                  : an 10 5,58 (54 %) ; VA 7,19
    verrouillage : a et h bas ensemble     : an 10 2,11 (−42 %) ; VA 3,27
 3e. Le haut de la distribution [H : 90 % de la recette payée par le top 1 %]
-   bas      : an 5 +0,66 ; an 10 +0,92 ; an 30 +1,70 ; moyenne 1-10 +0,69 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 22 Md€) : an 10 4 % ; droits acquis an 10 +0,43
-   central  : an 5 +2,47 ; an 10 +3,26 ; an 30 +5,20 ; moyenne 1-10 +2,53 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 22 Md€) : an 10 15 % ; droits acquis an 10 +1,29
-   haut     : an 5 +6,68 ; an 10 +8,42 ; an 30 +11,82 ; moyenne 1-10 +6,78 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 22 Md€) : an 10 38 % ; droits acquis an 10 +2,74
+   bas      : an 5 +0,66 ; an 10 +0,92 ; an 30 +1,70 ; moyenne 1-10 +0,69 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 16 Md€, revenus 2025) : an 10 6 % ; moyenne 1-10 4 % (revenus 2024 : 4 %) ; droits acquis an 10 +0,43
+   central  : an 5 +2,47 ; an 10 +3,26 ; an 30 +5,20 ; moyenne 1-10 +2,53 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 16 Md€, revenus 2025) : an 10 20 % ; moyenne 1-10 15 % (revenus 2024 : 15 %) ; droits acquis an 10 +1,29
+   haut     : an 5 +6,68 ; an 10 +8,42 ; an 30 +11,82 ; moyenne 1-10 +6,78 Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ 16 Md€, revenus 2025) : an 10 52 % ; moyenne 1-10 42 % (revenus 2024 : 40 %) ; droits acquis an 10 +2,74
    IR-CSG : la charge du 1 % ne bouge pas (décision 3) ; la variation du haut dans cette partie vient donc de la
    seule fermeture de l'effacement (PFU inchangé, CEHR gardée en majoration du PFU).
 
 ==============================================================================================================
 4. ARBITRAGES
 ==============================================================================================================
-4a. Sort de la CEHR sur le capital : la supprimer coûterait 0,7 à 1,1 Md€ [H : 50-80 % de 1,41 Md€], moins la
+4a. Sort de la CEHR sur le capital : la supprimer coûterait 0,7 à 1,1 Md€ [H : 50-80 % de la CEHR des revenus 2025, 1,39 Md€] ; 1,0 à 1,6 sur les revenus 2024 ; moins la
     part reprise par la CDHR pour les foyers à son plancher ; la garder en majoration du PFU : 0
 4b. Alignement des prélèvements sociaux à 18,6 % : 1,30 Md€ (assiette restée à 17,2 % : 200 − 107 = 93 Md€) ; 1,36 avec l'assiette 204 ; alignement vers le bas (17,2 % pour tous) : −1,50 Md€
     petit épargnant : 60 000 € d'assurance-vie à 2,5 % -> +21 € par an
@@ -198,6 +214,7 @@
    Héritier (titres cotés de 2 M€ acquis 0,8 M€ par le défunt, vendus 2,1 M€ trois ans après) : aujourd'hui 31 400 € ; proposition 408 200 € ; droits de succession inchangés
    Rentier, 400 k€ de dividendes : 154 400 € (38,6 %) ; PFU 25 % par l'IR 38,6 % ; par les PS 32,2 % ; barème 38,6 % ; sans CEHR 38,6 %
    Rentier, 3 000 k€ de dividendes : 1 158 000 € (38,6 %) ; PFU 25 % par l'IR 38,6 % ; par les PS 32,2 % ; barème 45,3 % ; sans CEHR 38,6 %
+     reprise par la CDHR d'une baisse de la part d'IR du PFU, rapportée à la CDHR payée : rentier 400 k€ × 1,05 ; rentier 3 000 k€ × 1,77 -> appliqué au rendement de la CDHR des revenus 2025 (0,62 Md€) : 0,7 à 1,1 Md€
      à son décès, un portefeuille de 60 M€ dont 40 M€ de plus-value latente : impôt latent transmis 12,6 M€ (0 aujourd'hui)
 
 ==============================================================================================================

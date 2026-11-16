@@ -38,8 +38,8 @@ AN1, I1, H = sim.AN1, sim.I1, 70
 PART = 0.75
 PLANS = {"lin": sim.plan("lineaire"), "deg": sim.plan("degressif")}
 E0 = np.eye(1, len(PLANS["lin"]), 0).ravel()
-POINT = sim.POINT                                   # un point de taux normal en 2027, taux réduit supprimé (2,95)
-POINT_TR = sim.BASE_NORMALE * sim.A22 / 100         # un point sur la seule base au taux normal (2,66)
+POINT = sim.POINT                                   # un point de taux normal en 2027, taux réduit supprimé (2,99)
+POINT_TR = sim.BASE_NORMALE * sim.AB / 100          # un point sur la seule base au taux normal (2,67)
 PIB27 = sim.PIB_2027
 
 
@@ -57,21 +57,48 @@ def z(d, r=R_ENT):
 p("=" * 100)
 p("1. SITUATION ACTUELLE")
 PIB25 = 2991.056
+# Base 2025 (décision 5 du 17/11/2026). Exécution budgétaire : PLF 2027 (tableau des recettes fiscales nettes, colonne
+# « Exécution 2025 ») et rapport AN n° 2847 sur le projet de loi relatif aux résultats de la gestion 2025 ; prélèvements
+# obligatoires : Insee, comptes de la Nation 2025, tableau 3.217 ; recouvrement : DGFiP Statistiques n° 43 (mars 2026).
 REC = {"IS net (budget de l'État)": {2023: 56.8, 2024: 57.4, 2025: 59.9, 2026: 60.3, 2027: 58.5},
-       "Contribution exceptionnelle": {2025: 7.5, 2026: 7.0, 2027: 5.0},
-       "Contribution sociale (3,3 %)": {2024: 1.52, 2026: 1.51},
+       "Contribution exceptionnelle": {2025: 7.52, 2026: 7.0, 2027: 5.0},
+       "Contribution sociale (3,3 %), comptabilité nationale": {2024: 1.166, 2025: 1.151},
        "Minimum mondial (pilier 2)": {2026: 0.5}}
-p(f"[RECETTE] IS net 2025 59,9 Md€ = {100*59.9/PIB25:.2f} % du PIB ; avec contribution exceptionnelle (7,5) et sociale (≈1,5) : "
-  f"{59.9+7.5+1.5:.1f} Md€ = {100*(59.9+7.5+1.5)/PIB25:.2f} % du PIB")
-p("[RECETTE] IS brut budgétaire 2026 (avant remboursements et dégrèvements, dont CIR) : 85,0 Md€ ; IS net 2027 (PLF) 58,5 "
-  "hors contribution exceptionnelle (5,0 proposés pour 2027 par l'art. 15 du PLF, article supprimé en 1re lecture selon Légifiscal)")
-TAILLE = {"Très petites": (2213.0, 60.3, 13.1), "PME": (217.5, 75.9, 18.9), "ETI": (8.1, 62.2, 15.8),
-          "Grandes": (0.4, 79.5, 20.6)}            # milliers d'entreprises, bénéfices, IS brut (Md€), 2022, DGFiP n° 21
+PO25 = {"is_avant_credits": 69.473, "credits_deduits": 3.930, "credits_restitues": 6.199, "ce": 7.520, "csb": 1.151}
+PO25["is_net"] = PO25["is_avant_credits"] - PO25["credits_deduits"] - PO25["credits_restitues"]
+PO25["total"] = PO25["is_net"] + PO25["ce"] + PO25["csb"]
+J["po2025"] = PO25
+p(f"[RECETTE] IS net 2025 au budget de l'État 59,9 Md€ = {100*59.9/PIB25:.2f} % du PIB (exécution, PLF 2027 et rapport AN "
+  f"n° 2847) ; recouvrement DGFiP (IS et contribution sociale) 61,8 Md€ (DGFiP n° 43)")
+p(f"[RECETTE PO 2025] Insee 3.217 : IS avant crédits d'impôt {fr(PO25['is_avant_credits'], 1)} Md€, crédits "
+  f"{fr(PO25['credits_deduits'] + PO25['credits_restitues'], 1)} (dont restitués {fr(PO25['credits_restitues'], 1)}), IS net "
+  f"{fr(PO25['is_net'], 1)} ; contribution exceptionnelle {fr(PO25['ce'], 2)} ; contribution sociale {fr(PO25['csb'], 2)} ; "
+  f"total {fr(PO25['total'], 1)} Md€ = {fr(100*PO25['total']/PIB25, 2)} % du PIB ; IS net seul {fr(100*PO25['is_net']/PIB25, 2)} %")
+p("[RECETTE] CIR et crédits voisins utilisés en 2025 : 7,69 Md€ (DGFiP n° 51, tableau 3, montants arrêtés au 30 juin) ; "
+  "IS brut budgétaire 2026 (avant remboursements et dégrèvements) : 85,0 Md€ ; IS net 2027 (PLF) 58,5 hors contribution "
+  "exceptionnelle (5,0 proposés pour 2027 par l'art. 15 du PLF, article supprimé en 1re lecture selon Légifiscal)")
+# Qui paie : exercice 2025 (DGFiP Statistiques n° 51, tableau 2 ; données provisoires) : milliers d'entreprises, résultat
+# fiscal (bénéfices moins déficits) et IS brut, Md€. Les bénéfices par taille ne sont publiés que jusqu'en 2024.
+TAILLE = {"Très petites": (2604.8, 29.40, 14.540), "PME": (220.2, 45.81, 18.940), "ETI": (8.7, 41.41, 16.781),
+          "Grandes": (0.371, 59.44, 20.214)}
 ISB = sum(v[2] for v in TAILLE.values())
+RFT = sum(v[1] for v in TAILLE.values())
 for k, (n, b, i) in TAILLE.items():
-    p(f"[QUI PAIE 2022] {k:13s} {fr(n*1000,0):>10s} entreprises ; bénéfices {b:5.1f} Md€ ; IS brut {i:5.1f} Md€ "
-      f"({100*i/ISB:.0f} % de l'IS brut) ; IS brut / bénéfices {100*i/b:.1f} %")
-J["qui_paie"] = {k: {"nombre_milliers": v[0], "benefices": v[1], "is_brut": v[2], "part": v[2] / ISB} for k, v in TAILLE.items()}
+    p(f"[QUI PAIE 2025] {k:13s} {fr(n*1000,0):>10s} entreprises ; résultat fiscal {b:5.1f} Md€ ({100*b/RFT:.0f} %) ; IS brut "
+      f"{i:5.1f} Md€ ({100*i/ISB:.1f} % de l'IS brut)")
+p(f"[QUI PAIE 2025] total : {fr(sum(v[0] for v in TAILLE.values())*1000, 0)} entreprises ; IS brut {fr(ISB, 1)} Md€ ; "
+  f"résultat fiscal {fr(RFT, 1)} Md€ ; bénéfices à 15 % {fr(sim.BASE_REDUITE, 1)}, à 25 % {fr(sim.BASE_NORMALE, 1)}, déficits "
+  "111,3 Md€ (graphique 2)")
+J["qui_paie"] = {k: {"nombre_milliers": v[0], "resultat_fiscal": v[1], "is_brut": v[2], "part": v[2] / ISB,
+                     "part_resultat": v[1] / RFT} for k, v in TAILLE.items()}
+# Taux apparent IS brut / bénéfices : 2022 (DGFiP n° 21), année des taux implicites de l'Insee (figure is_n03) ; et 2024
+# (DGFiP n° 39), dernière année où les bénéfices par taille sont publiés.
+TAILLE22 = {"Très petites": (60.3, 13.1), "PME": (75.9, 18.9), "ETI": (62.2, 15.8), "Grandes": (79.5, 20.6)}
+TAILLE24 = {"Très petites": (65.9, 14.0), "PME": (78.5, 19.2), "ETI": (64.5, 16.2), "Grandes": (75.0, 19.6)}
+for an_, T_ in ((2022, TAILLE22), (2024, TAILLE24)):
+    p(f"[TAUX APPARENT {an_}] IS brut / bénéfices : " + " ; ".join(f"{k} {100*i/b:.1f} %" for k, (b, i) in T_.items()))
+J["taux_apparent"] = {"2022": {k: i / b for k, (b, i) in TAILLE22.items()},
+                      "2024": {k: i / b for k, (b, i) in TAILLE24.items()}}
 IMPLICITE = {"Microentreprises": 19.0, "PME": 21.4, "Grandes": 14.3, "Ensemble": 17.5}   # Insee Analyses n° 112, 2022
 J["implicite"] = IMPLICITE
 J["taux_legaux"] = {"Taux réduit (jusqu'à 42 500 €)": 15.0, "Taux normal": 25.0,
@@ -191,21 +218,23 @@ p("3. RÉFORME NAÏVE : BAISSE GÉNÉRALE DU TAUX NORMAL (taux réduit gardé)")
 naive = {}
 for pts in (1, 3, 5):
     stat = pts * POINT_TR
-    dyn = [-((TAU - pts / 100) * sim.BASE_NORMALE * sim.A22 * (1 + e / 100 * pts) - TAU * sim.BASE_NORMALE * sim.A22)
+    dyn = [-((TAU - pts / 100) * sim.BASE_NORMALE * sim.AB * (1 + e / 100 * pts) - TAU * sim.BASE_NORMALE * sim.AB)
            for e in (1.0, 1.5)]
     naive[pts] = (stat, dyn[1], dyn[0])
     p(f"[NAIF] −{pts} point(s) (taux {25-pts} %) : coût statique {stat:.1f} Md€ ; avec retour de bénéfices déclarés "
       f"(1 à 1,5 % par point) {dyn[1]:.1f} à {dyn[0]:.1f} Md€")
 J["naif"] = naive
-ben = {"Très petites": 60.3, "PME": 75.9, "ETI": 62.2, "Grandes": 79.5}
+# Bénéfices par taille : 2024 (DGFiP n° 39, tableau 2), dernière année publiée ; base à 15 % de 2024 : 30,0 Md€ (n° 51)
+ben = {k: v[0] for k, v in TAILLE24.items()}
+BR24 = 30.0
 qui = {}
 for lab, part_tpe in (("haut TPE", 1.0), ("bas TPE", 0.75)):
     bn = dict(ben)
-    bn["Très petites"] -= 27.0 * part_tpe
-    bn["PME"] -= 27.0 * (1 - part_tpe)
+    bn["Très petites"] -= BR24 * part_tpe
+    bn["PME"] -= BR24 * (1 - part_tpe)
     tot = sum(bn.values())
     qui[lab] = {k: v / tot for k, v in bn.items()}
-    p(f"[NAIF qui] base à 15 % ({'toute' if part_tpe == 1 else 'aux trois quarts'} chez les très petites) : "
+    p(f"[NAIF qui] bénéfices de 2024 ; base à 15 % ({'toute' if part_tpe == 1 else 'aux trois quarts'} chez les très petites) : "
       + " ; ".join(f"{k} {100*v/tot:.0f} %" for k, v in bn.items()))
 J["naif_qui"] = qui
 # Part d'une baisse du taux qui allège l'impôt sur le rendement normal des équipements neufs.
@@ -383,8 +412,8 @@ NICHES = (FIN["bas"] - TR["bas"], FIN["haut"] - TR["haut"])
 VARF = {"assiette (référence)": (FIN["bas"], FIN["haut"]),
         "taux réduit porté à 20 % (moitié de l'avantage)": (NICHES[0] + TR["bas"] / 2, NICHES[1] + TR["haut"] / 2),
         "taux réduit maintenu": NICHES,
-        "taux réduit retiré aux seules sociétés immobilières et financières (23 à 28 % du rendement, hypothèse)":
-            (NICHES[0] + 0.23 * TR["bas"], NICHES[1] + 0.28 * TR["haut"]),
+        "taux réduit retiré aux seules sociétés immobilières et financières (24 à 31 % du rendement, hypothèse)":
+            (NICHES[0] + (4.1 + 12.7) / 70.5 * TR["bas"], NICHES[1] + (631 + 248) / 2834 * TR["haut"]),
         "taux normal à 28 % (taux réduit gardé ; 1,5 à 0 % de base perdue par point)":
             (sim.recette_taux(3, 1.5), sim.recette_taux(3, 0))}
 VF = {}
@@ -396,12 +425,14 @@ for nom, (fb, fh) in VARF.items():
                                                                      else f"non éteinte, {D[39]:.0f} Md€ en 2066"))
     VF[nom] = (fb, fh)
     p(f"[VARFIN] {nom} : " + " | ".join(out))
-# taux réduit réservé : part des sociétés de l'immobilier et de la finance (DGFiP n° 21, tableau 1, 2022)
-n_tot, n_imm, n_fin = 2438916, 492775, 193821
-isb_imm, isb_fin = 4.378, 11.283
-p(f"[RÉSERVÉ] sociétés à l'IS des activités immobilières et financières : {100*(n_imm+n_fin)/n_tot:.0f} % du nombre, "
-  f"{100*(isb_imm+isb_fin)/68.37:.0f} % de l'IS brut (2022) ; si la base à 15 % se répartissait ainsi (invérifiable), les en "
-  f"exclure rapporterait {0.23*TR['bas']:.1f} à {0.28*TR['haut']:.1f} Md€")
+# taux réduit réservé : part des sociétés de l'immobilier et de la finance (DGFiP n° 51, tableau 1, exercice 2025 ;
+# 2022, DGFiP n° 21 : 28 % du nombre, 23 % de l'IS brut)
+n_tot, n_imm, n_fin = 2834.0, 631.0, 248.0
+isb_tot, isb_imm, isb_fin = 70.5, 4.1, 12.7
+SH_N, SH_I = (n_imm + n_fin) / n_tot, (isb_imm + isb_fin) / isb_tot
+p(f"[RÉSERVÉ] sociétés à l'IS des activités immobilières et financières : {100*SH_N:.0f} % du nombre, "
+  f"{100*SH_I:.0f} % de l'IS brut (2025) ; si la base à 15 % se répartissait ainsi (invérifiable), les en "
+  f"exclure rapporterait {SH_I*TR['bas']:.1f} à {SH_N*TR['haut']:.1f} Md€")
 # taux réduit supprimé en deux ans (20 % en 2027, 25 % ensuite)
 ext_extra = np.zeros(H)
 ext_extra[0] = -(TR["bas"] + TR["haut"]) / 4

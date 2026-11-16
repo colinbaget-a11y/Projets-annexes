@@ -28,24 +28,29 @@ R = 0.05                 # taux d'actualisation nominal des entreprises et de l'
 DUREE = 7                # durée d'amortissement type des machines
 H = 40                   # horizon de simulation (années)
 
-BASE_NORMALE = 251.0     # bénéfice imposé aux taux normaux, 2022 (DGFiP Statistiques n° 21), Md€
-BASE_REDUITE = 27.0      # bénéfice imposé à 15 %, 2022, Md€
+# Bénéfices imposables de l'exercice 2025 (base 2025, décision 5 du 17/11/2026) : DGFiP Statistiques n° 51
+# (septembre 2026, données provisoires extrapolées des déclarations connues à mi-2026), graphique 2 et son fichier xlsx.
+# Avant le 17/11/2026, le calibrage partait des bénéfices de 2022 (DGFiP n° 21 : 251 Md€ aux taux normaux, 27 à 15 %)
+# portés en 2027 par la croissance du bénéfice fiscal (x 1,061) ; les chiffres de 2025 montrent une base au taux normal
+# presque identique (256,8 contre 256,0 attendus) mais une base à 15 % plus forte (30,6 contre 27,5 attendus).
+BASE_NORMALE = 256.8     # bénéfice imposable à 25 %, exercice 2025 (DGFiP n° 51), Md€ (2022 : 251,0 à 25-27,5 %)
+BASE_REDUITE = 30.6      # bénéfice imposable à 15 %, exercice 2025 (DGFiP n° 51), Md€ (2022 : 26,6 ; 2024 : 30,0)
 # Croissance du bénéfice fiscal (Évaluation des voies et moyens, tome I, PLF 2025 et PLF 2026) : +1 % en 2023,
-# 0 % en 2024, +1 % en 2025 ; +2 % par an en 2026 et 2027 (hypothèse : le PLF 2026 prévoyait +2,5 % pour 2026, prévision
-# révisée à la baisse par le PLF 2027, dont le tome I n'est pas en ligne). Correction du 16/11/2026
-# (revue/hypotheses_is.md) : les bénéfices de 2022 étaient portés en 2027 à 3 % par an (x 1,159), ce que démentent les
-# chiffres officiels ; l'IS brut implicite (77 Md€) était incompatible avec la recette nette prévue pour 2027 (58,5 Md€).
+# 0 % en 2024, +1 % en 2025 (sert seulement de contrôle : les bases ci-dessus sont celles de 2025) ; +2 % par an en 2026
+# et 2027 (hypothèse H7 : le PLF 2026 prévoyait +2,5 % pour 2026, prévision révisée à la baisse par le PLF 2027, dont le
+# tome I n'est pas en ligne).
 BFI = {2023: 0.01, 2024: 0.00, 2025: 0.01, 2026: 0.02, 2027: 0.02}
-A22 = float(np.prod([1 + BFI[a] for a in range(2023, AN1 + 1)]))   # montants de 2022 portés en 2027 (x 1,061)
 A25 = float(np.prod([1 + BFI[a] for a in range(2026, AN1 + 1)]))   # montants de 2025 portés en 2027 (x 1,040)
+AB = A25                                                           # bases de bénéfices (2025) portées en 2027
 # Élargissement de l'assiette (Md€ par an)
-ELARG = {"Fin du taux réduit de 15 % (statique 2022, porté en 2027)": 2.7 * A22,
+ELARG = {"Fin du taux réduit de 15 % (statique 2025, porté en 2027)": 0.10 * BASE_REDUITE * AB,
          "CIR apprécié au niveau du groupe (CPO, 2025)": 0.57 * A25,
          "Fin des exonérations zonées hors outre-mer, IR et IS (CPO, 2025)": 0.52 * A25,
          "Boîte à brevets : avantage réduit de moitié, taux de 17,5 % (hypothèse : base stable)": 0.6 * A25}
 # Version prudente : taux réduit au chiffre officiel de 2019 (2,2 Md€ pour un écart de 13 points, soit
-# 1,7 Md€ pour 10 points), porté en 2027 à 3 % par an (2,15 Md€, soit 75 % du rendement statique corrigé : marge pour
-# les réactions non chiffrées, passage à l'IR ou rémunération en salaire), et brevets à 0,2 (fuite de la base)
+# 1,7 Md€ pour 10 points), porté en 2027 à 3 % par an (2,15 Md€ : 68 % du rendement statique sur la base de 2025,
+# 75 % sur l'ancienne base de 2022 ; marge pour les réactions non chiffrées, passage à l'IR ou rémunération en salaire),
+# et brevets à 0,2 (fuite de la base)
 ELARG_PRUDENT = 1.7 * (1 + G) ** (AN1 - 2019) + (0.57 + 0.52 + 0.2) * A25
 
 
@@ -100,7 +105,7 @@ def cout_vrai(regime, b, part):
 
 def recette_taux(points, semi_elast, base0=None):
     """Recette (Md€ de 2027) d'une hausse du taux normal de `points` ; semi-élasticité en % de base par point."""
-    b0 = BASE_NORMALE * A22 if base0 is None else base0
+    b0 = BASE_NORMALE * AB if base0 is None else base0
     base = b0 * (1 - semi_elast / 100 * points)
     return (TAU + points / 100) * base - TAU * b0
 
@@ -120,14 +125,14 @@ def petite_societe(benefice, invest):
 R_ETAT = 0.0325          # taux d'emprunt de l'État (hypothèse, 3 à 3,5 %)
 PIB_2027 = 2991.0 * (1 + G) ** 2   # PIB nominal 2027, Md€ (Insee 2025 : 2 991 Md€, porté à 3 % par an)
 NICHES = ((0.57 + 0.52 + 0.2) * A25, (0.57 + 0.52 + 0.6) * A25)   # CIR groupe, zones, brevets (bas, haut), 2027
-REDUIT = (1.7 * (1 + G) ** (AN1 - 2019), 2.7 * A22)                  # fin du taux réduit (bas, haut), 2027
-POINT = (BASE_NORMALE + BASE_REDUITE) * A22 / 100                    # un point de taux normal en 2027, taux réduit supprimé
+REDUIT = (1.7 * (1 + G) ** (AN1 - 2019), 0.10 * BASE_REDUITE * AB)   # fin du taux réduit (bas, haut), 2027
+POINT = (BASE_NORMALE + BASE_REDUITE) * AB / 100                     # un point de taux normal en 2027, taux réduit supprimé
 
 
 def scenario(regime, bonus, financement, baisse_pts=0.0, baisse_des=None, r=R_ETAT, h=H):
     """Solde budgétaire année par année (Md€) et dette cumulée avec intérêts.
     bonus(t) : fraction déduite tout de suite ; financement : Md€/an en année 1, croissant avec G ;
-    baisse_pts : baisse du taux normal (points) à partir de l'année baisse_des (rendue sur la base 2022,
+    baisse_pts : baisse du taux normal (points) à partir de l'année baisse_des (rendue sur la base de 2025 portée en 2027,
     croissant avec G, et le coût de la déduction est réduit dans la proportion (TAU - baisse)/TAU)."""
     cout = chemin(regime, bonus, 0.75)[:h]
     cr = (1 + G) ** np.arange(h)
@@ -191,7 +196,7 @@ if __name__ == "__main__":
           + " / ".join(f"{cout_vrai(reg, 1.0, s):.2f}" for s in PARTS) + " Md€ (parts 60/75/90 %) ; "
           f"en points de taux : {cout_vrai(reg, 1.0, .75)/POINT:.2f}")
     p("")
-    p("[TAUX] Recette d'une hausse du taux normal (base 2022 des taux normaux, 251 Md€)")
+    p(f"[TAUX] Recette d'une hausse du taux normal (base 2025 au taux normal, {BASE_NORMALE:.1f} Md€, portée en 2027)")
     for pts in (1, 3):
         p(f"  +{pts} pt : " + " ; ".join(f"semi-élasticité {e} -> {recette_taux(pts, e):.1f}"
                                       for e in (0, 0.5, 1.0, 1.5)) + " Md€")

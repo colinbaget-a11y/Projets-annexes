@@ -11,6 +11,11 @@ Reprend, en les recalculant, les chiffres vérifiés de revue/hypotheses_pfu.md 
   - la valeur actualisée du stock de reports d'apport-cession sous quatre traitements ;
   - les cas types et la charge supplémentaire du haut de la distribution.
 
+Recalage du 17/11/2026 sur 2025 (décision 5) : l'assiette et l'impôt de 2025 viennent de DGFiP Statistiques n° 53
+(novembre 2026, revenus 2025, données provisoires) ; les prélèvements sociaux encaissés en 2025 de DGFiP Statistiques n° 43 ;
+la CDHR de ces deux bulletins et du rapport AN n° 2847. Les chiffrages de réforme portent sur les revenus de 2025 (ceux
+de 2024 sont gonflés par l'anticipation de la CDHR) ; le détail par case de la déclaration n'existe que pour 2024.
+
 Lancer depuis fiscalite/ : python3 pfu/calculs_pfu.py
 Sorties : pfu/sorties/calculs_pfu.txt (lisible) et pfu/sorties/calculs_pfu.json (pour pfu/figures_pfu_n.py).
 Conventions : Md€ courants ; [H] hypothèse de l'auteur, sans mesure publiée ; [V] chiffre vérifié sur la source
@@ -54,8 +59,24 @@ B24 = C2042["2DC"] + C2042["2TR"] + C2042["2TS"] + C2042["3VG"] + C2042["3AN"] -
 SERIE = [{k: float(v) for k, v in r.items()} for r in csv.DictReader(open(DON / "insee_dividendes_menages.csv"))]
 DIVM = {int(r["annee"]): r["dividendes_recus_menages_Md"] for r in SERIE}
 EBE = {int(r["annee"]): r["ebe_snf_Md"] for r in SERIE}
-K25 = DIVM[2025] / DIVM[2024]                       # dividendes 2025 / 2024
-B25 = B24 - C2042["2DC"] * (1 - K25)                # assiette 2025 approchée (dividendes seuls corrigés)
+K25 = DIVM[2025] / DIVM[2024]                       # dividendes reçus par les ménages 2025 / 2024 (Insee) : contrôle
+# DGFiP Statistiques n° 53 (novembre 2026), revenus 2025, 3e émission (provisoire) [V] : revenus déclarés (tableau 1),
+# impôt hors barème (essentiellement la part d'IR du PFU), CEHR et CDHR (tableau 2 et graphique 1). Revenus 2024 :
+# mêmes séries révisées par le n° 53 (le n° 41 de novembre 2025 donnait 10,32 et 1,98 Md€).
+RCM = {2024: 69.932, 2025: 60.933}                  # revenus de capitaux mobiliers déclarés, Md€
+DIVERS = {2024: 23.704, 2025: 17.457}               # revenus divers, dont plus-values de cession de valeurs mobilières
+HB = {2024: 8.43 / (1 - 0.177), 2025: 8.43}         # impôt hors barème (CEHR et CDHR exclues), Md€
+CEHR_R = {2023: 1.412, 2024: 1.39 / (1 - 0.283), 2025: 1.39}   # CEHR par année de revenus (2023 : AN n° 3056)
+CDHR_R = {"acompte_2025": 0.369, "revenus_2025": 0.623}       # DGFiP n° 43 (encaissé en 2025) ; n° 53 (revenus 2025)
+HB_TOP1 = {2024: 8.08, 2025: 6.03}                  # impôt hors barème du dernier centième de RFR par part (n° 41, n° 53)
+PS_ENC_2025 = 36.193                                # prélèvements sociaux sur les revenus encaissés par la DGFiP, 2025
+K_RCM, K_DIV = RCM[2025] / RCM[2024], DIVERS[2025] / DIVERS[2024]
+# Assiette du PFU des revenus de 2025 : cases de 2024, dividendes et intérêts au rythme des revenus de capitaux
+# mobiliers (−12,9 %), plus-values au rythme des revenus divers (−26,4 %) [C]
+DIV25 = C2042["2DC"] * K_RCM
+INT25 = (C2042["2TR"] + C2042["2TS"]) * K_RCM
+PV25 = (C2042["3VG"] + C2042["3AN"] - C2042["3VH"]) * K_DIV
+B25 = DIV25 + INT25 + PV25
 PIB25 = 2991.1                                      # [V] Insee, PIB 2025 (donnees/pib_france_cp_meur.json)
 PAT = {r["indicateur"]: (float(r["fin_2024_Md"]), float(r["fin_2025_Md"]))
        for r in csv.DictReader(open(DON / "patrimoine_actions_menages.csv", encoding="utf-8"))}
@@ -87,20 +108,35 @@ for k, lib in (("2DC", "dividendes"), ("2TR", "intérêts"), ("2TS", "autres dis
                ("3VG", "plus-values imposées"), ("3AN", "actifs numériques"), ("3VH", "moins-values (à déduire)"),
                ("3WH", "plus-values placées en report d'apport-cession (non imposées)"), ("8UT", "stock de reports")):
     p(f"   {lib:62s} {fr(C2042[k])} Md€")
-p(f"   assiette du PFU : {fr(B24)} Md€ ; base 2025 approchée (dividendes × {fr(K25, 3)}) : {fr(B25)} Md€")
-ir_pfu, ps_pfu = IR_PFU * B24, PS_HAUT * B24
+p(f"   assiette du PFU : {fr(B24)} Md€ (revenus 2024)")
+p(f"   revenus 2025 (DGFiP n° 53) : RCM {fr(RCM[2024])} -> {fr(RCM[2025])} Md€ ({fr(100*(K_RCM-1))} %) ; revenus divers "
+  f"{fr(DIVERS[2024])} -> {fr(DIVERS[2025])} ({fr(100*(K_DIV-1))} %) ; impôt hors barème {fr(HB[2024], 2)} -> {fr(HB[2025], 2)} "
+  f"({fr(100*(HB[2025]/HB[2024]-1))} %)")
+p(f"   assiette du PFU des revenus 2025 [C] : dividendes {fr(DIV25)} + intérêts {fr(INT25)} + plus-values {fr(PV25)} = "
+  f"{fr(B25)} Md€ ; contrôles : assiette 2024 × évolution de l'impôt hors barème {fr(B24*HB[2025]/HB[2024])} ; "
+  f"dividendes au rythme de l'Insee (× {fr(K25, 3)}) et le reste inchangé (ancienne approximation) {fr(B24 - C2042['2DC']*(1-K25))}")
+ir_pfu, ps_pfu = HB[2024], PS_HAUT * B25
 A_PS_TOT, A_PS_HAUT = 204.0, 107.0          # [C] 15,305 / 7,5 % (PLF 2027, état A) ; 1,5 / 1,4 pt (LFSS 2026)
 ps_tot = PS_HAUT * A_PS_HAUT + PS_BAS * (A_PS_TOT - A_PS_HAUT)
 p("1b. Recettes (Md€ par an)")
-p(f"   IR au PFU (12,8 % × assiette, majorant : 2,54 M d'optants) : {fr(ir_pfu)} ; acompte prélevé 2CK : {fr(C2042['2CK'])}")
-p(f"   prélèvements sociaux sur l'assiette du PFU (18,6 %) : {fr(ps_pfu)}")
-p(f"   prélèvements sociaux sur tous les revenus du capital (assiette ≈ {A_PS_TOT:.0f} Md€) : {fr(ps_tot)}")
-p("   CEHR 1,41 (revenus 2023, toutes catégories ; part payée sur le capital inconnue, 50-80 % [H] -> 0,7-1,1) [V AN 3056]")
-p("   CDHR 0,37 (acompte 2025) ; 0,6 prévus en 2027 (PLF 2027, état A) [V]")
-J["recettes"] = dict(ir_pfu=ir_pfu, ps_pfu=ps_pfu, ps_tot=ps_tot, cehr=1.412, cdhr=0.37)
+p(f"   IR au PFU (impôt hors barème, DGFiP n° 53) [V] : revenus 2025 {fr(HB[2025])} ; revenus 2024 {fr(HB[2024])} (12,8 % × "
+  f"assiette 2024 = {fr(IR_PFU*B24)}, foyers au barème compris ; acompte prélevé 2CK {fr(C2042['2CK'])})")
+p(f"   prélèvements sociaux sur l'assiette du PFU des revenus 2025, au taux de 2026 (18,6 %) : {fr(ps_pfu)} ; au taux de 2025 "
+  f"(17,2 %) : {fr(PS_BAS*B25)} [C]")
+p(f"   prélèvements sociaux sur tous les revenus du capital encaissés en 2025 (DGFiP n° 43, taux de 17,2 %) : "
+  f"{fr(PS_ENC_2025)} [V] ; assiette implicite {fr(PS_ENC_2025/PS_BAS, 0)} Md€ ; ancien calcul aux taux de 2026 sur 204 Md€ "
+  f"(prélèvement de solidarité, PLF 2027) : {fr(ps_tot)}")
+p(f"   CEHR (toutes catégories de revenus ; part payée sur le capital inconnue, 50-80 % [H]) : revenus 2023 "
+  f"{fr(CEHR_R[2023], 2)} ; 2024 {fr(CEHR_R[2024], 2)} (encaissée en 2025) ; 2025 {fr(CEHR_R[2025], 2)} [V]")
+p(f"   CDHR : acompte encaissé en 2025 {fr(CDHR_R['acompte_2025'], 2)} (7 203 foyers, AN n° 2847) ; revenus 2025 "
+  f"{fr(CDHR_R['revenus_2025'], 2)} (environ 14 000 foyers, DGFiP n° 53) ; 0,65 prévus en 2026 et 0,6 en 2027 [V]")
+J["recettes"] = dict(ir_pfu=ir_pfu, ir_pfu_2025=HB[2025], ps_pfu=ps_pfu, ps_tot=PS_ENC_2025, ps_tot_2026=ps_tot,
+                     cehr=CEHR_R[2025], cehr_2024=CEHR_R[2024], cehr_2023=CEHR_R[2023],
+                     cdhr=CDHR_R["revenus_2025"], cdhr_acompte_2025=CDHR_R["acompte_2025"])
 J["assiette"] = dict(dividendes=C2042["2DC"], interets=C2042["2TR"] + C2042["2TS"],
                      pv=C2042["3VG"] + C2042["3AN"] - C2042["3VH"], report=C2042["3WH"],
-                     expires=EXPIRES[2024], total=B24)
+                     expires=EXPIRES[2024], total=B24, total_2025=B25, dividendes_2025=DIV25, interets_2025=INT25,
+                     pv_2025=PV25)
 
 p("1c. Concentration [V France Stratégie 2023, POTE 2021 ; AN 3056 pour les reports de 2023]")
 CONC = {"foyers": 0.01, "dividendes": 33, "pv_droit_commun": 70, "pv_report_2023": 100 * 18.810 / 33.636}
@@ -208,8 +244,9 @@ for nom, t1 in (("PFU 25 %", 0.25), ("PFU 33 %", 0.33), ("PFU 34,4 %", 0.344)):
         NAIF[f"{nom} {nb}"] = dict(meca=meca, prem=prem, perm_077=[perm[1][pi] for pi in (0.0, 0.5, 1.0)])
 J["naif"] = NAIF
 
-for e in (0.5, 1.2):
-    p(f"   PFU 25 %, base 2024, e = {e} : premières années {fr(changement(0.25, B24, e)[1], 2)}")
+for nb, b in (("2025", B25), ("2024", B24)):
+    for e in (0.5, 1.2):
+        p(f"   PFU 25 %, base {nb}, e = {e} : premières années {fr(changement(0.25, b, e)[1], 2)}")
 p("2b. Taux qui maximise la recette (sans réaction croisée) 1/(1+e) et coût d'un euro levé à 31,4 % [C]")
 for e in (0.65, 0.77, 1.0):
     p(f"   e = {e} : {fr(100 / (1 + e))} % ; {fr(1 / (1 - e * PFU / (1 - PFU)), 2)} €")
@@ -217,44 +254,69 @@ for e in (0.65, 0.77, 1.0):
 p("2c. Perte sèche d'un PFU à 25 % (Harberger ; π = part de la réaction qui échappe définitivement à l'impôt ;")
 p("    μ − 1 = prix d'un milliard levé ailleurs, 0,04 / 0,08 / 0,17, sorties/architectures_ircsg.txt [PRIX]) [C]")
 MU1 = (0.04, 0.08, 0.17)
-for pi in (0.0, 0.5, 1.0):
-    dq = reaction(0.77, B24, PFU, 0.25)
-    perdu = (PFU - 0.25) * B24 - pi * 0.25 * dq
-    ps = [-pi * (PFU + 0.25) / 2 * dq + m * perdu for m in MU1]
-    p(f"   π = {pi} : " + " / ".join(fr(x, 2) for x in ps) + f" Md€ (recette perdue {fr(perdu, 1)})")
+PSECHE = {}
+for nb, b in (("2025", B25), ("2024", B24)):
+    for pi in (0.0, 0.5, 1.0):
+        dq = reaction(0.77, b, PFU, 0.25)
+        perdu = (PFU - 0.25) * b - pi * 0.25 * dq
+        ps = [-pi * (PFU + 0.25) / 2 * dq + m * perdu for m in MU1]
+        PSECHE[f"{nb}_{pi}"] = ps
+        p(f"   base {nb}, π = {pi} : " + " / ".join(fr(x, 2) for x in ps) + f" Md€ (recette perdue {fr(perdu, 1)})")
+J["perte_seche"] = PSECHE
 p("2d. Bloc épargne (avis Cochrane) : si l'épargne réagissait au rendement net avec une élasticité réelle ε_s [H],")
 p("    la perte sèche sur l'assiette du PFU vaut ½ ε_s t²/(1 − t) B ; gain d'une baisse de 31,4 à 25 % :")
 EPARGNE = {}
 for es in (0.1, 0.2, 0.5):
-    g = 0.5 * es * B24 * (PFU ** 2 / (1 - PFU) - 0.25 ** 2 / 0.75)
+    g = 0.5 * es * B25 * (PFU ** 2 / (1 - PFU) - 0.25 ** 2 / 0.75)
     EPARGNE[es] = g
-    p(f"   ε_s = {es} : −{fr(g, 2)} Md€ de perte sèche (à comparer au coût du financement : +0,2 à +0,9)")
+    p(f"   ε_s = {es} : −{fr(g, 2)} Md€ de perte sèche, base 2025 (base 2024 : −{fr(g * B24 / B25, 2)}) ; à comparer au coût"
+      f" du financement : +{fr(PSECHE['2025_0.0'][0], 1)} à +{fr(PSECHE['2025_0.0'][2], 1)}")
 J["epargne"] = EPARGNE
 
 p("2e. Retour au barème : ordre de grandeur statique [H fortes : 96 % des dividendes au TMI 45 %, 4 % au TMI 30 %,")
 p("    intérêts au TMI 30 %, plus-values au TMI 45 %, abattement de 40 %, CSG déductible 6,8 %]")
 DIV, INT, PV = C2042["2DC"], C2042["2TR"], C2042["3VG"]
-gain = (0.96 * DIV * (0.45 * (0.6 - 0.068) - IR_PFU) + 0.04 * DIV * (0.30 * (0.6 - 0.068) - IR_PFU)
-        + INT * (0.30 * (1 - 0.068) - IR_PFU) + PV * (0.45 * (1 - 0.068) - IR_PFU))
-p(f"   gain statique ≈ {fr(gain)} Md€ (avant optants déjà au barème, CDHR perdue de 0,4-0,6 et TMI de 41 %)")
-BAREME = {"statique": gain}
-for e in (0.65, 0.77, 1.0):
-    t1 = PFU + gain / B24
-    dq = reaction(e, B24, PFU, t1)
-    BAREME[e] = t1 * (B24 + dq) - PFU * B24
-    p(f"   e = {e} : taux moyen {fr(100 * PFU)} -> {fr(100 * t1)} % ; recette nette {fr(BAREME[e])} Md€")
-b40 = gain - 0.40 * DIV * (PFU + 0.96 * (0.45 * 0.532 - IR_PFU))
-BAREME["moins40"] = b40
-p(f"   si les dividendes baissaient de 40 % comme en 2013 : {fr(b40)} Md€ ; Institut Montaigne via CAE : 3,2 à 3,6"
-  " (statique), −0,7 si l'assiette revient à 2017 [S]")
-J["bareme"] = BAREME
 
-p("2f. Exil (CAE Focus 118 : 0,02 à 0,23 % du top 1 % par point, long terme) [V+C]")
-base_top1 = 0.96 * DIV + 0.8 * PV + 0.3 * INT      # [H] parts du top 1 % dans les plus-values et intérêts
+
+def bareme_gain(div, inte, pv):
+    return (0.96 * div * (0.45 * (0.6 - 0.068) - IR_PFU) + 0.04 * div * (0.30 * (0.6 - 0.068) - IR_PFU)
+            + inte * (0.30 * (1 - 0.068) - IR_PFU) + pv * (0.45 * (1 - 0.068) - IR_PFU))
+
+
+BAREME = {}
+for nb, b, div, inte, pv in (("2025", B25, DIV25, C2042["2TR"] * K_RCM, C2042["3VG"] * K_DIV), ("2024", B24, DIV, INT, PV)):
+    gain = bareme_gain(div, inte, pv)
+    res = {"statique": gain}
+    p(f"   base {nb} : gain statique ≈ {fr(gain)} Md€ (avant optants déjà au barème, CDHR perdue et TMI de 41 %)")
+    for e in (0.65, 0.77, 1.0):
+        t1 = PFU + gain / b
+        dq = reaction(e, b, PFU, t1)
+        res[e] = t1 * (b + dq) - PFU * b
+        p(f"     e = {e} : taux moyen {fr(100 * PFU)} -> {fr(100 * t1)} % ; recette nette {fr(res[e])} Md€")
+    res["moins40"] = gain - 0.40 * div * (PFU + 0.96 * (0.45 * 0.532 - IR_PFU))
+    p(f"     si les dividendes baissaient de 40 % comme en 2013 : {fr(res['moins40'])} Md€")
+    BAREME[nb] = res
+p("   Institut Montaigne via CAE : 3,2 à 3,6 (statique), −0,7 si l'assiette revient à 2017 [S]")
+J["bareme"] = dict(BAREME["2025"], b2024=BAREME["2024"])
+
+p("2f. Le dernier centile : assiette et impôt sur les revenus du capital ; exil (CAE Focus 118 : 0,02 à 0,23 % du top 1 %")
+p("    par point, long terme) [V+C]")
+# Assiette du PFU du dernier centième de RFR par part : impôt hors barème mesuré (DGFiP n° 41 et 53) divisé par 12,8 %.
+# Impôt personnel sur ses revenus du capital, droit de 2026 : PFU de 31,4 % sur cette assiette, part de la CEHR payée sur
+# le capital (65 %, milieu de 50 à 80 % [H]) et CDHR. Ancienne hypothèse (96 % des dividendes, 80 % des plus-values,
+# 30 % des intérêts) : 66 Md€ en 2024, contre 63 mesurés.
+base_top1 = {a: HB_TOP1[a] / IR_PFU for a in (2024, 2025)}
+impot_top1 = {2024: PFU * base_top1[2024] + 0.65 * CEHR_R[2024],
+              2025: PFU * base_top1[2025] + 0.65 * CEHR_R[2025] + CDHR_R["revenus_2025"]}
+for a in (2024, 2025):
+    p(f"   revenus {a} : impôt hors barème du dernier centième {fr(HB_TOP1[a], 2)} Md€ -> assiette {fr(base_top1[a])} Md€ ;"
+      f" impôt personnel sur ses revenus du capital (PFU 31,4 %, 65 % de la CEHR, CDHR) ≈ {fr(impot_top1[a])} Md€")
+p(f"   ancienne hypothèse (96 % des dividendes, 80 % des plus-values, 30 % des intérêts, revenus 2024) : "
+  f"{fr(0.96 * DIV + 0.8 * PV + 0.3 * INT, 0)} Md€")
 for dp in (0.0002, 0.0023):
-    p(f"   PFU à 25 % : {fr(100 * dp * 6.4, 2)} % du top 1 % retenu -> {fr(dp * 6.4 * 0.25 * base_top1, 2)} Md€ gardés")
-p(f"   assiette du PFU du top 1 % ≈ {fr(base_top1, 0)} Md€ ; impôt personnel ≈ {fr(PFU * base_top1)} Md€ + CEHR et CDHR")
-J["top1"] = dict(base=base_top1, impot=PFU * base_top1)
+    p(f"   PFU à 25 % : {fr(100 * dp * 6.4, 2)} % du top 1 % retenu -> {fr(dp * 6.4 * 0.25 * base_top1[2025], 2)} Md€ gardés"
+      " (revenus 2025)")
+J["top1"] = dict(base=base_top1[2025], impot=impot_top1[2025], base_2024=base_top1[2024], impot_2024=impot_top1[2024])
 
 # =====================================================================================================================
 # 3. Proposition : reprise du prix d'acquisition à la donation et au décès ; report transmis sans effacement
@@ -426,7 +488,8 @@ for nom in EFF:
     h = HAUT[nom]
     p(f"   {nom:8s} : an 5 +{fr(h['an5'], 2)} ; an 10 +{fr(h['an10'], 2)} ; an 30 +{fr(h['an30'], 2)} ; moyenne 1-10 "
       f"+{fr(h['moy10'], 2)} Md€ ; en % de l'impôt personnel du top 1 % sur ses revenus du capital (≈ "
-      f"{fr(PFU * base_top1 + 1.0 + 0.4, 0)} Md€) : an 10 {fr(100 * h['an10'] / (PFU * base_top1 + 1.4), 0)} %"
+      f"{fr(impot_top1[2025], 0)} Md€, revenus 2025) : an 10 {fr(100 * h['an10'] / impot_top1[2025], 0)} % ; moyenne 1-10 "
+      f"{fr(100 * h['moy10'] / impot_top1[2025], 0)} % (revenus 2024 : {fr(100 * h['an10'] / impot_top1[2024], 0)} %)"
       f" ; droits acquis an 10 +{fr(h['da10'], 2)}")
 p("   IR-CSG : la charge du 1 % ne bouge pas (décision 3) ; la variation du haut dans cette partie vient donc de la")
 p("   seule fermeture de l'effacement (PFU inchangé, CEHR gardée en majoration du PFU).")
@@ -436,8 +499,11 @@ J["haut"] = HAUT
 # 4. Arbitrages
 # =====================================================================================================================
 bloc("4. ARBITRAGES")
-p("4a. Sort de la CEHR sur le capital : la supprimer coûterait 0,7 à 1,1 Md€ [H : 50-80 % de 1,41 Md€], moins la")
+p(f"4a. Sort de la CEHR sur le capital : la supprimer coûterait {fr(0.5 * CEHR_R[2025])} à {fr(0.8 * CEHR_R[2025])} Md€ "
+  f"[H : 50-80 % de la CEHR des revenus 2025, {fr(CEHR_R[2025], 2)} Md€] ; {fr(0.5 * CEHR_R[2024])} à {fr(0.8 * CEHR_R[2024])} "
+  "sur les revenus 2024 ; moins la")
 p("    part reprise par la CDHR pour les foyers à son plancher ; la garder en majoration du PFU : 0")
+
 p("4b. Alignement des prélèvements sociaux à 18,6 % : " + fr(0.014 * (200 - 107), 2) + " Md€ (assiette restée à 17,2 % :"
   " 200 − 107 = 93 Md€) ; " + fr(0.014 * (A_PS_TOT - A_PS_HAUT), 2) + " avec l'assiette 204 ; alignement vers le bas"
   " (17,2 % pour tous) : −" + fr(0.014 * A_PS_HAUT, 2) + " Md€")
@@ -570,6 +636,19 @@ for D_ in (400e3, 3e6):
       f"{fr(100 * pf25 / D_)} % ; par les PS {fr(100 * pf25ps / D_)} % ; barème {fr(100 * ba / D_)} % ; sans CEHR "
       f"{fr(100 * sans_cehr / D_)} %")
 CAS["rentier"] = {str(int(k)): v for k, v in RENT.items()}
+# Reprise par la CDHR d'une baisse de la part d'IR du PFU (12,8 -> 6,4 %) : hausse de la CDHR rapportée à la CDHR payée
+# avant, pour les deux rentiers types ; appliquée au rendement de la CDHR sur les revenus 2025 si tous ses redevables
+# étaient des rentiers purs (ordre de grandeur, la base de ses redevables n'est pas publiée) [C]
+REPRISE = {}
+for D_ in (400e3, 3e6):
+    av = cdhr(D_, IR_PFU * D_ + cehr(D_))
+    ap = cdhr(D_, 0.064 * D_ + cehr(D_))
+    REPRISE[D_] = (ap - av) / av
+p("     reprise par la CDHR d'une baisse de la part d'IR du PFU, rapportée à la CDHR payée : "
+  + " ; ".join(f"rentier {fr(k / 1e3, 0)} k€ × {fr(v, 2)}" for k, v in REPRISE.items())
+  + f" -> appliqué au rendement de la CDHR des revenus 2025 ({fr(CDHR_R['revenus_2025'], 2)} Md€) : "
+  f"{fr(min(REPRISE.values()) * CDHR_R['revenus_2025'])} à {fr(max(REPRISE.values()) * CDHR_R['revenus_2025'])} Md€")
+J["cdhr_reprise"] = [min(REPRISE.values()) * CDHR_R["revenus_2025"], max(REPRISE.values()) * CDHR_R["revenus_2025"]]
 p(f"     à son décès, un portefeuille de 60 M€ dont 40 M€ de plus-value latente : impôt latent transmis "
   f"{fr(PFU * 40, 1)} M€ (0 aujourd'hui)")
 J["cas"] = CAS

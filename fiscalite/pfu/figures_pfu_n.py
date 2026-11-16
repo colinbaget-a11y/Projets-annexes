@@ -61,7 +61,10 @@ def n01_assiette():
         "Assemblée nationale, rapport n° 3056 (2026), tableau de la DGFiP pour les reports arrivés à échéance ; "
         + SRC_CALC,
         "Note : revenus de 2024 soumis au prélèvement forfaitaire unique (79,6 Md€ au total), y compris ceux des "
-        "2,5 millions de foyers qui ont choisi le barème. Les plus-values placées en report sont celles d'entrepreneurs "
+        "2,5 millions de foyers qui ont choisi le barème ; c'est la dernière année dont le détail par case est publié. "
+        "En 2025, les revenus de capitaux mobiliers déclarés ont reculé de 13 % et les revenus divers, qui comprennent "
+        "les plus-values, de 26 % (DGFiP Statistiques n° 53) : l'assiette des revenus de 2025 est de l'ordre de "
+        + _fr(J["assiette"]["total_2025"], 0) + " Md€. Les plus-values placées en report sont celles d'entrepreneurs "
         "qui ont apporté leurs titres à leur holding avant de les vendre ; le stock en report atteint 127 à 173 Md€.")
 
 
@@ -186,7 +189,8 @@ def n05_serie():
 def n06_naif():
     n = J["naif"]
     b = J["bareme"]
-    p25, p33 = n["PFU 25 % 2024"], n["PFU 33 % 2024"]
+    p25, p33 = n["PFU 25 % 2025"], n["PFU 33 % 2025"]
+    p25_24, p33_24 = n["PFU 25 % 2024"], n["PFU 33 % 2024"]
     groupes = [("PFU ramené à 25 %", p25["meca"], p25["prem"][1], (min(p25["prem"]), max(p25["prem"])),
                 (min(p25["perm_077"]), max(p25["perm_077"]))),
                ("PFU porté à 33 %", p33["meca"], p33["prem"][1], (min(p33["prem"]), max(p33["prem"])),
@@ -218,13 +222,15 @@ def n06_naif():
                        Patch(color=NAIF, label="Après réaction des revenus déclarés (premières années)")],
               loc="upper left", frameon=False, fontsize=TXT * ECH_TXT)
     fin(fig, "pfu_n06_reforme_naive",
-        "Sources : DGFiP, déclarations 2042 des revenus de 2024 (assiette de 79,6 Md€) ; Lefebvre, Lehmann et Sicsic "
-        "(2025) et CAE (2025) pour l'élasticité ; " + SRC_CALC,
-        "Note : traits : élasticité des revenus du capital au taux net de 0,65 à 1 (0,77 au centre). Les chiffres "
-        "portent sur les premières années, où toute la réaction compte comme recette. En régime permanent, si la "
-        "réaction n'est qu'un décalage dans le temps, un PFU à 25 % coûte jusqu'à 5,1 Md€ et un PFU à 33 % rapporte "
-        "jusqu'à 1,3 Md€. Retour au barème : ordre de grandeur sous hypothèses fortes (annexe) ; sur la base de 2025, "
-        "tous les montants baissent d'environ 9 %.")
+        "Sources : DGFiP, déclarations 2042 des revenus de 2024 et Statistiques n° 53 (revenus de 2025) ; Lefebvre, "
+        "Lehmann et Sicsic (2025) et CAE (2025) pour l'élasticité ; " + SRC_CALC,
+        "Note : revenus de 2025 (assiette estimée à " + _fr(J["assiette"]["total_2025"], 0) + " Md€). Traits : "
+        "élasticité des revenus du capital au taux net de 0,65 à 1 (0,77 au centre). Les chiffres portent sur les "
+        "premières années, où toute la réaction compte comme recette. En régime permanent, si la réaction n'est qu'un "
+        "décalage dans le temps, un PFU à 25 % coûte jusqu'à " + _fr(-p25["meca"], 1) + " Md€ et un PFU à 33 % "
+        "rapporte jusqu'à " + _fr(p33["meca"], 1) + " Md€. Sur les revenus de 2024, gonflés par l'anticipation de la "
+        "contribution différentielle, ces montants seraient de " + _fr(-p25_24["meca"], 1) + " et "
+        + _fr(p33_24["meca"], 1) + " Md€. Retour au barème : ordre de grandeur sous hypothèses fortes (annexe).")
 
 
 # ---------------------------------------------------------------------------------------------------------- n07
