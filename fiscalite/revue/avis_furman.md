@@ -64,7 +64,8 @@ atteignable). La franchise de 4 000 € est présentée comme une mesure « pour
   facture des grandes fortunes, pas de l'*alléger*. Dans la grille de barèmes de la note, le plus efficace des
   barèmes qui laissent le 1 % à peu près neutre (+0,1 Md€) est : 14 % au premier euro, 28,3 % à 45 000 €, 50 %
   dès 250 000 €. Il donne un gain de 4,5 Md€ (2,1 à 10,2) au lieu de 4,9 (2,3 à 11,1) [R]. Les 2,7 Md€ rendus au
-  1 % n'achètent donc que 0,3 Md€ de gain (0,2 à 0,9 selon le jeu), environ 12 centimes par euro transféré. Avec,
+  1 % n'achètent donc que 0,3 Md€ de gain (0,2 à 0,9 selon le jeu), environ 12 centimes par euro transféré. Même
+  dans ce barème, un salarié seul à 300 000 € brut paie encore 15 000 € de moins qu'aujourd'hui [R]. Avec,
   en plus, un abattement de 5 % sur les pensions, le gain est de 4,3 Md€ (2,0 à 9,8), les retraités paient
   11,8 Md€ de plus au lieu de 15,2, et le 1 % paie 0,4 Md€ de moins [R]. Avec l'abattement de 10 %, le gain est de
   3,9 Md€, la hausse des retraités tombe à 8,6 Md€ et le 1 % reste neutre [R].
@@ -219,9 +220,9 @@ réduit le risque budgétaire mais recrée l'attente que la note veut éviter : 
 - **Affectation et droit applicable.** La fusion réunit une recette de l'État (IR), de la Sécurité sociale (CSG) et
   de la CADES (CRDS). La CADES est tenue par une règle organique : son amortissement ne doit pas dépasser fin 2033
   [W]. La note ne dit pas comment l'impôt fusionné est partagé, ni dans quelle loi (LFI ou LFSS) il est voté. Le
-  droit européen soulève une autre question. La CJCE a jugé en 2000 que la CSG et la CRDS relevaient de la
-  coordination des régimes de sécurité sociale, ce qui exclut de les prélever sur les résidents affiliés dans un
-  autre État [W]. Un impôt de résidence unique change donc qui paie (frontaliers, retraités non résidents) et fait
+  droit européen soulève une autre question. En 2000, la CJCE a jugé contraire au règlement de coordination des
+  régimes de sécurité sociale le prélèvement de la CSG et de la CRDS sur des résidents qui travaillent et sont
+  affiliés dans un autre État membre [W]. Un impôt de résidence unique change donc qui paie (frontaliers, retraités non résidents) et fait
   entrer les 132 Md€ de CSG dans le champ des conventions fiscales. L'effet sur la recette est à expertiser.
 - **Tableau des recettes année par année et par administration** pour l'ensemble du paquet (voir § 1.2).
 - **Déduction immédiate et déductibilité des intérêts.** Une machine financée par emprunt avec déduction immédiate a

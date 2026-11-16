@@ -4,7 +4,7 @@
 
 *Cet avis adopte une grille de lecture inspirée des travaux publics de Sylvain Catherine : patrimoine retraite, transferts entre générations, situation relative des retraités, charge fiscale sur le travail. Sur demande de l'auteur, il raisonne d'abord en professeur de finance : valeurs actualisées, puis moyens légaux d'échapper à l'impôt. Ce n'est pas l'avis de Sylvain Catherine, et aucune position ne lui est prêtée.*
 
-*Les chiffres marqués [calcul de l'avis] sont des ordres de grandeur faits pour cette relecture (script : `scratchpad/catherine/cohortes.py`, hypothèses données à chaque fois). Ils sont à refaire proprement avant toute reprise dans la note.*
+*Les chiffres marqués [calcul de l'avis] sont des ordres de grandeur faits pour cette relecture ; les hypothèses sont données à chaque fois et les scripts sont cités à la fin. Ils sont à refaire proprement avant toute reprise dans la note.*
 
 ---
 
