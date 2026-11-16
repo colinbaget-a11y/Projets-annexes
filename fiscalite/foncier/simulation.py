@@ -316,7 +316,9 @@ if __name__ == "__main__":
     resume("[deux taux, recette constante par commune, terrain = 4 × bâti ; DMTO −50 % remplacés par un taux national"
            " unique sur le terrain]", *scen["N4"], p)
     c_vol, _ = cout_baisse(0.5)
-    scen["N4v"] = deux_taux_local_national(0.5, 4, cout=c_vol * 1e9)
+    tf_v, d_v = deux_taux_local_national(0.5, 4, cout=c_vol * 1e9)
+    # droits payés sur les ventes supplémentaires (correction signalée par revue/verif_foncier.md)
+    scen["N4v"] = (tf_v, d_v * (1 + VOL_PAR_POINT) ** (100 * 0.5 * TAUX_DMTO))
     resume(f"[idem, avec réaction des volumes : perte à compenser {c_vol:.1f} Md€]", *scen["N4v"], p)
     p(f"taux national sur le terrain : {100*taux_n4:.3f} % de la valeur des terrains sans réaction des ventes,"
       f" {100*TAUX['nat4']:.3f} % avec")

@@ -56,10 +56,10 @@ baisse des DMTO de 50 % (2.9 points) : perte de recette 4.3 Md€ avec +8 % de v
   par décile de prix au m² : 0 +15 € (+3 %), total -63 € ; 1 +34 € (+6 %), total -66 € ; 2 +44 € (+7 %), total -75 € ; 3 +91 € (+12 %), total -45 € ; 4 +133 € (+16 %), total -21 € ; 5 +162 € (+19 %), total -11 € ; 6 +217 € (+24 %), total +24 € ; 7 +274 € (+29 %), total +57 € ; 8 +334 € (+34 %), total +67 € ; 9 +561 € (+69 %), total +133 €
   par type : a +237 € (+38 %), total +53 € ; m +149 € (+17 %), total -39 €
   par taille de commune : < 1 000 hab. +79 € (+13 %), total -33 € ; 1 000-5 000 +145 € (+20 %), total -18 € ; 5 000-20 000 +188 € (+22 %), total -7 € ; 20 000-100 000 +232 € (+26 %), total +13 € ; > 100 000 +308 € (+39 %), total +57 €
-[idem, avec réaction des volumes : perte à compenser 4.6 Md€] : recette TF + DMTO 33.9 Md€ (avant 34.9) ; TF 28.2 ; logements dont la TF augmente de plus de 300 € 18 %, de plus de 50 % 12 %, de plus de 100 % 4.5 % ; baisse de plus de 100 € 3 %
-  par décile de prix au m² : 0 +10 € (+2 %), total -68 € ; 1 +26 € (+5 %), total -74 € ; 2 +33 € (+5 %), total -85 € ; 3 +75 € (+10 %), total -61 € ; 4 +111 € (+14 %), total -43 € ; 5 +134 € (+16 %), total -40 € ; 6 +180 € (+20 %), total -12 € ; 7 +226 € (+24 %), total +8 € ; 8 +273 € (+28 %), total +6 € ; 9 +454 € (+56 %), total +26 €
-  par type : a +197 € (+31 %), total +12 € ; m +120 € (+14 %), total -69 €
-  par taille de commune : < 1 000 hab. +65 € (+11 %), total -48 € ; 1 000-5 000 +119 € (+16 %), total -45 € ; 5 000-20 000 +153 € (+18 %), total -41 € ; 20 000-100 000 +189 € (+22 %), total -30 € ; > 100 000 +251 € (+32 %), total +1 €
+[idem, avec réaction des volumes : perte à compenser 4.6 Md€] : recette TF + DMTO 34.9 Md€ (avant 34.9) ; TF 28.2 ; logements dont la TF augmente de plus de 300 € 18 %, de plus de 50 % 12 %, de plus de 100 % 4.5 % ; baisse de plus de 100 € 3 %
+  par décile de prix au m² : 0 +10 € (+2 %), total -54 € ; 1 +26 € (+5 %), total -56 € ; 2 +33 € (+5 %), total -63 € ; 3 +75 € (+10 %), total -36 € ; 4 +111 € (+14 %), total -15 € ; 5 +134 € (+16 %), total -8 € ; 6 +180 € (+20 %), total +23 € ; 7 +226 € (+24 %), total +48 € ; 8 +273 € (+28 %), total +55 € ; 9 +454 € (+56 %), total +105 €
+  par type : a +197 € (+31 %), total +46 € ; m +120 € (+14 %), total -34 €
+  par taille de commune : < 1 000 hab. +65 € (+11 %), total -27 € ; 1 000-5 000 +119 € (+16 %), total -15 € ; 5 000-20 000 +153 € (+18 %), total -5 € ; 20 000-100 000 +189 € (+22 %), total +10 € ; > 100 000 +251 € (+32 %), total +47 €
 taux national sur le terrain : 0.185 % de la valeur des terrains sans réaction des ventes, 0.151 % avec
 TF / valeur par décile de prix, N4 : 0.54 0.50 0.51 0.50 0.49 0.48 0.47 0.45 0.40 0.30
 [CONTROLE] part de la TF portant sur le bâti (TF actuelle répartie selon la valeur) : 14.1 Md€ ; après la proposition : 7.3 Md€
