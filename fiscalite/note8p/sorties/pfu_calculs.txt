@@ -1,0 +1,64 @@
+==============================================================================================================
+BLOC FISCALITÉ DU CAPITAL (note8p) — calculs de note8p/calculs/pfu_transmission.py
+==============================================================================================================
+1. Exemple : titres acquis 100 000 €, valant 1 000 000 €, un enfant (droit de 2026 ; hors CEHR et CDHR l'année de la vente)
+   vend aujourd'hui (PFU 31,4 %), transmet le produit             : impôt PV   282 600 € ; droits   128 182 € ; total   410 782 € (41,1 %) ; reste à l'héritier 589 218 €
+   idem, dirigeant partant à la retraite (abattement 500 k€ sur l'IR) : impôt PV   218 600 € ; droits   147 382 € ; total   365 982 € (36,6 %) ; reste à l'héritier 634 018 €
+   transmet aujourd'hui (plus-value effacée)                      : impôt PV         0 € ; droits   212 962 € ; total   212 962 € (21,3 %) ; reste à l'héritier 787 038 €
+   réforme sans correction                                        : impôt PV   282 600 € ; droits   212 962 € ; total   495 562 € (49,6 %) ; reste à l'héritier 504 438 €
+   réforme retenue (droits afférents à la PV ajoutés au prix)     : impôt PV   222 417 € ; droits   212 962 € ; total   435 379 € (43,5 %) ; reste à l'héritier 564 621 €
+   variante neutre (impôt latent déduit des droits)               : impôt PV   282 600 € ; droits   128 182 € ; total   410 782 € (41,1 %) ; reste à l'héritier 589 218 €
+   titres sous pacte Dutreil, aujourd'hui                         : impôt PV         0 € ; droits    28 194 € ; total    28 194 € (2,8 %) ; reste à l'héritier 971 806 €
+   titres sous pacte Dutreil, réforme                             : impôt PV   274 632 € ; droits    28 194 € ; total   302 827 € (30,3 %) ; reste à l'héritier 697 173 €
+   taux marginal des droits sur 1 M€ : 30 % ; droits afférents à la PV ajoutés au prix : 191 666 € ; écart réforme retenue − vente avant décès : 24 597 €
+
+2. Verrouillage : rendement supplémentaire exigé pour vendre et réinvestir (points par an ; r = 5 %) [S]
+   gv0.9_D5 : droit actuel (effacement au terme) 7,21 pt ; réforme (imposé au terme) 1,73 pt
+   gv0.9_D10 : droit actuel (effacement au terme) 3,55 pt ; réforme (imposé au terme) 1,50 pt
+   gv0.9_D20 : droit actuel (effacement au terme) 1,76 pt ; réforme (imposé au terme) 1,16 pt
+   gv0.55_D5 : droit actuel (effacement au terme) 4,06 pt ; réforme (imposé au terme) 0,93 pt
+   gv0.55_D10 : droit actuel (effacement au terme) 2,01 pt ; réforme (imposé au terme) 0,82 pt
+   gv0.55_D20 : droit actuel (effacement au terme) 1,00 pt ; réforme (imposé au terme) 0,64 pt
+   héritier aujourd'hui : prix d'acquisition = valeur reçue, plus-value nulle -> 0 pt ; avec la réforme : ligne « réforme »
+
+3. Fin de l'effacement : recette encaissée par année (Md€ au niveau du PIB 2025) [S sur hypothèses H]
+   transmissions soumises à la règle à partir de 2027 ; ventes : a dans les douze mois (moitié l'année même), puis h par an ;
+   impôt encaissé l'année qui suit la vente ; droits afférents à la plus-value ajoutés au prix (recette × (1 − τ))
+   bas      impôt latent transmis par an 3,65 brut, 3,10 net de la correction (τ = 15 %) ; dont reports 0,93
+   central  impôt latent transmis par an 7,49 brut, 6,74 net de la correction (τ = 10 %) ; dont reports 1,55
+   haut     impôt latent transmis par an 14,68 brut, 13,94 net de la correction (τ = 5 %) ; dont reports 3,29
+   année   2027  2028  2029  2030  2031  2032  2033  2034  2035  2036  2037  2038  2039  2040
+   bas      0.00  0.21  0.47  0.53  0.58  0.63  0.68  0.73  0.77  0.82  0.87  0.91  0.95  1.00   (option 1 : prix historique pour tout)
+            0.00  0.06  0.16  0.21  0.27  0.32  0.38  0.44  0.50  0.56  0.62  0.68  0.75  0.81   (option 2 : valeur au jour de l'annonce)
+            0.00  0.05  0.11  0.13  0.14  0.16  0.17  0.19  0.20  0.22  0.23  0.24  0.26  0.27   (dont reports d'apport-cession)
+   central  0.00  0.86  1.91  2.10  2.29  2.47  2.64  2.80  2.96  3.11  3.26  3.40  3.53  3.66   (option 1 : prix historique pour tout)
+            0.00  0.13  0.38  0.56  0.74  0.92  1.10  1.28  1.47  1.65  1.84  2.02  2.20  2.39   (option 2 : valeur au jour de l'annonce)
+            0.00  0.08  0.21  0.27  0.32  0.37  0.41  0.46  0.50  0.55  0.59  0.62  0.66  0.70   (dont reports d'apport-cession)
+   haut     0.00  2.56  5.65  6.15  6.62  7.06  7.47  7.86  8.22  8.57  8.89  9.19  9.48  9.74   (option 1 : prix historique pour tout)
+            0.00  0.30  0.92  1.37  1.82  2.26  2.70  3.13  3.56  3.98  4.39  4.80  5.20  5.59   (option 2 : valeur au jour de l'annonce)
+            0.00  0.16  0.51  0.67  0.83  0.98  1.12  1.25  1.37  1.49  1.59  1.70  1.79  1.88   (dont reports d'apport-cession)
+   cumul 2027-2040 bas      : option 1 9,1 ; option 2 5,8 (63 %) ; coût de l'option 2 3,4 Md€ ; 2027-2031 : 1,8 contre 0,7
+   cumul 2027-2040 central  : option 1 35,0 ; option 2 16,7 (48 %) ; coût de l'option 2 18,3 Md€ ; 2027-2031 : 7,2 contre 1,8
+   cumul 2027-2040 haut     : option 1 97,4 ; option 2 40,0 (41 %) ; coût de l'option 2 57,4 Md€ ; 2027-2031 : 21,0 contre 4,4
+   repère : recette de très long terme (toutes cohortes vendues) ≈ impôt latent net transmis par an = 6,74 Md€ (central)
+   si la date d'effet suivait l'annonce d'un an : une cohorte avancée échappe à la règle, soit bas 3,1 Md€ d'impôt latent perdu ; central 6,7 Md€ d'impôt latent perdu ; haut 13,9 Md€ d'impôt latent perdu
+   sans correction des droits (τ = 0), recette 2040 centrale : 4,06 au lieu de 3,66
+   PLF 2027 art. 5 (version du Gouvernement, si adoptée) : ≈ 1,7 Md€ par an d'impôt exigible à la transmission (central, avant étalement) ; la ligne « reports » ci-dessus se retrancherait alors de notre recette
+
+4. Coût d'un point de PFU (31,4 -> 30,4 %), Md€ par an [S ; élasticité e = 0,77 (Lefebvre, Lehmann et Sicsic, 2025) E]
+   revenus 2025 : mécanique −0,67 ; premières années (e = 0,65 / 0,77 / 1) −0,48 / −0,44 / −0,38 ; régime permanent (π = 0 / 0,5 / 1) −0,67 / −0,56 / −0,44
+   revenus 2024 : mécanique −0,80 ; premières années (e = 0,65 / 0,77 / 1) −0,57 / −0,53 / −0,45 ; régime permanent (π = 0 / 0,5 / 1) −0,80 / −0,66 / −0,53
+   baisse par la part d'IR : la CDHR en reprend 0,10 à 0,17 par point tant qu'elle existe
+   repères : baisse à 25 % (6,4 points) −4,29 mécanique, −3,14 premières années (pfu/)
+   CRDS (0,5 point) comprise dans les 18,6 % : sur l'assiette du PFU 0,33 Md€ ; s'éteint fin 2033 (droit en vigueur)
+
+5. CEHR et CDHR sur les revenus du capital (revenus 2025, DGFiP n° 53, provisoire) [V ; parts H]
+   CEHR 1,39 Md€ tous revenus ; part sur le capital 50-80 % -> 0,69 à 1,11
+   CDHR 0,62 Md€ ; due par des foyers dont le taux moyen est < 20 %, surtout grâce au PFU -> 80-100 % -> 0,50 à 0,62
+   maintien sur le capital (majoration de 3/4 points du PFU au-delà des mêmes seuils de revenu) : 0 ; suppression de la
+   CEHR sur le capital : −0,7 à −1,1 avant la reprise par la CDHR des foyers à son plancher
+
+6. Indexation du prix d'acquisition sur l'inflation (2 %/an) : coût sur les plus-values imposées de 2025 [H]
+   détention N5 : 16 % de la plus-value imposée est inflationniste -> coût 0,64 Md€ par an
+   détention N10 : 22 % de la plus-value imposée est inflationniste -> coût 0,90 Md€ par an
+   détention N15 : 23 % de la plus-value imposée est inflationniste -> coût 0,94 Md€ par an

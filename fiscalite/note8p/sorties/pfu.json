@@ -1,0 +1,396 @@
+{
+ "exemple": {
+  "valeur": 1000000,
+  "prix": 100000,
+  "pfu": 0.314,
+  "cas": {
+   "vend": {
+    "pv": 282600.0,
+    "droits": 128181.95000000001,
+    "total": 410781.95,
+    "net_heritier": 589218.05
+   },
+   "vend_retraite": {
+    "pv": 218600.0,
+    "droits": 147381.95,
+    "total": 365981.95,
+    "net_heritier": 634018.05
+   },
+   "transmet_actuel": {
+    "pv": 0.0,
+    "droits": 212961.95,
+    "total": 212961.95,
+    "net_heritier": 787038.05
+   },
+   "reforme_brute": {
+    "pv": 282600.0,
+    "droits": 212961.95,
+    "total": 495561.95,
+    "net_heritier": 504438.05
+   },
+   "reforme": {
+    "pv": 222416.95293,
+    "droits": 212961.95,
+    "ajout_prix": 191665.755,
+    "total": 435378.90293,
+    "net_heritier": 564621.09707
+   },
+   "reforme_neutre": {
+    "pv": 282600.0,
+    "droits": 128181.95000000001,
+    "total": 410781.95,
+    "net_heritier": 589218.05
+   },
+   "dutreil_actuel": {
+    "pv": 0.0,
+    "droits": 28194.350000000002,
+    "total": 28194.350000000002,
+    "net_heritier": 971805.65
+   },
+   "dutreil_reforme": {
+    "pv": 274632.27668999997,
+    "droits": 28194.350000000002,
+    "ajout_prix": 25374.915000000005,
+    "total": 302826.62668999995,
+    "net_heritier": 697173.37331
+   }
+  }
+ },
+ "verrouillage": {
+  "gv0.9_D5": {
+   "actuel": 0.07211411302943638,
+   "reforme": 0.017326203792966566
+  },
+  "gv0.9_D10": {
+   "actuel": 0.03545834497732258,
+   "reforme": 0.014971226235929502
+  },
+  "gv0.9_D20": {
+   "actuel": 0.017581969792572205,
+   "reforme": 0.01158736360335888
+  },
+  "gv0.55_D5": {
+   "actuel": 0.04057790381369452,
+   "reforme": 0.009322708715691184
+  },
+  "gv0.55_D10": {
+   "actuel": 0.020096630685462524,
+   "reforme": 0.008170475677961586
+  },
+  "gv0.55_D20": {
+   "actuel": 0.010000689726065935,
+   "reforme": 0.006439584326743186
+  }
+ },
+ "effacement": {
+  "bas": {
+   "hyp": {
+    "E": 1200,
+    "b": 0.017,
+    "lam": 0.4,
+    "a": 0.15,
+    "h": 0.02,
+    "S": 127.0,
+    "T": 35,
+    "tau": 0.15
+   },
+   "impot_latent_brut": 3.650811428571429,
+   "impot_latent_net": 3.1031897142857146,
+   "dont_reports": 0.9252857142857143,
+   "cumul": {
+    "hist": 9.134946291327093,
+    "jour_v": 5.769065836339153,
+    "hist_2027_2031": 1.7850537760786287,
+    "jour_v_2027_2031": 0.7000022915698306
+   }
+  },
+  "central": {
+   "hyp": {
+    "E": 1450,
+    "b": 0.023,
+    "lam": 0.55,
+    "a": 0.3,
+    "h": 0.04,
+    "S": 143.94701345596556,
+    "T": 25,
+    "tau": 0.1
+   },
+   "impot_latent_brut": 7.486909161471587,
+   "impot_latent_net": 6.738218245324428,
+   "dont_reports": 1.5546277453244282,
+   "cumul": {
+    "hist": 34.98179073990186,
+    "jour_v": 16.670414589050267,
+    "hist_2027_2031": 7.161677163013088,
+    "jour_v_2027_2031": 1.8097909350851304
+   }
+  },
+  "haut": {
+   "hyp": {
+    "E": 1700,
+    "b": 0.03,
+    "lam": 0.7,
+    "a": 0.45,
+    "h": 0.06,
+    "S": 173.268,
+    "T": 15,
+    "tau": 0.05
+   },
+   "impot_latent_brut": 14.675159999999998,
+   "impot_latent_net": 13.941402,
+   "dont_reports": 3.2920919999999994,
+   "cumul": {
+    "hist": 97.4401653561138,
+    "jour_v": 39.99570635835859,
+    "hist_2027_2031": 20.974993711192802,
+    "jour_v_2027_2031": 4.397300515630014
+   }
+  }
+ },
+ "pfu": {
+  "taux": 0.314,
+  "assiette_2025": 66.98195616291322,
+  "assiette_2024": 79.61413942600001,
+  "cout_point": {
+   "2025": {
+    "meca": -0.6698195616291328,
+    "prem_077": -0.4429105898419259,
+    "prem_e": [
+     -0.4782730270035671,
+     -0.4429105898419259,
+     -0.3751325852821097
+    ],
+    "perm": {
+     "0.0": -0.6698195616291328,
+     "0.5": -0.5563650757355284,
+     "1.0": -0.4429105898419241
+    }
+   },
+   "2024": {
+    "meca": -0.7961413942600007,
+    "prem_077": -0.5264394692678529,
+    "prem_e": [
+     -0.5684709380977999,
+     -0.5264394692678529,
+     -0.4458791540104592
+    ],
+    "perm": {
+     "0.0": -0.7961413942600007,
+     "0.5": -0.6612904317639284,
+     "1.0": -0.5264394692678561
+    }
+   }
+  },
+  "reprise_cdhr_par_point": [
+   0.10255144032921812,
+   0.17225806451612902
+  ],
+  "crds_sur_assiette_pfu": 0.3349097808145661
+ },
+ "cehr_cdhr_capital": {
+  "cehr_total": 1.39,
+  "cehr_capital": [
+   0.695,
+   1.1119999999999999
+  ],
+  "cdhr_total": 0.623,
+  "cdhr_capital": [
+   0.4984,
+   0.623
+  ]
+ },
+ "indexation": {
+  "N5": {
+   "part_gain": 0.1561212048,
+   "cout": 0.6390831494270357
+  },
+  "N10": {
+   "part_gain": 0.21899441999475733,
+   "cout": 0.896455057572016
+  },
+  "N15": {
+   "part_gain": 0.2305788922160866,
+   "cout": 0.9438761686321142
+  }
+ },
+ "annuel": {
+  "2027": {
+   "fin_effacement_central": 0.0,
+   "fin_effacement_bas": 0.0,
+   "fin_effacement_haut": 0.0,
+   "dont_reports_apport_cession_central": 0.0,
+   "variante_jour_v_central": 0.0,
+   "variante_jour_v_bas": 0.0,
+   "variante_jour_v_haut": 0.0,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2028": {
+   "fin_effacement_central": 0.855,
+   "fin_effacement_bas": 0.21,
+   "fin_effacement_haut": 2.561,
+   "dont_reports_apport_cession_central": 0.078,
+   "variante_jour_v_central": 0.132,
+   "variante_jour_v_bas": 0.062,
+   "variante_jour_v_haut": 0.296,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2029": {
+   "fin_effacement_central": 1.912,
+   "fin_effacement_bas": 0.473,
+   "fin_effacement_haut": 5.651,
+   "dont_reports_apport_cession_central": 0.211,
+   "variante_jour_v_central": 0.383,
+   "variante_jour_v_bas": 0.159,
+   "variante_jour_v_haut": 0.916,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2030": {
+   "fin_effacement_central": 2.105,
+   "fin_effacement_bas": 0.525,
+   "fin_effacement_haut": 6.148,
+   "dont_reports_apport_cession_central": 0.265,
+   "variante_jour_v_central": 0.558,
+   "variante_jour_v_bas": 0.212,
+   "variante_jour_v_haut": 1.368,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2031": {
+   "fin_effacement_central": 2.29,
+   "fin_effacement_bas": 0.577,
+   "fin_effacement_haut": 6.616,
+   "dont_reports_apport_cession_central": 0.317,
+   "variante_jour_v_central": 0.737,
+   "variante_jour_v_bas": 0.267,
+   "variante_jour_v_haut": 1.817,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2032": {
+   "fin_effacement_central": 2.468,
+   "fin_effacement_bas": 0.628,
+   "fin_effacement_haut": 7.055,
+   "dont_reports_apport_cession_central": 0.366,
+   "variante_jour_v_central": 0.917,
+   "variante_jour_v_bas": 0.323,
+   "variante_jour_v_haut": 2.26,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2033": {
+   "fin_effacement_central": 2.639,
+   "fin_effacement_bas": 0.677,
+   "fin_effacement_haut": 7.468,
+   "dont_reports_apport_cession_central": 0.414,
+   "variante_jour_v_central": 1.099,
+   "variante_jour_v_bas": 0.38,
+   "variante_jour_v_haut": 2.699,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2034": {
+   "fin_effacement_central": 2.803,
+   "fin_effacement_bas": 0.726,
+   "fin_effacement_haut": 7.857,
+   "dont_reports_apport_cession_central": 0.459,
+   "variante_jour_v_central": 1.282,
+   "variante_jour_v_bas": 0.439,
+   "variante_jour_v_haut": 3.131,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2035": {
+   "fin_effacement_central": 2.96,
+   "fin_effacement_bas": 0.773,
+   "fin_effacement_haut": 8.222,
+   "dont_reports_apport_cession_central": 0.503,
+   "variante_jour_v_central": 1.466,
+   "variante_jour_v_bas": 0.499,
+   "variante_jour_v_haut": 3.558,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2036": {
+   "fin_effacement_central": 3.111,
+   "fin_effacement_bas": 0.82,
+   "fin_effacement_haut": 8.565,
+   "dont_reports_apport_cession_central": 0.545,
+   "variante_jour_v_central": 1.651,
+   "variante_jour_v_bas": 0.56,
+   "variante_jour_v_haut": 3.978,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2037": {
+   "fin_effacement_central": 3.256,
+   "fin_effacement_bas": 0.865,
+   "fin_effacement_haut": 8.888,
+   "dont_reports_apport_cession_central": 0.586,
+   "variante_jour_v_central": 1.835,
+   "variante_jour_v_bas": 0.622,
+   "variante_jour_v_haut": 4.391,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2038": {
+   "fin_effacement_central": 3.396,
+   "fin_effacement_bas": 0.91,
+   "fin_effacement_haut": 9.191,
+   "dont_reports_apport_cession_central": 0.624,
+   "variante_jour_v_central": 2.02,
+   "variante_jour_v_bas": 0.685,
+   "variante_jour_v_haut": 4.797,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2039": {
+   "fin_effacement_central": 3.529,
+   "fin_effacement_bas": 0.954,
+   "fin_effacement_haut": 9.476,
+   "dont_reports_apport_cession_central": 0.662,
+   "variante_jour_v_central": 2.204,
+   "variante_jour_v_bas": 0.748,
+   "variante_jour_v_haut": 5.196,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  },
+  "2040": {
+   "fin_effacement_central": 3.658,
+   "fin_effacement_bas": 0.997,
+   "fin_effacement_haut": 9.744,
+   "dont_reports_apport_cession_central": 0.697,
+   "variante_jour_v_central": 2.387,
+   "variante_jour_v_bas": 0.813,
+   "variante_jour_v_haut": 5.587,
+   "taux_pfu_inchange": 0.0,
+   "cehr_cdhr_capital_maintenues": 0.0
+  }
+ },
+ "unites": "Md€ au niveau du PIB 2025 (pas de croissance) ; + = recette en plus par rapport au droit de 2026 ; la ligne fin_effacement ne doit être réutilisée qu'une fois constatée (CADRE.md)",
+ "cout_par_point": {
+  "pfu_1_point_revenus2025_mecanique": -0.67,
+  "pfu_1_point_revenus2025_premieres_annees_e077": -0.443,
+  "pfu_1_point_revenus2025_permanent_pi05": -0.556,
+  "pfu_1_point_reprise_cdhr_si_baisse_part_ir": [
+   0.103,
+   0.172
+  ],
+  "suppression_cehr_sur_capital": [
+   -0.69,
+   -1.11
+  ],
+  "suppression_cdhr": -0.62
+ },
+ "sources_cle": {
+  "pfu_2026": "CGI art. 200 A ; LFSS 2026 art. 12 (CSG capital 10,6 %) [V, pfu/donnees/pfu_chiffres.csv]",
+  "retraite_dirigeant": "CGI art. 150-0 D ter, abattement fixe 500 000 € prorogé au 31/12/2031 (LF 2025) [S]",
+  "droits_succession": "CGI art. 777 et 779 ; service-public F35794 [V/S]",
+  "dutreil_lf2026": "LF 2026 (loi 2026-103) : engagement individuel 4 -> 6 ans, biens somptuaires exclus [S]",
+  "plf2027_art5": "Adopté en 1re lecture à l'AN le 16/10/2026 sous une forme amendée (successions exclues) ; première partie rejetée le 04/11/2026 (scrutin 9759) [S]",
+  "exit_tax": "CGI art. 167 bis : dégrèvement après 2 ans (5 ans au-delà de 2,57 M€) [S] ; amendements AN du 30/10/2026 (15 ans) dans un texte rejeté [S]",
+  "irc_1015d6": "26 U.S.C. § 1015(d)(6) [V]"
+ }
+}
