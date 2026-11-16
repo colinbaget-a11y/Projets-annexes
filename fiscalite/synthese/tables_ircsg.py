@@ -221,7 +221,8 @@ for bloc in (S / "controle_hauts_purs.txt").read_text(encoding="utf-8").split("\
 sal, perm = TR["saillance"], TR["permanent"]["gains"]
 L = [r"\begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{4pt}",
      r"\caption{Ce qui fait varier le gain de la proposition et la neutralité du 1~\%}\label{tab:ircsg_sens}",
-     r"\begin{tabular}{@{}lrl@{}}", r"\toprule", r"Hypothèse & Gain (Md€) & Autre effet \\", r"\midrule",
+     r"\resizebox{\linewidth}{!}{%", r"\begin{tabular}{@{}lrl@{}}", r"\toprule", r"Hypothèse & Gain (Md€) & Autre effet \\",
+     r"\midrule",
      f"Modèle, hypothèses centrales & {n(P['gain_central'], 2, False)} & participation {n(P['extensif'], 2, False)}~Md€ \\\\",
      f"Élasticités basses / hautes & {n(P['gain_bas'], 2, False)} / {n(P['gain_haut'], 2, False)} & \\\\",
      f"Élasticités de long terme (intensif 0,10 à 0,25 ; participation 0,10) & {n(P['gain_long'], 2, False)} & participation "
@@ -235,7 +236,7 @@ for conv, lib in (("haut", "revenus au PFU logés en haut (convention « haut »
         u = HP[conv]
         L.append(f"Répartition des {lib} & {n(u['gain'], 1, False)} & 1~\\% {n(u['top1'], 1)}~Md€ ; neutre si 50~\\% à "
                  f"{n(u['z2'], 0, False)}~k€ \\\\")
-L += [r"\bottomrule", r"\end{tabular}"]
+L += [r"\bottomrule", r"\end{tabular}}"]
 L += note(r"Gain : baisse de la perte sèche sur l'activité (jeu central sauf mention). CSG non perçue : le revenu d'activité "
           r"ne réagit aujourd'hui qu'à l'IR (comme aux cotisations chez Lehmann, Marical et Rioux, 2013) et réagit après la "
           r"fusion à tout l'impôt fusionné ; la marge de participation est gardée. Régime permanent : la hausse de l'impôt sur "

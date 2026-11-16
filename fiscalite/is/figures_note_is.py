@@ -294,11 +294,9 @@ ax.plot(ans, np.where(p90 > -1e-9, p90, np.nan), color=VAR, lw=1.6, ls=(0, (4, 2
 ax.axhline(0, color=ENCRE2, lw=0.8, zorder=2)
 T_ = J["transition"]
 ipk = int(np.argmax(cen))
-ax.text(ans[ipk], cen[ipk] - 3.2, f"{f(T_['pic'], 0)} Md€ en {T_['an_pic']}", ha="center", va="top", fontsize=TXT, zorder=6,
-        color=ENCRE)
 from matplotlib.patches import Patch  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
-ax.legend(handles=[Line2D([], [], color=PROP, lw=2.4, label=f"Cas central : éteinte en {T_['extinction']}"),
+ax.legend(handles=[Line2D([], [], color=PROP, lw=2.4, label=f"Cas central : {f(T_['pic'], 0)} Md€ en {T_['an_pic']},\néteinte en {T_['extinction']}"),
                    Patch(color=PROP, alpha=0.14, lw=0, label="Du cas favorable au cas défavorable"),
                    Line2D([], [], color=VAR, lw=1.6, ls=(0, (4, 2)),
                           label="Cas central, si 90 % de l'investissement\nest fait par des sociétés imposables")],

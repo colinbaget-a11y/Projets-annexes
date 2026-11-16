@@ -256,9 +256,10 @@ def n09():
 def n10():
     fig, ax = plt.subplots(figsize=(9, 3.5))
     x = np.arange(1, 11)
-    w = 0.38
-    ax.bar(x - w / 2, NQ["dec_eur"], width=w, color=NAIF, label="Réforme naïve", zorder=2)
-    ax.bar(x + w / 2, PR["dec_eur"], width=w, color=PROP, label="Proposition", zorder=2)
+    ax.bar(x, PR["dec_eur"], width=0.6, color=PROP, label="Proposition", zorder=2)
+    for i, v in zip(x, PR["dec_eur"]):
+        ax.text(i, v + (25 if v >= 0 else -25), _fr(v), ha="center", va="bottom" if v >= 0 else "top", fontsize=9, color=ENCRE)
+    ax.set_ylim(-700, 700)
     ax.axhline(0, color=ENCRE2, lw=0.8)
     for yv in (500, -500):
         ax.axhline(yv, color=PROP, lw=0.7, ls=":")
@@ -268,11 +269,10 @@ def n10():
     ax.set_ylabel("Variation de l'impôt par foyer et par an")
     ax.set_xlabel("Déciles de revenu fiscal de référence")
     axes_propres(ax)
-    legende(ax, loc="upper left")
     fin(fig, "ircsg_n10_deciles", SRC_M + ".",
         "Note : moyenne par décile de foyers fiscaux, à recette égale avant réaction. Pointillés : la contrainte que s'impose la "
-        f"proposition (plus ou moins 500 € par décile). Le 1 % le plus aisé : réforme naïve {_fr(NQ['top1_Md'], 1)} Md€, proposition "
-        f"{_fr(PR['top1_Md'], 1)} Md€ (convention centrale de répartition des revenus au PFU).")
+        f"proposition (plus ou moins 500 € par décile). Le 1 % le plus aisé : {_fr(PR['top1_Md'], 1)} Md€ (convention centrale de "
+        "répartition des revenus au PFU).")
 
 
 def n11():

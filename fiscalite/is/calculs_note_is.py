@@ -579,7 +579,7 @@ lig = [r"\begin{table}[!htbp]\centering\footnotesize", r"\setlength{\tabcolsep}{
        r"\caption{La transition année par année : l'État avance l'impôt, l'assiette le rembourse (Md€ courants, cas "
        r"central)}\label{tab:is_transition}",
        r"\begin{tabular}{@{}l" + NUM * 7 + r"@{}}", r"\toprule",
-       r"Année & Taux de déduction & Coût & dont coût permanent & Ressources & Solde & Dette en fin d'année & "
+       r"Année & Taux de déduction & Coût & dont permanent & Ressources & Solde & Dette en fin d'année & "
        r"Écart de recette à 2026 \\", r"\midrule"]
 for i in list(range(0, 9)) + [11, 14, ext]:
     r_ = rows[i]

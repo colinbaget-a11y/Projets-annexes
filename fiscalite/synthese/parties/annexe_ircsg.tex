@@ -34,7 +34,8 @@ par euro de pension, ou d'un demi-euro dans la variante « étalée »), l'abatt
 franchise ou le chèque par enfant, le quotient conjugal et familial aux plafonds actuels et, depuis cette version, la
 déduction des versements d'épargne retraite. Ceux-ci (cases 6NS à 6NU, 6RS à 6RU, 6QS à 6QU et 6OS à 6OT : 10,6~Md€
 en 2024) sont supposés proportionnels aux revenus d'activité de la moitié la plus aisée des foyers, faute de
-répartition publiée ; garder leur déduction coûte \input{parties/val_ircsg_per}.
+répartition publiée ; garder leur déduction coûte 2,9~Md€ de recette au barème retenu, soit 0,29 point de taux pour
+tous.
 
 \paragraph{L'efficacité.} Le gain est la baisse de la perte sèche statique sur l'activité, à court terme, par rapport à
 aujourd'hui (méthode v2, \texttt{revue/methode\_v2.md}). Seul le revenu d'activité des actifs réagit, au taux de
@@ -75,7 +76,8 @@ par la version précédente, en est un).
 Les règles fixées d'avance sont décrites dans le corps. La recherche porte sur la franchise d'activité (0 à 8\,000~€
 par adulte), le taux d'entrée (0 à 16~\%), le taux à 20\,000~€ (8 à 26~\%) et le seuil intermédiaire (25\,000 à
 90\,000~€) ; pour chaque combinaison, le taux au seuil intermédiaire est calé sur la recette et le seuil du taux de
-50~\% sur la neutralité du 1~\% le plus aisé (écart inférieur à 0,05~Md€). Sur \input{parties/val_ircsg_essais}
+50~\% sur la neutralité du 1~\% le plus aisé (écart inférieur à 0,05~Md€). Sur 10\,332 barèmes essayés, 3\,376
+tiennent la recette et la neutralité du 1~\%, et 1\,047 respectent aussi la contrainte des déciles.
 La règle de choix est celle de l'auteur : le gain sur la participation le plus élevé (à 0,02~Md€ près), puis le gain
 total. Elle retient une franchise de 8\,000~€, à la borne de l'intervalle autorisé, et un taux d'entrée de 14~\%. Le
 barème le plus efficace sous les mêmes contraintes a lui aussi une franchise de 8\,000~€, avec un taux d'entrée de
@@ -99,12 +101,15 @@ l'unité d'imposition ; elle aboutit aux mêmes conclusions.
 
 \subsection{Les variantes}
 
-Le tableau~\ref{tab:ircsg_dec} donne la variation par décile de toutes les variantes, et la
+Le tableau~\ref{tab:ircsg_dec} donne la variation par décile de toutes les variantes, la
+figure~\ref{fig:ircsg_cas} les ménages types du tableau~\ref{tab:ircsg_cas} sous forme graphique, et la
 figure~\ref{fig:ircsg_arbitrages} le gain d'efficacité de chaque arbitrage. Le tableau~\ref{tab:ircsg_arch} rappelle
 les architectures simples de la méthode v2, chaque dispositif étant ajouté seul au barème neutre et financé par des
 points de taux pour tous ; elles n'ont pas la déduction de l'épargne retraite.
 
 \input{parties/tab_ircsg_dec}
+
+\figbloc{ircsg_n15_cas_types}{Familles et salariés gagnent, retraités et couples à un seul revenu perdent}{fig:ircsg_cas}
 
 \figbloc{ircsg_n14_arbitrages}{Chaque arbitrage déplace le gain de moins d'un milliard, mais la charge des retraités de
 plusieurs}{fig:ircsg_arbitrages}
@@ -124,7 +129,7 @@ convention centrale (« mixte »), la proposition laisse inchangée la charge du
 de 3 à 17 points celle des revenus du barème au-delà de 1~M€, auxquels cette convention prête un taux actuel de 32 à
 37~\%. Dans la convention « haut », plus proche du barème légal (41 à 49~\%) et que soutient un calage sur l'IR
 observé au-delà de 1~M€ (\texttt{revue/hypotheses\_ircsg.md}, H9), le 1~\% paierait 2,8~Md€ de moins, les foyers de
-1 à 9~M€ de 1 à 9 points de moins, et la neutralité demanderait d'atteindre 50~\% dès 110\,000~€ environ ; au
+1 à 9~M€ jusqu'à 9 points de moins (ceux au-delà de 9~M€, 3,5 points de plus), et la neutralité demanderait d'atteindre 50~\% dès 110\,000~€ environ ; au
 prorata, le 1~\% paierait 3,7~Md€ de plus (\texttt{sorties/controle\_hauts\_purs.txt}). La CEHR (3 à 4 points au très
 haut), qui disparaîtrait sur les revenus du barème, n'est comptée dans aucun cas.
 
@@ -153,9 +158,9 @@ pension est faible au bas de l'échelle (minimum contributif) et nul au-delà de
 
 \subsection{Programmes}
 
-Dans \texttt{synthese/}, depuis \texttt{fiscalite/} : \texttt{python3.13 openfisca\_cas\_ircsg.py} (cas-types),
+{\sloppy Dans \texttt{synthese/}, depuis \texttt{fiscalite/} : \texttt{python3.13 openfisca\_cas\_ircsg.py} (cas-types),
 puis \texttt{situation\_ircsg.py}, \texttt{naive\_ircsg.py}, \texttt{proposition\_ircsg.py} (environ 3 minutes),
 \texttt{arbitrages\_prop\_ircsg.py}, \texttt{transition\_ircsg.py}, \texttt{controle\_hauts\_purs.py},
 \texttt{tables\_ircsg.py} et \texttt{figures\_ircsg\_n.py} (deux fois, la seconde avec \texttt{FIG\_NU=1}). Le
 modèle est \texttt{modele\_purs.py} ; les outils communs, \texttt{outils\_ircsg.py} ; les architectures de la
-méthode v2, \texttt{architectures\_ircsg.py}. Vérifications indépendantes : \texttt{revue/calculs\_verif/ircsg/}.
+méthode v2, \texttt{architectures\_ircsg.py}. Vérifications indépendantes : \texttt{revue/calculs\_verif/ircsg/}.\par}
