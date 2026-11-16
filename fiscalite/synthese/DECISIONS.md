@@ -37,3 +37,17 @@ les sorties). Les chiffres de l'ancienne note sont périmés quand les registres
   britannique) ; la fin de la contribution exceptionnelle est une baisse d'impôt de 5 à 7 Md€ à afficher dans la
   recette ; tableau de transition année par année ; calibrage corrigé (un point = 2,95 Md€).
 - PFU : calibrage corrigé (réaction purement temporelle ; base 2024 gonflée par la CDHR) ; effacement fermé (déc. 3).
+
+## Décisions du 17/11/2026 (auteur)
+5. **Base 2025 pour tous les chiffrages** : recettes et assiettes calées sur les prélèvements obligatoires de 2025
+   (comptes nationaux de l'Insee publiés en 2026, exécution budgétaire 2025, DGFiP, OFGL). Quand une donnée 2025
+   n'existe pas, prendre 2024 et le dire explicitement (texte ou note de tableau/figure). Pour l'IR, préciser ce que
+   recouvre « 2025 » (impôt encaissé en 2025, en grande partie sur les revenus 2024 ; IRCOM revenus 2024 pour la
+   répartition) ; recaler les agrégats en gardant la structure de répartition la plus récente, et le dire.
+6. **Courbes de taux marginaux** : pas d'oscillations artificielles. Distinguer les vrais sauts du droit (décote,
+   seuils de CSG des retraités appliqués à toute la pension, sortie d'une exonération) des artefacts de calcul (pas
+   trop grossier, arrondis, règle des deux années de RFR pour la CSG des retraités, lissage) ; corriger les artefacts,
+   expliquer en une phrase les vrais sauts.
+7. **Partie IR-CSG : ne pas parler des cotisations sociales (salariales et patronales)**, qui relèvent d'une autre
+   partie du rapport : pas de discussion, pas de figure, pas d'argument fondé sur elles dans le texte de la partie.
+   La méthode de perte sèche (coin total) peut rester, mentionnée sobrement dans l'annexe de méthode.
