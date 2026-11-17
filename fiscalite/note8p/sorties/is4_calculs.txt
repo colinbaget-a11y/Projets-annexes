@@ -13,8 +13,7 @@
 
 2. PERTES : valeur actualisée (5 %) de la déduction de 50 % pour 100 d'achat, selon le délai avant retour aux bénéfices
    0 an(s) : 1.60 ; 1 an(s) : 1.07 ; 3 an(s) : 0.41 ; 5 an(s) : 0.09 ; 8 an(s) : 0.00 ; avec déficits indexés au taux d'actualisation : 1.60 quel que soit le délai
-   lecture : à 100 d'achat, l'avantage tombe de moitié après trois ans de pertes et disparaît au-delà de la durée du plan
-[INDEXATION] déficits nouveaux 113 Md€/an ; coût en régime = τ·u·D·((1+i)^m − 1) : u0.3_m2_i0.02 → 0.34 Md€ ; u0.45_m3_i0.025 → 0.98 Md€ ; u0.6_m4_i0.033 → 2.35 Md€ (montée en charge sur m années ; stock ancien exclu)
+   lecture : à 100 d'achat, l'avantage perd un tiers après un an de pertes, les trois quarts après trois ans, et disparaît au-delà de la durée du plan
 
 3. SUPPRESSION DU CIR (dépenses engagées à compter du 1er janvier 2028)
 [CIR] profil d'un millésime : N+1 67 % ; N+2 5 % ; N+3 3 % ; N+4 25 %

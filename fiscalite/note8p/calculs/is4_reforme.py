@@ -6,7 +6,7 @@ Lancer depuis fiscalite/ : python3 note8p/calculs/is4_reforme.py   (après is3_r
 
 Ce qui change par rapport à is3 :
   1. dette : décomposition du TMEI négatif, corrections possibles (rabot des intérêts, intérêts réels, seuil 212 bis) ;
-  2. pertes : valeur de la déduction pour une société déficitaire, ordre de grandeur de l'indexation des déficits ;
+  2. pertes : valeur de la déduction pour une société déficitaire (l'indexation des déficits est traitée ailleurs) ;
   3. CIR supprimé (décision de l'auteur) : il remplace le « CIR recentré » du paquet (pas de double compte) ;
      recette statique, calendrier d'encaissement des créances (imputation N+1 à N+3, restitution en N+4, remboursement
      immédiat des PME), rendement réalisable, effet attendu sur la R&D ;
@@ -159,16 +159,10 @@ for n in (0, 1, 3, 5, 8):
     PERT[n] = v
 p("   " + " ; ".join(f"{n} an(s) : {v:.2f}" for n, v in PERT.items()) +
   f" ; avec déficits indexés au taux d'actualisation : {PERT[0]:.2f} quel que soit le délai")
-p("   lecture : à 100 d'achat, l'avantage tombe de moitié après trois ans de pertes et disparaît au-delà de la durée du plan")
-# indexation des déficits : ordre de grandeur [H]
+p("   lecture : à 100 d'achat, l'avantage perd un tiers après un an de pertes, les trois quarts après trois ans, et disparaît au-delà de la durée du plan")
 D_NOUV = 113.0                                       # déficits de l'exercice 2022 (DGFiP n° 51), Md€
-IDX = {}
-for u, m, i in ((0.3, 2, 0.02), (0.45, 3, 0.025), (0.6, 4, 0.033)):
-    IDX[f"u{u}_m{m}_i{i}"] = TAU * u * D_NOUV * ((1 + i) ** m - 1)
-p(f"[INDEXATION] déficits nouveaux {D_NOUV:.0f} Md€/an ; coût en régime = τ·u·D·((1+i)^m − 1) : "
-  + " ; ".join(f"{k} → {v:.2f} Md€" for k, v in IDX.items()) + " (montée en charge sur m années ; stock ancien exclu)")
 J["pertes"] = {"va_avantage_pour_100_selon_delai": PERT, "deficits_2022": D_NOUV,
-               "indexation_cout_regime": IDX, "part_imposable_hypothese": 0.75,
+               "part_imposable_hypothese": 0.75,
                "part_investissement_deficitaires": "non mesurée ; 25 % implicite dans l'hypothèse de 75 % imposable [H]"}
 
 # =========================================================================== 3. suppression du CIR

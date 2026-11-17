@@ -107,3 +107,9 @@ concrète ; littérature ; coût potentiel et difficultés ; intérêt pour la c
    exemple 5 × 50 000 € contre 10/20/30/70/120 k€ avec le barème final ; distinguer report de recettes, transition, coût
    permanent ; pas de chiffrage national sans données longitudinales.
 Pas de financement par la croissance ; pas de nouvelles niches à conditions multiples ; style : première phrase en gras.
+
+## Décision de l'auteur (IS, 19/11) : CIR supprimé, recette réinvestie
+Suppression totale du CIR ; une partie de la recette finance une mesure générale (pas une niche) favorable à
+l'investissement immatériel et aux entreprises innovantes. À évaluer et choisir : extension de la déduction immédiate
+aux incorporels acquis et à la R&D activée ; relèvement général de la déduction immédiate ; meilleur traitement des
+pertes des jeunes entreprises (carry-back) ; présenter l'effet net honnêtement.

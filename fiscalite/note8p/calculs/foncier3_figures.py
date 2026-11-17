@@ -1,6 +1,6 @@
 """Figures g4, g5, g6 et g10 du bloc « fiscalité immobilière », version 3 (charte de note8p/charte.py).
 
-Lancer depuis fiscalite/ après foncier3_calculs.py : python3 note8p/calculs/foncier3_figures.py [--rec B_E12]
+Lancer depuis fiscalite/ après foncier3_calculs.py : python3 note8p/calculs/foncier3_figures.py [--rec B_E10]
   -> note8p/figures/g4_taxe_valeur, g5_achats, g6_sol_bati, g10_foncier_pib (.pdf, .png, _source.tex)
 Le scénario recommandé (architecture × enveloppe) se change avec --rec (ex. --rec A_E15).
 """
@@ -15,7 +15,7 @@ from charte import *  # noqa: E402,F401,F403
 from charte import _fr  # noqa: E402
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--rec", default="B_E12")
+ap.add_argument("--rec", default="B_E10")
 REC = ap.parse_args().rec
 ARCHI, ENV = REC.split("_E")
 AUTRE = ("A" if ARCHI == "B" else "B") + "_E" + ENV

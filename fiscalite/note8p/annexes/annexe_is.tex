@@ -1,5 +1,6 @@
-% Annexe technique du bloc IS (note8p, version 3 : taux normal maintenu à 25 %). Chiffres : note8p/sorties/is3.json,
-% produit par note8p/calculs/is3_reforme.py ; figure g7 : note8p/calculs/is3_figure_g7.py.
+% Annexe technique du bloc IS (note8p, version 4 : taux de 25 %, CIR supprimé). Chiffres : note8p/sorties/is3.json
+% (note8p/calculs/is3_reforme.py) et note8p/sorties/is4.json (note8p/calculs/is4_reforme.py) ; figure g7 :
+% note8p/calculs/is3_figure_g7.py.
 \subsection{Impôt sur les sociétés : données, méthode et trajectoire}\label{ann:is}
 
 \paragraph{Droit de référence (2026).} Taux normal de 25~\%, maintenu ; contribution sociale de 3,3~\% au-delà de
@@ -13,7 +14,9 @@ au-delà (BOI-IS-DEF-10-30) ; report en arrière d'un exercice dans la limite de
 financières nettes déductibles jusqu'au plus élevé de 3~M€ et de 30~\% de l'EBITDA fiscal (art.~212~bis). CIR (art.~244
 quater~B) : 30~\% des dépenses jusqu'à 100~M€, 5~\% au-delà ; depuis la LF 2025 (art.~55-56, d'après Légifiscal), forfait
 de fonctionnement de 40~\% des dépenses de personnel, frais de brevets exclus ; CII ramené à 20~\% et prorogé jusqu'au
-31/12/2027.
+31/12/2027. Créance de CIR imputée sur l'IS de N+1 à N+3, reliquat restitué en N+4 ; remboursement immédiat pour les PME
+au sens européen, les jeunes entreprises innovantes, les entreprises nouvelles et en difficulté (art.~199~ter~B, d'après
+le Sénat, note de présentation « Remboursements et dégrèvements », PLF~2027).
 
 \paragraph{Données et conventions.} Bénéfices imposables de l'exercice 2025 (DGFiP, \emph{Statistiques} n°~51) : 256,8~Md€
 au taux normal, 30,6~Md€ au taux réduit, soit 267,2 et 31,8~Md€ en 2027 ; +3~\% par an ensuite. Un point de taux normal :
@@ -41,36 +44,37 @@ Calendrier : 20~\% pour l'exercice 2027 (moitié du rendement), 25~\% dès 2028.
 42\,500)$, au plus 4\,250~€ ; 760\,000 bénéficiaires en 2019, au moins 720\,000 sociétés en équivalent plafond en 2025.
 
 \begin{table}[!htbp]\centering\scriptsize
-\caption{Trajectoire pour le bouclage (Md€ courants, exercices ; + = recette publique)}\label{tab:is8_annuel}
+\caption{Trajectoire pour le bouclage (Md€ courants, années d'encaissement ; + = recette publique)}\label{tab:is8_annuel}
 \setlength{\tabcolsep}{3.2pt}
-\begin{tabular}{@{}lrrrrrrrrr@{}}
+\begin{tabular}{@{}lrrrrrrrr@{}}
 \toprule
-& Fin du & \multicolumn{3}{c}{Déduction de 50~\%, départ en} & Niches & \emph{Brevets} & \multicolumn{3}{c}{Solde du bloc, départ en} \\
-\cmidrule(lr){3-5}\cmidrule(l){8-10}
-Année & taux réduit & 2027 & 2028 & 2029 & (noyau) & \emph{(hors)} & 2027 & 2028 & 2029 \\
+& Fin du & Déduction & \multicolumn{2}{c}{Niches hors CIR} & \multicolumn{2}{c}{Suppression du CIR} & \emph{Brevets} & Solde \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Année & taux réduit & de 50~\% & statique & prudent & statique & prudent & \emph{(hors)} & prudent \\
 \midrule
-2027 & 1,08 & $-$3,69 & -- & -- & -- & -- & $-$2,62 & 1,08 & 1,08 \\
-2028 & 2,22 & $-$6,75 & $-$3,80 & -- & 2,80 & 1,33 & $-$1,73 & 1,21 & 5,01 \\
-2029 & 2,29 & $-$5,38 & $-$6,95 & $-$3,92 & 3,36 & 1,38 & 0,26 & $-$1,31 & 1,72 \\
-2030 & 2,35 & $-$4,28 & $-$5,54 & $-$7,16 & 3,55 & 1,42 & 1,62 & 0,36 & $-$1,25 \\
-2031 & 2,42 & $-$3,35 & $-$4,41 & $-$5,71 & 3,75 & 1,46 & 2,82 & 1,77 & 0,47 \\
-2032 & 2,50 & $-$2,48 & $-$3,45 & $-$4,54 & 3,96 & 1,50 & 3,98 & 3,00 & 1,92 \\
-2033 & 2,57 & $-$1,58 & $-$2,55 & $-$3,56 & 4,18 & 1,55 & 5,18 & 4,20 & 3,19 \\
-2034 & 2,65 & $-$0,98 & $-$1,62 & $-$2,63 & 4,41 & 1,59 & 6,08 & 5,44 & 4,43 \\
-2035 & 2,73 & $-$0,85 & $-$1,01 & $-$1,67 & 4,65 & 1,64 & 6,52 & 6,37 & 5,71 \\
-2036 & 2,81 & $-$0,88 & $-$0,88 & $-$1,04 & 4,79 & 1,69 & 6,72 & 6,72 & 6,56 \\
-2037 & 2,89 & $-$0,91 & $-$0,91 & $-$0,91 & 4,93 & 1,74 & 6,92 & 6,92 & 6,92 \\
-2038 & 2,98 & $-$0,93 & $-$0,93 & $-$0,93 & 5,08 & 1,79 & 7,13 & 7,13 & 7,13 \\
-2039 & 3,07 & $-$0,96 & $-$0,96 & $-$0,96 & 5,23 & 1,85 & 7,34 & 7,34 & 7,34 \\
-2040 & 3,16 & $-$0,99 & $-$0,99 & $-$0,99 & 5,39 & 1,90 & 7,56 & 7,56 & 7,56 \\
+2028 & 1,08 & -- & -- & -- & -- & -- & -- & 1,08 \\
+2029 & 2,22 & -- & 1,77 & 1,47 & 7,66 & 4,22 & 1,33 & 7,91 \\
+2030 & 2,29 & $-$3,92 & 2,30 & 1,88 & 7,89 & 4,64 & 1,38 & 4,89 \\
+2031 & 2,35 & $-$7,16 & 2,46 & 2,01 & 8,13 & 4,98 & 1,42 & 2,18 \\
+2032 & 2,42 & $-$5,71 & 2,63 & 2,15 & 8,37 & 6,70 & 1,46 & 5,56 \\
+2033 & 2,50 & $-$4,54 & 2,81 & 2,29 & 8,62 & 6,90 & 1,50 & 7,14 \\
+2034 & 2,57 & $-$3,56 & 2,99 & 2,44 & 8,88 & 7,10 & 1,55 & 8,55 \\
+2035 & 2,65 & $-$2,63 & 3,18 & 2,59 & 9,15 & 7,32 & 1,59 & 9,93 \\
+2036 & 2,73 & $-$1,67 & 3,39 & 2,76 & 9,42 & 7,54 & 1,64 & 11,35 \\
+2037 & 2,81 & $-$1,04 & 3,49 & 2,84 & 9,70 & 7,76 & 1,69 & 12,38 \\
+2038 & 2,89 & $-$0,91 & 3,59 & 2,93 & 9,99 & 8,00 & 1,74 & 12,91 \\
+2039 & 2,98 & $-$0,93 & 3,70 & 3,01 & 10,29 & 8,23 & 1,79 & 13,29 \\
+2040 & 3,07 & $-$0,96 & 3,81 & 3,10 & 10,60 & 8,48 & 1,85 & 13,69 \\
 \bottomrule
 \end{tabular}
-\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Taux réduit : série prudente (statique : 1,59 en 2027, 3,28
-en 2028, 4,68 en 2040). Déduction : 25~\% l'année de départ, 50~\% ensuite ; introduite à 50~\% d'emblée, son pic serait de
-7,4, 7,6 ou 7,8~Md€. Niches (noyau) : CIR recentré, mécénat, crédits culture, zonages, crédit famille. Brevets : suppression
-du taux de 10~\%, statique, non comptée au bouclage prudent. Solde : taux réduit + déduction + noyau. Mémoire, non
-comptés (droit en vigueur) : fin de la contribution exceptionnelle, environ $-$7~Md€ par an par rapport à 2026 ; extinction
-du CII et du suramortissement de 2015-2017. Source : \texttt{note8p/calculs/is3\_reforme.py}.}
+\par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Encaissement : exercice + 1, sauf CIR (profil des créances).
+Taux réduit : série prudente (20~\% pour l'exercice 2027, 25~\% ensuite). Déduction : 25~\% pour l'exercice 2029, 50~\%
+ensuite, coût brut. Niches hors CIR : mécénat, crédits culture, zonages, crédit famille, dès l'exercice 2028 ; prudent :
+après réaction (facteurs 0,85, 0,75, 0,80, 0,90). CIR supprimé pour les dépenses de 2028 et suivantes ; statique : coût
+total de l'année ; prudent : millésimes de créances 2028 et suivants seulement (le stock antérieur est imputé ou restitué
+jusqu'en 2031), décote de 20~\%. Solde prudent : colonnes 2, 3, 5 et 7. Brevets : statique, non comptés. Mémoire, non
+comptés (droit en vigueur) : fin de la contribution exceptionnelle, environ $-$7~Md€ par an par rapport à 2026 ;
+extinction du CII. Source : \texttt{note8p/calculs/is4\_reforme.py}.}
 \end{table}
 
 \paragraph{Déduction immédiate.} Coût permanent : 0,67~Md€ de 2027 par an (0,54 à 0,81 selon le plan actuel), 0,99~Md€ en
@@ -78,17 +82,35 @@ du CII et du suramortissement de 2015-2017. Source : \texttt{note8p/calculs/is3\
 années est une avance d'impôt, récupérée ensuite. Véhicules utilitaires (moitié du matériel de transport, hypothèse) :
 coûts multipliés par 1,25. Aucune recette de croissance n'est comptée.
 
-\paragraph{Niches : paquet chiffré.} Coûts statiques des Voies et moyens (2026). CIR : plafond de 100~M€ apprécié au
-niveau du groupe, 569~M€ (CPO, septembre 2025, recommandation~3), et suppression du taux de 5~\% au-delà, 400~M€ (CAE,
-Focus n°~90, 2022, données 2019), sans le terme croisé : 0,97~Md€. Mécénat des entreprises (210309, 1\,730~M€,
-157\,399~bénéficiaires) : réduction remplacée par la déduction du don, $1{,}73\,(1-0{,}25/0{,}60) = 1{,}01$~Md€ à dons
-inchangés. Crédits culture (320121, 129, 140, 135, 142, 128, 145, 148) : 0,71~Md€, moitié en 2028. Zonages (220104,
+\paragraph{Niches : paquet chiffré.} Coûts statiques des Voies et moyens (2026). Mécénat des entreprises (210309,
+1\,730~M€, 157\,399~bénéficiaires) : réduction remplacée par la déduction du don, $1{,}73\,(1-0{,}25/0{,}60) = 1{,}01$~Md€ à
+dons inchangés. Crédits culture (320121, 129, 140, 135, 142, 128, 145, 148) : 0,71~Md€, moitié en 2028. Zonages (220104,
 220109, 220102, 230602, 230606, 230608, 230605, 210305) : 0,66~Md€, fermés aux entrants, extinction linéaire sur huit ans
-(hypothèse). Crédit famille (210308) : 0,22~Md€. Noyau : 3,57~Md€ (2026). Hors paquet : taxe au tonnage (régime européen,
-base mobile), outre-mer (à budgétiser), PTZ et HLM (logement), SIIC et SPPICAV (transparence). La quote-part de frais et
-charges sur les titres de participation et le régime mère-fille éliminent la double imposition : ils ne sont pas des
-niches. Doubles comptes : les dispositifs communs IR-IS sont comptés ici en entier (le bloc IR ne les reprend pas) ; les
+(hypothèse). Crédit famille (210308) : 0,22~Md€. Noyau hors CIR : 2,60~Md€ (2026). Rendement réalisable prudent
+(hypothèses) : mécénat $\times 0{,}85$ (taux de 40~\% au-delà de 2~M€ de dons et report des excédents sur cinq ans ; la
+baisse des dons accroît au contraire la recette) ; culture $\times 0{,}75$ (tournages perdus, recettes de TVA et de
+cotisations en moins) ; zonages $\times 0{,}80$ (substitution) ; crédit famille $\times 0{,}90$. Hors paquet : taxe au
+tonnage (régime européen, base mobile), outre-mer (à budgétiser), PTZ et HLM (logement), SIIC et SPPICAV (transparence).
+La quote-part de frais et charges et le régime mère-fille éliminent la double imposition : ils ne sont pas des niches.
+Doubles comptes : les dispositifs communs IR-IS sont comptés ici en entier (le bloc IR ne les reprend pas) ; les
 exonérations de fiscalité locale en zone et le mécénat des ménages relèvent d'autres blocs.
+
+\paragraph{Suppression du CIR.} Dépenses de R\&D engagées à compter de 2028 : plus de crédit, déduction ordinaire des
+charges ; équipements de recherche dans la déduction de 50~\% (déjà dans l'investissement éligible). L'ancien recentrage
+(plafond au niveau du groupe et fin du taux de 5~\%, 0,97~Md€) est absorbé : pas de double compte. Coût : 7,3~Md€
+exécutés en 2025, plus de 7,4~Md€ projetés en 2027 (Sénat, PLF~2027) ; 8,0~Md€ en 2026 selon les Voies et moyens du
+PLF~2026 (borne haute). Créance 2023 : 7,85~Md€, dont recherche 7,32 (PME 2,24, ETI 2,10, grandes entreprises 2,98) ;
+33~bénéficiaires dépassant 100~M€ de dépenses au niveau de l'intégration fiscale reçoivent 25~\% de la créance recherche
+(MESRE, novembre 2025). En 2024, sur 7,7~Md€ (CIR et CII), 4,7 restitués et 3,0 imputés (Sénat, d'après la DGFiP). Profil
+retenu d'un millésime de créances (hypothèse construite sur ces chiffres) : 67~\% en N+1 (remboursements immédiats,
+environ 36~\%, et 80~\% des imputations), 5~\% en N+2, 3~\% en N+3, 25~\% restitués en N+4. Réalisable : millésimes 2028 et
+suivants seulement, $\times 0{,}8$ (emploi de recherche perdu, soutiens recréés hors de l'impôt ; hypothèse, aucune
+élasticité ne la calibre). Effet sur la R\&D : un euro de CIR produit 0,9 à 1,5~euro de R\&D dans les PME (CNEPI, cité
+par le Sénat ; Bozio, Cottet et Py, 2019), aucun effet établi pour les ETI et grandes entreprises (CNEPI 2021, IPP 2021).
+R\&D des PME : $-$2,1 à $-$3,4~Md€ par an ; stock $-$11 à $-$19~Md€ (dépréciation de 15~\%, croissance de 3~\%) ; PIB
+potentiel $-(r+\delta)\Delta S/Y$ = $-$0,07 à $-$0,12~\%, double si le rendement social est double du rendement privé
+(Bloom, Schankerman et Van Reenen, 2013). Non compté. Variante : crédit conservé pour les seules PME, recette statique
+5,1~Md€ (2027). TMEI de la R\&D : $-$67~\% avec le CIR à 30~\%, nul sans.
 
 \begin{table}[!htbp]\centering\scriptsize
 \caption{Taux marginaux effectifs d'un investissement neuf (\%)}\label{tab:is8_tef}
@@ -108,9 +130,26 @@ Petite société sous 42\,500~€, aujourd'hui & 10,4 & $-$12,8 & 3,8 & 11,4 & 1
 \end{tabular}
 \par\vspace{3pt}\parbox{\linewidth}{\raggedright\scriptsize Bâtiments hors champ de la déduction. Dépense de R\&D passée
 en charges : TMEI nul ; avec le CIR à 30~\% : $-$67~\% ; au taux de 5~\% au-delà de 100~M€ : $-$7~\%. Avantage de la dette (écart
-de coût du capital entre fonds propres et emprunt) : 2,06 points aujourd'hui, 1,90 avec la déduction de 50~\%. Niveaux non
-comparables à ceux de l'OCDE ; seuls les écarts comptent.}
+de coût du capital entre fonds propres et emprunt) : 2,06 points aujourd'hui, 1,90 avec la déduction de 50~\%, 1,74 avec la
+déduction intégrale. Niveaux non comparables à ceux de l'OCDE ; seuls les écarts comptent.}
 \end{table}
+
+\paragraph{Dette.} Coût du capital d'une machine (rendement exigé 5~\%) : fonds propres 6,10, 5,55 et 5,00~\% ; emprunt
+4,04, 3,65 et 3,26~\% pour une fraction déduite tout de suite de 0, 50 et 100~\%. L'écart diminue (une déduction anticipée
+vaut plus actualisée à 7,1~\% qu'à $i(1-\tau) = 5{,}3$~\%), mais le coût de l'emprunt passe sous le rendement exigé : les
+intérêts nominaux restent déduits sur tout le prix alors que l'État en a déjà pris $\tau b$ à sa charge. Corrections
+(TMEI pour $b = 0{,}5$) : rabot général de 21~\% des charges financières nettes pour ramener le TMEI de l'emprunt à
+$-$24~\%, de 14~\% pour un TMEI mixte nul ; déduction des seuls intérêts réels ($i-\pi$) : $-$19,5~\% (emprunt), +1,8~\% (mixte) ;
+au-delà du plafond de l'art.~212~bis, l'intérêt marginal n'est pas déductible et le TMEI de l'emprunt égale celui des
+fonds propres (9,9~\%). Le seuil de 3~M€ de charges nettes correspond à 50 à 75~M€ de dette (taux de 6 à 4~\%), celui de
+1~M€ (Espagne) à 17 à 25~M€ : l'abaisser ne touche pas l'investissement marginal des PME. Recommandation : pas de
+garde-fou dans la proposition centrale ; neutralité à traiter avec la déduction intégrale.
+
+\paragraph{Pertes.} Valeur actualisée de la déduction de 50~\% pour 100 d'achat : 1,60 pour une société imposable ;
+1,07, 0,41 et 0,09 si elle reste déficitaire 1, 3 ou 5~ans (déficits non indexés, imputés sans plafond) ; nulle au-delà
+de la durée du plan. Part de l'investissement éligible faite par des sociétés déficitaires : non mesurée (aucune source
+croisant investissement et situation fiscale) ; repère : 113~Md€ de déficits déclarés en 2022 pour 278~Md€ de bénéfices
+(DGFiP n°~51) ; l'hypothèse de 75~\% d'investissement imposable porte coûts et effets.
 
 \paragraph{Effets réels.} Coût d'usage des équipements : $-$2,1~\% avec la déduction de 50~\%, $-$4,2~\% avec la déduction
 intégrale, $-$0,5~\% avec un taux de 22,5~\% (qui baisse aussi de 1,6~\% celui des bâtiments). Capital supplémentaire
@@ -121,7 +160,9 @@ intégrale, $-$0,5~\% avec un taux de 22,5~\% (qui baisse aussi de 1,6~\% celui 
 déduction, 0,6 pour le taux : calcul partiel, qui ignore la localisation et les bénéfices transférés ; Chodorow-Reich,
 Zidar et Zwick (2024) trouvent un écart plus faible, de même sens. Petites sociétés sous le plafond : coût d'usage des
 équipements $-$0,1~\%, des bâtiments +6~\% ; non agrégé, faute de connaître leur part du capital ; effet de trésorerie non
-chiffré (sensibilité non estimée en France). Niches : aucun effet sur le PIB potentiel compté.
+chiffré (sensibilité non estimée en France). Ces effets ne mesurent que la déduction : la fin
+du taux réduit (bâtiments et trésorerie des petites sociétés) et la suppression du CIR (R\&D des PME) jouent en sens
+inverse et ne sont pas chiffrées dans le +0,05~\% ; les autres niches n'ont qu'un effet de localisation ou de secteur.
 
 \paragraph{Long terme, non retenu.} Passer de 50 à 100~\% en 2035 : 9,4~Md€ de plus la première année, 7,5 la deuxième,
 puis 0,67~Md€ par an (euros de 2027) ; d'un coup en 2027 : 14,8~Md€ ; TMEI mixte de $-$13~\%, d'où un traitement des intérêts
@@ -136,11 +177,11 @@ déduction de 50~\% (plan moyen). Société de services : perte de $0{,}10\min(B
 bénéfice ; la déduction sur 10\,000~€ d'informatique annuelle lui vaut environ 90~€.
 
 \paragraph{Variantes écartées et hypothèses retirées.} Taux à 22,5~\% : 7,5~Md€ par an pour un effet sur le capital
-domestique moindre. CIR plafonné à 20~M€ (CAE : 1,75 à 2,5~Md€). Retirés par parcimonie : rendement « central » du taux
+domestique moindre. Recentrage du CIR (plafond au niveau du groupe, fin du taux de 5~\%), remplacé par la suppression. Retirés par parcimonie : rendement « central » du taux
 réduit (fuite de 16~\%), effet de trésorerie des PME, multiplicateur d'investissement de court terme, retour par les
 bénéfices déclarés, sensibilités de la part imposable ; aucune décote comportementale sur les niches (la boîte à brevets
 est exclue du bouclage prudent).
 
 \paragraph{Limites.} Part imposable de l'investissement et plan actuel (non mesurés) ; élasticité des bâtiments ;
-chiffrages CIR du CPO et du CAE non actualisés ; tome~II des Voies et moyens du PLF~2027 non lu ; durées d'extinction des
+profil d'encaissement du CIR et décotes de réaction (hypothèses) ; charges financières nettes déduites non chiffrées ; tome~II des Voies et moyens du PLF~2027 non lu ; durées d'extinction des
 zonages et taux du mécénat (CGI, art.~238~bis) non revérifiés sur les textes ; issue du PLF~2027 inconnue au 18/11/2026.

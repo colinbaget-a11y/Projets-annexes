@@ -1,0 +1,14 @@
+ÉQUIVALENCE VENDRE / TRANSMETTRE — exemple 100 k€ devenus 1 M€, un enfant, droit de 2026
+  majoration a = 270 000 € ; revente immédiate : écart 0 € (impôts A 410 782, B 410 782)
+  10 ans, rendement = actualisation = 4 % : écart B − A 35 391 € (3,5 % de V) ; formule 35 391 ; impôts en valeur actuelle A 483 866, B 448 475
+  10 ans, valeur +2 %/an (inflation), actualisation 4 % : écart B − A 1 175 € (0,1 % de V) ; formule 1 175 ; impôts en valeur actuelle A 444 109, B 393 057
+  10 ans, valeur constante, actualisation 4 % : écart B − A −27 506 € (−2,8 % de V) ; formule −27 506 ; impôts en valeur actuelle A 410 782, B 346 602
+  25 ans, 4 % / 4 % : écart B − A 68 165 € (6,8 % de V) ; formule 68 165 ; impôts en valeur actuelle A 551 545, B 483 381
+  PFU ramené à 30,9 % à la vente (fin de la CRDS), revente immédiate : écart 3 150 € = (t' − t)(G − a) = −3 150
+  PFU à 25 % à la vente, revente immédiate : écart 40 320 € = (t' − t)(G − a) = −40 320
+  lien frère ou sœur : a = 405 000 € ; écart immédiat 0 €
+  lien neveu : a = 495 000 € ; écart immédiat 0 €
+  lien conjoint : a = 0 € ; écart immédiat 0 €
+  deux enfants (titres 1 000 000 € dont prix 100 000 € + maison 1 000 000 €) : vendre avant 623 744 € ; titres partagés 623 744 € (écart 0) ; titres à un seul enfant 623 744 € (écart 0) ; ce dernier supporte seul 197 820 € d'impôt net, contre 141 300 € par enfant si le parent avait vendu
+  deux enfants (titres 1 200 000 € dont prix 100 000 € + maison 1 200 000 €) : vendre avant 792 596 € ; titres partagés 792 596 € (écart 0) ; titres à un seul enfant 807 420 € (écart 14 824) ; ce dernier supporte seul 222 064 € d'impôt net, contre 172 700 € par enfant si le parent avait vendu
+  valeur divisée par deux avant la vente : prix repris 370 000 €, plus-value imposable 130 000 € ; écart −96 932 €

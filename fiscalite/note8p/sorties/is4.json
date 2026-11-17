@@ -73,11 +73,6 @@
    "8": 2.7755575615628914e-15
   },
   "deficits_2022": 113.0,
-  "indexation_cout_regime": {
-   "u0.3_m2_i0.02": 0.3423899999999999,
-   "u0.45_m3_i0.025": 0.9774720703124957,
-   "u0.6_m4_i0.033": 2.3506079299609453
-  },
   "part_imposable_hypothese": 0.75,
   "part_investissement_deficitaires": "non mesurée ; 25 % implicite dans l'hypothèse de 75 % imposable [H]"
  },
