@@ -373,11 +373,30 @@ for cible_ecart in (24.0, 23.5):
         m = (lo + hi) / 2
         lo, hi = (m, hi) if ecart(design(m)) > cible_ecart else (lo, m)
     VARIANTES[str(cible_ecart)] = dict(zp=(lo + hi) / 2, financement_bareme=cible(0.0) - N.recette(design((lo + hi) / 2), O))
-# variante combinée : baisse du taux à 3,5 Smic d'un point et plafond plus haut
-S = design(ZP)
-P_FIN = P0[:5] + [ZP]
-TT = list(TT5)
+# Arbitrage final de l'assembleur (« bas et milieu ») : coût d'opportunité trop élevé de la progressivité par le haut ;
+# point haut gardé à 163 400 € ; le financement restant baisse les taux aux repères 0 à 3,5 Smic (poids 1/1/1/1/0,5) ;
+# les autres pondérations essayées (uniforme, sans le premier euro, sans 3,5 Smic) donnent les mêmes résultats à
+# 0,1 point près.
+W_BM = np.array([1.0, 1.0, 1.0, 1.0, 0.5, 0.0])
+ZP_EXPLORE, S_EXPLORE = ZP, design(ZP)
+
+
+def bm(e):
+    return N.continu(P0, list(np.array(TT5) - e * W_BM))
+
+
+_lo, _hi = 0.0, 0.05
+for _ in range(45):
+    _m = (_lo + _hi) / 2
+    _lo, _hi = (_m, _hi) if N.recette(bm(_m), O) > cible(F_BAR) else (_lo, _m)
+E_BM = (_lo + _hi) / 2
+S = bm(E_BM)
+P_FIN = list(P0)
+TT = list(np.array(TT5) - E_BM * W_BM)
+ZP = P0[5]
 FIN = F_BAR
+p(f"  [ARBITRAGE « bas et milieu »] baisse {100 * E_BM:.2f} point (poids 1/1/1/1/0,5) ; taux {[round(100 * x, 2) for x in TT]} ;"
+  f" écart Smic–200 k€ {ecart(S):.1f} points (droit actuel 26,8)")
 p(f"\n[FINAL 7,0 Md€] ASPA nette : {ASPA_C['central']:.2f} Md€ (fourchette {ASPA_C['bas']:.2f}–{ASPA_C['haut']:.2f} ;"
   f" allocataires {ASPA_C['stock']:.2f}, nouveaux éligibles à plein recours {ASPA_C['entrants_plein_recours']:.2f}) ;"
   f" barème {F_BAR:.2f} Md€ : plafond de 48 % atteint à {ZP:,.0f} € (au lieu de {P0[5]:,.0f}) ; écart de taux moyen"
@@ -582,9 +601,11 @@ J.update(
                          ecart_inexplique=U_TOT, ecart_retenu=max(U_TOT, 0.0), recettes_hors_modele=HORS_MD,
                          ir_non_attribue_prudence=PRUD, financement=FIN, cible_finale=cible(FIN), cible_sans_financement=cible(0.0)),
     frais=dict(options=FRAIS, recommandee=OPTION),
-    final=dict(description="Version finale : financement externe de 7,0 Md€ en croisière (paliers 2029-2040) ; taux aux"
-                           " points 0 à 3,5 Smic de la version à 5,5 Md€ ; plafond de 48 % atteint plus haut ; ASPA calculée"
-                           " sur la pension nette du nouvel impôt", points=P_FIN, taux=TT, financement=FIN_TOT,
+    final=dict(description="Version finale « bas et milieu » : financement externe de 7,0 Md€ en croisière (paliers"
+                           " 2029-2040) ; ASPA calculée sur la pension nette du nouvel impôt (0,3 Md€) ; le reste baisse les"
+                           " taux aux repères 0 à 3,5 Smic (poids 1/1/1/1/0,5) ; plafond de 48 % à 163 400 €",
+               points=P_FIN, taux=TT, financement=FIN_TOT, baisse_points=100 * E_BM,
+               variante_ecartee_plafond_recule=dict(zp=ZP_EXPLORE, ecart=ecart(S_EXPLORE)),
                aspa_cout_Md=ASPA_C, financement_bareme=F_BAR, ecart_taux_moyen_smic_200k=ecart(S),
                ecart_v4_5_5=ecart(S5), ecart_droit_actuel=26.78, tout_sur_progressivite=dict(zp=ZP_TOUT, ecart=ecart(design(ZP_TOUT))),
                pour_atteindre=VARIANTES, paliers=PALIERS, recette_modele=N.recette(S, O)),

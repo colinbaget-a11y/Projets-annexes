@@ -1,0 +1,131 @@
+{
+ "annuel": {
+  "2027": {
+   "foncier_taxe_sol": 0.0,
+   "foncier_dmto": -0.0,
+   "foncier_autres": 0.0,
+   "is_net_prudent": 0.0,
+   "ir_financement_externe": 0.0,
+   "reserve_plus_values": 0.0,
+   "solde": 0.0
+  },
+  "2028": {
+   "foncier_taxe_sol": 0.0,
+   "foncier_dmto": -0.0,
+   "foncier_autres": -0.469,
+   "is_net_prudent": 1.045631067961165,
+   "ir_financement_externe": 0.0,
+   "reserve_plus_values": 0.0,
+   "solde": 0.5766310679611649
+  },
+  "2029": {
+   "foncier_taxe_sol": 3.333,
+   "foncier_dmto": -2.692,
+   "foncier_autres": -0.133,
+   "is_net_prudent": 7.4578188330662645,
+   "ir_financement_externe": -1.5,
+   "reserve_plus_values": 0.0,
+   "solde": 6.4658188330662645
+  },
+  "2030": {
+   "foncier_taxe_sol": 6.667,
+   "foncier_dmto": -5.383,
+   "foncier_autres": -0.5389999999999997,
+   "is_net_prudent": 4.4732124309182435,
+   "ir_financement_externe": -1.5,
+   "reserve_plus_values": 0.195,
+   "solde": 3.7182124309182436
+  },
+  "2031": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -0.6990000000000016,
+   "is_net_prudent": 1.9395672255999485,
+   "ir_financement_externe": -1.5,
+   "reserve_plus_values": 0.44,
+   "solde": 1.6655672255999479
+  },
+  "2032": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.1870000000000012,
+   "is_net_prudent": 2.300577627952565,
+   "ir_financement_externe": -1.5,
+   "reserve_plus_values": 0.488,
+   "solde": 1.5385776279525647
+  },
+  "2033": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.1620000000000008,
+   "is_net_prudent": 4.453741277043673,
+   "ir_financement_externe": -1.5,
+   "reserve_plus_values": 0.536,
+   "solde": 3.716741277043673
+  },
+  "2034": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.1370000000000005,
+   "is_net_prudent": 1.538369139461625,
+   "ir_financement_externe": -1.5,
+   "reserve_plus_values": 0.583,
+   "solde": 0.826369139461625
+  },
+  "2035": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.1140000000000008,
+   "is_net_prudent": 4.175185440286405,
+   "ir_financement_externe": -2.5,
+   "reserve_plus_values": 0.629,
+   "solde": 2.4861854402864045
+  },
+  "2036": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.091000000000001,
+   "is_net_prudent": 6.127501775087295,
+   "ir_financement_externe": -2.5,
+   "reserve_plus_values": 0.674,
+   "solde": 4.461501775087295
+  },
+  "2037": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.0690000000000008,
+   "is_net_prudent": 2.5284311228190717,
+   "ir_financement_externe": -2.5,
+   "reserve_plus_values": 0.719,
+   "solde": 0.8844311228190715
+  },
+  "2038": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.048,
+   "is_net_prudent": 4.356922719167134,
+   "ir_financement_externe": -4.5,
+   "reserve_plus_values": 0.762,
+   "solde": 0.7339227191671345
+  },
+  "2039": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.0280000000000005,
+   "is_net_prudent": 5.853716480090552,
+   "ir_financement_externe": -6.0,
+   "reserve_plus_values": 0.804,
+   "solde": 0.7507164800905519
+  },
+  "2040": {
+   "foncier_taxe_sol": 10.0,
+   "foncier_dmto": -8.075,
+   "foncier_autres": -1.0090000000000003,
+   "is_net_prudent": 6.968175062150186,
+   "ir_financement_externe": -7.0,
+   "reserve_plus_values": 0.846,
+   "solde": 0.8841750621501863
+  }
+ },
+ "notes": "Bouclage v4 (scénario central unique) : solde ≥ 0,5 Md€ chaque année de 2027 à 2040, sans dette.\n\nEntrées (années de caisse) : is4.json (`is_recette_nette_bloc_is_prudent` : taux réduit prudent, niches hors CIR\nprudentes, suppression du CIR prudente, déduction immédiate et réinvestissement), foncier3.json (B_E10 : taxe nationale\nsur le sol, DMTO, report, déductibilité, calendrier), ircsg4.json (`annuel_final` : fusion à recette constante et\nfinancement externe reçu), pfu4.json/pfu3.json (fin de l'effacement, prudent : réserve). Séries IS déflatées de 3 %/an\n(euros de 2027 environ). Marge de sécurité : 0,5 Md€ par an. Sorties : sorties/bouclage4.json et .txt.\n"
+}
