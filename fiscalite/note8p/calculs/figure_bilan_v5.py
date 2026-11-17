@@ -32,31 +32,51 @@ PART_SOL = AS["sol"] / (AS["sol"] + AS["bati"])          # convention : aujourd'
 TRANSFERT = COM_SOL - (COM_SOL + COM_BATI) * PART_SOL
 d = 1.03 ** 13
 
-BLOCS = [
-    ("Nouvel impôt sur le revenu", [
-        ("Suppression des niches", K["vraies_niches"]),
-        ("Pensions imposées comme les salaires", K["alignement_pensions"]),
-        ("Fin du quotient conjugal", K["unite_fiscale"]),
-        ("Fin du quotient familial", CB["qf"]),
-        ("Fin de la CSG déductible", K["technique_csg_deductible"]),
-        ("Forfait de 500 € au lieu du 10 % et des frais réels", K["technique_frais"]),
-        (f"Franchise de {_fr(PAR['franchise_enfant'])} € par enfant", K["quotient_familial_vers_franchise"] - CB["qf"]),
-        ("Baisse des taux (nouveau barème)", K["bareme"]),
-        ("Minimum vieillesse ; contribution sur les hauts revenus", K["aspa_nette"] + K["cehr_absorbee"]),
-    ]),
-    ("Fiscalité foncière", [
-        ("Taxe nationale sur la valeur du sol", F["net"] - F["dmto"]),
-        ("Droits de mutation divisés par deux", F["dmto"]),
-    ]),
-    ("Impôt sur les sociétés", [
-        ("Fin du taux réduit", C["is_fin_taux_reduit_prudent"] / d),
-        ("Fin du crédit d'impôt recherche", C["is_cir_suppression_realisable_prudent"] / d),
-        ("Fin des autres niches", C["is_niches_rendement_prudent_realisable"] / d),
-        ("Déduction immédiate des investissements", (C["is_deduction_50_depart_2029"] + C["is_reinvest_logiciels_acquis"]
-                                                     + C["is_reinvest_deduction_75_puis_100"]) / d),
-        ("Revalorisation des déficits reportables", -PX),
-    ]),
-]
+FA = L("foncier3.json")["annuel_par_scenario"][PAR["scenario_foncier"]]
+CA = L("is4.json")["annuel_caisse"]
+PXA = {int(a): v for a, v in L("pal.json")["pertes"]["national"]["indexation_cout_regime_Md"]["montee_en_charge_indicative"].items()}
+
+
+def blocs(an):
+    """Lignes du bilan pour une année de caisse (euros de 2027 environ). L'impôt sur le revenu est en régime installé
+    dès 2030 (décomposition statique) : mêmes valeurs en 2032 et en 2040."""
+    f, c, dd = FA[str(an)], CA[str(an)], 1.03 ** (an - 2027)
+    px = PXA.get(an, PX if an >= 2032 else 0.0)
+    return [
+        ("Nouvel impôt sur le revenu", [
+            ("Suppression des niches", K["vraies_niches"]),
+            ("Pensions imposées comme les salaires", K["alignement_pensions"]),
+            ("Fin du quotient conjugal", K["unite_fiscale"]),
+            ("Fin du quotient familial", CB["qf"]),
+            ("Fin de la CSG déductible", K["technique_csg_deductible"]),
+            ("Forfait de 500 € au lieu du 10 % et des frais réels", K["technique_frais"]),
+            (f"Franchise de {_fr(PAR['franchise_enfant'])} € par enfant", K["quotient_familial_vers_franchise"] - CB["qf"]),
+            ("Baisse des taux (nouveau barème)", K["bareme"]),
+            ("Minimum vieillesse ; contribution sur les hauts revenus", K["aspa_nette"] + K["cehr_absorbee"]),
+        ]),
+        ("Fiscalité foncière", [
+            ("Taxe nationale sur la valeur du sol", f["net"] - f["dmto"]),
+            ("Droits de mutation divisés par deux", f["dmto"]),
+        ]),
+        ("Impôt sur les sociétés", [
+            ("Fin du taux réduit", c["is_fin_taux_reduit_prudent"] / dd),
+            ("Fin du crédit d'impôt recherche", c["is_cir_suppression_realisable_prudent"] / dd),
+            ("Fin des autres niches", c["is_niches_rendement_prudent_realisable"] / dd),
+            ("Déduction immédiate des investissements", (c["is_deduction_50_depart_2029"] + c["is_reinvest_logiciels_acquis"]
+                                                         + c["is_reinvest_deduction_75_puis_100"]) / dd),
+            ("Revalorisation des déficits reportables", -px),
+        ]),
+    ]
+
+
+BLOCS, B32 = blocs(2040), blocs(2032)
+V32 = {}
+for t, it in B32:
+    V32[t] = sum(v for _, v in it)
+    for l, v in it:
+        V32[l] = v
+V32["Solde de l'ensemble"] = sum(v for _, it in B32 for _, v in it)
+assert abs(V32["Solde de l'ensemble"] - L("bouclage4.json")["annuel"]["2032"]["solde"]) < 0.05
 lignes, ytick, y = [], [], 0
 for titre, items in BLOCS:
     st = sum(v for _, v in items)
@@ -78,7 +98,7 @@ def lab(v):
     return ("+" if r > 0 else "−") + _fr(abs(r))
 
 
-fig, ax = plt.subplots(figsize=(PLEINE, 5.0))
+fig, ax = plt.subplots(figsize=(PLEINE, 4.5))
 for typ, t, v, yy in lignes:
     if typ == "item":
         ax.barh(yy, v, color=HAUSSE if v > 0 else PROP, height=0.66, zorder=2)
@@ -88,6 +108,13 @@ for typ, t, v, yy in lignes:
         ax.barh(yy, v, color=AUJ, height=0.66, zorder=2)
         ax.text(v + (1.2 if v >= 0 else -1.2), yy, lab(v), va="center", ha="left" if v >= 0 else "right", fontsize=7.4,
                 color=ENCRE, fontweight="bold")
+for typ, t, v, yy in lignes:
+    v2 = V32[t]
+    diff = abs(round(v2) - round(v)) >= 1
+    ax.text(47, yy, lab(v2), va="center", ha="right", fontsize=7.2 if typ == "item" else 7.4,
+            color=HAUSSE if diff else ENCRE2, fontweight="bold" if (diff or typ != "item") else "normal")
+ax.text(47, lignes[0][3] + 0.9, "En 2032", ha="right", fontsize=7.2, color=ENCRE, fontweight="bold")
+ax.text(-110, lignes[0][3] + 0.9, "Réforme installée (2040)", ha="left", fontsize=7.2, color=ENCRE, fontweight="bold")
 ax.axvline(0, color=ENCRE2, lw=0.7)
 ax.set_yticks([l[3] for l in lignes])
 ax.set_yticklabels([l[1] for l in lignes], fontsize=7.2)
@@ -95,7 +122,8 @@ for tl, l in zip(ax.get_yticklabels(), lignes):
     if l[0] != "item":
         tl.set_fontweight("bold")
         tl.set_color(ENCRE)
-ax.set_xlim(-112, 36)
+ax.set_xlim(-112, 49)
+ax.set_xticks([-100, -80, -60, -40, -20, 0, 20])
 ax.set_xlabel("Milliards d'euros par an, réforme installée (+ : l'État prélève davantage ; − : il prélève moins)",
               fontsize=7)
 axes(ax, grille="x")
@@ -105,12 +133,12 @@ sauver(fig, "figure_bilan",
        "calculs des auteurs : modèle de foyers calé sur les statistiques de l'impôt sur le revenu 2024 (DGFiP) ; coûts des"
        " niches : Évaluation des voies et moyens PLF 2026, CPO (2026) ; foncier : DVF et comptes de patrimoine (Insee) ;"
        " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
-       "Recettes de 2040 en euros de 2027 environ, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
+       "Barres : recettes de 2040, réforme installée ; colonne de droite : recettes de 2032, en ocre quand elles diffèrent. Euros de 2027 environ, arrondis au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
        " total). Taxe foncière communale inchangée. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
-       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises ; la déduction immédiate figure à son"
-       " coût permanent, une fois passée la transition (son coût est bien plus élevé les premières années : près de 18 Md€"
-       " en 2033). Non comptée : fin de l'effacement des plus-values au décès"
+       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises ; en 2040, la déduction immédiate"
+       " est à son coût permanent ; en 2032 et surtout en 2033 (près de 12 Md€ en euros de 2027), l'État rembourse aussi"
+       " la transition. Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
                   for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2027 environ")

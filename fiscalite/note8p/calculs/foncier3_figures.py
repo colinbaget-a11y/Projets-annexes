@@ -121,10 +121,10 @@ sauver(fig, "g6_sol_bati",
 # ---------------------------------------------------------------------------------------------------------- g10
 h = J["g10"]
 an, ens, men = h["annees"], h["ensemble"], h["menages"]
-fig, ax = plt.subplots(figsize=(PLEINE, 2.4))
+fig, ax = plt.subplots(figsize=(DEMI, 2.9))
 ax.plot(an, ens, color=PROP, lw=2.0, zorder=4)
 ax.plot(an, men, color=NAIF, lw=1.6, zorder=3)
-for a_, dy in ((1998, 10), (2007, 8), (2022, 8), (2025, -16)):
+for a_, dy in ((1998, 10), (2022, 8), (2025, -16)):
     i = an.index(a_)
     ax.plot([a_], [ens[i]], "o", color=PROP, ms=4, mec="white", mew=0.8, zorder=5)
     ax.annotate(f"{_fr(ens[i])} %", (a_, ens[i]), xytext=(0, dy), textcoords="offset points", ha="center",
@@ -134,8 +134,8 @@ ax.annotate(f"{_fr(men[i98])} %", (1998, men[i98]), xytext=(0, -12), textcoords=
             fontsize=7, color=ENCRE2)
 ax.annotate(f"{_fr(men[i25])} %", (2025, men[i25]), xytext=(4, -10), textcoords="offset points", ha="left",
             fontsize=7, color=ENCRE2)
-ax.text(1988, 92, "toute l'économie", color=PROP, fontsize=7.5, ha="center")
-ax.text(1988, 20, "ménages", color="#4a78b5", fontsize=7.5, ha="center")
+ax.text(1990, 110, "toute\nl'économie", color=PROP, fontsize=7, ha="center")
+ax.text(1990, 8, "ménages", color="#4a78b5", fontsize=7, ha="center")
 ax.set_xlim(1977, 2027.5)
 ax.set_ylim(0, 340)
 ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: _fr(v) + " %"))

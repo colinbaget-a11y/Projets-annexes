@@ -24,7 +24,7 @@ import numpy as np
 D = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(D))
 sys.path.insert(0, str(D / "calculs"))
-from charte import AUJ, NAIF, PROP, HAUSSE, ENCRE, ENCRE2, PLEINE, plt, axes, sauver, _fr  # noqa: E402
+from charte import AUJ, NAIF, PROP, HAUSSE, ENCRE, ENCRE2, PLEINE, DEMI, plt, axes, sauver, _fr  # noqa: E402
 import ircsg3_modele as N  # noqa: E402
 
 plt.rcParams.update({"font.family": "Liberation Sans", "legend.frameon": False})
@@ -106,27 +106,27 @@ part_sol = A["sol"] / (A["sol"] + A["bati"])
 nat = F["scenarios"]["B_E10"]["E"]
 nat = float(json.loads((D / "parametres.json").read_text(encoding="utf-8"))["scenario_foncier"].split("_E")[1])
 ETATS = [("Aujourd'hui", dmto, com * (1 - part_sol), com * part_sol, 0.0),
-         ("Réforme naïve :\ndroits ÷ 2, taxe\nfoncière relevée", dmto / 2, (com + nat) * (1 - part_sol),
+         ("Naïve :\ntaxe\nfoncière\nrelevée", dmto / 2, (com + nat) * (1 - part_sol),
           (com + nat) * part_sol, 0.0),
-         ("Notre réforme :\ndroits ÷ 2, taxe\nnationale sur le sol", dmto / 2, com * (1 - part_sol), com * part_sol, nat)]
-COUL = [("Droits de mutation", "#6b6b6b"), ("Taxe foncière sur le bâti", NAIF), ("Taxe foncière sur le sol", HAUSSE),
+         ("Notre\nréforme :\ntaxe sur\nle sol", dmto / 2, com * (1 - part_sol), com * part_sol, nat)]
+COUL = [("Droits de mutation", "#6b6b6b"), ("Taxe foncière : bâti", NAIF), ("Taxe foncière : sol", HAUSSE),
         ("Taxe nationale sur le sol", "#7a3a12")]
-fig, ax = plt.subplots(figsize=(PLEINE, 2.9))
+fig, ax = plt.subplots(figsize=(DEMI, 2.9))
 x = np.arange(len(ETATS))
 for i, (lab, *vals) in enumerate(ETATS):
     bas = 0.0
     for v, (nom, col) in zip(vals, COUL):
         if v <= 0:
             continue
-        ax.bar(i, v, bottom=bas, width=0.55, color=col, zorder=2, edgecolor="white", lw=0.6)
+        ax.bar(i, v, bottom=bas, width=0.62, color=col, zorder=2, edgecolor="white", lw=0.6)
         ax.text(i, bas + v / 2, _fr(v), ha="center", va="center", fontsize=7, color="white", fontweight="bold")
         bas += v
     ax.text(i, bas + 1, f"total {_fr(bas)}", ha="center", va="bottom", fontsize=7.2, color=ENCRE)
 ax.set_xticks(x)
-ax.set_xticklabels([e[0] for e in ETATS], fontsize=7.3)
+ax.set_xticklabels([e[0] for e in ETATS], fontsize=7)
 ax.set_ylabel("Md€ par an", fontsize=7.4)
-ax.set_ylim(0, 70)
-ax.legend(handles=[Patch(color=c, label=n) for n, c in COUL], fontsize=6.9, loc="upper center", bbox_to_anchor=(0.5, -0.3), ncol=4)
+ax.set_ylim(0, 75)
+ax.legend(handles=[Patch(color=c, label=n) for n, c in COUL], fontsize=6.8, loc="upper center", bbox_to_anchor=(0.45, -0.42), ncol=2)
 axes(ax)
 sauver(fig, "g15_foncier",
        "calculs des auteurs (note8p/calculs/foncier3_calculs.py, taxe nationale de 15 Md€) ; DVF ; comptes de patrimoine (Insee).",
@@ -184,24 +184,27 @@ t0 = G6["aujourdhui"]["t_sol"] / 100                       # taxe actuelle, taux
 k_naif = (com + nat) / com
 tn = F["scenarios"][json.loads((D / "parametres.json").read_text(encoding="utf-8"))["scenario_foncier"]]["taux"]["tn_sol"] / 100
 CASG = [("Aujourd'hui", t0 * SOL, t0 * (SOL + BATI)),
-        ("Réforme naïve :\ntaxe foncière relevée", k_naif * t0 * SOL, k_naif * t0 * (SOL + BATI)),
-        ("Notre réforme :\ntaxe nationale sur le sol", t0 * SOL + tn * SOL, t0 * (SOL + BATI) + tn * SOL)]
-fig, ax = plt.subplots(figsize=(PLEINE, 2.6))
+        ("Naïve :\ntaxe foncière\nrelevée", k_naif * t0 * SOL, k_naif * t0 * (SOL + BATI)),
+        ("Notre réforme :\ntaxe sur\nle sol", t0 * SOL + tn * SOL, t0 * (SOL + BATI) + tn * SOL)]
+fig, ax = plt.subplots(figsize=(DEMI, 2.9))
 for i, (lab, nu, ba) in enumerate(CASG):
-    ax.bar(i - 0.17, nu, width=0.32, color=HAUSSE, zorder=2)
-    ax.bar(i + 0.17, ba, width=0.32, color=NAIF, zorder=2)
-    ax.text(i - 0.17, nu + 60, _fr(round(nu, -1)) + " €", ha="center", fontsize=7, color=ENCRE2)
-    ax.text(i + 0.17, ba + 60, _fr(round(ba, -1)) + " €", ha="center", fontsize=7, color=ENCRE2)
-    ax.text(i, -560, f"construire coûte {_fr(round(ba - nu, -1))} € d'impôt en plus par an", ha="center", fontsize=6.8,
+    ax.bar(i - 0.2, nu, width=0.38, color=HAUSSE, zorder=2)
+    ax.bar(i + 0.2, ba, width=0.38, color=NAIF, zorder=2)
+    ax.text(i - 0.2, nu + 60, _fr(round(nu, -1)), ha="center", fontsize=6.6, color=ENCRE2)
+    ax.text(i + 0.2, ba + 60, _fr(round(ba, -1)), ha="center", fontsize=6.6, color=ENCRE2)
+    ax.annotate("", xy=(i + 0.2, ba), xytext=(i + 0.2, nu), arrowprops=dict(arrowstyle="<->", color=PROP, lw=0.9))
+    ax.text(i + 0.45, (nu + ba) / 2, f"+{_fr(round(ba - nu, -1))}", rotation=90, va="center", ha="center", fontsize=6.6,
             color=PROP, fontweight="bold")
 ax.set_xticks(range(3))
-ax.set_xticklabels([c[0] for c in CASG], fontsize=7.3)
-ax.tick_params(axis="x", pad=16)
-ax.set_ylim(0, 4400)
-ax.set_ylabel("Impôt foncier annuel", fontsize=7.3)
-ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: _fr(v) + " €"))
-ax.legend(handles=[Patch(color=HAUSSE, label="Terrain de 200 000 € laissé vide"),
-                   Patch(color=NAIF, label="Le même terrain portant un immeuble de 600 000 €")], fontsize=7, loc="upper left")
+ax.set_xticklabels([c[0] for c in CASG], fontsize=7)
+
+ax.set_ylim(0, 4300)
+ax.set_ylabel("Impôt foncier annuel, €", fontsize=7)
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: _fr(v)))
+ax.legend(handles=[Patch(color=HAUSSE, label="Terrain de 200 000 € vide"),
+                   Patch(color=NAIF, label="Avec un immeuble de 600 000 €"),
+                   plt.Line2D([], [], color=PROP, lw=0.9, label="Impôt dû pour avoir construit")], fontsize=6.6,
+          loc="upper center", bbox_to_anchor=(0.45, -0.42), ncol=1)
 axes(ax)
 sauver(fig, "g17_construire", "calcul illustratif des auteurs (note8p/calculs/figures_v6_trois_etats.py).",
        f"Aujourd'hui : {_fr(100 * t0, 2)} % de la valeur totale du bien (taxe foncière rapportée à la valeur des logements,"
