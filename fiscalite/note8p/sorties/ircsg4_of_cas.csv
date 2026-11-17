@@ -1,0 +1,17 @@
+cle,libelle,enfants,isole,bruts,bases,charge_avec,charge_sans,ir_avec,ir_sans,credits,reductions,pinel_garde,csg_crds,cehr,naissances
+smic_hs,"Salarié au Smic, 10 % d'heures supplémentaires exonérées",0,0,23784.28,21094.24,2266.7,2320.7,0.0,54.0,0.0,0.0,0.0,2266.7,0.0,
+smic,"Salarié au Smic, sans heure supplémentaire",0,0,21622.08,19176.48,2060.64,2060.64,0.0,0.0,0.0,0.0,0.0,2060.64,0.0,
+milieu,"Salarié de classe moyenne, 40 000 € brut, sans niche",0,0,40000.00,35476.00,5779.1,5779.1,1967.0,1967.0,0.0,0.0,0.0,3812.1,0.0,
+julie,"Julie, 2 000 € net par mois",0,0,30318.48,26889.36,3714.43,3714.43,825.0,825.0,0.0,0.0,0.0,2889.43,0.0,
+julie_200,Julie après +200 € net par mois,0,0,33350.11,29578.27,4361.34,4361.34,1183.0,1183.0,0.0,0.0,0.0,3178.34,0.0,
+garde,"Couple biactif 36 + 24 k€, deux enfants de 1 et 3 ans gardés par une assistante maternelle",2,0,36000.00;24000.00,31928.40;21285.60,2250.15,5750.15,-3468.0,32.0,3500.0,0.0,0.0,5718.15,0.0,2024-03-01;2022-03-01
+garde_dom,"Le même, avec en plus 3 000 € d'emploi à domicile (ménage)",2,0,36000.00;24000.00,31928.40;21285.60,750.15,5750.15,-4968.0,32.0,5000.0,0.0,0.0,5718.15,0.0,2024-03-01;2022-03-01
+garde_sans,"Le même couple, sans niche",2,0,36000.00;24000.00,31928.40;21285.60,5750.15,5750.15,32.0,32.0,0.0,0.0,0.0,5718.15,0.0,2024-03-01;2022-03-01
+pi_garde,"Parent isolé au Smic, un enfant de 2 ans gardé (2 500 €)",1,1,21622.08,19176.48,810.64,2060.64,-1250.0,0.0,1250.0,0.0,0.0,2060.64,0.0,2023-03-01
+nombreuse,"Famille nombreuse biactive 40 + 25 k€, trois enfants (collégien, lycéen, 7 ans)",3,0,40000.00;25000.00,35476.00;22172.56,6194.66,6194.66,0.0,0.0,0.0,0.0,0.0,6194.66,0.0,2009-03-01;2012-03-01;2018-03-01
+mono,"Couple mono-actif, 45 000 € brut, deux enfants de 8 et 11 ans",2,0,45000.00;0.00,39906.34;0.00,4288.62,4288.62,0.0,0.0,0.0,0.0,0.0,4288.62,0.0,2017-03-01;2014-03-01
+mono_mi,"Le même, le conjoint reprend un mi-temps au Smic",2,0,45000.00;10811.04,39906.34;9588.36,5318.93,5318.93,0.0,0.0,0.0,0.0,0.0,5318.93,0.0,2017-03-01;2014-03-01
+ret_modeste,"Retraité seul, pension de 14 000 €",0,0,14000.00,14000.00,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-0.0,0.0,
+ret_dom,"Retraitée seule, pension de 30 000 €, aide à domicile 4 000 €",0,0,30000.00,30000.00,1287.0,3287.0,-843.0,1157.0,2000.0,0.0,0.0,2130.0,0.0,
+ret_dom_sans,"La même, sans niche",0,0,30000.00,30000.00,3287.0,3287.0,1157.0,1157.0,0.0,0.0,0.0,2130.0,0.0,
+cadres,"Couple de cadres 90 + 60 k€, deux enfants ; dons 2 000 €, emploi à domicile 6 000 €, Pinel 4 000 €/an",2,0,90000.00;60000.00,80208.49;53286.49,21846.38,30227.38,7551.0,15932.0,3000.0,1381.0,4000.0,14295.38,0.0,2012-03-01;2015-03-01

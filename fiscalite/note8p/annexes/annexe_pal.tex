@@ -1,0 +1,137 @@
+% Annexe « Pour aller plus loin » (note8p, 17/11/2026). Chiffres : note8p/sorties/pal.json (note8p/calculs/pal_calculs.py,
+% qui appelle pal_maires.py, pal_pertes.py, pal_revenus.py, pal_bareme.py) ; figure : note8p/calculs/pal_figure.py.
+% Hors scénario budgétaire central. Statuts : [E] empirique publié, [S] simulation, [H] hypothèse, [C] choix.
+\subsection{Intéresser les maires à construire}\label{ann:pal-maires}
+
+\paragraph{Droit de référence (2026).} Logements neufs exonérés de taxe foncière les deux années suivant leur
+achèvement (CGI, art.~1383) ; depuis 2021, la commune peut limiter l'exonération de sa part entre 40 et 90~\% de la
+base, l'intercommunalité peut la supprimer pour la sienne (BOFiP, ACTU-2021-00034). Taxe d'aménagement : surface
+$\times$ 892~€/m² en 2026 (1\,011~€ en Île-de-France) $\times$ taux communal de 1 à 5~\% (20~\% au plus dans certains
+secteurs), abattement de 50~\% sur les 100 premiers m² d'une résidence principale (service-public.fr). DGF 2026 :
+27,4~Md€, dont 19,1 pour le bloc communal (avis du Sénat sur le PLF~2026, non relu dans la LFI) ; la dotation forfaitaire
+varie de 64,46 à 128,93~€ par habitant gagné ou perdu (CGCT, art.~L.~2334-7). Aide aux maires bâtisseurs (LF~2025,
+Fonds vert, 100~M€ ; permis du 1/4/2025 au 31/3/2026 ; zones A~bis, A, B1, touristiques, OIN, SRU ; 1\,000 à 2\,000~€
+par logement plus 1\,000 à 1\,500~€ de bonus) : demandée pour plus de 70\,000 logements par plus de 400 communes
+(réponse à la question écrite n°~7568, AN), supprimée en 2026. Le bilan « 45~M€, 466 communes, 42\,000 logements » n'a
+pas pu être vérifié ; ces logements sont ceux des opérations aidées, non des logements causés par l'aide.
+
+\paragraph{Recette communale d'un logement neuf [S].} Taux moyens rapportés à la valeur vénale (sorties/foncier3.json) :
+aujourd'hui 0,358~\% pour le sol comme pour le bâti ; après réforme (scénario central, recette communale constante)
+0,569~\% du sol et 0,142~\% du bâti ; terrain nu avant construction 0,08~\% [H]. Supplément annuel dû à la
+construction : aujourd'hui $0{,}358\,\%\,(S+B) - 0{,}08\,\%\,S$ sur un terrain nu, $0{,}358\,\%\,B$ en densification ;
+après réforme $0{,}142\,\%\,B$ dans les deux cas, la part communale sur le sol ne dépendant pas de la construction.
+Valeur actualisée : 4~\% réel, 30~ans, exonération de deux ans aujourd'hui et aucune après [H].
+
+\begin{center}\small\begin{tabular}{@{}lrrrr@{}}\toprule
+Logement neuf [H] & Aujourd'hui & Après & Baisse & VA perdue \\\midrule
+Appartement 65~m², 290\,000~€, sol 25~\%, densification & 780~€ & 310~€ & $-60$~\% & 6\,900~€ \\
+Même appartement, terrain auparavant nu & 980~€ & 310~€ & $-68$~\% & 10\,100~€ \\
+Maison 100~m², 250\,000~€, sol 35~\%, terrain nu & 830~€ & 230~€ & $-72$~\% & 9\,100~€ \\\bottomrule
+\end{tabular}\end{center}
+Autres recettes : taxe d'aménagement communale à 3~\% [H], 870 à 1\,340~€ une fois ; DGF, 130 à 260~€ par an pour
+2~habitants [H]. Ouverture à l'urbanisation : si la valeur du sol d'un logement futur passe de 20 à 100~\% [H], la part
+communale sur le sol rapporte 330~€ par an et par logement avant toute construction ; 25~\% de la part nationale sur le
+sol ajouteraient 23~€. Ces montants sont des moyennes : le coefficient correcteur et les taux votés font varier la
+recette d'un logement d'une commune à l'autre (écart de plus de 20\,000~€ par an pour 100 logements entre un
+coefficient de 0,8 et de 1,2 selon l'Institut Paris Région, Note rapide n°~1054, avril 2026).
+
+\paragraph{Variantes.} (a) Part démographique de la DGF renforcée : récompense la population, non les logements,
+avec retard et sous écrêtement ; écartée. (b) Dotation par logement supplémentaire net : retenue. (c) Part de la taxe
+nationale sur le sol rendue à la commune : effet marginal négligeable et prime à la rareté ; écartée.
+
+\paragraph{Architecture retenue [C] et coût.} Dotation unique versée l'année d'entrée au rôle, par logement
+supplémentaire net (stock de logements imposés de N moins N$-$1, fichier foncier), dans les communes des zones A~bis,
+A et B1 ; partage fixe avec l'EPCI en cas de PLU intercommunal ; financement par un prélèvement uniforme sur la
+dotation forfaitaire (enveloppe constante). Coût : montant $\times$ logements ; 2\,000~€ $\times$ 300\,000 = 0,6~Md€ ;
+5\,000~€ $\times$ 150\,000 à 300\,000 = 0,75 à 1,5~Md€, soit 3,9 à 7,9~\% de la DGF du bloc communal (279\,700
+logements commencés en 2025, SDES). Montant recommandé : 5\,000~€, la moitié aux trois quarts de la recette actualisée
+retirée par la réforme. Le \emph{New Homes Bonus} anglais (2011) versait six années de taxe d'habitation moyenne par
+logement net, plus 350~£ par logement abordable ; son évaluation (DCLG, 2014) ne mesure pas d'effet causal sur la
+construction ; 11~\% des urbanistes le jugent important pour le nombre de logements planifiés.
+
+\subsection{Mieux traiter les pertes des entreprises}\label{ann:pal-pertes}
+
+\paragraph{Droit (BOFiP, novembre 2026).} Report en avant illimité, imputation plafonnée à 1~M€ plus 50~\% du bénéfice
+au-delà (CGI, art.~209~I ; BOI-IS-DEF-10-30) ; report en arrière optionnel du déficit de l'exercice sur le bénéfice de
+l'exercice précédent, dans la limite de 1~M€, créance imputable sur l'IS des cinq années suivantes puis remboursée
+(art.~220~quinquies ; BOI-IS-DEF-20-10 et 20-20). Historique : report en arrière sur trois exercices sans plafond jusqu'à
+la LFR du 19/9/2011 ; plafond de 60~\% puis 50~\% (exercices clos à compter du 31/12/2012) ; remboursement immédiat des
+créances (LFR 2020-935, art.~5) ; report du premier déficit clos du 30/6/2020 au 30/6/2021 sur trois exercices, sans
+plafond (LFR 2021-953, art.~1 ; BOI-IS-DEF-20-30). Garde-fous : art.~221,~5 (changement d'activité réelle), 209~II
+(agrément en cas de fusion), 223~I (groupes intégrés).
+
+\paragraph{Données [E].} Déficits nouveaux des sociétés à l'IS : 65~Md€ en 2018, 83 en 2021, 113 en 2022 ; report en
+arrière : 1,2~Md€ (22\,000 entreprises) en 2021, 0,2~Md€ (7\,800) en 2022 (DGFiP, \emph{Statistiques} n°~21). Stock
+reportable fin 2010 : 315~Md€, dont 160 jugés imputables ; consommation d'environ 25~Md€ par an en 2007-2010 (compte
+général de l'État 2010, d'après le rapport Carrez n°~3718). Rendement du plafonnement de 2011 : 0,5~Md€ en 2011, 1,5 en
+2012 (rapport Marini n°~787). Coût de l'extension de 2021 : 0,4~Md€ (Sénat, 23/6/2021).
+
+\paragraph{Simulation [S].} IS de 25~\%. Régimes : actuel ; indexation annuelle du stock de nouveaux déficits au taux
+de l'OAT à 10 ans (3,37~\% en 2025, BCE), plafond inchangé ; plafond supprimé ; report en arrière sur trois exercices,
+sans plafond, remboursé l'année suivante ; remboursement de la créance actuelle l'année suivante. Taux effectif = VA de
+l'impôt / VA du résultat imposable (actualisation 5~\%) ; symétrie = 25~\%.
+
+\begin{center}\small\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lrrrrr@{}}\toprule
+Profil & Actuel & Indexation & Sans plafond & Arrière 3~ans & Rembours. rapide \\\midrule
+Jeune PME ($-0{,}4$~M€ $\times$ 3, puis $+0{,}5$~M€ $\times$ 9) & 26,7 & 25,6 & 26,7 & 26,7 & 26,7 \\
+Établie (+3~M€ avant ; $-2$~M€ $\times$ 3, puis $+2{,}5$~M€) & 26,8 & 25,9 & 26,7 & 25,7 & 26,5 \\
+Établie puis disparue (part de la perte portée par l'État) & 3,4 & 3,4 & 3,4 & 16,3 & 4,2 \\\bottomrule
+\end{tabular}\end{center}
+À 8~\%, les taux actuels sont de 28,4 et 28,5~\% ; actualisée au taux de l'OAT, l'indexation rend exactement 25~\% à
+la jeune PME. Pour 100 d'achat, la déduction immédiate de 50~\% vaut 1,60 si l'entreprise est imposable, 1,07 après un an
+de pertes, 0,41 après trois (sorties/is4.json) ; avec des déficits indexés au taux d'actualisation, 1,60 quel que soit
+le délai.
+
+\paragraph{Coût national de l'indexation [S/H].} En régime établi : $C_{\mathrm{index}} = \tau\, D\, [(1+i)^a - 1]$,
+$D$ = déficits imputés par an, $a$ = âge moyen à l'imputation (non publiés). $D = 32$~Md€, $a = 4$ : 1,1~Md€ ;
+$D \in [25 ; 40]$, $a \in [2 ; 6]$ : 0,4 à 2,2~Md€. Coût nul la première année, régime atteint en quatre à six ans.
+Variantes non retenues : suppression du plafond (trésorerie de l'ordre de 1,5~Md€ à l'introduction, au bénéfice des
+seules entreprises à plus de 1~M€ de bénéfice) ; report en arrière sur trois ans remboursé (coût très cyclique,
+remboursements aux entreprises qui disparaissent ; Bethmann, Jacob et Müller, 2018).
+
+\subsection{Ne pas pénaliser les revenus irréguliers}\label{ann:pal-revenus}
+
+\paragraph{Droit (vérifié).} Quotient (art.~163-0~A) : revenus exceptionnels par nature et par montant, coefficient 4 ;
+revenus différés ; exclut les revenus de l'activité professionnelle normale, même très variables (impots.gouv.fr,
+07/04/2026). Étalement agricole sur sept exercices de la fraction du bénéfice supérieure à 25\,000~€ et à 1,5 fois la
+moyenne triennale (art.~75-0~A ; BOI-BA-LIQ-10) : 11~M€ en 2024, 500 entreprises (Voies et moyens 2026, n°~170306).
+Moyenne triennale agricole (art.~75-0~B ; BOI-BA-LIQ-20-10) : option de trois ans reconduite ; à la sortie, l'excédent
+du bénéfice sur la moyenne est taxé au taux marginal de la moyenne ; pas de fiche chiffrée. Moyenne sur 3 ou 5 ans des
+bénéfices littéraires, artistiques, scientifiques et sportifs (art.~100~bis ; BOI-BNC-SECT-20-10-20), étendue aux
+salaires par l'art.~84~A : non chiffrée (n°~110307).
+
+\paragraph{Mécanismes simulés [S].} Barème : taux marginal affine entre les points (0~€ ; 2,12~\%), (19\,176 ; 16,12),
+(28\,765 ; 23,12), (38\,353 ; 29,38), (67\,118 ; 37,01), (163\,425 ; 48), constant au-delà ; $T(y)=\int_0^y t(u)\,du$
+(sorties/ircsg4.json, relu à chaque calcul). Annuel : $T(y_t)$. Option pour 5 ans (quotient pluriannuel) : dans la
+$k$-ième année, paiement $k\,T(\bar y_k) - (k-1)\,T(\bar y_{k-1})$, $\bar y_k$ moyenne des $k$ premiers revenus ;
+total $5\,T(\bar y)$. Lissage glissant sur 3 ans : paiement $3\,T(m_t) - \mathrm{imp}_{t-1} - \mathrm{imp}_{t-2}$,
+$m_t$ moyenne des trois derniers revenus (deux années antérieures au revenu de la première).
+
+\begin{center}\small\setlength{\tabcolsep}{4.5pt}\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+Impôt (€) & An 1 & An 2 & An 3 & An 4 & An 5 & Total & Écart / A \\\midrule
+A, 50\,000~€ par an & 9\,748 & 9\,748 & 9\,748 & 9\,748 & 9\,748 & 48\,739 & -- \\
+B (10, 20, 30, 70, 120~k€), annuel & 577 & 1\,883 & 3\,920 & 16\,766 & 36\,862 & 60\,008 & +11\,268 \\
+B, lissage glissant sur 3 ans & 577 & 1\,640 & 3\,434 & 14\,827 & 35\,790 & 56\,268 & +7\,528 \\
+B, option pour 5 ans & 577 & 1\,701 & 3\,373 & 12\,502 & 30\,586 & 48\,739 & 0 \\
+B inversé, option pour 5 ans & 36\,862 & 16\,053 & 1\,136 & $-1\,541$ & $-3\,770$ & 48\,739 & 0 \\\bottomrule
+\end{tabular}\end{center}
+Pour mémoire, des périodes fixes de trois ans (années 1-3 puis 4-5) laissent un écart de 9\,826~€ : le résultat dépend
+du calage, d'où le choix d'une période de cinq ans ou d'un mécanisme glissant.
+
+\paragraph{Architecture [C].} Option irrévocable pour cinq ans, renouvelable, sur les revenus professionnels (salaires,
+bénéfices non salariés, droits d'auteur) ; régularisation immédiate en cas de cessation, de décès ou de départ à
+l'étranger (le solde est arrêté avant toute restitution) ; taux du prélèvement à la source calculé sur le revenu moyen
+de la période ; remplace les art.~75-0~A, 75-0~B, 84~A, 100~bis et le quotient des revenus professionnels. Budget :
+pas de report de recettes avec le quotient pluriannuel (restitutions avancées quand les revenus baissent) ; coût de
+transition par sélection des premiers optants ; coût permanent égal à la recette de convexité perdue. Sans panel de
+déclarations, pas de chiffrage national.
+
+\paragraph{Références.} Auerbach (1986), \emph{Review of Economic Studies} 53(2) ; Batchelder (2003), \emph{Harvard
+Journal on Legislation} 40 ; Bethmann, Jacob et Müller (2018), \emph{The Accounting Review} 93(4) ; Devereux, Keen et
+Schiantarelli (1994), \emph{Journal of Public Economics} 53(3) ; Domar et Musgrave (1944), \emph{Quarterly Journal of
+Economics} 58(3) ; Dreßler et Overesch (2013), \emph{International Tax and Public Finance} 20(3) ; Fischel (2001),
+\emph{The Homevoter Hypothesis} ; Gentry et Hubbard (2000), \emph{American Economic Review} 90(2) ; Glaeser et Gyourko
+(2018), \emph{Journal of Economic Perspectives} 32(1) ; Hilber et Vermeulen (2016), \emph{Economic Journal} 126(591) ;
+Langenmayr et Lester (2018), \emph{The Accounting Review} 93(3) ; Ljungqvist, Zhang et Zuo (2017), \emph{Journal of
+Accounting Research} 55(3) ; Vickrey (1939), \emph{Journal of Political Economy} 47(3) ; Cour des comptes (2025) ;
+Institut Paris Région, Note rapide n°~1054 (2026) ; DCLG (2014), \emph{Evaluation of the New Homes Bonus} ; NAO (2013).

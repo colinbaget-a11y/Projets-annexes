@@ -1,101 +1,153 @@
-% Annexe du bloc IR-CSG-CRDS, révision v3 (18/11/2026). Chiffres : note8p/sorties/ircsg3.json et ircsg3_calculs.txt,
-% produits par note8p/calculs/ircsg3_proposition.py (remplace l'annexe v2 écrite par ircsg_annexe.py).
+% Annexe du bloc IR-CSG-CRDS, révision finale v4 (19/11/2026). Chiffres : note8p/sorties/ircsg4.json et ircsg4_calculs.txt,
+% produits par note8p/calculs/ircsg4_modele.py, ircsg4_openfisca.py (python3.13), ircsg4_cas.py et ircsg4_figures.py.
+% Les scripts v3 (ircsg3_*.py) sont réutilisés sans modification.
 
 \subsection{Le barème : une formule en six nombres}
 
-Le nouvel impôt frappe le revenu après cotisations sociales de chaque adulte (salaire brut moins cotisations salariales, pension brute, allocations chômage, bénéfices et revenus fonciers nets de cotisations), diminué des frais professionnels réels, des versements d'épargne retraite dans les plafonds actuels et, pour le parent qui le choisit, d'une franchise de 6\,000~€ par enfant. Son barème n'est pas défini par des tranches mais par le \emph{taux marginal} en six points de référence :
+Le nouvel impôt frappe le revenu après cotisations sociales de chaque adulte (salaire brut moins cotisations salariales, pension brute, allocations chômage, bénéfices et revenus fonciers nets de cotisations), diminué des frais professionnels réels, des versements d'épargne retraite dans les plafonds actuels et, pour le parent qui le choisit, d'une franchise de 6\,000~€ par enfant. Le barème est défini par le \emph{taux marginal} en six points :
 \[
 \begin{array}{l|cccccc}
 \text{revenu } z_k \text{ (€)} & 0 & 19\,200 & 28\,800 & 38\,400 & 67\,100 & 163\,400\\
 \text{repère} & \text{1\textsuperscript{er} euro} & 1~\text{Smic} & 1{,}5~\text{Smic} & 2~\text{Smic} & 3{,}5~\text{Smic} & \text{plafond}\\ \hline
-\text{taux marginal } t_k & 2~\% & 16~\% & 23~\% & 29~\% & 36~\% & 48~\%
+\text{taux marginal } t_k & 2{,}1~\% & 16{,}1~\% & 23{,}1~\% & 29{,}4~\% & 37{,}0~\% & 48~\%
 \end{array}
 \]
-Entre deux points, le taux marginal monte en ligne droite : $t(z)=t_k+(t_{k+1}-t_k)\,\frac{z-z_k}{z_{k+1}-z_k}$ ; au-delà de 163\,400~€, il reste à 48~\%. L'impôt est l'aire sous cette courbe : sur chaque segment, $T(z)=T(z_k)+t_k\,(z-z_k)+\tfrac12\,\frac{t_{k+1}-t_k}{z_{k+1}-z_k}\,(z-z_k)^2$, soit un polynôme du second degré, continu et dérivable par morceaux. Les repères sont exprimés en revenu après cotisations : 1~Smic 2025 = 21\,622~€ brut par an = 19\,176~€ après cotisations salariales (OpenFisca). Le plafond est le seul paramètre calé sur la recette. C'est la logique du tarif allemand (\S~32a EStG, tarif 2025 : taux marginal croissant en ligne droite de 14 à 24~\% entre 12\,097 et 17\,443~€, puis jusqu'à 42~\% à 68\,480~€ ; impôt $(932{,}30\,y+1\,400)\,y$ avec $y=(\text{revenu}-12\,096)/10\,000$ dans la première zone, $(176{,}64\,z+2\,397)\,z+1\,015{,}13$ dans la seconde ; 42~\% puis 45~\% au-delà de 277\,826~€ ; formules lues sur un site de calcul citant la loi du 30/12/2024, texte officiel indisponible), avec un point de plus et sans exonération de base. Pour le contribuable, le barème se publie comme une table (impôt pour chaque revenu, de 100 en 100~€) ; le prélèvement à la source applique le taux moyen.
+Entre deux points, le taux marginal monte en ligne droite ; au-delà de 163\,400~€, il reste à 48~\%. L'impôt est l'aire sous cette courbe : sur chaque segment, $T(z)=T(z_k)+t_k\,(z-z_k)+\tfrac12\,\frac{t_{k+1}-t_k}{z_{k+1}-z_k}\,(z-z_k)^2$. 1~Smic 2025 = 21\,622~€ brut = 19\,176~€ après cotisations (OpenFisca). C'est la logique du tarif allemand (\S~32a EStG). Par rapport à la version précédente (1,5 / 15,5 / 22,5 / 28,7 / 36,4~\%), les cinq premiers taux sont relevés uniformément de 0,65 point, plafond et points inchangés : la recette réellement disponible est plus faible qu'estimé (section~\ref{ann:ircsg_residu}) et la fin du forfait de 10~\% fera déclarer beaucoup plus de frais réels (section~\ref{ann:ircsg_frais}). Un relèvement ciblé sur les points 1,5 à 3,5~Smic, qui épargnerait le Smic, exigerait 2,4 points au milieu du barème et réduirait des trois quarts le gain sur les heures et l'effort : il n'est pas retenu.
 
-Avantages : aucune marche (le taux marginal ne saute jamais, contrairement aux 10,7 $\to$ 23,7~\% d'aujourd'hui à 1,1~Smic), un taux moyen qui croît régulièrement, six nombres pour tout décrire. Un barème à tranches de 3 points qui suit cette courbe (16 taux) donne les mêmes résultats à moins d'un euro par mois près (tableau~\ref{tab:ircsg3_cand}).
+\subsection{Ce que coûtent vraiment les réductions et crédits d'impôt}
 
-\subsection{Périmètre, recette et décomposition}
+\paragraph{Sources.} Conseil des prélèvements obligatoires, \emph{L'impôt sur le revenu, ses réductions et crédits d'impôt depuis 2017}, septembre 2026 (étude demandée par la commission des finances de l'Assemblée nationale ; données POTE 2024) ; DGFiP Statistiques n°~41, novembre 2025 (revenus 2024) ; Voies et moyens, tome~II, PLF~2026 (coût 2025). Le tome~II du PLF~2027 n'a pas pu être consulté.
 
-\paragraph{Recette à tenir.} IR des revenus du barème (86,6~Md€, IRCOM des revenus 2024 porté en 2025, net des réductions et crédits d'impôt), CSG (135,8) et CRDS (7,6) des revenus d'activité et de remplacement, CEHR due sur ces revenus (0,58, absorbée) et coût des avantages maintenus pour l'invalidité et la dépendance (1,03) : 231,5~Md€. L'impôt de référence étant \emph{net} des niches, leur suppression finance la réforme par construction ; aucun montant des Voies et moyens n'est ajouté au calcul.
-
-\paragraph{Décomposition séquentielle.} Le droit 2025 sans niche est simulé sur les foyers du modèle (\texttt{ircsg3\_droit.py} : barème, quotient et plafonds, décote, déduction de 10~\% et abattement de 10~\% des pensions, abattement de l'art.~157~bis, CSG des pensions à quatre taux selon le revenu fiscal, CSG déductible ; écart moyen aux cas-types OpenFisca de 0 à 4~€ par foyer pour les salariés, 14 à 22~€ pour les retraités), puis les mesures sont introduites une à une dans l'ordre du tableau~\ref{tab:ircsg3_casc}.
-
-\begin{table}[h]\centering\footnotesize\setlength{\tabcolsep}{4pt}
-\caption{Où vont les recettes (Md€ 2025, statique ; + = recette)}\label{tab:ircsg3_casc}
-\begin{tabular}{lrrrrrr}\hline
-Étape & Total & Actifs & Retraités & D1--D5 & D10 & 1~\% \\ \hline
-Charge observée & 229{,}9 & & & & & \\
-1. Réductions, crédits, exonérations, demi-parts, frais réels & $+$27{,}1 & $+$19{,}0 & $+$8{,}1 & $+$3{,}8 & $+$13{,}4 & $+$3{,}2 \\
-2. Abattement de 10~\% des pensions & $+$7{,}3 & 0 & $+$7{,}3 & $+$1{,}3 & $+$1{,}1 & $+$0{,}1 \\
-3. Abattement des personnes âgées & $+$0{,}6 & 0 & $+$0{,}6 & $+$0{,}5 & 0 & 0 \\
-4. CSG des retraités alignée & $+$7{,}9 & 0 & $+$7{,}9 & $+$5{,}3 & $+$0{,}5 & 0 \\
-5. Fin du quotient conjugal & $+$12{,}1 & $+$8{,}2 & $+$4{,}0 & $+$0{,}1 & $+$6{,}8 & $+$1{,}7 \\
-6. Fin du quotient familial & $+$16{,}2 & $+$16{,}2 & 0 & $+$0{,}2 & $+$8{,}2 & $+$1{,}2 \\
-7. Fin de la CSG déductible & $+$24{,}1 & $+$17{,}8 & $+$6{,}3 & $+$1{,}6 & $+$11{,}4 & $+$3{,}4 \\
-8. Forfait de 10~\% supprimé (frais réels gardés) & $+$16{,}9 & $+$16{,}9 & 0 & $+$1{,}2 & $+$8{,}0 & $+$1{,}5 \\
-9--10. CEHR absorbée ; invalidité-dépendance & $-$1{,}6 & & & & & \\
-11. Franchise de 6\,000~€ par enfant & $-$18{,}1 & $-$18{,}1 & 0 & $-$0{,}6 & $-$8{,}3 & $-$1{,}4 \\
-12. Nouveau barème & $-$92{,}5 & $-$72{,}1 & $-$20{,}3 & $-$13{,}4 & $-$35{,}8 & $-$8{,}8 \\ \hline
-Variation nette & 0 & $-$12{,}1 & $+$13{,}8 & 0{,}0 & $+$5{,}4 & $+$0{,}9 \\ \hline
-\end{tabular}
-\par\footnotesize Déciles de foyers classés par revenu fiscal. L'ordre change la taille de chaque marche (le quotient familial, mesuré après l'individualisation, vaut plus), pas le total. Étape 1 : écart entre le droit simulé sans niche et l'impôt observé ; Voies et moyens (PLF 2026, t.~II, coût 2025) : réductions et crédits 15,5~Md€ (emploi à domicile 7,0 ; dons 2,2 ; garde 1,8 ; Pinel-Duflot 1,5), exonérations salariales 9,3, demi-parts 2,9, foncier 2,2, indépendants 0,6.
-\end{table}
-
-\paragraph{Réconciliations.} (1) En v2, la baisse des actifs (11,3~Md€) et la hausse des retraités (12,9) différaient de la CEHR absorbée et des avantages d'invalidité (0,58 + 1,03) ; en v3, 12,15 + 0,58 + 1,03 = 13,76~Md€, la hausse payée par les retraités. (2) IR non attribué (4,0~Md€ : IR imputé au capital par la convention de 12,8~\%, 12,4~Md€, moins l'IR au PFU mesuré par le bloc capital, 8,4) : laissé au bloc capital (IR des revenus mobiliers imposés au barème par option) ; s'il relevait du barème, +0,38 point sur le bas et le milieu du barème, gain au Smic de 28 à 23~€ par mois. (3) Réduction pour revenus de source étrangère (3,8~Md€, conventions, non supprimable) : si la moitié concerne des revenus du barème, +0,18 point. (4) Frais réels : 35,2~Md€ déclarés pour 2024 (cases 1AK, 1BK), répartis au prorata des revenus d'activité (hypothèse) ; 10~Md€ de déclarations en plus coûteraient 0,26 point.
-
-\subsection{Modèle}
-
-Foyers « purs » de \texttt{synthese/modele\_purs.py} (25 tranches de l'IRCOM des revenus 2024 portées en 2025, 60 points par tranche, foyers d'actifs et de retraités, couples homogènes, quatre partages des revenus). Modifications v3 (\texttt{ircsg3\_modele.py}) : enfants répartis en familles de 1, 2, 3 et 4 enfants selon le recensement 2022 (Insee : 43,5 / 38,6 / 13,1 / 4,8~\% des familles avec enfants de moins de 25 ans), pour les couples d'actifs comme pour les 1,97~M de parents isolés, à tout revenu (hypothèse), total de 18,0~M d'enfants conservé ; charge actuelle des nouveaux types corrigée de l'écart de quotient familial, puis recalée pour garder la charge observée de chaque point ; frais réels déduits de l'assiette.
-
-\subsection{Barèmes candidats}
+\paragraph{Chiffres clés (revenus 2024).} 12,8~millions de foyers, soit 30,9~\% des foyers, ont vu leur impôt diminuer par une réduction ou un crédit, de 1\,520~€ en moyenne (DGFiP) ; 19,5~Md€ au total, dont 3,8~Md€ de réduction pour revenus de source étrangère, qui élimine une double imposition. Hors ce dispositif, le CPO retient 15~Md€ (réductions 6,1 ; crédits 8,9). 14,3~millions de foyers (34~\%) remplissent au moins une case ; pour les deux tiers des 12,5~millions de bénéficiaires effectifs, l'avantage est inférieur à 1\,000~€ ; il dépasse 100\,000~€ pour environ 200 foyers. 45~\% des crédits (4~Md€) vont à des foyers non imposés, dont 2~Md€ versés par restitution : les crédits garde d'enfants et emploi à domicile sont remboursables. Répartition par groupe de revenu fiscal par part (CPO, tableau~15) : les réductions vont pour 22~\% aux foyers du 41\textsuperscript{e} au 80\textsuperscript{e} centile et pour 59~\% au dixième le plus aisé ; les crédits pour 19~\% aux 40~\% les plus modestes et pour 33~\% au dixième le plus aisé. Les réductions et crédits renforcent un peu la concentration de l'impôt (le dixième le plus aisé paie 70,7~\% de l'impôt avant, 74,3~\% après).
 
 \begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
-\caption{Candidats à recette constante}\label{tab:ircsg3_cand}
-\begin{tabular}{lrrrrrrrrrrr}\hline
- & \multicolumn{5}{c}{Salarié seul (€/mois)} & \multicolumn{4}{c}{Retraité seul (€/an)} & Gain & 10~\% / 1~\% \\
- & Smic & 1,5 S & 3 S & 120 k€ & 250 k€ & 12 k€ & 16 k€ & 30 k€ & 100 k€ & (Md€) & (Md€) \\ \hline
-C1 : 2/16/23/29/37 $\to$ 45~\% à 152~k€ & $-$28 & $-$47 & $-$123 & $-$55 & $-$363 & $+$766 & $+$1\,254 & $+$597 & $-$1\,103 & 2{,}55 & $+$5{,}3 / $+$0{,}2 \\
-\textbf{C2 : 2/16/23/29/36 $\to$ 48~\% à 163~k€} & $-$28 & $-$47 & $-$129 & $-$81 & $-$183 & $+$766 & $+$1\,254 & $+$597 & $-$1\,414 & 2{,}51 & $+$5{,}4 / $+$0{,}9 \\
-C3 : 2/16/23/29/37 $\to$ 50~\% à 295~k€ & $-$28 & $-$47 & $-$123 & $-$81 & $-$542 & $+$766 & $+$1\,254 & $+$597 & $-$1\,306 & 2{,}64 & $+$5{,}3 / $+$0{,}5 \\
-C4 : 0/16/24/30/38 $\to$ 48~\% à 95~k€ & $-$44 & $-$59 & $-$111 & $+$153 & $+$215 & $+$601 & $+$1\,068 & $+$466 & $+$860 & 1{,}37 & $+$10{,}4 / $+$2{,}9 \\
-Tranches de 3 points (16 taux) & $-$28 & $-$46 & $-$129 & $-$75 & $-$226 & $+$771 & $+$1\,261 & $+$606 & $-$1\,379 & 2{,}52 & $+$5{,}3 / $+$0{,}7 \\
-Ancienne 5/20/28/45 (recalée) & $-$2 & $-$18 & $-$140 & $-$496 & $-$908 & $+$600 & $+$1\,400 & $+$972 & $-$5\,503 & 3{,}69 & $-$3{,}2 / $-$3{,}0 \\ \hline
+\caption{Tableau de travail par dispositif (coût 2025, Md€)}\label{tab:ircsg4_disp}
+\begin{tabular}{p{4.6cm}rrp{0.7cm}p{1.2cm}rr}\hline
+Dispositif & Coût & Bénéf. & Classe & Modèle & Part supp. & Recette \\ \hline
+Crédit emploi à domicile & 7{,}03 & 5{,}1~M & V/X & résidu & 100~\% & 7{,}03 \\
+Crédit garde (enfants de moins de 6 ans) & 1{,}80 & 1{,}9~M & R/V & résidu & 100~\% & 1{,}80 \\
+Dons & 2{,}20 & 4{,}9~M & X & résidu & 100~\% & 2{,}20 \\
+Pinel, Duflot, Scellier (engagements en cours) & 1{,}66 & 0{,}39~M & V & résidu & 0 & 0 \\
+Girardin (outre-mer) & 0{,}89 & 59\,000 & V & résidu & 100~\% & 0{,}89 \\
+Réduction DOM (30--40~\%) & 0{,}43 & 0{,}6~M & V & résidu & 100~\% & 0{,}43 \\
+Frais de scolarité & 0{,}45 & 2{,}6~M & V & résidu & 100~\% & 0{,}45 \\
+PME, FCPI, FIP, SOFICA, JEI & 0{,}16 & 0{,}05~M & V & résidu & 100~\% & 0{,}16 \\
+Cotisations syndicales, prestation compensatoire, divers & 0{,}50 & & V/R & résidu & 75~\% & 0{,}37 \\
+Dépendance en établissement & 0{,}31 & 0{,}24~M & G & résidu & 0 & 0 \\
+Revenus de source étrangère & 3{,}83 & 0{,}49~M & N/S & résidu (moitié) & 0 & 0 \\
+Heures supplémentaires & 2{,}21 & $\approx$\,10~M & V & résidu & 100~\% & 2{,}21 \\
+Demi-parts (vivant seul ayant élevé un enfant, anciens combattants, veufs) & 1{,}27 & 2{,}3~M & V & résidu & 100~\% & 1{,}27 \\
+Demi-parts des invalides & 0{,}71 & 1{,}8~M & G & résidu & 0 & 0 \\
+Épargne salariale (intéressement, participation, PPV) & 2{,}89 & & V & hors & 85~\% & 2{,}46 \\
+Indemnités journalières exonérées & 0{,}64 & & V & hors & 100~\% & 0{,}64 \\
+Impatriés, détachés & 0{,}76 & 87\,000 & V/S & hors & 25~\% & 0{,}19 \\
+Titres-restaurant, transport, chèques-vacances ; apprentis & 1{,}73 & & H & --- & 0 & 0 \\
+Abattement de 10~\% des pensions ; personnes âgées & 5{,}74 & 15~M & V & étape & 100~\% & (pensions) \\
+Travaux fonciers ; prestations exonérées ; indépendants & 5{,}36 & & R/H & --- & 0 & 0 \\ \hline
+\textbf{Recette des niches supprimées} & & & & & & \textbf{20{,}1} \\ \hline
 \end{tabular}
-\par Taux marginaux aux points 0, 1, 1,5, 2 et 3,5~Smic, puis plafond et point où il est atteint (calé sur la recette). $-$ = baisse d'impôt. Gain : baisse de perte sèche réelle, jeu central. Ancienne proposition recalée : seuil de 20 \% abaissé pour tenir la recette avec les frais réels.
+\par\footnotesize Coût : Voies et moyens PLF~2026 (2025) ; bénéficiaires : CPO et DGFiP (2024). Classe : V vraie niche ; R mesure du revenu (coût d'obtention) ; X externalité ; N neutralisation d'une double imposition ; S non supprimable (conventions) ; G gardé (invalidité, dépendance) ; H hors de l'assiette sociale. Modèle : « résidu » = l'avantage est dans l'écart entre le droit simulé sans niche et l'impôt observé ; « hors » = le revenu exonéré n'est pas dans l'assiette du modèle (sa taxation s'ajoute) ; « étape » = traité dans l'alignement des pensions. Recette statique, régime de croisière, avant réaction. Pinel : le droit actuel éteint déjà ces réductions d'ici 2036 ; les engagements sont honorés, donc aucune recette par rapport au droit actuel. Girardin, PME : reports des réductions acquises (recette à 60, 80, 90 puis 100~\% [H]). Épargne salariale : 15~\% supposés se reporter vers l'épargne retraite déductible [H].
 \end{table}
 
-Versions financées de C2 (baisse des taux des points 0 à 3,5~Smic, pondérée 0,5/1/1/1/0,5) : $-$3~Md€ : taux 1,9/15,7/22,7/28,7/35,9~\%, Smic $-$31~€/mois, gain 2,73~Md€ ; $-$6~Md€ : 1,7/15,4/22,4/28,4/35,7~\%, Smic $-$35, gain 2,96. Un milliard financé ailleurs ne rapporte que 1,1~€ par mois au Smic et 0,07~Md€ de perte sèche en moins : la version recommandée est à recette constante. Coûts : 1 point sur tous les taux 13,7~Md€ ; sur le bas et le milieu 10,5 ; plafond 0,48 ; 1\,000~€ de franchise par enfant 3,0. Franchise de 5\,000~€ : $-$0,30 point ; 7\,000~€ : +0,28 point.
+\paragraph{Remplacement éventuel par une dépense.} Les crédits garde et emploi à domicile sont remboursables aux non-imposables ; les supprimer frappe aussi des ménages modestes (59~\% des dépenses d'emploi à domicile des 40~\% les plus modestes concernent l'aide aux personnes âgées ou handicapées et la garde d'enfants, CPO). Un soutien par le complément de libre choix du mode de garde, les crèches ou l'APA reste possible ; il serait une dépense nouvelle, qui n'est pas financée dans ce bloc.
 
-\subsection{Résultats distributifs du barème recommandé}
+\subsection{Du résidu de 27,1~Md€ à une recette par dispositif}\label{ann:ircsg_residu}
 
-\paragraph{Déciles et groupes.} Variation moyenne par foyer (€/an), déciles de revenu fiscal : $-$36, +4, +226, +166, $-$360, $-$288, $-$491, +51, $-$189, +1\,276. Actifs $-$12,1~Md€, retraités +13,8 ; couples avec enfants $-$797~€, parents isolés $-$843~€ ; 29~\% des foyers paient plus de 500~€ de plus. Somme des baisses 22,2~Md€, dont 22~\% au dixième le plus aisé et 9~\% au centième.
+\paragraph{Le résidu n'est pas une recette.} L'écart entre le droit 2025 simulé sans niche sur les foyers du modèle et l'impôt observé (27,1~Md€) mêle des objets différents. Il est décomposé point par point du modèle (tableau~\ref{tab:ircsg4_res}) : frais réels au-delà du forfait (modèle de frais de la section~\ref{ann:ircsg_frais}) ; niches supprimées, réparties selon les données du CPO (coût de chaque dispositif par groupe de revenu fiscal par part, appliqué aux quantiles de revenu du modèle [H], et partage entre moins et plus de 65~ans déduit des fiches par âge) ; avantages gardés ; avantages non supprimables ou déjà en extinction ; écart inexpliqué.
+
+\begin{table}[h]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Décomposition du résidu (Md€ 2025)}\label{tab:ircsg4_res}
+\begin{tabular}{lrrrrr}\hline
+ & Total & Actifs & Retraités & D1--D5 & D10 \\ \hline
+Résidu (droit simulé sans niche $-$ impôt observé) & 27{,}1 & 19{,}0 & 8{,}1 & 3{,}8 & 13{,}3 \\
+\quad Frais réels au-delà du forfait (gardés) & 2{,}7 & 2{,}7 & 0 & 0{,}4 & 1{,}0 \\
+\quad Niches supprimées (données CPO, DGFiP, VM) & 16{,}8 & 10{,}4 & 6{,}4 & 2{,}9 & 6{,}9 \\
+\quad Invalidité, dépendance (gardées) & 1{,}0 & 0{,}5 & 0{,}5 & 0{,}1 & 0{,}3 \\
+\quad Source étrangère (moitié), engagements Pinel, divers & 3{,}7 & 3{,}0 & 0{,}7 & 0{,}1 & 2{,}9 \\
+\quad Écart inexpliqué & 2{,}7 & 2{,}4 & 0{,}4 & 0{,}3 & 2{,}2 \\ \hline
+Niches hors modèle (épargne salariale, IJ, impatriés) & 3{,}3 & 3{,}3 & 0 & 0{,}4 & 1{,}4 \\ \hline
+\end{tabular}
+\par\footnotesize D10 : dixième de foyers le plus aisé (revenu fiscal du foyer, quantiles du modèle).
+\end{table}
+
+\paragraph{Le haut de la distribution.} Le modèle plaçait 49~\% du résidu au dixième le plus aisé. Les niches supprimées n'y vont qu'à 41~\% (6,9 sur 16,8~Md€), proportion proche des données : 44~\% des réductions et crédits hors double imposition vont au dixième le plus aisé (CPO), 54~\% avec la réduction pour revenus étrangers (DGFiP). Le surplus du haut vient d'avantages non supprimables (revenus étrangers, 89~\% au dixième supérieur) et de l'écart inexpliqué (82~\% au dixième supérieur), qui reflète la représentation des très hauts revenus (revenus de source étrangère hors assiette, convention de partage entre barème et PFU, CEHR). Dans les déciles 5 à 7, l'écart inexpliqué est négatif ($-$3,0~Md€) : le modèle y sous-estime légèrement le droit actuel.
+
+\paragraph{Recette à tenir.} Le nouvel impôt simulé ne peut pas compter sur ce que la réforme ne supprime pas, ni sur l'écart inexpliqué : la recette qu'il doit dégager dans le modèle est relevée de 3,7~Md€ (avantages gardés ou en extinction) et de 2,7~Md€ (écart inexpliqué, retenu parce qu'il est positif), puis diminuée de 3,3~Md€ (niches hors modèle, recette réelle que le modèle ne voit pas) et du financement externe (5,5~Md€) : 231,5 + 3,7 + 2,7 $-$ 3,3 $-$ 5,5 = 229,2~Md€. \emph{IR non attribué} (4,0~Md€ : IR imputé au capital par la convention de 12,8~\%, moins l'IR au PFU mesuré par le bloc capital) : s'il relève en partie du barème, l'impôt observé du haut est sous-estimé d'autant et l'écart inexpliqué surestimé d'autant ; la somme « IR non attribué au barème + écart inexpliqué » reste égale à l'écart inexpliqué mesuré, déjà retiré de la recette. L'hypothèse prudente est donc couverte sans double compte.
+
+\subsection{Frais professionnels : la fin du forfait de 10~\%}\label{ann:ircsg_frais}
+
+\paragraph{Modèle de frais [H, calé].} Pour chaque salarié du modèle, des frais tirés au hasard : trajet domicile-travail (distance aller médiane de 8~km, Insee Première n°~1948, 2023 ; croissant avec le salaire, élasticité 0,2 ; dispersion log-normale calée ; plafond fiscal de 40~km), en voiture pour 74~\% (Insee Première n°~1835) au barème kilométrique 5~CV des revenus 2024, 300~€ par an sinon ; 205 jours ; repas (5~€ par jour pour 25~\% des salariés ; frais supplémentaires de repas au-delà de 5,35~€, plafond 20,70~€ en 2024). Un salarié déclare ses frais réels si le gain d'impôt dépasse un seuil. Dispersion (1,45) et seuil (170~€) reproduisent les déclarations des revenus 2024 : 5,87~M de déclarants, 36,1~Md€ (2025). Le forfait de 10~\% représente aujourd'hui environ 73~Md€ de déductions.
 
 \begin{table}[h]\centering\footnotesize
-\caption{Variation de l'impôt par configuration familiale (€ par mois), sans niche}\label{tab:ircsg3_fam}
-\begin{tabular}{lrrrrrrr}\hline
-Revenu brut du ménage & 20~k€ & 30~k€ & 40~k€ & 60~k€ & 80~k€ & 100~k€ & 150~k€ \\ \hline
-Couple biactif, 2 enfants & $-$132 & $-$175 & $-$191 & $-$149 & $-$208 & $-$171 & $-$309 \\
-Couple mono-actif, 2 enfants & $-$139 & $-$149 & $-$111 & $+$103 & $+$218 & $+$394 & $+$560 \\
-Couple biactif, 3 enfants & $-$132 & $-$186 & $-$224 & $-$221 & $-$163 & $-$161 & $-$185 \\
-Couple mono-actif, 3 enfants & $-$159 & $-$201 & $-$196 & $-$41 & $+$206 & $+$368 & $+$649 \\
-Parent isolé, 2 enfants & $-$139 & $-$149 & $-$111 & $-$27 & $+$19 & $+$24 & $-$58 \\
-\hline\end{tabular}
-\par Couples mariés ou pacsés, biactifs à 60/40 ; charge d'aujourd'hui : OpenFisca 176.1 (IR, CSG, CRDS, droit 2025).
+\caption{Options pour les frais professionnels (nouveau barème)}\label{tab:ircsg4_frais}
+\begin{tabular}{lrrr}\hline
+Option & Déductions (Md€) & Déclarants (M) & Coût (Md€) \\ \hline
+Hypothèse de la version précédente (frais réels inchangés) & 36 & 5{,}9 & référence \\
+(a) Forfait supprimé, frais réels gardés & 65 & 18{,}0 & 5{,}1 \\
+\quad recours deux fois moins élastique & 57 & 12{,}9 & 3{,}6 \\
+(b) Forfait fixe de 500~€, frais réels au-delà & 71 & 15{,}0 & 6{,}1 \\
+(b) Forfait fixe de 1\,000~€ & 79 & 12{,}1 & 7{,}4 \\
+(b) Forfait de 5~\% plafonné à 2\,000~€ & 79 & 11{,}1 & 8{,}3 \\
+Variante : frais réels au-delà d'une franchise de 1\,000~€, sans forfait & 44 & 12{,}1 & 0{,}6 \\ \hline
+\end{tabular}
+\par\footnotesize Coût : recette perdue par rapport à l'hypothèse précédente, au barème avant recalage, statique.
 \end{table}
 
-\paragraph{Retraités seuls (€/an).} 10\,000~€ +565 ; 12\,000 +766 ; 16\,000 +1\,254 ; 18\,000 +1\,543 ; 20\,000 +1\,000 ; 30\,000 +597 ; 40\,000 $-$218 ; 60\,000 $-$1\,054 ; 100\,000 $-$1\,414. Couples : 30\,000~€ +1\,018 ; 60\,000 $-$396.
+\paragraph{Recommandation : (a).} Tout salarié dont les frais dépassent la déduction proposée y a intérêt : sans forfait, près de 18~millions de salariés déclareraient leurs frais réels (contre 5,9~millions), surtout ceux qui vont travailler en voiture. Ce surcroît coûte 5,1~Md€ (3,6 si le recours est moins élastique) par rapport à l'hypothèse de la version précédente : il est désormais compté. Un petit forfait de droit commun réduit le nombre de déclarations, mais coûte de 0,9 à 3,2~Md€ de plus, soit 300 à 460~€ de recette perdue par déclaration évitée : c'est cher payé pour épargner à un salarié de reporter ses kilomètres, et cela revient à une baisse de barème réservée aux salariés. L'option (a) est la plus simple à décrire (aucun paramètre) et la plus défendable (l'impôt porte sur le revenu net des coûts de son obtention, sans baisse de barème déguisée). Le coût de conformité (justificatifs, distance, contrôle) est réel ; un préremplissage de la distance domicile-travail le réduirait. La franchise de 1\,000~€ réduirait le coût et les déclarations, au prix d'une pénalité de 160 à 400~€ par an pour ceux qui ont de longs trajets ; elle reste une option pour l'auteur.
 
-\paragraph{Second conjoint et franchise.} Prélèvement sur un mi-temps au Smic repris par le second conjoint : 11,5~\% (9,5~\% avec deux enfants) $\to$ 4,9~\% ; sur les 1\,000 premiers euros : 9,5 $\to$ 2,1~\%. Franchise répartie librement, par défaut sur le revenu le plus élevé : minimise l'impôt du couple et laisse au second le taux d'une personne seule ; la règle « moitié chacun, reliquat transférable » taxerait ses premiers euros à 22--26~\%.
+\subsection{Décomposition séquentielle}
 
-\subsection{Efficacité et effets réels}
+Les mesures sont introduites une à une sur les foyers du modèle (statique, avant réaction ; l'ordre change la taille des marches, pas le total). En Md€ : charge observée 229,9 ; résidu +27,1 (dont 16,8 de niches supprimées) ; abattement de 10~\% des pensions +7,3 ; abattement des personnes âgées +0,6 ; CSG des retraités alignée +7,9 ; fin du quotient conjugal +12,1 ; fin du quotient familial +16,2 ; fin de la CSG déductible +24,1 ; forfait remplacé par les frais réels +12,0 ; CEHR absorbée $-$0,6 ; invalidité et dépendance gardées $-$1,0 ; franchise de 6\,000~€ par enfant $-$17,4 ; nouveau barème $-$90,6. Ces étapes mélangent des objets de nature différente. Regroupées (graphique « où vont les ressources » de la note), les ressources réellement dégagées sont : vraies niches 20,1~Md€ (dont emploi à domicile 7,0, dons 2,2, heures supplémentaires 2,2, épargne salariale 2,5, garde 1,8, demi-parts 1,3) ; alignement des pensions 15,8 ; impôt individuel 12,1 ; modifications techniques de la fusion 38,9 (CSG déductible 24,1, qui n'était qu'un transfert entre CSG et IR, et forfait 14,8 net des frais réels) ; remplacement du quotient familial par la franchise $-$1,2 ; CEHR $-$0,6 ; financement externe 5,5 ; elles financent une baisse des taux de 90,6~Md€.
 
-Cadre standard (méthode v2, \texttt{revue/methode\_v2.md}) : chacun réagit au taux marginal net de tous les prélèvements, aujourd'hui comme demain ; marge intensive $\Delta Q = e\,g\,[\ln(1-t_1)-\ln(1-t_0)]$, chaque euro perdu coûtant le coin moyen total non contributif ; marge extensive sur le taux de prélèvement du premier salaire (adultes sous 2~Smic). Élasticités : revenu réel 0,05/0,10 (bas 0,02/0,05 ; haut 0,10/0,25), participation 0,25 (0,10--0,50). Résultats (C2) : perte sèche $-$2,5~Md€ par an (1,1--5,5), dont heures et effort 0,6, participation 1,9 ; revenu réel du travail +0,8~\% (0,3--1,7), environ 210\,000 équivalents temps plein (90\,000--440\,000) ; entrées en emploi : 419\,000 personnes (167\,000--837\,000), surtout des seconds apporteurs et des temps partiels. Ce sont des réactions d'offre ; l'emploi effectif dépend de la demande. Le revenu déclaré du haut n'est pas compté comme production.
+\subsection{Gagnants et perdants nets des niches}
 
-\subsection{Version finale : C2 financé par 5,5~Md€}
+\paragraph{Méthode.} Pour chaque foyer type et chaque point du modèle : \emph{gain du nouveau système} = nouvel impôt $-$ droit actuel sans niche (frais réels et CEHR compris) ; \emph{perte des niches} = valeur moyenne des niches supprimées dans sa cellule (groupe de revenu, actif ou retraité, avec ou sans enfant pour la garde et la scolarité) ; \emph{net} = somme des deux. L'écart inexpliqué du modèle n'est imputé à personne. La somme des nets est égale à $-$5,5~Md€ (le financement externe).
 
-Le bouclage affecte au bloc 5,5~Md€ par an en régime de croisière (foncier, niches de l'IS), en caisse par paliers : 0 jusqu'en 2031, puis 1, 2, 3, 4, 5 et 5,5~Md€ de 2032 à 2037. La baisse est ciblée sur les points 0, 1, 1,5 et 2~Smic (poids 1/1/1/0,5, $-$0,53 point) ; le taux au point 3,5~Smic est relevé de 0,36 point pour que l'impôt au point haut et au-delà soit inchangé : le haut ne reçoit rien du financement (centième 0,06~Md€). Barème final : 1,5 / 15,5 / 22,5 / 28,7 / 36,4~\% aux points 0, 1, 1,5, 2 et 3,5~Smic, 48~\% à 163\,400~€ et au-delà. Salariés seuls (€/mois) : Smic $-$36 ; 1,5~Smic $-$60 ; 2\,000~€ net $-$57 ; 3~Smic $-$145 ; 120~k€ brut $-$86 ; 250~k€ $-$183. Retraités seuls (€/an) : 12~k€ +702 ; 16~k€ +1\,170 ; 20~k€ +894 ; 30~k€ +439 ; 60~k€ $-$1\,250 ; 100~k€ $-$1\,490. Familles (€/mois) : biactif 2 enfants à 60~k€ $-$170 ; biactif 3 enfants $-$236 ; parent isolé au Smic $-$147 ; mono-actif 2 enfants à 60~k€ +83. Second conjoint (mi-temps au Smic) : 4,4~\%. Dixième le plus aisé : +4,4~Md€, 21,6~\% des baisses. Perte sèche $-$2,8~Md€ (1,2--6,1) ; environ 233\,000 ETP. Trajectoire : 0 de 2027 à 2031, puis $-$1 à $-$5,5~Md€ (table \texttt{annuel\_final}).
+\begin{table}[h]\centering\footnotesize
+\caption{Moyennes par catégorie (€ par foyer et par an ; $-$ = baisse d'impôt)}\label{tab:ircsg4_moy}
+\begin{tabular}{lrrrr}\hline
+Catégorie & Foyers (M) & Nouveau système & Perte des niches & Net \\ \hline
+Actifs & 27{,}1 & $-$1\,183 & $+$503 & $-$680 \\
+\quad seuls sans enfant & 15{,}9 & $-$926 & $+$277 & $-$649 \\
+\quad couples, 1 enfant & 3{,}5 & $-$1\,391 & $+$927 & $-$464 \\
+\quad couples, 2 enfants & 3{,}1 & $-$2\,000 & $+$914 & $-$1\,086 \\
+\quad couples, 3 enfants ou plus & 1{,}4 & $-$2\,105 & $+$888 & $-$1\,217 \\
+\quad couples à un seul revenu & 1{,}4 & $+$1\,164 & $+$893 & $+$2\,057 \\
+\quad parents isolés & 2{,}0 & $-$1\,213 & $+$502 & $-$711 \\
+Retraités & 14{,}5 & $+$449 & $+$445 & $+$894 \\
+\quad seuls & 10{,}7 & $+$269 & $+$342 & $+$611 \\
+\quad couples & 3{,}8 & $+$963 & $+$739 & $+$1\,703 \\ \hline
+\multicolumn{5}{l}{Déciles (D1 à D10), net : $+$39, $+$25, $+$7, $-$199, $-$193, $-$294, $-$364, $-$513, $-$452, $+$609} \\
+\multicolumn{5}{l}{\quad dont perte des niches : 90, 97, 120, 162, 336, 393, 430, 477, 748, 1\,938} \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Bénéficiaires.} À partir du coût de chaque cellule et d'un montant conditionnel par bénéficiaire (moyenne nationale, relevée là où la fréquence de recours dépasserait 60~\% [H]), on obtient des moyennes de bénéficiaires d'un dispositif donné, sans supposer l'indépendance des recours (les autres niches du même foyer ne sont pas ajoutées : ce sont des minorants de la perte). Exemples (net, €/an) : actifs du 5\textsuperscript{e} décile qui emploient un salarié à domicile (6~\% des actifs de ce décile) $+$277 ; retraités du 5\textsuperscript{e} décile (16~\%) $+$2\,037 ; familles du 5\textsuperscript{e} décile qui déclarent une garde (7~\%) $-$976 ; bénéficiaires du Girardin (moins de 1~\% des foyers, avantage moyen 15\,000~€) $+$13\,000 à $+$16\,000.
+
+\paragraph{Part de gagnants et de perdants : non publiée.} Elle n'est pas estimable sérieusement : on ne connaît pas la distribution jointe des niches, des revenus et des configurations familiales (le CPO donne les cumuls les plus fréquents, tableau~21, mais pas croisés avec le revenu), et le modèle représente chaque tranche par des foyers types. On ne publie que des moyennes et des cas-types.
+
+\subsection{Cas-types}
+
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\caption{Cas-types : ce que la réforme change, niches comprises}\label{tab:ircsg4_cas}
+\input{sorties/tab_cas_types}
+\par\smallskip\begin{minipage}{0.95\linewidth}\footnotesize OpenFisca-France 176.1, droit des revenus 2025 (IR après réductions et crédits, crédits restitués compris, CSG, CRDS, CEHR). $-$ = le ménage paie moins. Nouveau système : nouvel impôt $-$ charge d'aujourd'hui sans niche ; perte des niches : valeur des niches supprimées ; variation nette = somme. Aucun frais réel déclaré. Heures supplémentaires : 10~\% du Smic, IR calculé sans elles (OpenFisca ne modélise plus leur exonération). Garde : 3\,500~€ par enfant. Pinel (4\,000~€ par an) gardé jusqu'à son terme.\end{minipage}
+\end{table}
+
+\paragraph{Julie.} Salariée à 2\,000~€ net par mois, elle obtient 200~€ de plus (224~€ après cotisations). Aujourd'hui, elle en garde 170~€ ; avec le nouvel impôt, 173~€ : le taux marginal sur le supplément passe de 24 à 23~\%. Le barème continu supprime la marche de l'entrée dans l'IR (10,7 $\to$ 23,7~\% vers 1,1~Smic) mais, autour de 1,5~Smic, le taux marginal est presque inchangé. Second conjoint qui reprend un mi-temps au Smic (couple mono-actif à 45\,000~€, deux enfants) : prélèvement sur son salaire brut 9,5~\% $\to$ 5,0~\%.
+
+\subsection{Le minimum vieillesse}
+
+L'ASPA est une allocation différentielle (plafond 2025 pour une personne seule : 12\,411~€ par an ; 12\,523~€ en 2026), exonérée d'IR (CGI, art.~81, 9°) ; les pensions sont retenues en brut dans ses ressources (service-public.gouv.fr ; OpenFisca). Aujourd'hui, une pension à ce niveau ne paie rien (revenu fiscal sous le seuil d'exonération de CSG). Avec le nouvel impôt, une pension de 12\,411~€ paie 825~€ par an (69~€ par mois) ; une pension de 8\,000~€ complétée par 4\,411~€ d'ASPA paie 403~€ sur sa pension, que l'ASPA, calculée sur la pension brute, ne compense pas. Le texte ne doit donc pas prétendre que le minimum vieillesse protège les petites pensions. Si l'ASPA était calculée sur la pension nette du nouvel impôt, le revenu des allocataires serait inchangé jusqu'au plafond (coût : l'impôt de chaque allocataire, au plus 825~€ par an), mais les pensions juste au-dessus (13\,000 à 16\,000~€) paieraient encore de 600 à 1\,270~€ de plus. Le nombre d'allocataires n'a pas été vérifié : coût national non chiffré.
+
+\subsection{Efficacité et taux}
+
+\paragraph{Gain d'efficacité statique lié à la modification des incitations fiscales au travail, hors effets comportementaux propres aux dispositifs supprimés.} Cadre standard (chacun réagit au taux net de tous les prélèvements, aujourd'hui comme demain) : 2,9~Md€ par an (1,25 à 6,2 selon les élasticités), dont 0,65 sur les heures et l'effort et 2,2 sur la participation ; offre de travail $+$0,9~\% (0,4--1,9), environ 240\,000 équivalents temps plein (100\,000--490\,000). Ce n'est pas le gain économique net de la réforme : la suppression des niches a ses propres effets, non chiffrés. Heures supplémentaires : leur exonération disparaît, le prix net d'une heure supplémentaire baisse pour les salariés imposables (perte de 50~€ par an au Smic dans notre cas-type, davantage au-delà) ; garde d'enfants : le coût net de la garde augmente pour les parents qui travaillent, ce qui pèse sur l'activité des mères de jeunes enfants ; emploi à domicile : une partie de l'emploi déclaré peut revenir au travail dissimulé (le CPO estime qu'un taux d'aide de 40~\% suffirait à maintenir le travail déclaré moins cher que le dissimulé) ; dons : baisse des dons.
+
+\paragraph{Taux marginaux.} Le nouvel impôt ne dépasse jamais 48~\% (54,9~\% aujourd'hui au sommet du barème avec la CEHR et la CSG) : la borne de 50~\% est respectée partout. Il monte entre 0,6 et 1,1~Smic (Smic : 10,7 $\to$ 16,0~\% ; 0,75~Smic : 10,7 $\to$ 12,7~\%) : c'est le prix d'un barème sans marche ; en contrepartie, la marche de l'entrée dans l'IR disparaît (1,1~Smic : 23,7 $\to$ 17,4~\%) et le taux moyen baisse (Smic : 10,7 $\to$ 9,1~\%). Pour un premier emploi ou un retour à temps partiel, c'est le taux moyen qui compte ; pour les heures d'un salarié au Smic, le taux marginal : la réforme favorise l'entrée au prix d'un taux un peu plus élevé sur les heures entre 0,6 et 1,1~Smic. Il est aussi un peu plus élevé qu'aujourd'hui entre 1,54 et 1,83~Smic (avant l'entrée dans la tranche à 30~\%), de 62\,000 à 101\,000~€ (40,3~\% à 5~Smic contre 35,6~\%) et de 134\,000 à 157\,000~€.
+
+\paragraph{Progressivité.} L'écart de taux moyen entre un salarié au Smic et un salarié à 200\,000~€ passe de 26,8 à 28,0 points ; il ne diminue qu'au-delà de 200\,000~€. Taux effectifs niches comprises (impôt sur revenu après cotisations, par décile) : D1 4,6 $\to$ 6,5~\% ; D5 10,3 $\to$ 9,5~\% ; D9 15,5 $\to$ 14,8~\% ; D10 21,9 $\to$ 22,4~\%. Les taux moyens ne sont donc pas « nettement moins progressifs » qu'aujourd'hui : ils le sont à peu près autant, sauf au sommet.
 
 \subsection{Trajectoire et limites}
 
-Montée en charge 2027--2030, chaque foyer payant $(1-\lambda)$ fois l'ancien impôt et $\lambda$ fois le nouveau ($\lambda$ = 0,25 ; 0,5 ; 0,75 ; 1) : solde nul chaque année à recette constante ; versions financées $-$0,75 à $-$3 ou $-$1,5 à $-$6~Md€. Extinction de la CRDS après 2033 : droit en vigueur, hors bilan. Limites : frais réels (montant et répartition), niches réparties selon le droit simulé dans chaque tranche, familles nombreuses à tout revenu dans la même proportion, couples homogènes, retraités tous de 65 ans et plus, minimum vieillesse à calculer net du nouvel impôt, pas de demande de travail.
+Fusion en quatre ans (chaque foyer paie $(1-\lambda)$ fois l'ancien impôt et $\lambda$ fois le nouveau, $\lambda$ = 0,25 à 1 de 2027 à 2030) ; financement externe par paliers (0 jusqu'en 2031, puis 1, 2, 3, 4, 5 et 5,5~Md€ de 2032 à 2037). Recette des niches supprimées : 4,9~Md€ en 2027, 20,1~Md€ dès 2030 ; les reports du Girardin et des souscriptions PME privent le budget de 0,1~Md€ par an de 2027 à 2029, couverts par un barème transitoirement plus élevé ; aucune recette du Pinel. En croisière : actifs $-$17,9~Md€, retraités $+$13,0, CEHR $-$0,6, total $-$5,5 (table \texttt{annuel\_final}). Limites : modèle de frais calé sur deux nombres ; répartition des niches par quantile de revenu du foyer (le CPO classe par revenu par part) ; montants conditionnels des bénéficiaires supposés uniformes ; couples homogènes ; pas de réaction de la demande de travail, des retraités, des donateurs ni des employeurs à domicile.

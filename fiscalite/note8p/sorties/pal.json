@@ -1,0 +1,1456 @@
+{
+ "statuts": "[E] empirique publié ; [S] simulation des auteurs ; [H] hypothèse ; [C] choix de politique",
+ "hors_scenario_central": true,
+ "maires": {
+  "taux": {
+   "aujourdhui": 0.0035814181285259367,
+   "communal_sol_apres": 0.005690134314630228,
+   "communal_bati_apres": 0.001422533578657557,
+   "national_sol": 0.0015816426539921559,
+   "terrain_nu": 0.0008
+  },
+  "hypotheses": {
+   "r": 0.04,
+   "horizon": 30,
+   "taux_ta": 0.03,
+   "valeur_forfaitaire_ta": {
+    "hors_idf": 892.0,
+    "idf": 1011.0
+   },
+   "habitants_par_logement": 2.0,
+   "dgf_par_habitant": [
+    64.46,
+    128.93
+   ]
+  },
+  "cas": {
+   "appartement_densification": {
+    "libelle": "Appartement neuf de 65 m² à 290 000 € (sol 25 %), sur une parcelle déjà bâtie (densification)",
+    "sol": 72500.0,
+    "bati": 217500.0,
+    "tf_annuelle_aujourdhui": 778.9584429543912,
+    "tf_annuelle_apres": 309.4010533580186,
+    "baisse_pct": 60.280159210478665,
+    "perte_annuelle": 469.5573895963726,
+    "va_tf_aujourdhui": 12480.609403021974,
+    "va_tf_apres": 5564.180250644626,
+    "va_perte": 6916.429152377348,
+    "ta_communale_unique": 869.6999999999999,
+    "dgf_annuelle_min_max": [
+     128.92,
+     257.86
+    ],
+    "va_dgf_min_max": [
+     2189.5404904465304,
+     4379.420655185715
+    ],
+    "taxe_nationale_sol_annuelle_pour_info": 114.6690924144313
+   },
+   "appartement_friche": {
+    "libelle": "Même appartement, sur un terrain auparavant nu",
+    "sol": 72500.0,
+    "bati": 217500.0,
+    "tf_annuelle_aujourdhui": 980.6112572725217,
+    "tf_annuelle_apres": 309.4010533580186,
+    "baisse_pct": 68.44814384258767,
+    "perte_annuelle": 671.2102039145032,
+    "va_tf_aujourdhui": 15711.526319435781,
+    "va_tf_apres": 5564.180250644626,
+    "va_perte": 10147.346068791156,
+    "ta_communale_unique": 869.6999999999999,
+    "dgf_annuelle_min_max": [
+     128.92,
+     257.86
+    ],
+    "va_dgf_min_max": [
+     2189.5404904465304,
+     4379.420655185715
+    ],
+    "taxe_nationale_sol_annuelle_pour_info": 114.6690924144313
+   },
+   "maison_periurbaine": {
+    "libelle": "Maison neuve de 100 m² à 250 000 € (sol 35 %), sur un terrain nu",
+    "sol": 87500.0,
+    "bati": 162500.0,
+    "tf_annuelle_aujourdhui": 825.3545321314841,
+    "tf_annuelle_apres": 231.16170653185299,
+    "baisse_pct": 71.9924350648592,
+    "perte_annuelle": 594.1928255996311,
+    "va_tf_aujourdhui": 13223.975717469863,
+    "va_tf_apres": 4157.14616427472,
+    "va_perte": 9066.829553195143,
+    "ta_communale_unique": 1338.0,
+    "dgf_annuelle_min_max": [
+     128.92,
+     257.86
+    ],
+    "va_dgf_min_max": [
+     2189.5404904465304,
+     4379.420655185715
+    ],
+    "taxe_nationale_sol_annuelle_pour_info": 138.39373222431362
+   }
+  },
+  "ouverture_urbanisation": {
+   "part_valeur_avant": 0.2,
+   "gain_sol_communal_apres": 330.02779024855323,
+   "gain_sol_aujourdhui": 0.0,
+   "note": "aujourd'hui, la taxe sur un terrain nu suit une valeur cadastrale de 1970 qui ne réagit pas à l'ouverture à l'urbanisation ; gain ≈ 0 avant construction [H]",
+   "part_nationale_si_territorialisee_25pct": 22.933818482886263
+  },
+  "couts_dotation": {
+   "dgf_2026_Md": 27.4,
+   "dgf_bloc_communal_2026_Md": 19.1,
+   "grille": {
+    "2000_eur_x_150000": {
+     "Md": 0.3,
+     "pct_dgf": 1.094890510948905,
+     "pct_dgf_bloc_communal": 1.5706806282722512
+    },
+    "2000_eur_x_280000": {
+     "Md": 0.56,
+     "pct_dgf": 2.0437956204379564,
+     "pct_dgf_bloc_communal": 2.931937172774869
+    },
+    "2000_eur_x_300000": {
+     "Md": 0.6,
+     "pct_dgf": 2.18978102189781,
+     "pct_dgf_bloc_communal": 3.1413612565445024
+    },
+    "3000_eur_x_150000": {
+     "Md": 0.45,
+     "pct_dgf": 1.6423357664233578,
+     "pct_dgf_bloc_communal": 2.3560209424083767
+    },
+    "3000_eur_x_280000": {
+     "Md": 0.84,
+     "pct_dgf": 3.0656934306569346,
+     "pct_dgf_bloc_communal": 4.397905759162303
+    },
+    "3000_eur_x_300000": {
+     "Md": 0.9,
+     "pct_dgf": 3.2846715328467155,
+     "pct_dgf_bloc_communal": 4.712041884816753
+    },
+    "5000_eur_x_150000": {
+     "Md": 0.75,
+     "pct_dgf": 2.737226277372263,
+     "pct_dgf_bloc_communal": 3.926701570680628
+    },
+    "5000_eur_x_280000": {
+     "Md": 1.4,
+     "pct_dgf": 5.109489051094891,
+     "pct_dgf_bloc_communal": 7.329842931937172
+    },
+    "5000_eur_x_300000": {
+     "Md": 1.5,
+     "pct_dgf": 5.474452554744526,
+     "pct_dgf_bloc_communal": 7.853403141361256
+    }
+   },
+   "logements_commences_2025": 279700,
+   "sources": "DGF : 27,4 Md€ dont 19,1 bloc communal (Sénat, avis PLF 2026 ; préfectures) ; logements commencés 2025 : SDES (Sit@del2), repris par les DREAL Grand Est et PACA"
+  }
+ },
+ "pertes": {
+  "simulation_r5": {
+   "jeune_pme": {
+    "libelle": "Jeune PME : −0,4 M€ par an pendant 3 ans, puis +0,5 M€ par an (années 4 à 12)",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.1,
+       -0.1,
+       -0.1,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.4951756479477434,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5294111008954172,
+      "taux_effectif_pct": 26.728449949505936,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.03423545294767383
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0452,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5071451179598939,
+      "taux_effectif_pct": 25.604304253539027,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.01196947001215054
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5294111008954172,
+      "taux_effectif_pct": 26.728449949505936,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.03423545294767383
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5294111008954172,
+      "taux_effectif_pct": 26.728449949505936,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.03423545294767383
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5294111008954172,
+      "taux_effectif_pct": 26.728449949505936,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.03423545294767383
+     }
+    },
+    "va_resultat": 1.9807025917909735
+   },
+   "eti_crise": {
+    "libelle": "Entreprise établie (+3 M€ par an avant la crise) : −2 M€ par an pendant 3 ans, puis +2,5 M€ par an (années 4 à 12)",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.5,
+       -0.5,
+       -0.5,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.4758782397387167,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.125,
+       0.25,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.651719350706065,
+      "taux_effectif_pct": 26.775542796744165,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.17584111096734834
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.125,
+       0.1875,
+       0.5621,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.5603917095857307,
+      "taux_effectif_pct": 25.853368599579568,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.08451346984701402
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.375,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.647055504477086,
+      "taux_effectif_pct": 26.728449949505933,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.17117726473836914
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       -0.5,
+       -0.5,
+       0.1875,
+       0.5625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.5431659978034657,
+      "taux_effectif_pct": 25.67943323085074,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.06728775806474907
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       -0.25,
+       0.0,
+       0.1875,
+       0.1875,
+       0.25,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.6281890805193084,
+      "taux_effectif_pct": 26.537947609215482,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.15231084078059176
+     }
+    },
+    "va_resultat": 9.903512958954867
+   },
+   "echec": {
+    "libelle": "Même entreprise établie, qui disparaît après 3 ans de pertes",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.5,
+       -0.5,
+       -0.5,
+       0.0
+      ],
+      "va_impot": -1.3616240146852392,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.18655384915915685,
+      "taux_effectif_pct": 3.4252085588083894,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.1750701655260825
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.18655384915915685,
+      "taux_effectif_pct": 3.4252085588083894,
+      "deficit_perdu_fin_horizon": 5.1357729956,
+      "surcout_vs_symetrie": 1.1750701655260825
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.18655384915915685,
+      "taux_effectif_pct": 3.4252085588083894,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.1750701655260825
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       -0.5,
+       -0.5,
+       0.0
+      ],
+      "va_impot": -0.8854335384947629,
+      "taux_effectif_pct": 16.256938937351308,
+      "deficit_perdu_fin_horizon": 2.0,
+      "surcout_vs_symetrie": 0.4761904761904763
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       -0.25,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.22675736961451246,
+      "taux_effectif_pct": 4.163362410785091,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.1348666450707268
+     }
+    },
+    "va_resultat": -5.446496058740957
+   }
+  },
+  "simulation_r8": {
+   "jeune_pme": {
+    "libelle": "Jeune PME : −0,4 M€ par an pendant 3 ans, puis +0,5 M€ par an (années 4 à 12)",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.1,
+       -0.1,
+       -0.1,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.3621629299848652,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.41141251613672214,
+      "taux_effectif_pct": 28.399684373681968,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.04924958615185693
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0452,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.39260917031739573,
+      "taux_effectif_pct": 27.101694970120416,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.030446240332530516
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.41141251613672214,
+      "taux_effectif_pct": 28.399684373681968,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.04924958615185693
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.41141251613672214,
+      "taux_effectif_pct": 28.399684373681968,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.04924958615185693
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.41141251613672214,
+      "taux_effectif_pct": 28.399684373681968,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.04924958615185693
+     }
+    },
+    "va_resultat": 1.4486517199394608
+   },
+   "eti_crise": {
+    "libelle": "Entreprise établie (+3 M€ par an avant la crise) : −2 M€ par an pendant 3 ans, puis +2,5 M€ par an (années 4 à 12)",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.5,
+       -0.5,
+       -0.5,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 1.8108146499243263,
+      "taux_effectif_pct": 24.999999999999996,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.125,
+       0.25,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.063364276952442,
+      "taux_effectif_pct": 28.48668521980797,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.25254962702811556
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.125,
+       0.1875,
+       0.5621,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 1.9872875374665022,
+      "taux_effectif_pct": 27.436374252184656,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.17647288754217594
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.375,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.0570625806836107,
+      "taux_effectif_pct": 28.399684373681968,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.24624793075928442
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       -0.5,
+       -0.5,
+       0.1875,
+       0.5625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 1.9096656024742313,
+      "taux_effectif_pct": 26.364730406754166,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.09885095254990506
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       -0.25,
+       0.0,
+       0.1875,
+       0.1875,
+       0.25,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.0293841190909405,
+      "taux_effectif_pct": 28.017557169307032,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.21856946916661424
+     }
+    },
+    "va_resultat": 7.243258599697305
+   },
+   "echec": {
+    "libelle": "Même entreprise établie, qui disparaît après 3 ans de pertes",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.5,
+       -0.5,
+       -0.5,
+       0.0
+      ],
+      "va_impot": -1.2885484936239393,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.15754240672077613,
+      "taux_effectif_pct": 3.0565866845589325,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.131006086903163
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.15754240672077613,
+      "taux_effectif_pct": 3.0565866845589325,
+      "deficit_perdu_fin_horizon": 5.1357729956,
+      "surcout_vs_symetrie": 1.131006086903163
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.15754240672077613,
+      "taux_effectif_pct": 3.0565866845589325,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.131006086903163
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       -0.5,
+       -0.5,
+       0.0
+      ],
+      "va_impot": -0.8255855306609764,
+      "taux_effectif_pct": 16.01774273040907,
+      "deficit_perdu_fin_horizon": 2.0,
+      "surcout_vs_symetrie": 0.4629629629629629
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       -0.25,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.2143347050754458,
+      "taux_effectif_pct": 4.158452439625432,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.0742137885484935
+     }
+    },
+    "va_resultat": -5.154193974495757
+   }
+  },
+  "simulation_r_egal_oat": {
+   "jeune_pme": {
+    "libelle": "Jeune PME : −0,4 M€ par an pendant 3 ans, puis +0,5 M€ par an (années 4 à 12)",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.1,
+       -0.1,
+       -0.1,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5855133039347259,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.6099763990125064,
+      "taux_effectif_pct": 26.044514911676018,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.02446309507778055
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0452,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.5855133039347258,
+      "taux_effectif_pct": 24.999999999999993,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": -1.1102230246251565e-16
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.6099763990125064,
+      "taux_effectif_pct": 26.044514911676018,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.02446309507778055
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.6099763990125064,
+      "taux_effectif_pct": 26.044514911676018,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.02446309507778055
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.075,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.125,
+       0.0
+      ],
+      "va_impot": 0.6099763990125064,
+      "taux_effectif_pct": 26.044514911676018,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.02446309507778055
+     }
+    },
+    "va_resultat": 2.3420532157389036
+   },
+   "eti_crise": {
+    "libelle": "Entreprise établie (+3 M€ par an avant la crise) : −2 M€ par an pendant 3 ans, puis +2,5 M€ par an (années 4 à 12)",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.5,
+       -0.5,
+       -0.5,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.9275665196736296,
+      "taux_effectif_pct": 25.000000000000004,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.125,
+       0.25,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 3.0533315086628923,
+      "taux_effectif_pct": 26.07397208692019,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.1257649889892627
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.125,
+       0.1875,
+       0.5621,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.952215894749114,
+      "taux_effectif_pct": 25.210493723283804,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.024649375075484592
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.375,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 3.0498819950625324,
+      "taux_effectif_pct": 26.044514911676018,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.12231547538890286
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       -0.5,
+       -0.5,
+       0.1875,
+       0.5625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 2.9750824577105246,
+      "taux_effectif_pct": 25.405763094686165,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.04751593803689502
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       -0.25,
+       0.0,
+       0.1875,
+       0.1875,
+       0.25,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.0
+      ],
+      "va_impot": 3.0365580064939874,
+      "taux_effectif_pct": 25.930734503280465,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.10899148682035786
+     }
+    },
+    "va_resultat": 11.710266078694518
+   },
+   "echec": {
+    "libelle": "Même entreprise établie, qui disparaît après 3 ans de pertes",
+    "regimes": {
+     "symetrie": {
+      "impot_par_annee": [
+       -0.5,
+       -0.5,
+       -0.5,
+       0.0
+      ],
+      "va_impot": -1.4044118520909967,
+      "taux_effectif_pct": 25.0,
+      "deficit_perdu_fin_horizon": 0.0,
+      "surcout_vs_symetrie": 0.0
+     },
+     "actuel": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.2049621865929601,
+      "taux_effectif_pct": 3.64854131442633,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.1994496654980367
+     },
+     "indexation": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.2049621865929601,
+      "taux_effectif_pct": 3.64854131442633,
+      "deficit_perdu_fin_horizon": 5.1357729956,
+      "surcout_vs_symetrie": 1.1994496654980367
+     },
+     "sans_plafond": {
+      "impot_par_annee": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.2049621865929601,
+      "taux_effectif_pct": 3.64854131442633,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.1994496654980367
+     },
+     "carry_back_3": {
+      "impot_par_annee": [
+       0.0,
+       -0.5,
+       -0.5,
+       0.0
+      ],
+      "va_impot": -0.9206938016682271,
+      "taux_effectif_pct": 16.389312727200128,
+      "deficit_perdu_fin_horizon": 2.0,
+      "surcout_vs_symetrie": 0.4837180504227696
+     },
+     "carry_back_rapide": {
+      "impot_par_annee": [
+       0.0,
+       -0.25,
+       0.0,
+       0.0
+      ],
+      "va_impot": -0.23398315230480507,
+      "taux_effectif_pct": 4.165144860398908,
+      "deficit_perdu_fin_horizon": 5.0,
+      "surcout_vs_symetrie": 1.1704286997861917
+     }
+    },
+    "va_resultat": -5.617647408363987
+   }
+  },
+  "national": {
+   "empirique": {
+    "deficits_nouveaux_Md": {
+     "2018": 65.0,
+     "2021": 83.0,
+     "2022": 113.0,
+     "source": "DGFiP Statistiques n° 21, avril 2024 (exercice 2022)"
+    },
+    "report_arriere_Md": {
+     "2021": {
+      "montant_octroye": 1.2,
+      "entreprises": 22000
+     },
+     "2022": {
+      "montant_octroye": 0.2,
+      "genere_2022": 0.1,
+      "entreprises_milliers": 7.8
+     },
+     "source": "DGFiP Statistiques n° 21, tableau 3 et texte"
+    },
+    "stock_2010": {
+     "stock_Md": 315.0,
+     "dont_imputable_Md": 160.0,
+     "droits_theoriques_Md": 53.0,
+     "consommation_annuelle_Md": 25.0,
+     "flux_annee_normale_Md": 30.0,
+     "source": "Compte général de l'État 2010, cité par le rapport Carrez n° 3718 (AN, 2011)"
+    },
+    "plafonnement_2011_rendement_Md": {
+     "2011": 0.5,
+     "2012": 1.5,
+     "source": "évaluation préalable de l'art. 2 LFR 2011-2, citée par le rapport Marini n° 787 (Sénat, 2011)"
+    },
+    "carry_back_2021_cout_Md": {
+     "montant": 0.4,
+     "source": "commission des finances du Sénat, présentation du PLFR 2021 (23/06/2021)"
+    }
+   },
+   "oat10": {
+    "annee": 2025,
+    "taux": 0.03366
+   },
+   "indexation_cout_regime_Md": {
+    "grille": {
+     "C25_a2": 0.4278312224999997,
+     "C25_a4": 0.8849487737913359,
+     "C25_a6": 1.3733573908098997,
+     "C32_a2": 0.5476239647999996,
+     "C32_a4": 1.13273443045291,
+     "C32_a6": 1.7578974602366717,
+     "C40_a2": 0.6845299559999996,
+     "C40_a4": 1.4159180380661374,
+     "C40_a6": 2.1973718252958396
+    },
+    "central": 1.13273443045291,
+    "hypotheses": "C = déficits imputés par an (25 Md€ en 2007-2010, portés à 32 Md€ au centre, 40 en haut) ; a = âge moyen à l'imputation (2 à 6 ans) [H] ; τ = 25 % ; nouveaux déficits seulement",
+    "montee_en_charge_indicative": {
+     "2028": 0.0,
+     "2029": 0.06732000000000005,
+     "2030": 0.2738119823999998,
+     "2031": 0.6265027405913761,
+     "2032": 1.13273443045291,
+     "2033": 1.13273443045291,
+     "2034": 1.13273443045291,
+     "2035": 1.13273443045291,
+     "2036": 1.13273443045291
+    }
+   }
+  }
+ },
+ "revenus_irreguliers": {
+  "bareme": {
+   "source": "sorties/ircsg4.json/bareme",
+   "points": [
+    0.0,
+    19176.48,
+    28764.72,
+    38352.96,
+    67117.68,
+    163424.6713947556
+   ],
+   "taux": [
+    0.02116715071943105,
+    0.16116715071943105,
+    0.23116715071943106,
+    0.2938088652965878,
+    0.3700959212199741,
+    0.48
+   ]
+  },
+  "profils": {
+   "A": [
+    50000.0,
+    50000.0,
+    50000.0,
+    50000.0,
+    50000.0
+   ],
+   "B": [
+    10000.0,
+    20000.0,
+    30000.0,
+    70000.0,
+    120000.0
+   ],
+   "B_inverse": [
+    120000.0,
+    70000.0,
+    30000.0,
+    20000.0,
+    10000.0
+   ]
+  },
+  "regimes": {
+   "annuel": {
+    "A": {
+     "par_annee": [
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519
+     ],
+     "total": 48739.24050298259
+    },
+    "B": {
+     "par_annee": [
+      576.7020028848648,
+      1883.4649971508381,
+      3919.703467080168,
+      16765.95365238952,
+      36861.693760892114
+     ],
+     "total": 60007.5178803975
+    },
+    "B_inverse": {
+     "par_annee": [
+      36861.693760892114,
+      16765.95365238952,
+      3919.703467080168,
+      1883.4649971508381,
+      576.7020028848648
+     ],
+     "total": 60007.51788039751
+    },
+    "ecart_B_moins_A": 11268.27737741491,
+    "ecart_pct_impot_A": 23.11951778716238,
+    "taux_moyen_A": 19.495696201193034,
+    "taux_moyen_B": 24.003007152158997
+   },
+   "glissant_3": {
+    "A": {
+     "par_annee": [
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519
+     ],
+     "total": 48739.24050298259
+    },
+    "B": {
+     "par_annee": [
+      576.7020028848649,
+      1640.1113333571357,
+      3433.5816552105143,
+      14826.725926311428,
+      35790.424934161216
+     ],
+     "total": 56267.545851925155
+    },
+    "B_inverse": {
+     "par_annee": [
+      36861.693760892114,
+      15814.966283868358,
+      1374.0724709226852,
+      2711.380160088036,
+      1564.9423604417934
+     ],
+     "total": 58327.05503621299
+    },
+    "ecart_B_moins_A": 7528.305348942566,
+    "ecart_pct_impot_A": 15.446086708064055,
+    "taux_moyen_A": 19.495696201193034,
+    "taux_moyen_B": 22.507018340770063
+   },
+   "quotient_5": {
+    "A": {
+     "par_annee": [
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596515
+     ],
+     "total": 48739.24050298259
+    },
+    "B": {
+     "par_annee": [
+      576.7020028848648,
+      1700.9497493055615,
+      3372.7432392620885,
+      12502.458243444707,
+      30586.387268085367
+     ],
+     "total": 48739.24050298259
+    },
+    "B_inverse": {
+     "par_annee": [
+      36861.693760892114,
+      16052.713125998656,
+      1136.3256287923869,
+      -1540.9976226169529,
+      -3770.494390083615
+     ],
+     "total": 48739.24050298259
+    },
+    "ecart_B_moins_A": 0.0,
+    "ecart_pct_impot_A": 0.0,
+    "taux_moyen_A": 19.495696201193034,
+    "taux_moyen_B": 19.495696201193034
+   },
+   "bloc_3": {
+    "A": {
+     "par_annee": [
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519,
+      9747.848100596519
+     ],
+     "total": 48739.24050298259
+    },
+    "B": {
+     "par_annee": [
+      576.7020028848648,
+      1700.9497493055615,
+      3372.7432392620885,
+      16765.95365238952,
+      36148.453234501256
+     ],
+     "total": 58564.80187834329
+    },
+    "B_inverse": {
+     "par_annee": [
+      36861.693760892114,
+      16052.713125998656,
+      1136.3256287923869,
+      1883.4649971508381,
+      394.186755039588
+     ],
+     "total": 56328.38426787359
+    },
+    "ecart_B_moins_A": 9825.561375360703,
+    "ecart_pct_impot_A": 20.159447036847915,
+    "taux_moyen_A": 19.495696201193034,
+    "taux_moyen_B": 23.425920751337316
+   }
+  },
+  "taux_marginaux": {
+   "10000": 9.417324985754192,
+   "20000": 16.717934899565275,
+   "30000": 23.92374594708672,
+   "50000": 32.46980375820095,
+   "70000": 37.338518111441715,
+   "120000": 43.044442322568656
+  }
+ }
+}

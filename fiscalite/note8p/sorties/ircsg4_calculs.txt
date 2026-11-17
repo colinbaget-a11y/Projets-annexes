@@ -1,0 +1,102 @@
+[FRAIS] calage : σ = 1.45, seuil de gain 170 € ; droit actuel simulé : 5.85 M de déclarants (cible 5.87), 36.0 Md€ de frais réels (cible 36.1), forfait 72.8 Md€
+
+[RÉSIDU] décomposition (Md€ 2025) ; part du 10e décile
+  residu                             +27.05 | actifs +18.97 retraités  +8.08 | D10 +13.35 (49 %) | D1-5 +3.81
+  frais_reels_au_dela_du_forfait      +2.75 | actifs  +2.75 retraités  +0.00 | D10  +1.05 (38 %) | D1-5 +0.43
+  niches_supprimees                  +16.83 | actifs +10.38 retraités  +6.45 | D10  +6.86 (41 %) | D1-5 +2.92
+  gardees_invalidite_dependance       +1.03 | actifs  +0.50 retraités  +0.52 | D10  +0.29 (28 %) | D1-5 +0.08
+  non_supprimables_ou_stock           +3.71 | actifs  +2.96 retraités  +0.74 | D10  +2.90 (78 %) | D1-5 +0.09
+  ecart_inexplique                    +2.74 | actifs  +2.37 retraités  +0.37 | D10  +2.25 (82 %) | D1-5 +0.29
+  niches_hors_modele                  +3.28 | actifs  +3.28 retraités  +0.00 | D10  +1.38 (42 %) | D1-5 +0.44
+  par décile, résidu : 0.1 0.3 1.2 1.8 0.4 1.2 0.8 3.9 4.0 13.3
+  par décile, niches supprimées : 0.36 0.38 0.42 0.54 1.23 1.37 1.50 1.60 2.58 6.86
+  par décile, écart inexpliqué : -0.28 -0.08 0.74 1.15 -1.24 -0.58 -1.18 1.75 0.21 2.25
+
+[FRAIS] options (barème v3 final pour le gain de déclaration) : déduction totale, frais réels déclarés, déclarants ; point de barème uniforme nécessaire à recette égale
+  actuel_v3      déduction  36.0 Md€ ; frais réels  36.1 ; déclarants   5.9 M ; recette au barème v3 226.02
+  suppression    déduction  65.1 Md€ ; frais réels  65.1 ; déclarants  18.0 M ; recette au barème v3 220.91
+  fixe_500       déduction  71.1 Md€ ; frais réels  61.3 ; déclarants  15.0 M ; recette au barème v3 219.96
+  fixe_1000      déduction  79.1 Md€ ; frais réels  56.5 ; déclarants  12.1 M ; recette au barème v3 218.66
+  pct5_plaf2000  déduction  79.0 Md€ ; frais réels  55.0 ; déclarants  11.1 M ; recette au barème v3 217.72
+  franchise_1000 déduction  44.5 Md€ ; frais réels  56.5 ; déclarants  12.1 M ; recette au barème v3 225.43
+  sensibilité (seuil de gain doublé) : déduction 56.8 Md€, 12.9 M de déclarants, coût 3.64
+
+[BARÈME] recette à tenir : cible v3 231.52 + avantages gardés ou non supprimables 3.71 + écart inexpliqué 2.74 − recettes hors modèle 3.28 + IR non attribué (moitié) 0.00 − financement 5.5 = 229.19 ; frais : suppression
+  ajustement uniforme +0.65 point (à recette constante, sans financement : +1.07) ; taux [np.float64(2.12), np.float64(16.12), np.float64(23.12), np.float64(29.38), np.float64(37.01), np.float64(48.0)] aux points [0, 19176, 28765, 38353, 67118, 163425]
+
+[CONTRÔLE] Σ net = -5.50 Md€ (attendu : −financement 5.5 + recettes hors modèle déjà retirées ⇒ -5.50 à l'écart de calage près)
+
+[MOYENNES] € par foyer et par an : gain du nouveau système (− = baisse) / perte des niches (+) / net
+  Tous les foyers                                 41.6 M :    -615 /   +483 /    -132
+  Actifs                                          27.1 M :   -1183 /   +503 /    -680
+  Retraités                                       14.5 M :    +449 /   +445 /    +894
+  Actifs seuls sans enfant                        15.9 M :    -926 /   +277 /    -649
+  Couples d'actifs sans enfant                     1.2 M :    -702 /   +724 /     +23
+  Couples, 1 enfant                                3.5 M :   -1391 /   +927 /    -464
+  Couples, 2 enfants                               3.1 M :   -2000 /   +914 /   -1086
+  Couples, 3 enfants ou plus                       1.4 M :   -2105 /   +888 /   -1217
+  Couples à un seul revenu (avec ou sans enfant)   1.4 M :   +1164 /   +893 /   +2057
+  Parents isolés                                   2.0 M :   -1213 /   +502 /    -711
+  Retraités seuls                                 10.7 M :    +269 /   +342 /    +611
+  Couples de retraités                             3.8 M :    +963 /   +739 /   +1703
+  D1  (actifs 52 %) :     -51 /    +90 /     +39
+  D2  (actifs 52 %) :     -71 /    +97 /     +25
+  D3  (actifs 56 %) :    -114 /   +120 /      +7
+  D4  (actifs 69 %) :    -362 /   +162 /    -199
+  D5  (actifs 68 %) :    -530 /   +336 /    -193
+  D6  (actifs 68 %) :    -687 /   +393 /    -294
+  D7  (actifs 66 %) :    -794 /   +430 /    -364
+  D8  (actifs 65 %) :    -991 /   +477 /    -513
+  D9  (actifs 73 %) :   -1199 /   +748 /    -452
+  D10 (actifs 81 %) :   -1328 /  +1938 /    +609
+
+[SOUS-GROUPES] bénéficiaires (fréquence, perte moyenne du seul dispositif, net = gain système + perte ; €/an)
+  emploi_domicile: D2A 4 % 1366 → +868 | D2R 6 % 1366 → +1765 | D5A 6 % 1366 → +277 | D5R 16 % 1366 → +2037 | D8A 6 % 1366 → -319 | D8R 16 % 1366 → +1685 | D10A 26 % 1366 → -261 | D10R 60 % 3090 → +3017
+  garde: D2A 4 % 924 → +134 | D5A 7 % 924 → -976 | D8A 10 % 924 → -841 | D10A 7 % 924 → -587
+  dons: D5A 7 % 445 → -644 | D5R 12 % 445 → +1117 | D8A 7 % 445 → -1240 | D8R 12 % 445 → +764 | D10A 40 % 445 → -1182 | D10R 60 % 990 → +918
+  outre_mer: D5A 0 % 15153 → +14063 | D5R 0 % 15153 → +15824 | D8A 0 % 15153 → +13467 | D8R 0 % 15153 → +15471 | D10A 1 % 15153 → +13526 | D10R 1 % 15153 → +15080
+
+[EFFICACITÉ] gain d'efficacité statique lié à la modification des incitations fiscales au travail (hors effets propres aux dispositifs supprimés) : bas 1.25 Md€ (heures 0.36, participation 0.89), ETP 100 k ; central 2.88 Md€ (heures 0.65, participation 2.23), ETP 239 k ; haut 6.16 Md€ (heures 1.71, participation 4.45), ETP 494 k
+  z   19,176 : taux moyen  10.7 →   9.1 % ; marginal  10.7 →  16.0 %
+  z   38,353 : taux moyen  17.8 →  16.1 % ; marginal  35.8 →  29.4 %
+  z   60,000 : taux moyen  24.2 →  21.9 % ; marginal  35.6 →  35.1 %
+  z  100,000 : taux moyen  28.8 →  28.5 % ; marginal  35.6 →  40.8 %
+  z  200,000 : taux moyen  37.5 →  37.1 % ; marginal  48.8 →  48.0 %
+  z  400,000 : taux moyen  45.5 →  42.5 % ; marginal  54.7 →  48.0 %
+  progressivité (taux moyen 200 k€ − Smic) : 26.8 → 28.0 points ; taux marginal maximal 48.0 %
+  taux effectif moyen par décile, niches comprises (impôt / revenu après cotisations) : D1 4.6→6.5 ; D2 4.6→4.9 ; D3 5.4→5.4 ; D4 7.2→6.2 ; D5 10.3→9.5 ; D6 11.1→10.1 ; D7 12.7→11.7 ; D8 13.3→12.2 ; D9 15.5→14.8 ; D10 21.9→22.4
+
+[CASCADE] ressources (+) et emplois (−), Md€ : vraies_niches +20.1 ; alignement_pensions +15.8 ; unite_fiscale +12.1 ; technique_csg_deductible +24.1 ; technique_frais +14.8 ; quotient_familial_vers_franchise -1.2 ; cehr_absorbee -0.6 ; bareme -90.6 ; solde -5.5
+  (barème brut -90.6 ; correction des avantages gardés et de l'écart inexpliqué 6.4 et de l'IR non attribué 0.0 portée par le barème ; franchise -17.4, QF +16.2)
+
+[TRAJECTOIRE] total (= −financement) ; recette des niches supprimées ; manque dû aux reports (couvert par le barème) : 2027 +0.00/4.9/0.11 (A -3.5, R +3.7, écart +0.00) ; 2028 +0.00/9.9/0.11 (A -7.1, R +7.4, écart +0.00) ; 2029 +0.00/15.0/0.08 (A -10.6, R +11.1, écart +0.00) ; 2030 +0.00/20.1/0.00 (A -14.2, R +14.7, écart +0.00) ; 2031 +0.00/20.1/0.00 (A -14.2, R +14.7, écart +0.00) ; 2032 -1.00/20.1/0.00 (A -14.8, R +14.4, écart +0.00) ; 2033 -2.00/20.1/0.00 (A -15.5, R +14.1, écart +0.00) ; 2034 -3.00/20.1/0.00 (A -16.2, R +13.8, écart +0.00) ; 2035 -4.00/20.1/0.00 (A -16.9, R +13.4, écart +0.00) ; 2036 -5.00/20.1/0.00 (A -17.5, R +13.1, écart +0.00) ; 2037 -5.50/20.1/0.00 (A -17.9, R +13.0, écart +0.00) ; 2038 -5.50/20.1/0.00 (A -17.9, R +13.0, écart +0.00) ; 2039 -5.50/20.1/0.00 (A -17.9, R +13.0, écart +0.00) ; 2040 -5.50/20.1/0.00 (A -17.9, R +13.0, écart +0.00)
+
+[CAS-TYPES]
+smic_hs      Salarié au Smic, 10 % d'heures supplémentaires exonérées               aujourd'hui    2,267 (sans niche    2,321) →    2,071 : système    -250, niches     +54, net    -196 €/an (  -16/mois)
+smic         Salarié au Smic, sans heure supplémentaire                             aujourd'hui    2,061 (sans niche    2,061) →    1,748 : système    -312, niches      +0, net    -312 €/an (  -26/mois)
+milieu       Salarié de classe moyenne, 40 000 € brut, sans niche                   aujourd'hui    5,779 (sans niche    5,779) →    5,328 : système    -451, niches      +0, net    -451 €/an (  -38/mois)
+julie        Julie, 2 000 € net par mois                                            aujourd'hui    3,714 (sans niche    3,714) →    3,208 : système    -506, niches      +0, net    -506 €/an (  -42/mois)
+julie_200    Julie après +200 € net par mois                                        aujourd'hui    4,361 (sans niche    4,361) →    3,819 : système    -542, niches      +0, net    -542 €/an (  -45/mois)
+garde        Couple biactif 36 + 24 k€, deux enfants de 1 et 3 ans gardés par une a aujourd'hui    2,250 (sans niche    5,750) →    3,976 : système  -1,774, niches  +3,500, net  +1,726 €/an ( +144/mois)
+garde_dom    Le même, avec en plus 3 000 € d'emploi à domicile (ménage)             aujourd'hui      750 (sans niche    5,750) →    3,976 : système  -1,774, niches  +5,000, net  +3,226 €/an ( +269/mois)
+garde_sans   Le même couple, sans niche                                             aujourd'hui    5,750 (sans niche    5,750) →    3,976 : système  -1,774, niches      +0, net  -1,774 €/an ( -148/mois)
+pi_garde     Parent isolé au Smic, un enfant de 2 ans gardé (2 500 €)               aujourd'hui      811 (sans niche    2,061) →      913 : système  -1,148, niches  +1,250, net    +102 €/an (   +9/mois)
+nombreuse    Famille nombreuse biactive 40 + 25 k€, trois enfants (collégien, lycée aujourd'hui    6,195 (sans niche    6,195) →    3,749 : système  -2,446, niches      +0, net  -2,446 €/an ( -204/mois)
+mono         Couple mono-actif, 45 000 € brut, deux enfants de 8 et 11 ans          aujourd'hui    4,289 (sans niche    4,289) →    3,433 : système    -855, niches      +0, net    -855 €/an (  -71/mois)
+mono_mi      Le même, le conjoint reprend un mi-temps au Smic                       aujourd'hui    5,319 (sans niche    5,319) →    3,972 : système  -1,347, niches      +0, net  -1,347 €/an ( -112/mois)
+ret_modeste  Retraité seul, pension de 14 000 €                                     aujourd'hui        0 (sans niche        0) →    1,012 : système  +1,012, niches      +0, net  +1,012 €/an (  +84/mois)
+ret_dom      Retraitée seule, pension de 30 000 €, aide à domicile 4 000 €          aujourd'hui    1,287 (sans niche    3,287) →    3,920 : système    +633, niches  +2,000, net  +2,633 €/an ( +219/mois)
+ret_dom_sans La même, sans niche                                                    aujourd'hui    3,287 (sans niche    3,287) →    3,920 : système    +633, niches      +0, net    +633 €/an (  +53/mois)
+cadres       Couple de cadres 90 + 60 k€, deux enfants ; dons 2 000 €, emploi à dom aujourd'hui   21,846 (sans niche   30,227) →   22,928 : système  -3,299, niches  +4,381, net  +1,082 €/an (  +90/mois)
+[JULIE] +200 € de salaire net par mois (+224 € après cotisations) : elle garde aujourd'hui 170 €, demain 173 € (prélèvement sur le supplément 24 % → 23 %)
+[SECOND CONJOINT] mi-temps au Smic repris : prélèvement 9.5 % → 5.0 % du brut
+[ASPA] pension brute / ASPA / impôt aujourd'hui → nouvel impôt / perte annuelle (ASPA sur pension brute) / perte si l'ASPA est calculée sur la pension nette du nouvel impôt
+     6,000 : ASPA  6,411 ; impôt     0 →   258 ; perte   258 €/an (22/mois) ; variante     0
+     8,000 : ASPA  4,411 ; impôt     0 →   403 ; perte   403 €/an (34/mois) ; variante     0
+    10,000 : ASPA  2,411 ; impôt     0 →   577 ; perte   577 €/an (48/mois) ; variante     0
+    12,000 : ASPA    411 ; impôt     0 →   780 ; perte   780 €/an (65/mois) ; variante     0
+    12,411 : ASPA      0 ; impôt     0 →   825 ; perte   825 €/an (69/mois) ; variante     0
+    13,000 : ASPA      0 ; impôt     0 →   892 ; perte   892 €/an (74/mois) ; variante   589
+    14,000 : ASPA      0 ; impôt     0 → 1,012 ; perte 1,012 €/an (84/mois) ; variante 1,012
+    15,000 : ASPA      0 ; impôt     0 → 1,139 ; perte 1,139 €/an (95/mois) ; variante 1,139
+    16,000 : ASPA      0 ; impôt     0 → 1,273 ; perte 1,273 €/an (106/mois) ; variante 1,273
