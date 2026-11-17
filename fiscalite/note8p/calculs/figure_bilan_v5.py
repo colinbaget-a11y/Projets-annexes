@@ -89,6 +89,14 @@ for titre, items in BLOCS:
 solde = sum(v for _, it in BLOCS for _, v in it)
 assert abs(solde - B["solde"]) < 0.05, (solde, B["solde"])
 lignes.append(("solde", "Solde de l'ensemble", solde, y))
+# options non retenues (hors solde) : baisse du PFU (sorties/pfu_options.json, après réaction)
+PO = L("pfu_options.json")
+y -= 1.4
+OPTS = []
+for k, lib in (("30", "Option : prélèvement forfaitaire unique à 30 %"), ("25", "Option : prélèvement forfaitaire unique à 25 %")):
+    OPTS.append((lib, -PO[k]["central"], y))
+    V32[lib] = -PO[k]["central"]
+    y -= 1
 
 
 def lab(v):
@@ -98,7 +106,7 @@ def lab(v):
     return ("+" if r > 0 else "−") + _fr(abs(r))
 
 
-fig, ax = plt.subplots(figsize=(PLEINE, 4.5))
+fig, ax = plt.subplots(figsize=(PLEINE, 4.9))
 for typ, t, v, yy in lignes:
     if typ == "item":
         ax.barh(yy, v, color=HAUSSE if v > 0 else PROP, height=0.66, zorder=2)
@@ -115,11 +123,19 @@ for typ, t, v, yy in lignes:
             color=HAUSSE if diff else ENCRE2, fontweight="bold" if (diff or typ != "item") else "normal")
 ax.text(47, lignes[0][3] + 0.9, "En 2032", ha="right", fontsize=7.2, color=ENCRE, fontweight="bold")
 ax.text(-110, lignes[0][3] + 0.9, "Réforme installée (2040)", ha="left", fontsize=7.2, color=ENCRE, fontweight="bold")
+for lib, v, yy in OPTS:
+    ax.barh(yy, v, color="white", edgecolor=HAUSSE, hatch="////", height=0.66, zorder=2, lw=0.8)
+    ax.text(v - 1.2, yy, lab(v) + f"  (solde : {lab(solde + v)})", va="center", ha="right", fontsize=7.2, color=HAUSSE)
+    ax.text(47, yy, lab(v), va="center", ha="right", fontsize=7.2, color=HAUSSE)
+lignes += [("option", lib, v, yy) for lib, v, yy in OPTS]
 ax.axvline(0, color=ENCRE2, lw=0.7)
 ax.set_yticks([l[3] for l in lignes])
 ax.set_yticklabels([l[1] for l in lignes], fontsize=7.2)
 for tl, l in zip(ax.get_yticklabels(), lignes):
-    if l[0] != "item":
+    if l[0] == "option":
+        tl.set_color(HAUSSE)
+        tl.set_fontstyle("italic")
+    elif l[0] != "item":
         tl.set_fontweight("bold")
         tl.set_color(ENCRE)
 ax.set_xlim(-112, 49)
@@ -138,7 +154,8 @@ sauver(fig, "figure_bilan",
        " total). Taxe foncière communale inchangée. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
        " Impôt sur les sociétés : rendements prudents, après réaction des entreprises ; en 2040, la déduction immédiate"
        " est à son coût permanent ; en 2032 et surtout en 2033 (près de 12 Md€ en euros de 2027), l'État rembourse aussi"
-       " la transition. Non comptée : fin de l'effacement des plus-values au décès"
+       " la transition. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
+       " contribuables ; entre parenthèses, le solde qui en résulterait). Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
                   for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2027 environ")
