@@ -81,11 +81,8 @@ sauver(fig, "g2_taux_marginaux", SRC_OF, "Salarié seul : prélèvement sur 100 
 C = J["cas_types_nets"]
 LIB = [("smic_hs", "Salarié au Smic avec heures sup."), ("milieu", "Salarié seul, 40 000 € brut"),
        ("garde_sans", "Biactifs 2 enfants, sans niche"), ("garde", "Les mêmes, enfants gardés"),
-       ("garde_dom", "… et une aide à domicile"), ("pi_garde", "Parent isolé au Smic, enfant gardé"),
-       ("nombreuse", "Famille de 3 enfants, 65 000 €"), ("mono", "Couple mono-actif, 2 enfants"),
-       ("ret_modeste", "Retraité, 14 000 €"), ("ret_dom", "Retraitée 30 000 €, aide à domicile"),
-       ("cadres", "Cadres 150 000 €, plusieurs niches")]
-fig, ax = plt.subplots(figsize=(PLEINE, 3.1))
+       ("ret_modeste", "Retraité, 14 000 €"), ("cadres", "Cadres 150 000 €, plusieurs niches")]
+fig, ax = plt.subplots(figsize=(PLEINE, 2.2))
 y = np.arange(len(LIB))[::-1]
 for yy, (k, lab) in zip(y, LIB):
     gs, pn, net = -C[k]["gain_systeme_mois"], -C[k]["perte_niches_mois"], -C[k]["net_mois"]
@@ -145,15 +142,17 @@ sauver(fig, "g3b_gains_revenu", SRC_OF, "Hors niches : ni réduction, ni crédit
 
 # ------------------------------------------------------------------ g11 : où vont les ressources
 K = J["cascade_categories"]
-ITEMS = [("Vraies niches supprimées", K["vraies_niches"], "src"),
-         ("Pensions alignées sur les salaires", K["alignement_pensions"], "src"),
-         ("Impôt individuel (fin du quotient conjugal)", K["unite_fiscale"], "src"),
-         ("Technique : fin de la CSG déductible", K["technique_csg_deductible"], "tec"),
-         ("Technique : forfait de 10 % supprimé", K["technique_frais"], "tec"),
-         ("Quotient familial remplacé par la franchise", K["quotient_familial_vers_franchise"], "use"),
-         ("CEHR absorbée", K["cehr_absorbee"], "use"),
-         ("Financement extérieur (foncier, IS, CIR)", K["financement_externe"], "src"),
-         ("Minimum vieillesse corrigé (dépense)", K["aspa_nette"], "use"),
+CB = {c["etape"]: c["Md"] for c in J["cascade_brute"]}
+ITEMS = [("Suppression des vraies niches", K["vraies_niches"], "src"),
+         ("Pensions imposées comme les salaires", K["alignement_pensions"], "src"),
+         ("Impôt individuel : fin du quotient conjugal", K["unite_fiscale"], "src"),
+         ("Fin du quotient familial", CB["qf"], "src"),
+         ("Assiette avant CSG (fin de la CSG déductible)", K["technique_csg_deductible"], "tec"),
+         ("Fin du forfait de 10 % pour frais", K["technique_frais"], "tec"),
+         ("Apport des autres réformes (IS, foncier)", K["financement_externe"], "src"),
+         ("Franchise de 6 000 € par enfant", K["quotient_familial_vers_franchise"] - CB["qf"], "use"),
+         ("Minimum vieillesse sur la pension nette", K["aspa_nette"], "use"),
+         ("Contribution sur les hauts revenus intégrée", K["cehr_absorbee"], "use"),
          ("Baisse des taux (nouveau barème)", K["bareme"], "use")]
 fig, ax = plt.subplots(figsize=(PLEINE, 2.9))
 y = np.arange(len(ITEMS))[::-1]
@@ -172,7 +171,7 @@ ax.spines["left"].set_visible(False)
 ax.tick_params(axis="y", length=0)
 sauver(fig, "g11_cascade", "calculs des auteurs (modèle de foyers calé sur l'IRCOM des revenus 2024 porté en 2025 ; CPO 2026 ;"
        " DGFiP Statistiques n° 41 ; Voies et moyens PLF 2026).",
-       "Ocre : ressources ; ocre clair : modifications techniques de la fusion ; bleu : emplois. Vraies niches : coût des"
+       "Ocre : ressources ; ocre clair : ajustements techniques de la fusion ; bleu : emplois. Le solde est nul : la fusion est à recette constante. Décomposition séquentielle, avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le total). Vraies niches : coût des"
        " réductions, crédits et exonérations supprimés (dont 3,3 Md€ de revenus aujourd'hui exonérés, comme l'épargne"
        " salariale) ; les avantages gardés (engagements Pinel, revenus de source étrangère, invalidité, dépendance) et"
        " l'écart inexpliqué du modèle ne sont pas comptés. Forfait : frais réels gardés, en hausse.")
