@@ -14,7 +14,7 @@ J = json.loads((ROOT / "sorties" / "is3.json").read_text(encoding="utf-8"))
 T, D, LT = J["taux_effectifs"], J["deduction"], J["long_terme"]
 pics = [D["departs"]["2029"]["pic"]]
 perm50, perm100 = D["cout_permanent_2027"]["50"] / 1.03, D["cout_permanent_2027"]["100"] / 1.03   # euros de 2026
-c225 = J["comparaison_taux_225"]["cout_2027"] / 1.03   # euros de 2026
+c225 = 6.5   # 2,5 points sur la seule base imposée à 25 % (256,8 Md€, DGFiP Statistiques n° 51), euros de 2026 ; vérification du 17/11
 J4 = json.loads((ROOT / "sorties" / "is4.json").read_text(encoding="utf-8"))
 sup = J4["reinvestissement"]["options_exercices"]["b_equipements_75_2033_100_des_2036"]
 pic_sup = max(sup.values())

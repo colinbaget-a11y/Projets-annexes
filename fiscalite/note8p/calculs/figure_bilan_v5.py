@@ -170,7 +170,7 @@ sauver(fig, "figure_bilan",
        " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
        "Recettes de 2032, en euros de 2026, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
-       " total). Taxe foncière communale assise sur la valeur de marché, en deux parts (sol et bâti), à recette communale inchangée : le total ne change pas, mais la charge se redistribue entre logements. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
+       " total). Taxe foncière communale assise sur la valeur de marché, en deux parts (sol et bâti), à recette communale inchangée : le total ne change pas, mais la charge se redistribue entre logements. Taxe nationale sur le sol : 15 Md€ bruts, montant affiché net de sa déductibilité des bénéfices."
        " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. En 2032, la déduction immédiate"
        " coûte cher parce que l'État rembourse aussi la transition (près de 12 Md€ en 2033) ; une fois celle-ci passée,"
        " vers 2040, elle ne coûte plus qu'environ 1,5 Md€ par an et la marge de l'ensemble atteint environ 13 Md€. Niches : coûts des Voies et moyens du PLF 2026, hors dispositifs qui s'éteignent avant 2032 en droit actuel (Girardin). Quotients conjugal et familial : la Cour des comptes les chiffrait à 11,1 et 16,5 Md€ en 2021. Fin de la CSG déductible : 16 Md€ si la mesure était prise isolément. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"

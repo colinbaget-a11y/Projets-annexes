@@ -141,7 +141,7 @@ TE = json.loads((S_ / "is3.json").read_text(encoding="utf-8"))["taux_effectifs"]
 r = 0.05
 seuil = {k: 100 * r / (1 - TE[k]["fp"]) for k in ("actuel", "taux225", "ded50", "ded100")}
 BAR = [("Aujourd'hui\n(taux de 25 %)", seuil["actuel"], AUJ, "coût : référence"),
-       ("Réforme naïve :\nbaisse du taux à 22,5 %", seuil["taux225"], NAIF, "7,3 Md€ par an, chaque année"),
+       ("Réforme naïve :\nbaisse du taux à 22,5 %", seuil["taux225"], NAIF, "6,5 Md€ par an, chaque année"),
        ("Notre réforme :\ndéduction immédiate", seuil["ded100"], PROP, "coût surtout transitoire")]
 fig, ax = plt.subplots(figsize=(PLEINE, 2.3))
 ax.set_xticks([5.0, 5.5, 6.0, 6.5])

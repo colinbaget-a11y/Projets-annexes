@@ -2,7 +2,7 @@
  "chapeaux": {
   "IR": "Nous fusionnons l'impôt sur le revenu, la CSG et la CRDS, qui frappent les revenus du travail et de remplacement, en un seul impôt individuel. Nous en harmonisons les seuils à rendement inchangé et corrigeons au passage plusieurs dérives, comme la multiplication des niches ou le traitement plus favorable des pensions. Le système qui en résulte est plus simple, plus lisible et un peu plus favorable à la croissance, à la reprise d'emploi et à la progression des salaires.",
   "FONCIER": "Nous divisons par deux les droits de mutation, qui freinent la mobilité professionnelle et l'accession à la propriété, et créons une taxe nationale sur la seule valeur du sol, qui rapporte bien davantage que ce que coûte cette baisse (figure~\\ref{fig:g15}). La réforme reste progressive, parce qu'elle fait baisser la valeur des terrains.",
-  "IS": "Nous gardons le taux de l'impôt sur les sociétés à 25~\\%, mais remplaçons le taux réduit des petites entreprises, les niches sectorielles et le crédit d'impôt recherche par la déduction immédiate des investissements, et nous partageons mieux les pertes des entreprises. L'impôt favorise ainsi celles qui investissent et prennent des risques, plutôt que celles qui restent petites ou entrent dans un dispositif. Elle conserve l'imposition minimale de 15~\\% des grands groupes, issue de l'accord conclu à l'OCDE, même si elle rapporte bien moins que prévu : c'est le seul garde-fou commun contre la course au moins-disant fiscal entre États\\footnote{Le Sénat attend 0,5 milliard d'euros en 2026, contre environ 1,5 milliard par an prévu lors de sa transposition (rapport n\\textsuperscript{o}~780, juin 2026).}.",
+  "IS": "Nous gardons le taux de l'impôt sur les sociétés à 25~\\%, mais remplaçons le taux réduit des petites entreprises, les niches sectorielles et le crédit d'impôt recherche par la déduction immédiate des investissements, et nous partageons mieux les pertes des entreprises. L'impôt favorise ainsi celles qui investissent et prennent des risques, plutôt que celles qui restent petites ou entrent dans un dispositif. Elle conserve l'imposition minimale de 15~\\% des grands groupes, issue de l'accord conclu à l'OCDE, même si elle rapporte bien moins que prévu : c'est le seul garde-fou commun contre la course au moins-disant fiscal entre États\\footnote{L'administration fiscale, citée par le Sénat, attend 0,5 milliard d'euros en 2026, contre environ 1,5 milliard par an prévu lors de sa transposition (rapport n\\textsuperscript{o}~780, juin 2026).}.",
   "PFU": "Nous conservons le prélèvement forfaitaire unique, dont le taux est cohérent avec notre nouvel impôt sur le revenu, mais mettons fin à l'effacement des plus-values au décès, qui pousse les entrepreneurs à garder leurs titres plutôt qu'à les vendre.",
   "BILAN": "Prise dans son ensemble, la réforme ne change presque pas le niveau des prélèvements : elle en change la structure. Elle élargit l'assiette de l'impôt sur le revenu pour en baisser les taux, déplace l'impôt des transactions immobilières vers la détention du sol et réoriente l'impôt sur les sociétés vers l'investissement."
  },
@@ -28,7 +28,7 @@
   ],
   [
    "pendant six ans pour couvrir ce seul coût fiscal",
-   "Droits de mutation de 21\\,190 euros au taux de 5,81~\\%, hors émoluments du notaire ; calculs des auteurs."
+   "Droits de mutation de 21\\,190 euros au taux de droit commun de 5,81~\\%, hors émoluments du notaire ; 23\\,060 euros au taux de 6,32~\\% que l'Essonne applique jusqu'au 31 mars 2028 (DGFiP, taux au 1\\textsuperscript{er} juin 2026). Calculs des auteurs."
   ],
   [
    "rapportant 15 milliards d’euros par an",
@@ -39,8 +39,8 @@
    "Calcul des auteurs : la taxe seule ferait baisser la valeur des logements des ménages d'environ 3,5~\\%, la baisse des droits la relève de 0 à 2,4 points selon qu'elle est intégrée ou non dans les prix ; annexe C (ordre de grandeur extrapolé du scénario à 10 milliards)."
   ],
   [
-   "coûterait ainsi environ 7,3 milliards d’euros par an",
-   "Calculs des auteurs à partir des recettes d'impôt sur les sociétés de 2025 ; annexe D."
+   "coûterait ainsi environ 6,5 milliards d’euros par an",
+   "Calculs des auteurs : 2,5 points sur les bénéfices imposés au taux normal (257 milliards d'euros en 2025, DGFiP, \\emph{Statistiques} n\\textsuperscript{o}~51) ; annexe D."
   ],
   [
    "dégagerait ainsi 4,1 milliards d’euros par an",
@@ -48,11 +48,11 @@
   ],
   [
    "consacrés au crédit d’impôt recherche",
-   "7,4 milliards d'euros attendus en 2027 (Sénat, PLF 2027), 8,0 dans l'Évaluation des voies et moyens du PLF 2026. Une part des créances déjà acquises reste due jusqu'en 2031 et l'effort de recherche baissera : nous ne comptons donc qu'une recette prudente d'environ 5,5 milliards d'euros par an à terme ; annexe D."
+   "8,0 milliards d'euros en 2026 (Évaluation des voies et moyens du PLF 2026), 7,7 milliards utilisés en 2025 (DGFiP, \\emph{Statistiques} n\\textsuperscript{o}~51). Une part des créances déjà acquises reste due jusqu'en 2031 et l'effort de recherche baissera : nous ne comptons donc qu'une recette prudente d'environ 5,5 milliards d'euros par an à terme ; annexe D."
   ],
   [
    "de l’ordre d’un milliard d’euros par an à terme",
-   "Calcul des auteurs à partir des déficits imputés chaque année (DGFiP, \\emph{Statistiques} n\\textsuperscript{o}~21, 2024) : 1,2 milliard en régime permanent, entre 0,4 et 2,3 selon les hypothèses."
+   "Calcul des auteurs : 1,2 milliard en régime permanent, entre 0,4 et 2,3 selon le volume de déficits imputés chaque année, qui n'est pas publié (hypothèse de 32 milliards d'euros, extrapolée du compte général de l'État de 2010)."
   ],
   [
    "ils acquittent ensemble environ 411 k€ d’impôts",
@@ -102,7 +102,7 @@
   ],
   [
    "coûterait ainsi environ 7,5 milliards d’euros par an",
-   "coûterait ainsi environ 7,3 milliards d’euros par an"
+   "coûterait ainsi environ 6,5 milliards d’euros par an"
   ],
   [
    "dégagerait ainsi 4,2 milliards d’euros par an",
