@@ -60,6 +60,29 @@ JULIE = dict(brut_avant=float(a.bruts), brut_apres=float(b.bruts), hausse_revenu
 p(f"[JULIE] +200 € de salaire net par mois (+{dz / 12:.0f} € après cotisations) : elle garde aujourd'hui {garde_auj:.0f} €,"
   f" demain {garde_dem:.0f} € (prélèvement sur le supplément {JULIE['taux_prelevement_aujourdhui']:.0f} % → {JULIE['taux_prelevement_demain']:.0f} %)")
 
+# progression de carrière : ce que garde un salarié seul quand son salaire brut passe de 1,5 à 2 Smic, ou de 2 à 3 Smic
+# (charge d'aujourd'hui : courbe OpenFisca de la v3, salarié seul sans niche ; revenu après cotisations de la même courbe)
+SAL = json.loads((OUT / "ircsg3.json").read_text(encoding="utf-8"))["courbes"]["salarie"]
+bm = np.array([r["brut_mensuel"] for r in SAL])
+zz = np.array([r["z"] for r in SAL])
+aa = np.array([r["auj"] for r in SAL])
+SMIC_M = 21621.6 / 12
+PROG = {}
+for a1, a2 in ((1.5, 2.0), (2.0, 3.0)):
+    b1, b2 = a1 * SMIC_M, a2 * SMIC_M
+    z1, z2 = float(np.interp(b1, bm, zz)), float(np.interp(b2, bm, zz))
+    t1, t2 = float(np.interp(b1, bm, aa)), float(np.interp(b2, bm, aa))
+    n1, n2 = float(N.impot_z(S, O, [z1])[0]), float(N.impot_z(S, O, [z2])[0])
+    dz = (z2 - z1) / 12
+    PROG[f"{a1}_{a2}"] = dict(brut_mensuel=(b1, b2), hausse_apres_cotisations_mois=dz,
+                              garde_aujourdhui_mois=dz - (t2 - t1) / 12, garde_demain_mois=dz - (n2 - n1) / 12,
+                              prelevement_aujourdhui_pct=100 * (t2 - t1) / (z2 - z1), prelevement_demain_pct=100 * (n2 - n1) / (z2 - z1))
+    v = PROG[f"{a1}_{a2}"]
+    p(f"[PROGRESSION] {a1} → {a2} Smic ({b1:,.0f} → {b2:,.0f} € brut/mois, +{dz:.0f} € après cotisations) : garde"
+      f" aujourd'hui {v['garde_aujourdhui_mois']:.0f} € ({v['prelevement_aujourdhui_pct']:.1f} % prélevés), demain"
+      f" {v['garde_demain_mois']:.0f} € ({v['prelevement_demain_pct']:.1f} %)")
+JULIE["progressions"] = PROG
+
 # second conjoint : prélèvement sur le mi-temps repris
 m0, m1 = CAS[CAS.cle == "mono"].iloc[0], CAS[CAS.cle == "mono_mi"].iloc[0]
 sal2 = float(str(m1.bruts).split(";")[1])
@@ -88,15 +111,18 @@ for P_ in (6000.0, 8000.0, 10000.0, 12000.0, ASPA, 13000.0, 14000.0, 15000.0, 16
     ROWS.append(dict(pension=P_, aspa=aspa, impot_auj=t_auj, impot_nouveau=t_new, revenu_auj=rev_auj, revenu_nouveau=rev_new,
                      perte=rev_auj - rev_new, aspa_variante=aspa_net, revenu_variante=rev_var, perte_variante=rev_auj - rev_var,
                      cout_public_variante=aspa_net - aspa))
-p("[ASPA] pension brute / ASPA / impôt aujourd'hui → nouvel impôt / perte annuelle (ASPA sur pension brute) / perte si"
-  " l'ASPA est calculée sur la pension nette du nouvel impôt")
+p("[ASPA] pension brute / ASPA / impôt aujourd'hui → nouvel impôt / perte annuelle si l'ASPA restait calculée sur la"
+  " pension brute / perte avec la règle retenue (ASPA calculée sur la pension nette du nouvel impôt)")
 for r in ROWS:
     p(f"  {r['pension']:8,.0f} : ASPA {r['aspa']:6,.0f} ; impôt {r['impot_auj']:5,.0f} → {r['impot_nouveau']:5,.0f} ;"
       f" perte {r['perte']:5,.0f} €/an ({r['perte'] / 12:.0f}/mois) ; variante {r['perte_variante']:5,.0f}")
 J["cas_types_nets"] = NETS
 J["julie"] = JULIE
 J["second_conjoint"] = SC
-J["aspa"] = dict(plafond_2025=ASPA, ressources="pensions brutes", exoneration_ir="CGI art. 81, 9°", lignes=ROWS)
+J["aspa"] = dict(plafond_2025=ASPA, ressources_droit_actuel="pensions brutes", regle_retenue="ASPA calculée sur la pension"
+                " nette du nouvel impôt", exoneration_ir="CGI art. 81, 9°", lignes=ROWS, cout_Md=J["final"]["aspa_cout_Md"],
+                allocataires_fin_2024=752800, source="DREES, Minima sociaux et prestations sociales, édition 2025, fiche 28",
+                nature="dépense sociale (fonds de solidarité vieillesse), hors périmètre fiscal, financée sur l'enveloppe du bloc")
 json.dump(J, open(OUT / "ircsg4.json", "w"), ensure_ascii=False, indent=1, default=float)
 with open(OUT / "ircsg4_calculs.txt", "a", encoding="utf-8") as fh:
     fh.write("\n[CAS-TYPES]\n" + "\n".join(L) + "\n")

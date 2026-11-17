@@ -316,6 +316,76 @@ p(f"\n[BARÈME] recette à tenir : cible v3 {N.CIBLE:.2f} + avantages gardés ou
 p(f"  ajustement uniforme {100 * DFIN:+.2f} point (à recette constante, sans financement : {100 * D0:+.2f}) ; taux"
   f" {[round(100 * x, 2) for x in TT]} aux points {[round(x) for x in P0]}")
 
+# ================================================================== 3 bis. version finale : 7,0 Md€ de financement externe
+# Décision de l'assembleur (19/11/2026, suppression du CIR) : 1,5 Md€ de 2029 à 2034, 2,5 de 2035 à 2037, 4,5 en 2038,
+# 6,0 en 2039, 7,0 dès 2040. Priorités : (1) taux moyens nettement moins progressifs que le droit actuel (écart de taux
+# moyen Smic – 200 k€) sans toucher au Smic ni aux taux entre 0,6 et 1,1 Smic ; (2) minimum vieillesse (ASPA calculée
+# sur la pension nette du nouvel impôt) ; (3) le reste sur le bas et le milieu. Le moyen le moins coûteux de réduire
+# l'écart à 200 k€ est d'atteindre le plafond de 48 % plus haut (exploration : ircsg4_modele, section 3 bis) ; les taux
+# aux points 0 à 3,5 Smic de la version à 5,5 Md€ sont gardés.
+S5, TT5, DFIN5 = S, TT, DFIN
+FIN_TOT = 7.0
+PALIERS = {**{a: 1.5 for a in range(2029, 2035)}, **{a: 2.5 for a in range(2035, 2038)}, 2038: 4.5, 2039: 6.0}
+ASPA_PLAF, ASPA_ALLOC, ASPA_RECOURS = 12411.44, 752800, 0.5   # plafond 2025 ; allocataires fin 2024 (DREES, MS 2025,
+# fiche 28) ; la moitié des personnes seules éligibles le perçoivent (DREES, fin 2016)
+
+
+def aspa_cout(sched):
+    """Coût (Md€) d'une ASPA calculée sur la pension nette du nouvel impôt : (a) allocataires actuels, dont la pension
+    propre est supposée uniformément répartie entre 0 et le plafond [H : pension de droit direct moyenne 510 €/mois,
+    DREES] : l'ASPA compense leur impôt ; (b) nouveaux éligibles (pension entre le plafond et le plafond + impôt),
+    retraités seuls du modèle, avec un recours de 50 % (bas) à 100 % (haut)."""
+    ps = np.linspace(0, ASPA_PLAF, 401)
+    stock = ASPA_ALLOC * float(np.mean(N.impot_z(sched, O, [ps]))) / 1e9
+    w = [t[3] for t in TYPES if t[0] == "retraite_seul"][0]
+    pz = M.ZNG["R"]
+    t = N.impot_z(sched, O, [pz])
+    gain = np.clip(ASPA_PLAF - (pz - t), 0, None) * (pz > ASPA_PLAF)
+    ent = float((w * gain).sum()) / 1e9
+    return dict(stock=stock, entrants_plein_recours=ent, central=stock + ASPA_RECOURS * ent, bas=0.9 * stock + 0.5 * ent,
+                haut=1.1 * stock + ent)
+
+
+def design(zp):
+    return N.continu(P0[:5] + [zp], TT5)
+
+
+def cale_zp(F):
+    lo, hi = P0[5], 5e6
+    for _ in range(50):
+        m = (lo + hi) / 2
+        lo, hi = (m, hi) if N.recette(design(m), O) > cible(F) else (lo, m)
+    return (lo + hi) / 2
+
+
+def ecart(sched, z=200e3, zs=19176.48):
+    return 100 * (float(sched[1](z)) / z - float(sched[1](zs)) / zs)
+
+
+ASPA_C = aspa_cout(S5)
+F_BAR = FIN_TOT - ASPA_C["central"]
+ZP = cale_zp(F_BAR)
+ZP_TOUT = cale_zp(FIN_TOT)
+VARIANTES = {}
+for cible_ecart in (24.0, 23.5):
+    lo, hi = P0[5], 5e6
+    for _ in range(50):
+        m = (lo + hi) / 2
+        lo, hi = (m, hi) if ecart(design(m)) > cible_ecart else (lo, m)
+    VARIANTES[str(cible_ecart)] = dict(zp=(lo + hi) / 2, financement_bareme=cible(0.0) - N.recette(design((lo + hi) / 2), O))
+# variante combinée : baisse du taux à 3,5 Smic d'un point et plafond plus haut
+S = design(ZP)
+P_FIN = P0[:5] + [ZP]
+TT = list(TT5)
+FIN = F_BAR
+p(f"\n[FINAL 7,0 Md€] ASPA nette : {ASPA_C['central']:.2f} Md€ (fourchette {ASPA_C['bas']:.2f}–{ASPA_C['haut']:.2f} ;"
+  f" allocataires {ASPA_C['stock']:.2f}, nouveaux éligibles à plein recours {ASPA_C['entrants_plein_recours']:.2f}) ;"
+  f" barème {F_BAR:.2f} Md€ : plafond de 48 % atteint à {ZP:,.0f} € (au lieu de {P0[5]:,.0f}) ; écart de taux moyen"
+  f" Smic–200 k€ {ecart(S5):.1f} → {ecart(S):.1f} points (droit actuel 26,8) ; tout sur la progressivité (7,0) :"
+  f" plafond à {ZP_TOUT:,.0f} €, écart {ecart(design(ZP_TOUT)):.1f} ; pour 24 points : plafond à"
+  f" {VARIANTES['24.0']['zp']:,.0f} €, {VARIANTES['24.0']['financement_bareme']:.1f} Md€ ; pour 23,5 :"
+  f" {VARIANTES['23.5']['zp']:,.0f} €, {VARIANTES['23.5']['financement_bareme']:.1f} Md€")
+
 # ================================================================== 4. distribution : nouveau système, niches, net
 NEW = {n: R.impot_adultes(*S, O, *M.adultes(g, pp, O), k)[0] for n, g, f, w, pp, k in TYPES}
 NEW0 = {n: R.impot_adultes(*S0, O, *M.adultes(g, pp, O), k)[0] for n, g, f, w, pp, k in TYPES}
@@ -440,7 +510,9 @@ SRC = dict(
     quotient_familial_vers_franchise=CASC["qf"]["Md"] + CASC["franchise"]["Md"],
     cehr_absorbee=-R.CEHR_BAR,
 )
-SRC["bareme"] = -sum(SRC.values()) - FIN          # baisse des taux financée (solde = −financement)
+SRC["financement_externe"] = FIN_TOT
+SRC["aspa_nette"] = -ASPA_C["central"]
+SRC["bareme"] = -sum(SRC.values())                # baisse des taux financée (solde = 0)
 SRC["solde"] = sum(SRC.values())
 p("\n[CASCADE] ressources (+) et emplois (−), Md€ : " + " ; ".join(f"{k} {v:+.1f}" for k, v in SRC.items()))
 p(f"  (barème brut {CASC['bareme']['Md']:+.1f} ; correction des avantages gardés et de l'écart inexpliqué {CORR:.1f}"
@@ -453,22 +525,33 @@ NETX0 = {n: NEW0[n] - SIMF[n] + FREX[n] + PERTE[n] for n in NEW0}   # net hors C
 NETX1 = {n: NET[n] + CEHR_I[n] for n in NEW}
 g0 = dict(actifs=somme(NETX0, lambda n, g, f, k: g == "A"), retraites=somme(NETX0, lambda n, g, f, k: g == "R"))
 g1 = dict(actifs=somme(NETX1, lambda n, g, f, k: g == "A"), retraites=somme(NETX1, lambda n, g, f, k: g == "R"))
+
+def tm_inter(k):
+    """Barème intermédiaire au prorata du financement : impôt = (1 − k) × barème à recette constante + k × barème final
+    (taux marginaux interpolés aux points de l'un et de l'autre)."""
+    pts = sorted(set(list(P0) + list(P_FIN)))
+    return pts, [float((1 - k) * S0[0](z) + k * S[0](z)) for z in pts]
+
+
 for i, an in enumerate(range(2027, 2041)):
     lam = MONTEE.get(an, 1.0)
-    f = 0.0 if an < 2032 else PALIERS.get(an, FIN)
-    kf = f / FIN
+    f = PALIERS.get(an, FIN_TOT if an >= 2040 else 0.0)
+    asp = lam * ASPA_C["central"] if f > 0 else 0.0
+    kf = (f - asp) / (lam * F_BAR)
     manque = sum(r["recette_croisiere_Md"] * (1 - D4.PROFILS[r["profil"]][i]) for r in RECETTE_DISP.values()
                  if r["modele"] in ("residu", "hors"))
     row = dict(lambda_fusion=lam, financement_externe_recu=f,
                ircsg_actifs=lam * ((1 - kf) * g0["actifs"] + kf * g1["actifs"]),
                ircsg_retraites=lam * ((1 - kf) * g0["retraites"] + kf * g1["retraites"]),
-               ircsg_cehr_bareme_absorbee=-lam * R.CEHR_BAR,
+               ircsg_cehr_bareme_absorbee=-lam * R.CEHR_BAR, aspa_nette_depense=-asp,
                extinction_progressive_niches=-lam * manque, ajustement_bareme_transitoire=lam * manque)
     row["ircsg_ecart_calage"] = -f - sum(v for kk, v in row.items() if kk not in ("lambda_fusion", "financement_externe_recu"))
     row["ircsg_total"] = sum(v for kk, v in row.items() if kk not in ("lambda_fusion", "financement_externe_recu"))
     row["pour_memoire_recette_niches_supprimees"] = lam * (sum(r["recette_croisiere_Md"] for r in RECETTE_DISP.values()
                                                                if r["modele"] in ("residu", "hors")) - manque)
     row["pour_memoire_dont_hors_modele"] = lam * HORS_MD
+    row["part_du_bareme_final_k"] = kf
+    row["bareme_points"], row["bareme_taux"] = tm_inter(kf)
     ann[str(an)] = row
 p("\n[TRAJECTOIRE] total (= −financement) ; recette des niches supprimées ; manque dû aux reports (couvert par le barème) : "
   + " ; ".join(f"{a} {r['ircsg_total']:+.2f}/{r['pour_memoire_recette_niches_supprimees']:.1f}/{r['ajustement_bareme_transitoire']:.2f}"
@@ -477,7 +560,7 @@ p("\n[TRAJECTOIRE] total (= −financement) ; recette des niches supprimées ; m
 
 # ================================================================== 8. sorties
 J.update(
-    version="v4 (19/11/2026)",
+    version="v4 final, 7,0 Md€ (19/11/2026)",
     sources=dict(cpo="CPO, L'impôt sur le revenu, ses réductions et crédits d'impôt depuis 2017, septembre 2026 (vie-publique.fr/files/rapport/pdf/304837.pdf)",
                  dgfip="DGFiP Statistiques n° 41, novembre 2025 (impots.gouv.fr, classeur dgfip_stat_41.xlsx)",
                  vm="Voies et moyens, t. II, PLF 2026, coût 2025 (copie assemblee-nationale.fr)"),
@@ -499,7 +582,13 @@ J.update(
                          ecart_inexplique=U_TOT, ecart_retenu=max(U_TOT, 0.0), recettes_hors_modele=HORS_MD,
                          ir_non_attribue_prudence=PRUD, financement=FIN, cible_finale=cible(FIN), cible_sans_financement=cible(0.0)),
     frais=dict(options=FRAIS, recommandee=OPTION),
-    bareme=dict(points=P0, taux=TT, taux_v3=T0, ajustement_points=100 * DFIN, ajustement_sans_financement=100 * D0,
+    final=dict(description="Version finale : financement externe de 7,0 Md€ en croisière (paliers 2029-2040) ; taux aux"
+                           " points 0 à 3,5 Smic de la version à 5,5 Md€ ; plafond de 48 % atteint plus haut ; ASPA calculée"
+                           " sur la pension nette du nouvel impôt", points=P_FIN, taux=TT, financement=FIN_TOT,
+               aspa_cout_Md=ASPA_C, financement_bareme=F_BAR, ecart_taux_moyen_smic_200k=ecart(S),
+               ecart_v4_5_5=ecart(S5), ecart_droit_actuel=26.78, tout_sur_progressivite=dict(zp=ZP_TOUT, ecart=ecart(design(ZP_TOUT))),
+               pour_atteindre=VARIANTES, paliers=PALIERS, recette_modele=N.recette(S, O)),
+    bareme=dict(points=P_FIN, taux=TT, taux_v3=T0, ajustement_points=100 * DFIN, ajustement_sans_financement=100 * D0,
                 recette_modele=N.recette(S, O), taux_sans_financement=list(np.array(T0) + D0 * W_UNI)),
     moyennes_categories=MOY, deciles=DECS, sous_groupes=SOUS,
     gagnants_perdants=dict(publie=False, raison=(
@@ -512,7 +601,9 @@ J.update(
     cascade_brute=[dict(etape=a, libelle=b, Md=c["Md"]) for a, b, c in res],
     annuel_final=ann,
     unites=("Md€ niveau 2025 ; + = recette publique en plus ; ircsg_total = −financement externe de l'année ; fusion"
-            " λ = 0,25/0,5/0,75/1 en 2027-2030 ; financement 0 jusqu'en 2031 puis 1/2/3/4/5 et 5,5 ; niches à reports"
+            " λ = 0,25/0,5/0,75/1 en 2027-2030 ; financement 1,5 Md€ de 2029 à 2034, 2,5 de 2035 à 2037, 4,5 en 2038, 6,0 en"
+            " 2039, 7,0 dès 2040 (dont ASPA nette, dépense hors impôt, à partir de 2029) ; barème de l'année : impôt ="
+            " (1 − k) × barème à recette constante + k × barème final ; niches à reports"
             " (Girardin, PME) 60/80/90/100 % ; engagements Pinel gardés jusqu'à extinction (aucune recette) ; actifs et"
             " retraités : variation réelle (nette des niches, hors écart inexpliqué du modèle), CEHR à part ; les avantages"
             " d'invalidité et de dépendance, gardés, sont neutres"),

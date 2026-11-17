@@ -65,8 +65,9 @@ for zz, tk in zip(J["bareme"]["points"], J["bareme"]["taux"]):
     y = 100 * tk
     ax.plot(zz, y, "o", color=PROP, ms=3.5)
     ax.text(zz + 3000, y - 4.5, _fr(y, 1) + " %", color=PROP, fontsize=7)
-reperes(ax, 280e3, 56)
-ax.set_xlim(0, 280e3)
+XM = max(280e3, J["bareme"]["points"][-1] + 30e3)
+reperes(ax, XM, 56)
+ax.set_xlim(0, XM)
 ax.set_ylim(0, 60)
 ax.xaxis.set_major_formatter(keur)
 ax.yaxis.set_major_formatter(pctf)
@@ -151,7 +152,8 @@ ITEMS = [("Vraies niches supprimées", K["vraies_niches"], "src"),
          ("Technique : forfait de 10 % supprimé", K["technique_frais"], "tec"),
          ("Quotient familial remplacé par la franchise", K["quotient_familial_vers_franchise"], "use"),
          ("CEHR absorbée", K["cehr_absorbee"], "use"),
-         ("Financement extérieur (foncier, IS)", 5.5, "src"),
+         ("Financement extérieur (foncier, IS, CIR)", K["financement_externe"], "src"),
+         ("Minimum vieillesse corrigé (dépense)", K["aspa_nette"], "use"),
          ("Baisse des taux (nouveau barème)", K["bareme"], "use")]
 fig, ax = plt.subplots(figsize=(PLEINE, 2.9))
 y = np.arange(len(ITEMS))[::-1]

@@ -54,7 +54,7 @@ de cet écart n'est compté comme recette.
 
 **IR non attribué (4,0 Md€).** S'il relève en partie du barème, l'impôt observé du haut est sous-estimé et l'écart
 inexpliqué surestimé d'autant : retirer l'écart inexpliqué de la recette couvre déjà cette hypothèse prudente, sans
-double compte [H argumentée]. **Recette à tenir** : 231,5 (cible v3) + 3,7 + 2,7 − 3,3 − 5,5 = **229,2 Md€**.
+double compte [H argumentée]. **Recette à tenir** : 231,5 (cible v3) + 3,7 + 2,7 − 3,3 − 6,7 (financement net de l'ASPA) = **228,0 Md€**.
 
 ## 3. Forfait de 10 % [H calée sur E]
 
@@ -76,13 +76,20 @@ payé. (a) n'a aucun paramètre et taxe le revenu net de ses coûts. Coût de co
 préremplir la distance domicile-travail. La franchise de 1 000 € est l'option la moins chère mais pénalise les longs
 trajets (160 à 400 € par an) : à l'appréciation de l'auteur.
 
-## 4. Barème recalé [C]/[S]
+## 4. Barème final : 7,0 Md€ de financement externe [C]/[S]
 
-La recette disponible baisse de 3,2 Md€ (correction du résidu nette des recettes hors modèle) et les frais réels coûtent
-5,1 Md€ : **ajustement uniforme de +0,65 point** des cinq premiers taux, forme et repères inchangés. **Barème final :
-2,1 / 16,1 / 23,1 / 29,4 / 37,0 % aux points 0 / 1 / 1,5 / 2 / 3,5 Smic, 48 % dès 163 400 €.** (Sans financement
-externe : +1,07 point.) Un ajustement ciblé sur 1,5-3,5 Smic exigerait +2,4 points au milieu et ruinerait le gain sur les
-heures : écarté.
+Étape 1 (version à 5,5 Md€) : la recette disponible baisse de 3,2 Md€ et les frais réels coûtent 5,1 Md€ : +0,65 point
+uniforme sur les cinq premiers taux. Étape 2 (décision de l'assembleur, CIR supprimé) : 7,0 Md€ en croisière, paliers
+1,5 (2029-2034), 2,5 (2035-2037), 4,5 (2038), 6,0 (2039), 7,0 (2040). Priorités : (1) progressivité ; (2) ASPA (0,3) ;
+(3) rien ne reste. **Barème final : 2,1 / 16,1 / 23,1 / 29,4 / 37,0 % aux points 0 / 1 / 1,5 / 2 / 3,5 Smic, 48 % atteint
+à 229 200 € (au lieu de 163 400 €).** Smic et taux entre 0,6 et 1,1 Smic inchangés. Reculer le plafond est le moyen le
+moins cher de réduire l'écart à 200 k€ ; baisser les taux à 2 et 3,5 Smic coûte 3 à 4 fois plus par point.
+
+**Condition « nettement moins progressif » : non remplie avec 7 Md€.** Écart de taux moyen Smic–200 k€ : 26,8 (droit
+actuel) ; 28,0 (version 5,5) ; **26,3** (finale) ; 25,9 si les 7,0 vont tous au barème. Pour 24 points : 9,0 Md€ au
+barème (plafond à 780 000 €), soit ≈ 2,3 Md€ de plus ; 23,5 points : 10,0 Md€. Ce gain va presque entièrement au dixième
+supérieur (net D10 +609 → +326 €/foyer). Barème de chaque année : impôt = (1 − k) × barème à recette constante (+1,07
+point) + k × barème final, k = part du financement reçue (`annuel_final`, clés `bareme_points`, `bareme_taux`).
 
 ## 5. Cas-types nets des niches [S] (OpenFisca 176.1, droit 2025 ; € par mois ; − = paie moins)
 
@@ -105,58 +112,64 @@ heures : écarté.
 
 **Julie** (+200 € net par mois, soit +224 € après cotisations) garde 170 € aujourd'hui, **173 € demain** (prélèvement
 sur le supplément 24 → 23 %) : à ce niveau (1,45 Smic), le barème continu ne change presque rien ; l'exemple de la note
-ne doit plus annoncer un gain marginal. Second conjoint à mi-temps : 9,5 → 5,0 % de son salaire.
+ne doit plus annoncer un gain marginal. **Exemple honnête retenu** : un salarié seul qui passe de 2 à 3 Smic (3 600 → 5 400 € brut/mois,
++1 608 € après cotisations) en garde 1 035 € aujourd'hui, **1 095 € demain** (35,7 → 31,9 % prélevés) ; de 1,5 à 2 Smic,
+579 → 589 € (27,5 → 26,2 %). Second conjoint à mi-temps : 9,5 → 5,0 % de son salaire.
 
 ## 6. Moyennes par catégorie [S] (€ par foyer et par an : système / niches / net)
 
-Actifs −1 183 / +503 / **−680** ; retraités +449 / +445 / **+894** ; actifs seuls −649 net ; couples avec 1, 2, 3+
-enfants −464, −1 086, −1 217 ; couples à un seul revenu **+2 057** ; parents isolés −711 ; retraités seuls +611 ;
-couples de retraités +1 703. Déciles (net) : +39, +25, +7, −199, −193, −294, −364, −513, −452, **+609** ; perte des
-niches de 90 € (D1) à 1 938 € (D10). Bénéficiaires (montant moyen par bénéficiaire, sans supposer l'indépendance des
+Actifs −1 221 / +503 / **−718** ; retraités +437 / +445 / **+882** ; actifs seuls −662 net ; couples avec 1, 2, 3+
+enfants −555, −1 167, −1 288 ; couples à un seul revenu **+1 880** ; parents isolés −720 ; retraités seuls +606 ;
+couples de retraités +1 671. Déciles (net) : +39, +25, +7, −199, −193, −294, −364, −513, −452, **+326** ; perte des
+niches de 90 € (D1) à 1 938 € (D10). L'ASPA (dépense) n'est pas dans ces moyennes. Bénéficiaires (montant moyen par bénéficiaire, sans supposer l'indépendance des
 recours ; autres niches non ajoutées) : actifs du D5 employant un salarié à domicile +277 ; retraités du D5 qui en
 emploient +2 037 ; familles du D5 avec garde −976 ; Girardin +13 000 à +16 000. **Part de gagnants et perdants : non
 publiée** (distribution jointe niches × revenu × famille inconnue ; foyers types dans le modèle).
 
 ## 7. Minimum vieillesse [E]/[S]
 
-ASPA différentielle, exonérée d'IR (CGI art. 81, 9° ; BOFiP), plafond 12 411 € (2025), pensions retenues **en brut**
-(service-public.gouv.fr ; OpenFisca) ; CSG sur l'ASPA non vérifiée sur texte. Une pension au niveau de l'ASPA ne paie
-rien aujourd'hui ; demain **825 € par an (69 €/mois)** ; une pension de 8 000 € + 4 411 € d'ASPA paie 403 €, non
-compensés. **Le texte ne doit pas dire que le minimum vieillesse protège les petites pensions.** Option : ASPA calculée
-sur la pension nette du nouvel impôt (revenu des allocataires inchangé ; coût ≤ 825 € par allocataire, national non
-chiffré faute de nombre vérifié) ; les pensions de 13 000 à 16 000 € paieraient encore 600 à 1 270 € de plus.
+ASPA différentielle, exonérée d'IR (CGI art. 81, 9° ; BOFiP), plafond 12 411 € (2025), pensions retenues en brut
+(service-public.gouv.fr ; OpenFisca). Sans correction, une pension au niveau de l'ASPA paierait 825 €/an (69 €/mois).
+**Règle retenue : ASPA calculée sur la pension nette du nouvel impôt** → revenu des allocataires inchangé jusqu'au
+plafond ; à 13 000 € la hausse passe de 892 à 589 € ; au-delà de ≈ 13 300 € elle demeure (14 000 € : +1 012 €).
+**Coût : 0,30 Md€ (0,27–0,38)** : 752 800 allocataires fin 2024 (DREES, Minima sociaux, éd. 2025, fiche 28 — vérifié),
+pension supposée uniforme sous le plafond [H ; pension de droit direct moyenne 510 €/mois, DREES] → 0,24 ; nouveaux
+éligibles 0,11 à plein recours, moitié au central (non-recours de 50 % des personnes seules, DREES). **Dépense sociale
+(FSV), hors périmètre fiscal**, imputée sur l'enveloppe du bloc, dès 2029.
 
 ## 8. Efficacité, taux [S]
 
 **Gain d'efficacité statique lié à la modification des incitations fiscales au travail, hors effets comportementaux
-propres aux dispositifs supprimés : 2,9 Md€ par an (1,25-6,2)**, dont heures 0,65, participation 2,2 ; travail +0,9 %,
-≈ 240 000 ETP (100 000-490 000). Non chiffrés : heures supplémentaires (prix net d'une heure en baisse pour les
+propres aux dispositifs supprimés : 3,2 Md€ par an (1,4-6,9)**, dont heures 0,95, participation 2,2 ;
+≈ 250 000 ETP (105 000-520 000). Non chiffrés : heures supplémentaires (prix net d'une heure en baisse pour les
 imposables), garde (coût net en hausse pour les parents qui travaillent, surtout les mères de jeunes enfants), emploi
 déclaré à domicile (retour possible au travail dissimulé ; CPO : un taux de 40 % suffirait à le contenir), dons.
 **Taux marginal ≤ 48 % partout** (≤ 50 % vérifié). Il monte de 0,6 à 1,07 Smic (Smic 10,7 → 16,0 %), entre 1,54 et
-1,83 Smic, de 62 000 à 101 000 € et de 134 000 à 157 000 € ; il baisse à l'entrée dans l'IR (1,1 Smic 23,7 → 17,4 %)
-et le taux moyen baisse (Smic 10,7 → 9,1 %) : arbitrage assumé en faveur de l'entrée en emploi. **Progressivité : la
-condition « taux moyens nettement moins progressifs que l'IR actuel » n'est pas remplie** : écart de taux moyen
-Smic-200 k€ 26,8 → 28,0 points ; taux effectifs niches comprises D1 4,6 → 6,5 %, D5 10,3 → 9,5, D9 15,5 → 14,8,
-D10 21,9 → 22,4. Moins progressif seulement au-delà de 200 000 €. Pour l'obtenir, il faudrait relever le bas ou baisser
-le haut du barème : choix de l'auteur.
+1,83 Smic et de 62 000 à 101 000 € (plus bas partout au-delà : 46,0 contre 48,8 % à 200 k€) ; il baisse à l'entrée dans l'IR (1,1 Smic 23,7 → 17,4 %)
+et le taux moyen baisse (Smic 10,7 → 9,1 %) : arbitrage assumé en faveur de l'entrée en emploi. **Progressivité** : voir § 4 (26,3 points contre 26,8 ; taux effectifs niches comprises D1 4,6 → 6,5 %, D5 10,3 →
+9,5, D9 15,5 → 14,8, D10 21,9 → 22,2 ; 400 k€ : 45,5 → 41,6 %).
 
-## 9. Trajectoire (`annuel_final`) et ce que l'assembleur doit changer
+## 9. Trajectoire (`annuel_final`) et passages de `note.tex` à corriger
 
-Fusion λ = 0,25-1 (2027-2030) ; financement 0 jusqu'en 2031 puis 1-5,5 Md€ (2032-2037) : total = −financement chaque
-année ; croisière : actifs −17,9 Md€, retraités +13,0, CEHR −0,6. Recette des niches 4,9 Md€ (2027) → 20,1 (2030) ;
-reports Girardin/PME : 0,1 Md€ par an de 2027 à 2029, couverts par le barème transitoire.
+λ = 0,25-1 (2027-2030) ; financement 0 (2027-2028), 1,5 (2029-2034), 2,5 (2035-2037), 4,5, 6,0, 7,0 (2040) ; total =
+−financement chaque année (dont ASPA −0,3 dès 2029, ×λ) ; croisière : actifs −18,9 Md€, retraités +12,8, CEHR −0,6,
+ASPA −0,3. Niches : 4,9 Md€ (2027) → 20,1 (2030) ; reports Girardin/PME 0,1 Md€/an 2027-2029, couverts par le barème.
 
-Dans `note.tex` (section « Travailler davantage ») devenus faux : les taux 1,5/15,5/22,5/28,7/36,4 ; « 112 Md€
-d'élargissement » et le titre de g11 ; « frais réels gardés » sans hausse ; Smic −36 €/mois (→ −26) ; 2 000 € net −57
-(→ −42) ; 3 Smic −145 ; couple biactif −170 ; « perd 101 € » (→ +144 avec garde, +269 avec garde et aide) ; Julie 24 %
-(→ elle garde presque autant demain) ; retraités +11,9 Md€ (→ +13,0) ; 16 000 € +1 170 € ; « protégées par… le minimum
-vieillesse » ; perte sèche 2,8 (1,2-6,1) (→ 2,9 ; 1,25-6,2) ; Karim 11,5 → 4,4 % (cas sans enfant ; avec deux enfants
-9,5 → 5,0 %). Les retraités et couples à un revenu de la figure g3 v3 ne sont plus dans g3 v4 (voir g3b, tableau).
+`note.tex`, section « Travailler davantage » : taux « 1,5 / 15,5 / 22,5 / 28,7 / 36,4 %, 48 % à partir de 163 000 € » →
+2,1 / 16,1 / 23,1 / 29,4 / 37,0 %, 48 % dès 229 000 € ; « plus élevé… entre 67 000 et 100 000 € » → 62 000-101 000 € ;
+« 112 Md€ » et titre de g11 → vraies niches 20 Md€ ; « frais réels restent déductibles » : ajouter qu'ils doublent (coût
+5 Md€) ; Julie « 24 % » → remplacer par la progression 2 → 3 Smic (garde 1 035 € aujourd'hui, 1 095 € demain sur
++1 608 €/mois ; 35,7 → 31,9 %) ; retraités « 11,9 Md€ » → 12,8 ; « 16 000 € : 1 170 € » → 1 273 € ; « 12 000 € : 700 € »
+→ 780 € ; « protégées… par le minimum vieillesse » → ASPA calculée sur la pension nette (0,3 Md€) ; « 1 500 € à
+100 000 € » à recalculer (g3b) ; Karim « 11,5 → 4,4 % » → avec deux enfants 9,5 → 5,0 % ; Smic « 36 € » → 26 € ; 2 000 €
+net « 57 € » → 42 € ; 3 Smic « 145 € » à reprendre ; couple biactif « 170 € » → 148 € ; « perd 101 € » → +144 € (garde),
++269 € (garde et aide) ; parent isolé 147 € → 9 € de gain net s'il fait garder son enfant ; cadre 120 k€ « 86 € » à
+reprendre ; dixième supérieur « 4,4 Md€ de plus » → net +326 €/foyer ; « 5,5 Md€ issus de la taxe foncière et des niches
+de l'IS » → 7,0 Md€ (dont CIR) ; perte sèche « 2,8 (1,2-6,1) » → 3,2 (1,4-6,9).
 
 ## Titres-messages proposés
 
-- g1 « Le taux moyen baisse au Smic et au milieu, et reste aussi progressif qu'aujourd'hui »
+- g1 « Le taux moyen baisse à tous les niveaux de salaire, surtout au-delà de 200 000 € »
 - g2 « Le taux marginal monte en ligne droite, sans marche, et ne dépasse jamais 48 % »
 - g3 « Hors niches, les actifs gagnent ; les familles qui font garder leurs enfants et les utilisateurs de niches
   perdent »
