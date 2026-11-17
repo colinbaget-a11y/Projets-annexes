@@ -39,6 +39,12 @@ CA = L("is4.json")["annuel_caisse"]
 PXA = {int(a): v for a, v in L("pal.json")["pertes"]["national"]["indexation_cout_regime_Md"]["montee_en_charge_indicative"].items()}
 
 
+ND = {k: v["recette_croisiere_Md"] for k, v in IR["recette_niches_par_dispositif"]["par_dispositif"].items()}
+PRINC = ("emploi_domicile", "epargne_salariale", "heures_sup", "dons", "garde", "demi_parts")
+assert abs(sum(ND.values()) - K["vraies_niches"]) < 0.01
+assert abs(CB["abatpen"] + CB["age"] + CB["csg_ret"] - K["alignement_pensions"]) < 0.01
+
+
 def blocs(an):
     """Lignes du bilan pour une année de caisse (euros de 2027 environ). L'impôt sur le revenu est en régime installé
     dès 2030 (décomposition statique) : mêmes valeurs en 2032 et en 2040."""
@@ -46,17 +52,27 @@ def blocs(an):
     px = PXA.get(an, PX if an >= 2032 else 0.0)
     return [
         ("Nouvel impôt sur le revenu", [
-            ("Suppression des niches", K25 * K["vraies_niches"]),
-            ("Pensions imposées comme les salaires", K25 * K["alignement_pensions"]),
-            ("Fin du quotient conjugal", K25 * K["unite_fiscale"]),
-            ("Fin du quotient familial", K25 * CB["qf"]),
+            ("Niches : crédit pour l'emploi à domicile", K25 * ND["emploi_domicile"]),
+            ("Niches : intéressement et participation exonérés", K25 * ND["epargne_salariale"]),
+            ("Niches : heures supplémentaires exonérées", K25 * ND["heures_sup"]),
+            ("Niches : réduction pour dons", K25 * ND["dons"]),
+            ("Niches : crédit pour la garde des jeunes enfants", K25 * ND["garde"]),
+            ("Niches : demi-parts dérogatoires", K25 * ND["demi_parts"]),
+            ("Niches : autres (Girardin, outre-mer, scolarité…)", K25 * (K["vraies_niches"] - sum(ND[x] for x in PRINC))),
+            ("Retraités : fin de l'abattement de 10 % sur les pensions", K25 * CB["abatpen"]),
+            ("Retraités : CSG alignée sur celle des actifs", K25 * CB["csg_ret"]),
+            ("Retraités : fin de l'abattement des personnes âgées", K25 * CB["age"]),
+            ("Salariés : forfait de 500 € au lieu de l'abattement de 10 %", K25 * K["technique_frais"]),
             ("Fin de la CSG déductible", K25 * K["technique_csg_deductible"]),
-            ("Forfait de 500 € au lieu du 10 % et des frais réels", K25 * K["technique_frais"]),
+            ("Impôt individuel : fin du quotient conjugal", K25 * K["unite_fiscale"]),
+            ("Fin du quotient familial", K25 * CB["qf"]),
             (f"Franchise de {_fr(PAR['franchise_enfant'])} € par enfant", K25 * (K["quotient_familial_vers_franchise"] - CB["qf"])),
             ("Baisse des taux (nouveau barème)", K25 * K["bareme"]),
             ("Minimum vieillesse ; contribution sur les hauts revenus", K25 * (K["aspa_nette"] + K["cehr_absorbee"])),
         ]),
         ("Fiscalité foncière", [
+            ("Taxe foncière communale sur le bâti : inchangée", 0.0),
+            ("Taxe foncière communale sur le sol : inchangée", 0.0),
             ("Taxe nationale sur la valeur du sol", K25 * (f["net"] - f["dmto"])),
             ("Droits de mutation divisés par deux", K25 * f["dmto"]),
         ]),
@@ -103,18 +119,20 @@ for k, lib in (("30", "Option : prélèvement forfaitaire unique à 30 %"), ("25
     y -= 1
 
 
-def lab(v):
+def lab(v, t=""):
+    if "inchangée" in t:
+        return "0"
     r = round(v)
     if r == 0:
         return "≈ 0"
     return ("+" if r > 0 else "−") + _fr(abs(r))
 
 
-fig, ax = plt.subplots(figsize=(PLEINE, 4.9))
+fig, ax = plt.subplots(figsize=(PLEINE, 6.6))
 for typ, t, v, yy in lignes:
     if typ == "item":
         ax.barh(yy, v, color=HAUSSE if v > 0 else PROP, height=0.66, zorder=2)
-        ax.text(v + (1.2 if v >= 0 else -1.2), yy, lab(v), va="center", ha="left" if v >= 0 else "right", fontsize=7.2,
+        ax.text(v + (1.2 if v >= 0 else -1.2), yy, lab(v, t), va="center", ha="left" if v >= 0 else "right", fontsize=7.2,
                 color=ENCRE2)
     else:
         ax.barh(yy, v, color=AUJ, height=0.66, zorder=2)

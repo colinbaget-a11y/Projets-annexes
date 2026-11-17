@@ -4,28 +4,60 @@
    "titre": "Nouvel impôt sur le revenu",
    "items": [
     {
-     "libelle": "Suppression des niches",
-     "Md": 20.712681999999997
+     "libelle": "Niches : crédit pour l'emploi à domicile",
+     "Md": 7.23987
     },
     {
-     "libelle": "Pensions imposées comme les salaires",
-     "Md": 16.245618466819487
+     "libelle": "Niches : intéressement et participation exonérés",
+     "Md": 2.53071
     },
     {
-     "libelle": "Fin du quotient conjugal",
-     "Md": 12.484261567911327
+     "libelle": "Niches : heures supplémentaires exonérées",
+     "Md": 2.27836
     },
     {
-     "libelle": "Fin du quotient familial",
-     "Md": 16.720099032513293
+     "libelle": "Niches : réduction pour dons",
+     "Md": 2.2701200000000004
+    },
+    {
+     "libelle": "Niches : crédit pour la garde des jeunes enfants",
+     "Md": 1.85297
+    },
+    {
+     "libelle": "Niches : demi-parts dérogatoires",
+     "Md": 1.3122200000000002
+    },
+    {
+     "libelle": "Niches : autres (Girardin, outre-mer, scolarité…)",
+     "Md": 3.2284319999999957
+    },
+    {
+     "libelle": "Retraités : fin de l'abattement de 10 % sur les pensions",
+     "Md": 7.491137474710698
+    },
+    {
+     "libelle": "Retraités : CSG alignée sur celle des actifs",
+     "Md": 8.167114873458619
+    },
+    {
+     "libelle": "Retraités : fin de l'abattement des personnes âgées",
+     "Md": 0.5873661186501704
+    },
+    {
+     "libelle": "Salariés : forfait de 500 € au lieu de l'abattement de 10 %",
+     "Md": 26.501599821816065
     },
     {
      "libelle": "Fin de la CSG déductible",
      "Md": 24.805203342314325
     },
     {
-     "libelle": "Forfait de 500 € au lieu du 10 % et des frais réels",
-     "Md": 26.501599821816065
+     "libelle": "Impôt individuel : fin du quotient conjugal",
+     "Md": 12.484261567911327
+    },
+    {
+     "libelle": "Fin du quotient familial",
+     "Md": 16.720099032513293
     },
     {
      "libelle": "Franchise de 4 700 € par enfant",
@@ -45,6 +77,14 @@
   {
    "titre": "Fiscalité foncière",
    "items": [
+    {
+     "libelle": "Taxe foncière communale sur le bâti : inchangée",
+     "Md": 0.0
+    },
+    {
+     "libelle": "Taxe foncière communale sur le sol : inchangée",
+     "Md": 0.0
+    },
     {
      "libelle": "Taxe nationale sur la valeur du sol",
      "Md": 13.626900000000001
