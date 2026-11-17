@@ -25,6 +25,9 @@ CONV = "Repères : 1 Smic = 19 200 € de revenu après cotisations (21 600 € 
 SRC_OF = "OpenFisca-France 176.1 (droit des revenus 2025) ; calculs des auteurs (note8p/calculs/ircsg4_*.py)."
 
 
+plt.rcParams.update({"font.family": "Liberation Sans", "legend.frameon": False})   # charte (écrasée par un import)
+
+
 def reperes(ax, xmax, haut):
     for m, lab in ((1, "Smic"), (2, "2"), (3, "3 Smic")):
         if m * SZ < xmax:
@@ -115,22 +118,22 @@ sauver(fig, "g3_cas_types", "OpenFisca-France 176.1 (droit des revenus 2025, ré
 # ------------------------------------------------------------------ g3b : gains selon le revenu (€ par mois)
 Sal, Ret = V3["courbes"]["salarie"], V3["courbes"]["retraite"]
 xs = np.array([r["z"] for r in Sal])
-gs = np.array([r["auj"] - float(N.impot_z(S, O, [r["z"]])[0]) for r in Sal]) / 12
+gs = np.array([r["auj"] - float(N.impot_z(S, O, [max(r["z"] - 500.0, 0.0)])[0]) for r in Sal]) / 12   # forfait de 500 €
 pe = np.array([r["pension"] for r in Ret])
 gr = np.array([r["auj"] - float(N.impot_z(S, O, [r["pension"]])[0]) for r in Ret]) / 12
 fig, ax = plt.subplots(figsize=(PLEINE, 2.4))
 ax.plot(xs, gs, color=PROP, lw=2.2, label="Salarié seul")
 ax.plot(pe, gr, color=HAUSSE, lw=2.0, label="Retraité seul")
-for zz in (SZ, 1.5 * SZ, 2 * SZ, 3 * SZ, 100e3):
+for zz in (SZ, 2 * SZ, 3 * SZ, 100e3):
     v = float(np.interp(zz, xs, gs))
     ax.text(zz, v + 12, ("+" if v > 0 else "−") + _fr(abs(round(v))), color=PROP, fontsize=6.5, ha="center")
-for zz in (12e3, 16e3, 30e3, 60e3, 130e3):
+for zz in (14e3, 30e3, 60e3):
     v = float(np.interp(zz, pe, gr))
     ax.text(zz, v - 22, ("+" if v > 0 else "−") + _fr(abs(round(v))), color=HAUSSE, fontsize=6.5, ha="center")
 ax.axhline(0, color=ENCRE2, lw=0.6)
 reperes(ax, 150e3, 230)
 ax.set_xlim(5000, 150e3)
-ax.set_ylim(-170, 250)
+ax.set_ylim(-150, 320)
 ax.xaxis.set_major_formatter(keur)
 ax.yaxis.set_major_formatter(eurf)
 ax.set_xlabel("Revenu annuel après cotisations (salaire net de cotisations, pension brute)", fontsize=7.5)
@@ -138,7 +141,7 @@ ax.set_ylabel("Gain, € par mois", fontsize=7)
 ax.legend(loc="lower center", bbox_to_anchor=(0.55, 0.02), fontsize=7)
 axes(ax)
 sauver(fig, "g3b_gains_revenu", SRC_OF, "Hors niches : ni réduction, ni crédit, ni frais réels. Gain = baisse de l'impôt"
-       " (IR, CEHR, CSG, CRDS aujourd'hui) ; négatif = hausse. " + CONV)
+       " (IR, CEHR, CSG, CRDS aujourd'hui) ; négatif = hausse. Nouvel impôt : forfait de 500 € sur les salaires. " + CONV)
 
 # ------------------------------------------------------------------ g11 : où vont les ressources
 K = J["cascade_categories"]

@@ -229,12 +229,11 @@ if "--sans-figure" not in sys.argv:
     V, B, G = c["V"], c["B"], c["V"] - c["B"]
     d_full, d_net = droits(V), droits(V - T * G)
     barres = [  # (libellé, droits, impôt PV, couleur PV)
-        ("Il vend, puis\ntransmet le produit", d_net, T * G, PROP),
-        ("Il transmet\n(droit actuel)", d_full, 0.0, PROP),
-        ("Réforme, correction\nau taux moyen", d_full, c["charges"]["i"] - d_full, NAIF),
-        ("Réforme, correction\nà la marge (retenue)", d_full, c["charges"]["iv"] - d_full, HAUSSE),
+        ("Elle vend, puis transmet\nle produit de la vente", d_net, T * G, PROP),
+        ("Elle garde ses titres jusqu'au\ndécès : aujourd'hui", d_full, 0.0, PROP),
+        ("Elle garde ses titres jusqu'au\ndécès : avec la réforme", d_full, c["charges"]["iv"] - d_full, HAUSSE),
     ]
-    fig, ax = plt.subplots(figsize=(PLEINE, 2.5))
+    fig, ax = plt.subplots(figsize=(PLEINE, 2.1))
     axes(ax, grille="x")
     for i, (lab, d, pv, col) in enumerate(barres):
         y = len(barres) - 1 - i
@@ -247,10 +246,9 @@ if "--sans-figure" not in sys.argv:
     ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: _fr(v) + " k€"))
     ax.tick_params(axis="y", length=0)
     ax.legend(handles=[Patch(color=AUJ, label="Droits de succession"),
-                       Patch(color=PROP, label="Plus-value (parent)"),
-                       Patch(color=NAIF, label="Plus-value (héritier), variante"),
-                       Patch(color=HAUSSE, label="Plus-value (héritier), retenue")],
-              loc="lower center", bbox_to_anchor=(0.42, 1.0), ncol=4, fontsize=6.8, handlelength=1.1, columnspacing=1.0)
+                       Patch(color=PROP, label="Impôt sur la plus-value payé par la fondatrice"),
+                       Patch(color=HAUSSE, label="Impôt sur la plus-value payé par l'héritier qui revend")],
+              loc="lower center", bbox_to_anchor=(0.42, 1.0), ncol=3, fontsize=6.8, handlelength=1.1, columnspacing=1.0)
     sauver(fig, "g9_exemple_pv",
            "calculs des auteurs (note8p/calculs/pfu3_neutralite.py), droit de 2026 : PFU de 31,4 %, barème des droits "
            "en ligne directe après abattement de 100 000 €.",
