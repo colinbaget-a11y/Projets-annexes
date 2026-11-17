@@ -75,6 +75,8 @@ p(f"[FRAIS] calage : σ = {SIG:.2f}, seuil de gain {GT:.0f} € ; droit actuel s
 
 def ded_par_adulte(option, tau_new=None):
     """Déduction moyenne par adulte (tableau aligné sur ADULTES) et part de déclarants, pour une option."""
+    if option[0] == "forfait_seul":   # v5 (décision de l'auteur, 17/11) : forfait fixe pour tous, plus de frais réels
+        return ([np.minimum(option[1], a[3]) * (a[3] > 500) for a in ADULTES], [np.zeros_like(a[3]) for a in ADULTES])
     D, P, F = FR4.profils(option, SIG, GT, tau_new)
     return [np.interp(a[3], FR4.GRID, D) * (a[3] > 500) for a in ADULTES], [np.interp(a[3], FR4.GRID, P) * (a[3] > 500)
                                                                              for a in ADULTES]
@@ -260,7 +262,8 @@ def cible(F):
 
 
 OPTIONS = {"actuel_v3": None, "suppression": ("suppression",), "fixe_500": ("fixe", 500.0), "fixe_1000": ("fixe", 1000.0),
-           "pct5_plaf2000": ("pct", 0.05, 2000.0), "franchise_1000": ("franchise", 1000.0)}
+           "pct5_plaf2000": ("pct", 0.05, 2000.0), "franchise_1000": ("franchise", 1000.0),
+           "forfait_seul_500": ("forfait_seul", 500.0)}
 S3 = N.continu(P0, T0)
 FRAIS = {}
 p("\n[FRAIS] options (barème v3 final pour le gain de déclaration) : déduction totale, frais réels déclarés, déclarants ;"
@@ -299,7 +302,7 @@ p(f"  sensibilité (seuil de gain doublé) : déduction {FRAIS['suppression_reco
 GT = _gt
 FRAIS["calage"] = dict(sigma=float(SIG), seuil_gain=float(GT), simule=ACT, cible_declarants_M=FR4.CIBLE_N / 1e6,
                        cible_Md=FR4.CIBLE_MD)
-OPTION = os.environ.get("OPTION_FRAIS", "suppression")   # recommandée [C]
+OPTION = os.environ.get("OPTION_FRAIS", "forfait_seul_500")   # v5 : forfait de 500 €, frais réels supprimés [C]
 # itération : le gain de déclaration dépend du barème final
 S = S3
 for _ in range(3):
@@ -324,8 +327,14 @@ p(f"  ajustement uniforme {100 * DFIN:+.2f} point (à recette constante, sans fi
 # l'écart à 200 k€ est d'atteindre le plafond de 48 % plus haut (exploration : ircsg4_modele, section 3 bis) ; les taux
 # aux points 0 à 3,5 Smic de la version à 5,5 Md€ sont gardés.
 S5, TT5, DFIN5 = S, TT, DFIN
-FIN_TOT = 7.0
-PALIERS = {**{a: 1.5 for a in range(2029, 2035)}, **{a: 2.5 for a in range(2035, 2038)}, 2038: 4.5, 2039: 6.0}
+# v5 : la revalorisation des déficits reportables de l'IS (pal.json, montée en charge indicative, 1,13 Md€ en régime
+# permanent) est prise sur le financement externe du barème ; le bouclage d'ensemble est inchangé.
+_PAL = json.loads((Path(__file__).resolve().parent.parent / "sorties" / "pal.json").read_text(encoding="utf-8"))
+COUT_PERTES = {int(a): v for a, v in _PAL["pertes"]["national"]["indexation_cout_regime_Md"]["montee_en_charge_indicative"].items()}
+PERTES_REGIME = _PAL["pertes"]["national"]["indexation_cout_regime_Md"]["central"]
+PALIERS_V4 = {**{a: 1.5 for a in range(2029, 2035)}, **{a: 2.5 for a in range(2035, 2038)}, 2038: 4.5, 2039: 6.0}
+FIN_TOT = 7.0 - PERTES_REGIME
+PALIERS = {a: v - COUT_PERTES.get(a, PERTES_REGIME if a >= 2032 else 0.0) for a, v in PALIERS_V4.items()}
 ASPA_PLAF, ASPA_ALLOC, ASPA_RECOURS = 12411.44, 752800, 0.5   # plafond 2025 ; allocataires fin 2024 (DREES, MS 2025,
 # fiche 28) ; la moitié des personnes seules éligibles le perçoivent (DREES, fin 2016)
 

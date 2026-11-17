@@ -1,0 +1,273 @@
+{
+ "version": "v5 exceptions (17/11/2026)",
+ "frais": {
+  "v4_frais_reels_sans_forfait": {
+   "recette_Md": 227.9911697729386,
+   "deduction_Md": 65.44548768751702,
+   "declarants_M": 18.192840483378866,
+   "frais_reels_Md": 65.44548768751702,
+   "recette_vs_v4_Md": 0.0,
+   "recette_vs_aucune_Md": -15.227931692357942,
+   "baisse_uniforme_pts_0_3_5_smic": null,
+   "baisse_uniforme_pts_tous": null
+  },
+  "aucune_deduction": {
+   "recette_Md": 243.21910146529655,
+   "deduction_Md": 0.0,
+   "declarants_M": 0.0,
+   "frais_reels_Md": 0.0,
+   "recette_vs_v4_Md": 15.227931692357942,
+   "recette_vs_aucune_Md": 0.0,
+   "baisse_uniforme_pts_0_3_5_smic": 1.1244194643608554,
+   "baisse_uniforme_pts_tous": 1.0827283657058473
+  },
+  "forfait_seul_300": {
+   "recette_Md": 241.03358027502316,
+   "deduction_Md": 10.403239344152947,
+   "declarants_M": 0.0,
+   "frais_reels_Md": 0.0,
+   "recette_vs_v4_Md": 13.04241050208455,
+   "recette_vs_aucune_Md": -2.1855211902733913,
+   "baisse_uniforme_pts_0_3_5_smic": 0.9701030863212879,
+   "baisse_uniforme_pts_tous": 0.9340925571844846
+  },
+  "forfait_seul_500": {
+   "recette_Md": 239.58695996068622,
+   "deduction_Md": 17.3387322402549,
+   "declarants_M": 0.0,
+   "frais_reels_Md": 0.0,
+   "recette_vs_v4_Md": 11.59579018774761,
+   "recette_vs_aucune_Md": -3.632141504610331,
+   "baisse_uniforme_pts_0_3_5_smic": 0.8667377432157511,
+   "baisse_uniforme_pts_tous": 0.8345380088588428
+  },
+  "forfait_seul_1000": {
+   "recette_Md": 236.0082432352562,
+   "deduction_Md": 34.605380135484445,
+   "declarants_M": 0.0,
+   "frais_reels_Md": 0.0,
+   "recette_vs_v4_Md": 8.017073462317597,
+   "recette_vs_aucune_Md": -7.210858230040344,
+   "baisse_uniforme_pts_0_3_5_smic": 0.6066585334556153,
+   "baisse_uniforme_pts_tous": 0.5840720701684887
+  },
+  "abattement_1_75_pct_plaf_4pass": {
+   "recette_Md": 239.15034780131936,
+   "deduction_Md": 15.364655944719173,
+   "declarants_M": 0.0,
+   "frais_reels_Md": 0.0,
+   "recette_vs_v4_Md": 11.159178028380751,
+   "recette_vs_aucune_Md": -4.068753663977191,
+   "baisse_uniforme_pts_0_3_5_smic": 0.8325827867010814,
+   "baisse_uniforme_pts_tous": 0.8021218263845494
+  },
+  "franchise_1000": {
+   "recette_Md": 232.64143599116412,
+   "deduction_Md": 44.71660460213974,
+   "declarants_M": 12.21185432999044,
+   "frais_reels_Md": 56.928458932130155,
+   "recette_vs_v4_Md": 4.650266218225511,
+   "recette_vs_aucune_Md": -10.57766547413243,
+   "baisse_uniforme_pts_0_3_5_smic": 0.3544562939550388,
+   "baisse_uniforme_pts_tous": 0.3413691473422631
+  },
+  "franchise_2000": {
+   "recette_Md": 235.72473110197646,
+   "deduction_Md": 31.239325383033258,
+   "declarants_M": 9.141120905695118,
+   "frais_reels_Md": 49.5215671944235,
+   "recette_vs_v4_Md": 7.733561329037855,
+   "recette_vs_aucune_Md": -7.494370363320087,
+   "baisse_uniforme_pts_0_3_5_smic": 0.5837823782467667,
+   "baisse_uniforme_pts_tous": 0.5622225739208633
+  },
+  "franchise_3000": {
+   "recette_Md": 238.09547961618304,
+   "deduction_Md": 21.063122455292998,
+   "declarants_M": 6.773040725317752,
+   "frais_reels_Md": 41.38224463124625,
+   "recette_vs_v4_Md": 10.104309843244437,
+   "recette_vs_aucune_Md": -5.123621849113505,
+   "baisse_uniforme_pts_0_3_5_smic": 0.757225549164886,
+   "baisse_uniforme_pts_tous": 0.7292451426420854
+  },
+  "franchise_5000": {
+   "recette_Md": 241.17596108688497,
+   "deduction_Md": 8.186881507087406,
+   "declarants_M": 3.7146681343245174,
+   "frais_reels_Md": 26.76022217871,
+   "recette_vs_v4_Md": 13.184791313946363,
+   "recette_vs_aucune_Md": -2.0431403784115787,
+   "baisse_uniforme_pts_0_3_5_smic": 0.9791350753281598,
+   "baisse_uniforme_pts_tous": 0.942899953273084
+  },
+  "forfait_500_ou_reels": {
+   "recette_Md": 227.02194884232776,
+   "deduction_Md": 71.37948109686391,
+   "declarants_M": 15.196048656105557,
+   "frais_reels_Md": 61.63877318466177,
+   "recette_vs_v4_Md": -0.9692209306108452,
+   "recette_vs_aucune_Md": -16.197152622968787,
+   "baisse_uniforme_pts_0_3_5_smic": null,
+   "baisse_uniforme_pts_tous": null
+  },
+  "sensibilite_v4_seuil_double": {
+   "recette_Md": 229.47487273705653,
+   "deduction_Md": 57.283072029819,
+   "declarants_M": 13.132467999263223,
+   "frais_reels_Md": 57.283072029819,
+   "recette_vs_v4_Md": 1.4837029641179242
+  },
+  "taux_marginal_moyen_apparent_v4": 0.23268115542307277,
+  "part_salaries_frais_sup_5000": 0.14052376627615434
+ },
+ "per": {
+  "v4": {
+   "recette_Md": 227.9911697729386,
+   "deduction_Md": 65.44548768751702,
+   "declarants_M": 18.192840483378866,
+   "frais_reels_Md": 65.44548768751702,
+   "recette_vs_v4_Md": 0.0
+  },
+  "suppression_6NS_6RU": {
+   "recette_Md": 230.45655699747283,
+   "deduction_Md": 65.44548768751702,
+   "declarants_M": 18.192840483378866,
+   "frais_reels_Md": 65.44548768751702,
+   "recette_vs_v4_Md": 2.4653872245342257
+  },
+  "suppression_tout_DED_PER": {
+   "recette_Md": 231.21635615886007,
+   "deduction_Md": 65.44548768751702,
+   "declarants_M": 18.192840483378866,
+   "frais_reels_Md": 65.44548768751702,
+   "recette_vs_v4_Md": 3.225186385921461
+  },
+  "suppression_6NS_6RU_et_frais": {
+   "recette_Md": 245.75910011571617,
+   "deduction_Md": 0.0,
+   "declarants_M": 0.0,
+   "frais_reels_Md": 0.0,
+   "recette_vs_v4_Md": 17.76793034277756
+  },
+  "deduction_individuelle_2025_Md": 8.279919992334149,
+  "taux_marginal_moyen_apparent": 0.29775495739291813,
+  "part_individuelle_des_cases": 0.7650059955923172,
+  "cases_2024_Md": {
+   "c6N": 7.097718501,
+   "c6R": 0.99506351,
+   "c6Q": 1.546611625,
+   "c6O": 0.939323469
+  },
+  "baisse_uniforme_pts_0_3_5_smic": 0.18972802840444555,
+  "taux_marginal_bareme_final": {
+   "20000": 0.16620364371762333,
+   "30000": 0.23826175419283777,
+   "40000": 0.29722921690347215,
+   "60000": 0.35061051772086305,
+   "80000": 0.38437443357027806,
+   "120000": 0.4302244512357877
+  },
+  "tee_croisiere_Md_indicatif": 0.019770747036103698
+ },
+ "locatif": {
+  "voies_et_moyens_M": {
+   "110261": [
+    "Pinel, Duflot",
+    1469,
+    1459,
+    1349,
+    2024,
+    2038
+   ],
+   "110265": [
+    "Denormandie",
+    5,
+    5,
+    7,
+    2027,
+    2039
+   ],
+   "110251": [
+    "Scellier",
+    34,
+    30,
+    38,
+    2025,
+    2051
+   ],
+   "110252": [
+    "Scellier intermédiaire",
+    189,
+    169,
+    176,
+    2025,
+    2051
+   ],
+   "110259": [
+    "Scellier intermédiaire outre-mer",
+    41,
+    37,
+    37,
+    2025,
+    2051
+   ],
+   "110250": [
+    "Censi-Bouvard (LMNP)",
+    39,
+    35,
+    37,
+    2025,
+    2035
+   ],
+   "110210": [
+    "Girardin logement (199 undecies A)",
+    22,
+    20,
+    21,
+    2029,
+    2036
+   ],
+   "110256": [
+    "Girardin logement social (199 undecies C)",
+    15,
+    12,
+    12,
+    2029,
+    2030
+   ],
+   "110224": [
+    "Girardin industriel (199 undecies B)",
+    775,
+    825,
+    831,
+    2029,
+    2030
+   ]
+  },
+  "stock_metropole_2026_Md": 1.644,
+  "calendrier_suppression_Md": {
+   "2027": 1.474,
+   "2028": 1.304,
+   "2029": 1.134,
+   "2030": 0.964,
+   "2031": 0.794,
+   "2032": 0.681,
+   "2033": 0.569,
+   "2034": 0.457,
+   "2035": 0.344,
+   "2036": 0.232,
+   "2037": 0.119,
+   "2038": 0.007,
+   "2039": 0.007
+  },
+  "cumul_2027_2038_Md": 8.086,
+  "girardin_industriel_note": "réduction imputée l'année de l'investissement, reports sur 5 ans : déjà supprimé dans le modèle v4 (profil « reports » 60/80/90/100 %)"
+ },
+ "unites": "Md€ 2025, recette statique de l'impôt du barème final v4 (7,0 Md€), régime de croisière (λ = 1) ; + = recette en plus par rapport au modèle v4 ; baisse uniforme en points de taux marginal",
+ "statuts": {
+  "frais": "[H] modèle de frais calé sur 1AK-1DK [E]",
+  "per": "[E] cases 2042 revenus 2024 ; répartition [H]",
+  "locatif": "[E] Voies et moyens PLF 2026 ; calendrier [H]"
+ }
+}

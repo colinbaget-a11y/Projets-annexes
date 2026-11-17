@@ -3,7 +3,7 @@ ircsg4_modele.py et ircsg4_openfisca.py (python3.13) :  python3 note8p/calculs/i
 Complète note8p/sorties/ircsg4.json (cas_types_nets, julie, aspa) et écrit note8p/sorties/tab_cas_types.tex.
 
 Conventions : barème final v4 (clé bareme de ircsg4.json) ; franchise de 6 000 € par enfant chez le parent qui gagne le
-plus ; aucun frais réel déclaré (trajet court ou en transports en commun) [H] ; gain du nouveau système = nouvel impôt −
+plus ; forfait de 500 € pour frais professionnels sur chaque salaire (v5 : plus de frais réels) ; aujourd'hui, aucun frais réel déclaré (trajet court ou en transports en commun) [H] ; gain du nouveau système = nouvel impôt −
 charge d'aujourd'hui sans niche ; perte des niches = valeur des niches supprimées (crédits restitués compris) ; net =
 nouvel impôt − charge d'aujourd'hui avec niches. Les engagements Pinel en cours sont gardés (réduction imputée avant et
 après), donc sans effet sur le net.
@@ -31,8 +31,16 @@ def p(s):
     L.append(s)
 
 
+FORFAIT = float(J["frais"].get("forfait_seul", 500.0)) if J["frais"]["recommandee"].startswith("forfait_seul") else 0.0
+
+
+def ded(z, salarie=True):
+    """v5 : forfait de 500 € pour frais professionnels déduit de chaque salaire (plus de frais réels)."""
+    return max(z - FORFAIT, 0.0) if (salarie and z > 500) else z
+
+
 def nouveau(r):
-    zs = [float(b) for b in str(r.bases).split(";")]
+    zs = [ded(float(b), not r.cle.startswith("ret")) for b in str(r.bases).split(";")]
     return float(N.impot_z(S, O, zs, int(r.enfants))[0]) - float(r.pinel_garde)
 
 
@@ -72,7 +80,7 @@ for a1, a2 in ((1.5, 2.0), (2.0, 3.0)):
     b1, b2 = a1 * SMIC_M, a2 * SMIC_M
     z1, z2 = float(np.interp(b1, bm, zz)), float(np.interp(b2, bm, zz))
     t1, t2 = float(np.interp(b1, bm, aa)), float(np.interp(b2, bm, aa))
-    n1, n2 = float(N.impot_z(S, O, [z1])[0]), float(N.impot_z(S, O, [z2])[0])
+    n1, n2 = float(N.impot_z(S, O, [ded(z1)])[0]), float(N.impot_z(S, O, [ded(z2)])[0])
     dz = (z2 - z1) / 12
     PROG[f"{a1}_{a2}"] = dict(brut_mensuel=(b1, b2), hausse_apres_cotisations_mois=dz,
                               garde_aujourdhui_mois=dz - (t2 - t1) / 12, garde_demain_mois=dz - (n2 - n1) / 12,

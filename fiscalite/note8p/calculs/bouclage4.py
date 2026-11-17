@@ -13,6 +13,9 @@ S = Path(__file__).resolve().parent.parent / "sorties"
 L = lambda n: json.loads((S / n).read_text(encoding="utf-8"))
 IS, FO, IR = L("is4.json")["annuel_caisse"], L("foncier3.json")["annuel_par_scenario"]["B_E10"], L("ircsg4.json")
 PF = L("pfu3.json")["annuel"]
+_IX = L("pal.json")["pertes"]["national"]["indexation_cout_regime_Md"]
+PERTES = {int(a): v for a, v in _IX["montee_en_charge_indicative"].items()}
+PERTES_REGIME = _IX["central"]
 Y = [str(a) for a in range(2027, 2041)]
 D = lambda y: 1.03 ** (int(y) - 2027)
 res = {}
@@ -22,6 +25,7 @@ for y in Y:
     ligne = {"foncier_taxe_sol": f["taxe_fonciere_nouvelle"], "foncier_dmto": f["dmto"],
              "foncier_autres": f["net"] - f["taxe_fonciere_nouvelle"] - f["dmto"],
              "is_net_prudent": is_net,
+             "is_revalorisation_deficits": -PERTES.get(int(y), PERTES_REGIME if int(y) >= 2032 else 0.0),
              "ir_financement_externe": r["ircsg_total"],
              "reserve_plus_values": PF[y]["fin_effacement_prudent"]}
     ligne["solde"] = sum(v for k, v in ligne.items() if k != "reserve_plus_values")

@@ -56,6 +56,9 @@ def regle(w, F, option, sig=None, tau_new=None, gt=120.0):
         fo, tau = 0.0, tau_new(w)
     elif nom == "fixe":
         fo, tau = min(option[1], w), tau_new(w)
+    elif nom == "forfait_seul":        # forfait fixe pour tous, plus de frais réels (v5)
+        fo = min(option[1], w)
+        return np.full_like(F, fo), np.zeros_like(F, dtype=bool), fo
     elif nom == "franchise":           # pas de forfait ; frais réels déductibles au-delà d'une franchise
         fo, tau = 0.0, tau_new(w)
         dec = (F - option[1]) * tau > gt

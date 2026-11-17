@@ -1,0 +1,93 @@
+{
+ "blocs": [
+  {
+   "titre": "Nouvel impôt sur le revenu",
+   "items": [
+    {
+     "libelle": "Suppression des niches",
+     "Md": 20.109399999999997
+    },
+    {
+     "libelle": "Pensions imposées comme les salaires",
+     "Md": 15.772445113416978
+    },
+    {
+     "libelle": "Fin du quotient conjugal",
+     "Md": 12.120642298943036
+    },
+    {
+     "libelle": "Fin du quotient familial",
+     "Md": 16.233105856809022
+    },
+    {
+     "libelle": "Fin de la CSG déductible",
+     "Md": 24.082721691567304
+    },
+    {
+     "libelle": "Forfait de 500 € au lieu du 10 % et des frais réels",
+     "Md": 25.729708564869966
+    },
+    {
+     "libelle": "Franchise de 6 000 € par enfant",
+     "Md": -18.449117719998057
+    },
+    {
+     "libelle": "Baisse des taux (nouveau barème)",
+     "Md": -100.64295219082501
+    },
+    {
+     "libelle": "Minimum vieillesse ; contribution sur les hauts revenus",
+     "Md": -0.8232191843303245
+    }
+   ],
+   "sous_total": -5.867265569547098
+  },
+  {
+   "titre": "Fiscalité foncière",
+   "items": [
+    {
+     "libelle": "Taxe nationale sur la valeur du sol",
+     "Md": 10.0
+    },
+    {
+     "libelle": "Droits de mutation divisés par deux",
+     "Md": -8.075
+    },
+    {
+     "libelle": "Report de paiement, déductibilité",
+     "Md": -1.0090000000000003
+    }
+   ],
+   "sous_total": 0.9160000000000004
+  },
+  {
+   "titre": "Impôt sur les sociétés",
+   "items": [
+    {
+     "libelle": "Fin du taux réduit",
+     "Md": 2.090520613779055
+    },
+    {
+     "libelle": "Fin du crédit d'impôt recherche",
+     "Md": 5.775829265822131
+    },
+    {
+     "libelle": "Fin des autres niches",
+     "Md": 2.113672959338823
+    },
+    {
+     "libelle": "Déduction immédiate des investissements",
+     "Md": -3.011847776789824
+    },
+    {
+     "libelle": "Revalorisation des déficits reportables",
+     "Md": -1.13273443045291
+    }
+   ],
+   "sous_total": 5.835440631697275
+  }
+ ],
+ "solde": 0.8841750621501774,
+ "annee": 2040,
+ "unite": "Md€ de 2027 environ"
+}

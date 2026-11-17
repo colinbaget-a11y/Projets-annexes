@@ -110,7 +110,7 @@ sauver(fig, "g3_cas_types", "OpenFisca-France 176.1 (droit des revenus 2025, ré
        " restitués compris) ; calculs des auteurs (note8p/calculs/ircsg4_cas.py).",
        "Gain net pour le ménage, € par mois, réforme achevée (+ = il paie moins). Garde : 3 500 € par enfant ; aide à"
        " domicile 3 000 € (4 000 € pour la retraitée) ; cadres : dons 2 000 €, emploi à domicile 6 000 €, Pinel gardé"
-       " jusqu'à son terme. Aucun frais réel déclaré.")
+       " jusqu'à son terme. Aujourd'hui, aucun frais réel déclaré ; demain, forfait de 500 € sur chaque salaire.")
 
 # ------------------------------------------------------------------ g3b : gains selon le revenu (€ par mois)
 Sal, Ret = V3["courbes"]["salarie"], V3["courbes"]["retraite"]

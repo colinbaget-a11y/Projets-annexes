@@ -25,6 +25,7 @@ for lab, k in L:
     if k == "is_net_prudent":
         for lab2, ks in isl:
             t.append(lab2 + " & " + " & ".join(f(sum(IS[a].get(x, 0) for x in ks) / dfl(a)) for a in ans) + " \\\\")
+t.append("Revalorisation des déficits reportables & " + " & ".join(f(A[a]["is_revalorisation_deficits"]) for a in ans) + " \\\\")
 t.append("Baisse supplémentaire de l'impôt sur le travail & " + " & ".join(f(A[a]["ir_financement_externe"]) for a in ans) + " \\\\")
 t.append("\\textbf{Solde} & " + " & ".join("\\textbf{" + f(A[a]["solde"]) + "}" for a in ans) + " \\\\")
 t.append("\\emph{Réserve : plus-values (prudent)} & " + " & ".join(f(A[a]["reserve_plus_values"]) for a in ans) + " \\\\")
@@ -36,7 +37,7 @@ entreprises et extinction des créances existantes ; les recettes de la fin de l
 rien (réserve) ; les évolutions du droit en vigueur (fin de la contribution exceptionnelle sur l'IS ; extinction de la
 CRDS fin 2033) ne sont ni comptées ni utilisées. La fusion de l'IR et de la CSG monte en charge de 2027 à 2030 à recette
 constante chaque année (les niches supprimées financent la baisse du barème au rythme de leur extinction) ; la ligne
-« baisse supplémentaire » est le financement externe qu'elle reçoit, minimum vieillesse corrigé compris (0,3~Md€). Taxe
+« baisse supplémentaire » est le financement externe qu'elle reçoit, minimum vieillesse corrigé compris, et net du coût de la revalorisation des déficits reportables de l'impôt sur les sociétés, qu'il finance. Taxe
 nationale sur le sol par tiers en 2029-2031, droits de mutation baissés au même rythme. Déduction immédiate de 50~\% dès
 2029, 75~\% en 2033, 100~\% en 2036, logiciels acquis inclus dès 2031. Séries d'IS déflatées de 3~\% par an. Les
 excédents des premières années, qui viennent de l'IS encaissé avant la montée en charge de la déduction, sont gardés
