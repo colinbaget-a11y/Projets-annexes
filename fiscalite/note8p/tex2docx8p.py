@@ -59,6 +59,7 @@ corps = f"\\section*{{{t}}}\n\n\\emph{{{st}}}\n\n" + corps[debut:]
 for c in ("\\color{gris}", "\\raggedright", "\\scriptsize", "\\small", "\\vspace{1pt}", "\\vspace{2pt}", "\\vspace{3pt}",
           "\\vspace{4pt}", "\\setlength{\\tabcolsep}{3.2pt}"):
     corps = corps.replace(c, "")
+corps = re.sub(r"\\setlength\{\\tabcolsep\}\{[^}]*\}", "", corps)
 corps = corps.replace("\\textsuperscript{er}", "er")
 doc = "\\documentclass{article}\n\\usepackage{booktabs}\n\\begin{document}\n" + corps + "\n\\end{document}\n"
 tmp = D / "note_docx_tmp.tex"
