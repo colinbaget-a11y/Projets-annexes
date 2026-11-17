@@ -88,3 +88,22 @@ Le crédit d'impôt recherche est supprimé et remplacé par la seule déductibi
 déductibles comme charges ; les équipements de R&D bénéficient de la déduction immédiate de 50 %). C'est une recette
 supplémentaire à chiffrer (statique, puis réalisable : créances reportables et remboursables, calendrier d'encaissement,
 réaction des dépenses de R&D), et à présenter honnêtement : la littérature trouve un effet du CIR sur la R&D des PME.
+
+## Ajout de l'auteur : partie finale « Pour aller plus loin » (½ à 1 page ; note portable à 9 pages)
+Trois prolongements, hors scénario budgétaire central, chacun avec : problème économique ; droit existant ; amélioration
+concrète ; littérature ; coût potentiel et difficultés ; intérêt pour la croissance ; au moins un ordre de grandeur.
+1. Intéresser les maires à construire (taxe foncière et exonérations du neuf, taxe d'aménagement, DGF et part
+   démographique, compensations, aide aux maires bâtisseurs 2025 ; Cour des comptes 15/01/2025 ; Institut Paris Région
+   23/04/2026) : renforcer la part démographique de la DGF, dotation automatique par logement supplémentaire (2 000 €
+   × 300 000 = 0,6 Md€ ; 5 000 € = 1,5 Md€), territorialiser une part de la taxe nationale sur le sol ; vérifier que la
+   recette est liée aux décisions de construire ; traiter l'effet pervers de notre baisse de la taxe sur le bâti pour les
+   communes ; enveloppe constante (redéploiement de la DGF) ; ciblage zones tendues, logements supplémentaires, densification.
+2. Mieux traiter les pertes des entreprises (art. 209 et 220 quinquies CGI ; report en arrière Covid) : indexer les
+   nouveaux déficits ; assouplir le plafond d'imputation ; carry-back sur 3 ans et remboursement plus rapide ;
+   Ljungqvist, Zhang et Zuo (2017) ; coût de trésorerie / permanent / actualisé / déficits sinon perdus / optimisation ;
+   données sur le stock de déficits ; exemple d'entreprise.
+3. Ne pas pénaliser les revenus irréguliers (art. 163-0 A, 75-0 A, 75-0 B, 100 bis) : régime général de lissage sur 3
+   ou 5 ans des revenus professionnels, option pluriannuelle, régularisation et sortie (cessation, décès, départ) ;
+   exemple 5 × 50 000 € contre 10/20/30/70/120 k€ avec le barème final ; distinguer report de recettes, transition, coût
+   permanent ; pas de chiffrage national sans données longitudinales.
+Pas de financement par la croissance ; pas de nouvelles niches à conditions multiples ; style : première phrase en gras.

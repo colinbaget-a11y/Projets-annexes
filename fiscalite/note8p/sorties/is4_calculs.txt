@@ -1,0 +1,44 @@
+0. CONTRÔLE : TMEI ded50 fp 9.9 (is3 9.9) ; dette -37.0 (is3 -37.0)
+
+1. DETTE : coût du capital (p), TMEI et écart fonds propres / emprunt, selon la fraction b déduite tout de suite
+[b=0.0] p fp 6.10 % ; p dette 4.04 % ; écart 2.06 pt ; TMEI fp 18.0 ; dette -23.8 ; 1/3 dette 7.6
+[b=0.5] p fp 5.55 % ; p dette 3.65 % ; écart 1.90 pt ; TMEI fp 9.9 ; dette -37.0 ; 1/3 dette -1.7
+[b=1.0] p fp 5.00 % ; p dette 3.26 % ; écart 1.74 pt ; TMEI fp 0.0 ; dette -53.4 ; 1/3 dette -13.1
+[LECTURE] rendement avant impôt minimal d'une machine financée par emprunt : 4.04 % aujourd'hui, 3.65 % avec b = 0,5, 3.26 % avec b = 1, pour un rendement exigé de 5 %
+[INTUITION] 100 empruntés : la déduction rend 12.5 tout de suite (b = 0,5), 25 (b = 1) ; les intérêts restent déduits sur 100, soit 1.78 d'impôt en moins par an
+[CORRECTIONS] rabot général des intérêts nets nécessaire pour revenir au TMEI-dette actuel (-24 %) : 21 % ; pour un TMEI mixte nul : 14 % ; pour le TMEI mixte actuel (7,6 %) : 78 %
+[CORRECTIONS] intérêts réels seulement (i − π) : TMEI dette -19.5 %, mixte 1.8 % ; société au-delà du plafond 212 bis : intérêt marginal non déductible, TMEI dette = fonds propres = 9.9 %
+[212 bis] seuil de 3 M€ de charges nettes = environ 75 M€ de dette à 4 % (ou 50 M€ à 6 %)
+[212 bis] seuil de 1 M€ de charges nettes = environ 25 M€ de dette à 4 % (ou 17 M€ à 6 %)
+
+2. PERTES : valeur actualisée (5 %) de la déduction de 50 % pour 100 d'achat, selon le délai avant retour aux bénéfices
+   0 an(s) : 1.60 ; 1 an(s) : 1.07 ; 3 an(s) : 0.41 ; 5 an(s) : 0.09 ; 8 an(s) : 0.00 ; avec déficits indexés au taux d'actualisation : 1.60 quel que soit le délai
+   lecture : à 100 d'achat, l'avantage tombe de moitié après trois ans de pertes et disparaît au-delà de la durée du plan
+[INDEXATION] déficits nouveaux 113 Md€/an ; coût en régime = τ·u·D·((1+i)^m − 1) : u0.3_m2_i0.02 → 0.34 Md€ ; u0.45_m3_i0.025 → 0.98 Md€ ; u0.6_m4_i0.033 → 2.35 Md€ (montée en charge sur m années ; stock ancien exclu)
+
+3. SUPPRESSION DU CIR (dépenses engagées à compter du 1er janvier 2028)
+[CIR] profil d'un millésime : N+1 67 % ; N+2 5 % ; N+3 3 % ; N+4 25 %
+[CIR] caisse (Md€) : 2029 stat 7.66 / méca 5.28 / prudent 4.22 ; 2030 stat 7.89 / méca 5.80 / prudent 4.64 ; 2031 stat 8.13 / méca 6.22 / prudent 4.98 ; 2032 stat 8.37 / méca 8.37 / prudent 6.70 ; 2033 stat 8.62 / méca 8.62 / prudent 6.90 ; 2035 stat 9.15 / méca 9.15 / prudent 7.32 ; 2040 stat 10.60 / méca 10.60 / prudent 8.48
+[R&D] CIR des PME ≈ 2.29 Md€ ; multiplicateur 0,9-1,5 (CNEPI, cité par le Sénat) : R&D des PME −2.1 à −3.4 Md€/an ; stock −11 à −19 Md€ ; PIB potentiel −0.07 à −0.12 % au rendement privé, −0.15 à −0.25 % si le rendement social est double
+[VARIANTE] garder un crédit réservé aux PME : recette statique 5.1 Md€ (2027) au lieu de 7.4
+
+4. NICHES HORS CIR (exercices 2028+, caisse 2029+) : statique et prudent réalisable
+[NICHES] caisse : 2029 1.77 / prudent 1.47 ; 2030 2.30 / prudent 1.88 ; 2032 2.63 / prudent 2.15 ; 2035 3.18 / prudent 2.59 ; 2040 3.81 / prudent 3.10
+[NICHES] noyau hors CIR : 2.60 Md€ de 2026 statiques (l'ancien « CIR recentré », 0,97, est absorbé par la suppression)
+
+5. TABLE EN CAISSE (Md€ courants ; déduction départ 2029 ; + = recette)
+2027 : TR +0.00 ; déd. +0.00 ; niches prud. +0.00 (stat. +0.00) ; CIR prud. +0.00 (stat. +0.00) ; solde prudent +0.00
+2028 : TR +1.08 ; déd. -0.00 ; niches prud. +0.00 (stat. +0.00) ; CIR prud. +0.00 (stat. +0.00) ; solde prudent +1.08
+2029 : TR +2.22 ; déd. -0.00 ; niches prud. +1.47 (stat. +1.77) ; CIR prud. +4.22 (stat. +7.66) ; solde prudent +7.91
+2030 : TR +2.29 ; déd. -3.92 ; niches prud. +1.88 (stat. +2.30) ; CIR prud. +4.64 (stat. +7.89) ; solde prudent +4.89
+2031 : TR +2.35 ; déd. -7.16 ; niches prud. +2.01 (stat. +2.46) ; CIR prud. +4.98 (stat. +8.13) ; solde prudent +2.18
+2032 : TR +2.42 ; déd. -5.71 ; niches prud. +2.15 (stat. +2.63) ; CIR prud. +6.70 (stat. +8.37) ; solde prudent +5.56
+2033 : TR +2.50 ; déd. -4.54 ; niches prud. +2.29 (stat. +2.81) ; CIR prud. +6.90 (stat. +8.62) ; solde prudent +7.14
+2034 : TR +2.57 ; déd. -3.56 ; niches prud. +2.44 (stat. +2.99) ; CIR prud. +7.10 (stat. +8.88) ; solde prudent +8.55
+2035 : TR +2.65 ; déd. -2.63 ; niches prud. +2.59 (stat. +3.18) ; CIR prud. +7.32 (stat. +9.15) ; solde prudent +9.93
+2036 : TR +2.73 ; déd. -1.67 ; niches prud. +2.76 (stat. +3.39) ; CIR prud. +7.54 (stat. +9.42) ; solde prudent +11.35
+2037 : TR +2.81 ; déd. -1.04 ; niches prud. +2.84 (stat. +3.49) ; CIR prud. +7.76 (stat. +9.70) ; solde prudent +12.38
+2038 : TR +2.89 ; déd. -0.91 ; niches prud. +2.93 (stat. +3.59) ; CIR prud. +8.00 (stat. +9.99) ; solde prudent +12.91
+2039 : TR +2.98 ; déd. -0.93 ; niches prud. +3.01 (stat. +3.70) ; CIR prud. +8.23 (stat. +10.29) ; solde prudent +13.29
+2040 : TR +3.07 ; déd. -0.96 ; niches prud. +3.10 (stat. +3.81) ; CIR prud. +8.48 (stat. +10.60) ; solde prudent +13.69
+[RÉGIME PERMANENT, € 2027] taux réduit 2.15 + niches prudentes 2.18 + CIR prudent 5.92 − déduction 0.67 = 9.58 Md€/an

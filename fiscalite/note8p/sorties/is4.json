@@ -1,0 +1,405 @@
+{
+ "dette": {
+  "tmei_et_ecart": {
+   "0.0": {
+    "p_fp": 0.06095162605208376,
+    "p_dette": 0.04038203500046522,
+    "p_mixte": 0.05409509570154425,
+    "tmei_fp": 0.17967734023577137,
+    "tmei_dette": -0.23817435152596883,
+    "tmei_mixte": 0.07570179234246818,
+    "ecart_points": 2.0569591051618543
+   },
+   "0.5": {
+    "p_fp": 0.05547581302604196,
+    "p_dette": 0.0364900371080758,
+    "p_mixte": 0.04914722105338657,
+    "tmei_fp": 0.09870631410974455,
+    "tmei_dette": -0.3702370280389285,
+    "tmei_mixte": -0.017351519136495915,
+    "ecart_points": 1.8985775917966157
+   },
+   "1.0": {
+    "p_fp": 0.05000000000000018,
+    "p_dette": 0.03259803921568641,
+    "p_mixte": 0.04419934640522892,
+    "tmei_fp": 3.608224830031745e-15,
+    "tmei_dette": -0.5338345864661592,
+    "tmei_mixte": -0.1312384473197741,
+    "ecart_points": 1.7401960784313775
+   },
+   "decomposition_b05": {
+    "tmei_fp": 0.09870631410974455,
+    "subvention_pts_dette_auj": 0.961796499953478,
+    "subvention_pts_dette_ded50": 1.35099628919242,
+    "subvention_pts_dette_ded100": 1.7401960784313595
+   }
+  },
+  "intuition_100": {
+   "pret": 100.0,
+   "aide_immediate_b05": 12.5,
+   "aide_immediate_b1": 25.0,
+   "interets_deduits_an1": 7.100000000000017,
+   "economie_impot_interets_an1": 1.7750000000000044
+  },
+  "corrections": {
+   "rabot_general_pour_revenir_au_tmei_dette_actuel": 0.2055188193331568,
+   "rabot_general_pour_tmei_mixte_nul": 0.13512604902029884,
+   "rabot_general_pour_tmei_mixte_actuel": 0.7823596271064239,
+   "interets_reels_seulement_tmei_dette_mixte": [
+    -0.19543226204723227,
+    0.018180037862448414
+   ],
+   "au_dela_du_plafond_212bis_tmei_dette": 0.09870631410974455,
+   "recette_par_10pc_de_rabot": "0,025 x charges financières nettes déduites (montant non vérifié ici)",
+   "dette_equivalente_seuils_MEUR": {
+    "3": [
+     50.0,
+     75.0
+    ],
+    "1": [
+     16.666666666666668,
+     25.0
+    ]
+   }
+  }
+ },
+ "pertes": {
+  "va_avantage_pour_100_selon_delai": {
+   "0": 1.6005839540711468,
+   "1": 1.0744359948874709,
+   "3": 0.41243809262137554,
+   "5": 0.0862172083432089,
+   "8": 2.7755575615628914e-15
+  },
+  "deficits_2022": 113.0,
+  "indexation_cout_regime": {
+   "u0.3_m2_i0.02": 0.3423899999999999,
+   "u0.45_m3_i0.025": 0.9774720703124957,
+   "u0.6_m4_i0.033": 2.3506079299609453
+  },
+  "part_imposable_hypothese": 0.75,
+  "part_investissement_deficitaires": "non mesurée ; 25 % implicite dans l'hypothèse de 75 % imposable [H]"
+ },
+ "cir_suppression": {
+  "statique_2027": 7.4,
+  "statique_2027_vm_plf2026": 8.2812,
+  "part_pme_creance": 0.31,
+  "profil_millesime": {
+   "1": 0.672,
+   "2": 0.0468,
+   "3": 0.031200000000000002,
+   "4": 0.25
+  },
+  "facteurs_reaction": {
+   "prudent": 0.8,
+   "central": 0.9
+  },
+  "caisse_statique": {
+   "2027": 0.0,
+   "2028": 0.0,
+   "2029": 7.65934962485437,
+   "2030": 7.8891301136,
+   "2031": 8.125804017008,
+   "2032": 8.369578137518241,
+   "2033": 8.620665481643787,
+   "2034": 8.879285446093101,
+   "2035": 9.145664009475896,
+   "2036": 9.420033929760173,
+   "2037": 9.70263494765298,
+   "2038": 9.993713996082569,
+   "2039": 10.293525415965044,
+   "2040": 10.602331178443997
+  },
+  "caisse_mecanique": {
+   "2027": 0,
+   "2028": 0,
+   "2029": 5.275643520000001,
+   "2030": 5.8013237136,
+   "2031": 6.220304017008001,
+   "2032": 8.369578137518241,
+   "2033": 8.620665481643787,
+   "2034": 8.879285446093101,
+   "2035": 9.145664009475896,
+   "2036": 9.420033929760173,
+   "2037": 9.70263494765298,
+   "2038": 9.993713996082569,
+   "2039": 10.293525415965044,
+   "2040": 10.602331178443997
+  },
+  "caisse_prudent": {
+   "2027": 0.0,
+   "2028": 0.0,
+   "2029": 4.220514816000001,
+   "2030": 4.6410589708800005,
+   "2031": 4.976243213606401,
+   "2032": 6.695662510014593,
+   "2033": 6.89653238531503,
+   "2034": 7.103428356874481,
+   "2035": 7.3165312075807165,
+   "2036": 7.5360271438081385,
+   "2037": 7.762107958122384,
+   "2038": 7.9949711968660555,
+   "2039": 8.234820332772037,
+   "2040": 8.481864942755198
+  },
+  "caisse_central": {
+   "2027": 0.0,
+   "2028": 0.0,
+   "2029": 4.748079168000001,
+   "2030": 5.221191342240001,
+   "2031": 5.598273615307201,
+   "2032": 7.532620323766417,
+   "2033": 7.7585989334794085,
+   "2034": 7.991356901483791,
+   "2035": 8.231097608528307,
+   "2036": 8.478030536784155,
+   "2037": 8.732371452887682,
+   "2038": 8.994342596474313,
+   "2039": 9.26417287436854,
+   "2040": 9.542098060599598
+  },
+  "effet_RD": {
+   "bas": {
+    "multiplicateur": 0.9,
+    "baisse_RD_PME_Md": 2.0646,
+    "baisse_stock_Md": 11.47,
+    "PIB_prive_pct": 0.07374688167065298,
+    "PIB_avec_externalites_pct": 0.14749376334130596
+   },
+   "haut": {
+    "multiplicateur": 1.5,
+    "baisse_RD_PME_Md": 3.441,
+    "baisse_stock_Md": 19.116666666666667,
+    "PIB_prive_pct": 0.1229114694510883,
+    "PIB_avec_externalites_pct": 0.2458229389021766
+   }
+  },
+  "variante_credit_pme_seul_statique_2027": 5.106,
+  "tmei_RD": {
+   "avec_CIR_30": -0.6666666666666666,
+   "sans_CIR": 0.0
+  },
+  "sources": [
+   "Sénat, note de présentation « Remboursements et dégrèvements », PLF 2027 (coût 7,3 Md€ en 2025 exécuté, >7,4 en 2027 ; 2024 : 4,7 restitués, 3,0 imputés sur 7,7 ; règles art. 199 ter B)",
+   "MESRE-DGRI, Le CIR en 2023 (nov. 2025) : créance 7,85 Md€, dont recherche 7,32 ; PME 2,24, ETI 2,10, GE 2,98 ; 33 bénéficiaires au-delà de 100 M€ : 25 % de la créance recherche"
+  ]
+ },
+ "annuel_caisse": {
+  "2027": {
+   "is_fin_taux_reduit_prudent": 0.0,
+   "is_fin_taux_reduit_statique": 0.0,
+   "is_deduction_50_depart_2029": 0.0,
+   "is_niches_hors_cir_statique": 0.0,
+   "is_niches_rendement_prudent_realisable": 0.0,
+   "is_niches_hors_cir_central_realisable": 0.0,
+   "is_cir_suppression_statique": 0.0,
+   "is_cir_suppression_realisable_mecanique": 0.0,
+   "is_cir_suppression_realisable_prudent": 0.0,
+   "memo_boite_a_brevets_statique_non_comptee": 0.0,
+   "is_solde_bloc_prudent": 0.0,
+   "is_solde_bloc_statique": 0.0
+  },
+  "2028": {
+   "is_fin_taux_reduit_prudent": 1.077,
+   "is_fin_taux_reduit_statique": 1.592,
+   "is_deduction_50_depart_2029": -0.0,
+   "is_niches_hors_cir_statique": 0.0,
+   "is_niches_rendement_prudent_realisable": 0.0,
+   "is_niches_hors_cir_central_realisable": 0.0,
+   "is_cir_suppression_statique": 0.0,
+   "is_cir_suppression_realisable_mecanique": 0.0,
+   "is_cir_suppression_realisable_prudent": 0.0,
+   "memo_boite_a_brevets_statique_non_comptee": 0.0,
+   "is_solde_bloc_prudent": 1.077,
+   "is_solde_bloc_statique": 1.592
+  },
+  "2029": {
+   "is_fin_taux_reduit_prudent": 2.218,
+   "is_fin_taux_reduit_statique": 3.279,
+   "is_deduction_50_depart_2029": -0.0,
+   "is_niches_hors_cir_statique": 1.769,
+   "is_niches_rendement_prudent_realisable": 1.474,
+   "is_niches_hors_cir_central_realisable": 1.731,
+   "is_cir_suppression_statique": 7.659,
+   "is_cir_suppression_realisable_mecanique": 5.276,
+   "is_cir_suppression_realisable_prudent": 4.221,
+   "memo_boite_a_brevets_statique_non_comptee": 1.335,
+   "is_solde_bloc_prudent": 7.912,
+   "is_solde_bloc_statique": 12.707
+  },
+  "2030": {
+   "is_fin_taux_reduit_prudent": 2.285,
+   "is_fin_taux_reduit_statique": 3.378,
+   "is_deduction_50_depart_2029": -3.917,
+   "is_niches_hors_cir_statique": 2.297,
+   "is_niches_rendement_prudent_realisable": 1.879,
+   "is_niches_hors_cir_central_realisable": 2.22,
+   "is_cir_suppression_statique": 7.889,
+   "is_cir_suppression_realisable_mecanique": 5.801,
+   "is_cir_suppression_realisable_prudent": 4.641,
+   "memo_boite_a_brevets_statique_non_comptee": 1.375,
+   "is_solde_bloc_prudent": 4.888,
+   "is_solde_bloc_statique": 9.647
+  },
+  "2031": {
+   "is_fin_taux_reduit_prudent": 2.353,
+   "is_fin_taux_reduit_statique": 3.479,
+   "is_deduction_50_depart_2029": -7.155,
+   "is_niches_hors_cir_statique": 2.459,
+   "is_niches_rendement_prudent_realisable": 2.009,
+   "is_niches_hors_cir_central_realisable": 2.379,
+   "is_cir_suppression_statique": 8.126,
+   "is_cir_suppression_realisable_mecanique": 6.22,
+   "is_cir_suppression_realisable_prudent": 4.976,
+   "memo_boite_a_brevets_statique_non_comptee": 1.416,
+   "is_solde_bloc_prudent": 2.183,
+   "is_solde_bloc_statique": 6.909
+  },
+  "2032": {
+   "is_fin_taux_reduit_prudent": 2.424,
+   "is_fin_taux_reduit_statique": 3.583,
+   "is_deduction_50_depart_2029": -5.706,
+   "is_niches_hors_cir_statique": 2.628,
+   "is_niches_rendement_prudent_realisable": 2.146,
+   "is_niches_hors_cir_central_realisable": 2.546,
+   "is_cir_suppression_statique": 8.37,
+   "is_cir_suppression_realisable_mecanique": 8.37,
+   "is_cir_suppression_realisable_prudent": 6.696,
+   "memo_boite_a_brevets_statique_non_comptee": 1.458,
+   "is_solde_bloc_prudent": 5.559,
+   "is_solde_bloc_statique": 8.874
+  },
+  "2033": {
+   "is_fin_taux_reduit_prudent": 2.497,
+   "is_fin_taux_reduit_statique": 3.691,
+   "is_deduction_50_depart_2029": -4.542,
+   "is_niches_hors_cir_statique": 2.805,
+   "is_niches_rendement_prudent_realisable": 2.288,
+   "is_niches_hors_cir_central_realisable": 2.72,
+   "is_cir_suppression_statique": 8.621,
+   "is_cir_suppression_realisable_mecanique": 8.621,
+   "is_cir_suppression_realisable_prudent": 6.897,
+   "memo_boite_a_brevets_statique_non_comptee": 1.502,
+   "is_solde_bloc_prudent": 7.14,
+   "is_solde_bloc_statique": 10.574
+  },
+  "2034": {
+   "is_fin_taux_reduit_prudent": 2.571,
+   "is_fin_taux_reduit_statique": 3.801,
+   "is_deduction_50_depart_2029": -3.558,
+   "is_niches_hors_cir_statique": 2.99,
+   "is_niches_rendement_prudent_realisable": 2.438,
+   "is_niches_hors_cir_central_realisable": 2.903,
+   "is_cir_suppression_statique": 8.879,
+   "is_cir_suppression_realisable_mecanique": 8.879,
+   "is_cir_suppression_realisable_prudent": 7.103,
+   "memo_boite_a_brevets_statique_non_comptee": 1.547,
+   "is_solde_bloc_prudent": 8.554,
+   "is_solde_bloc_statique": 12.112
+  },
+  "2035": {
+   "is_fin_taux_reduit_prudent": 2.649,
+   "is_fin_taux_reduit_statique": 3.915,
+   "is_deduction_50_depart_2029": -2.629,
+   "is_niches_hors_cir_statique": 3.183,
+   "is_niches_rendement_prudent_realisable": 2.594,
+   "is_niches_hors_cir_central_realisable": 3.094,
+   "is_cir_suppression_statique": 9.146,
+   "is_cir_suppression_realisable_mecanique": 9.146,
+   "is_cir_suppression_realisable_prudent": 7.317,
+   "memo_boite_a_brevets_statique_non_comptee": 1.594,
+   "is_solde_bloc_prudent": 9.931,
+   "is_solde_bloc_statique": 13.615
+  },
+  "2036": {
+   "is_fin_taux_reduit_prudent": 2.728,
+   "is_fin_taux_reduit_statique": 4.033,
+   "is_deduction_50_depart_2029": -1.672,
+   "is_niches_hors_cir_statique": 3.386,
+   "is_niches_rendement_prudent_realisable": 2.758,
+   "is_niches_hors_cir_central_realisable": 3.294,
+   "is_cir_suppression_statique": 9.42,
+   "is_cir_suppression_realisable_mecanique": 9.42,
+   "is_cir_suppression_realisable_prudent": 7.536,
+   "memo_boite_a_brevets_statique_non_comptee": 1.641,
+   "is_solde_bloc_prudent": 11.35,
+   "is_solde_bloc_statique": 15.167
+  },
+  "2037": {
+   "is_fin_taux_reduit_prudent": 2.81,
+   "is_fin_taux_reduit_statique": 4.154,
+   "is_deduction_50_depart_2029": -1.038,
+   "is_niches_hors_cir_statique": 3.488,
+   "is_niches_rendement_prudent_realisable": 2.84,
+   "is_niches_hors_cir_central_realisable": 3.393,
+   "is_cir_suppression_statique": 9.703,
+   "is_cir_suppression_realisable_mecanique": 9.703,
+   "is_cir_suppression_realisable_prudent": 7.762,
+   "memo_boite_a_brevets_statique_non_comptee": 1.691,
+   "is_solde_bloc_prudent": 12.375,
+   "is_solde_bloc_statique": 16.306
+  },
+  "2038": {
+   "is_fin_taux_reduit_prudent": 2.894,
+   "is_fin_taux_reduit_statique": 4.279,
+   "is_deduction_50_depart_2029": -0.907,
+   "is_niches_hors_cir_statique": 3.592,
+   "is_niches_rendement_prudent_realisable": 2.926,
+   "is_niches_hors_cir_central_realisable": 3.495,
+   "is_cir_suppression_statique": 9.994,
+   "is_cir_suppression_realisable_mecanique": 9.994,
+   "is_cir_suppression_realisable_prudent": 7.995,
+   "memo_boite_a_brevets_statique_non_comptee": 1.741,
+   "is_solde_bloc_prudent": 12.908,
+   "is_solde_bloc_statique": 16.958
+  },
+  "2039": {
+   "is_fin_taux_reduit_prudent": 2.981,
+   "is_fin_taux_reduit_statique": 4.407,
+   "is_deduction_50_depart_2029": -0.934,
+   "is_niches_hors_cir_statique": 3.7,
+   "is_niches_rendement_prudent_realisable": 3.013,
+   "is_niches_hors_cir_central_realisable": 3.599,
+   "is_cir_suppression_statique": 10.294,
+   "is_cir_suppression_realisable_mecanique": 10.294,
+   "is_cir_suppression_realisable_prudent": 8.235,
+   "memo_boite_a_brevets_statique_non_comptee": 1.794,
+   "is_solde_bloc_prudent": 13.295,
+   "is_solde_bloc_statique": 17.467
+  },
+  "2040": {
+   "is_fin_taux_reduit_prudent": 3.07,
+   "is_fin_taux_reduit_statique": 4.539,
+   "is_deduction_50_depart_2029": -0.962,
+   "is_niches_hors_cir_statique": 3.811,
+   "is_niches_rendement_prudent_realisable": 3.104,
+   "is_niches_hors_cir_central_realisable": 3.707,
+   "is_cir_suppression_statique": 10.602,
+   "is_cir_suppression_realisable_mecanique": 10.602,
+   "is_cir_suppression_realisable_prudent": 8.482,
+   "memo_boite_a_brevets_statique_non_comptee": 1.847,
+   "is_solde_bloc_prudent": 13.694,
+   "is_solde_bloc_statique": 17.99
+  }
+ },
+ "annuel_caisse_notes": {
+  "convention": "années d'encaissement ; exercices + 1 (solde et acomptes), sauf CIR (profil des créances)",
+  "is_fin_taux_reduit_prudent": "20 % en 2027, 25 % dès 2028 (exercices) ; coût officiel 2019 actualisé",
+  "is_deduction_50_depart_2029": "coût brut ; 25 % pour l'exercice 2029, 50 % ensuite",
+  "is_niches_hors_cir_statique": "mécénat, crédits culture, zonages (extinction sur 8 ans), crédit famille ; Voies et moyens PLF 2026",
+  "is_niches_rendement_prudent_realisable": "idem, après réaction : facteurs 0,85 / 0,75 / 0,80 / 0,90 [H] ; LIGNE À RETENIR",
+  "is_cir_suppression_statique": "coût total du CIR de l'année (7,4 Md€ en 2027, Sénat), comme si tout disparaissait en 2029",
+  "is_cir_suppression_realisable_mecanique": "millésimes de créances ≥ 2028 seulement ; stock ancien imputé ou restitué jusqu'en 2031",
+  "is_cir_suppression_realisable_prudent": "mécanique x 0,80 (réactions) ; LIGNE À RETENIR",
+  "memo_boite_a_brevets": "statique, base mobile, hors bouclage prudent",
+  "hors_table": "fin de la contribution exceptionnelle (−7 Md€/an vs 2026) et extinction du CII : droit en vigueur"
+ },
+ "marge_regime_permanent_2027_prudente": {
+  "taux_reduit": 2.153509138358948,
+  "niches_hors_cir_prudent": 2.176999416666667,
+  "cir_prudent": 5.920000000000001,
+  "deduction": -0.674545264430829,
+  "total": 9.575963290594785
+ }
+}
