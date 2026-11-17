@@ -71,8 +71,8 @@ def blocs(an):
             ("Minimum vieillesse ; contribution sur les hauts revenus", K25 * (K["aspa_nette"] + K["cehr_absorbee"])),
         ]),
         ("Fiscalité foncière", [
-            ("Taxe foncière communale sur le bâti : inchangée", 0.0),
-            ("Taxe foncière communale sur le sol : inchangée", 0.0),
+            ("Taxe communale sur le bâti : valeur de marché, même recette", 0.0),
+            ("Taxe communale sur le sol : valeur de marché, même recette", 0.0),
             ("Taxe nationale sur la valeur du sol", K25 * (f["net"] - f["dmto"])),
             ("Droits de mutation divisés par deux", K25 * f["dmto"]),
         ]),
@@ -120,7 +120,7 @@ for k, lib in (("30", "Option : prélèvement forfaitaire unique à 30 %"), ("25
 
 
 def lab(v, t=""):
-    if "inchangée" in t:
+    if "même recette" in t:
         return "0"
     r = round(v)
     if r == 0:
@@ -166,7 +166,7 @@ sauver(fig, "figure_bilan",
        " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
        "Recettes de 2032, en euros de 2026, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
-       " total). Taxe foncière communale inchangée. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
+       " total). Taxe foncière communale assise sur la valeur de marché, en deux parts (sol et bâti), à recette communale inchangée : le total ne change pas, mais la charge se redistribue entre logements. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
        " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. En 2032, la déduction immédiate"
        " coûte cher parce que l'État rembourse aussi la transition (près de 12 Md€ en 2033) ; une fois celle-ci passée,"
        " vers 2040, elle ne coûte plus qu'environ 1,5 Md€ par an et la marge de l'ensemble atteint environ 13 Md€. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
