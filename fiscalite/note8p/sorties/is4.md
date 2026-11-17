@@ -1,6 +1,7 @@
-# Bloc IS, version 4 : taux de 25 %, fin du taux réduit, niches supprimées (CIR compris), déduction immédiate de 50 %
+# Bloc IS, version 4 : taux de 25 %, fin du taux réduit, niches et CIR supprimés, déduction immédiate portée de 50 à 100 %
 
-17/11/2026. Script `note8p/calculs/is4_reforme.py` (lit `is3.json`, écrit `is4.json` et `is4_calculs.txt`). Les chiffres de
+17/11/2026. Scripts `note8p/calculs/is4_reforme.py` (lit `is3.json`, écrit `is4.json` et `is4_calculs.txt`) et
+`note8p/calculs/is4_figure_g7.py` (figure g7). Les chiffres de
 la v3 non repris ici (taux réduit, coût de la déduction, TMEI, effets sur le capital, cas types) restent valables
 (`is3.json`). Déduction : départ à l'exercice 2029 (25 %), 50 % ensuite [C]. Niches et CIR : exercices 2028 et suivants.
 Statuts : [E] publié, [S] simulation, [H] hypothèse, [C] choix.
@@ -105,15 +106,64 @@ la recréation de soutiens hors de l'impôt (budget, Bpifrance) sous la pression
   15 % [H]) retire 0,07 à 0,12 % de PIB au rendement privé, 0,15 à 0,25 % si le rendement social est double du
   rendement privé, comme le trouvent Bloom, Schankerman et Van Reenen (2013, *Econometrica*) [E, résumé lu]. **C'est
   plus que le gain de la déduction (+0,05 %).** Sur ce point, la littérature contredit la mesure.
-- *Variante de repli, à signaler à l'auteur* : supprimer le CIR des ETI et grandes entreprises et garder un crédit
-  réservé aux PME. Recette statique 5,1 Md€ (2027) au lieu de 7,4 ; elle prend le dispositif là où l'effet n'est pas
-  établi et le garde là où il est mesuré.
+- *Variante non retenue par l'auteur* : garder un crédit réservé aux PME (recette statique 5,1 Md€ au lieu de 7,4).
+  C'est la seule option qui préserve la R&D des PME ; les mesures générales du § 3 bis ne la remplacent pas.
 
 **Doctrine (paragraphe proposé).** « Une entreprise doit investir parce que son projet est rentable, non parce que son
 comptable lui a trouvé une niche. Sans crédit d'impôt, la recherche reste déduite dès qu'elle est payée : l'impôt ne la
 décourage pas, il ne la subventionne plus. Si la collectivité veut payer pour les retombées de la recherche, qu'elle le
 fasse au grand jour, par une aide budgétaire ciblée sur les jeunes entreprises et les PME, là où l'effet est mesuré. »
 Le TMEI de la R&D passe de −67 % à 0 [S].
+
+## 3 bis. Réinvestir une partie de la recette dans une mesure générale
+
+**Ce qui existe déjà pour la R&D** [E, secondaire : BOFiP et réponse ministérielle ; texte en vigueur non relu sur
+Légifrance]. L'art. 236 I permet de déduire immédiatement (ou d'immobiliser, au choix) les dépenses de fonctionnement des
+opérations de recherche et de conception de logiciels. La R&D et les logiciels produits en interne sont donc déjà
+passés en charges : TMEI nul hors CIR. L'amortissement sur douze mois des logiciels acquis (art. 236 II) a été supprimé
+par la LF 2017 (art. 32). Une mesure « pour l'immatériel » ne peut donc porter que sur les incorporels **acquis**.
+
+| Option (coûts bruts, Md€) | Coût de trésorerie | Coût permanent (€ 2027) | Coût actualisé d'une année d'achats | Capital en plus | PIB potentiel | R&D |
+|---|---|---|---|---|---|---|
+| (a) Logiciels acquis dans la déduction de 50 % (dès 2031) | 2,9 la 1re année | 0,13 | 0,21 | 0,7 Md€ | +0,01 % | aucun effet |
+| (b1) Déduction portée à 75 % pour tous (2033) | 4,4 la 1re année | +0,34 | +0,53 | +4,3 | +0,03 % | aucun effet |
+| (b2) puis à 100 % (2036), cumul par rapport à 50 % | 7,0 la 1re année du palier | +0,67 (au total 1,35) | +1,07 | +8,6 | +0,05 % | aucun effet |
+| (c) Carry-back sur 3 ans, créance remboursable tout de suite | 1,3 à 2,5 [H] | 0,25 à 0,75 [H] | — | non chiffré | non chiffré | faible |
+
+- *(a)* Logiciels acquis : 40 % des 77,5 Md€ d'investissement en logiciels des SNF (2025, Insee 8.212) [H], amortis sur
+  3 ans [H]. Durée courte, donc gain faible : coût d'usage −1,1 % à 50 %. Le champ de la v3 citait les logiciels sans les
+  chiffrer ; ils le sont désormais. Les brevets et marques acquis, de faible montant, suivent la même règle.
+- *(b)* Même méthode que pour les équipements (élasticité 1, de 0,5 à 1,6). La déduction intégrale rend nul le TMEI des
+  fonds propres ; le TMEI d'un tiers d'emprunt passe à −13 % (§ 1) : c'est la limite assumée.
+- *(c)* Chiffrage grossier : 5 à 10 Md€ de déficits reportés en arrière par an [H]. Le carry-back ne sert qu'aux sociétés
+  qui ont déjà payé l'impôt : **il n'aide pas les jeunes entreprises sans bénéfices passés**, celles que le CIR
+  remboursable finançait. Non retenu ici ; il relève de la partie « Pour aller plus loin ».
+- *Ce qu'aucune option ne fait* : remplacer le CIR des PME. La R&D est déjà déduite au premier euro ; une déduction plus
+  rapide des équipements ou des logiciels n'en change pas le coût.
+
+**Paquet recommandé [C]** : (a) + (b) par paliers. Logiciels acquis à 50 % dès l'exercice 2031 ; déduction de 75 % pour
+tous en 2033, de 100 % en 2036. Les paliers suivent la montée en charge de la recette du CIR (restitutions des anciennes
+créances jusqu'en 2031) et gardent une recette nette positive chaque année.
+- *Réinvesti* : 0,94 Md€ par an en régime permanent (€ 2027), sur 5,9 Md€ de CIR prudent (16 %) ; en trésorerie, de
+  1,8 à 9,0 Md€ certaines années (caisse 2032-2040).
+- *Reste au bouclage* : 8,6 Md€ par an en régime permanent (au lieu de 9,6), au moins 1,9 Md€ chaque année (2034).
+- *Effet* : +0,07 % de PIB potentiel en plus (0,04 à 0,12) ; 10 Md€ de capital en plus (équipements et logiciels).
+
+**Bilan honnête, comparé à la suppression sèche du CIR** [S] :
+
+| PIB potentiel, % (long terme) | Suppression sèche | Avec le paquet |
+|---|---|---|
+| Déduction (équipements, logiciels) | +0,05 | +0,13 (0,06 à 0,20) |
+| Perte de R&D des PME | −0,07 à −0,25 | −0,07 à −0,25 |
+| **Net** | **−0,02 à −0,20** | **+0,06 à −0,12** |
+
+Le paquet ramène l'effet net vers zéro ; il reste négatif si les retombées de la R&D sont fortes (rendement social double
+du rendement privé). La R&D des PME baisse de 2 à 3 Md€ par an dans les deux cas. On l'écrit ainsi.
+
+**Figure g7** : la barre « déduction intégrale » devient une étape de la proposition (paliers 2033 et 2036 ; jusqu'à
+7,0 Md€ de surcoût une année, puis 1,35 Md€ par an au total). Titre-message possible : « Financée par la fin du crédit
+d'impôt recherche, la déduction intégrale supprime l'impôt sur les machines neuves pour un cinquième du coût d'une baisse
+du taux à 22,5 % ».
 
 ## 4. Niches hors CIR et rendement réalisable
 
@@ -139,38 +189,35 @@ toujours hors bouclage prudent.
 
 ## 5. Gains et rendements : ce que dit le +0,05 % de PIB
 
-- **Estimation partielle.** Le +0,05 % (0,03 à 0,09) de PIB potentiel ne mesure que la déduction de 50 % : coût d'usage
-  des équipements −2,1 %, 8 Md€ de capital en plus. Ce n'est pas l'effet net de la réforme de l'IS.
-- **Fin du taux réduit** : neutre pour les équipements des petites sociétés (taux de 25 % compensé par la déduction),
-  défavorable pour leurs bâtiments (coût d'usage +6 %) et pour leur trésorerie ; elle supprime le pic de bénéfices sous
-  le plafond. Signe probablement négatif, faible, non chiffré.
-- **Niches hors CIR** : effets surtout de localisation et de secteur (tournages, dons, zones) ; gain d'allocation non
-  chiffré.
-- **CIR** : négatif, de 0,07 à 0,25 % de PIB selon les externalités (§ 3) ; c'est le terme dominant.
-- **Bilan honnête** : avec la suppression totale du CIR, l'effet net du bloc sur le PIB potentiel est plutôt négatif ;
-  avec la variante PME, il est proche de zéro ou légèrement positif. Le bloc se justifie par la recette et la
-  simplification, pas par la croissance.
+- **Estimation partielle.** Le +0,05 % (0,03 à 0,09) ne mesure que la déduction de 50 % des équipements ; avec le paquet
+  (logiciels, 75 puis 100 %), +0,13 %. Ce n'est pas l'effet net de la réforme de l'IS.
+- **Fin du taux réduit** : neutre pour les équipements des petites sociétés, défavorable pour leurs bâtiments (coût
+  d'usage +6 %) et leur trésorerie ; fin du pic de bénéfices sous le plafond. Faible, probablement négatif, non chiffré.
+- **Niches hors CIR** : effets de localisation et de secteur ; gain d'allocation non chiffré.
+- **CIR** : −0,07 à −0,25 %, terme dominant et incertain (§ 3).
+- **Bilan** : de +0,06 à −0,12 % avec le paquet. Le bloc se justifie par la recette, la neutralité entre actifs et la
+  simplification ; il ne promet pas de croissance.
 
 ## 6. Pour le bouclage (`is4.json`, table `annuel_caisse`, Md€ courants)
 
-| Caisse | 2028 | 2029 | 2030 | 2031 | 2032 | 2035 | 2040 |
-|---|---|---|---|---|---|---|---|
-| Fin du taux réduit (prudent) | 1,08 | 2,22 | 2,29 | 2,35 | 2,42 | 2,65 | 3,07 |
-| Déduction de 50 %, départ 2029 | 0 | 0 | −3,92 | −7,16 | −5,71 | −2,63 | −0,96 |
-| Niches, rendement prudent réalisable | 0 | 1,47 | 1,88 | 2,01 | 2,15 | 2,59 | 3,10 |
-| Suppression du CIR, réalisable prudent | 0 | 4,22 | 4,64 | 4,98 | 6,70 | 7,32 | 8,48 |
-| **Solde du bloc, prudent** | **1,08** | **7,91** | **4,89** | **2,18** | **5,56** | **9,93** | **13,69** |
+| Caisse | 2029 | 2030 | 2031 | 2032 | 2034 | 2035 | 2037 | 2040 |
+|---|---|---|---|---|---|---|---|---|
+| Fin du taux réduit (prudent) | 2,22 | 2,29 | 2,35 | 2,42 | 2,57 | 2,65 | 2,81 | 3,07 |
+| Déduction de 50 %, départ 2029 | 0 | −3,92 | −7,16 | −5,71 | −3,56 | −2,63 | −1,04 | −0,96 |
+| Niches, rendement prudent réalisable | 1,47 | 1,88 | 2,01 | 2,15 | 2,44 | 2,59 | 2,84 | 3,10 |
+| Suppression du CIR, réalisable prudent | 4,22 | 4,64 | 4,98 | 6,70 | 7,10 | 7,32 | 7,76 | 8,48 |
+| Réinvesti : logiciels acquis | 0 | 0 | 0 | −2,89 | −2,25 | −1,13 | −1,94 | −0,38 |
+| Réinvesti : déduction à 75 puis 100 % | 0 | 0 | 0 | 0 | −4,41 | −3,51 | −7,04 | −3,08 |
+| **Recette nette du bloc IS, prudent** | **7,91** | **4,89** | **2,18** | **2,67** | **1,89** | **5,29** | **3,40** | **10,23** |
 
-Régime permanent (euros 2027) : 2,15 + 2,18 + 5,92 − 0,67 = **9,6 Md€ par an**. Fourchette pour le bouclage : prendre les
-lignes prudentes ; le statique n'est qu'une borne haute (CIR 7,7 au lieu de 4,2 en 2029). Hors table : fin de la
-contribution exceptionnelle (−7 Md€ par rapport à 2026) et extinction du CII, droit en vigueur.
-
-**Figure g7** : inchangée ; son titre-message reste exact (TMEI 18 → 10 % pour 0,67 Md€ permanents, contre 18 → 16 % pour
-7,5 Md€). Sa note mentionne déjà l'emprunt (−24 → −37 %).
+2028 : +1,08 (taux réduit seul). Régime permanent (€ 2027) : 2,15 + 2,18 + 5,92 − 0,67 − 0,94 = **8,6 Md€ par an**. Les
+lignes statiques ne sont qu'une borne haute (CIR 7,7 au lieu de 4,2 en 2029). Hors table : fin de la contribution
+exceptionnelle (−7 Md€ par rapport à 2026) et extinction du CII, droit en vigueur.
 
 ## Limites
 
-Profil d'encaissement du CIR (répartition entre N+1 et N+3) et décotes de réaction [H] ; part de l'investissement des
+Profil d'encaissement du CIR (répartition entre N+1 et N+3) et décotes de réaction [H] ; part des logiciels acquis
+(40 %) et leur durée d'amortissement [H] ; carry-back chiffré grossièrement ; art. 236 non relu sur Légifrance ; part de l'investissement des
 sociétés déficitaires non mesurée ; montant des charges financières nettes déduites non vérifié ; taux du mécénat (art. 238 bis) non revérifiés ; Voies et moyens du PLF 2027
 non lus.
 
