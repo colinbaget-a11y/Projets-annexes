@@ -242,6 +242,121 @@ p("[NICHES] caisse : " + " ; ".join(f"{a} {nic_stat[a]:.2f} / prudent {nic_prud[
 REG26 = sum(NP3[k]["montant_2026"] for k in FACT)
 p(f"[NICHES] noyau hors CIR : {REG26:.2f} Md€ de 2026 statiques (l'ancien « CIR recentré », 0,97, est absorbé par la suppression)")
 
+# =========================================================================== 4b. réinvestissement d'une partie de la recette du CIR
+p("")
+p("4b. RÉINVESTISSEMENT : options générales (coûts bruts par exercice ; caisse = exercice + 1)")
+PART_IMP, R_ETAT = 0.75, sim.R_ETAT
+I_EQ27 = sim.I1                                     # machines, équipements, TIC des SNF, 2027 (89,1 Md€)
+PART_LOG_ACQ = 0.40                                 # part des logiciels acquis (et non produits en interne) [H]
+I_LOG27 = PART_LOG_ACQ * 77.5 * (1 + G) ** 2        # FBCF logiciels et bases de données des SNF, 2025 (Insee 8.212) [E]
+PLAN_LOG = [0.5 / 3, 1 / 3, 1 / 3, 0.5 / 3]         # logiciel acquis, linéaire 3 ans, prorata [H]
+H_ = 60
+
+
+def chemin_gen(I0, plans, bonus, h=H_):
+    out = np.zeros(h + 12)
+    for pl in plans:
+        pl = np.array(pl)
+        e0 = np.zeros(len(pl)); e0[0] = 1.0
+        for t in range(h):
+            b = bonus(t)
+            out[t:t + len(pl)] += TAU * PART_IMP * I0 * (1 + G) ** t * (b * e0 + (1 - b) * pl - pl) / len(plans)
+    return out[:h]
+
+
+def sched(*paliers):
+    """paliers : (année d'exercice, fraction) ; avant le premier palier, 0."""
+    def f(t):
+        a, b = 2027 + t, 0.0
+        for an, fr_ in paliers:
+            if a >= an:
+                b = fr_
+        return b
+    return f
+
+
+BASE = sched((2029, 0.25), (2030, 0.5))
+P75 = sched((2029, 0.25), (2030, 0.5), (2033, 0.75))
+P100 = sched((2029, 0.25), (2030, 0.5), (2033, 0.75), (2036, 1.0))
+LOGB = sched((2031, 0.5))                           # logiciels acquis : 50 % dès l'exercice 2031
+LOG100 = sched((2031, 0.5), (2033, 0.75), (2036, 1.0))
+EQ = [LIN, DEG]
+eq_base = chemin_gen(I_EQ27, EQ, BASE)
+chk_ = [eq_base[t] for t in range(2, 6)]
+p("[CONTRÔLE] équipements, départ 2029 : " + " ; ".join(f"{v:.2f}" for v in chk_) + " (is3 : 3,92 ; 7,16 ; 5,71 ; 4,54)")
+OPT = {
+    "a_logiciels_acquis_50_des_2031": chemin_gen(I_LOG27, [PLAN_LOG], LOGB),
+    "b_equipements_75_des_2033": chemin_gen(I_EQ27, EQ, P75) - eq_base,
+    "b_equipements_75_2033_100_des_2036": chemin_gen(I_EQ27, EQ, P100) - eq_base,
+    "a_logiciels_acquis_50_2031_75_2033_100_2036": chemin_gen(I_LOG27, [PLAN_LOG], LOG100),
+}
+
+
+def perm_gen(I0, plans, b):
+    return TAU * PART_IMP * b * I0 * (1 - np.mean([zplan(pl, G) for pl in plans]))
+
+
+def va_gen(I0, plans, b, r=0.05):
+    return TAU * PART_IMP * b * I0 * (1 - np.mean([zplan(pl, r) for pl in plans]))
+
+
+PERMS = {"equip_50": perm_gen(I_EQ27, EQ, .5), "equip_75": perm_gen(I_EQ27, EQ, .75), "equip_100": perm_gen(I_EQ27, EQ, 1.),
+         "log_50": perm_gen(I_LOG27, [PLAN_LOG], .5), "log_100": perm_gen(I_LOG27, [PLAN_LOG], 1.)}
+VAS = {"equip_50": va_gen(I_EQ27, EQ, .5), "equip_100": va_gen(I_EQ27, EQ, 1.), "log_50": va_gen(I_LOG27, [PLAN_LOG], .5),
+       "log_100": va_gen(I_LOG27, [PLAN_LOG], 1.)}
+for k, v in OPT.items():
+    p(f"[{k}] " + " ; ".join(f"{2027+t} {v[t]:.2f}" for t in range(2, 14) if abs(v[t]) > 0.005))
+p("[PERMANENT, € 2027] " + " ; ".join(f"{k} {v:.2f}" for k, v in PERMS.items()))
+p("[ACTUALISÉ, une année d'achats, 5 %] " + " ; ".join(f"{k} {v:.2f}" for k, v in VAS.items()))
+p(f"[LOGICIELS] investissement acquis 2027 : {I_LOG27:.1f} Md€ (40 % de 77,5 Md€ de 2025 [H]) ; 1re année (2031) : {OPT['a_logiciels_acquis_50_des_2031'][4]:.2f}")
+
+# effets réels (même méthode que is3 : stock ∝ coût d'usage^−ε, part imposable 75 %, Cobb-Douglas)
+K_EQ_, D_EQ = 541.0, 0.14
+D_LOG = 0.33
+K_LOG = I_LOG27 / (1 + G) ** 2 / (D_LOG + G)        # stock acquis, régime établi [H]
+PIB25 = 2991.0
+
+
+def dlusage(b, plans, r=0.05):
+    zz = np.mean([zplan(pl, r) for pl in plans])
+    return np.log((1 - TAU * (b + (1 - b) * zz)) / (1 - TAU * zz))
+
+
+EFF = {}
+for nom, (b_eq, b_log) in {"ded50_equip": (.5, 0), "ded75_equip": (.75, 0), "ded100_equip": (1., 0),
+                          "log50": (0, .5), "log100": (0, 1.)}.items():
+    res = {}
+    for eps_n, eps in (("bas", .5), ("central", 1.), ("haut", 1.6)):
+        dke = -eps * dlusage(b_eq, EQ) * PART_IMP * K_EQ_ if b_eq else 0.0
+        dkl = -eps * dlusage(b_log, [PLAN_LOG]) * PART_IMP * K_LOG if b_log else 0.0
+        dy = (0.05 + D_EQ) * dke / PIB25 + (0.05 + D_LOG) * dkl / PIB25
+        res[eps_n] = {"dK": dke + dkl, "dY_pct": 100 * dy}
+    res["dln_usage"] = float(dlusage(b_eq, EQ) if b_eq else dlusage(b_log, [PLAN_LOG]))
+    EFF[nom] = res
+    p(f"[EFFET {nom}] coût d'usage {100*res['dln_usage']:+.2f} % ; ΔK {res['central']['dK']:.1f} Md€ ; PIB {res['central']['dY_pct']:+.3f} % "
+      f"({res['bas']['dY_pct']:+.3f} à {res['haut']['dY_pct']:+.3f})")
+
+# carry-back renforcé (option c) : chiffrage simple [H]
+CB = {"deficits_reportes_en_arriere_Md": [5.0, 10.0], "creances_annuelles_Md": [TAU * 5, TAU * 10],
+      "tresorerie_1re_annee_Md": [TAU * 5, TAU * 10],
+      "permanent_Md": [TAU * 5 * (0.0325 * 3 + 0.10), TAU * 10 * (0.0325 * 3 + 0.20)]}
+p(f"[CARRY-BACK] 3 exercices, créance remboursable tout de suite : trésorerie 1re année {CB['tresorerie_1re_annee_Md'][0]:.2f}-"
+  f"{CB['tresorerie_1re_annee_Md'][1]:.2f} Md€ ; permanent {CB['permanent_Md'][0]:.2f}-{CB['permanent_Md'][1]:.2f} Md€ [H] ; "
+  "ne touche pas les jeunes entreprises sans bénéfices passés")
+
+# paquet recommandé : logiciels acquis dans la déduction (2031) + paliers 75 % (2033) et 100 % (2036) pour tous
+pkg = OPT["a_logiciels_acquis_50_2031_75_2033_100_2036"] + OPT["b_equipements_75_2033_100_des_2036"]
+PKG = {"exercices": {2027 + t: float(pkg[t]) for t in range(14)},
+       "permanent_2027": PERMS["equip_100"] - PERMS["equip_50"] + PERMS["log_100"],
+       "effet_PIB_pct": {k: EFF["ded100_equip"][k]["dY_pct"] - EFF["ded50_equip"][k]["dY_pct"] + EFF["log100"][k]["dY_pct"]
+                         for k in ("bas", "central", "haut")}}
+p("[PAQUET] coût en plus (exercices) : " + " ; ".join(f"{a} {v:.2f}" for a, v in PKG["exercices"].items() if v > 0.005)
+  + f" ; permanent {PKG['permanent_2027']:.2f} Md€ (2027) ; PIB en plus {PKG['effet_PIB_pct']['central']:+.3f} %")
+J["reinvestissement"] = {"options_exercices": {k: {2027 + t: float(v[t]) for t in range(14)} for k, v in OPT.items()},
+                         "permanents_2027": PERMS, "actualises_millesime": VAS, "effets": EFF, "carry_back": CB,
+                         "paquet_recommande": PKG, "hyp": {"part_logiciels_acquis": PART_LOG_ACQ, "plan_logiciel": PLAN_LOG,
+                                                          "I_logiciels_acquis_2027": I_LOG27, "K_logiciels_acquis": K_LOG}}
+
 # =========================================================================== 5. table en caisse
 A3 = I3["annuel"]
 caisse = {}
@@ -259,8 +374,12 @@ for a in ANS:
         "is_cir_suppression_realisable_prudent": cir_prud[a],
         "memo_boite_a_brevets_statique_non_comptee": I3["niches_paquet"]["boite_a_brevets"]["serie"].get(ex, 0.0),
     }
-    d["is_solde_bloc_prudent"] = (d["is_fin_taux_reduit_prudent"] + d[f"is_deduction_50_depart_{DEP}"]
+    d["is_reinvest_logiciels_acquis"] = -float(pkg[a - 1 - 2027] - OPT["b_equipements_75_2033_100_des_2036"][a - 1 - 2027]) if a - 1 >= 2027 else 0.0
+    d["is_reinvest_deduction_75_puis_100"] = -float(OPT["b_equipements_75_2033_100_des_2036"][a - 1 - 2027]) if a - 1 >= 2027 else 0.0
+    d["is_solde_bloc_prudent_avant_reinvestissement"] = (d["is_fin_taux_reduit_prudent"] + d[f"is_deduction_50_depart_{DEP}"]
                                   + d["is_niches_rendement_prudent_realisable"] + d["is_cir_suppression_realisable_prudent"])
+    d["is_recette_nette_bloc_is_prudent"] = (d["is_solde_bloc_prudent_avant_reinvestissement"]
+                                             + d["is_reinvest_logiciels_acquis"] + d["is_reinvest_deduction_75_puis_100"])
     d["is_solde_bloc_statique"] = (d["is_fin_taux_reduit_statique"] + d[f"is_deduction_50_depart_{DEP}"]
                                    + d["is_niches_hors_cir_statique"] + d["is_cir_suppression_statique"])
     caisse[str(a)] = {k: round(float(v), 3) for k, v in d.items()}
@@ -270,7 +389,7 @@ for a in ANS:
     c = caisse[str(a)]
     p(f"{a} : TR {c['is_fin_taux_reduit_prudent']:+.2f} ; déd. {c[f'is_deduction_50_depart_{DEP}']:+.2f} ; niches prud. "
       f"{c['is_niches_rendement_prudent_realisable']:+.2f} (stat. {c['is_niches_hors_cir_statique']:+.2f}) ; CIR prud. "
-      f"{c['is_cir_suppression_realisable_prudent']:+.2f} (stat. {c['is_cir_suppression_statique']:+.2f}) ; solde prudent {c['is_solde_bloc_prudent']:+.2f}")
+      f"{c['is_cir_suppression_realisable_prudent']:+.2f} (stat. {c['is_cir_suppression_statique']:+.2f}) ; solde prudent {c['is_solde_bloc_prudent_avant_reinvestissement']:+.2f} ; réinvesti {c['is_reinvest_logiciels_acquis']+c['is_reinvest_deduction_75_puis_100']:+.2f} ; NET {c['is_recette_nette_bloc_is_prudent']:+.2f}")
 J["annuel_caisse"] = caisse
 J["annuel_caisse_notes"] = {
     "convention": "années d'encaissement ; exercices + 1 (solde et acomptes), sauf CIR (profil des créances)",
@@ -281,6 +400,10 @@ J["annuel_caisse_notes"] = {
     "is_cir_suppression_statique": "coût total du CIR de l'année (7,4 Md€ en 2027, Sénat), comme si tout disparaissait en 2029",
     "is_cir_suppression_realisable_mecanique": "millésimes de créances ≥ 2028 seulement ; stock ancien imputé ou restitué jusqu'en 2031",
     "is_cir_suppression_realisable_prudent": "mécanique x 0,80 (réactions) ; LIGNE À RETENIR",
+    "is_reinvest_logiciels_acquis": "logiciels acquis dans la déduction : 50 % dès l'exercice 2031, 75 % en 2033, 100 % en 2036",
+    "is_reinvest_deduction_75_puis_100": "surcoût du relèvement de la déduction des équipements : 75 % dès 2033, 100 % dès 2036",
+    "is_solde_bloc_prudent_avant_reinvestissement": "taux réduit + déduction 50 % + niches prudentes + CIR prudent",
+    "is_recette_nette_bloc_is_prudent": "solde prudent après réinvestissement : LIGNE À RETENIR AU BOUCLAGE",
     "memo_boite_a_brevets": "statique, base mobile, hors bouclage prudent",
     "hors_table": "fin de la contribution exceptionnelle (−7 Md€/an vs 2026) et extinction du CII : droit en vigueur",
 }
@@ -290,9 +413,10 @@ TRP = I3["taux_reduit"]["prudent_2027"]
 NIC27 = sum(FACT[k][0] * NP3[k]["montant_2026"] for k in FACT) * (1 + G)
 CIRP27 = F_PRUD * CIR27
 MARGE = {"taux_reduit": TRP, "niches_hors_cir_prudent": NIC27, "cir_prudent": CIRP27, "deduction": -PERM50,
-         "total": TRP + NIC27 + CIRP27 - PERM50}
+         "total": TRP + NIC27 + CIRP27 - PERM50, "reinvesti": -PKG["permanent_2027"],
+         "net_apres_reinvestissement": TRP + NIC27 + CIRP27 - PERM50 - PKG["permanent_2027"]}
 p(f"[RÉGIME PERMANENT, € 2027] taux réduit {TRP:.2f} + niches prudentes {NIC27:.2f} + CIR prudent {CIRP27:.2f} − déduction "
-  f"{PERM50:.2f} = {MARGE['total']:.2f} Md€/an")
+  f"{PERM50:.2f} = {MARGE['total']:.2f} Md€/an ; réinvesti {PKG['permanent_2027']:.2f} ; net {MARGE['net_apres_reinvestissement']:.2f}")
 J["marge_regime_permanent_2027_prudente"] = MARGE
 
 (OUT / "is4.json").write_text(json.dumps(J, ensure_ascii=False, indent=1, default=float), encoding="utf-8")

@@ -1,5 +1,6 @@
-% Annexe du bloc « fiscalité du capital », révision v3 (note8p/CONSIGNES_V3.md). Chiffres : note8p/sorties/pfu3.json et
-% pfu3_calculs.txt (programme note8p/calculs/pfu3_neutralite.py) ; coût d'un point de PFU, CEHR et CDHR :
+% Annexe du bloc « fiscalité du capital », révision v4 (note8p/CONSIGNES_V4.md). Chiffres : note8p/sorties/pfu3.json et
+% pfu3_calculs.txt (programme note8p/calculs/pfu3_neutralite.py) ; conditions de l'équivalence : pfu4.json et
+% pfu4_calculs.txt (note8p/calculs/pfu4_equivalence.py) ; coût d'un point de PFU, CEHR et CDHR :
 % note8p/sorties/pfu.json (programme note8p/calculs/pfu_transmission.py). Figure : note8p/figures/g9_exemple_pv.
 
 \subsection{La règle : reprise du prix, correction à la marge}
@@ -66,6 +67,40 @@ vient de la progressivité et de l'abattement : il disparaît presque aux taux p
 avec (iii), moins qu'aujourd'hui (128\,182~€ au lieu de 212\,962~€ dans l'exemple).}
 \end{table}
 
+\subsection{Conditions exactes de l'équivalence}
+
+\textbf{L'égalité des deux chemins est exacte pour une revente immédiate, à barèmes donnés.} Avec la majoration $a$,
+la charge de l'héritier qui vend aussitôt, $D(V) + t(G-a)$, égale celle du parent qui vend puis transmet,
+$tG + D(V-tG)$, pour tout barème des droits, tout lien de parenté et tout abattement, puisque $a$ est calculé avec
+les droits \emph{du bénéficiaire} sur \emph{sa} part, rappel des donations antérieures compris : $a$ = 270\,000~€ pour
+un enfant dans l'exemple, 405\,000~€ pour un frère, 495\,000~€ pour un neveu, 0 pour le conjoint exonéré [S]. Trois
+conditions sont nécessaires : (1) le PFU de la vente est celui qui a servi au calcul de $a$ ; s'il passe à $t'$,
+l'écart vaut $(t'-t)(G-a)$, soit $-$3\,150~€ si le PFU tombe à 30,9~\% à la fin de la CRDS et $-$40\,320~€ s'il
+tombait à 25~\% ; (2) les droits effectivement payés sont ceux du barème de droit commun (sous pacte Dutreil, la
+correction porte sur des droits réduits et l'écart restant est celui de l'exonération elle-même) ; (3) chaque héritier
+porte l'impôt latent des titres qu'il reçoit. Avec plusieurs héritiers, l'égalité totale tient si les titres sont
+partagés au prorata des parts. Si un seul enfant reçoit les titres et l'autre un bien de même valeur, la charge totale
+reste égale tant que $V$ et $V-tG$ tombent dans la même tranche du bénéficiaire ; sinon l'écart est faible (+14\,824~€
+pour des titres de 1,2~M€ et une maison de 1,2~M€, deux enfants). Surtout, l'enfant qui reçoit les titres supporte seul
+l'impôt latent (222\,064~€, contre 172\,700~€ par enfant si le parent avait vendu) : un partage équitable doit évaluer
+les titres nets de l'impôt latent, ce que le droit civil ne prévoit pas aujourd'hui [à expertiser].
+
+\textbf{Une revente différée n'est pas neutre, et ne peut pas l'être sans indexer la majoration.} Notons $F=(1+g)^n$
+la croissance de la valeur entre la transmission et la vente, $n$ années plus tard, et $\rho$ le taux d'actualisation.
+Comparons l'héritier qui garde les titres (B) à celui qui a reçu le produit de la vente et l'a replacé dans le même
+actif (A), droits payés à la transmission dans les deux cas. L'écart de patrimoine net, en valeur actuelle, vaut
+\[
+W_B - W_A \;=\; \frac{t\,G\,(1-t)\,(F-1) + t\,a}{(1+\rho)^n} \;-\; t\,a .
+\]
+Le premier terme est l'avantage du report : l'impôt latent $tG$ reste placé et rapporte ; le second est le coût du
+crédit $ta$, perçu à la vente au lieu d'être imputé tout de suite. Exemple (100~k€ devenus 1~M€, un enfant), revente
+dix ans plus tard [S] : si les titres rapportent autant que le taux d'actualisation (4~\%), garder les titres fait
+gagner 35\,391~€ (3,5~\% de $V$ ; 68\,165~€ à 25 ans) ; si leur valeur ne suit que l'inflation (2~\% par an,
+actualisation 4~\%), l'écart est quasi nul (1\,175~€) ; à valeur constante, l'héritier perd 27\,506~€, la majoration
+n'étant pas revalorisée. Aucun de ces écarts ne vient de la transmission : le même avantage de report existe pour tout
+détenteur de titres, imposé à la vente seulement. La règle neutralise la transmission ; elle ne neutralise pas
+l'imposition à la réalisation, ni la taxation des plus-values nominales.
+
 \subsection{Recettes 2027-2040 de la règle retenue}
 
 Méthode, jeux d'hypothèses et calendrier sont ceux de la version 2 (\texttt{pfu\_transmission.py}) : impôt latent
@@ -110,26 +145,33 @@ Dutreil elle-même, conservée par l'héritier qui vend après l'engagement. Si 
 change. La hausse de charge pour les familles qui cèdent est forte, et elle est voulue [C] : le cumul « 75~\%
 d'exonération + effacement » est supprimé, pas le pacte.
 
-\emph{Localisation.} Une fois l'effacement fermé, la sortie qui reste est le départ. L'exit tax (art.~167~bis) impose
-la plus-value latente au départ (participation d'au moins 50~\% ou titres de plus de 800\,000~€), avec sursis, puis
-dégrève l'impôt si les titres sont encore détenus deux ans après le départ, cinq ans au-delà de 2,57~M€ [S : sources
-secondaires, texte non relu]. La plus-value reprise entre dans sa base. Un héritier déjà non résident qui vend des
-titres de portefeuille échappe en général à l'impôt français (conventions non vérifiées). La littérature dit trois
-choses [E]. (1) Les très riches bougent : un point d'impôt sur la fortune en plus réduit de 2~\% environ le nombre de
-contribuables fortunés en Scandinavie (Jakobsen, Kleven, Kolsrud, Landais et Muñoz, NBER WP 32153, \emph{AER} 2026) ;
-après 2011, Madrid, seule région espagnole sans impôt sur la fortune, gagne 7,5~\% de contribuables fortunés en six ans
-(Agrawal, Foremny et Martínez-Toledano, \emph{AEJ: Applied} 2025) ; 35~\% des milliardaires du Forbes 400 quittent
-les États américains qui ont gardé un impôt successoral après 2001 (Moretti et Wilson, \emph{AEJ: Policy} 2023).
-(2) Les recettes résistent : à Madrid comme aux États-Unis, l'impôt rapporte plus qu'il ne fait perdre, et en
-Scandinavie 0,22~\$ seulement sur chaque dollar levé est perdu par départs. (3) En France, la réaction mesurée est
-faible au niveau du dernier centile (0,02 à 0,23~\% des foyers de plus par point d'imposition effective, CAE,
-Focus n°~118, 2025) ; les retours de redevables de l'IFI dépassent les départs depuis 2018 (France Stratégie, 2023).
-Rien ne mesure le comportement du dernier dix-millième, qui porte l'essentiel de l'impôt latent. Ces élasticités
-portent sur des impôts annuels sur le stock et ne se transposent pas telles quelles à un impôt payé une fois, à la
-vente. Nous ne les appliquons pas [choix de méthode] : la prudence passe par le scénario de recettes prudent et par
-deux mesures de garde [C] : délai de dégrèvement de l'exit tax porté à quinze ans pour les participations de plus de
-2,57~M€ (durée en vigueur de 2014 à 2018, sources secondaires), et imposition, dans les limites des conventions, de
-la plus-value transmise à un bénéficiaire non résident (à expertiser).
+\emph{Localisation et exit tax : un arbitrage à expertiser.} Une fois l'effacement fermé, la sortie qui reste est le
+départ. L'exit tax (art.~167~bis) impose la plus-value latente au départ (participation d'au moins 50~\% des bénéfices
+ou titres de plus de 800\,000~€), avec sursis de paiement automatique vers l'Union européenne et l'EEE, puis dégrève
+l'impôt si les titres sont encore détenus deux ans après le départ, cinq ans au-delà de 2,57~M€ (régime issu de la
+LF pour 2019, qui a remplacé le délai de quinze ans) [S : commentaire doctrinal et débats parlementaires, texte du CGI
+non relu]. La plus-value reprise par un héritier entrerait dans sa base. Ce que l'on sait de ses effets est mince [E].
+Son rendement a toujours été faible : 138~M€ encaissés de 2012 à 2017, environ 23~M€ par an, pour 5,75~Md€
+d'impositions théoriques, presque toutes placées en sursis puis dégrevées ou en attente (réponse ministérielle, JO
+Sénat, 2018) ; en 2011, 158 foyers avaient déclaré 1,35~Md€ de plus-values (amendement parlementaire, chiffre non
+vérifié à la source). Aucune évaluation publiée ne mesure son effet sur les départs en France. En Norvège, la
+suppression des échappatoires à l'imposition des plus-values au départ, avec la hausse de l'impôt sur la fortune et
+sur les dividendes, a fait partir au plus une centaine de personnes, presque toutes du dernier millième, et ramené la
+hausse des recettes de l'impôt sur la fortune de 75~\% à 71,5~\% (Ring, NBER WP 35854, 2026). La littérature sur les
+impôts annuels dit trois choses : les très riches bougent (un point d'impôt sur la fortune en plus réduit de 2~\% environ
+le nombre de contribuables fortunés en Scandinavie, Jakobsen, Kleven, Kolsrud, Landais et Muñoz, \emph{AER} 2026 ;
+Madrid gagne 7,5~\% de contribuables fortunés en six ans, Agrawal, Foremny et Martínez-Toledano, \emph{AEJ: Applied}
+2025 ; Moretti et Wilson, \emph{AEJ: Policy} 2023, pour les milliardaires américains) ; les recettes résistent ; en
+France, la réaction mesurée au niveau du dernier centile est faible (CAE, Focus n°~118, 2025 ; France Stratégie, 2023).
+Elle ne se transpose pas à un impôt payé une fois, à la vente.
+
+Nous ne proposons donc pas de durcissement mécanique [C]. Revenir à quinze ans protégerait la base de l'impôt latent,
+qui grossit avec la fin de l'effacement ; mais le régime de 2011-2018 a peu rapporté, le sursis est de droit dans
+l'Union, et un délai long peut dissuader les installations d'entrepreneurs étrangers autant que les départs. À
+expertiser avant toute décision : les données de la DGFiP sur les départs, les sursis et les dégrèvements depuis 2019 ;
+la compatibilité avec le droit de l'Union et les conventions ; l'imposition, dans les limites des conventions, de la
+plus-value transmise à un bénéficiaire non résident. Aucune élasticité de départ n'est appliquée aux recettes ; la
+prudence passe par le scénario de recettes prudent.
 
 \subsection{Taux du PFU, CEHR et CDHR (inchangés depuis la version 2)}
 
@@ -139,5 +181,23 @@ premières années avec l'élasticité de 0,77 de Lefebvre, Lehmann et Sicsic (2
 distribués (+15~\%, note IPP n°~46, 2019), aucun sur l'investissement (France Stratégie, 2023 ; Yagan, 2015, \emph{AER}) ;
 Boissel et Matray (2022) ont été rétractés (\emph{AER} 113(7), 2023). CEHR et CDHR sont maintenues sur le capital
 (coût nul) ; les supprimer coûterait 0,7 à 1,1 et 0,6~Md€. La CRDS s'éteint fin 2033 : le PFU passera à 30,9~\% sans
-mesure nouvelle. L'indexation des plus-values sur l'inflation (0,6 à 0,9~Md€ par an) reste une orientation de long
-terme.
+mesure nouvelle. L'indexation des plus-values sur l'inflation coûterait 0,6 à 0,9~Md€ par an.
+
+\subsection{Doctrine de long terme}
+
+\textbf{La réforme améliore la neutralité entre vendre et transmettre, au prix possible de la neutralité entre
+consommer et épargner.} Fermer l'effacement supprime une incitation à garder ses titres jusqu'au décès et rapproche la
+charge de deux chemins économiquement équivalents. Mais elle alourdit la taxation de l'épargne accumulée : un partisan
+de la taxation de la consommation objectera que le rendement normal de l'épargne, celui qui ne fait que rémunérer
+l'attente, ne devrait pas être taxé du tout, et qu'imposer davantage les plus-values de long terme, nominales de
+surcroît, accroît le coin fiscal entre consommation présente et future. L'objection est fondée : la réforme corrige une
+anomalie de l'imposition à la réalisation, elle ne rapproche pas le système d'un impôt sur la dépense.
+
+\textbf{L'orientation de long terme en découle : taxer les gains réels et les rentes, pas l'attente.} Trois chantiers
+suivront, une fois les recettes de l'élargissement constatées : distinguer plus-values réelles et nominales (indexation
+du prix d'acquisition, majoration $a$ comprise) ; réexaminer la taxation du rendement normal, par exemple par une
+déduction du rendement sans risque sur les fonds propres investis, sur le modèle de l'abattement norvégien pour
+rendement normal des actionnaires [non relu ici, à expertiser] ; baisser le PFU à mesure que l'assiette élargie rapporte. L'élargissement vient
+d'abord parce qu'il rend possible une baisse de taux durable ; l'ordre inverse creuserait le déficit sans corriger
+l'anomalie.
+

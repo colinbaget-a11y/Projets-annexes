@@ -180,6 +180,217 @@
    "MESRE-DGRI, Le CIR en 2023 (nov. 2025) : créance 7,85 Md€, dont recherche 7,32 ; PME 2,24, ETI 2,10, GE 2,98 ; 33 bénéficiaires au-delà de 100 M€ : 25 % de la créance recherche"
   ]
  },
+ "reinvestissement": {
+  "options_exercices": {
+   "a_logiciels_acquis_50_des_2031": {
+    "2027": 0.0,
+    "2028": 0.0,
+    "2029": 0.0,
+    "2030": 0.0,
+    "2031": 2.8918454056561727,
+    "2032": 1.8218626055633893,
+    "2033": 0.7197803214678222,
+    "2034": 0.16300464998062214,
+    "2035": 0.16789478948004133,
+    "2036": 0.17293163316444193,
+    "2037": 0.1781195821593755,
+    "2038": 0.1834631696241562,
+    "2039": 0.1889670647128816,
+    "2040": 0.19463607665426785
+   },
+   "b_equipements_75_des_2033": {
+    "2027": 0.0,
+    "2028": 0.0,
+    "2029": 0.0,
+    "2030": 0.0,
+    "2031": 0.0,
+    "2032": 0.0,
+    "2033": 4.408953681704555,
+    "2034": 3.512148326765054,
+    "2035": 2.804694308320344,
+    "2036": 2.2227614709550285,
+    "2037": 1.71516163549828,
+    "2038": 1.1923338049778298,
+    "2039": 0.6538211395417672,
+    "2040": 0.4952962310328859
+   },
+   "b_equipements_75_2033_100_des_2036": {
+    "2027": 0.0,
+    "2028": 0.0,
+    "2029": 0.0,
+    "2030": 0.0,
+    "2031": 0.0,
+    "2032": 0.0,
+    "2033": 4.408953681704555,
+    "2034": 3.512148326765054,
+    "2035": 2.804694308320344,
+    "2036": 7.0405442007030015,
+    "2037": 5.552980940159278,
+    "2038": 4.257099002425797,
+    "2039": 3.082692613414041,
+    "2040": 2.3694996595060154
+   },
+   "a_logiciels_acquis_50_2031_75_2033_100_2036": {
+    "2027": 0.0,
+    "2028": 0.0,
+    "2029": 0.0,
+    "2030": 0.0,
+    "2031": 2.8918454056561727,
+    "2032": 1.8218626055633893,
+    "2033": 2.253759716898138,
+    "2034": 1.1294116691017209,
+    "2035": 0.5497022610026461,
+    "2036": 1.935618152577046,
+    "2037": 1.3231984160222048,
+    "2038": 0.6924060873707161,
+    "2039": 0.3779341294257623,
+    "2040": 0.3892721533085348
+   }
+  },
+  "permanents_2027": {
+   "equip_50": 0.6745452644308291,
+   "equip_75": 1.0118178966462434,
+   "equip_100": 1.3490905288616581,
+   "log_50": 0.13253769720873784,
+   "log_100": 0.2650753944174757
+  },
+  "actualises_millesime": {
+   "equip_50": 1.0697774956306685,
+   "equip_100": 2.139554991261337,
+   "log_50": 0.21446073166369792,
+   "log_100": 0.42892146332739584
+  },
+  "effets": {
+   "ded50_equip": {
+    "bas": {
+     "dK": 4.195431098827474,
+     "dY_pct": 0.026651016675935148
+    },
+    "central": {
+     "dK": 8.390862197654949,
+     "dY_pct": 0.053302033351870295
+    },
+    "haut": {
+     "dK": 13.425379516247919,
+     "dY_pct": 0.08528325336299247
+    },
+    "dln_usage": -0.020679882187689336
+   },
+   "ded75_equip": {
+    "bas": {
+     "dK": 6.326137057675227,
+     "dY_pct": 0.04018609297754241
+    },
+    "central": {
+     "dK": 12.652274115350455,
+     "dY_pct": 0.08037218595508482
+    },
+    "haut": {
+     "dK": 20.243638584560728,
+     "dY_pct": 0.12859549752813568
+    },
+    "dln_usage": -0.031182437745780542
+   },
+   "ded100_equip": {
+    "bas": {
+     "dK": 8.479458605803856,
+     "dY_pct": 0.05386483233375904
+    },
+    "central": {
+     "dK": 16.958917211607712,
+     "dY_pct": 0.10772966466751809
+    },
+    "haut": {
+     "dK": 27.13426753857234,
+     "dY_pct": 0.17236746346802892
+    },
+    "dln_usage": -0.04179646879016072
+   },
+   "log50": {
+    "bas": {
+     "dK": 0.3679570572363791,
+     "dY_pct": 0.004674813833160283
+    },
+    "central": {
+     "dK": 0.7359141144727582,
+     "dY_pct": 0.009349627666320566
+    },
+    "haut": {
+     "dK": 1.177462583156413,
+     "dY_pct": 0.014959404266112902
+    },
+    "dln_usage": -0.011394799191836254
+   },
+   "log100": {
+    "bas": {
+     "dK": 0.7401552849557901,
+     "dY_pct": 0.009403510808532271
+    },
+    "central": {
+     "dK": 1.4803105699115802,
+     "dY_pct": 0.018807021617064542
+    },
+    "haut": {
+     "dK": 2.368496911858528,
+     "dY_pct": 0.030091234587303266
+    },
+    "dln_usage": -0.02292093785669543
+   }
+  },
+  "carry_back": {
+   "deficits_reportes_en_arriere_Md": [
+    5.0,
+    10.0
+   ],
+   "creances_annuelles_Md": [
+    1.25,
+    2.5
+   ],
+   "tresorerie_1re_annee_Md": [
+    1.25,
+    2.5
+   ],
+   "permanent_Md": [
+    0.246875,
+    0.7437499999999999
+   ]
+  },
+  "paquet_recommande": {
+   "exercices": {
+    "2027": 0.0,
+    "2028": 0.0,
+    "2029": 0.0,
+    "2030": 0.0,
+    "2031": 2.8918454056561727,
+    "2032": 1.8218626055633893,
+    "2033": 6.662713398602693,
+    "2034": 4.641559995866775,
+    "2035": 3.35439656932299,
+    "2036": 8.976162353280047,
+    "2037": 6.876179356181483,
+    "2038": 4.949505089796513,
+    "2039": 3.4606267428398034,
+    "2040": 2.75877181281455
+   },
+   "permanent_2027": 0.9396206588483047,
+   "effet_PIB_pct": {
+    "bas": 0.03661732646635617,
+    "central": 0.07323465293271234,
+    "haut": 0.11717544469233972
+   }
+  },
+  "hyp": {
+   "part_logiciels_acquis": 0.4,
+   "plan_logiciel": [
+    0.16666666666666666,
+    0.3333333333333333,
+    0.3333333333333333,
+    0.16666666666666666
+   ],
+   "I_logiciels_acquis_2027": 32.8879,
+   "K_logiciels_acquis": 86.11111111111113
+  }
+ },
  "annuel_caisse": {
   "2027": {
    "is_fin_taux_reduit_prudent": 0.0,
@@ -192,7 +403,10 @@
    "is_cir_suppression_realisable_mecanique": 0.0,
    "is_cir_suppression_realisable_prudent": 0.0,
    "memo_boite_a_brevets_statique_non_comptee": 0.0,
-   "is_solde_bloc_prudent": 0.0,
+   "is_reinvest_logiciels_acquis": 0.0,
+   "is_reinvest_deduction_75_puis_100": 0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 0.0,
+   "is_recette_nette_bloc_is_prudent": 0.0,
    "is_solde_bloc_statique": 0.0
   },
   "2028": {
@@ -206,7 +420,10 @@
    "is_cir_suppression_realisable_mecanique": 0.0,
    "is_cir_suppression_realisable_prudent": 0.0,
    "memo_boite_a_brevets_statique_non_comptee": 0.0,
-   "is_solde_bloc_prudent": 1.077,
+   "is_reinvest_logiciels_acquis": -0.0,
+   "is_reinvest_deduction_75_puis_100": -0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 1.077,
+   "is_recette_nette_bloc_is_prudent": 1.077,
    "is_solde_bloc_statique": 1.592
   },
   "2029": {
@@ -220,7 +437,10 @@
    "is_cir_suppression_realisable_mecanique": 5.276,
    "is_cir_suppression_realisable_prudent": 4.221,
    "memo_boite_a_brevets_statique_non_comptee": 1.335,
-   "is_solde_bloc_prudent": 7.912,
+   "is_reinvest_logiciels_acquis": -0.0,
+   "is_reinvest_deduction_75_puis_100": -0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 7.912,
+   "is_recette_nette_bloc_is_prudent": 7.912,
    "is_solde_bloc_statique": 12.707
   },
   "2030": {
@@ -234,7 +454,10 @@
    "is_cir_suppression_realisable_mecanique": 5.801,
    "is_cir_suppression_realisable_prudent": 4.641,
    "memo_boite_a_brevets_statique_non_comptee": 1.375,
-   "is_solde_bloc_prudent": 4.888,
+   "is_reinvest_logiciels_acquis": -0.0,
+   "is_reinvest_deduction_75_puis_100": -0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 4.888,
+   "is_recette_nette_bloc_is_prudent": 4.888,
    "is_solde_bloc_statique": 9.647
   },
   "2031": {
@@ -248,7 +471,10 @@
    "is_cir_suppression_realisable_mecanique": 6.22,
    "is_cir_suppression_realisable_prudent": 4.976,
    "memo_boite_a_brevets_statique_non_comptee": 1.416,
-   "is_solde_bloc_prudent": 2.183,
+   "is_reinvest_logiciels_acquis": -0.0,
+   "is_reinvest_deduction_75_puis_100": -0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 2.183,
+   "is_recette_nette_bloc_is_prudent": 2.183,
    "is_solde_bloc_statique": 6.909
   },
   "2032": {
@@ -262,7 +488,10 @@
    "is_cir_suppression_realisable_mecanique": 8.37,
    "is_cir_suppression_realisable_prudent": 6.696,
    "memo_boite_a_brevets_statique_non_comptee": 1.458,
-   "is_solde_bloc_prudent": 5.559,
+   "is_reinvest_logiciels_acquis": -2.892,
+   "is_reinvest_deduction_75_puis_100": -0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 5.559,
+   "is_recette_nette_bloc_is_prudent": 2.667,
    "is_solde_bloc_statique": 8.874
   },
   "2033": {
@@ -276,7 +505,10 @@
    "is_cir_suppression_realisable_mecanique": 8.621,
    "is_cir_suppression_realisable_prudent": 6.897,
    "memo_boite_a_brevets_statique_non_comptee": 1.502,
-   "is_solde_bloc_prudent": 7.14,
+   "is_reinvest_logiciels_acquis": -1.822,
+   "is_reinvest_deduction_75_puis_100": -0.0,
+   "is_solde_bloc_prudent_avant_reinvestissement": 7.14,
+   "is_recette_nette_bloc_is_prudent": 5.318,
    "is_solde_bloc_statique": 10.574
   },
   "2034": {
@@ -290,7 +522,10 @@
    "is_cir_suppression_realisable_mecanique": 8.879,
    "is_cir_suppression_realisable_prudent": 7.103,
    "memo_boite_a_brevets_statique_non_comptee": 1.547,
-   "is_solde_bloc_prudent": 8.554,
+   "is_reinvest_logiciels_acquis": -2.254,
+   "is_reinvest_deduction_75_puis_100": -4.409,
+   "is_solde_bloc_prudent_avant_reinvestissement": 8.554,
+   "is_recette_nette_bloc_is_prudent": 1.892,
    "is_solde_bloc_statique": 12.112
   },
   "2035": {
@@ -304,7 +539,10 @@
    "is_cir_suppression_realisable_mecanique": 9.146,
    "is_cir_suppression_realisable_prudent": 7.317,
    "memo_boite_a_brevets_statique_non_comptee": 1.594,
-   "is_solde_bloc_prudent": 9.931,
+   "is_reinvest_logiciels_acquis": -1.129,
+   "is_reinvest_deduction_75_puis_100": -3.512,
+   "is_solde_bloc_prudent_avant_reinvestissement": 9.931,
+   "is_recette_nette_bloc_is_prudent": 5.289,
    "is_solde_bloc_statique": 13.615
   },
   "2036": {
@@ -318,7 +556,10 @@
    "is_cir_suppression_realisable_mecanique": 9.42,
    "is_cir_suppression_realisable_prudent": 7.536,
    "memo_boite_a_brevets_statique_non_comptee": 1.641,
-   "is_solde_bloc_prudent": 11.35,
+   "is_reinvest_logiciels_acquis": -0.55,
+   "is_reinvest_deduction_75_puis_100": -2.805,
+   "is_solde_bloc_prudent_avant_reinvestissement": 11.35,
+   "is_recette_nette_bloc_is_prudent": 7.995,
    "is_solde_bloc_statique": 15.167
   },
   "2037": {
@@ -332,7 +573,10 @@
    "is_cir_suppression_realisable_mecanique": 9.703,
    "is_cir_suppression_realisable_prudent": 7.762,
    "memo_boite_a_brevets_statique_non_comptee": 1.691,
-   "is_solde_bloc_prudent": 12.375,
+   "is_reinvest_logiciels_acquis": -1.936,
+   "is_reinvest_deduction_75_puis_100": -7.041,
+   "is_solde_bloc_prudent_avant_reinvestissement": 12.375,
+   "is_recette_nette_bloc_is_prudent": 3.398,
    "is_solde_bloc_statique": 16.306
   },
   "2038": {
@@ -346,7 +590,10 @@
    "is_cir_suppression_realisable_mecanique": 9.994,
    "is_cir_suppression_realisable_prudent": 7.995,
    "memo_boite_a_brevets_statique_non_comptee": 1.741,
-   "is_solde_bloc_prudent": 12.908,
+   "is_reinvest_logiciels_acquis": -1.323,
+   "is_reinvest_deduction_75_puis_100": -5.553,
+   "is_solde_bloc_prudent_avant_reinvestissement": 12.908,
+   "is_recette_nette_bloc_is_prudent": 6.031,
    "is_solde_bloc_statique": 16.958
   },
   "2039": {
@@ -360,7 +607,10 @@
    "is_cir_suppression_realisable_mecanique": 10.294,
    "is_cir_suppression_realisable_prudent": 8.235,
    "memo_boite_a_brevets_statique_non_comptee": 1.794,
-   "is_solde_bloc_prudent": 13.295,
+   "is_reinvest_logiciels_acquis": -0.692,
+   "is_reinvest_deduction_75_puis_100": -4.257,
+   "is_solde_bloc_prudent_avant_reinvestissement": 13.295,
+   "is_recette_nette_bloc_is_prudent": 8.346,
    "is_solde_bloc_statique": 17.467
   },
   "2040": {
@@ -374,7 +624,10 @@
    "is_cir_suppression_realisable_mecanique": 10.602,
    "is_cir_suppression_realisable_prudent": 8.482,
    "memo_boite_a_brevets_statique_non_comptee": 1.847,
-   "is_solde_bloc_prudent": 13.694,
+   "is_reinvest_logiciels_acquis": -0.378,
+   "is_reinvest_deduction_75_puis_100": -3.083,
+   "is_solde_bloc_prudent_avant_reinvestissement": 13.694,
+   "is_recette_nette_bloc_is_prudent": 10.233,
    "is_solde_bloc_statique": 17.99
   }
  },
@@ -387,6 +640,10 @@
   "is_cir_suppression_statique": "coût total du CIR de l'année (7,4 Md€ en 2027, Sénat), comme si tout disparaissait en 2029",
   "is_cir_suppression_realisable_mecanique": "millésimes de créances ≥ 2028 seulement ; stock ancien imputé ou restitué jusqu'en 2031",
   "is_cir_suppression_realisable_prudent": "mécanique x 0,80 (réactions) ; LIGNE À RETENIR",
+  "is_reinvest_logiciels_acquis": "logiciels acquis dans la déduction : 50 % dès l'exercice 2031, 75 % en 2033, 100 % en 2036",
+  "is_reinvest_deduction_75_puis_100": "surcoût du relèvement de la déduction des équipements : 75 % dès 2033, 100 % dès 2036",
+  "is_solde_bloc_prudent_avant_reinvestissement": "taux réduit + déduction 50 % + niches prudentes + CIR prudent",
+  "is_recette_nette_bloc_is_prudent": "solde prudent après réinvestissement : LIGNE À RETENIR AU BOUCLAGE",
   "memo_boite_a_brevets": "statique, base mobile, hors bouclage prudent",
   "hors_table": "fin de la contribution exceptionnelle (−7 Md€/an vs 2026) et extinction du CII : droit en vigueur"
  },
@@ -395,6 +652,8 @@
   "niches_hors_cir_prudent": 2.176999416666667,
   "cir_prudent": 5.920000000000001,
   "deduction": -0.674545264430829,
-  "total": 9.575963290594785
+  "total": 9.575963290594785,
+  "reinvesti": -0.9396206588483047,
+  "net_apres_reinvestissement": 8.63634263174648
  }
 }
