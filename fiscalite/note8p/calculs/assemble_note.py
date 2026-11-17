@@ -6,8 +6,8 @@ N = Path("/home/user/Projets-annexes/fiscalite/note8p")
 C = json.loads((S / "relu" / "comments.json").read_text(encoding="utf-8"))
 X = json.loads((S / "build" / "extras.json").read_text(encoding="utf-8"))   # chapeaux, exceptions, bilan, titre g11
 
-FN = {"²": r"\footnote{Le taux marginal relie cinq repères : 1,4~\% au premier euro, 15,4~\% au SMIC, 22,4~\% à 1,5 SMIC, "
-            r"28,6~\% à 2 SMIC et 36,3~\% à 3,5 SMIC. L'impôt dû est l'aire sous cette courbe ; le calcul figure en annexe B.}",
+FN = {"²": r"\footnote{Le taux marginal relie cinq repères : 1,5~\% au premier euro, 15,5~\% au SMIC, 22,5~\% à 1,5 SMIC, "
+            r"28,7~\% à 2 SMIC et 36,3~\% à 3,5 SMIC. L'impôt dû est l'aire sous cette courbe ; le calcul figure en annexe B.}",
       "³": r"\footnote{Entre 65\,000 et 101\,500 euros et entre 136\,000 et 157\,000 euros de revenu annuel ; le taux "
             r"marginal monte aussi, plus légèrement, entre 1,6 et 1,8 SMIC.}",
       "⁵": r"\footnote{Zwick et Mahon (2017), \emph{American Economic Review} : +10 à +17~\% d'investissement pour les "

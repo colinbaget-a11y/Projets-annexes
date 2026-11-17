@@ -62,7 +62,7 @@ def blocs(an):
             ("Niches : réduction pour dons", K25 * ND["dons"]),
             ("Niches : crédit pour la garde des jeunes enfants", K25 * ND["garde"]),
             ("Niches : demi-parts dérogatoires", K25 * ND["demi_parts"]),
-            ("Niches : autres (Girardin, outre-mer, scolarité…)", K25 * (K["vraies_niches"] - sum(ND[x] for x in PRINC) - GIR)),
+            ("Niches : autres (scolarité, outre-mer, indemnités…)", K25 * (K["vraies_niches"] - sum(ND[x] for x in PRINC) - GIR)),
             ("Retraités : fin de l'abattement de 10 % sur les pensions", K25 * (CB["abatpen"] - CSG_ABAT)),
             ("Retraités : CSG alignée sur celle des actifs", K25 * (CB["csg_ret"] + CSG_ABAT)),
             ("Retraités : fin de l'abattement des personnes âgées", K25 * AGE_VM),
@@ -173,7 +173,7 @@ sauver(fig, "figure_bilan",
        " total). Taxe foncière communale assise sur la valeur de marché, en deux parts (sol et bâti), à recette communale inchangée : le total ne change pas, mais la charge se redistribue entre logements. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
        " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. En 2032, la déduction immédiate"
        " coûte cher parce que l'État rembourse aussi la transition (près de 12 Md€ en 2033) ; une fois celle-ci passée,"
-       " vers 2040, elle ne coûte plus qu'environ 1,5 Md€ par an et la marge de l'ensemble atteint environ 13 Md€. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
+       " vers 2040, elle ne coûte plus qu'environ 1,5 Md€ par an et la marge de l'ensemble atteint environ 13 Md€. Niches : coûts des Voies et moyens du PLF 2026, hors dispositifs qui s'éteignent avant 2032 en droit actuel (Girardin). Quotients conjugal et familial : la Cour des comptes les chiffrait à 11,1 et 16,5 Md€ en 2021. Fin de la CSG déductible : 16 Md€ si la mesure était prise isolément. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
        " contribuables ; entre parenthèses, le solde qui en résulterait). Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
