@@ -28,37 +28,41 @@
      "Md": 25.729708564869966
     },
     {
-     "libelle": "Franchise de 6 000 € par enfant",
-     "Md": -18.449117719998057
+     "libelle": "Franchise de 4 700 € par enfant",
+     "Md": -15.116330622235093
     },
     {
      "libelle": "Baisse des taux (nouveau barème)",
-     "Md": -100.64295219082501
+     "Md": -98.10221080485893
     },
     {
      "libelle": "Minimum vieillesse ; contribution sur les hauts revenus",
-     "Md": -0.8232191843303245
+     "Md": -0.8294820985122939
     }
    ],
-   "sous_total": -5.867265569547098
+   "sous_total": -2.1316282072803006e-14
   },
   {
    "titre": "Fiscalité foncière",
    "items": [
     {
      "libelle": "Taxe nationale sur la valeur du sol",
-     "Md": 10.0
+     "Md": 13.491999999999999
+    },
+    {
+     "libelle": "Taxe foncière communale : le sol paie davantage",
+     "Md": 12.95805149035479
+    },
+    {
+     "libelle": "Taxe foncière communale : le bâti paie moins",
+     "Md": -12.95805149035479
     },
     {
      "libelle": "Droits de mutation divisés par deux",
      "Md": -8.075
-    },
-    {
-     "libelle": "Report de paiement, déductibilité",
-     "Md": -1.0090000000000003
     }
    ],
-   "sous_total": 0.9160000000000004
+   "sous_total": 5.416999999999998
   },
   {
    "titre": "Impôt sur les sociétés",
@@ -77,17 +81,17 @@
     },
     {
      "libelle": "Déduction immédiate des investissements",
-     "Md": -3.011847776789824
+     "Md": -1.5675499846642944
     },
     {
      "libelle": "Revalorisation des déficits reportables",
      "Md": -1.13273443045291
     }
    ],
-   "sous_total": 5.835440631697275
+   "sous_total": 7.2797384238228044
   }
  ],
- "solde": 0.8841750621501774,
+ "solde": 12.696738423822781,
  "annee": 2040,
  "unite": "Md€ de 2027 environ"
 }

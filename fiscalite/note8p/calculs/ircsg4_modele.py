@@ -35,7 +35,7 @@ O = N.options()
 OUT = N.SORTIES
 V3 = json.loads((OUT / "ircsg3.json").read_text(encoding="utf-8"))
 P0, T0 = V3["final"]["points"], list(V3["final"]["taux"])
-FIN = 5.5
+FIN = float(json.loads((Path(__file__).resolve().parent.parent / "parametres.json").read_text(encoding="utf-8"))["financement_externe_ir"])   # v6 : 0
 PALIERS = {2032: 1.0, 2033: 2.0, 2034: 3.0, 2035: 4.0, 2036: 5.0}
 MONTEE = {2027: 0.25, 2028: 0.5, 2029: 0.75}
 IR_NON_ATTRIBUE, PART_PRUDENTE = 4.0, 0.0   # couvert par l'écart inexpliqué retiré (voir en-tête)
@@ -333,8 +333,11 @@ _PAL = json.loads((Path(__file__).resolve().parent.parent / "sorties" / "pal.jso
 COUT_PERTES = {int(a): v for a, v in _PAL["pertes"]["national"]["indexation_cout_regime_Md"]["montee_en_charge_indicative"].items()}
 PERTES_REGIME = _PAL["pertes"]["national"]["indexation_cout_regime_Md"]["central"]
 PALIERS_V4 = {**{a: 1.5 for a in range(2029, 2035)}, **{a: 2.5 for a in range(2035, 2038)}, 2038: 4.5, 2039: 6.0}
-FIN_TOT = 7.0 - PERTES_REGIME
-PALIERS = {a: v - COUT_PERTES.get(a, PERTES_REGIME if a >= 2032 else 0.0) for a, v in PALIERS_V4.items()}
+# v6 (décision de l'auteur, 17/11) : la refonte de l'impôt sur le revenu est neutre (aucun financement externe) ; la
+# revalorisation des déficits est portée par le bloc IS dans le bouclage.
+_FIN6 = json.loads((Path(__file__).resolve().parent.parent / "parametres.json").read_text(encoding="utf-8"))["financement_externe_ir"]
+FIN_TOT = float(_FIN6)
+PALIERS = {a: FIN_TOT for a in PALIERS_V4}
 ASPA_PLAF, ASPA_ALLOC, ASPA_RECOURS = 12411.44, 752800, 0.5   # plafond 2025 ; allocataires fin 2024 (DREES, MS 2025,
 # fiche 28) ; la moitié des personnes seules éligibles le perçoivent (DREES, fin 2016)
 
@@ -394,7 +397,7 @@ def bm(e):
     return N.continu(P0, list(np.array(TT5) - e * W_BM))
 
 
-_lo, _hi = 0.0, 0.05
+_lo, _hi = -0.05, 0.05   # v6 : le barème peut aussi monter
 for _ in range(45):
     _m = (_lo + _hi) / 2
     _lo, _hi = (_m, _hi) if N.recette(bm(_m), O) > cible(F_BAR) else (_lo, _m)

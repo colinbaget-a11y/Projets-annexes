@@ -276,10 +276,10 @@ def sched(*paliers):
 
 
 BASE = sched((2029, 0.25), (2030, 0.5))
-P75 = sched((2029, 0.25), (2030, 0.5), (2033, 0.75))
-P100 = sched((2029, 0.25), (2030, 0.5), (2033, 0.75), (2036, 1.0))
+P75 = sched((2029, 0.25), (2030, 0.5), (2032, 1.0))   # v6 : 100 % dès 2032
+P100 = sched((2029, 0.25), (2030, 0.5), (2032, 1.0))   # v6 : 100 % dès 2032
 LOGB = sched((2031, 0.5))                           # logiciels acquis : 50 % dès l'exercice 2031
-LOG100 = sched((2031, 0.5), (2033, 0.75), (2036, 1.0))
+LOG100 = sched((2031, 0.5), (2032, 1.0))   # v6
 EQ = [LIN, DEG]
 eq_base = chemin_gen(I_EQ27, EQ, BASE)
 chk_ = [eq_base[t] for t in range(2, 6)]
@@ -400,8 +400,8 @@ J["annuel_caisse_notes"] = {
     "is_cir_suppression_statique": "coût total du CIR de l'année (7,4 Md€ en 2027, Sénat), comme si tout disparaissait en 2029",
     "is_cir_suppression_realisable_mecanique": "millésimes de créances ≥ 2028 seulement ; stock ancien imputé ou restitué jusqu'en 2031",
     "is_cir_suppression_realisable_prudent": "mécanique x 0,80 (réactions) ; LIGNE À RETENIR",
-    "is_reinvest_logiciels_acquis": "logiciels acquis dans la déduction : 50 % dès l'exercice 2031, 75 % en 2033, 100 % en 2036",
-    "is_reinvest_deduction_75_puis_100": "surcoût du relèvement de la déduction des équipements : 75 % dès 2033, 100 % dès 2036",
+    "is_reinvest_logiciels_acquis": "logiciels acquis dans la déduction : 50 % dès l'exercice 2031, 100 % dès 2032 (v6)",
+    "is_reinvest_deduction_75_puis_100": "surcoût du relèvement de la déduction des équipements à 100 % dès 2032 (v6)",
     "is_solde_bloc_prudent_avant_reinvestissement": "taux réduit + déduction 50 % + niches prudentes + CIR prudent",
     "is_recette_nette_bloc_is_prudent": "solde prudent après réinvestissement : LIGNE À RETENIR AU BOUCLAGE",
     "memo_boite_a_brevets": "statique, base mobile, hors bouclage prudent",

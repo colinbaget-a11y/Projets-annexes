@@ -122,8 +122,13 @@ def continu(points, taux):
     return tm, T
 
 
-def options(fe=6000.0):
-    return R.options(fe=fe)
+import json as _json
+_PAR = Path(__file__).resolve().parent.parent / "parametres.json"
+FE_DEFAUT = float(_json.loads(_PAR.read_text(encoding="utf-8"))["franchise_enfant"]) if _PAR.exists() else 6000.0
+
+
+def options(fe=None):
+    return R.options(fe=FE_DEFAUT if fe is None else fe)
 
 
 def recette(sched, o):

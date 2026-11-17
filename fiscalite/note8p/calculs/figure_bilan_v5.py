@@ -20,9 +20,16 @@ IR = L("ircsg4.json")
 K = IR["cascade_categories"]
 CB = {c["etape"]: c["Md"] for c in IR["cascade_brute"]}
 C = L("is4.json")["annuel_caisse"]["2040"]
-F = L("foncier3.json")["annuel_par_scenario"]["B_E10"]["2040"]
+F = L("foncier3.json")["annuel_par_scenario"][json.loads((Path(__file__).resolve().parent.parent / "parametres.json").read_text(encoding="utf-8"))["scenario_foncier"]]["2040"]
 PX = L("pal.json")["pertes"]["national"]["indexation_cout_regime_Md"]["central"]
 B = L("bouclage4.json")["annuel"]["2040"]
+PAR = json.loads((Path(__file__).resolve().parent.parent / "parametres.json").read_text(encoding="utf-8"))
+F3 = L("foncier3.json")
+TX = F3["scenarios"][PAR["scenario_foncier"]]["taux"]
+AS = F3["assiette"]
+COM_SOL, COM_BATI = TX["tc_sol"] / 100 * TX["sol_apres"], TX["tc_bati"] / 100 * AS["bati"]
+PART_SOL = AS["sol"] / (AS["sol"] + AS["bati"])          # convention : aujourd'hui, taux unique sur la valeur totale
+TRANSFERT = COM_SOL - (COM_SOL + COM_BATI) * PART_SOL
 d = 1.03 ** 13
 
 BLOCS = [
@@ -33,14 +40,15 @@ BLOCS = [
         ("Fin du quotient familial", CB["qf"]),
         ("Fin de la CSG déductible", K["technique_csg_deductible"]),
         ("Forfait de 500 € au lieu du 10 % et des frais réels", K["technique_frais"]),
-        ("Franchise de 6 000 € par enfant", K["quotient_familial_vers_franchise"] - CB["qf"]),
+        (f"Franchise de {_fr(PAR['franchise_enfant'])} € par enfant", K["quotient_familial_vers_franchise"] - CB["qf"]),
         ("Baisse des taux (nouveau barème)", K["bareme"]),
         ("Minimum vieillesse ; contribution sur les hauts revenus", K["aspa_nette"] + K["cehr_absorbee"]),
     ]),
     ("Fiscalité foncière", [
-        ("Taxe nationale sur la valeur du sol", F["taxe_fonciere_nouvelle"]),
+        ("Taxe nationale sur la valeur du sol", F["net"] - F["dmto"]),
+        ("Taxe foncière communale : le sol paie davantage", TRANSFERT),
+        ("Taxe foncière communale : le bâti paie moins", -TRANSFERT),
         ("Droits de mutation divisés par deux", F["dmto"]),
-        ("Report de paiement, déductibilité", F["net"] - F["taxe_fonciere_nouvelle"] - F["dmto"]),
     ]),
     ("Impôt sur les sociétés", [
         ("Fin du taux réduit", C["is_fin_taux_reduit_prudent"] / d),
@@ -101,8 +109,9 @@ sauver(fig, "figure_bilan",
        " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
        "Recettes de 2040 en euros de 2027 environ, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
-       " total). Impôt sur les sociétés : rendements prudents, après réaction des entreprises. La taxe foncière communale à"
-       " deux taux, à recette inchangée, n'apparaît pas. Non comptée : fin de l'effacement des plus-values au décès"
+       " total). Taxe foncière communale à deux taux, à recette inchangée : aujourd'hui répartie entre sol et bâti au"
+       " prorata de leur valeur (convention). Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
+       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
                   for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2027 environ")

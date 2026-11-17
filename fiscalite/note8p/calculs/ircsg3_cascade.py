@@ -74,7 +74,8 @@ def resume(delta):
                                       if g == "A" and n.endswith("_1.0")) / 1e9)
 
 
-def cascade(sched, o, fe=6000.0):
+def cascade(sched, o, fe=None):
+    fe = N.FE_DEFAUT if fe is None else fe
     obs = {n: M.CURT[n] for n, *_ in M.TYPES}
     fl = {}
     prev = charges(fl)

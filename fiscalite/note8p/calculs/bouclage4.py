@@ -11,7 +11,7 @@ from pathlib import Path
 
 S = Path(__file__).resolve().parent.parent / "sorties"
 L = lambda n: json.loads((S / n).read_text(encoding="utf-8"))
-IS, FO, IR = L("is4.json")["annuel_caisse"], L("foncier3.json")["annuel_par_scenario"]["B_E10"], L("ircsg4.json")
+IS, FO, IR = L("is4.json")["annuel_caisse"], L("foncier3.json")["annuel_par_scenario"][json.loads((Path(__file__).resolve().parent.parent / "parametres.json").read_text(encoding="utf-8"))["scenario_foncier"]], L("ircsg4.json")
 PF = L("pfu3.json")["annuel"]
 _IX = L("pal.json")["pertes"]["national"]["indexation_cout_regime_Md"]
 PERTES = {int(a): v for a, v in _IX["montee_en_charge_indicative"].items()}
