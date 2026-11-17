@@ -47,43 +47,43 @@
    "items": [
     {
      "libelle": "Taxe nationale sur la valeur du sol",
-     "Md": 13.896759999999999
+     "Md": 13.626900000000001
     },
     {
      "libelle": "Droits de mutation divisés par deux",
      "Md": -8.31725
     }
    ],
-   "sous_total": 5.579509999999999
+   "sous_total": 5.309650000000001
   },
   {
    "titre": "Impôt sur les sociétés",
    "items": [
     {
      "libelle": "Fin du taux réduit",
-     "Md": 2.0296316638631597
+     "Md": 2.0300618382011777
     },
     {
      "libelle": "Fin du crédit d'impôt recherche",
-     "Md": 5.607601228953524
+     "Md": 5.6077945827537485
     },
     {
      "libelle": "Fin des autres niches",
-     "Md": 2.052109669260993
+     "Md": 1.797241214843122
     },
     {
      "libelle": "Déduction immédiate des investissements",
-     "Md": -1.5218931889944605
+     "Md": -7.20068963896606
     },
     {
      "libelle": "Revalorisation des déficits reportables",
      "Md": -1.1667164633664973
     }
    ],
-   "sous_total": 7.000732909716718
+   "sous_total": 1.0676915334654904
   }
  ],
- "solde": 12.580242909716713,
- "annee": 2040,
+ "solde": 6.377341533465488,
+ "annee": 2032,
  "unite": "Md€ de 2026"
 }

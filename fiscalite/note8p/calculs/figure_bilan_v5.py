@@ -71,7 +71,9 @@ def blocs(an):
     ]
 
 
-BLOCS, B32 = blocs(2040), blocs(2032)
+ANNEE = 2032          # année affichée (transition de la déduction immédiate en cours)
+B40, B32 = blocs(2040), blocs(2032)
+BLOCS = B32
 V32 = {}
 for t, it in B32:
     V32[t] = sum(v for _, v in it)
@@ -89,7 +91,7 @@ for titre, items in BLOCS:
         y -= 1
     y -= 0.4
 solde = sum(v for _, it in BLOCS for _, v in it)
-assert abs(solde - B["solde"]) < 0.05, (solde, B["solde"])
+assert abs(solde - L("bouclage4.json")["annuel"][str(ANNEE)]["solde"]) < 0.05
 lignes.append(("solde", "Solde de l'ensemble", solde, y))
 # options non retenues (hors solde) : baisse du PFU (sorties/pfu_options.json, après réaction)
 PO = L("pfu_options.json")
@@ -118,17 +120,10 @@ for typ, t, v, yy in lignes:
         ax.barh(yy, v, color=AUJ, height=0.66, zorder=2)
         ax.text(v + (1.2 if v >= 0 else -1.2), yy, lab(v), va="center", ha="left" if v >= 0 else "right", fontsize=7.4,
                 color=ENCRE, fontweight="bold")
-for typ, t, v, yy in lignes:
-    v2 = V32[t]
-    diff = abs(round(v2) - round(v)) >= 1
-    ax.text(47, yy, lab(v2), va="center", ha="right", fontsize=7.2 if typ == "item" else 7.4,
-            color=HAUSSE if diff else ENCRE2, fontweight="bold" if (diff or typ != "item") else "normal")
-ax.text(47, lignes[0][3] + 0.9, "En 2032", ha="right", fontsize=7.2, color=ENCRE, fontweight="bold")
-ax.text(-110, lignes[0][3] + 0.9, "Réforme installée (2040)", ha="left", fontsize=7.2, color=ENCRE, fontweight="bold")
+ax.text(-110, lignes[0][3] + 0.9, f"Recettes de {ANNEE}", ha="left", fontsize=7.2, color=ENCRE, fontweight="bold")
 for lib, v, yy in OPTS:
     ax.barh(yy, v, color="white", edgecolor=HAUSSE, hatch="////", height=0.66, zorder=2, lw=0.8)
     ax.text(v - 1.2, yy, lab(v) + f"  (solde : {lab(solde + v)})", va="center", ha="right", fontsize=7.2, color=HAUSSE)
-    ax.text(47, yy, lab(v), va="center", ha="right", fontsize=7.2, color=HAUSSE)
 lignes += [("option", lib, v, yy) for lib, v, yy in OPTS]
 ax.axvline(0, color=ENCRE2, lw=0.7)
 ax.set_yticks([l[3] for l in lignes])
@@ -140,9 +135,9 @@ for tl, l in zip(ax.get_yticklabels(), lignes):
     elif l[0] != "item":
         tl.set_fontweight("bold")
         tl.set_color(ENCRE)
-ax.set_xlim(-112, 49)
+ax.set_xlim(-112, 36)
 ax.set_xticks([-100, -80, -60, -40, -20, 0, 20])
-ax.set_xlabel("Milliards d'euros par an, réforme installée (+ : l'État prélève davantage ; − : il prélève moins)",
+ax.set_xlabel(f"Milliards d'euros en {ANNEE} (+ : l'État prélève davantage ; − : il prélève moins)",
               fontsize=7)
 axes(ax, grille="x")
 ax.spines["left"].set_visible(False)
@@ -151,15 +146,15 @@ sauver(fig, "figure_bilan",
        "calculs des auteurs : modèle de foyers calé sur les statistiques de l'impôt sur le revenu 2024 (DGFiP) ; coûts des"
        " niches : Évaluation des voies et moyens PLF 2026, CPO (2026) ; foncier : DVF et comptes de patrimoine (Insee) ;"
        " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
-       "Barres : recettes de 2040, réforme installée ; colonne de droite : recettes de 2032, en ocre quand elles diffèrent. Euros de 2027 environ, arrondis au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
+       "Recettes de 2032, en euros de 2026, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
        " total). Taxe foncière communale inchangée. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
-       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises ; en 2040, la déduction immédiate"
-       " est à son coût permanent ; en 2032 et surtout en 2033 (près de 12 Md€), l'État rembourse aussi"
-       " la transition. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
+       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. En 2032, la déduction immédiate"
+       " coûte cher parce que l'État rembourse aussi la transition (près de 12 Md€ en 2033) ; une fois celle-ci passée,"
+       " vers 2040, elle ne coûte plus qu'environ 1,5 Md€ par an et la marge de l'ensemble atteint environ 13 Md€. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
        " contribuables ; entre parenthèses, le solde qui en résulterait). Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
-                  for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2026")
+                  for t, it in BLOCS], solde=solde, annee=ANNEE, unite="Md€ de 2026")
 (S / "bilan_v5.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print([(t, round(sum(v for _, v in it), 2)) for t, it in BLOCS], round(solde, 2))
