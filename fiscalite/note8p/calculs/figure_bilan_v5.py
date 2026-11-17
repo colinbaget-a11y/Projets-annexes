@@ -30,7 +30,9 @@ AS = F3["assiette"]
 COM_SOL, COM_BATI = TX["tc_sol"] / 100 * TX["sol_apres"], TX["tc_bati"] / 100 * AS["bati"]
 PART_SOL = AS["sol"] / (AS["sol"] + AS["bati"])          # convention : aujourd'hui, taux unique sur la valeur totale
 TRANSFERT = COM_SOL - (COM_SOL + COM_BATI) * PART_SOL
-d = 1.03 ** 13
+G, AREF = PAR["croissance_nominale"], PAR["annee_reference"]
+K25 = (1 + G) ** (AREF - 2025)
+d = (1 + G) ** (2040 - AREF)
 
 FA = L("foncier3.json")["annuel_par_scenario"][PAR["scenario_foncier"]]
 CA = L("is4.json")["annuel_caisse"]
@@ -40,23 +42,23 @@ PXA = {int(a): v for a, v in L("pal.json")["pertes"]["national"]["indexation_cou
 def blocs(an):
     """Lignes du bilan pour une année de caisse (euros de 2027 environ). L'impôt sur le revenu est en régime installé
     dès 2030 (décomposition statique) : mêmes valeurs en 2032 et en 2040."""
-    f, c, dd = FA[str(an)], CA[str(an)], 1.03 ** (an - 2027)
+    f, c, dd = FA[str(an)], CA[str(an)], (1 + G) ** (an - AREF)
     px = PXA.get(an, PX if an >= 2032 else 0.0)
     return [
         ("Nouvel impôt sur le revenu", [
-            ("Suppression des niches", K["vraies_niches"]),
-            ("Pensions imposées comme les salaires", K["alignement_pensions"]),
-            ("Fin du quotient conjugal", K["unite_fiscale"]),
-            ("Fin du quotient familial", CB["qf"]),
-            ("Fin de la CSG déductible", K["technique_csg_deductible"]),
-            ("Forfait de 500 € au lieu du 10 % et des frais réels", K["technique_frais"]),
-            (f"Franchise de {_fr(PAR['franchise_enfant'])} € par enfant", K["quotient_familial_vers_franchise"] - CB["qf"]),
-            ("Baisse des taux (nouveau barème)", K["bareme"]),
-            ("Minimum vieillesse ; contribution sur les hauts revenus", K["aspa_nette"] + K["cehr_absorbee"]),
+            ("Suppression des niches", K25 * K["vraies_niches"]),
+            ("Pensions imposées comme les salaires", K25 * K["alignement_pensions"]),
+            ("Fin du quotient conjugal", K25 * K["unite_fiscale"]),
+            ("Fin du quotient familial", K25 * CB["qf"]),
+            ("Fin de la CSG déductible", K25 * K["technique_csg_deductible"]),
+            ("Forfait de 500 € au lieu du 10 % et des frais réels", K25 * K["technique_frais"]),
+            (f"Franchise de {_fr(PAR['franchise_enfant'])} € par enfant", K25 * (K["quotient_familial_vers_franchise"] - CB["qf"])),
+            ("Baisse des taux (nouveau barème)", K25 * K["bareme"]),
+            ("Minimum vieillesse ; contribution sur les hauts revenus", K25 * (K["aspa_nette"] + K["cehr_absorbee"])),
         ]),
         ("Fiscalité foncière", [
-            ("Taxe nationale sur la valeur du sol", f["net"] - f["dmto"]),
-            ("Droits de mutation divisés par deux", f["dmto"]),
+            ("Taxe nationale sur la valeur du sol", K25 * (f["net"] - f["dmto"])),
+            ("Droits de mutation divisés par deux", K25 * f["dmto"]),
         ]),
         ("Impôt sur les sociétés", [
             ("Fin du taux réduit", c["is_fin_taux_reduit_prudent"] / dd),
@@ -64,7 +66,7 @@ def blocs(an):
             ("Fin des autres niches", c["is_niches_rendement_prudent_realisable"] / dd),
             ("Déduction immédiate des investissements", (c["is_deduction_50_depart_2029"] + c["is_reinvest_logiciels_acquis"]
                                                          + c["is_reinvest_deduction_75_puis_100"]) / dd),
-            ("Revalorisation des déficits reportables", -px),
+            ("Revalorisation des déficits reportables", -K25 * px),
         ]),
     ]
 
@@ -153,11 +155,11 @@ sauver(fig, "figure_bilan",
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
        " total). Taxe foncière communale inchangée. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
        " Impôt sur les sociétés : rendements prudents, après réaction des entreprises ; en 2040, la déduction immédiate"
-       " est à son coût permanent ; en 2032 et surtout en 2033 (près de 12 Md€ en euros de 2027), l'État rembourse aussi"
+       " est à son coût permanent ; en 2032 et surtout en 2033 (près de 12 Md€), l'État rembourse aussi"
        " la transition. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
        " contribuables ; entre parenthèses, le solde qui en résulterait). Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
-                  for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2027 environ")
+                  for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2026")
 (S / "bilan_v5.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print([(t, round(sum(v for _, v in it), 2)) for t, it in BLOCS], round(solde, 2))

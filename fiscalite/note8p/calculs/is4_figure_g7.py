@@ -13,8 +13,8 @@ from charte import AUJ, NAIF, PROP, ENCRE, ENCRE2, PLEINE, plt, axes, sauver, pc
 J = json.loads((ROOT / "sorties" / "is3.json").read_text(encoding="utf-8"))
 T, D, LT = J["taux_effectifs"], J["deduction"], J["long_terme"]
 pics = [D["departs"]["2029"]["pic"]]
-perm50, perm100 = D["cout_permanent_2027"]["50"], D["cout_permanent_2027"]["100"]
-c225 = J["comparaison_taux_225"]["cout_2027"]
+perm50, perm100 = D["cout_permanent_2027"]["50"] / 1.03, D["cout_permanent_2027"]["100"] / 1.03   # euros de 2026
+c225 = J["comparaison_taux_225"]["cout_2027"] / 1.03   # euros de 2026
 J4 = json.loads((ROOT / "sorties" / "is4.json").read_text(encoding="utf-8"))
 sup = J4["reinvestissement"]["options_exercices"]["b_equipements_75_2033_100_des_2036"]
 pic_sup = max(sup.values())
@@ -53,7 +53,7 @@ sauver(fig, "g7_tmei",
        "par fonds propres ; rendement réel exigé 5~\\%, inflation 2~\\%, dépréciation 14~\\% par an, sans impôt personnel. "
        "Déduction de 50~\\% : la moitié du prix déduite l'année de l'achat, le reste amorti normalement, au taux de 25~\\% ; "
        "25~\\% pour l'exercice 2029, 50~\\% dès 2030 ; 100~\\% dès 2032, financés par la suppression du "
-       "crédit d'impôt recherche. Coûts bruts, hors financement ; coûts permanents en euros de 2027. "
+       "crédit d'impôt recherche. Coûts bruts, hors financement ; coûts permanents en euros de 2026. "
        "Financée par emprunt, la même machine a un taux de $-24$~\\% aujourd'hui, $-37$~\\% avec la déduction de 50~\\% ; "
        "pour un tiers d'emprunt, 7,6~\\% et $-1{,}7$~\\%.")
 print("g7_tmei écrite", {k: round(100 * T[k]["fp"], 1) for k, *_ in lignes})

@@ -7,26 +7,26 @@ CRDS fin 2033) ne sont ni comptées ni utilisées. La fusion de l'IR et de la CS
 constante chaque année (les niches supprimées financent la baisse du barème au rythme de leur extinction) ; la ligne
 « baisse supplémentaire » est le financement externe qu'elle reçoit, minimum vieillesse corrigé compris, et net du coût de la revalorisation des déficits reportables de l'impôt sur les sociétés, qu'il finance. Taxe
 nationale sur le sol par tiers en 2029-2031, droits de mutation baissés au même rythme. Déduction immédiate de 50~\% dès
-2029, 75~\% en 2033, 100~\% en 2036, logiciels acquis inclus dès 2031. Séries d'IS déflatées de 3~\% par an. Les
+2029, 75~\% en 2033, 100~\% en 2036, logiciels acquis inclus dès 2031. Montants en euros de 2026 : séries d'IS déflatées de 3~\% par an, niveaux 2025 (foncier, impôt sur le revenu) majorés de 3~\%. Les
 excédents des premières années, qui viennent de l'IS encaissé avant la montée en charge de la déduction, sont gardés
 comme marge ; le solde est d'au moins 0,58~Md€ chaque année à partir de 2028 (programme
 \texttt{calculs/bouclage4.py}).
 
 \begin{table}[!htbp]\centering\scriptsize\setlength{\tabcolsep}{2.1pt}
-\caption{Trajectoire complète du scénario central (Md€ par an, années d'encaissement, euros de 2027 environ ; + = recette publique en plus)}
+\caption{Trajectoire complète du scénario central (Md€ par an, années d'encaissement, euros de 2026 ; + = recette publique en plus)}
 \begin{tabular}{@{}lrrrrrrrrrrrrrr@{}}\toprule
  & 27 & 28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36 & 37 & 38 & 39 & 40 \\ \midrule
-Taxe nationale sur le sol & 0{,}0 & 0{,}0 & 5{,}0 & 10{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 & 15{,}0 \\
-Droits de mutation & 0{,}0 & 0{,}0 & $-$2{,}7 & $-$5{,}4 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 & $-$8{,}1 \\
-Report, déductibilité, calendrier & 0{,}0 & $-$0{,}5 & $-$0{,}2 & $-$0{,}8 & $-$1{,}2 & $-$1{,}8 & $-$1{,}7 & $-$1{,}7 & $-$1{,}7 & $-$1{,}6 & $-$1{,}6 & $-$1{,}6 & $-$1{,}5 & $-$1{,}5 \\
-Impôt sur les sociétés, solde prudent & 0{,}0 & 1{,}0 & 7{,}5 & 4{,}5 & 1{,}9 & 2{,}3 & $-$5{,}2 & $-$0{,}7 & 2{,}8 & 5{,}1 & 6{,}5 & 7{,}4 & 8{,}2 & 8{,}4 \\
-\quad dont fin du taux réduit & 0{,}0 & 1{,}0 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 \\
-\quad dont fin du CIR (prudent) & 0{,}0 & 0{,}0 & 4{,}0 & 4{,}2 & 4{,}4 & 5{,}8 & 5{,}8 & 5{,}8 & 5{,}8 & 5{,}8 & 5{,}8 & 5{,}8 & 5{,}8 & 5{,}8 \\
-\quad dont autres niches de l'IS (prudent) & 0{,}0 & 0{,}0 & 1{,}4 & 1{,}7 & 1{,}8 & 1{,}9 & 1{,}9 & 2{,}0 & 2{,}0 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 \\
-\quad dont déduction immédiate & 0{,}0 & 0{,}0 & 0{,}0 & $-$3{,}6 & $-$6{,}4 & $-$7{,}4 & $-$15{,}0 & $-$10{,}5 & $-$7{,}1 & $-$4{,}8 & $-$3{,}5 & $-$2{,}6 & $-$1{,}8 & $-$1{,}6 \\
-Revalorisation des déficits reportables & 0{,}0 & 0{,}0 & $-$0{,}1 & $-$0{,}3 & $-$0{,}6 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 & $-$1{,}1 \\
+Taxe nationale sur le sol & 0{,}0 & 0{,}0 & 5{,}2 & 10{,}3 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 & 15{,}5 \\
+Droits de mutation & 0{,}0 & 0{,}0 & $-$2{,}8 & $-$5{,}5 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 & $-$8{,}3 \\
+Report, déductibilité, calendrier & 0{,}0 & $-$0{,}5 & $-$0{,}2 & $-$0{,}8 & $-$1{,}2 & $-$1{,}8 & $-$1{,}8 & $-$1{,}7 & $-$1{,}7 & $-$1{,}7 & $-$1{,}6 & $-$1{,}6 & $-$1{,}6 & $-$1{,}6 \\
+Impôt sur les sociétés, solde prudent & 0{,}0 & 1{,}0 & 7{,}2 & 4{,}3 & 1{,}9 & 2{,}2 & $-$5{,}1 & $-$0{,}7 & 2{,}7 & 5{,}0 & 6{,}3 & 7{,}2 & 7{,}9 & 8{,}2 \\
+\quad dont fin du taux réduit & 0{,}0 & 1{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 & 2{,}0 \\
+\quad dont fin du CIR (prudent) & 0{,}0 & 0{,}0 & 3{,}9 & 4{,}1 & 4{,}3 & 5{,}6 & 5{,}6 & 5{,}6 & 5{,}6 & 5{,}6 & 5{,}6 & 5{,}6 & 5{,}6 & 5{,}6 \\
+\quad dont autres niches de l'IS (prudent) & 0{,}0 & 0{,}0 & 1{,}3 & 1{,}7 & 1{,}7 & 1{,}8 & 1{,}9 & 1{,}9 & 2{,}0 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 & 2{,}1 \\
+\quad dont déduction immédiate & 0{,}0 & 0{,}0 & 0{,}0 & $-$3{,}5 & $-$6{,}2 & $-$7{,}2 & $-$14{,}6 & $-$10{,}2 & $-$6{,}9 & $-$4{,}7 & $-$3{,}4 & $-$2{,}5 & $-$1{,}8 & $-$1{,}5 \\
+Revalorisation des déficits reportables & 0{,}0 & 0{,}0 & $-$0{,}1 & $-$0{,}3 & $-$0{,}6 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 & $-$1{,}2 \\
 Baisse supplémentaire de l'impôt sur le travail & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}0 \\
-\textbf{Solde} & \textbf{0{,}0} & \textbf{0{,}6} & \textbf{9{,}5} & \textbf{8{,}0} & \textbf{7{,}1} & \textbf{6{,}3} & \textbf{$-$1{,}2} & \textbf{3{,}4} & \textbf{7{,}0} & \textbf{9{,}3} & \textbf{10{,}7} & \textbf{11{,}6} & \textbf{12{,}4} & \textbf{12{,}7} \\
-\emph{Réserve : plus-values (prudent)} & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}2 & 0{,}4 & 0{,}5 & 0{,}5 & 0{,}6 & 0{,}6 & 0{,}7 & 0{,}7 & 0{,}8 & 0{,}8 & 0{,}8 \\
+\textbf{Solde} & \textbf{0{,}0} & \textbf{0{,}5} & \textbf{9{,}3} & \textbf{8{,}0} & \textbf{7{,}2} & \textbf{6{,}4} & \textbf{$-$0{,}9} & \textbf{3{,}5} & \textbf{7{,}0} & \textbf{9{,}3} & \textbf{10{,}6} & \textbf{11{,}5} & \textbf{12{,}3} & \textbf{12{,}6} \\
+\emph{Réserve : plus-values (prudent)} & 0{,}0 & 0{,}0 & 0{,}0 & 0{,}2 & 0{,}5 & 0{,}5 & 0{,}6 & 0{,}6 & 0{,}6 & 0{,}7 & 0{,}7 & 0{,}8 & 0{,}8 & 0{,}9 \\
 \bottomrule\end{tabular}
 \end{table}

@@ -8,7 +8,7 @@ A = json.loads((S / "bouclage4.json").read_text(encoding="utf-8"))["annuel"]
 IS = json.loads((S / "is4.json").read_text(encoding="utf-8"))["annuel_caisse"]
 ans = sorted(A)
 f = lambda x: ("$-$" if x < -0.049 else "") + f"{abs(x):.1f}".replace(".", "{,}")
-dfl = lambda a: 1.03 ** (int(a) - 2027)
+dfl = lambda a: 1.03 ** (int(a) - 2026)
 isl = [("\\quad dont fin du taux réduit", ["is_fin_taux_reduit_prudent"]),
        ("\\quad dont fin du CIR (prudent)", ["is_cir_suppression_realisable_prudent"]),
        ("\\quad dont autres niches de l'IS (prudent)", ["is_niches_rendement_prudent_realisable"]),
@@ -17,7 +17,7 @@ isl = [("\\quad dont fin du taux réduit", ["is_fin_taux_reduit_prudent"]),
 L = [("Taxe nationale sur le sol", "foncier_taxe_sol"), ("Droits de mutation", "foncier_dmto"),
      ("Report, déductibilité, calendrier", "foncier_autres"), ("Impôt sur les sociétés, solde prudent", "is_net_prudent")]
 t = ["\\begin{table}[!htbp]\\centering\\scriptsize\\setlength{\\tabcolsep}{2.1pt}",
-     "\\caption{Trajectoire complète du scénario central (Md€ par an, années d'encaissement, euros de 2027 environ ;"
+     "\\caption{Trajectoire complète du scénario central (Md€ par an, années d'encaissement, euros de 2026 ;"
      " + = recette publique en plus)}",
      "\\begin{tabular}{@{}l" + "r" * len(ans) + "@{}}\\toprule", " & " + " & ".join(a[2:] for a in ans) + " \\\\ \\midrule"]
 for lab, k in L:
@@ -39,7 +39,7 @@ CRDS fin 2033) ne sont ni comptées ni utilisées. La fusion de l'IR et de la CS
 constante chaque année (les niches supprimées financent la baisse du barème au rythme de leur extinction) ; la ligne
 « baisse supplémentaire » est le financement externe qu'elle reçoit, minimum vieillesse corrigé compris, et net du coût de la revalorisation des déficits reportables de l'impôt sur les sociétés, qu'il finance. Taxe
 nationale sur le sol par tiers en 2029-2031, droits de mutation baissés au même rythme. Déduction immédiate de 50~\% dès
-2029, 75~\% en 2033, 100~\% en 2036, logiciels acquis inclus dès 2031. Séries d'IS déflatées de 3~\% par an. Les
+2029, 75~\% en 2033, 100~\% en 2036, logiciels acquis inclus dès 2031. Montants en euros de 2026 : séries d'IS déflatées de 3~\% par an, niveaux 2025 (foncier, impôt sur le revenu) majorés de 3~\%. Les
 excédents des premières années, qui viennent de l'IS encaissé avant la montée en charge de la déduction, sont gardés
 comme marge ; le solde est d'au moins 0,58~Md€ chaque année à partir de 2028 (programme
 \texttt{calculs/bouclage4.py}).

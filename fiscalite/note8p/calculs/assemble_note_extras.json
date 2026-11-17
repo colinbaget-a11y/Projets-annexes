@@ -1,0 +1,112 @@
+{
+ "chapeaux": {
+  "IR": "Nous fusionnons l'impôt sur le revenu, la CSG et la CRDS, qui frappent les revenus du travail et de remplacement, en un seul impôt individuel. Nous en harmonisons les seuils à rendement inchangé et corrigeons au passage plusieurs dérives, comme la multiplication des niches ou le traitement plus favorable des pensions. Le système qui en résulte est plus simple, plus lisible et un peu plus favorable à la croissance, à la reprise d'emploi et à la progression des salaires.",
+  "FONCIER": "Nous divisons par deux les droits de mutation, qui freinent la mobilité professionnelle et l'accession à la propriété, et créons une taxe nationale sur la seule valeur du sol, qui rapporte bien davantage que ce que coûte cette baisse (figure~\\ref{fig:g15}). La réforme reste progressive, parce qu'elle fait baisser la valeur des terrains.",
+  "IS": "Nous gardons le taux de l'impôt sur les sociétés à 25~\\%, mais remplaçons le taux réduit des petites entreprises, les niches sectorielles et le crédit d'impôt recherche par la déduction immédiate des investissements, et nous partageons mieux les pertes des entreprises. L'impôt favorise ainsi celles qui investissent et prennent des risques, plutôt que celles qui restent petites ou entrent dans un dispositif. Elle conserve l'imposition minimale de 15~\\% des grands groupes, issue de l'accord conclu à l'OCDE, même si elle rapporte bien moins que prévu : c'est le seul garde-fou commun contre la course au moins-disant fiscal entre États\\footnote{Le Sénat attend 0,5 milliard d'euros en 2026, contre environ 1,5 milliard par an prévu lors de sa transposition (rapport n\\textsuperscript{o}~780, juin 2026).}.",
+  "PFU": "Nous conservons le prélèvement forfaitaire unique, dont le taux est cohérent avec notre nouvel impôt sur le revenu, mais mettons fin à l'effacement des plus-values au décès, qui pousse les entrepreneurs à garder leurs titres plutôt qu'à les vendre.",
+  "BILAN": "Prise dans son ensemble, la réforme ne change presque pas le niveau des prélèvements : elle en change la structure. Elle élargit l'assiette de l'impôt sur le revenu pour en baisser les taux, déplace l'impôt des transactions immobilières vers la détention du sol et réoriente l'impôt sur les sociétés vers l'investissement."
+ },
+ "exceptions": "Le forfait de 10~\\% et les frais réels disparaissent ensemble : chaque salarié bénéficiera d'un abattement uniforme de 500 euros, sans justificatif, à l'image de la déduction forfaitaire que la CSG pratique depuis sa création. Ce choix dégage près de 12 milliards d'euros par rapport au maintien des frais réels, soit près d'un point de baisse de tous les taux\\footnote{Calcul des auteurs : 11,9 milliards d'euros par rapport à un forfait supprimé avec maintien des frais réels, dont le montant déclaré aurait presque doublé ; modèle de frais calé sur les frais réels déclarés pour les revenus 2024 (DGFiP) ; annexe B.}, et dispense des millions de contribuables de justifier leurs dépenses. Les salariés qui parcourent chaque jour de longues distances en voiture y perdent : c'est le prix d'un impôt plus simple et de taux plus bas pour tous.",
+ "titre_g11": "L'élargissement de l'assiette finance la baisse des taux et la franchise par enfant",
+ "bilan": "\\section{Ce que la réforme prélève et ce qu'elle rend}\n\n{\\itshape Prise dans son ensemble, la réforme change la structure des prélèvements bien plus que leur niveau. Elle élargit\nl'assiette de l'impôt sur le revenu pour en baisser les taux, déplace l'impôt des transactions immobilières vers la\ndétention du sol et réoriente l'impôt sur les sociétés vers l'investissement. Elle dégage en outre une marge qui\npermettra de supprimer d'autres impôts.\\par}\n\n\\graphique{figure_bilan}{L'impôt sur le revenu rend tout ce qu'il prélève ; le foncier et les entreprises dégagent une\nmarge d'environ 13 milliards d'euros}{fig:bilan}\n\n\\textbf{L'élargissement de l'assiette de l'impôt sur le revenu dégage près de 120 milliards d'euros, entièrement rendus\naux contribuables} (figure~\\ref{fig:bilan}). La suppression des niches n'en représente qu'un sixième. L'essentiel vient\nde la refonte elle-même : l'imposition des pensions comme des salaires, l'impôt individuel, la fin du quotient familial,\net le remplacement de la déduction de la CSG et de l'abattement pour frais par un forfait de 500 euros. Ces ressources\nfinancent la baisse de tous les taux, pour environ 100 milliards d'euros, et la franchise par enfant, pour\nenviron 15,5 milliards. La refonte de l'impôt sur le revenu est ainsi neutre pour les finances publiques.\n\n\\textbf{Le foncier et l'impôt sur les sociétés dégagent ensemble une marge d'environ 13 milliards d'euros par an.} La\ntaxe nationale sur le sol rapporte environ 15 milliards, dont 8 financent la division par deux des droits de mutation. La fin du\ntaux réduit, du crédit d'impôt recherche et des autres niches des entreprises rapporte environ 10 milliards à terme,\ndont la déduction immédiate absorbe 1,5 une fois installée, mais 7 en 2032, quand l'État rembourse aussi la transition, et la revalorisation des déficits 1. Cette marge pourra servir\nà baisser les impôts de production, traités dans un autre volet de ce rapport. Chaque baisse n'entre en vigueur qu'avec\nla recette qui la finance, et les recettes les plus incertaines sont comptées à leur rendement prudent\\footnote{Trajectoire\nannée par année de 2027 à 2040 en annexe F. Tous les montants de cette note sont exprimés en euros de 2026 ; ils reposent sur les données les plus récentes disponibles (revenus 2024 et droit des revenus 2025 pour l'impôt sur le revenu, valeurs foncières de 2025), portées en 2026 par une croissance nominale de 3~\\% par an. Le solde est positif chaque année, sauf en 2033 ($-$0,9 milliard d'euros),\nquand l'État rembourse l'essentiel du passage à la déduction intégrale ; les excédents des années 2028 à 2032, environ\n30 milliards cumulés, le couvrent largement. Crédit d'impôt recherche et niches de l'impôt sur les sociétés comptés après\nréaction des entreprises et extinction des créances déjà acquises. Non comptées : la fin de l'effacement des plus-values\nau décès (environ 1 milliard d'euros à terme), la fin de la contribution exceptionnelle sur les bénéfices des grandes\nentreprises et l'extinction de la CRDS en 2034.}.",
+ "sources": [
+  [
+   "soit près de 580 euros",
+   "Calculs des auteurs avec OpenFisca-France (droit des revenus 2025) : impôt sur le revenu, CSG et CRDS sur une hausse du salaire brut de 3\\,600 à 5\\,400 euros par mois, salariée seule sans enfant."
+  ],
+  [
+   "dégagerait 20,7 milliards d’euros par an à comportements inchangés",
+   "Calculs des auteurs à partir du coût de chaque dispositif : Évaluation des voies et moyens, tome II (PLF 2026) ; Conseil des prélèvements obligatoires (2026) ; DGFiP, \\emph{Statistiques} n\\textsuperscript{o}~41 (2025). Détail en annexe B."
+  ],
+  [
+   "dégagera 10,1 milliards d’euros de recettes annuelles, soit un effort moyen de 700 euros par foyer retraité",
+   "Calculs des auteurs, modèle de foyers calé sur les statistiques de l'impôt sur le revenu des revenus 2024 (DGFiP) ; annexe B."
+  ],
+  [
+   "avec notre impôt individuel",
+   "Calculs des auteurs avec OpenFisca-France (droit des revenus 2025)."
+  ],
+  [
+   "pendant six ans pour couvrir ce seul coût fiscal",
+   "Droits de mutation de 21\\,190 euros au taux de 5,81~\\%, hors émoluments du notaire ; calculs des auteurs."
+  ],
+  [
+   "rapportant 15 milliards d’euros par an",
+   "Calculs des auteurs à partir des valeurs foncières des ventes (DVF) et des comptes de patrimoine de l'Insee : environ 300 euros par logement et par an en moyenne, davantage là où le sol est cher ; annexe C."
+  ],
+  [
+   "de l’ordre de 2~\\%",
+   "Calcul des auteurs : la taxe seule ferait baisser la valeur des logements des ménages d'environ 3,5~\\%, la baisse des droits la relève de 0 à 2,4 points selon qu'elle est intégrée ou non dans les prix ; annexe C (ordre de grandeur extrapolé du scénario à 10 milliards)."
+  ],
+  [
+   "coûterait ainsi environ 7,3 milliards d’euros par an",
+   "Calculs des auteurs à partir des recettes d'impôt sur les sociétés de 2025 ; annexe D."
+  ],
+  [
+   "dégagerait ainsi 4,1 milliards d’euros par an",
+   "Fin du taux réduit : 2,0 milliards ; autres dispositifs (crédits sectoriels, zonages, réduction pour mécénat) : 2,1 milliards après réaction des entreprises. Calculs des auteurs ; annexe D."
+  ],
+  [
+   "consacrés au crédit d’impôt recherche",
+   "7,4 milliards d'euros attendus en 2027 (Sénat, PLF 2027), 8,0 dans l'Évaluation des voies et moyens du PLF 2026. Une part des créances déjà acquises reste due jusqu'en 2031 et l'effort de recherche baissera : nous ne comptons donc qu'une recette prudente d'environ 5,5 milliards d'euros par an à terme ; annexe D."
+  ],
+  [
+   "de l’ordre d’un milliard d’euros par an à terme",
+   "Calcul des auteurs à partir des déficits imputés chaque année (DGFiP, \\emph{Statistiques} n\\textsuperscript{o}~21, 2024) : 1,2 milliard en régime permanent, entre 0,4 et 2,3 selon les hypothèses."
+  ],
+  [
+   "ils acquittent ensemble environ 411 k€ d’impôts",
+   "Calculs des auteurs : plus-value au prélèvement forfaitaire unique, droits de succession en ligne directe pour un enfant unique ; annexe E."
+  ],
+  [
+   "suggère des gains d’efficacité de l’ordre de 2 milliards d’euros par an",
+   "Gain statique lié aux seules incitations au travail, entre 1,0 et 5,3 milliards d'euros selon les élasticités retenues, hors effets propres aux dispositifs supprimés ; méthode en annexe A."
+  ]
+ ],
+ "remplacements": [
+  [
+   "1 096 euros de son augmentation",
+   "1 109 euros de son augmentation"
+  ],
+  [
+   "dégagera 12,6 milliards d’euros de recettes annuelles, soit un effort moyen de 870 euros par retraité",
+   "dégagera 10,1 milliards d’euros de recettes annuelles, soit un effort moyen de 700 euros par foyer retraité"
+  ],
+  [
+   "contre 4,9",
+   "contre 3,9"
+  ],
+  [
+   "(figure~\\ref{fig:g11})",
+   "(figure~\\ref{fig:bilan})"
+  ],
+  [
+   "franchise de 6 000 euros par enfant",
+   "franchise de 4 700 euros par enfant"
+  ],
+  [
+   "de l’ordre de 3 milliards d’euros par an",
+   "de l’ordre de 2 milliards d’euros par an"
+  ],
+  [
+   "Sans aller aussi loin, nous proposons, au niveau communal, de taxer quatre fois plus fortement le sol que le bâti. S’y ajouterait une taxe nationale sur la seule valeur du sol, au taux d’environ 0,16~\\%, rapportant 10 milliards d’euros par an. Un propriétaire qui construit un immeuble de 600 000 euros sur un terrain de 200 000 euros verrait ainsi le supplément d’impôt lié à son investissement passer de 2 150 à 850 euros par an, tandis que conserver ce terrain sans le construire deviendrait fiscalement plus coûteux",
+   "Sans aller aussi loin, nous proposons de conserver la taxe foncière communale et d’y ajouter une taxe nationale sur la seule valeur du sol, au taux d’environ 0,24~\\%, rapportant 15 milliards d’euros par an. Contrairement à une hausse de la taxe foncière actuelle, elle n’alourdit pas l’impôt dû pour avoir construit : sur un terrain de 200 000 euros, elle coûte environ 490 euros par an, que le terrain soit vide ou porte un immeuble de 600 000 euros, si bien que conserver ce terrain sans le construire devient fiscalement plus coûteux"
+  ],
+  [
+   "de l’ordre de 1~\\%",
+   "de l’ordre de 2~\\%"
+  ],
+  [
+   "dégagerait 20,1 milliards d’euros par an",
+   "dégagerait 20,7 milliards d’euros par an"
+  ],
+  [
+   "coûterait ainsi environ 7,5 milliards d’euros par an",
+   "coûterait ainsi environ 7,3 milliards d’euros par an"
+  ],
+  [
+   "dégagerait ainsi 4,2 milliards d’euros par an",
+   "dégagerait ainsi 4,1 milliards d’euros par an"
+  ]
+ ]
+}

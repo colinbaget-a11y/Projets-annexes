@@ -5,85 +5,85 @@
    "items": [
     {
      "libelle": "Suppression des niches",
-     "Md": 20.109399999999997
+     "Md": 20.712681999999997
     },
     {
      "libelle": "Pensions imposées comme les salaires",
-     "Md": 15.772445113416978
+     "Md": 16.245618466819487
     },
     {
      "libelle": "Fin du quotient conjugal",
-     "Md": 12.120642298943036
+     "Md": 12.484261567911327
     },
     {
      "libelle": "Fin du quotient familial",
-     "Md": 16.233105856809022
+     "Md": 16.720099032513293
     },
     {
      "libelle": "Fin de la CSG déductible",
-     "Md": 24.082721691567304
+     "Md": 24.805203342314325
     },
     {
      "libelle": "Forfait de 500 € au lieu du 10 % et des frais réels",
-     "Md": 25.729708564869966
+     "Md": 26.501599821816065
     },
     {
      "libelle": "Franchise de 4 700 € par enfant",
-     "Md": -15.116330622235093
+     "Md": -15.569820540902146
     },
     {
      "libelle": "Baisse des taux (nouveau barème)",
-     "Md": -98.10221080485893
+     "Md": -101.0452771290047
     },
     {
      "libelle": "Minimum vieillesse ; contribution sur les hauts revenus",
-     "Md": -0.8294820985122939
+     "Md": -0.8543665614676628
     }
    ],
-   "sous_total": -2.1316282072803006e-14
+   "sous_total": -5.773159728050814e-15
   },
   {
    "titre": "Fiscalité foncière",
    "items": [
     {
      "libelle": "Taxe nationale sur la valeur du sol",
-     "Md": 13.491999999999999
+     "Md": 13.896759999999999
     },
     {
      "libelle": "Droits de mutation divisés par deux",
-     "Md": -8.075
+     "Md": -8.31725
     }
    ],
-   "sous_total": 5.417
+   "sous_total": 5.579509999999999
   },
   {
    "titre": "Impôt sur les sociétés",
    "items": [
     {
      "libelle": "Fin du taux réduit",
-     "Md": 2.090520613779055
+     "Md": 2.0296316638631597
     },
     {
      "libelle": "Fin du crédit d'impôt recherche",
-     "Md": 5.775829265822131
+     "Md": 5.607601228953524
     },
     {
      "libelle": "Fin des autres niches",
-     "Md": 2.113672959338823
+     "Md": 2.052109669260993
     },
     {
      "libelle": "Déduction immédiate des investissements",
-     "Md": -1.5675499846642944
+     "Md": -1.5218931889944605
     },
     {
      "libelle": "Revalorisation des déficits reportables",
-     "Md": -1.13273443045291
+     "Md": -1.1667164633664973
     }
    ],
-   "sous_total": 7.2797384238228044
+   "sous_total": 7.000732909716718
   }
  ],
- "solde": 12.696738423822783,
+ "solde": 12.580242909716713,
  "annee": 2040,
- "unite": "Md€ de 2027 environ"
+ "unite": "Md€ de 2026"
 }

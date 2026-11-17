@@ -3,5 +3,8 @@
  "scenario_foncier": "B_E15",
  "financement_externe_ir": 0.0,
  "note": "Paramètres du scénario central (v6) lus par ircsg3_modele, ircsg4_modele, bouclage4, figure_bilan_v5",
- "architecture_fonciere": "C : taxe communale inchangée + taxe nationale sur le seul sol (montants nationaux du scénario B_E15)"
+ "architecture_fonciere": "C : taxe communale inchangée + taxe nationale sur le seul sol (montants nationaux du scénario B_E15)",
+ "annee_reference": 2026,
+ "croissance_nominale": 0.03,
+ "note_reference": "Montants en euros de 2026. Données : les plus récentes disponibles (revenus 2024 et droit des revenus 2025 pour l'impôt sur le revenu ; valeurs et taxes foncières de 2025 ; recettes d'IS projetées en euros courants). Passage en 2026 : croissance nominale conventionnelle de 3 % par an (niveaux 2025 × 1,03 ; séries IS divisées par 1,03^(année − 2026))."
 }
