@@ -1,10 +1,12 @@
 {
  "franchise_enfant": 4700.0,
  "scenario_foncier": "B_E15",
- "financement_externe_ir": 0.0,
+ "financement_externe_ir": -1.045,
  "note": "Paramètres du scénario central (v6) lus par ircsg3_modele, ircsg4_modele, bouclage4, figure_bilan_v5",
  "architecture_fonciere": "C : taxe communale inchangée + taxe nationale sur le seul sol (montants nationaux du scénario B_E15)",
  "annee_reference": 2026,
  "croissance_nominale": 0.03,
- "note_reference": "Montants en euros de 2026. Données : les plus récentes disponibles (revenus 2024 et droit des revenus 2025 pour l'impôt sur le revenu ; valeurs et taxes foncières de 2025 ; recettes d'IS projetées en euros courants). Passage en 2026 : croissance nominale conventionnelle de 3 % par an (niveaux 2025 × 1,03 ; séries IS divisées par 1,03^(année − 2026))."
+ "note_reference": "Montants en euros de 2026. Données : les plus récentes disponibles (revenus 2024 et droit des revenus 2025 pour l'impôt sur le revenu ; valeurs et taxes foncières de 2025 ; recettes d'IS projetées en euros courants). Passage en 2026 : croissance nominale conventionnelle de 3 % par an (niveaux 2025 × 1,03 ; séries IS divisées par 1,03^(année − 2026)).",
+ "ajustement_droit_2032": 1.045,
+ "note_ajustement": "Le barème récupère 1,045 Md€ (niveau 2025) : Girardin (0,894), éteint avant 2032 en droit actuel, ne rapporte rien à la réforme ; abattement des personnes âgées surestimé par le modèle (0,57 contre 0,419 dans les Voies et moyens, n° 100201). Vérification du 17/11/2026, sorties/verification_bilan_ir.md."
 }

@@ -39,6 +39,10 @@ CA = L("is4.json")["annuel_caisse"]
 PXA = {int(a): v for a, v in L("pal.json")["pertes"]["national"]["indexation_cout_regime_Md"]["montee_en_charge_indicative"].items()}
 
 
+# corrections issues de la vérification à la source (sorties/verification_bilan_ir.md) : Girardin éteint avant 2032 en droit
+# actuel (0,894) ; abattement des personnes âgées calé sur les Voies et moyens (0,419) ; 1,33 Md€ de CSG induite par la fin de
+# l'abattement de 10 % reclassés dans la ligne CSG. Le barème a été recalé d'autant (parametres.json).
+GIR, AGE_VM, CSG_ABAT = 0.894, 0.419, 1.33
 ND = {k: v["recette_croisiere_Md"] for k, v in IR["recette_niches_par_dispositif"]["par_dispositif"].items()}
 PRINC = ("emploi_domicile", "epargne_salariale", "heures_sup", "dons", "garde", "demi_parts")
 assert abs(sum(ND.values()) - K["vraies_niches"]) < 0.01
@@ -58,10 +62,10 @@ def blocs(an):
             ("Niches : réduction pour dons", K25 * ND["dons"]),
             ("Niches : crédit pour la garde des jeunes enfants", K25 * ND["garde"]),
             ("Niches : demi-parts dérogatoires", K25 * ND["demi_parts"]),
-            ("Niches : autres (Girardin, outre-mer, scolarité…)", K25 * (K["vraies_niches"] - sum(ND[x] for x in PRINC))),
-            ("Retraités : fin de l'abattement de 10 % sur les pensions", K25 * CB["abatpen"]),
-            ("Retraités : CSG alignée sur celle des actifs", K25 * CB["csg_ret"]),
-            ("Retraités : fin de l'abattement des personnes âgées", K25 * CB["age"]),
+            ("Niches : autres (Girardin, outre-mer, scolarité…)", K25 * (K["vraies_niches"] - sum(ND[x] for x in PRINC) - GIR)),
+            ("Retraités : fin de l'abattement de 10 % sur les pensions", K25 * (CB["abatpen"] - CSG_ABAT)),
+            ("Retraités : CSG alignée sur celle des actifs", K25 * (CB["csg_ret"] + CSG_ABAT)),
+            ("Retraités : fin de l'abattement des personnes âgées", K25 * AGE_VM),
             ("Salariés : forfait de 500 € au lieu de l'abattement de 10 %", K25 * K["technique_frais"]),
             ("Fin de la CSG déductible", K25 * K["technique_csg_deductible"]),
             ("Impôt individuel : fin du quotient conjugal", K25 * K["unite_fiscale"]),

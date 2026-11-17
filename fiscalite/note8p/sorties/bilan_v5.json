@@ -29,19 +29,19 @@
     },
     {
      "libelle": "Niches : autres (Girardin, outre-mer, scolarité…)",
-     "Md": 3.2284319999999957
+     "Md": 2.3076119999999958
     },
     {
      "libelle": "Retraités : fin de l'abattement de 10 % sur les pensions",
-     "Md": 7.491137474710698
+     "Md": 6.121237474710697
     },
     {
      "libelle": "Retraités : CSG alignée sur celle des actifs",
-     "Md": 8.167114873458619
+     "Md": 9.537014873458618
     },
     {
      "libelle": "Retraités : fin de l'abattement des personnes âgées",
-     "Md": 0.5873661186501704
+     "Md": 0.43157
     },
     {
      "libelle": "Salariés : forfait de 500 € au lieu de l'abattement de 10 %",
@@ -65,14 +65,14 @@
     },
     {
      "libelle": "Baisse des taux (nouveau barème)",
-     "Md": -101.0452771290047
+     "Md": -99.96404947627023
     },
     {
      "libelle": "Minimum vieillesse ; contribution sur les hauts revenus",
-     "Md": -0.8543665614676628
+     "Md": -0.8592442142021269
     }
    ],
-   "sous_total": -5.773159728050814e-15
+   "sous_total": -0.00026611865017966974
   },
   {
    "titre": "Fiscalité foncière",
@@ -123,7 +123,7 @@
    "sous_total": 1.0676915334654904
   }
  ],
- "solde": 6.377341533465488,
+ "solde": 6.377075414815314,
  "annee": 2032,
  "unite": "Md€ de 2026"
 }

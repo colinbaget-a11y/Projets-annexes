@@ -29,7 +29,7 @@ for y in Y:
              "foncier_autres": K25 * (f["net"] - f["taxe_fonciere_nouvelle"] - f["dmto"]),
              "is_net_prudent": is_net,
              "is_revalorisation_deficits": -K25 * PERTES.get(int(y), PERTES_REGIME if int(y) >= 2032 else 0.0),
-             "ir_financement_externe": K25 * r["ircsg_total"],
+             "ir_financement_externe": K25 * (r["ircsg_total"] - (_P.get("ajustement_droit_2032", 0.0) if int(y) >= 2029 else 0.0)),   # neutre par rapport au droit de 2032
              "reserve_plus_values": K25 * PF[y]["fin_effacement_prudent"]}
     ligne["solde"] = sum(v for k, v in ligne.items() if k != "reserve_plus_values")
     res[y] = ligne
