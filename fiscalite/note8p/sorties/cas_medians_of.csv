@@ -1,0 +1,6 @@
+cle,libelle,enfants,bruts,statuts,bases,charge,ir,csg_crds
+ret_couple,"Couple de retraités, chacun la pension médiane",0,18000.00;18000.00,ret;ret,18000.00;18000.00,2556.0,0.0,2556.0
+couple_2e,"Couple, deux enfants, chacun le salaire médian",2,33092.61;33092.61,sal;sal,29349.82;29349.82,7068.62,761.0,6307.62
+celib,Célibataire au salaire médian,0,33092.61,sal,29349.82,4305.81,1152.0,3153.81
+smic_couple,Couple de smicards sans enfant,0,21622.08;21622.08,sal;sal,19176.48;19176.48,4121.28,0.0,4121.28
+mono_2e,"Couple, deux enfants, un seul salaire médian",2,33092.61;0.00,sal;sal,29349.82;0.00,3153.81,0.0,3153.81

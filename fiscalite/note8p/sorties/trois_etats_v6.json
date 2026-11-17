@@ -1,0 +1,59 @@
+{
+ "menages": {
+  "ret_couple": {
+   "aujourdhui": 213.0,
+   "naif": 188.5944230314842,
+   "reforme": 234.21594283400054
+  },
+  "celib": {
+   "aujourdhui": 358.81750000000005,
+   "naif": 246.35309211429316,
+   "reforme": 282.9134430706551
+  },
+  "smic_couple": {
+   "aujourdhui": 343.44,
+   "naif": 203.36870735628796,
+   "reforme": 250.70478525413793
+  },
+  "couple_2e": {
+   "aujourdhui": 589.0516666666666,
+   "naif": 492.7061842285863,
+   "reforme": 386.6430035719127
+  },
+  "mono_2e": {
+   "aujourdhui": 262.8175,
+   "naif": 246.35309211429316,
+   "reforme": 103.72956050125758
+  }
+ },
+ "baisse_naif_points": 1.5207173267505423,
+ "foncier": [
+  {
+   "etat": "Aujourd'hui",
+   "dmto": 16.14956244300306,
+   "bati": 22.489014977187946,
+   "sol": 22.81855669098962,
+   "national": 0.0
+  },
+  {
+   "etat": "Réforme naïve :\ndroits ÷ 2, taxe\nfoncière relevée",
+   "dmto": 8.07478122150153,
+   "bati": 27.45264779818582,
+   "sol": 27.854923869991747,
+   "national": 0.0
+  },
+  {
+   "etat": "Notre réforme :\ndroits ÷ 2, sol\ntaxé plutôt que bâti",
+   "dmto": 8.07478122150153,
+   "bati": 9.331466065132487,
+   "sol": 35.97610560304508,
+   "national": 10.0
+  }
+ ],
+ "seuils": {
+  "actuel": 6.095162605208376,
+  "taux225": 5.9538513013105225,
+  "ded50": 5.547581302604195,
+  "ded100": 5.000000000000018
+ }
+}
