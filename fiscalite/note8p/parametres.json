@@ -2,5 +2,6 @@
  "franchise_enfant": 4700.0,
  "scenario_foncier": "B_E15",
  "financement_externe_ir": 0.0,
- "note": "Paramètres du scénario central (v6) lus par ircsg3_modele, ircsg4_modele, bouclage4, figure_bilan_v5"
+ "note": "Paramètres du scénario central (v6) lus par ircsg3_modele, ircsg4_modele, bouclage4, figure_bilan_v5",
+ "architecture_fonciere": "C : taxe communale inchangée + taxe nationale sur le seul sol (montants nationaux du scénario B_E15)"
 }

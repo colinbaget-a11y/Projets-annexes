@@ -46,8 +46,6 @@ BLOCS = [
     ]),
     ("Fiscalité foncière", [
         ("Taxe nationale sur la valeur du sol", F["net"] - F["dmto"]),
-        ("Taxe foncière communale : le sol paie davantage", TRANSFERT),
-        ("Taxe foncière communale : le bâti paie moins", -TRANSFERT),
         ("Droits de mutation divisés par deux", F["dmto"]),
     ]),
     ("Impôt sur les sociétés", [
@@ -109,9 +107,10 @@ sauver(fig, "figure_bilan",
        " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
        "Recettes de 2040 en euros de 2027 environ, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
-       " total). Taxe foncière communale à deux taux, à recette inchangée : aujourd'hui répartie entre sol et bâti au"
-       " prorata de leur valeur (convention). Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
-       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. Non comptée : fin de l'effacement des plus-values au décès"
+       " total). Taxe foncière communale inchangée. Taxe nationale sur le sol nette de sa déductibilité des bénéfices."
+       " Impôt sur les sociétés : rendements prudents, après réaction des entreprises ; la déduction immédiate figure à son"
+       " coût permanent, une fois passée la transition (son coût est bien plus élevé les premières années : près de 18 Md€"
+       " en 2033). Non comptée : fin de l'effacement des plus-values au décès"
        " (environ 1 milliard à terme, gardé en réserve).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
                   for t, it in BLOCS], solde=solde, annee=2040, unite="Md€ de 2027 environ")

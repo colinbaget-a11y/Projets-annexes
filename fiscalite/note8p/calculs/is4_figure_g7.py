@@ -24,7 +24,7 @@ lignes = [  # clé, libellé, couleur, hachure, coût
     ("taux225", "Baisse du taux à 22,5 % (comparaison)", NAIF, None, f"{_fr(c225, 1)} Md€ par an, chaque année"),
     ("ded50", "Déduction immédiate de 50 % (proposition)", PROP, None,
      f"pic {_fr(max(pics), 1)} Md€ (2e année), puis {_fr(perm50, 1)} Md€ par an"),
-    ("ded100", "Déduction intégrale (paliers 2033 et 2036)", "white", "////",
+    ("ded100", "Déduction intégrale (dès 2032)", "white", "////",
      f"jusqu'à {_fr(pic_sup, 1)} Md€ de plus une année, puis {_fr(perm100, 1)} Md€ par an"),
 ]
 fig, ax = plt.subplots(figsize=(PLEINE, 2.0))
@@ -52,7 +52,7 @@ sauver(fig, "g7_tmei",
        "Machine neuve d'une durée d'usage de 7~ans (plan actuel pour moitié linéaire, pour moitié dégressif), financée "
        "par fonds propres ; rendement réel exigé 5~\\%, inflation 2~\\%, dépréciation 14~\\% par an, sans impôt personnel. "
        "Déduction de 50~\\% : la moitié du prix déduite l'année de l'achat, le reste amorti normalement, au taux de 25~\\% ; "
-       "25~\\% pour l'exercice 2029, 50~\\% dès 2030 ; 75~\\% en 2033 et 100~\\% en 2036, financés par la suppression du "
+       "25~\\% pour l'exercice 2029, 50~\\% dès 2030 ; 100~\\% dès 2032, financés par la suppression du "
        "crédit d'impôt recherche. Coûts bruts, hors financement ; coûts permanents en euros de 2027. "
        "Financée par emprunt, la même machine a un taux de $-24$~\\% aujourd'hui, $-37$~\\% avec la déduction de 50~\\% ; "
        "pour un tiers d'emprunt, 7,6~\\% et $-1{,}7$~\\%.")

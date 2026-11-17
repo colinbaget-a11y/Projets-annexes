@@ -50,19 +50,11 @@
      "Md": 13.491999999999999
     },
     {
-     "libelle": "Taxe foncière communale : le sol paie davantage",
-     "Md": 12.95805149035479
-    },
-    {
-     "libelle": "Taxe foncière communale : le bâti paie moins",
-     "Md": -12.95805149035479
-    },
-    {
      "libelle": "Droits de mutation divisés par deux",
      "Md": -8.075
     }
    ],
-   "sous_total": 5.416999999999998
+   "sous_total": 5.417
   },
   {
    "titre": "Impôt sur les sociétés",
@@ -91,7 +83,7 @@
    "sous_total": 7.2797384238228044
   }
  ],
- "solde": 12.696738423822781,
+ "solde": 12.696738423822783,
  "annee": 2040,
  "unite": "Md€ de 2027 environ"
 }

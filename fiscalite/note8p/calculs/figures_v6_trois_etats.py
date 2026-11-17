@@ -10,7 +10,7 @@ g15_foncier : prélèvements immobiliers, Md€ par an (droits de mutation, taxe
   nationale sur le sol). Aujourd'hui : taxe foncière répartie entre sol et bâti au prorata de leur valeur (convention :
   taux unique sur la valeur totale) ; réforme naïve : droits divisés par deux, financés par une hausse uniforme de la taxe
   foncière actuelle ; notre réforme : taux communal à deux taux à recette communale inchangée + taxe nationale sur le sol
-  (sorties/foncier3.json, scénario B_E10).
+  (sorties/foncier3.json, montants nationaux du scénario B_E15 ; taxe communale inchangée).
 g16_seuil : rendement avant impôt minimal pour qu'une machine neuve financée sur fonds propres soit rentable, quand
   l'actionnaire exige 5 % réels (convention Devereux-Griffith, sorties/is3.json : taux_effectifs).
 """
@@ -104,10 +104,11 @@ com_bati = sc["tc_bati"] / 100 * A["bati"]
 com = com_sol + com_bati
 part_sol = A["sol"] / (A["sol"] + A["bati"])
 nat = F["scenarios"]["B_E10"]["E"]
+nat = float(json.loads((D / "parametres.json").read_text(encoding="utf-8"))["scenario_foncier"].split("_E")[1])
 ETATS = [("Aujourd'hui", dmto, com * (1 - part_sol), com * part_sol, 0.0),
          ("Réforme naïve :\ndroits ÷ 2, taxe\nfoncière relevée", dmto / 2, (com + nat) * (1 - part_sol),
           (com + nat) * part_sol, 0.0),
-         ("Notre réforme :\ndroits ÷ 2, sol\ntaxé plutôt que bâti", dmto / 2, com_bati, com_sol, nat)]
+         ("Notre réforme :\ndroits ÷ 2, taxe\nnationale sur le sol", dmto / 2, com * (1 - part_sol), com * part_sol, nat)]
 COUL = [("Droits de mutation", "#6b6b6b"), ("Taxe foncière sur le bâti", NAIF), ("Taxe foncière sur le sol", HAUSSE),
         ("Taxe nationale sur le sol", "#7a3a12")]
 fig, ax = plt.subplots(figsize=(PLEINE, 2.9))
@@ -128,11 +129,11 @@ ax.set_ylim(0, 70)
 ax.legend(handles=[Patch(color=c, label=n) for n, c in COUL], fontsize=6.9, loc="upper center", bbox_to_anchor=(0.5, -0.3), ncol=4)
 axes(ax)
 sauver(fig, "g15_foncier",
-       "calculs des auteurs (note8p/calculs/foncier3_calculs.py, scénario à 10 Md€) ; DVF ; comptes de patrimoine (Insee).",
+       "calculs des auteurs (note8p/calculs/foncier3_calculs.py, taxe nationale de 15 Md€) ; DVF ; comptes de patrimoine (Insee).",
        "Droits de mutation à titre onéreux de 2025 ; taxe foncière communale à recette inchangée, répartie aujourd'hui"
        " entre sol et bâti au prorata de leur valeur (convention : taux unique sur la valeur totale du bien). Réforme"
-       " naïve : la hausse de 10 Md€ porte sur la taxe actuelle, bâti compris. Notre réforme : le sol est taxé quatre fois"
-       " plus que le bâti à l'échelon communal, plus une taxe nationale d'environ 0,16 % sur la seule valeur du sol."
+       " naïve : la même hausse porte sur la taxe actuelle, bâti compris. Notre réforme : taxe communale inchangée, plus une"
+       " taxe nationale d'environ 0,24 % sur la seule valeur du sol."
        " Montants arrondis au milliard ; hors report de paiement et déductibilité.")
 
 # ------------------------------------------------------------------ g16 seuil de rentabilité
@@ -175,3 +176,36 @@ out = dict(menages=RES, baisse_naif_points=100 * BAISSE_NAIF,
            seuils=seuil)
 (S_ / "trois_etats_v6.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print(json.dumps(out, ensure_ascii=False, indent=1)[:1500])
+
+# ------------------------------------------------------------------ g17 : terrain nu ou bâti (remplace g6)
+G6 = F["g6"]
+SOL, BATI = G6["sol"], G6["bati"]
+t0 = G6["aujourdhui"]["t_sol"] / 100                       # taxe actuelle, taux unique sur la valeur totale (convention)
+k_naif = (com + nat) / com
+tn = F["scenarios"][json.loads((D / "parametres.json").read_text(encoding="utf-8"))["scenario_foncier"]]["taux"]["tn_sol"] / 100
+CASG = [("Aujourd'hui", t0 * SOL, t0 * (SOL + BATI)),
+        ("Réforme naïve :\ntaxe foncière relevée", k_naif * t0 * SOL, k_naif * t0 * (SOL + BATI)),
+        ("Notre réforme :\ntaxe nationale sur le sol", t0 * SOL + tn * SOL, t0 * (SOL + BATI) + tn * SOL)]
+fig, ax = plt.subplots(figsize=(PLEINE, 2.6))
+for i, (lab, nu, ba) in enumerate(CASG):
+    ax.bar(i - 0.17, nu, width=0.32, color=HAUSSE, zorder=2)
+    ax.bar(i + 0.17, ba, width=0.32, color=NAIF, zorder=2)
+    ax.text(i - 0.17, nu + 60, _fr(round(nu, -1)) + " €", ha="center", fontsize=7, color=ENCRE2)
+    ax.text(i + 0.17, ba + 60, _fr(round(ba, -1)) + " €", ha="center", fontsize=7, color=ENCRE2)
+    ax.text(i, -560, f"construire coûte {_fr(round(ba - nu, -1))} € d'impôt en plus par an", ha="center", fontsize=6.8,
+            color=PROP, fontweight="bold")
+ax.set_xticks(range(3))
+ax.set_xticklabels([c[0] for c in CASG], fontsize=7.3)
+ax.tick_params(axis="x", pad=16)
+ax.set_ylim(0, 4400)
+ax.set_ylabel("Impôt foncier annuel", fontsize=7.3)
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: _fr(v) + " €"))
+ax.legend(handles=[Patch(color=HAUSSE, label="Terrain de 200 000 € laissé vide"),
+                   Patch(color=NAIF, label="Le même terrain portant un immeuble de 600 000 €")], fontsize=7, loc="upper left")
+axes(ax)
+sauver(fig, "g17_construire", "calcul illustratif des auteurs (note8p/calculs/figures_v6_trois_etats.py).",
+       f"Aujourd'hui : {_fr(100 * t0, 2)} % de la valeur totale du bien (taxe foncière rapportée à la valeur des logements,"
+       f" 2025 ; un terrain nu paie aujourd'hui la taxe sur le non-bâti, souvent plus basse). Réforme naïve : la même recette"
+       f" de 15 Md€ obtenue en relevant la taxe actuelle (+{_fr(100 * (k_naif - 1))} %). Notre réforme : taxe nationale de"
+       f" {_fr(100 * tn, 2)} % sur la seule valeur du sol.")
+print("g17", [(c[0].split(chr(10))[0], round(c[1]), round(c[2]), round(c[2] - c[1])) for c in CASG])
