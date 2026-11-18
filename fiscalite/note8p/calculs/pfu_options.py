@@ -10,7 +10,7 @@ Lehmann et Sicsic). Hypothèse : la réaction porte sur l'assiette forfaitaire s
 import json
 from pathlib import Path
 
-B, T0 = 79.6 * 1.03 ** 2, 0.314          # revenus 2024 portés en euros de 2026 (+3 % par an)
+B, T0 = 79.6 * 1.03, 0.314          # revenus 2024 portés en euros de 2025 (+3 % par an)
 OPT = {"30": dict(taux=0.30, statique=1.5), "25": dict(taux=0.25, statique=(T0 - 0.25) * B)}
 res = {}
 for k, o in OPT.items():

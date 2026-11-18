@@ -33,6 +33,7 @@ for m in re.finditer(r"\\label\{((fig|tab):[^}]*)\}", corps):
         nt += 1
         nums[m.group(1)] = str(nt)
 
+corps = re.sub(r"\\input\{tableaux/([^}]*)\}", lambda m: (Path(__file__).parent / "tableaux" / (m.group(1) + ".tex")).read_text(encoding="utf-8").replace("tabularx}{\\linewidth}", "tabular}").replace("end{tabularx}", "end{tabular}").replace("{@{}X", "{@{}l"), corps)
 corps = re.sub(r"\\deuxgraphiques\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}%?\s*\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}",
                lambda m: fig(m.group(1), m.group(2), m.group(3)) + fig(m.group(4), m.group(5), m.group(6)), corps,
                flags=re.S)
@@ -53,8 +54,8 @@ corps = re.sub(r"\\begin\{tcolorbox\}\[[^\]]*\]|\\end\{tcolorbox\}", "", corps)
 corps = corps.replace("\\color{white}", "")
 # en-tête
 t = "Taxer mieux plutôt que davantage"
-st = "Moins de niches, des assiettes larges, des taux raisonnables : une fiscalité qui récompense le travail, l'investissement et la mobilité, sans un euro de dette en plus"
-debut = corps.index("\\textbf{Ce que nous proposons.}") if "Ce que nous proposons" in corps else corps.index("\\section{")
+st = "Impôt sur le revenu, fiscalité foncière, impôt sur les sociétés et prélèvement forfaitaire unique. Document de travail du 18 novembre 2026, montants en Md€ de 2025."
+debut = corps.index("{\\bfseries\\color{bleu}L'ESSENTIEL}") if "L'ESSENTIEL" in corps else corps.index("\\section{")
 corps = f"\\section*{{{t}}}\n\n\\emph{{{st}}}\n\n" + corps[debut:]
 for c in ("\\color{gris}", "\\raggedright", "\\scriptsize", "\\small", "\\vspace{1pt}", "\\vspace{2pt}", "\\vspace{3pt}",
           "\\vspace{4pt}", "\\setlength{\\tabcolsep}{3.2pt}"):

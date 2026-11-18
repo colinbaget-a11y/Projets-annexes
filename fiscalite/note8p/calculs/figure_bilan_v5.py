@@ -49,6 +49,13 @@ assert abs(sum(ND.values()) - K["vraies_niches"]) < 0.01
 assert abs(CB["abatpen"] + CB["age"] + CB["csg_ret"] - K["alignement_pensions"]) < 0.01
 
 
+_DB = PAR["doublons_partie3"]
+_NP = L("is3.json")["niches_paquet"]
+_F = _DB["facteurs_prudents"]
+PART_NICHES = (sum(_F[k] * _NP[k]["montant_2026"] for k in _DB["niches_is_conservees"])
+               / sum(_F[k] * _NP[k]["montant_2026"] for k in _F))   # CIR, mécénat, zonages, crédit famille : partie III
+
+
 def blocs(an):
     """Lignes du bilan pour une année de caisse (euros de 2027 environ). L'impôt sur le revenu est en régime installé
     dès 2030 (décomposition statique) : mêmes valeurs en 2032 et en 2040."""
@@ -82,8 +89,7 @@ def blocs(an):
         ]),
         ("Impôt sur les sociétés", [
             ("Fin du taux réduit", c["is_fin_taux_reduit_prudent"] / dd),
-            ("Fin du crédit d'impôt recherche", c["is_cir_suppression_realisable_prudent"] / dd),
-            ("Fin des autres niches", c["is_niches_rendement_prudent_realisable"] / dd),
+            ("Fin des crédits d'impôt culture", PART_NICHES * c["is_niches_rendement_prudent_realisable"] / dd),
             ("Déduction immédiate des investissements", (c["is_deduction_50_depart_2029"] + c["is_reinvest_logiciels_acquis"]
                                                          + c["is_reinvest_deduction_75_puis_100"]) / dd),
             ("Revalorisation des déficits reportables", -K25 * px),
@@ -164,19 +170,22 @@ ax.set_xlabel(f"Milliards d'euros en {ANNEE} (+ : l'État prélève davantage ; 
 axes(ax, grille="x")
 ax.spines["left"].set_visible(False)
 ax.tick_params(axis="y", length=0)
+_B = L("bouclage4.json")["annuel"]
+TRANS33 = f"la marge de l'ensemble tombe à {_fr(_B['2033']['solde'], 0)} Md€ en 2033"
+M40 = _fr(_B["2040"]["solde"], 0)
 sauver(fig, "figure_bilan",
        "calculs des auteurs : modèle de foyers calé sur les statistiques de l'impôt sur le revenu 2024 (DGFiP) ; coûts des"
        " niches : Évaluation des voies et moyens PLF 2026, CPO (2026) ; foncier : DVF et comptes de patrimoine (Insee) ;"
-       " impôt sur les sociétés : recettes 2025 et coût du crédit d'impôt recherche (PLF 2027) ; annexes B à F.",
-       "Recettes de 2032, en euros de 2026, arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
+       " impôt sur les sociétés : recettes 2025 (Insee) ; annexes B à F.",
+       "Recettes de 2032, en Md€ de 2025 (montants rapportés à l'économie de 2025), arrondies au milliard. Gris : total de chaque bloc. Impôt sur le revenu :"
        " décomposition séquentielle avant réaction des comportements (l'ordre change la taille de chaque ligne, pas le"
        " total). Taxe foncière communale assise sur la valeur de marché, en deux parts (sol et bâti), à recette communale inchangée : le total ne change pas, mais la charge se redistribue entre logements. Taxe nationale sur le sol : 15 Md€ bruts, montant affiché net de sa déductibilité des bénéfices."
        " Impôt sur les sociétés : rendements prudents, après réaction des entreprises. En 2032, la déduction immédiate"
-       " coûte cher parce que l'État rembourse aussi la transition (près de 12 Md€ en 2033) ; une fois celle-ci passée,"
-       " vers 2040, elle ne coûte plus qu'environ 1,5 Md€ par an et la marge de l'ensemble atteint environ 13 Md€. Niches : coûts des Voies et moyens du PLF 2026, hors dispositifs qui s'éteignent avant 2032 en droit actuel (Girardin). Quotients conjugal et familial : la Cour des comptes les chiffrait à 11,1 et 16,5 Md€ en 2021. Fin de la CSG déductible : 16 Md€ si la mesure était prise isolément. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
-       " contribuables ; entre parenthèses, le solde qui en résulterait). Non comptée : fin de l'effacement des plus-values au décès"
-       " (environ 1 milliard à terme, gardé en réserve).")
+       " coûte cher parce que l'État rembourse aussi la transition ("+TRANS33+") ; une fois celle-ci passée,"
+       " vers 2040, la marge de l'ensemble atteint environ "+M40+" Md€. Niches : coûts des Voies et moyens du PLF 2026, hors dispositifs qui s'éteignent avant 2032 en droit actuel (Girardin). Quotients conjugal et familial : la Cour des comptes les chiffrait à 11,1 et 16,5 Md€ en 2021. Fin de la CSG déductible : 16 Md€ si la mesure était prise isolément. Hachures : options non retenues, non comptées dans le solde (coût après réaction des"
+       " contribuables ; entre parenthèses, le solde qui en résulterait). Comptés dans la partie III du rapport et retirés ici :"
+       " recentrage du crédit d'impôt recherche, mécénat, zonages et crédit famille (mesure 2), fin de l'effacement des plus-values à la transmission (mesure 3).")
 out = dict(blocs=[dict(titre=t, items=[dict(libelle=l, Md=v) for l, v in it], sous_total=sum(v for _, v in it))
-                  for t, it in BLOCS], solde=solde, annee=ANNEE, unite="Md€ de 2026")
+                  for t, it in BLOCS], solde=solde, annee=ANNEE, unite="Md€ de 2025")
 (S / "bilan_v5.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print([(t, round(sum(v for _, v in it), 2)) for t, it in BLOCS], round(solde, 2))

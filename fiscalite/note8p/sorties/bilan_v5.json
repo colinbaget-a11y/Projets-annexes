@@ -5,74 +5,74 @@
    "items": [
     {
      "libelle": "Niches : crédit pour l'emploi à domicile",
-     "Md": 7.23987
+     "Md": 7.029
     },
     {
      "libelle": "Niches : intéressement et participation exonérés",
-     "Md": 2.53071
+     "Md": 2.457
     },
     {
      "libelle": "Niches : heures supplémentaires exonérées",
-     "Md": 2.27836
+     "Md": 2.212
     },
     {
      "libelle": "Niches : réduction pour dons",
-     "Md": 2.2701200000000004
+     "Md": 2.204
     },
     {
      "libelle": "Niches : crédit pour la garde des jeunes enfants",
-     "Md": 1.85297
+     "Md": 1.799
     },
     {
      "libelle": "Niches : demi-parts dérogatoires",
-     "Md": 1.3122200000000002
+     "Md": 1.274
     },
     {
      "libelle": "Niches : autres (scolarité, outre-mer, indemnités…)",
-     "Md": 2.3076119999999958
+     "Md": 2.2403999999999957
     },
     {
      "libelle": "Retraités : fin de l'abattement de 10 % sur les pensions",
-     "Md": 6.121237474710697
+     "Md": 5.942949004573492
     },
     {
      "libelle": "Retraités : CSG alignée sur celle des actifs",
-     "Md": 9.537014873458618
+     "Md": 9.259237741221959
     },
     {
      "libelle": "Retraités : fin de l'abattement des personnes âgées",
-     "Md": 0.43157
+     "Md": 0.419
     },
     {
      "libelle": "Salariés : forfait de 500 € au lieu de l'abattement de 10 %",
-     "Md": 26.501599821816065
+     "Md": 25.729708564869966
     },
     {
      "libelle": "Fin de la CSG déductible",
-     "Md": 24.805203342314325
+     "Md": 24.082721691567304
     },
     {
      "libelle": "Impôt individuel : fin du quotient conjugal",
-     "Md": 12.484261567911327
+     "Md": 12.120642298943036
     },
     {
      "libelle": "Fin du quotient familial",
-     "Md": 16.720099032513293
+     "Md": 16.233105856809022
     },
     {
      "libelle": "Franchise de 4 700 € par enfant",
-     "Md": -15.569820540902146
+     "Md": -15.116330622235093
     },
     {
      "libelle": "Baisse des taux (nouveau barème)",
-     "Md": -99.96404947627023
+     "Md": -97.05247521967983
     },
     {
      "libelle": "Minimum vieillesse ; contribution sur les hauts revenus",
-     "Md": -0.8592442142021269
+     "Md": -0.8342176836913854
     }
    ],
-   "sous_total": -0.00026611865017966974
+   "sous_total": -0.0002583676215482944
   },
   {
    "titre": "Fiscalité foncière",
@@ -87,43 +87,39 @@
     },
     {
      "libelle": "Taxe nationale sur la valeur du sol",
-     "Md": 13.626900000000001
+     "Md": 13.23
     },
     {
      "libelle": "Droits de mutation divisés par deux",
-     "Md": -8.31725
+     "Md": -8.075
     }
    ],
-   "sous_total": 5.309650000000001
+   "sous_total": 5.155000000000001
   },
   {
    "titre": "Impôt sur les sociétés",
    "items": [
     {
      "libelle": "Fin du taux réduit",
-     "Md": 2.0300618382011777
+     "Md": 1.970933823496289
     },
     {
-     "libelle": "Fin du crédit d'impôt recherche",
-     "Md": 5.6077945827537485
-    },
-    {
-     "libelle": "Fin des autres niches",
-     "Md": 1.797241214843122
+     "libelle": "Fin des crédits d'impôt culture",
+     "Md": 0.43713343052546355
     },
     {
      "libelle": "Déduction immédiate des investissements",
-     "Md": -7.20068963896606
+     "Md": -6.990960814530155
     },
     {
      "libelle": "Revalorisation des déficits reportables",
-     "Md": -1.1667164633664973
+     "Md": -1.13273443045291
     }
    ],
-   "sous_total": 1.0676915334654904
+   "sous_total": -5.715627990961313
   }
  ],
- "solde": 6.377075414815314,
+ "solde": -0.5608863585828594,
  "annee": 2032,
- "unite": "Md€ de 2026"
+ "unite": "Md€ de 2025"
 }

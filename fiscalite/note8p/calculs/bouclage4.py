@@ -21,17 +21,25 @@ _P = json.loads((S.parent / "parametres.json").read_text(encoding="utf-8"))
 G, AREF = _P["croissance_nominale"], _P["annee_reference"]
 D = lambda y: (1 + G) ** (int(y) - AREF)
 K25 = (1 + G) ** (AREF - 2025)          # niveaux 2025 (foncier, impôt sur le revenu, pertes) portés en euros de l'année de référence
+_DB = _P["doublons_partie3"]
+_NP = json.loads((S / "is3.json").read_text(encoding="utf-8"))["niches_paquet"]
+_F = _DB["facteurs_prudents"]
+PART_NICHES = (sum(_F[k] * _NP[k]["montant_2026"] for k in _DB["niches_is_conservees"])
+               / sum(_F[k] * _NP[k]["montant_2026"] for k in _F))       # part des niches d'IS qui restent à cette partie
 res = {}
 for y in Y:
     i, f, r = IS[y], FO[y], IR["annuel_final"][y]
-    is_net = i.get("is_recette_nette_bloc_is_prudent", 0) / D(y)
+    # doublons avec la partie III retirés : CIR (recentré en partie III) et niches mécénat, zonages, crédit famille
+    is_net = (i.get("is_recette_nette_bloc_is_prudent", 0) - i.get("is_cir_suppression_realisable_prudent", 0)
+              - (1 - PART_NICHES) * i.get("is_niches_rendement_prudent_realisable", 0)) / D(y)
     ligne = {"foncier_taxe_sol": K25 * f["taxe_fonciere_nouvelle"], "foncier_dmto": K25 * f["dmto"],
              "foncier_autres": K25 * (f["net"] - f["taxe_fonciere_nouvelle"] - f["dmto"]),
              "is_net_prudent": is_net,
              "is_revalorisation_deficits": -K25 * PERTES.get(int(y), PERTES_REGIME if int(y) >= 2032 else 0.0),
              "ir_financement_externe": K25 * (r["ircsg_total"] - (_P.get("ajustement_droit_2032", 0.0) if int(y) >= 2029 else 0.0)),   # neutre par rapport au droit de 2032
-             "reserve_plus_values": K25 * PF[y]["fin_effacement_prudent"]}
-    ligne["solde"] = sum(v for k, v in ligne.items() if k != "reserve_plus_values")
+             "reserve_plus_values": K25 * PF[y]["fin_effacement_prudent"],
+             "variante_cir_tiers_restant": (2.6 * 0.8 if int(y) >= 2032 else 0.0)}   # tiers restant après le recentrage de la partie III (7,8 → 2,6 Md€), décote de 20 %
+    ligne["solde"] = sum(v for k, v in ligne.items() if k not in ("reserve_plus_values", "variante_cir_tiers_restant"))
     res[y] = ligne
 (S / "bouclage4.json").write_text(json.dumps({"annuel": res, "notes": __doc__}, ensure_ascii=False, indent=1),
                                   encoding="utf-8")

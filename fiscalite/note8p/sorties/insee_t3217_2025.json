@@ -1,0 +1,17 @@
+{
+ "source": "Insee, comptes nationaux annuels 2025 (base 2020), tableau 3.217 « Principaux impôts par catégorie », publié le 29/05/2026, https://www.insee.fr/fr/statistiques/fichier/8988845/t_3217_fr.xlsx",
+ "statut": "OBS",
+ "unite": "Md€ courants 2025",
+ "irpp_avant_credits": 103.626,
+ "irpp_credits_imputes": -7.173,
+ "irpp_credits_restitues": -2.143,
+ "csg": 156.583,
+ "crds": 9.27,
+ "taxe_fonciere": 44.179,
+ "dmto_collectivites": 17.658,
+ "is_avant_credits": 69.473,
+ "is_credits_imputes": -3.93,
+ "is_credits_restitues": -6.199,
+ "pib_2025": 2991.1,
+ "po_2025": 1305.1
+}
