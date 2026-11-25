@@ -105,38 +105,55 @@ def demographie(pop0, qx, T):
 
 
 # ----------------------------------------------------------------------------------------------- réformes
-def reformes(pr, N, Q, r, g):
-    """Variation, par tête, des transferts nets reçus (perte > 0), par année t (0 = année de base) et âge.
-    Renvoie dict réforme -> matrice (T+1, AMAX) en euros de 2025 de l'année t, et les paramètres calés."""
+def calage_cor(horizon=None):
+    """Effet moyen des trois modèles du COR sur le solde primaire des APU (pt de PIB) et chocs ex ante (Md€) qui donnent
+    à chaque levier le même effet sur le solde public que le recul d'un an de l'âge."""
+    c = P["cor_2026"]
+    h = c["horizons"].index(P["horizon_calage"] if horizon is None else horizon)
+    moy = lambda d: float(np.mean([v[h] for v in d.values() if v[h] is not None]))  # noqa: E731
+    E = {k: moy(v) for k, v in c["solde_apu"].items()}
+    X = {k: c["choc_ex_ante_Md"] * E["age_un_an"] / E[k] for k in ("pensions", "cotis_salaries", "cotis_employeurs")}
+    return dict(E=E, X=X, solde_retraites_age=moy(c["solde_retraites_age"]), emploi_age=moy(c["emploi_age_milliers"]) * 1e3,
+                apu_Md=E["age_un_an"] / 100 * P["pib_2025"])
+
+
+def reformes(pr, N, Q, r, g, horizon=None):
+    """Variation, par tête, des transferts nets reçus (perte > 0), par année t (0 = année de base) et âge, pour quatre
+    réformes de même effet sur le solde public (celui du recul d'un an de l'âge, moyenne des modèles du COR).
+    Renvoie dict réforme -> matrice (T+1, AMAX), en euros de 2025 pour l'économie de l'année t, et le calage."""
     T = N.shape[0] - 1
     G = (1 + g) ** np.arange(T + 1)[:, None]
     t0 = P["annee_reforme"] - P["annee_base"]
     actif = (np.arange(T + 1) >= t0)[:, None]
-    y, p, sal, pens, part = pr["y"], pr["p"], pr["sal"], pr["pens"], pr["part"]
-    # la cible est un rendement de 10 Md€ dans l'économie de 2025 : delta = 10 / pensions de référence de 2025
-    delta = P["budget_cible"] / ((N[0] * p).sum() / 1e9)
-    dtau = P["budget_cible"] / ((N[0] * y).sum() / 1e9)
+    y, p, pens, part = pr["y"], pr["p"], pr["pens"], pr["part"]
+    cc = calage_cor(horizon)
+    # A et B : chocs ex ante calés sur l'économie de 2025 (droit de référence)
+    delta = cc["X"]["pensions"] / ((N[0] * p).sum() / 1e9)
+    dts = cc["X"]["cotis_salaries"] / ((N[0] * y).sum() / 1e9)
+    dte = cc["X"]["cotis_employeurs"] / ((N[0] * y).sum() / 1e9)   # incidence finale sur les salaires (COR)
     A = actif * delta * p[None, :] * G
-    B = actif * dtau * y[None, :] * G
-    # C : part de retraités décalée d'un an pour les générations qui ont au plus `age_max` ans l'année de réforme
-    k, rho, tau, gam = P["kappa_emploi"], P["remplacement_autres_prestations"], P["taux_cotisation_retraite"], P["gain_droits_annee_sup"]
-    dec = P["decalage_age"]
-    part_c = np.interp(AGES - dec, AGES, part)
-    dshare = np.clip(part - part_c, 0, None)                      # personnes privées de pension à cet âge
-    # perte par tête à chaque âge : pension perdue, cotisations versées par ceux qui travaillent un an de plus, moins
-    # les prestations (chômage, invalidité, minima) reçues par ceux qui ne travaillent pas, moins les droits acquis
-    perte = (dshare * pens + tau * k * dshare * sal - (1 - k) * rho * dshare * pens
-             - gam * k * part_c * pens * (AGES >= P["age_legal_reference"] + dec))
-    salaire_net_sup = k * dshare * sal * (1 - CAL["prelevements_salaries"]["valeur"])
-    age_max = P["age_max_touche"]                                 # générations touchées : âge l'année de réforme
-    C = np.zeros_like(A)
-    Cw = np.zeros_like(A)
+    Bs = actif * dts * y[None, :] * G
+    Be = actif * dte * y[None, :] * G
+    # C : la part de retraités est décalée d'un an ; le profil des pensions perdues est mis à l'échelle de l'économie de
+    # pensions déduite du COR (solde des retraites moins cotisations sur l'emploi supplémentaire)
+    part_c = np.interp(AGES - P["decalage_age"], AGES, part)
+    dshare = np.clip(part - part_c, 0, None)
+    cotis = cc["emploi_age"] * P["salaire_brut_senior"] * P["taux_cotisation_retraite"] / 1e9
+    eco_pensions = cc["solde_retraites_age"] / 100 * P["pib_2025"] - cotis
+    lam = eco_pensions * 1e9 / (N[0] * dshare * pens).sum()
+    pension_perdue = lam * dshare * pens
+    w = P["part_compensee_autres_prestations"]
+    perte = pension_perdue * (1 - w)                               # temps libre valant le salaire net
+    emp_sup = dshare * cc["emploi_age"] / (N[0] * dshare).sum()    # emploi supplémentaire par tête à chaque âge
+    sal_net = emp_sup * P["salaire_brut_senior"] * (1 - CAL["prelevements_salaries"]["valeur"])
+    C, Cw = np.zeros_like(A), np.zeros_like(A)
     for t in range(t0, T + 1):
-        nes_age = AGES - (t - t0)                                 # âge l'année de réforme
-        touche = nes_age <= age_max
+        touche = (AGES - (t - t0)) <= P["age_max_touche"]
         C[t] = touche * perte * G[t, 0]
-        Cw[t] = touche * (perte - salaire_net_sup) * G[t, 0]
-    return dict(A=A, B=B, C=C, C_salaire=Cw), dict(delta=delta, dtau=dtau)
+        Cw[t] = touche * (perte - sal_net) * G[t, 0]
+    cal = dict(delta=delta, dtau_sal=dts, dtau_emp=dte, cotis_emploi_sup=cotis, eco_pensions=eco_pensions,
+               perte_transferts_C=eco_pensions * (1 - w), **cc)
+    return dict(A=A, B=Bs, B_emp=Be, C=C, C_salaire=Cw), cal
 
 
 def va_individuelle(M, Q, r, t0):
@@ -182,7 +199,7 @@ def calculer(r=None, g=None, verbeux=False):
     M, cal = reformes(pr, N, Q, r, g)
     t0 = P["annee_reforme"] - P["annee_base"]
     G = (1 + g) ** np.arange(T + 1)
-    res = dict(r=r, g=g, delta=cal["delta"], dtau=cal["dtau"], ages=AGES.tolist())
+    res = dict(r=r, g=g, ages=AGES.tolist(), calage_reformes={k: v for k, v in cal.items()})
     for k, m in M.items():
         flux = (N * m).sum(axis=1) / 1e9                        # gain budgétaire de chaque année, Md€ courants réels
         va_budget = sum(flux[t] / (1 + r) ** (t - t0) for t in range(t0, T + 1))
@@ -204,18 +221,23 @@ def calculer(r=None, g=None, verbeux=False):
 
 
 def audit(res):
-    print(f"r = {res['r']:.3f}, g = {res['g']:.3f} ; delta = {100 * res['delta']:.2f} % des pensions ; "
-          f"dtau = {100 * res['dtau']:.2f} point de cotisation")
+    c = res["calage_reformes"]
+    print(f"r = {res['r']:.3f}, g = {res['g']:.3f} ; effet APU visé {c['E']['age_un_an']:.3f} pt de PIB = {c['apu_Md']:.1f} Md€")
+    print("  effets APU par 6 Md€ :", {k: round(v, 3) for k, v in c["E"].items()}, "; chocs ex ante (Md€) :",
+          {k: round(v, 1) for k, v in c["X"].items()})
+    print(f"  delta = {100 * c['delta']:.2f} % des pensions ; cotisations salariés + {100 * c['dtau_sal']:.2f} pt ;"
+          f" employeurs + {100 * c['dtau_emp']:.2f} pt ; âge : économie de pensions {c['eco_pensions']:.1f} Md€,"
+          f" cotisations sur l'emploi en plus {c['cotis_emploi_sup']:.1f} Md€, perte de transferts {c['perte_transferts_C']:.1f} Md€")
     print("calage :", {k: round(v, 3) for k, v in res["calage"].items()})
-    for k in ("A", "B", "C", "C_salaire"):
+    for k in ("A", "B", "B_emp", "C", "C_salaire"):
         x = res[k]
         print(f"[{k}] flux Md€ 2025 : 2026 {x['flux_2026']:.1f} ; 2030 {x['flux_2030']:.1f} ; 2040 {x['flux_2040']:.1f} ;"
               f" 2060 {x['flux_2060']:.1f} | VA budget {x['va_budget']:.0f} | vivants {x['va_vivants']:.0f}"
               f" ({100 * x['part_vivants']:.0f} %) | futurs nés en 2026 : {x['future_naissance_2026']:.0f} €")
         print("    par tranche (Md€) :", {a: round(v) for a, v in x["va_par_tranche"].items()})
-    print("âge  " + "".join(f"{k:>10}" for k in ("A", "B", "C", "C+sal", "ressources")))
+    print("âge  " + "".join(f"{k:>10}" for k in ("A", "B", "B_emp", "C", "C+sal", "ressources")))
     for a in range(20, 100, 5):
-        print(f"{a:>3}  " + "".join(f"{res[k]['perte_par_age'][a]:>10.0f}" for k in ("A", "B", "C", "C_salaire"))
+        print(f"{a:>3}  " + "".join(f"{res[k]['perte_par_age'][a]:>10.0f}" for k in ("A", "B", "B_emp", "C", "C_salaire"))
               + f"{res['ressources_par_age'][a]:>10.0f}")
 
 

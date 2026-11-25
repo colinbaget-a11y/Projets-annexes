@@ -31,11 +31,6 @@
   ],
   "note": "croissance réelle du salaire par tête (COR, scénario central)"
  },
- "budget_cible": {
-  "valeur": 10.0,
-  "statut": "HYP",
-  "note": "Md€ de 2025 par an, à plein effet"
- },
  "age_legal_reference": {
   "valeur": 64,
   "statut": "OBS",
@@ -45,29 +40,10 @@
   "valeur": 1,
   "statut": "HYP"
  },
- "kappa_emploi": {
-  "valeur": 0.55,
-  "statut": "HYP",
-  "fourchette": [
-   0.4,
-   0.8
-  ],
-  "note": "part des personnes privées de retraite qui restent en emploi (réforme de 2010)"
- },
- "remplacement_autres_prestations": {
-  "valeur": 0.35,
-  "statut": "HYP",
-  "note": "prestation reçue par ceux qui ne sont pas en emploi, en part de la pension perdue"
- },
  "taux_cotisation_retraite": {
   "valeur": 0.28,
   "statut": "HYP",
   "note": "cotisations retraite totales en part du salaire brut, moyenne"
- },
- "gain_droits_annee_sup": {
-  "valeur": 0.01,
-  "statut": "HYP",
-  "note": "hausse de pension due à une année de cotisation de plus"
  },
  "amelioration_mortalite": {
   "valeur": 0.0,
@@ -75,8 +51,204 @@
   "note": "baisse annuelle des quotients de mortalité (variante 0,01)"
  },
  "age_max_touche": {
-  "valeur": 59,
+  "valeur": 63,
   "statut": "HYP",
-  "note": "recul annoncé en 2026 pour les générations 1967 et suivantes, qui n'atteignent pas l'âge d'ouverture des droits avant 2029"
+  "note": "montée en charge immédiate comme dans les simulations du COR : toutes les générations non encore parties"
+ },
+ "cor_2026": {
+  "statut": "OBS",
+  "source": "COR, séance plénière du 26 mars 2026, document n° 2, tableaux 1 à 4 (DG Trésor, I-MIP, OFCE) ; rapport annuel juin 2026, tableau 2.10",
+  "note": "solde primaire des APU, en points de PIB, en écart au compte central, à 1, 2, 5, 10, 20 ans et long terme ; leviers de 6 Md€ ex ante (0,2 pt de PIB) et recul d'un an de l'AOD (64 à 65 ans, montée en charge immédiate)",
+  "horizons": [
+   1,
+   2,
+   5,
+   10,
+   20,
+   "LT"
+  ],
+  "solde_apu": {
+   "pensions": {
+    "DGT": [
+     0.13,
+     0.07,
+     0.07,
+     0.1,
+     0.11,
+     0.12
+    ],
+    "IMIP": [
+     0.14,
+     0.15,
+     0.15,
+     0.16,
+     0.16,
+     0.16
+    ],
+    "OFCE": [
+     0.13,
+     0.09,
+     0.06,
+     0.07,
+     0.1,
+     0.11
+    ]
+   },
+   "cotis_salaries": {
+    "DGT": [
+     0.15,
+     0.1,
+     0.09,
+     0.07,
+     0.04,
+     0.02
+    ],
+    "IMIP": [
+     0.12,
+     0.12,
+     0.12,
+     0.12,
+     0.12,
+     0.12
+    ],
+    "OFCE": [
+     0.13,
+     0.09,
+     0.05,
+     0.07,
+     0.1,
+     0.1
+    ]
+   },
+   "cotis_employeurs": {
+    "DGT": [
+     0.15,
+     0.09,
+     0.05,
+     0.03,
+     0.02,
+     0.0
+    ],
+    "IMIP": [
+     0.06,
+     0.08,
+     0.09,
+     0.09,
+     0.09,
+     0.09
+    ],
+    "OFCE": [
+     0.16,
+     0.11,
+     0.03,
+     0.03,
+     0.08,
+     0.11
+    ]
+   },
+   "age_un_an": {
+    "DGT": [
+     0.1,
+     0.4,
+     0.4,
+     0.5,
+     0.5,
+     null
+    ],
+    "IMIP": [
+     0.15,
+     0.28,
+     0.4,
+     0.59,
+     0.64,
+     0.68
+    ],
+    "OFCE": [
+     0.01,
+     0.04,
+     0.19,
+     0.25,
+     0.32,
+     0.34
+    ]
+   }
+  },
+  "solde_retraites_age": {
+   "DGT": [
+    0.1,
+    0.2,
+    0.2,
+    0.3,
+    0.2,
+    null
+   ],
+   "IMIP": [
+    0.06,
+    0.18,
+    0.27,
+    0.39,
+    0.4,
+    0.42
+   ],
+   "OFCE": [
+    0.12,
+    0.12,
+    0.13,
+    0.16,
+    0.2,
+    0.22
+   ]
+  },
+  "emploi_age_milliers": {
+   "DGT": [
+    29,
+    142,
+    142,
+    198,
+    210,
+    null
+   ],
+   "IMIP": [
+    84,
+    114,
+    172,
+    251,
+    241,
+    229
+   ],
+   "OFCE": [
+    40,
+    50,
+    140,
+    160,
+    200,
+    230
+   ]
+  },
+  "choc_ex_ante_Md": 6.0
+ },
+ "horizon_calage": {
+  "valeur": 20,
+  "statut": "HYP",
+  "note": "effet à 20 ans, moyenne des trois modèles ; variante à 5 ans"
+ },
+ "pib_2025": {
+  "valeur": 2991.1,
+  "statut": "OBS",
+  "note": "Insee, comptes nationaux 2025, Md€"
+ },
+ "part_compensee_autres_prestations": {
+  "valeur": 0.2,
+  "statut": "HYP",
+  "fourchette": [
+   0.1,
+   0.35
+  ],
+  "note": "part de la pension perdue compensée par chômage, invalidité, IJ, minima sociaux (Cour des comptes, DG Trésor : autres dépenses sociales induites)"
+ },
+ "salaire_brut_senior": {
+  "valeur": 42000,
+  "statut": "HYP",
+  "note": "salaire brut annuel moyen d'un salarié de 60-64 ans, à remplacer par la donnée Insee"
  }
 }
