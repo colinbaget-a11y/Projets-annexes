@@ -250,5 +250,48 @@
   "valeur": 36800,
   "statut": "DED",
   "note": "revenu salarial net des 55 ans et plus, 28 730 € (Insee ECRT 2026, 2023), divisé par 0,78 ; inclut temps partiel et années incomplètes, comme l'emploi compté en personnes"
+ },
+ "croissance_pension_reelle": {
+  "valeur": 0.002,
+  "statut": "OBS",
+  "note": "COR, rapport 2026 : pensions +0,2 % par an en réel de 2025 à 2070, revenus d'activité +0,7 % ; pension moyenne relative de 54,6 % à 45,3 %"
+ },
+ "annee_fin_decrochage": {
+  "valeur": 2070,
+  "statut": "HYP",
+  "note": "au-delà, la pension par tête suit le revenu d'activité"
+ },
+ "courbe_reelle": {
+  "statut": "DED",
+  "maturites": [
+   0,
+   6,
+   17,
+   21,
+   300
+  ],
+  "taux": [
+   0.0126,
+   0.0126,
+   0.0224,
+   0.0236,
+   0.0236
+  ],
+  "note": "OAT indexées, adjudication d'août 2026 (juillet 2032 : 1,26 % ; 2043 : 2,24 % ; 2047 : 2,36 %), source de presse (Reuters via Boursorama), indice d'inflation non confirmé ; taux plats avant 6 ans et après 21 ans"
+ },
+ "ajustement_risque": {
+  "statut": "HYP",
+  "kappa": 0.16,
+  "phi": 0.08,
+  "prime_actions": 0.06,
+  "age_liquidation": 63,
+  "note": "Catherine, Miller et Sarin (J. Finance 2025, sect. 5), d'après Benzoni, Collin-Dufresne et Goldstein : beta des salaires (1 - phi/kappa)(1 - exp(-kappa n)), prime de 6 % ; appliqué aux cotisations et aux pensions jusqu'à la liquidation ; borne haute pour la France, où les salaires portés au compte sont revalorisés sur les prix"
+ },
+ "prime_liquidite": {
+  "statut": "HYP",
+  "prime": 0.02,
+  "age_debut": 30,
+  "age_fin": 55,
+  "note": "Catherine, Miller et Sarin (sect. 7.3) : taux privés plus élevés de 2 à 3 points pour les ménages modestes, décroissants avec l'âge ; ici +2 points jusqu'à 30 ans, nuls à 55 ans"
  }
 }

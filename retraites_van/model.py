@@ -123,6 +123,7 @@ def reformes(pr, N, Q, r, g, horizon=None):
     Renvoie dict réforme -> matrice (T+1, AMAX), en euros de 2025 pour l'économie de l'année t, et le calage."""
     T = N.shape[0] - 1
     G = (1 + g) ** np.arange(T + 1)[:, None]
+    Gp = croissance_pensions(T, g)[:, None]                        # pension par tête : COR, puis comme les salaires
     t0 = P["annee_reforme"] - P["annee_base"]
     actif = (np.arange(T + 1) >= t0)[:, None]
     y, p, pens, part = pr["y"], pr["p"], pr["pens"], pr["part"]
@@ -131,7 +132,7 @@ def reformes(pr, N, Q, r, g, horizon=None):
     delta = cc["X"]["pensions"] / ((N[0] * p).sum() / 1e9)
     dts = cc["X"]["cotis_salaries"] / ((N[0] * y).sum() / 1e9)
     dte = cc["X"]["cotis_employeurs"] / ((N[0] * y).sum() / 1e9)   # incidence finale sur les salaires (COR)
-    A = actif * delta * p[None, :] * G
+    A = actif * delta * p[None, :] * Gp
     Bs = actif * dts * y[None, :] * G
     Be = actif * dte * y[None, :] * G
     # C : la part de retraités est décalée d'un an ; le profil des pensions perdues est mis à l'échelle de l'économie de
@@ -149,14 +150,51 @@ def reformes(pr, N, Q, r, g, horizon=None):
     C, Cw = np.zeros_like(A), np.zeros_like(A)
     for t in range(t0, T + 1):
         touche = (AGES - (t - t0)) <= P["age_max_touche"]
-        C[t] = touche * perte * G[t, 0]
-        Cw[t] = touche * (perte - sal_net) * G[t, 0]
+        C[t] = touche * perte * Gp[t, 0]
+        Cw[t] = touche * (perte * Gp[t, 0] - sal_net * G[t, 0])
     cal = dict(delta=delta, dtau_sal=dts, dtau_emp=dte, cotis_emploi_sup=cotis, eco_pensions=eco_pensions,
                perte_transferts_C=eco_pensions * (1 - w), **cc)
     return dict(A=A, B=Bs, B_emp=Be, C=C, C_salaire=Cw), cal
 
 
-def va_individuelle(M, Q, r, t0):
+def croissance_pensions(T, g):
+    """Indice de la pension par tête (base 2025) : +gp par an jusqu'à l'année pivot (COR : pension moyenne relative de
+    54,6 % en 2025 à 45,3 % en 2070), puis comme le revenu d'activité."""
+    gp, fin = P["croissance_pension_reelle"], P["annee_fin_decrochage"] - P["annee_base"]
+    k = np.arange(T + 1)
+    return np.where(k <= fin, (1 + gp) ** k, (1 + gp) ** fin * (1 + g) ** (k - fin))
+
+
+def facteurs(r, t0, T, variante=None, flux="cotisations"):
+    """Facteurs d'actualisation F[a, k] d'un flux reçu k ans après t0 par une personne d'âge a en t0.
+    variante : None (taux r constant), "courbe" (taux réels de marché par maturité), "risque" (valeur de marché des flux
+    indexés sur les salaires, à la Catherine-Miller-Sarin : prime de risque sur l'exposition aux salaires, jusqu'à la
+    liquidation pour les pensions), "liquidite" (taux privé r + prime décroissante avec l'âge)."""
+    K = np.arange(T - t0 + 1)
+    F = np.empty((AMAX, K.size))
+    if variante is None:
+        F[:] = (1 + r) ** -K[None, :]
+    elif variante == "courbe":
+        c = P["courbe_reelle"]
+        y = np.interp(K, c["maturites"], c["taux"])
+        F[:] = (1 + y[None, :]) ** -K[None, :]
+    elif variante == "risque":
+        v = P["ajustement_risque"]
+        kap, phi, erp = v["kappa"], v["phi"], v["prime_actions"]
+        cum = lambda n: (1 - phi / kap) * (n - (1 - np.exp(-kap * n)) / kap)  # noqa: E731  intégrale de beta
+        for a in range(AMAX):
+            n = K if flux == "cotisations" else np.minimum(K, max(0, v["age_liquidation"] - a))
+            F[a] = (1 + r) ** -K * np.exp(-erp * cum(n))
+    elif variante == "liquidite":
+        v = P["prime_liquidite"]
+        for a in range(AMAX):
+            ages = a + K
+            prime = np.interp(ages, [v["age_debut"], v["age_fin"]], [v["prime"], 0.0])
+            F[a] = np.concatenate([[1.0], np.cumprod(1 / (1 + r + prime[:-1]))])
+    return F
+
+
+def va_individuelle(M, Q, r, t0, F=None):
     """Perte actualisée espérée, à l'année t0, d'une personne de chaque âge a vivante en t0 (somme sur sa vie)."""
     T = M.shape[0] - 1
     out = np.zeros(AMAX)
@@ -164,7 +202,7 @@ def va_individuelle(M, Q, r, t0):
         surv, tot = 1.0, 0.0
         for k in range(0, min(AMAX - a, T - t0 + 1)):
             t, s = t0 + k, a + k
-            tot += surv * M[t, s] / (1 + r) ** k
+            tot += surv * M[t, s] * (F[a, k] if F is not None else (1 + r) ** -k)
             surv *= 1 - Q[t, s]
         out[a] = tot
     return out
@@ -185,11 +223,11 @@ def ressources(pr, Q, r, g, t0):
     """Valeur actualisée des ressources restantes (revenus d'activité + pensions) d'une personne de chaque âge."""
     T = Q.shape[0] - 1
     G = (1 + g) ** np.arange(T + 1)[:, None]
-    M = (pr["y"] + pr["p"])[None, :] * G
+    M = pr["y"][None, :] * G + pr["p"][None, :] * croissance_pensions(T, g)[:, None]
     return va_individuelle(M, Q, r, t0)
 
 
-def calculer(r=None, g=None, verbeux=False):
+def calculer(r=None, g=None, verbeux=False, actualisation=None):
     r = P["r"] if r is None else r
     g = P["g"] if g is None else g
     pop0, qx, emp, sal, part, pens = donnees()
@@ -203,7 +241,10 @@ def calculer(r=None, g=None, verbeux=False):
     for k, m in M.items():
         flux = (N * m).sum(axis=1) / 1e9                        # gain budgétaire de chaque année, Md€ courants réels
         va_budget = sum(flux[t] / (1 + r) ** (t - t0) for t in range(t0, T + 1))
-        ind = va_individuelle(m, Q, r, t0)
+        F = None
+        if actualisation is not None:
+            F = facteurs(r, t0, T, actualisation, "pensions" if k in ("A", "C", "C_salaire") else "cotisations")
+        ind = va_individuelle(m, Q, r, t0, F)
         va_vivants = (N[t0] * ind).sum() / 1e9
         res[k] = dict(perte_par_age=ind.tolist(), flux_2026=flux[t0] / G[t0], flux_2030=flux[t0 + 4] / G[t0 + 4],
                       flux_2040=flux[t0 + 14] / G[t0 + 14], flux_2060=flux[t0 + 34] / G[t0 + 34],
