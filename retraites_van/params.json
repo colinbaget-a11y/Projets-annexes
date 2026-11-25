@@ -20,16 +20,16 @@
    0.007,
    0.03
   ],
-  "note": "taux d'actualisation réel des ménages et de l'État"
+  "note": "taux réel ; OAT indexées 1,3 % (2032) à 2,4 % (2047), adjudication d'août 2026 ; France Stratégie (2021) : 1,2 % sans risque, 3,2 % avec prime de risque"
  },
  "g": {
   "valeur": 0.007,
-  "statut": "HYP",
+  "statut": "OBS",
   "fourchette": [
    0.004,
    0.013
   ],
-  "note": "croissance réelle du salaire par tête (COR, scénario central)"
+  "note": "COR, rapport 2026 : productivité horaire +0,7 % par an, scénario central"
  },
  "age_legal_reference": {
   "valeur": 64,
@@ -238,13 +238,13 @@
   "note": "Insee, comptes nationaux 2025, Md€"
  },
  "part_compensee_autres_prestations": {
-  "valeur": 0.2,
-  "statut": "HYP",
+  "valeur": 0.3,
+  "statut": "DED",
   "fourchette": [
-   0.1,
+   0.2,
    0.35
   ],
-  "note": "part de la pension perdue compensée par chômage, invalidité, IJ, minima sociaux (Cour des comptes, DG Trésor : autres dépenses sociales induites)"
+  "note": "DREES (2022) : +3,6 Md€ d'invalidité, minima et IJ, environ 25 % de l'économie de pensions ; DARES (2022) : +1,3 Md€ de chômage ; au total environ 30 % (notes au COR, séance du 27 janvier 2022)"
  },
  "salaire_brut_senior": {
   "valeur": 42000,

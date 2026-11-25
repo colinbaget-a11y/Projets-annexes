@@ -17,9 +17,10 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8.5, "axes.spine
 AG = np.arange(20, 100)
 
 
-def echelle(res, k):
-    """Normalise chaque réforme à 10 Md€ de 2025 par an à plein effet (2040)."""
-    return P["budget_cible"]["valeur"] / res[k]["flux_2040"]
+def ex_ante(res, k):
+    """Facteur qui ramène une réforme calée sur l'effet public du recul de l'âge à un choc de 6 Md€ ex ante."""
+    cle = {"A": "pensions", "B": "cotis_salaries", "B_emp": "cotis_employeurs"}[k]
+    return 6.0 / res["calage_reformes"]["X"][cle]
 
 
 def sauver(fig, nom):
@@ -28,36 +29,38 @@ def sauver(fig, nom):
     plt.close(fig)
 
 
-# 1. perte par âge, scénario central
 cle = f"{P['r']['valeur']:.3f}"
 res = R[cle]
+# 1. même effet sur le solde public (celui d'un an d'âge, moyenne des modèles du COR)
 fig, ax = plt.subplots(figsize=(6.6, 3.4))
-for k in ("A", "B", "C"):
-    v = np.array(res[k]["perte_par_age"])[AG] * echelle(res, k)
-    ax.plot(AG, v / 1000, color=COUL[k], lw=2, label=LIB[k])
-v = np.array(res["C_salaire"]["perte_par_age"])[AG] * echelle(res, "C")
-ax.plot(AG, v / 1000, color=COUL["C"], lw=1.2, ls="--", label="Recul de l'âge, salaire de l'année en plus compté comme un gain")
+for k, ls, lab in (("A", "-", LIB["A"]), ("B", "-", "Hausse des cotisations salariales"),
+                   ("B_emp", ":", "Hausse des cotisations employeurs (incidence sur les salaires)"), ("C", "-", LIB["C"])):
+    v = np.array(res[k]["perte_par_age"])[AG]
+    ax.plot(AG, v / 1000, color=COUL[k[0]], lw=2 if ls == "-" else 1.4, ls=ls, label=lab)
 ax.set_xlabel("Âge en 2026")
 ax.set_ylabel("Perte actualisée, milliers d'euros de 2025")
 ax.legend(frameon=False, fontsize=7.5)
 ax.grid(axis="y", lw=0.4, alpha=0.5)
-ax.set_title(f"Perte actualisée par personne, à rendement égal (10 Md€ par an), r = {100 * res['r']:.0f} %, g = {100 * res['g']:.1f} %",
-             loc="left")
-sauver(fig, "f1_perte_par_age")
+sauver(fig, "f1_meme_effet_public")
 
-# 2. sensibilité au taux d'actualisation : rapport baisse des pensions / hausse des cotisations
-fig, axs = plt.subplots(1, 3, figsize=(7.2, 2.6), sharey=True)
-for ax, k in zip(axs, ("A", "B", "C")):
-    for c, cl in zip(sorted(R), ("#999999", "#6b8cc7", "#173F8A", "#0b1f45")):
-        rr = R[c]
-        v = np.array(rr[k]["perte_par_age"])[AG] * echelle(rr, k)
-        ax.plot(AG, v / 1000, color=cl, lw=1.4, label=f"r = {100 * rr['r']:.1f} %")
-    ax.set_title(LIB[k], loc="left", fontsize=8)
-    ax.grid(axis="y", lw=0.4, alpha=0.5)
+# 2. même montant ex ante (6 Md€) : baisse des pensions contre hausse des cotisations, selon le taux d'actualisation
+fig, axs = plt.subplots(1, 2, figsize=(7.2, 2.8))
+cols = ("#999999", "#6b8cc7", "#173F8A", "#0b1f45")
+for c, cl in zip(sorted(R), cols):
+    rr = R[c]
+    a = np.array(rr["A"]["perte_par_age"])[AG] * ex_ante(rr, "A")
+    b = np.array(rr["B"]["perte_par_age"])[AG] * ex_ante(rr, "B")
+    axs[0].plot(AG, a / 1000, color=cl, lw=1.4, label=f"r = {100 * rr['r']:.1f} %")
+    axs[0].plot(AG, b / 1000, color=cl, lw=1.4, ls="--")
+    axs[1].plot(AG[:45], (a / b)[:45], color=cl, lw=1.4, label=f"r = {100 * rr['r']:.1f} %")
+axs[0].set_title("Perte, milliers d'euros (trait plein : pensions ;\ntirets : cotisations)", loc="left", fontsize=8)
+axs[1].set_title("Perte due à la baisse des pensions, en part\nde celle due à la hausse des cotisations", loc="left", fontsize=8)
+axs[1].axhline(1, color="k", lw=0.6)
+for ax in axs:
     ax.set_xlabel("Âge en 2026")
-axs[0].set_ylabel("Milliers d'euros de 2025")
-axs[0].legend(frameon=False, fontsize=7)
-sauver(fig, "f2_sensibilite_r")
+    ax.grid(axis="y", lw=0.4, alpha=0.5)
+axs[1].legend(frameon=False, fontsize=7)
+sauver(fig, "f2_meme_montant_ex_ante")
 
 # 3. qui paie : répartition de la valeur actualisée du rendement
 fig, ax = plt.subplots(figsize=(6.6, 2.6))

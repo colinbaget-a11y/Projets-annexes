@@ -1,21 +1,33 @@
 {
- "age_legal_2025": {
-  "valeur": 62.75
+ "provisoire": "profils par âge en attente (population, mortalité, emploi, salaires, pensions)",
+ "pensions_totales": {
+  "valeur": 401.0,
+  "statut": "OBS",
+  "source": "COR, rapport annuel juin 2026, partie 2 ch. 2 : prestations 2025, droits directs 361 + dérivés 39 Md€"
  },
  "assiette_cotisations": {
-  "valeur": 1000
+  "valeur": 1300.0,
+  "statut": "DED",
+  "source": "COR RA 2026 p. 81 : ressources = 32,1 % des revenus d'activité bruts (417 Md€) ; Insee T_6205 : salaires bruts D11 1 129 Md€ en 2025"
  },
- "pensions_totales": {
-  "valeur": 400
+ "age_legal_2025": {
+  "valeur": 62.75,
+  "statut": "OBS",
+  "source": "âge légal de la génération 1963 (62 ans 9 mois)"
  },
  "naissances": {
-  "valeur": 660000
+  "valeur": 660000,
+  "statut": "HYP",
+  "source": "à remplacer par Insee, bilan démographique"
  },
  "solde_migratoire": {
-  "valeur": 70000
+  "valeur": 70000,
+  "statut": "HYP",
+  "source": "Insee, projections 2021, scénario central"
  },
  "prelevements_salaries": {
-  "valeur": 0.22
- },
- "provisoire": true
+  "valeur": 0.22,
+  "statut": "HYP",
+  "source": "cotisations salariales et CSG-CRDS en part du salaire brut (ordre de grandeur)"
+ }
 }
