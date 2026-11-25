@@ -1,0 +1,82 @@
+{
+ "_note": "Paramètres du scénario central. Statut : OBS observé, DED déduit, CAL calé, HYP hypothèse. Montants en euros de 2025, termes réels.",
+ "annee_base": {
+  "valeur": 2025,
+  "statut": "HYP"
+ },
+ "annee_reforme": {
+  "valeur": 2026,
+  "statut": "HYP"
+ },
+ "horizon": {
+  "valeur": 300,
+  "statut": "HYP",
+  "note": "années simulées ; la somme converge si r > g"
+ },
+ "r": {
+  "valeur": 0.02,
+  "statut": "HYP",
+  "fourchette": [
+   0.007,
+   0.03
+  ],
+  "note": "taux d'actualisation réel des ménages et de l'État"
+ },
+ "g": {
+  "valeur": 0.007,
+  "statut": "HYP",
+  "fourchette": [
+   0.004,
+   0.013
+  ],
+  "note": "croissance réelle du salaire par tête (COR, scénario central)"
+ },
+ "budget_cible": {
+  "valeur": 10.0,
+  "statut": "HYP",
+  "note": "Md€ de 2025 par an, à plein effet"
+ },
+ "age_legal_reference": {
+  "valeur": 64,
+  "statut": "OBS",
+  "note": "générations 1969 et suivantes après la suspension de la LFSS 2026"
+ },
+ "decalage_age": {
+  "valeur": 1,
+  "statut": "HYP"
+ },
+ "kappa_emploi": {
+  "valeur": 0.55,
+  "statut": "HYP",
+  "fourchette": [
+   0.4,
+   0.8
+  ],
+  "note": "part des personnes privées de retraite qui restent en emploi (réforme de 2010)"
+ },
+ "remplacement_autres_prestations": {
+  "valeur": 0.35,
+  "statut": "HYP",
+  "note": "prestation reçue par ceux qui ne sont pas en emploi, en part de la pension perdue"
+ },
+ "taux_cotisation_retraite": {
+  "valeur": 0.28,
+  "statut": "HYP",
+  "note": "cotisations retraite totales en part du salaire brut, moyenne"
+ },
+ "gain_droits_annee_sup": {
+  "valeur": 0.01,
+  "statut": "HYP",
+  "note": "hausse de pension due à une année de cotisation de plus"
+ },
+ "amelioration_mortalite": {
+  "valeur": 0.0,
+  "statut": "HYP",
+  "note": "baisse annuelle des quotients de mortalité (variante 0,01)"
+ },
+ "age_max_touche": {
+  "valeur": 59,
+  "statut": "HYP",
+  "note": "recul annoncé en 2026 pour les générations 1967 et suivantes, qui n'atteignent pas l'âge d'ouverture des droits avant 2029"
+ }
+}

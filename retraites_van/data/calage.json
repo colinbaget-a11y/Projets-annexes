@@ -1,0 +1,21 @@
+{
+ "age_legal_2025": {
+  "valeur": 62.75
+ },
+ "assiette_cotisations": {
+  "valeur": 1000
+ },
+ "pensions_totales": {
+  "valeur": 400
+ },
+ "naissances": {
+  "valeur": 660000
+ },
+ "solde_migratoire": {
+  "valeur": 70000
+ },
+ "prelevements_salaries": {
+  "valeur": 0.22
+ },
+ "provisoire": true
+}
