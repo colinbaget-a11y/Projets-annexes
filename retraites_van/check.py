@@ -30,10 +30,12 @@ for r in (0.01, 0.02, 0.03):
         ok &= e < 1e-6
         print(f"r={r:.2f} {k:<10} vivants : somme des pertes {a / 1e9:9.2f} Md€ ; gains budgétaires {b / 1e9:9.2f} Md€ ; écart {e:.1e}")
 res = m.calculer()
-for k in ("A", "B"):
-    e = abs(res[k]["flux_2026"] - m.P["budget_cible"]) / m.P["budget_cible"]
+cal = res["calage_reformes"]
+for k, cle in (("A", "pensions"), ("B", "cotis_salaries"), ("B_emp", "cotis_employeurs")):
+    e = abs(res[k]["flux_2026"] - cal["X"][cle]) / cal["X"][cle]
     ok &= e < 0.05
-    print(f"rendement {k} en 2026 : {res[k]['flux_2026']:.2f} Md€ de 2025 (cible {m.P['budget_cible']})")
-print("rendement C à plein effet (2040) :", round(res["C"]["flux_2040"], 2), "Md€ de 2025")
+    print(f"choc ex ante {k} : {res[k]['flux_2026']:.2f} Md€ de 2025 en 2026 (cible {cal['X'][cle]:.2f})")
+print("perte de transferts C à plein effet (2040) :", round(res["C"]["flux_2040"], 2), "Md€ de 2025 ; calage",
+      round(cal["perte_transferts_C"], 2))
 print("CONTRÔLES", "OK" if ok else "ÉCHEC")
 raise SystemExit(0 if ok else 1)

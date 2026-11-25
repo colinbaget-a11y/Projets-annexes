@@ -41,14 +41,14 @@
   "statut": "HYP"
  },
  "taux_cotisation_retraite": {
-  "valeur": 0.28,
-  "statut": "HYP",
-  "note": "cotisations retraite totales en part du salaire brut, moyenne"
+  "valeur": 0.213,
+  "statut": "DED",
+  "note": "cotisations sur revenus d'activité 277 Md€ / assiette 1 300 Md€ (COR, rapport 2026)"
  },
  "amelioration_mortalite": {
-  "valeur": 0.0,
-  "statut": "HYP",
-  "note": "baisse annuelle des quotients de mortalité (variante 0,01)"
+  "valeur": 0.0092,
+  "statut": "CAL",
+  "note": "baisse annuelle des quotients calée sur l'espérance de vie à 64 ans de la génération 1980 (25,5 ans), dérivée des hypothèses de mortalité Insee 2026"
  },
  "age_max_touche": {
   "valeur": 63,
@@ -247,8 +247,8 @@
   "note": "DREES (2022) : +3,6 Md€ d'invalidité, minima et IJ, environ 25 % de l'économie de pensions ; DARES (2022) : +1,3 Md€ de chômage ; au total environ 30 % (notes au COR, séance du 27 janvier 2022)"
  },
  "salaire_brut_senior": {
-  "valeur": 42000,
-  "statut": "HYP",
-  "note": "salaire brut annuel moyen d'un salarié de 60-64 ans, à remplacer par la donnée Insee"
+  "valeur": 36800,
+  "statut": "DED",
+  "note": "revenu salarial net des 55 ans et plus, 28 730 € (Insee ECRT 2026, 2023), divisé par 0,78 ; inclut temps partiel et années incomplètes, comme l'emploi compté en personnes"
  }
 }

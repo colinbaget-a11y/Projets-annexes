@@ -5,6 +5,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.ticker  # noqa: E402
 import numpy as np  # noqa: E402
 
 D = Path(__file__).resolve().parent
@@ -52,10 +53,14 @@ for c, cl in zip(sorted(R), cols):
     b = np.array(rr["B"]["perte_par_age"])[AG] * ex_ante(rr, "B")
     axs[0].plot(AG, a / 1000, color=cl, lw=1.4, label=f"r = {100 * rr['r']:.1f} %")
     axs[0].plot(AG, b / 1000, color=cl, lw=1.4, ls="--")
-    axs[1].plot(AG[:45], (a / b)[:45], color=cl, lw=1.4, label=f"r = {100 * rr['r']:.1f} %")
+    axs[1].plot(AG[:39], (a / b)[:39], color=cl, lw=1.4, label=f"r = {100 * rr['r']:.1f} %")
 axs[0].set_title("Perte, milliers d'euros (trait plein : pensions ;\ntirets : cotisations)", loc="left", fontsize=8)
 axs[1].set_title("Perte due à la baisse des pensions, en part\nde celle due à la hausse des cotisations", loc="left", fontsize=8)
 axs[1].axhline(1, color="k", lw=0.6)
+axs[1].set_yscale("log")
+axs[1].yaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
+axs[1].set_yticks([0.5, 0.75, 1, 1.5, 2, 3, 5])
+axs[1].set_yticklabels(["0,5", "0,75", "1", "1,5", "2", "3", "5"])
 for ax in axs:
     ax.set_xlabel("Âge en 2026")
     ax.grid(axis="y", lw=0.4, alpha=0.5)
@@ -80,7 +85,7 @@ for i, k in enumerate(("A", "B", "C")):
 ax.set_yticks(range(3))
 ax.set_yticklabels([LIB[k] for k in ("A", "B", "C")])
 ax.invert_yaxis()
-ax.set_xlabel("Part de la valeur actualisée du rendement, % (âge en 2026)")
+ax.set_xlabel("Part de la valeur actualisée de l'effort, en % (âge en 2026)")
 ax.legend(frameon=False, fontsize=7, ncol=4, loc="upper center", bbox_to_anchor=(0.45, -0.28))
 sauver(fig, "f3_qui_paie")
 print("figures écrites")

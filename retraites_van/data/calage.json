@@ -1,5 +1,4 @@
 {
- "provisoire": "profils par âge en attente (population, mortalité, emploi, salaires, pensions)",
  "pensions_totales": {
   "valeur": 401.0,
   "statut": "OBS",
@@ -16,14 +15,14 @@
   "source": "âge légal de la génération 1963 (62 ans 9 mois)"
  },
  "naissances": {
-  "valeur": 660000,
-  "statut": "HYP",
-  "source": "à remplacer par Insee, bilan démographique"
+  "valeur": 600000,
+  "statut": "OBS",
+  "source": "Insee, bilan démographique 2025 : 598 115 enfants de moins d'un an au 1er janvier 2026 ; maintenu constant (projections 2026 : fécondité 1,45)"
  },
  "solde_migratoire": {
-  "valeur": 70000,
-  "statut": "HYP",
-  "source": "Insee, projections 2021, scénario central"
+  "valeur": 150000,
+  "statut": "OBS",
+  "source": "Insee, projections de population 2026, scénario central (+150 000 par an)"
  },
  "prelevements_salaries": {
   "valeur": 0.22,
